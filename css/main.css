@@ -1,0 +1,74 @@
+:root {
+    /* colours */
+    --white-1: rgb(255,255,255);
+    --white-2: rgb(181,181,181);
+    --white-3: rgb(126,126,126);
+
+    --grey-1: rgb(51,51,51);
+    --grey-2: rgb(60,60,60);
+    --grey-3: rgb(89, 89, 89);
+
+    /* gradients */
+    --main-bg-grad: linear-gradient(163deg, #333 42%, #2A2A2A 90.61%);
+}
+
+html {
+    color-scheme: dark light;
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0 auto;
+    background: var(--main-bg-grad);
+    /*background-attachment: fixed;*/
+    /*-ms-overflow-style: none;  !* IE and Edge *!*/
+    /*scrollbar-width: none;  !* Firefox *!*/
+}
+
+h1 {
+    font-family: "Inter", sans-serif;
+    font-size: 5.0rem;
+}
+
+h2 {
+    font-family: "Inter", sans-serif;
+    font-size: 3.2rem;
+}
+
+h3 {
+    font-family: "Inter", sans-serif;
+    font-size: 2rem;
+}
+
+p {
+    font-family: "Inter", sans-serif;
+    font-size: 1.6rem;
+}
+
+.small {
+    font-family: "Inter", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.small--bold {
+    font-family: "Inter", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.logo-container a{
+    font-family: "Jockey One", serif;
+    font-size: 8rem;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    color: var(--white-1)
+}
+
+card {
+    background-color: var(--grey-2);
+    display: flex;
+}
