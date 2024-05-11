@@ -1,14 +1,16 @@
 :root {
     /* colours */
     --white-0: rgb(255,255,255);
-    --white-1: rgb(222,222,222);
-    --white-2: rgb(181,181,181);
-    --white-3: rgb(126,126,126);
+    --white-1: rgb(220,220,220);
+    --white-2: rgb(180,180,180);
+    --white-3: rgb(130,130,130);
+    --white-4: rgba(255,255,255,0.15);
 
-    --grey-0: rgb(51,51,51);
+    --grey-0: rgb(50,50,50);
     --grey-1: rgb(60,60,60);
-    --grey-2: rgb(76,76,76);
-    --grey-3: rgb(89, 89, 89);
+    --grey-2: rgb(70,70,70);
+    --grey-3: rgb(80, 80, 80);
+    --grey-4: rgb(90, 90, 90);
 
     /* gradients */
     --main-bg-grad: linear-gradient(163deg, #333 42%, #2A2A2A 90.61%);
@@ -23,14 +25,19 @@
     --font-weight-900: 900;
 
     /* set heights */
-    --h-1: 8rem;
-    --h-1-2: 6rem;
-    --h-2: 4rem;
-    --h-3: 3.2rem;
-    --h-4: 2.4rem;
-    --h-5: 1.6rem;
-    --h-6: 1.2rem;
-    --h-7: 0.8rem;
+    --h1--8: 8rem;
+    --h1--6: 6rem;
+    --h1--5: 5rem;
+    --h2--4: 4rem;
+    --h2--4-8: 4.8rem;
+    --h3--3-2: 3.2rem;
+    --h3--3-8: 3.8rem;
+    --h4--2-4: 2.4rem;
+    --h4--2: 2rem;
+    --h5--1-6: 1.6rem;
+    --h6--1-2: 1.2rem;
+    --h7--0-8: 0.8rem;
+    --h8--0-4: 0.4rem;
 
 }
 
@@ -44,7 +51,7 @@ body {
     margin: 0 auto;
     background: var(--main-bg-grad);
     font-family: "Inter", sans-serif;
-    font-size: var(--h-5);
+    font-size: var(--h5--1-6);
     color: var(--white-0);
 }
 
@@ -56,33 +63,48 @@ body {
 /* text */
 h1 {
     font-family: "Inter", sans-serif;
-    font-size: 5.0rem;
-
+    font-size: var(--h1--5);
 }
 
 h2 {
     font-family: "Inter", sans-serif;
     font-weight: var(--font-weight-500);
-    font-size: var(--h-3);
+    font-size: var(--h3--3-2);
     display:block;
     width: 100%;
     margin: 0;
     transition: font-size 500ms;
     @media (max-width: 500px) {
-        font-size: var(--h-4);
+        font-size: var(--h4--2-4);
     }
 }
 
 h3 {
     font-family: "Inter", sans-serif;
-    font-size: 2rem;
+    font-size: var(--h);
 }
 
 p {
     font-family: "Inter", sans-serif;
-    font-size: var(--h-5);
+    font-size: var(--h5--1-6);
     /*border: 0.1rem solid red;*/
     display: inline;
+}
+
+.p--bold {
+    font-family: "Inter", sans-serif;
+    font-size: var(--h5--1-6);
+    /*border: 0.1rem solid red;*/
+    font-style: normal;
+    font-weight:  var(--font-weight-500);
+    line-height: normal;
+    max-height: var(--h3--3-8);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
+    align-self: stretch;
+    /*white-space: nowrap;*/
 }
 
 a {
@@ -92,18 +114,21 @@ a {
 
 .small {
     font-family: "Inter", sans-serif;
-    font-size: var(--h-6);
-    font-weight:  var(--font-weight-300);
+    font-size: var(--h6--1-2);
+    font-weight:  var(--font-weight-400);
+    font-style: normal;
+    line-height: normal;
+    color: var(--white-2);
 }
 
 .small--bold {
     font-family: "Inter", sans-serif;
-    font-size: var(--h-6);
+    font-size: var(--h6--1-2);
     font-weight:  var(--font-weight-900);
 }
 
 .title-floating {
-    padding-left:  var(--h-4);
+    padding-left:  var(--h4--2-4);
 }
 
 ::-ms-input-placeholder { /* Edge 12-18 */
@@ -118,29 +143,29 @@ a {
 /* containers */
 .wrapper {
     display: flex;
-    gap:  var(--h-2);
+    gap:  var(--h2--4);
     flex-direction: column;
     margin: auto;
     max-width: 108rem;
-    padding:  var(--h-2);
+    padding:  var(--h2--4);
     transition: padding 500ms;
     @media (max-width: 500px) {
-        padding: var(--h-6);
+        padding: var(--h6--1-2);
     }
 }
 
 .container{
     width: 100%;
-    padding: var(--h-4) ;
-    background: var(--white-3);
-    border-radius: var(--h-6);
+    padding: var(--h4--2-4) ;
+    background: var(--grey-3);
+    border-radius: var(--h6--1-2);
     display: flex;
     align-content: stretch;
     flex-direction: column;
-    gap: var(--h-4);
+    gap: var(--h4--2-4);
     transition: border-radius 500ms;
     @media (max-width: 500px) {
-        border-radius:  var(--h-7);
+        border-radius:  var(--h7--0-8);
     }
 }
 
@@ -159,7 +184,7 @@ a {
         text-align: center;
         transition: font-size 500ms;
         @media (max-width: 500px) {
-            font-size: var(--h-1-2);
+            font-size: var(--h1--6);
         }
     };
 }
@@ -171,7 +196,7 @@ a {
     justify-content: center;
     align-content:center;
     width: 100%;
-    gap: var(--h-2);
+    gap: var(--h2--4);
     flex-grow: 1;
 
     & .search-input{
@@ -184,17 +209,43 @@ a {
 
         &::after {
             content: url('../icons/search_x24.svg');
-            width: var(--h-4);
-            height: var(--h-4);
+            width: var(--h4--2-4);
+            height: var(--h4--2-4);
             position: absolute;
-            right: var(--h-5);
+            right: var(--h5--1-6);
         }
     }
+}
+.col1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--h6--1-2);
 }
 
 .col2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: var(--h6--1-2);
+    flex-wrap: wrap;
+}
+
+.col3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /*grid-auto-columns: 1fr;*/
+    gap: var(--h4--2-4);
+    flex-wrap: wrap;
+    @media (max-width: 500px) {
+        display: flex;
+        flex-direction: row;
+        gap: 0;
+        grid-template-columns: 1fr;
+        grid-auto-flow: column;
+
+    }
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 /* interactive elements */
@@ -205,9 +256,9 @@ input {
     color: var(--white-0);
     background-color: var(--grey-2);
     border: 0.1rem solid var(--white-3);
-    border-radius: var(--h-4);
-    gap: var(--h-5);
-    padding: var(--h-5);
+    border-radius: var(--h4--2-4);
+    gap: var(--h5--1-6);
+    padding: var(--h5--1-6);
     padding-right: 5.6rem;
 
     &:hover {
@@ -222,6 +273,38 @@ input {
         outline: none;
         border: 0.1rem solid var(--white-2);
     }
+}
+
+.artist {
+    display: flex;
+    align-self: stretch;
+    align-items: center;
+    padding: var(--h7--0-8) var(--h8--0-4);
+    gap: var(--h6--1-2);
+
+    @media (max-device-width: 500px){
+        /*display: block;*/
+    }
+    & .artist-profile {
+        display: flex;
+        width: var(--h2--4-8);
+        height: var(--h2--4-8);
+        background: dimgrey;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    & .artist-name {
+        display: flex;
+        flex-direction: column;
+        /*max-width: 22rem;*/
+        gap: var(--h8--0-4);
+        flex: 1 0 0;
+        align-items: flex-start;
+
+    }
+
 }
 
 
