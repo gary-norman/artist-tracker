@@ -5,10 +5,10 @@
     --white-2: rgb(181,181,181);
     --white-3: rgb(126,126,126);
 
-    --grey-1: rgb(51,51,51);
-    --grey-2: rgb(60,60,60);
-    --grey-3: rgb(76,76,76);
-    --grey-4: rgb(89, 89, 89);
+    --grey-0: rgb(51,51,51);
+    --grey-1: rgb(60,60,60);
+    --grey-2: rgb(76,76,76);
+    --grey-3: rgb(89, 89, 89);
 
     /* gradients */
     --main-bg-grad: linear-gradient(163deg, #333 42%, #2A2A2A 90.61%);
@@ -24,11 +24,13 @@
 
     /* set heights */
     --h-1: 8rem;
+    --h-1-2: 6rem;
     --h-2: 4rem;
     --h-3: 3.2rem;
     --h-4: 2.4rem;
-    --h-5: 1.2rem;
-    --h-6: 0.8rem;
+    --h-5: 1.6rem;
+    --h-6: 1.2rem;
+    --h-7: 0.8rem;
 
 }
 
@@ -40,29 +42,33 @@ html {
 body {
     margin: 0 auto;
     background: var(--main-bg-grad);
-    /*background-attachment: fixed;*/
-    /*-ms-overflow-style: none;  !* IE and Edge *!*/
-    /*scrollbar-width: none;  !* Firefox *!*/
     font-family: "Inter", sans-serif;
-    font-size: 1.6rem;
+    font-size: var(--h-5);
     color: var(--white-0);
 }
 
 *, *::before, *::after {
     box-sizing: border-box;
-    border: 1px solid red;
+    border: 1px solid dimgrey;
 }
 
 
 h1 {
     font-family: "Inter", sans-serif;
     font-size: 5.0rem;
+
 }
 
 h2 {
     font-family: "Inter", sans-serif;
     font-weight: var(--font-weight-500);
-    font-size: 3.2rem;
+    font-size: var(--h-3);
+    display:block;
+    width: 100%;
+    margin: 0;
+    @media (max-width: 500px) {
+        font-size: var(--h-4);
+    }
 }
 
 h3 {
@@ -72,45 +78,55 @@ h3 {
 
 p {
     font-family: "Inter", sans-serif;
-    font-size: 1.6rem;
+    font-size: var(--h-5);
     /*border: 0.1rem solid red;*/
     display: inline;
 }
 
 .small {
     font-family: "Inter", sans-serif;
-    font-size: 1.2rem;
-    font-weight: 300;
+    font-size: var(--h-6);
+    font-weight:  var(--font-weight-300);
 }
 
 .small--bold {
     font-family: "Inter", sans-serif;
-    font-size: 1.2rem;
-    font-weight: 900;
+    font-size: var(--h-6);
+    font-weight:  var(--font-weight-900);
 }
 .wrapper {
     display: flex;
-    gap: 4rem;
+    gap:  var(--h-2);
     flex-direction: column;
     margin: auto;
     max-width: 108rem;
-    padding: 4rem;
+    padding:  var(--h-2);
+    @media (max-width: 500px) {
+        padding: var(--h-6);
+    }
 }
-.container:not(:first-child){
-    padding: 0rem 2.4rem ;
-    padding-bottom: 2.4rem;
-    /*border: 0.1rem solid red;*/
-    background-color: var(--white-3);
-    border-radius: 1rem;
-    /*display: flex;*/
-    /*justify-content: center;*/
+.container{
+    width: 100%;
+    padding: var(--h-4) ;
+    background: var(--white-3);
+
+    border-radius: var(--h-6);
+    display: flex;
+    align-content: stretch;
+    flex-direction: column;
+
+    @media (max-width: 500px) {
+        border-radius:  var(--h-7);
+    }
 }
+
+
+
 
 .logo-container {
     display: flex;
     flex-direction: column;
     align-items:center;
-    /*justify-content: center;*/
 
     & p {
         text-align: center;
@@ -119,6 +135,10 @@ p {
         font-family: "Jockey One", serif;
         font-size: 8rem;
         font-weight: var(--font-weight-400);
+        text-align: center;
+        @media (max-width: 500px) {
+            font-size: var(--h-1-2);
+        }
     };
 }
 
@@ -128,7 +148,7 @@ a {
 }
 
 .card {
-    background-color: var(--grey-2);
+    background-color: var(--grey-1);
     display: flex;
 }
 
@@ -137,23 +157,24 @@ input {
     width: 100%;
     display: flex;
     color: var(--white-0);
-    background-color: var(--grey-3);
+    background-color: var(--grey-2);
     border: 0.1rem solid var(--white-3);
-    border-radius: 2.4rem;
-    gap: 1.6rem;
-    padding: 1.6rem;
+    border-radius: var(--h-4);
+    gap: var(--h-5);
+    padding: var(--h-5);
     padding-right: 5.6rem;
 
     &:hover {
         background-color: var(--grey-2);
+        opacity: 90%;
         border: 0.1rem solid var(--white-3);
     }
 
-    &:focus-visible, :focus {
+    &:focus-visible {
         background-color: var(--grey-2);
         /*border: 0.1rem solid green;*/
         outline: none;
-        border: 0.1rem solid var(--white-1);
+        border: 0.1rem solid var(--white-2);
 
     }
 
@@ -170,7 +191,8 @@ input {
     justify-content: center;
     align-content:center;
     width: 100%;
-
+    gap: var(--h-2);
+    flex-grow: 1;
 
     & .search-input{
         display: flex;
@@ -180,16 +202,21 @@ input {
         align-items: center;
         position:relative;
 
+
         &::after {
             content: url('../icons/search_x24.svg');
-            width: 2.4rem;
-            height: 2.4rem;
+            width: var(--h-4);
+            height: var(--h-4);
             position: absolute;
-            right: 1.6rem;
+            right: var(--h-5);
         }
 
 
     }
+}
+
+.title-floating {
+    padding-left:  var(--h-4);
 }
 
 ::-ms-input-placeholder { /* Edge 12-18 */
