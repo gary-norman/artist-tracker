@@ -81,7 +81,7 @@ h2 {
 
 h3 {
     font-family: "Inter", sans-serif;
-    font-size: var(--h);
+    font-size: var(--h4--2);
 }
 
 p {
@@ -303,7 +303,7 @@ input {
     }
 }
 
-.artist {
+.content {
     display: flex;
     align-self: stretch;
     align-items: center;
@@ -313,7 +313,7 @@ input {
     @media (max-device-width: 600px){
         display: block;
     }
-    & .artist-profile {
+    & .square-pic {
         display: flex;
         width: var(--h2--4-8);
         height: var(--h2--4-8);
