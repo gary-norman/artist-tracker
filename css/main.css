@@ -14,6 +14,7 @@
 
     /* gradients */
     --main-bg-grad: linear-gradient(163deg, #333 42%, #2A2A2A 90.61%);
+    --event-bg-grad: radial-gradient(80.83% 80.83% at 50% 50%, rgba(106, 88, 175, 1) 20%, rgba(143, 43, 133, 1) 100%);
 
     /* fonts */
     --font-weight-300: 300;
@@ -25,19 +26,21 @@
     --font-weight-900: 900;
 
     /* set heights */
-    --h1--8: 8rem;
-    --h1--6: 6rem;
-    --h1--5: 5rem;
-    --h2--4: 4rem;
-    --h2--4-8: 4.8rem;
-    --h3--3-2: 3.2rem;
-    --h3--3-8: 3.8rem;
-    --h4--2-4: 2.4rem;
-    --h4--2: 2rem;
-    --h5--1-6: 1.6rem;
-    --h6--1-2: 1.2rem;
-    --h7--0-8: 0.8rem;
-    --h8--0-4: 0.4rem;
+    --h--8: 8rem;
+    --h--6: 6rem;
+    --h--5-2: 5.2rem;
+    --h--4-8: 4.8rem;
+    --h--4-4: 4.4rem;
+    --h--4: 4rem;
+    --h--3-6: 3.6rem;
+    --h--3-2: 3.2rem;
+    --h--2-8: 2.8rem;
+    --h--2-4: 2.4rem;
+    --h--2: 2rem;
+    --h--1-6: 1.6rem;
+    --h--1-2: 1.2rem;
+    --h--0-8: 0.8rem;
+    --h--0-4: 0.4rem;
 
 }
 
@@ -51,7 +54,7 @@ body {
     margin: 0 auto;
     background: var(--main-bg-grad);
     font-family: "Inter", sans-serif;
-    font-size: var(--h5--1-6);
+    font-size: var(--h--1-6);
     color: var(--white-0);
 }
 
@@ -63,49 +66,49 @@ body {
 /* text */
 h1 {
     font-family: "Inter", sans-serif;
-    font-size: var(--h1--5);
+    font-size: var(--h--5-2);
 }
 
 h2 {
     font-family: "Inter", sans-serif;
     font-weight: var(--font-weight-500);
-    font-size: var(--h4--2-4);
+    font-size: var(--h--2-4);
     display:block;
     width: 100%;
     margin: 0;
     transition: font-size 500ms;
-    @media (max-width: 600px) {
-        font-size: var(--h4--2);
+    @media (max-width: 700px) {
+        font-size: var(--h--2);
     }
 }
 
 h3 {
     font-family: "Inter", sans-serif;
     font-weight: var(--font-weight-500);
-    font-size: var(--h5--1-6);
+    font-size: var(--h--1-6);
     display:block;
     width: 100%;
     margin: 0;
     transition: font-size 500ms;
-    @media (max-width: 600px) {
-        font-size: var(--h6--1-2);
+    @media (max-width: 700px) {
+        font-size: var(--h--1-2);
     }
 }
 
 p {
     font-family: "Inter", sans-serif;
-    font-size: var(--h5--1-6);
+    font-size: var(--h--1-6);
     /*border: 0.1rem solid red;*/
     display: inline;
 }
 
 .p--bold {
     font-family: "Inter", sans-serif;
-    font-size: var(--h5--1-6);
+    font-size: var(--h--1-6);
     font-style: normal;
     font-weight:  var(--font-weight-500);
     line-height: normal;
-    max-height: var(--h3--3-8);
+    max-height: var(--h--3-6);
     text-overflow: ellipsis;
     justify-content: center;
     white-space: nowrap;
@@ -121,21 +124,26 @@ a {
 
 .small {
     font-family: "Inter", sans-serif;
-    font-size: var(--h6--1-2);
+    font-size: var(--h--1-2);
     font-weight:  var(--font-weight-400);
     font-style: normal;
     line-height: normal;
     color: var(--white-2);
+    min-width: fit-content;
 }
 
 .small--bold {
     font-family: "Inter", sans-serif;
-    font-size: var(--h6--1-2);
+    font-size: var(--h--1-2);
     font-weight:  var(--font-weight-600);
 }
 
 .title-floating {
-    padding-left:  var(--h4--2-4);
+    padding-left:  var(--h--2-4);
+    transition: padding-left 500ms;
+    @media (max-width:700px){
+        padding-left: var(--h--1-6);
+    }
 }
 
 ::-ms-input-placeholder { /* Edge 12-18 */
@@ -150,29 +158,33 @@ a {
 /* containers */
 .wrapper {
     display: flex;
-    gap:  var(--h2--4);
+    gap:  var(--h--4);
     flex-direction: column;
     margin: auto;
     max-width: 108rem;
-    padding:  var(--h2--4);
+    padding:  var(--h--4);
     transition: padding 500ms;
+    @media (max-width: 700px) {
+        padding: var(--h--1-2);
+    }
     @media (max-width: 600px) {
-        padding: var(--h6--1-2);
+        padding: var(--h--0-8);
     }
 }
 
 .container{
     width: 100%;
-    padding: var(--h4--2-4) ;
+    padding: var(--h--2-4) ;
     background: var(--grey-3);
-    border-radius: var(--h6--1-2);
+    border-radius: var(--h--1-2);
     display: flex;
     align-content: stretch;
     flex-direction: column;
-    gap: var(--h4--2-4);
-    transition: border-radius 500ms;
-    @media (max-width: 600px) {
-        border-radius:  var(--h7--0-8);
+    gap: var(--h--2-4);
+    transition: border-radius 500ms, padding 500ms;
+    @media (max-width: 700px) {
+        border-radius:  var(--h--0-8);
+        padding: var(--h--1-2) ;
     }
 }
 
@@ -187,14 +199,14 @@ a {
     };
     & a {
         font-family: "Jockey One", serif;
-        font-size: 8rem;
+        font-size: var(--h--8);
         font-weight: var(--font-weight-400);
         text-align: center;
         transition: font-size 500ms;
         margin-bottom: 0;
         line-height: 1.2;
-        @media (max-width: 500px) {
-            font-size: var(--h1--6);
+        @media (max-width: 700px) {
+            font-size: var(--h--6);
         }
     };
 }
@@ -206,7 +218,7 @@ a {
     justify-content: center;
     align-content:center;
     width: 100%;
-    gap: var(--h2--4);
+    gap: var(--h--2-4);
     flex-grow: 1;
 
     & .search-input{
@@ -219,48 +231,43 @@ a {
 
         &::after {
             content: url('../icons/search_x24.svg');
-            width: var(--h4--2-4);
-            height: var(--h4--2-4);
+            width: var(--h--2-4);
+            height: var(--h--2-4);
             position: absolute;
-            right: var(--h5--1-6);
+            right: var(--h--1-6);
         }
     }
 }
 
 .col {
     display: grid;
-    gap: var(--h5--1-6);
+    gap: var(--h--1-6);
     flex-wrap: wrap;
-    transition: display 500ms, gap 500ms, grid-template-columns 500ms,  flex-direction 500ms;
-    @media (max-width: 600px) {
-        display: flex;
-        flex-direction: row;
-        & > * {
-            flex: 1;
-            grid-auto-flow: row;
-            grid-auto-rows: 1fr;
-        }
-    }
-
 }
+
 .col1 {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--h6--1-2);
+    grid-template-columns: none;
+    gap: var(--h--1-2);
 }
 
 .col2 {
     grid-template-columns: 1fr 1fr;
+    @media (max-width: 550px){
+        grid-template-columns: none;
+    }
 }
 
 .col3 {
     grid-template-columns: 1fr 1fr 1fr;
 
-    @media (max-width: 850px) {
+    @media (max-width: 880px) {
         grid-template-columns: 1fr 1fr;
-        flex-direction: row;
-        /*flex-grow: 1;*/
     }
+    @media (max-width: 550px){
+        grid-template-columns: none;
+    }
+
 }
 
 /* interactive elements */
@@ -271,9 +278,9 @@ input {
     color: var(--white-0);
     background-color: var(--grey-2);
     border: 0.1rem solid var(--white-3);
-    border-radius: var(--h4--2-4);
-    gap: var(--h5--1-6);
-    padding: var(--h5--1-6);
+    border-radius: var(--h--2-4);
+    gap: var(--h--1-6);
+    padding: var(--h--1-6);
     padding-right: 5.6rem;
 
     &:hover {
@@ -291,15 +298,15 @@ input {
 
 .content {
     display: flex;
-    align-self: stretch;
+    /*align-self: stretch;*/
     align-items: center;
-    padding: var(--h7--0-8) var(--h8--0-4);
-    gap: var(--h6--1-2);
+    padding: var(--h--0-8) var(--h--0-4);
+    gap: var(--h--1-2);
 
     & .square-pic {
         display: flex;
-        width: var(--h2--4-8);
-        height: var(--h2--4-8);
+        width: var(--h--6);
+        height: var(--h--6);
         background: dimgrey;
         justify-content: center;
         align-items: center;
@@ -309,19 +316,41 @@ input {
         display: flex;
         flex-direction: column;
         width: clamp(6rem, 15rem, 20rem);
-        max-height: 3.8rem;
-        gap: var(--h8--0-4);
+        max-height: var(--h--4);
+        gap: var(--h--0-4);
         flex: 1 0 0;
         align-items: flex-start;
         overflow: hidden;
-
-
-
-
     }
 
+    & .concert {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: flex-start;
+        gap: var(--h--0-8);
+        transition: gap 500ms;
+    }
+
+    & .date {
+        flex-direction: column;
+        font-family: "Jockey One", serif;
+        font-size: var(--h--1-6);
+        font-weight: var(--font-weight-400);
+        text-align: center;
+        transition: font-size 500ms;
+        margin-bottom: 0;
+        line-height: 1.2;
+        background: var(--event-bg-grad);
+    }
 }
 
+.divider-dot {
+    width: var(--h--0-4);
+    height: var(--h--0-4);
+    background: var(--white-2);
+    border-radius: var(--h--0-4);
 
+}
 
 
