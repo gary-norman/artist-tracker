@@ -26,6 +26,7 @@
     --font-weight-900: 900;
 
     /* set heights */
+    --h--18: 18rem;
     --h--8: 8rem;
     --h--6: 6rem;
     --h--5-2: 5.2rem;
@@ -41,6 +42,11 @@
     --h--1-2: 1.2rem;
     --h--0-8: 0.8rem;
     --h--0-4: 0.4rem;
+
+    --radius-xl: var(--h--2-4);
+    --radius-lg: var(--h--1-2);
+    --radius-md: var(--h--0-8);
+    --radius-sm: var(--h--0-4);
 
 }
 
@@ -130,6 +136,11 @@ a {
     line-height: normal;
     color: var(--white-2);
     min-width: fit-content;
+
+    &.center{
+        text-align: center;
+    }
+
 }
 
 .small--bold {
@@ -176,14 +187,16 @@ a {
     width: 100%;
     padding: var(--h--2-4) ;
     background: var(--grey-3);
-    border-radius: var(--h--1-2);
+    border-radius: var(--radius-lg);
     display: flex;
     align-content: stretch;
     flex-direction: column;
     gap: var(--h--2-4);
     transition: border-radius 500ms, padding 500ms;
+
+
     @media (max-width: 700px) {
-        border-radius:  var(--h--0-8);
+        border-radius:  var(--radius-md);
         padding: var(--h--1-2) ;
     }
 }
@@ -239,11 +252,30 @@ a {
     }
 }
 
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--h--1-2);
+    overflow-x: scroll;
+
+    & .content {
+        & .content-text {
+            width: clamp(6rem, 15rem, 18rem);
+        }
+    }
+
+    & > *{
+        min-width: fit-content;
+    }
+}
+
 .col {
     display: grid;
     flex-wrap: wrap;
     gap: var(--h--1-2);
+    overflow: hidden;
 }
+
 
 .col1 {
     grid-template-columns: none;
@@ -275,7 +307,7 @@ input {
     color: var(--white-0);
     background-color: var(--grey-2);
     border: 0.1rem solid var(--white-3);
-    border-radius: var(--h--2-4);
+    border-radius: var(--radius-xl);
     gap: var(--h--1-6);
     padding: var(--h--1-6);
     padding-right: 5.6rem;
@@ -297,19 +329,45 @@ input {
     display: flex;
     /*align-self: stretch;*/
     align-items: center;
-    padding: var(--h--0-8) var(--h--0-4);
+    padding: var(--h--0-8);
     gap: var(--h--1-2);
+    border-radius: var(--radius-md);
 
-    & .square-pic {
-        display: flex;
-        width: var(--h--6);
-        height: var(--h--6);
-        background: dimgrey;
-        justify-content: center;
-        align-items: center;
+    &:hover {
+        background-color: var(--grey-2);
     }
 
-    & .artist-name {
+    & .pic {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: var(--h--6);
+        height: var(--h--6);
+        background: darkgrey;
+    }
+
+    & .album {
+        border-radius: var(--h--0-4);
+        background: darkslateblue;
+    }
+
+    & .user {
+        border-radius: var(--h--6);
+    }
+
+    & .date {
+        flex-direction: column;
+        font-family: "Jockey One", serif;
+        font-size: var(--h--1-6);
+        font-weight: var(--font-weight-400);
+        transition: font-size 500ms;
+        line-height: 1.2;
+        background: var(--event-bg-grad);
+        border-radius: var(--h--0-4);
+
+    }
+
+    & .content-text {
         display: flex;
         flex-direction: column;
         width: clamp(6rem, 15rem, 20rem);
@@ -329,17 +387,9 @@ input {
         transition: gap 500ms;
     }
 
-    & .date {
-        flex-direction: column;
-        font-family: "Jockey One", serif;
-        font-size: var(--h--1-6);
-        font-weight: var(--font-weight-400);
-        text-align: center;
-        transition: font-size 500ms;
-        margin-bottom: 0;
-        line-height: 1.2;
-        background: var(--event-bg-grad);
-    }
+
+
+
 }
 
 .divider-dot {
