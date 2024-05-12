@@ -69,13 +69,13 @@ h1 {
 h2 {
     font-family: "Inter", sans-serif;
     font-weight: var(--font-weight-500);
-    font-size: var(--h3--3-2);
+    font-size: var(--h4--2-4);
     display:block;
     width: 100%;
     margin: 0;
     transition: font-size 500ms;
     @media (max-width: 500px) {
-        font-size: var(--h4--2-4);
+        font-size: var(--h4--2);
     }
 }
 
@@ -94,17 +94,16 @@ p {
 .p--bold {
     font-family: "Inter", sans-serif;
     font-size: var(--h5--1-6);
-    /*border: 0.1rem solid red;*/
     font-style: normal;
     font-weight:  var(--font-weight-500);
     line-height: normal;
     max-height: var(--h3--3-8);
     text-overflow: ellipsis;
-    overflow: hidden;
-    flex-direction: column;
     justify-content: center;
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
     align-self: stretch;
-    /*white-space: nowrap;*/
 }
 
 a {
@@ -225,8 +224,30 @@ a {
 .col2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--h6--1-2);
+    gap: var(--h4--2-4);
     flex-wrap: wrap;
+
+
+
+
+    transition: display 500ms, gap 500ms, grid-template-columns 500ms,  flex-direction 500ms;
+    @media (max-width: 600px) {
+        display: flex;
+        flex-direction: row;
+        gap: var(--h6--1-2);
+        & > * {
+            flex: 1;
+            display: block;
+            grid-auto-flow: row;
+            grid-auto-columns: 1fr;
+        }
+    }
+    @media (max-width: 850px) {
+        grid-template-columns: 1fr 1fr;
+        flex-direction: row;
+        /*flex-grow: 1;*/
+        /*gap: 0;*/
+    }
 }
 
 .col3 {
@@ -235,16 +256,23 @@ a {
     /*grid-auto-columns: 1fr;*/
     gap: var(--h4--2-4);
     flex-wrap: wrap;
-    @media (max-width: 500px) {
+    transition: display 500ms, gap 500ms, grid-template-columns 500ms,  flex-direction 500ms;
+    @media (max-width: 600px) {
         display: flex;
         flex-direction: row;
-        gap: 0;
-        grid-template-columns: 1fr;
-        grid-auto-flow: column;
-
+        gap: var(--h6--1-2);
+        & > * {
+            flex: 1;
+            display: block;
+            grid-auto-flow: row;
+            grid-auto-columns: 1fr;
+        }
     }
-    @media (max-width: 700px) {
+    @media (max-width: 850px) {
         grid-template-columns: 1fr 1fr;
+        flex-direction: row;
+        /*flex-grow: 1;*/
+        /*gap: 0;*/
     }
 }
 
@@ -282,8 +310,8 @@ input {
     padding: var(--h7--0-8) var(--h8--0-4);
     gap: var(--h6--1-2);
 
-    @media (max-device-width: 500px){
-        /*display: block;*/
+    @media (max-device-width: 600px){
+        display: block;
     }
     & .artist-profile {
         display: flex;
@@ -292,16 +320,20 @@ input {
         background: dimgrey;
         justify-content: center;
         align-items: center;
-
     }
 
     & .artist-name {
         display: flex;
         flex-direction: column;
-        /*max-width: 22rem;*/
+        width: clamp(6rem, 15rem, 20rem);
+        max-height: 3.8rem;
         gap: var(--h8--0-4);
         flex: 1 0 0;
         align-items: flex-start;
+        overflow: hidden;
+
+
+
 
     }
 
