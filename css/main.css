@@ -241,14 +241,12 @@ a {
 
 .col {
     display: grid;
-    gap: var(--h--1-6);
     flex-wrap: wrap;
+    gap: var(--h--1-2);
 }
 
 .col1 {
-    display: grid;
     grid-template-columns: none;
-    gap: var(--h--1-2);
 }
 
 .col2 {
@@ -267,7 +265,6 @@ a {
     @media (max-width: 550px){
         grid-template-columns: none;
     }
-
 }
 
 /* interactive elements */
