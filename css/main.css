@@ -291,7 +291,7 @@ a {
 .col3 {
     grid-template-columns: 1fr 1fr 1fr;
 
-    @media (max-width: 880px) {
+    @media (max-width: 900px) {
         grid-template-columns: 1fr 1fr;
     }
     @media (max-width: 550px){
@@ -306,7 +306,7 @@ input {
     display: flex;
     color: var(--white-0);
     background-color: var(--grey-2);
-    border: 0.1rem solid var(--white-3);
+    border: 0.2rem solid var(--white-4);
     border-radius: var(--radius-xl);
     gap: var(--h--1-6);
     padding: var(--h--1-6);
@@ -315,13 +315,13 @@ input {
     &:hover {
         background-color: var(--grey-2);
         opacity: 90%;
-        border: 0.1rem solid var(--white-3);
+        border: 0.2rem solid var(--white-4);
     }
 
     &:focus-visible {
         background-color: var(--grey-2);
         outline: none;
-        border: 0.1rem solid var(--white-2);
+        border: 0.2rem solid var(--white-3);
     }
 }
 
