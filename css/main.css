@@ -261,9 +261,9 @@ a {
     overflow-x: scroll;
     padding-bottom: var(--h--1-2);
 
-    & .content-text {
-        & > * {
-            text-align: center;
+    & .content{
+        & .go-down {
+            align-items: center;
         }
     }
 
@@ -387,7 +387,7 @@ input {
     & .go-down {
         flex-direction: column;
         width: clamp(6rem, 12rem, 15rem);
-        align-items: center;
+
     }
 
     & .go-across {
