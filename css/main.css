@@ -263,6 +263,7 @@ a {
 
     & .content{
         & .go-down {
+            text-align: center;
             align-items: center;
         }
     }
@@ -273,9 +274,6 @@ a {
         min-height: fit-content;
     }
 
-    & > *{
-
-    }
 }
 
 .col {
