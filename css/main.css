@@ -11,7 +11,7 @@
     --grey-2: rgb(70,70,70);
     --grey-3: rgb(80, 80, 80);
     --grey-4: rgb(90, 90, 90);
-
+    --grey-5: rgb(100, 100, 100);
     /* gradients */
     --main-bg-grad: linear-gradient(163deg, #333 42%, #2A2A2A 90.61%);
     --event-bg-grad: radial-gradient(80.83% 80.83% at 50% 50%, rgba(106, 88, 175, 1) 20%, rgba(143, 43, 133, 1) 100%);
