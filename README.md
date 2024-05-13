@@ -109,6 +109,8 @@ Format: `<type>(<scope>): <subject>`
 
 `chore`: (updating grunt tasks etc; no production code change)
 
+`maint`: (updating current issue you're working on)
+
 ### References:
 
 * https://www.conventionalcommits.org/
