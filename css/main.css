@@ -65,7 +65,6 @@ body {
 }
 
 *, *::before, *::after {
-    box-sizing: border-box;
     border: 1px solid dimgrey;
 }
 
@@ -176,6 +175,7 @@ a {
     max-width: 108rem;
     padding:  var(--h--4);
     transition: padding 500ms;
+    overflow: hidden;
     @media (max-width: 700px) {
         padding: var(--h--1-2);
     }
@@ -386,11 +386,13 @@ input {
     & .go-down {
         flex-direction: column;
         width: clamp(6rem, 12rem, 15rem);
+        align-items: center;
     }
 
     & .go-across {
         flex-direction: row;
-        overflow: hidden;
+
+
     }
 
     & .concert {
