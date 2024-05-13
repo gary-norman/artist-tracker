@@ -257,15 +257,22 @@ a {
     flex-wrap: nowrap;
     gap: var(--h--1-2);
     overflow-x: scroll;
+    padding-bottom: var(--h--1-2);
 
-    & .content {
-        & .content-text {
-            width: clamp(6rem, 15rem, 18rem);
+    & .content-text {
+        & > * {
+            text-align: center;
         }
     }
 
-    & > *{
+    & > * {
+        flex-direction: column;
         min-width: fit-content;
+        min-height: fit-content;
+    }
+
+    & > *{
+
     }
 }
 
@@ -369,12 +376,19 @@ input {
 
     & .content-text {
         display: flex;
-        flex-direction: column;
-        width: clamp(6rem, 15rem, 20rem);
-        max-height: var(--h--4);
         gap: var(--h--0-4);
         flex: 1 0 0;
         align-items: flex-start;
+        /*overflow: hidden;*/
+    }
+
+    & .go-down {
+        flex-direction: column;
+        width: clamp(6rem, 12rem, 15rem);
+    }
+
+    & .go-across {
+        flex-direction: row;
         overflow: hidden;
     }
 
