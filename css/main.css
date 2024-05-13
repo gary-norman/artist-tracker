@@ -115,9 +115,8 @@ p {
     font-style: normal;
     font-weight:  var(--font-weight-500);
     line-height: normal;
-    max-height: var(--h--3-6);
+    /*max-height: var(--h--3-6);*/
     text-overflow: ellipsis;
-    justify-content: center;
     white-space: nowrap;
     overflow: hidden;
     display: block;
@@ -150,7 +149,7 @@ a {
     font-weight:  var(--font-weight-600);
 }
 
-.title-floating {
+.floating {
     padding-left:  var(--h--2-4);
     transition: padding-left 500ms;
     @media (max-width:700px){
@@ -191,7 +190,6 @@ a {
     background: var(--grey-3);
     border-radius: var(--radius-lg);
     display: flex;
-    align-content: stretch;
     flex-direction: column;
     gap: var(--h--2-4);
     transition: border-radius 500ms, padding 500ms;
@@ -264,27 +262,23 @@ a {
     & .content{
         & .go-down {
             align-items: center;
+            text-align: center;
         }
     }
-
     & > * {
         flex-direction: column;
         min-width: fit-content;
         min-height: fit-content;
     }
-
-    & > *{
-
-    }
 }
+
+
 
 .col {
     display: grid;
-    flex-wrap: wrap;
     gap: var(--h--1-2);
     overflow: hidden;
 }
-
 
 .col1 {
     grid-template-columns: none;
@@ -404,10 +398,6 @@ input {
         gap: var(--h--0-8);
         transition: gap 500ms;
     }
-
-
-
-
 }
 
 .divider-dot {
@@ -415,6 +405,27 @@ input {
     height: var(--h--0-4);
     background: var(--white-2);
     border-radius: var(--h--0-4);
+}
+
+.filters {
+    width: 100%;
+    display: flex;
+}
+
+.button-1 {
+
+}
+
+.button-2 {
+    display: flex;
+    padding: var(--h--0-8) var(--h--1-6) ;
+    justify-content: space-between;
+    min-width: 18rem;
+    max-width: 22rem;
+    align-items: center;
+    flex: 1 0 0;
+    border-radius: var(--h--2-8);
+    background: var(--grey-2);
 
 }
 
