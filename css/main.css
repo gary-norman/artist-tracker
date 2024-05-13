@@ -11,6 +11,7 @@
     --grey-2: rgb(70,70,70);
     --grey-3: rgb(80, 80, 80);
     --grey-4: rgb(90, 90, 90);
+    --grey-5: rgb(100, 100, 100);
 
     /* gradients */
     --main-bg-grad: linear-gradient(163deg, #333 42%, #2A2A2A 90.61%);
@@ -65,7 +66,6 @@ body {
 }
 
 *, *::before, *::after {
-    box-sizing: border-box;
     border: 1px solid dimgrey;
 }
 
@@ -176,6 +176,7 @@ a {
     max-width: 108rem;
     padding:  var(--h--4);
     transition: padding 500ms;
+    overflow: hidden;
     @media (max-width: 700px) {
         padding: var(--h--1-2);
     }
@@ -386,11 +387,13 @@ input {
     & .go-down {
         flex-direction: column;
         width: clamp(6rem, 12rem, 15rem);
+        align-items: center;
     }
 
     & .go-across {
         flex-direction: row;
-        overflow: hidden;
+
+
     }
 
     & .concert {
