@@ -7,7 +7,7 @@
 * Is the data from the locations being used?
 * Is the data from the dates being used?
 * Is data from the relations being used?
-* Try to see the "members" for the artist/band "Queen"
+### Try to see the "members" for the artist/band "Queen"
 
 
     "Freddie Mercury",
@@ -19,12 +19,12 @@
     "Doug Fogie"
 
 * Does it present the right "member", as above?
-Try to see the "firstAlbum" for the artist/band "Gorillaz"
+### Try to see the "firstAlbum" for the artist/band "Gorillaz"
 
     "26-03-2001"
 
 * Does it present the right date for the "firstAlbum", as above?
-Try to see the "locations" for the artist/band "Travis Scott"
+### Try to see the "locations" for the artist/band "Travis Scott"
 
 
     "santiago-chile"
@@ -39,7 +39,7 @@ Try to see the "locations" for the artist/band "Travis Scott"
     "turku-finland"
 
 * Does it present the right "locations" as above?
-Try to see the ""members"" for the artist/band "Foo Fighters".
+### Try to see the ""members"" for the artist/band "Foo Fighters".
 
 
     "Dave Grohl"
@@ -50,7 +50,7 @@ Try to see the ""members"" for the artist/band "Foo Fighters".
     "Rami Jaffee"
 
 * Does it present the right members as above?
-* Try to trigger an event/action using some kind of action (ex: Clicking the mouse over a certain element, pressing a key on the keyboard, resizing or closing the browser window, a form being submitted, an error occurring, etc).
+#### Try to trigger an event/action using some kind of action (ex: Clicking the mouse over a certain element, pressing a key on the keyboard, resizing or closing the browser window, a form being submitted, an error occurring, etc).
 * Does the event/action responds as expected?
 * Did the server behaved as expected?(did not crashed)
 * Does the server use the right HTTP method?
