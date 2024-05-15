@@ -272,8 +272,6 @@ a {
     }
 }
 
-
-
 .col {
     display: grid;
     gap: var(--h--1-2);
