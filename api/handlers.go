@@ -29,6 +29,7 @@ func init() {
 
 func HandleRequests() {
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
+	http.Handle("/icons/", http.StripPrefix("/icons/", http.FileServer(http.Dir("icons"))))
 	http.HandleFunc("/", HomePage)
 	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
@@ -44,7 +45,6 @@ func ErrorHandler(w http.ResponseWriter, r *http.Request, status int) {
 	fmt.Println("Handling problem...")
 	fmt.Println("redirecting to", strconv.Itoa(status)+".html")
 	t, err := template.ParseFiles("templates/" + strconv.Itoa(status) + ".html")
-	//w.WriteHeader(status)
 	if err != nil {
 		fmt.Println("Error parsing files:", err.Error())
 		open500(w)
