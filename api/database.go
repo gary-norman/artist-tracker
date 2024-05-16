@@ -5,17 +5,20 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"sync"
 )
 
 type Artist struct {
-	Id             int
-	Image          string
-	Name           string
-	Members        []string
-	CreationDate   int
-	FirstAlbum     string
-	Relations      string
-	DatesLocations map[string][]string
+	Id             int                 `json:"id"`
+	Image          string              `json:"image"`
+	Name           string              `json:"name"`
+	Members        []string            `json:"members"`
+	CreationDate   int                 `json:"creationDate"`
+	FirstAlbum     string              `json:"firstAlbum"`
+	Locations      string              `json:"locations"`
+	ConcertDates   string              `json:"concertDates"`
+	Relations      string              `json:"relations"`
+	DatesLocations map[string][]string `json:"datesLocations"`
 }
 
 type DatesLocations struct {
@@ -70,6 +73,18 @@ func LocationsDatesToStruct(artists []Artist) {
 		artists[i].DatesLocations = dateloc.DatesLocations
 	}
 	fmt.Println("Dates and locations successfully populated.")
+}
+
+// FetchDatesLocations fetches DatesLocations data for each artist concurrently
+func FetchDatesLocations(artist *Artist, wg *sync.WaitGroup) {
+	defer wg.Done()
+	var dateloc DatesLocations
+	err := getJson(artist.Relations, &dateloc)
+	if err != nil {
+		log.Printf("Unable to fetch relations data for artist %s due to %s", artist.Name, err)
+		return
+	}
+	artist.DatesLocations = dateloc.DatesLocations
 }
 
 // SearchArtist function searches for an artist by name and returns the artist details
