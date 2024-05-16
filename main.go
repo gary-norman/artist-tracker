@@ -43,7 +43,6 @@ func main() {
 		log.Printf("Artist not found: %s", err)
 	} else {
 		fmt.Printf("Artist found:\n%s", artist)
-		fmt.Println("")
 	}
 	api.HandleRequests()
 }
