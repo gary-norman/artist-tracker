@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"strings"
 	"sync"
 )
 
@@ -63,6 +64,28 @@ func LocationsDatesToStruct(artists []Artist) {
 	fmt.Println("Dates and locations successfully populated.")
 }
 
+func formatLocation(location string) string {
+	// Replace hyphens with spaces
+	location = strings.ReplaceAll(location, "-", ", ")
+	// Replace underscores with spaces
+	location = strings.ReplaceAll(location, "_", " ")
+
+	// Split location into words
+	words := strings.Fields(location)
+
+	// Capitalize the first letter of each word
+	for i, word := range words {
+		words[i] = strings.Title(word)
+		words[i] = strings.ReplaceAll(words[i], "Uk", "UK")
+		words[i] = strings.ReplaceAll(words[i], "Usa", "USA")
+	}
+
+	// Join words to form the final location string
+	formattedLocation := strings.Join(words, " ")
+
+	return formattedLocation
+}
+
 // FetchDatesLocations fetches DatesLocations data for each artist concurrently
 func FetchDatesLocations(artist *Artist, wg *sync.WaitGroup) {
 	defer wg.Done()
@@ -72,5 +95,9 @@ func FetchDatesLocations(artist *Artist, wg *sync.WaitGroup) {
 		log.Printf("Unable to fetch relations data for artist %s due to %s", artist.Name, err)
 		return
 	}
-	artist.DatesLocations = dateloc.DatesLocations
+	artist.DatesLocations = make(map[string][]string)
+	for location, dates := range dateloc.DatesLocations {
+		formattedLocation := formatLocation(location)
+		artist.DatesLocations[formattedLocation] = dates
+	}
 }

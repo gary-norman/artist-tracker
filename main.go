@@ -37,5 +37,13 @@ func main() {
 		fmt.Printf("Artist found:\n%s", artist)
 		fmt.Println("")
 	}
+	artistName = "Kendrick Lamar"
+	artist, err = api.SearchArtist(artists, artistName)
+	if err != nil {
+		log.Printf("Artist not found: %s", err)
+	} else {
+		fmt.Printf("Artist found:\n%s", artist)
+		fmt.Println("")
+	}
 	api.HandleRequests()
 }
