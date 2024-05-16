@@ -25,18 +25,6 @@ type DatesLocations struct {
 	DatesLocations map[string][]string `json:"datesLocations"`
 }
 
-// Custom String method for Artist struct to format output
-func (a Artist) String() string {
-	result := fmt.Sprintf("Id: %d\nImage: %s\nName: %s\nMembers: %v\nCreationDate: %d\nFirstAlbum: %s\nRelations: %s\n",
-		a.Id, a.Image, a.Name, a.Members, a.CreationDate, a.FirstAlbum, a.Relations)
-
-	result += "DatesLocations:\n"
-	for location, dates := range a.DatesLocations {
-		result += fmt.Sprintf("  %s: %v\n", location, dates)
-	}
-	return result
-}
-
 // getJson function fetches JSON data from a URL and decodes it into a target variable
 func getJson(url string, target any) error {
 	r, err := http.Get(url)
@@ -85,14 +73,4 @@ func FetchDatesLocations(artist *Artist, wg *sync.WaitGroup) {
 		return
 	}
 	artist.DatesLocations = dateloc.DatesLocations
-}
-
-// SearchArtist function searches for an artist by name and returns the artist details
-func SearchArtist(artists []Artist, name string) (*Artist, error) {
-	for _, artist := range artists {
-		if artist.Name == name {
-			return &artist, nil
-		}
-	}
-	return nil, fmt.Errorf("artist not found")
 }
