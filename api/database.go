@@ -8,18 +8,30 @@ import (
 )
 
 type Artist struct {
-	Id             int                 `json:"id"`
-	Image          string              `json:"image"`
-	Name           string              `json:"name"`
-	Members        []string            `json:"members"`
-	CreationDate   int                 `json:"creationDate"`
-	FirstAlbum     string              `json:"firstAlbum"`
-	Relations      string              `json:"relations"`
-	DatesLocations map[string][]string `json:"datesLocations"`
+	Id             int
+	Image          string
+	Name           string
+	Members        []string
+	CreationDate   int
+	FirstAlbum     string
+	Relations      string
+	DatesLocations map[string][]string
 }
 
 type DatesLocations struct {
 	DatesLocations map[string][]string `json:"datesLocations"`
+}
+
+// Custom String method for Artist struct to format output
+func (a Artist) String() string {
+	result := fmt.Sprintf("Id: %d\nImage: %s\nName: %s\nMembers: %v\nCreationDate: %d\nFirstAlbum: %s\nRelations: %s\n",
+		a.Id, a.Image, a.Name, a.Members, a.CreationDate, a.FirstAlbum, a.Relations)
+
+	result += "DatesLocations:\n"
+	for location, dates := range a.DatesLocations {
+		result += fmt.Sprintf("  %s: %v\n", location, dates)
+	}
+	return result
 }
 
 // getJson function fetches JSON data from a URL and decodes it into a target variable
@@ -47,7 +59,7 @@ func AllJsonToStruct(url string) []Artist {
 	return artists
 }
 
-// LocationsDatesToStruct function fetches all artist data and returns a slice of Artist structs
+// LocationsDatesToStruct function populates the DatesLocations map to artists
 func LocationsDatesToStruct(artists []Artist) {
 	for i, artist := range artists {
 		var dateloc DatesLocations
@@ -60,9 +72,12 @@ func LocationsDatesToStruct(artists []Artist) {
 	fmt.Println("Dates and locations successfully populated.")
 }
 
-//// LocationsDatesToStruct populates the locations and dates fields in the struct
-//func LocationsDatesToStruct(url string, artists []Artist) {
-//	for _, artist := range artists {
-//
-//	}
-//}
+// SearchArtist function searches for an artist by name and returns the artist details
+func SearchArtist(artists []Artist, name string) (*Artist, error) {
+	for _, artist := range artists {
+		if artist.Name == name {
+			return &artist, nil
+		}
+	}
+	return nil, fmt.Errorf("artist not found")
+}
