@@ -36,6 +36,7 @@ func HandleRequests() {
 
 		return
 	}
+	fmt.Println("Server is running on port 8080")
 }
 
 func ErrorHandler(w http.ResponseWriter, r *http.Request, status int) {
