@@ -151,23 +151,23 @@ func IterateOverArtists() {
 	fmt.Println("Artist IDs written to spotify_artist_ids.json")
 }
 
-func FetchArtistImages(artistID string, artist string, wg2 *sync.WaitGroup) {
+func FetchArtistImages(artistID string, artist string, wg *sync.WaitGroup) {
 	token := accessToken
-	defer wg2.Done()
+	defer wg.Done()
 	var artistImages []ArtistImages
-
+	fmt.Println("fetching artistinfo")
 	URL, err := fetchArtistInfo(artistID, "", token)
 	if err != nil {
 		fmt.Printf("Error fetching artist ID for %s: %v\n", artistID, err)
 	}
 	artistImages = append(artistImages, ArtistImages{Artist: artist, URL: URL})
-
+	fmt.Println("marshalling image json")
 	jsonData, err := json.Marshal(artistImages)
 	if err != nil {
 		fmt.Println("Error marshaling JSON:", err)
 		return
 	}
-
+	fmt.Println("writing file")
 	err = os.WriteFile("/db/spotify_artist_images.json", jsonData, 0644)
 	if err != nil {
 		fmt.Println("Error writing JSON to file:", err)
