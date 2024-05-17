@@ -12,7 +12,8 @@ import (
 	"sync"
 )
 
-var accessToken = ExtractAccessToken()
+// var accessToken = ExtractAccessToken()
+var accessToken = "BQDFPPndCKgWPa83wDeroMRpOp0iPImI_UaAgbFXjQMIG7kL1LX3vEKtkhL7ybsNiGeVLRvj3eSgDT8nXGpgNdrR3-g9WQzzzQcCPkDriFc5LpVYnM8"
 
 type SpotifyIdResponse struct {
 	Artists struct {
@@ -46,7 +47,7 @@ type TokenResponse struct {
 
 func ExtractAccessToken() string {
 	// Execute the shell script and capture the output
-	cmd := exec.Command("sh", "-c", "./spotify_access_token.sh")
+	cmd := exec.Command("sh", "-c", "/db/spotify_access_token.sh")
 	output, err := cmd.Output()
 	if err != nil {
 		log.Fatalf("Failed to run script: %v", err)

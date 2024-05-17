@@ -1,3 +1,4 @@
+#!/bin/bash
 # this is required to get an access token that expires after 1 hour while the spotify app is still in developer mode
 # it needs to be run from the command line (chmod +x spotify_access_token.sh if it is not executable from your system)
 curl -X POST "https://accounts.spotify.com/api/token" \
