@@ -44,5 +44,7 @@ func main() {
 	} else {
 		fmt.Printf("Artist found:\n%s", artist)
 	}
+	api.IterateOverArtists()
 	api.HandleRequests()
+
 }
