@@ -10,9 +10,13 @@ func HomePage(w http.ResponseWriter, r *http.Request, artists []Artist) {
 
 	maxArtists := 10
 
+	homeArtists := artists
+	//homeIds := artists.Id
+	//fmt.Println(artists.Image)
+
 	// Limit the number of artists
 	if len(artists) > maxArtists {
-		//artists = Artists[:maxArtists]
+		homeArtists = artists[:maxArtists]
 	}
 
 	if r.URL.Path != "/" {
@@ -35,7 +39,7 @@ func HomePage(w http.ResponseWriter, r *http.Request, artists []Artist) {
 		return
 	}
 
-	err = t.Execute(w, nil)
+	err = t.Execute(w, homeArtists)
 	if err != nil {
 		var e Error
 		switch {
