@@ -8,6 +8,14 @@ import (
 
 func HomePage(w http.ResponseWriter, r *http.Request) {
 
+	maxArtists := 10
+	var artists []Artist
+
+	// Limit the number of artists
+	if len(Artists) > maxArtists {
+		artists = Artists[:maxArtists]
+	}
+
 	if r.URL.Path != "/" {
 		ErrorHandler(w, r, http.StatusNotFound)
 		//fmt.Println("Error0 in HomePageGary")
