@@ -1,6 +1,9 @@
 package api
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 // Custom String method for Artist struct to format output
 func (a Artist) String() string {
@@ -18,7 +21,7 @@ func (a Artist) String() string {
 // SearchArtist function searches for an artist by name and returns the artist details
 func SearchArtist(artists []Artist, name string) (*Artist, error) {
 	for _, artist := range artists {
-		if artist.Name == name {
+		if strings.ToLower(artist.Name) == strings.ToLower(name) {
 			return &artist, nil
 		}
 	}
