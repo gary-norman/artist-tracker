@@ -12,7 +12,6 @@ func HomePage(w http.ResponseWriter, r *http.Request, artists []Artist) {
 
 	homeArtists := artists
 	//homeIds := artists.Id
-	//fmt.Println(artists.Image)
 
 	// Limit the number of artists
 	if len(artists) > maxArtists {
