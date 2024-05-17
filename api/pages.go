@@ -6,14 +6,13 @@ import (
 	"net/http"
 )
 
-func HomePage(w http.ResponseWriter, r *http.Request) {
+func HomePage(w http.ResponseWriter, r *http.Request, artists []Artist) {
 
 	maxArtists := 10
-	var artists []Artist
 
 	// Limit the number of artists
-	if len(Artists) > maxArtists {
-		artists = Artists[:maxArtists]
+	if len(artists) > maxArtists {
+		//artists = Artists[:maxArtists]
 	}
 
 	if r.URL.Path != "/" {

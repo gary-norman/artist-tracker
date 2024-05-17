@@ -27,10 +27,12 @@ func init() {
 	tpl = template.Must(template.ParseGlob("templates/*.html"))
 }
 
-func HandleRequests() {
+func HandleRequests(artists []Artist) {
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.Handle("/icons/", http.StripPrefix("/icons/", http.FileServer(http.Dir("icons"))))
-	http.HandleFunc("/", HomePage)
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		HomePage(w, r, artists)
+	})
 	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
 

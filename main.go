@@ -56,6 +56,6 @@ func main() {
 	}
 	// Wait for all goroutines to finish
 	wg2.Wait()
-	api.HandleRequests()
+	api.HandleRequests(artists)
 
 }
