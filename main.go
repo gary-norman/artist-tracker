@@ -2,7 +2,9 @@ package main
 
 import (
 	"artist-tracker/api"
+	"encoding/json"
 	"fmt"
+	"io"
 	"log"
 	"os"
 	"sync"
@@ -48,7 +50,29 @@ func main() {
 	}
 	api.IterateOverArtists()
 	// Fetch images concurrently for each artist
-	artistIDs := os.Open("db/spotify_artist_ids.json")
+	file, err := os.Open("db/spotify_artist_ids.json")
+	if err != nil {
+		panic(err)
+	}
+	defer func(file *os.File) {
+		err := file.Close()
+		if err != nil {
+			log.Fatalf("Error closing file: %s\n", err)
+		}
+	}(file)
+
+	// Read the file contents
+	byteValue, err := io.ReadAll(file)
+	if err != nil {
+		panic(err)
+	}
+
+	// Unmarshal the JSON into a map or a slice
+	var artistIDs map[string]string
+	err = json.Unmarshal(byteValue, &artists)
+	if err != nil {
+		panic(err)
+	}
 	var wg2 sync.WaitGroup
 	for artistName2, artistID := range artistIDs {
 		wg2.Add(1)
