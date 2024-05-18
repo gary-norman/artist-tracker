@@ -320,21 +320,39 @@
             </div>
         </section>
 
+
         <section id="home-artists" class="container">
             <div class="col col1">
                 <h2>Popular Artists and Members</h2>
                 <div class="row row-sm">
-                    {{range .}}
+                    {{ range .}}
                     <div class="content">
                         <div class="pic user">
-                            {{.Image}}
+<!--                            {{.Image}}-->
                         </div>
                         <div class="content-text go-down">
-                            <div class="p--bold" >{{.Name}}</div>
-                            <!--                                <div class="small">Queen</div>-->
+                            <div class="p--bold" >
+                                {{ if gt (len .Members) 1 }}
+                                <!-- If there are more than 1 member, display the first member's name -->
+                                {{ index .Members (.RandIntFunc (len .Members)) }}
+
+
+                                {{ else }}
+                                <!-- If there's only 1 member or no members, display the ArtistName -->
+                                {{ .Name }}
+                                {{ end }}
+
+                            </div>
+                            <div class="small">{{ if gt (len .Members) 1 }}
+                                <!-- If there are more than 1 member, display the first member's name -->
+                                Member of {{ .Name }}
+                                {{ else }}
+                                <!-- If there's only 1 member or no members, display the ArtistName -->
+
+                                {{ end }}</div>
                         </div>
                     </div>
-                    {{end}}
+                    {{ end }}
                 </div>
             </div>
 
