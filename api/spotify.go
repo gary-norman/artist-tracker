@@ -29,6 +29,21 @@ type SpotifyArtistResponse struct {
 	} `json:"images"`
 }
 
+type SpotifyAlbumResponse struct {
+	Albums struct {
+		Items []struct {
+			TotalTracks  int `json:"total_tracks"`
+			ExternalUrls struct {
+				Spotify string `json:"spotify"`
+			} `json:"external_urls"`
+			Images []struct {
+				Url string `json:"url"`
+			} `json:"images"`
+			Name string `json:"name"`
+		} `json:"items"`
+	}
+}
+
 type SpotifyArtistID struct {
 	Artist string `json:"artist"`
 	ID     string `json:"id"`
@@ -45,9 +60,9 @@ type TokenResponse struct {
 	ExpiresIn   int    `json:"expires_in"`
 }
 
-func ExtractAccessToken() string {
+func ExtractAccessToken(file string) string {
 	// Execute the shell script and capture the output
-	cmd := exec.Command("sh", "-c", "/db/spotify_access_token.sh")
+	cmd := exec.Command("sh", "-c", file)
 	output, err := cmd.Output()
 	if err != nil {
 		log.Fatalf("Failed to run script: %v", err)
@@ -166,8 +181,8 @@ func ReadSpotifyArtistIDs(filePath string) ([]SpotifyArtistID, error) {
 
 func fetchSpotifyArtistData(spotifyID, authToken string, wg *sync.WaitGroup, resultChan chan<- map[string]string, errorChan chan<- error) {
 	defer wg.Done()
-	url := fmt.Sprintf("https://api.spotify.com/v1/artists/%s", spotifyID)
-	req, err := http.NewRequest("GET", url, nil)
+	spotifyUrl := fmt.Sprintf("https://api.spotify.com/v1/artists/%s", spotifyID)
+	req, err := http.NewRequest("GET", spotifyUrl, nil)
 	if err != nil {
 		errorChan <- err
 		return
@@ -180,7 +195,12 @@ func fetchSpotifyArtistData(spotifyID, authToken string, wg *sync.WaitGroup, res
 		errorChan <- err
 		return
 	}
-	defer resp.Body.Close()
+	defer func(Body io.ReadCloser) {
+		err := Body.Close()
+		if err != nil {
+			log.Fatalf("Error closing api connection: %v", err)
+		}
+	}(resp.Body)
 
 	var spotifyArtistResponse SpotifyArtistResponse
 	err = json.NewDecoder(resp.Body).Decode(&spotifyArtistResponse)
