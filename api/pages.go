@@ -2,6 +2,7 @@ package api
 
 import (
 	"errors"
+	"fmt"
 	"html/template"
 	"math/rand"
 	"net/http"
@@ -36,6 +37,7 @@ func HomePage(w http.ResponseWriter, r *http.Request, artists []Artist) {
 		randomArtist := artists[rand.Intn(len(artists))]
 		randomArtist.RandIntFunc = randInt
 		homeArtists = append(homeArtists, randomArtist)
+		fmt.Println("Random Artist: ", homeArtists[i])
 	}
 
 	//homeIds := artists.Id

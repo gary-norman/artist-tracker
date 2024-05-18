@@ -2,7 +2,6 @@ package main
 
 import (
 	"artist-tracker/api"
-	"fmt"
 	"log"
 	"sync"
 )
@@ -20,29 +19,29 @@ func main() {
 	// Wait for all goroutines to finish
 	wg.Wait()
 	// Search for an artist by name
-	artistName := "SOJA"
-	artist, err := api.SearchArtist(artists, artistName)
-	if err != nil {
-		log.Printf("Artist not found: %s", err)
-	} else {
-		fmt.Printf("Artist found:\n%s", artist)
-		fmt.Println("")
-	}
-	artistName = "pink floyd"
-	artist, err = api.SearchArtist(artists, artistName)
-	if err != nil {
-		log.Printf("Artist not found: %s", err)
-	} else {
-		fmt.Printf("Artist found:\n%s", artist)
-		fmt.Println("")
-	}
-	artistName = "Kendrick Lamar"
-	artist, err = api.SearchArtist(artists, artistName)
-	if err != nil {
-		log.Printf("Artist not found: %s", err)
-	} else {
-		fmt.Printf("Artist found:\n%s", artist)
-	}
+	//artistName := "SOJA"
+	//artist, err := api.SearchArtist(artists, artistName)
+	//if err != nil {
+	//	log.Printf("Artist not found: %s", err)
+	//} else {
+	//	fmt.Printf("Artist found:\n%s", artist)
+	//	fmt.Println("")
+	//}
+	//artistName = "pink floyd"
+	//artist, err = api.SearchArtist(artists, artistName)
+	//if err != nil {
+	//	log.Printf("Artist not found: %s", err)
+	//} else {
+	//	fmt.Printf("Artist found:\n%s", artist)
+	//	fmt.Println("")
+	//}
+	//artistName = "Kendrick Lamar"
+	//artist, err = api.SearchArtist(artists, artistName)
+	//if err != nil {
+	//	log.Printf("Artist not found: %s", err)
+	//} else {
+	//	fmt.Printf("Artist found:\n%s", artist)
+	//}
 	// Read Spotify artist IDs from JSON file
 	spotifyArtistIDs, err := api.ReadSpotifyArtistIDs("db/spotify_artist_ids.json")
 	if err != nil {
@@ -66,12 +65,12 @@ func main() {
 			}
 		}
 	}
-	artist, err = api.SearchArtist(artists, artistName)
-	if err != nil {
-		log.Printf("Artist not found: %s", err)
-	} else {
-		fmt.Printf("Artist found:\n%s", artist)
-	}
+	//artist, err = api.SearchArtist(artists, artistName)
+	//if err != nil {
+	//	log.Printf("Artist not found: %s", err)
+	//} else {
+	//	fmt.Printf("Artist found:\n%s", artist)
+	//}
 	api.HandleRequests(artists)
 
 }
