@@ -344,7 +344,8 @@ input {
         align-items: center;
         width: var(--h--6);
         height: var(--h--6);
-        background: darkgrey;
+        background: center / contain no-repeat;
+        /*overflow: hidden;*/
     }
 
     & .album {
@@ -353,6 +354,7 @@ input {
     }
 
     & .user {
+        background: darkgrey;
         border-radius: var(--h--6);
     }
 

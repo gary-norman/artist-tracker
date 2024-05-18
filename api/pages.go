@@ -2,7 +2,6 @@ package api
 
 import (
 	"errors"
-	"fmt"
 	"html/template"
 	"math/rand"
 	"net/http"
@@ -30,14 +29,25 @@ func HomePage(w http.ResponseWriter, r *http.Request, artists []Artist) {
 		return
 	}
 
-	maxArtists := 10
+	maxArtists := len(artists) - 1
 	var homeArtists []Artist
+	var randomNumbers []int
 
 	for i := 0; i < maxArtists; i++ {
-		randomArtist := artists[rand.Intn(len(artists))]
+		randomNumber := rand.Intn(len(artists) - 1)
+
+		for _, number := range randomNumbers {
+			if number != randomNumber {
+				randomNumbers = append(randomNumbers, randomNumber)
+			} else {
+				maxArtists += 1
+			}
+		}
+
+		randomArtist := artists[randomNumber]
 		randomArtist.RandIntFunc = randInt
 		homeArtists = append(homeArtists, randomArtist)
-		fmt.Println("Random Artist: ", homeArtists[i])
+		//fmt.Println("Random Artist: ", homeArtists[i])
 	}
 
 	//homeIds := artists.Id

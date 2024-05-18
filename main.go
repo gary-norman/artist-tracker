@@ -2,6 +2,7 @@ package main
 
 import (
 	"artist-tracker/api"
+	"fmt"
 	"log"
 	"sync"
 )
@@ -19,58 +20,59 @@ func main() {
 	// Wait for all goroutines to finish
 	wg.Wait()
 	// Search for an artist by name
-	//artistName := "SOJA"
-	//artist, err := api.SearchArtist(artists, artistName)
-	//if err != nil {
-	//	log.Printf("Artist not found: %s", err)
-	//} else {
-	//	fmt.Printf("Artist found:\n%s", artist)
-	//	fmt.Println("")
-	//}
-	//artistName = "pink floyd"
-	//artist, err = api.SearchArtist(artists, artistName)
-	//if err != nil {
-	//	log.Printf("Artist not found: %s", err)
-	//} else {
-	//	fmt.Printf("Artist found:\n%s", artist)
-	//	fmt.Println("")
-	//}
-	//artistName = "Kendrick Lamar"
-	//artist, err = api.SearchArtist(artists, artistName)
-	//if err != nil {
-	//	log.Printf("Artist not found: %s", err)
-	//} else {
-	//	fmt.Printf("Artist found:\n%s", artist)
-	//}
-	// Read Spotify artist IDs from JSON file
-	spotifyArtistIDs, err := api.ReadSpotifyArtistIDs("db/spotify_artist_ids.json")
+	artistName := "SOJA"
+	artist, err := api.SearchArtist(artists, artistName)
 	if err != nil {
-		log.Fatalf("Error reading Spotify artist IDs: %v", err)
+		log.Printf("Artist not found: %s", err)
+	} else {
+		fmt.Printf("Artist found:\n%s", artist)
+		fmt.Println("")
 	}
-
-	// Spotify API token (you should handle token retrieval securely)
-	authToken := "BQD72yS-ec-KHOIOkuI5Yk8wWjxxEkN5rqfX_3myERzfQs1aY7FPkZajomH6nFJeSCeQTx1sEqzuzV4A5hxu5UsfdHs28x49X_5Y9erd0N2fKxS4ytM"
-
-	// Loop over the slice of structs called artists to update their images
-	for i := 0; i < len(artists); i++ {
-		artist := &artists[i]
-		for _, spotifyArtist := range spotifyArtistIDs {
-			if artist.Name == spotifyArtist.Artist {
-				updatedArtists, err := api.UpdateArtistImages([]api.Artist{*artist}, []api.SpotifyArtistID{spotifyArtist}, authToken)
-				if err != nil {
-					log.Fatalf("Error updating artist images: %v", err)
-				}
-				*artist = updatedArtists[0]
-				break
-			}
-		}
+	artistName = "pink floyd"
+	artist, err = api.SearchArtist(artists, artistName)
+	if err != nil {
+		log.Printf("Artist not found: %s", err)
+	} else {
+		fmt.Printf("Artist found:\n%s", artist)
+		fmt.Println("")
 	}
-	//artist, err = api.SearchArtist(artists, artistName)
+	artistName = "Kendrick Lamar"
+	artist, err = api.SearchArtist(artists, artistName)
+	if err != nil {
+		log.Printf("Artist not found: %s", err)
+	} else {
+		fmt.Printf("Artist found:\n%s", artist)
+	}
+	//// Fetch images concurrently for each artist
+	//file, err := os.Open("db/spotify_artist_ids.json")
 	//if err != nil {
-	//	log.Printf("Artist not found: %s", err)
-	//} else {
-	//	fmt.Printf("Artist found:\n%s", artist)
+	//	panic(err)
 	//}
+	//defer func(file *os.File) {
+	//	err := file.Close()
+	//	if err != nil {
+	//		log.Fatalf("Error closing file: %s\n", err)
+	//	}
+	//}(file)
+	//
+	//// Read the file contents
+	//byteValue, err := io.ReadAll(file)
+	//if err != nil {
+	//	panic(err)
+	//}
+	//
+	//// Unmarshal the JSON into a map or a slice
+	//var artistIDs map[string]string
+	//err = json.Unmarshal(byteValue, &artists)
+	//if err != nil {
+	//	panic(err)
+	//}
+	//for artistName2, artistID := range artistIDs {
+	//	wg.Add(1)
+	//	go api.FetchArtistImages(artistID, artistName2, &wg)
+	//}
+	//// Wait for all goroutines to finish
+	//wg.Wait()
 	api.HandleRequests(artists)
 
 }

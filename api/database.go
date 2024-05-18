@@ -105,8 +105,15 @@ func FetchDatesLocations(artist *Artist, wg *sync.WaitGroup) {
 }
 
 func randInt(max int) int {
-	random := rand.Intn(max - 1)
-	fmt.Println("random number is: ", random)
+	randomNumber := rand.Intn(max)
+	for _, number := range randomNumbers {
+		if number != randomNumber {
+			randomNumbers = append(randomNumbers, randomNumber)
+		}
+	}
+	fmt.Println("random number is: ", randomNumber)
 	fmt.Println("***************************************************************************************")
-	return random
+	return randomNumber
 }
+
+var randomNumbers []int
