@@ -31,7 +31,6 @@ func HomePage(w http.ResponseWriter, r *http.Request, artists []Artist) {
 
 	maxArtists := len(artists) - 1
 	var homeArtists []Artist
-	var randomNumbers []int
 
 	for i := 0; i < maxArtists; i++ {
 		randomNumber := rand.Intn(len(artists) - 1)
