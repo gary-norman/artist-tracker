@@ -20,29 +20,7 @@ func main() {
 	// Wait for all goroutines to finish
 	wg.Wait()
 	// Search for an artist by name
-	artistName := "SOJA"
-	artist, err := api.SearchArtist(artists, artistName)
-	if err != nil {
-		log.Printf("Artist not found: %s", err)
-	} else {
-		fmt.Printf("Artist found:\n%s", artist)
-		fmt.Println("")
-	}
-	artistName = "pink floyd"
-	artist, err = api.SearchArtist(artists, artistName)
-	if err != nil {
-		log.Printf("Artist not found: %s", err)
-	} else {
-		fmt.Printf("Artist found:\n%s", artist)
-		fmt.Println("")
-	}
-	artistName = "Kendrick Lamar"
-	artist, err = api.SearchArtist(artists, artistName)
-	if err != nil {
-		log.Printf("Artist not found: %s", err)
-	} else {
-		fmt.Printf("Artist found:\n%s", artist)
-	}
+
 	// Read Spotify artist IDs from JSON file
 	spotifyArtistIDs, err := api.ReadSpotifyArtistIDs("db/spotify_artist_ids.json")
 	if err != nil {
@@ -50,7 +28,7 @@ func main() {
 	}
 
 	// Spotify API token (you should handle token retrieval securely)
-	authToken := "BQD72yS-ec-KHOIOkuI5Yk8wWjxxEkN5rqfX_3myERzfQs1aY7FPkZajomH6nFJeSCeQTx1sEqzuzV4A5hxu5UsfdHs28x49X_5Y9erd0N2fKxS4ytM"
+	authToken := api.ExtractAccessToken("db/spotify_access_token.sh")
 
 	// Loop over the slice of structs called artists to update their images
 	for i := 0; i < len(artists); i++ {
@@ -66,7 +44,8 @@ func main() {
 			}
 		}
 	}
-	artist, err = api.SearchArtist(artists, artistName)
+	artistName := "pink floyd"
+	artist, err := api.SearchArtist(artists, artistName)
 	if err != nil {
 		log.Printf("Artist not found: %s", err)
 	} else {
