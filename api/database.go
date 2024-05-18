@@ -8,7 +8,6 @@ import (
 	"net/http"
 	"strings"
 	"sync"
-	"time"
 )
 
 type Artist struct {
@@ -106,7 +105,8 @@ func FetchDatesLocations(artist *Artist, wg *sync.WaitGroup) {
 }
 
 func randInt(max int) int {
-	max -= 1
-	rand.Seed(time.Now().UnixNano())
-	return rand.Intn(max)
+	random := rand.Intn(max - 1)
+	fmt.Println("random number is: ", random)
+	fmt.Println("***************************************************************************************")
+	return random
 }
