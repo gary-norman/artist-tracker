@@ -4,9 +4,11 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"math/rand"
 	"net/http"
 	"strings"
 	"sync"
+	"time"
 )
 
 type Artist struct {
@@ -20,6 +22,7 @@ type Artist struct {
 	ConcertDates   string              `json:"concertDates"`
 	Relations      string              `json:"relations"`
 	DatesLocations map[string][]string `json:"datesLocations"`
+	RandIntFunc    func(int) int
 }
 
 type DatesLocations struct {
@@ -100,4 +103,10 @@ func FetchDatesLocations(artist *Artist, wg *sync.WaitGroup) {
 		formattedLocation := formatLocation(location)
 		artist.DatesLocations[formattedLocation] = dates
 	}
+}
+
+func randInt(max int) int {
+	max -= 1
+	rand.Seed(time.Now().UnixNano())
+	return rand.Intn(max)
 }

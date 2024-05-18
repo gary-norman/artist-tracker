@@ -2,8 +2,6 @@ package main
 
 import (
 	"artist-tracker/api"
-	"fmt"
-	"log"
 	"sync"
 )
 
@@ -20,29 +18,29 @@ func main() {
 	// Wait for all goroutines to finish
 	wg.Wait()
 	// Search for an artist by name
-	artistName := "SOJA"
-	artist, err := api.SearchArtist(artists, artistName)
-	if err != nil {
-		log.Printf("Artist not found: %s", err)
-	} else {
-		fmt.Printf("Artist found:\n%s", artist)
-		fmt.Println("")
-	}
-	artistName = "pink floyd"
-	artist, err = api.SearchArtist(artists, artistName)
-	if err != nil {
-		log.Printf("Artist not found: %s", err)
-	} else {
-		fmt.Printf("Artist found:\n%s", artist)
-		fmt.Println("")
-	}
-	artistName = "Kendrick Lamar"
-	artist, err = api.SearchArtist(artists, artistName)
-	if err != nil {
-		log.Printf("Artist not found: %s", err)
-	} else {
-		fmt.Printf("Artist found:\n%s", artist)
-	}
+	//artistName := "SOJA"
+	//artist, err := api.SearchArtist(artists, artistName)
+	//if err != nil {
+	//	log.Printf("Artist not found: %s", err)
+	//} else {
+	//	fmt.Printf("Artist found:\n%s", artist)
+	//	fmt.Println("")
+	//}
+	//artistName = "pink floyd"
+	//artist, err = api.SearchArtist(artists, artistName)
+	//if err != nil {
+	//	log.Printf("Artist not found: %s", err)
+	//} else {
+	//	fmt.Printf("Artist found:\n%s", artist)
+	//	fmt.Println("")
+	//}
+	//artistName = "Kendrick Lamar"
+	//artist, err = api.SearchArtist(artists, artistName)
+	//if err != nil {
+	//	log.Printf("Artist not found: %s", err)
+	//} else {
+	//	fmt.Printf("Artist found:\n%s", artist)
+	//}
 	//// Fetch images concurrently for each artist
 	//file, err := os.Open("db/spotify_artist_ids.json")
 	//if err != nil {

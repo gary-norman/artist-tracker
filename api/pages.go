@@ -3,20 +3,11 @@ package api
 import (
 	"errors"
 	"html/template"
+	"math/rand"
 	"net/http"
 )
 
 func HomePage(w http.ResponseWriter, r *http.Request, artists []Artist) {
-
-	maxArtists := 10
-
-	homeArtists := artists
-	//homeIds := artists.Id
-
-	// Limit the number of artists
-	if len(artists) > maxArtists {
-		homeArtists = artists[:maxArtists]
-	}
 
 	if r.URL.Path != "/" {
 		ErrorHandler(w, r, http.StatusNotFound)
@@ -37,6 +28,29 @@ func HomePage(w http.ResponseWriter, r *http.Request, artists []Artist) {
 		}
 		return
 	}
+
+	maxArtists := 10
+	var homeArtists []Artist
+
+	for i := 0; i < maxArtists; i++ {
+		randomArtist := artists[rand.Intn(len(artists))]
+		randomArtist.RandIntFunc = randInt
+		homeArtists = append(homeArtists, randomArtist)
+	}
+
+	//homeIds := artists.Id
+
+	// Limit the number of artists
+	//if len(artists) > maxArtists {
+	//	homeArtists = artists[:maxArtists]
+	//}
+
+	//artist := &Artist{
+	//	Name: "title",
+	//	Id:   5,
+	//	Image: ,
+	//	Members: ,
+	//}
 
 	err = t.Execute(w, homeArtists)
 	if err != nil {
