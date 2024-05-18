@@ -10,6 +10,7 @@ import (
 	"os"
 	"os/exec"
 	"sync"
+	"time"
 )
 
 // var accessToken = ExtractAccessToken()
@@ -144,7 +145,7 @@ func fetchArtistInfo(searchTerm, searchType, token string) (string, error) {
 	defer func(Body io.ReadCloser) {
 		err := Body.Close()
 		if err != nil {
-			log.Fatalf("error closing filr: %v", err)
+			log.Fatalf("error closing file: %v", err)
 		}
 	}(resp.Body)
 
@@ -269,4 +270,69 @@ func UpdateArtistImages(artists []Artist, spotifyArtistIDs []SpotifyArtistID, au
 	}
 
 	return updatedArtists, nil
+}
+
+func getSpotifyAlbums(artist, year, authToken string) (SpotifyAlbum, error) {
+	encodedArtist := url.QueryEscape(artist)
+	encodedYear := url.QueryEscape(year)
+	spotifyURL := fmt.Sprintf("https://api.spotify.com/v1/search?q=artist:%s+year:%s&type=album&market=GB", encodedArtist, encodedYear)
+
+	req, err := http.NewRequest("GET", spotifyURL, nil)
+	if err != nil {
+		return SpotifyAlbum{}, err
+	}
+
+	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", authToken))
+
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	if err != nil {
+		return SpotifyAlbum{}, err
+	}
+	defer func(Body io.ReadCloser) {
+		err := Body.Close()
+		if err != nil {
+			log.Fatalf("error closing file: %v", err)
+		}
+	}(resp.Body)
+
+	if resp.StatusCode != http.StatusOK {
+		body, _ := io.ReadAll(resp.Body)
+		return SpotifyAlbum{}, fmt.Errorf("error response from Spotify API: %s", body)
+	}
+
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return SpotifyAlbum{}, err
+	}
+
+	var spotifyAlbum SpotifyAlbum
+	err = json.Unmarshal(body, &spotifyAlbum)
+	if err != nil {
+		return SpotifyAlbum{}, fmt.Errorf("error unmarshaling response: %w", err)
+	}
+
+	return spotifyAlbum, nil
+}
+
+func ProcessArtist(wg *sync.WaitGroup, artist *Artist, authToken string) {
+	defer wg.Done()
+
+	// Extract year from FirstAlbum date
+	firstAlbumDate, err := time.Parse("02-01-2006", artist.FirstAlbum)
+	if err != nil {
+		fmt.Printf("Error parsing date for artist %s: %v\n", artist.Name, err)
+		return
+	}
+	year := firstAlbumDate.Format("2006")
+
+	// Fetch albums from Spotify
+	spotifyAlbum, err := getSpotifyAlbums(artist.Name, year, authToken)
+	if err != nil {
+		fmt.Printf("Error fetching albums for artist %s: %v\n", artist.Name, err)
+		return
+	}
+
+	// Update artist struct
+	artist.SpotifyAlbum = spotifyAlbum
 }

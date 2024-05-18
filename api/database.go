@@ -11,12 +11,13 @@ import (
 )
 
 type Artist struct {
-	Id             int                 `json:"id"`
-	Image          string              `json:"image"`
-	Name           string              `json:"name"`
-	Members        []string            `json:"members"`
-	CreationDate   int                 `json:"creationDate"`
-	FirstAlbum     string              `json:"firstAlbum"`
+	Id           int      `json:"id"`
+	Image        string   `json:"image"`
+	Name         string   `json:"name"`
+	Members      []string `json:"members"`
+	CreationDate int      `json:"creationDate"`
+	FirstAlbum   string   `json:"firstAlbum"`
+	SpotifyAlbum
 	Locations      string              `json:"locations"`
 	ConcertDates   string              `json:"concertDates"`
 	Relations      string              `json:"relations"`
@@ -26,6 +27,21 @@ type Artist struct {
 
 type DatesLocations struct {
 	DatesLocations map[string][]string `json:"datesLocations"`
+}
+
+type SpotifyAlbum struct {
+	Albums struct {
+		Items []struct {
+			TotalTracks  int `json:"total_tracks"`
+			ExternalUrls struct {
+				Spotify string `json:"spotify"`
+			} `json:"external_urls"`
+			Images []struct {
+				Url string `json:"url"`
+			} `json:"images"`
+			Name string `json:"name"`
+		} `json:"items"`
+	}
 }
 
 // getJson function fetches JSON data from a URL and decodes it into a target variable

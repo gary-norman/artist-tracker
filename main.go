@@ -34,7 +34,7 @@ func main() {
 		log.Fatalf("Error reading Spotify artist IDs: %v", err)
 	}
 
-	// Spotify API token (you should handle token retrieval securely)
+	// Spotify API token
 	authToken := api.ExtractAccessToken("db/spotify_access_token.sh")
 
 	// Loop over the slice of structs called artists to update their images
@@ -51,6 +51,13 @@ func main() {
 			}
 		}
 	}
+	fmt.Println("artist images updated successfully")
+	for i := range artists {
+		wg.Add(1)
+		go api.ProcessArtist(&wg, &artists[i], authToken)
+	}
+
+	wg.Wait()
 	artistName := "pink floyd"
 	artist, err := api.SearchArtist(artists, artistName)
 	if err != nil {
