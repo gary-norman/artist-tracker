@@ -53,6 +53,17 @@ func AllJsonToStruct(url string) []Artist {
 	return artists
 }
 
+// UpdateArtistName Function to search for an artist by name and update their name
+func UpdateArtistName(artists []Artist, oldName, newName string) bool {
+	for i, artist := range artists {
+		if artist.Name == oldName {
+			artists[i].Name = newName
+			return true
+		}
+	}
+	return false
+}
+
 // LocationsDatesToStruct function populates the DatesLocations map to artists
 func LocationsDatesToStruct(artists []Artist) {
 	for i, artist := range artists {

@@ -19,7 +19,14 @@ func main() {
 	}
 	// Wait for all goroutines to finish
 	wg.Wait()
-	// Search for an artist by name
+	// Rename any incorrectly named artists
+	oldName := "Bobby McFerrins"
+	newName := "Bobby McFerrin"
+	if api.UpdateArtistName(artists, oldName, newName) {
+		fmt.Printf("Artist name updated successfully.\n")
+	} else {
+		fmt.Printf("Artist with name %s not found.\n", oldName)
+	}
 
 	// Read Spotify artist IDs from JSON file
 	spotifyArtistIDs, err := api.ReadSpotifyArtistIDs("db/spotify_artist_ids.json")
