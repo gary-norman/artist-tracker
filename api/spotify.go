@@ -306,10 +306,36 @@ func getSpotifyAlbums(artist, year, authToken string) (SpotifyAlbum, error) {
 		return SpotifyAlbum{}, err
 	}
 
-	var spotifyAlbum SpotifyAlbum
-	err = json.Unmarshal(body, &spotifyAlbum)
+	var response struct {
+		Albums struct {
+			Items []struct {
+				Name         string `json:"name"`
+				TotalTracks  int    `json:"total_tracks"`
+				ExternalUrls struct {
+					Spotify string `json:"spotify"`
+				} `json:"external_urls"`
+				Images []struct {
+					Url string `json:"url"`
+				} `json:"images"`
+			} `json:"items"`
+		} `json:"albums"`
+	}
+
+	err = json.Unmarshal(body, &response)
 	if err != nil {
 		return SpotifyAlbum{}, fmt.Errorf("error unmarshaling response: %w", err)
+	}
+
+	if len(response.Albums.Items) == 0 {
+		return SpotifyAlbum{}, fmt.Errorf("no albums found for artist %s in year %s", artist, year)
+	}
+
+	firstAlbum := response.Albums.Items[0]
+	spotifyAlbum := SpotifyAlbum{
+		Name:        firstAlbum.Name,
+		TotalTracks: firstAlbum.TotalTracks,
+		ExternalUrl: firstAlbum.ExternalUrls.Spotify,
+		ImageUrl:    firstAlbum.Images[0].Url,
 	}
 
 	return spotifyAlbum, nil
@@ -320,19 +346,21 @@ func ProcessArtist(wg *sync.WaitGroup, artist *Artist, authToken string) {
 
 	// Extract year from FirstAlbum date
 	firstAlbumDate, err := time.Parse("02-01-2006", artist.FirstAlbum)
+	fmt.Printf("FirstAlbum for %v (%v) parsed as: %s\n", artist.Name, artist.FirstAlbum, firstAlbumDate)
 	if err != nil {
 		fmt.Printf("Error parsing date for artist %s: %v\n", artist.Name, err)
 		return
 	}
 	year := firstAlbumDate.Format("2006")
-
+	fmt.Printf("%v's extracted year: %s\n", artist.Name, year)
 	// Fetch albums from Spotify
 	spotifyAlbum, err := getSpotifyAlbums(artist.Name, year, authToken)
 	if err != nil {
 		fmt.Printf("Error fetching albums for artist %s: %v\n", artist.Name, err)
 		return
 	}
-
 	// Update artist struct
 	artist.SpotifyAlbum = spotifyAlbum
+	fmt.Printf("fetched spotify album for %s: %v\nlocal spotify album: %v\n", artist.Name, spotifyAlbum, artist.SpotifyAlbum)
+
 }

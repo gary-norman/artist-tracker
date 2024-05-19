@@ -58,13 +58,17 @@ func main() {
 	}
 
 	wg.Wait()
-	artistName := "pink floyd"
-	artist, err := api.SearchArtist(artists, artistName)
-	if err != nil {
-		log.Printf("Artist not found: %s", err)
-	} else {
-		fmt.Printf("Artist found:\n%s", artist)
-	}
-	api.HandleRequests(artists)
+	//artistName := "aerosmith"
+	//artist, err := api.SearchArtist(artists, artistName)
+	//if err != nil {
+	//	log.Printf("Artist not found: %s", err)
+	//} else {
+	//	fmt.Printf("Artist found:\n%s", artist)
+	//}
+	// Print updated artists
 
+	for _, artist := range artists {
+		fmt.Printf("Artist Info:\n%s\n", artist)
+	}
+	//api.HandleRequests(artists)
 }

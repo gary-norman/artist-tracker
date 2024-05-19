@@ -30,18 +30,10 @@ type DatesLocations struct {
 }
 
 type SpotifyAlbum struct {
-	Albums struct {
-		Items []struct {
-			TotalTracks  int `json:"total_tracks"`
-			ExternalUrls struct {
-				Spotify string `json:"spotify"`
-			} `json:"external_urls"`
-			Images []struct {
-				Url string `json:"url"`
-			} `json:"images"`
-			Name string `json:"name"`
-		} `json:"items"`
-	}
+	Name        string `json:"name"`
+	TotalTracks int    `json:"total_tracks"`
+	ExternalUrl string `json:"spotify"`
+	ImageUrl    string `json:"url"`
 }
 
 // getJson function fetches JSON data from a URL and decodes it into a target variable
