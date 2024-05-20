@@ -272,10 +272,10 @@ func UpdateArtistImages(artists []Artist, spotifyArtistIDs []SpotifyArtistID, au
 	return updatedArtists, nil
 }
 
-func getSpotifyAlbums(artist, year, authToken string) (SpotifyAlbum, error) {
+func getSpotifyAlbums(artist, album, authToken string) (SpotifyAlbum, error) {
 	encodedArtist := url.QueryEscape(artist)
-	encodedYear := url.QueryEscape(year)
-	spotifyURL := fmt.Sprintf("https://api.spotify.com/v1/search?q=artist:%s+year:%s&type=album&market=GB", encodedArtist, encodedYear)
+	encodedAlbum := url.QueryEscape(album)
+	spotifyURL := fmt.Sprintf("https://api.spotify.com/v1/search?q=artist:%s,+album:%s&type=album&market=GB", encodedArtist, encodedAlbum)
 
 	req, err := http.NewRequest("GET", spotifyURL, nil)
 	if err != nil {
@@ -310,6 +310,7 @@ func getSpotifyAlbums(artist, year, authToken string) (SpotifyAlbum, error) {
 		Albums struct {
 			Items []struct {
 				Name         string `json:"name"`
+				ReleaseDate  string `json:"release_date"`
 				TotalTracks  int    `json:"total_tracks"`
 				ExternalUrls struct {
 					Spotify string `json:"spotify"`
@@ -327,12 +328,13 @@ func getSpotifyAlbums(artist, year, authToken string) (SpotifyAlbum, error) {
 	}
 
 	if len(response.Albums.Items) == 0 {
-		return SpotifyAlbum{}, fmt.Errorf("no albums found for artist %s in year %s", artist, year)
+		return SpotifyAlbum{}, fmt.Errorf("no albums found for artist %s in album %s", artist, album)
 	}
 
 	firstAlbum := response.Albums.Items[0]
 	spotifyAlbum := SpotifyAlbum{
 		Name:        firstAlbum.Name,
+		ReleaseDate: firstAlbum.ReleaseDate,
 		TotalTracks: firstAlbum.TotalTracks,
 		ExternalUrl: firstAlbum.ExternalUrls.Spotify,
 		ImageUrl:    firstAlbum.Images[0].Url,
@@ -341,9 +343,10 @@ func getSpotifyAlbums(artist, year, authToken string) (SpotifyAlbum, error) {
 	return spotifyAlbum, nil
 }
 
-func ProcessArtist(wg *sync.WaitGroup, artist *Artist, authToken string) {
-	defer wg.Done()
-
+//	func ProcessArtist(wg *sync.WaitGroup, artist *Artist, authToken string) {
+//		defer wg.Done()
+func ProcessArtist(artist *Artist, authToken string) {
+	//defer wg.Done()
 	// Extract year from FirstAlbum date
 	firstAlbumDate, err := time.Parse("02-01-2006", artist.FirstAlbum)
 	fmt.Printf("FirstAlbum for %v (%v) parsed as: %s\n", artist.Name, artist.FirstAlbum, firstAlbumDate)
@@ -354,9 +357,14 @@ func ProcessArtist(wg *sync.WaitGroup, artist *Artist, authToken string) {
 	year := firstAlbumDate.Format("2006")
 	fmt.Printf("%v's extracted year: %s\n", artist.Name, year)
 	// Fetch albums from Spotify
-	spotifyAlbum, err := getSpotifyAlbums(artist.Name, year, authToken)
+	artistID := SearchArtistByName(artist.Name)
+	fmt.Println(artistID)
+	release := GetReleasesByArtistID(artistID)
+	fmt.Println(release)
+	spotifyAlbum, err := getSpotifyAlbums(artist.Name, release, authToken)
+	fmt.Printf("Spotify Album: %s\n", spotifyAlbum)
 	if err != nil {
-		fmt.Printf("Error fetching albums for artist %s: %v\n", artist.Name, err)
+		fmt.Printf("Error fetching %s for artist %s: %v\n", release, artist.Name, err)
 		return
 	}
 	// Update artist struct
