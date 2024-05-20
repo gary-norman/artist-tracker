@@ -3,10 +3,10 @@ package api
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
+	"log"
 	"net/http"
 	"net/url"
-	"sort"
 	"time"
 )
 
@@ -24,103 +24,113 @@ type Release struct {
 
 type ReleaseSearchResponse struct {
 	Releases []struct {
-		Title       string `json:"title"`
-		Date        string `json:"date"`
-		PrimaryType string `json:"primary-type"`
-	} `json:"releases"`
+		Title string `json:"title"`
+	} `json:"release-groups"`
 }
 
-func searchArtistByName(artistName string) (string, error) {
-	endpoint := fmt.Sprintf("https://musicbrainz.org/ws/2/artist?query=%s&fmt=json", url.QueryEscape(artistName))
-	resp, err := http.Get(endpoint)
+func SearchArtistByName(artistName string) string {
+	endpoint := fmt.Sprintf("https://musicbrainz.org/ws/2/artist/?query=%s&fmt=json", url.QueryEscape(artistName))
+	req, err := http.NewRequest("GET", endpoint, nil)
 	if err != nil {
-		return "", err
+		return ""
+	}
+
+	// Set the User-Agent header
+	req.Header.Set("User-Agent", "artist-tracker/0.0.2 (https://artist-tracker.loreworld.live) artist-tracker/0.0.2 (gary.norman.th@gmail.com)")
+	var artistId string
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	if err != nil {
+		return ""
+	}
+	defer func(Body io.ReadCloser) {
+		err := Body.Close()
+		if err != nil {
+			fmt.Printf("error closing body")
+		}
+	}(resp.Body)
+
+	// Read the response body
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		log.Fatalf("Error reading response body: %v", err)
+	}
+
+	// Unmarshal the JSON response into the struct
+	var response ArtistSearchResponse
+	err = json.Unmarshal(body, &response)
+	if err != nil {
+		log.Fatalf("Error unmarshalling JSON: %v", err)
+	}
+	//fmt.Printf("Fetching ID for %s\n%s\n", artistName, response.Artists)
+	// Check if there are any artists in the response
+	if len(response.Artists) > 0 {
+		// Extract and print the ID and Name of the first artist
+		if len(response.Artists) > 0 {
+			firstArtist := response.Artists[0]
+			artistId = firstArtist.ID
+			//fmt.Printf("ID: %s, Name: %s\n", firstArtist.ID, firstArtist.Name)
+		} else {
+			//fmt.Printf("ID for %s not found.\n", artistName)
+		}
+	}
+	//fmt.Printf("SearchArtistByName: %s\n", artistId)
+	return artistId
+}
+
+func GetReleasesByArtistID(artistID string) string {
+	endpoint := fmt.Sprintf("https://musicbrainz.org/ws/2/artist/%s?inc=release-groups&fmt=json", artistID)
+	req, err := http.NewRequest("GET", endpoint, nil)
+	if err != nil {
+		return "nil"
+	}
+
+	// Set the User-Agent header
+	req.Header.Set("User-Agent", "artist-tracker/0.0.2 (gary.norman.th@gmail.com)")
+
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	if err != nil {
+		return "nil"
 	}
 	defer resp.Body.Close()
 
-	body, err := ioutil.ReadAll(resp.Body)
+	body, err := io.ReadAll(resp.Body)
 	if err != nil {
-		return "", err
+		return "nil"
 	}
-
-	var result ArtistSearchResponse
-	if err := json.Unmarshal(body, &result); err != nil {
-		return "", err
-	}
-
-	if len(result.Artists) == 0 {
-		return "", fmt.Errorf("no artist found with the name: %s", artistName)
-	}
-
-	return result.Artists[0].ID, nil
-}
-
-func getReleasesByArtistID(artistID string) ([]Release, error) {
-	endpoint := fmt.Sprintf("https://musicbrainz.org/ws/2/release?artist=%s&fmt=json&limit=100", artistID)
-	resp, err := http.Get(endpoint)
-	if err != nil {
-		return nil, err
-	}
-	defer resp.Body.Close()
-
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		return nil, err
-	}
-
 	var result ReleaseSearchResponse
 	if err := json.Unmarshal(body, &result); err != nil {
-		return nil, err
+		return "nil"
 	}
+	//fmt.Printf("Release: %s\n", result)
+	var title string
+	if len(result.Releases) > 0 {
+		title = result.Releases[0].Title
+	}
+	//fmt.Printf("GetReleasesByArtistID: %s\n", title)
+	return title
+}
 
-	var releases []Release
-	for _, r := range result.Releases {
-		if r.PrimaryType == "Album" {
-			releaseDate, err := time.Parse("2006-01-02", r.Date)
-			if err != nil {
-				continue
-			}
-			releases = append(releases, Release{
-				Title:       r.Title,
-				ReleaseDate: releaseDate,
-			})
-		}
+func findDebutAlbum(releases string) (string, error) {
+	if len(releases) == 0 {
+		return "error", fmt.Errorf("no album releases found")
 	}
 
 	return releases, nil
 }
 
-func findDebutAlbum(releases []Release) (Release, error) {
-	if len(releases) == 0 {
-		return Release{}, fmt.Errorf("no album releases found")
-	}
+func SearchAlbumByArtistNAme(artistName string) string {
+	artistID := SearchArtistByName(artistName)
 
-	sort.Slice(releases, func(i, j int) bool {
-		return releases[i].ReleaseDate.Before(releases[j].ReleaseDate)
-	})
+	releases := GetReleasesByArtistID(artistID)
 
-	return releases[0], nil
-}
+	//debutAlbum, err := findDebutAlbum(releases)
+	//if err != nil {
+	//	fmt.Printf("Error finding debut album: %v\n", err)
+	//	return ""
+	//}
 
-func searchAlbumByArtistNAme(artistName string) (string, string) {
-	artistID, err := searchArtistByName(artistName)
-	if err != nil {
-		fmt.Printf("Error finding artist: %v\n", err)
-		return "", ""
-	}
-
-	releases, err := getReleasesByArtistID(artistID)
-	if err != nil {
-		fmt.Printf("Error fetching releases: %v\n", err)
-		return "", ""
-	}
-
-	debutAlbum, err := findDebutAlbum(releases)
-	if err != nil {
-		fmt.Printf("Error finding debut album: %v\n", err)
-		return "", ""
-	}
-
-	fmt.Printf("Debut album of %s: %s (released on %s)\n", artistName, debutAlbum.Title, debutAlbum.ReleaseDate.Format("02 Jan 2006"))
-	return artistName, debutAlbum.Title
+	fmt.Printf("Debut album of %s: %s\n", artistName, releases)
+	return releases
 }

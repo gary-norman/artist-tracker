@@ -3,6 +3,7 @@ package api
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/pterm/pterm"
 	"log"
 	"math/rand"
 	"net/http"
@@ -31,10 +32,14 @@ type DatesLocations struct {
 
 type SpotifyAlbum struct {
 	Name        string `json:"name"`
+	ReleaseDate string `json:"releaseDate"`
 	TotalTracks int    `json:"total_tracks"`
 	ExternalUrl string `json:"spotify"`
 	ImageUrl    string `json:"url"`
 }
+
+// Create a multi printer instance from the default one
+var multi = pterm.DefaultMultiPrinter
 
 // getJson function fetches JSON data from a URL and decodes it into a target variable
 func getJson(url string, target any) error {
@@ -53,11 +58,13 @@ func getJson(url string, target any) error {
 // AllJsonToStruct function fetches all artist data and returns a slice of Artist structs
 func AllJsonToStruct(url string) []Artist {
 	var artists []Artist
+	pbart, _ := pterm.DefaultProgressbar.WithTotal(100).WithWriter(multi.NewWriter()).Start("Fetching artist info")
 	err := getJson(url, &artists)
 	if err != nil {
 		log.Fatalf("Unable to create struct due to %s", err)
 	}
-	fmt.Println("Artist info successfully populated.")
+	pbart.Increment()
+	pterm.Success.Println("Fetching artist info")
 	return artists
 }
 
@@ -124,14 +131,19 @@ func FetchDatesLocations(artist *Artist, wg *sync.WaitGroup) {
 }
 
 func randInt(max int) int {
+	pbrnd, _ := pterm.DefaultProgressbar.WithTotal(100).WithWriter(multi.NewWriter()).Start("Generating random numbers for suggested artists/albums")
 	randomNumber := rand.Intn(max)
 	for _, number := range randomNumbers {
+		pbrnd.UpdateTitle("Generating random number: " + string(rune(number)))
 		if number != randomNumber {
 			randomNumbers = append(randomNumbers, randomNumber)
 		}
 	}
-	fmt.Println("random number is: ", randomNumber)
-	fmt.Println("***************************************************************************************")
+	pterm.Success.Println("Generating random number: ")
+	fmt.Println(randomNumber)
+	pbrnd.Increment()
+	//fmt.Println("random number is: ", randomNumber)
+	//fmt.Println("***************************************************************************************")
 	return randomNumber
 }
 
