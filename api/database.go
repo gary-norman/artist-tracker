@@ -58,13 +58,10 @@ func getJson(url string, target any) error {
 // AllJsonToStruct function fetches all artist data and returns a slice of Artist structs
 func AllJsonToStruct(url string) []Artist {
 	var artists []Artist
-	pbart, _ := pterm.DefaultProgressbar.WithTotal(100).WithWriter(multi.NewWriter()).Start("Fetching artist info")
 	err := getJson(url, &artists)
 	if err != nil {
 		log.Fatalf("Unable to create struct due to %s", err)
 	}
-	pbart.Increment()
-	pterm.Success.Println("Fetching artist info")
 	return artists
 }
 
@@ -77,19 +74,6 @@ func UpdateArtistName(artists []Artist, oldName, newName string) bool {
 		}
 	}
 	return false
-}
-
-// LocationsDatesToStruct function populates the DatesLocations map to artists
-func LocationsDatesToStruct(artists []Artist) {
-	for i, artist := range artists {
-		var dateloc DatesLocations
-		err := getJson(artist.Relations, &dateloc)
-		if err != nil {
-			log.Fatalf("Unable to create struct due to %s", err)
-		}
-		artists[i].DatesLocations = dateloc.DatesLocations
-	}
-	fmt.Println("Dates and locations successfully populated.")
 }
 
 func formatLocation(location string) string {

@@ -53,24 +53,39 @@ func main() {
 	pterm.Success.Println("Fetching Spotify auth token")
 	pbat.Increment()
 
-	pbai, _ := pterm.DefaultProgressbar.WithTotal(100).WithWriter(multi.NewWriter()).Start("Fetching artist images from Spotify")
-	// Loop over the slice of structs called artists to update their images
+	pbai, _ := pterm.DefaultProgressbar.WithTotal(100).WithWriter(multi.NewWriter()).Start("Fetching artist images")
 	for i := 0; i < len(artists); i++ {
 		artist := &artists[i]
+		matchingArtistFound := false
+
 		for _, spotifyArtist := range spotifyArtistIDs {
 			if artist.Name == spotifyArtist.Artist {
-				pbai.UpdateTitle("Fetching Spotify image for " + spotifyArtist.Artist)
-				updatedArtists, err := api.UpdateArtistImages([]api.Artist{*artist}, []api.SpotifyArtistID{spotifyArtist}, authToken)
-				if err != nil {
-					log.Fatalf("Error updating artist images: %v", err)
-				}
-				*artist = updatedArtists[0]
-				pterm.Success.Println("Fetching Spotify image for " + spotifyArtist.Artist)
-				pbai.Increment()
+				wg.Add(1)
+				go func(artist *api.Artist, spotifyArtist api.SpotifyArtistID) {
+					defer wg.Done()
+
+					pbai.UpdateTitle("Fetching Spotify image for " + spotifyArtist.Artist)
+					updatedArtists, err := api.UpdateArtistImages([]api.Artist{*artist}, []api.SpotifyArtistID{spotifyArtist}, authToken)
+					if err != nil {
+						log.Fatalf("Error updating artist images: %v", err)
+					}
+					*artist = updatedArtists[0]
+					pterm.Success.Println("Fetching Spotify image for " + spotifyArtist.Artist)
+					pbai.Increment()
+				}(artist, spotifyArtist)
+				matchingArtistFound = true
 				break
 			}
 		}
+
+		if !matchingArtistFound {
+			// Handle the case where no matching artist was found.
+			log.Printf("No matching Spotify artist found for %s", artist.Name)
+		}
 	}
+
+	wg.Wait()
+
 	pbalb, _ := pterm.DefaultProgressbar.WithTotal(100).WithWriter(multi.NewWriter()).Start("Fetching album details from Spotify")
 	for i := range artists {
 		pbalb.UpdateTitle("Fetching album details for " + artists[i].Name)
