@@ -88,15 +88,16 @@ func main() {
 
 	pbalb, _ := pterm.DefaultProgressbar.WithTotal(100).WithWriter(multi.NewWriter()).Start("Fetching album details from Spotify")
 	for i := range artists {
+		wg.Add(1)
 		pbalb.UpdateTitle("Fetching album details for " + artists[i].Name)
 		wg.Add(1)
 		//go api.ProcessArtist(&artists[i], authToken, &wg)
-		api.ProcessArtist(&artists[i], authToken)
+		go api.ProcessArtist(&artists[i], authToken)
 		pterm.Success.Println("Fetching album details for " + artists[i].Name)
 		pbalb.Increment()
 	}
 	// Wait for all goroutines to finish
-	//wg.Wait()
+	wg.Wait()
 	//
 	//for _, artist := range artists {
 	//	name := api.SearchAlbumByArtistNAme(artist.Name)

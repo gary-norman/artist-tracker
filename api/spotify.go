@@ -349,7 +349,6 @@ func ProcessArtist(artist *Artist, authToken string) {
 	//defer wg.Done()
 	// Extract year from FirstAlbum date
 	firstAlbumDate, err := time.Parse("02-01-2006", artist.FirstAlbum)
-	fmt.Printf("FirstAlbum for %v (%v) parsed as: %s\n", artist.Name, artist.FirstAlbum, firstAlbumDate)
 	if err != nil {
 		fmt.Printf("Error parsing date for artist %s: %v\n", artist.Name, err)
 		return
@@ -378,6 +377,4 @@ func ProcessArtist(artist *Artist, authToken string) {
 	}
 	newDate := parsedDate.Format("02-01-2006")
 	artist.SpotifyAlbum.ReleaseDate = newDate
-	fmt.Printf("fetched spotify album for %s: %v\nlocal spotify album: %v\n", artist.Name, spotifyAlbum, artist.SpotifyAlbum)
-
 }
