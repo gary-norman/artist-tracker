@@ -40,20 +40,11 @@
                     <div class="col col3">
                         {{ range . }}
                             <div class="content">
-                                <div class="pic user">
-                                    <img class="pic user" src="{{.Image}}"/>
-                                </div>
+                                <img class="pic user" src="{{.Image}}" alt="Profile image of {{.Name}}"/>
                                 <div class="content-text go-down">
                                     <div class="p--bold" >
                                         {{ .Name }}
                                     </div>
-                                    <div class="small">{{ if gt (len .Members) 1 }}
-                                        <!-- If there are more than 1 member, display the first member's name -->
-                                        {{ .Name }}
-                                        {{ else }}
-                                        <!-- If there's only 1 member or no members, display the ArtistName -->
-
-                                        {{ end }}</div>
                                 </div>
                             </div>
                         {{ end }}
@@ -62,42 +53,24 @@
                 <div id="search-members" class="col col1">
                     <h2>Members</h2>
                     <div class="col col3">
+                        {{ range . }}
                         <div class="content">
-                            <div class="pic user">
-
-                            </div>
+                            <img class="pic user" src="{{.Image}}" alt="Profile image of {{.Name}}"/>
                             <div class="content-text go-down">
-                                <div class="p--bold" >Freddie Mercury</div>
-                                <div class="small">Member of Queen</div>
+                                <div class="p--bold" >
+                                    {{ if gt (len .Members) 1}}
+                                    {{ index .Members (random (len .Members)) }}
+                                    {{else}}
+                                    {{ index .Members 0 }}
+                                    {{ end }}
+                                </div>
+                                <div class="small">
+                                    {{ .Name }}
+                                </div>
                             </div>
-                        </div>
-                        <div class="content">
-                            <div class="pic user">
 
-                            </div>
-                            <div class="content-text go-down">
-                                <div class="p--bold" >Freddie Mercury</div>
-                                <div class="small">Member of Queen</div>
-                            </div>
                         </div>
-                        <div class="content">
-                            <div class="pic user">
-
-                            </div>
-                            <div class="content-text go-down">
-                                <div class="p--bold" >Freddie Mercury</div>
-                                <div class="small">Member of Queen</div>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <div class="pic user">
-
-                            </div>
-                            <div class="content-text go-down">
-                                <div class="p--bold" >Freddie Mercury</div>
-                                <div class="small">Member of Queen</div>
-                            </div>
-                        </div>
+                        {{ end }}
                     </div>
                 </div>
                 <div id="search-albums" class="col col1">
@@ -299,35 +272,28 @@
             <div class="col col1">
                 <h2>Discover Artists and Members</h2>
                 <div class="row row-sm">
-                    {{ $count := 0 }}
-                    {{ range . }}
-                        {{ if lt $count 10}}
-                            <div class="content">
-                                <div class="pic user">
-                                    <img class="pic user" src="{{.Image}}"/>
-                                </div>
-                                <div class="content-text go-down">
-                                    <div class="p--bold" >
+                    {{ range $index, $element := . }}
+                        {{ if lt $index 10 }}
+                        <div class="content">
+                                    <img class="pic user" src="{{.Image}}" alt="Profile image of {{.Name}}"/>
+                                    <div class="content-text go-down">
+                                        <div class="p--bold" >
+                                            {{ if gt (len .Members) 1 }}
+                                            <!-- chooses a random index from pool of member -->
+                                            {{ index .Members 0}}
+                                            {{ else }}
+                                            <!-- If there's only 1 member or no members, display the ArtistName -->
+                                            {{ .Name }}
+                                            {{ end }}
+                                        </div>
                                         {{ if gt (len .Members) 1 }}
-                                        <!-- If there are more than 1 member, display the first member's name -->
-                                        <!-- chooses a random index from pool of members. called RandIntFunc to get a random index of member-->
-                                        {{ index .Members (call .RandIntFunc (len .Members)) }}
-
-
-                                        {{ else }}
-                                        <!-- If there's only 1 member or no members, display the ArtistName -->
-                                        {{ .Name }}
+                                            <div class="small">
+                                                {{ .Name }}
+                                            </div>
                                         {{ end }}
 
                                     </div>
-                                    <div class="small">{{ if gt (len .Members) 1 }}
-                                        <!-- If there are more than 1 member, display the first member's name -->
-                                        {{ .Name }}
-                                        {{ else }}
-                                        <!-- If there's only 1 member or no members, display the ArtistName -->
 
-                                        {{ end }}</div>
-                                </div>
                             </div>
                         {{ end }}
                     {{ end }}
