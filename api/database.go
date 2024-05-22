@@ -3,19 +3,23 @@ package api
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/pterm/pterm"
 	"log"
+	"math/rand"
 	"net/http"
 	"strings"
 	"sync"
 )
 
 type Artist struct {
-	Id             int                 `json:"id"`
-	Image          string              `json:"image"`
-	Name           string              `json:"name"`
-	Members        []string            `json:"members"`
-	CreationDate   int                 `json:"creationDate"`
-	FirstAlbum     string              `json:"firstAlbum"`
+	Id           int      `json:"id"`
+	Image        string   `json:"image"`
+	Name         string   `json:"name"`
+	Members      []string `json:"members"`
+	CreationDate int      `json:"creationDate"`
+	FirstAlbum   string   `json:"firstAlbum"`
+	SpotifyAlbum
+	TheAudioDbArtist
 	Locations      string              `json:"locations"`
 	ConcertDates   string              `json:"concertDates"`
 	Relations      string              `json:"relations"`
@@ -26,6 +30,25 @@ type Artist struct {
 type DatesLocations struct {
 	DatesLocations map[string][]string `json:"datesLocations"`
 }
+
+type SpotifyAlbum struct {
+	Name        string `json:"name"`
+	ReleaseDate string `json:"releaseDate"`
+	TotalTracks int    `json:"total_tracks"`
+	ExternalUrl string `json:"spotify"`
+	ImageUrl    string `json:"url"`
+}
+
+type TheAudioDbArtist struct {
+	IdArtist    string `json:"idArtist"`
+	Label       string `json:"strLabel"`
+	Genre       string `json:"strGenre"`
+	BiographyEn string `json:"strBiographyEN"`
+	ArtistImage string `json:"strArtistThumb"`
+}
+
+// Create a multi printer instance from the default one
+var multi = pterm.DefaultMultiPrinter
 
 // getJson function fetches JSON data from a URL and decodes it into a target variable
 func getJson(url string, target any) error {
@@ -48,21 +71,18 @@ func AllJsonToStruct(url string) []Artist {
 	if err != nil {
 		log.Fatalf("Unable to create struct due to %s", err)
 	}
-	fmt.Println("Artist info successfully populated.")
 	return artists
 }
 
-// LocationsDatesToStruct function populates the DatesLocations map to artists
-func LocationsDatesToStruct(artists []Artist) {
+// UpdateArtistName Function to search for an artist by name and update their name
+func UpdateArtistName(artists []Artist, oldName, newName string) bool {
 	for i, artist := range artists {
-		var dateloc DatesLocations
-		err := getJson(artist.Relations, &dateloc)
-		if err != nil {
-			log.Fatalf("Unable to create struct due to %s", err)
+		if artist.Name == oldName {
+			artists[i].Name = newName
+			return true
 		}
-		artists[i].DatesLocations = dateloc.DatesLocations
 	}
-	fmt.Println("Dates and locations successfully populated.")
+	return false
 }
 
 func formatLocation(location string) string {
@@ -102,3 +122,22 @@ func FetchDatesLocations(artist *Artist, wg *sync.WaitGroup) {
 		artist.DatesLocations[formattedLocation] = dates
 	}
 }
+
+func randInt(max int) int {
+	pbrnd, _ := pterm.DefaultProgressbar.WithTotal(100).WithWriter(multi.NewWriter()).Start("Generating random numbers for suggested artists/albums")
+	randomNumber := rand.Intn(max)
+	for _, number := range randomNumbers {
+		pbrnd.UpdateTitle("Generating random number: " + string(rune(number)))
+		if number != randomNumber {
+			randomNumbers = append(randomNumbers, randomNumber)
+		}
+	}
+	pterm.Success.Println("Generating random number: ")
+	fmt.Println(randomNumber)
+	pbrnd.Increment()
+	//fmt.Println("random number is: ", randomNumber)
+	//fmt.Println("***************************************************************************************")
+	return randomNumber
+}
+
+var randomNumbers []int

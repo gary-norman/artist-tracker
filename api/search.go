@@ -7,9 +7,9 @@ import (
 
 // Custom String method for Artist struct to format output
 func (a Artist) String() string {
-	result := fmt.Sprintf("Id: %d\nImage: %s\nName: %s\nMembers: %v\nCreationDate: %d\nFirstAlbum: %s\n",
+	result := fmt.Sprintf("Id: %d\nImage: %s\nName: %s\nMembers: %v\nCreationDate: %d\nFirstAlbum: %s\nAlbum: %+v\n",
 		//result := fmt.Sprintf("%d\n%s\n%s\n%v\n%d\n%s\n",
-		a.Id, a.Image, a.Name, a.Members, a.CreationDate, a.FirstAlbum)
+		a.Id, a.Image, a.Name, a.Members, a.CreationDate, a.FirstAlbum, a.SpotifyAlbum)
 
 	result += "DatesLocations:\n"
 	for location, dates := range a.DatesLocations {
