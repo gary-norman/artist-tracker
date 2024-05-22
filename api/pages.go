@@ -23,12 +23,12 @@ func HomePage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *tem
 	maxArtists := len(artists)
 	var homeArtists []Artist
 
-	// Create a list of indices and shuffle it
+	// Create a list of indices and Shuffle it
 	indices := make([]int, len(artists))
 	for i := range indices {
 		indices[i] = i
 	}
-	shuffle(indices)
+	Shuffle(indices)
 
 	for i := 0; i < maxArtists; i++ {
 		randomArtist := artists[indices[i]]
