@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
+
 	// Call AllJsonToStruct and print the result
 	// TODO add async
 	artists := api.AllJsonToStruct("https://groupietrackers.herokuapp.com/api/artists")
@@ -51,6 +52,6 @@ func main() {
 	} else {
 		fmt.Printf("Artist found:\n%s", artist)
 	}
-	api.HandleRequests(artists)
+	api.HandleRequests(artists, api.GetTemplate())
 
 }

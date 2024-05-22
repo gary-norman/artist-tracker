@@ -21,17 +21,11 @@ type StatusError struct {
 	Err  error
 }
 
-var tpl *template.Template
-
-func init() {
-	tpl = template.Must(template.ParseGlob("templates/*.html"))
-}
-
-func HandleRequests(artists []Artist) {
+func HandleRequests(artists []Artist, tpl *template.Template) {
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.Handle("/icons/", http.StripPrefix("/icons/", http.FileServer(http.Dir("icons"))))
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		HomePage(w, r, artists)
+		HomePage(w, r, artists, tpl)
 	})
 	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
@@ -49,7 +43,7 @@ func ErrorHandler(w http.ResponseWriter, r *http.Request, status int) {
 	fmt.Println("redirecting to", strconv.Itoa(status)+".html")
 	t, err := template.ParseFiles("templates/" + strconv.Itoa(status) + ".html")
 	if err != nil {
-		fmt.Println("Error parsing files:", err.Error())
+		fmt.Printf("Error parsing files: Error", err.Error(), "\nStatus", err.Error(), "\n\n********************************************\n\n")
 		open500(w)
 		return
 	}

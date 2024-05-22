@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
-	"math/rand"
 	"net/http"
 	"strings"
 	"sync"
@@ -103,17 +102,3 @@ func FetchDatesLocations(artist *Artist, wg *sync.WaitGroup) {
 		artist.DatesLocations[formattedLocation] = dates
 	}
 }
-
-func randInt(max int) int {
-	randomNumber := rand.Intn(max)
-	for _, number := range randomNumbers {
-		if number != randomNumber {
-			randomNumbers = append(randomNumbers, randomNumber)
-		}
-	}
-	fmt.Println("random number is: ", randomNumber)
-	fmt.Println("***************************************************************************************")
-	return randomNumber
-}
-
-var randomNumbers []int
