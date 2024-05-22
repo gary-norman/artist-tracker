@@ -2,51 +2,37 @@ package api
 
 import (
 	"errors"
+	"fmt"
 	"html/template"
-	"math/rand"
 	"net/http"
 )
 
-func HomePage(w http.ResponseWriter, r *http.Request, artists []Artist) {
+func HomePage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *template.Template) {
 
 	if r.URL.Path != "/" {
 		ErrorHandler(w, r, http.StatusNotFound)
-		//fmt.Println("Error0 in HomePageGary")
-		return
-	}
-	t, err := template.ParseFiles("templates/index.html")
-	if err != nil {
-		var e Error
-		switch {
-		case errors.As(err, &e):
-			//http.Error(w, e.Error(), e.Status())
-			//fmt.Println("Error1 in HomePageGary")
-			ErrorHandler(w, r, e.Status())
-		default:
-			//fmt.Println("Error2 in HomePageGary")
-			ErrorHandler(w, r, http.StatusInternalServerError)
-		}
 		return
 	}
 
-	maxArtists := len(artists) - 1
+	t := tpl.Lookup("index.html")
+	if t == nil {
+		ErrorHandler(w, r, http.StatusInternalServerError)
+		return
+	}
+
+	maxArtists := len(artists)
 	var homeArtists []Artist
 
+	// Create a list of indices and shuffle it
+	indices := make([]int, len(artists))
+	for i := range indices {
+		indices[i] = i
+	}
+	shuffle(indices)
+
 	for i := 0; i < maxArtists; i++ {
-		randomNumber := rand.Intn(len(artists) - 1)
-
-		for _, number := range randomNumbers {
-			if number != randomNumber {
-				randomNumbers = append(randomNumbers, randomNumber)
-			} else {
-				maxArtists += 1
-			}
-		}
-
-		randomArtist := artists[randomNumber]
-		randomArtist.RandIntFunc = randInt
+		randomArtist := artists[indices[i]]
 		homeArtists = append(homeArtists, randomArtist)
-		//fmt.Println("Random Artist: ", homeArtists[i])
 	}
 
 	//homeIds := artists.Id
@@ -63,15 +49,19 @@ func HomePage(w http.ResponseWriter, r *http.Request, artists []Artist) {
 	//	Members: ,
 	//}
 
-	err = t.Execute(w, homeArtists)
+	err := t.Execute(w, homeArtists)
 	if err != nil {
 		var e Error
 		switch {
 		case errors.As(err, &e):
 			//fmt.Println("Error3 in HomePageGary")
+
+			fmt.Printf("\nerr is:", err, "\nerrrr is:", err.Error())
+
 			ErrorHandler(w, r, e.Status())
+
 		default:
-			//fmt.Println("Error4 in HomePageGary")
+			fmt.Printf("err is:", err, "errrr is:", err.Error())
 			ErrorHandler(w, r, http.StatusInternalServerError)
 		}
 		return
