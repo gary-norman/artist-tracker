@@ -88,35 +88,25 @@ func main() {
 
 	pbalb, _ := pterm.DefaultProgressbar.WithTotal(100).WithWriter(multi.NewWriter()).Start("Fetching album details from Spotify")
 	for i := range artists {
-		wg.Add(1)
 		pbalb.UpdateTitle("Fetching album details for " + artists[i].Name)
 		wg.Add(1)
-		//go api.ProcessArtist(&artists[i], authToken, &wg)
-		go api.ProcessArtist(&artists[i], authToken)
+		//go api.ProcessSpotifyArtist(&artists[i], authToken, &wg)
+		artistID, err := api.GetArtistIDWithoutKey(artists[i].Name)
+		if err != nil {
+			fmt.Println("Error:", err)
+			return
+		}
+		if artistID != "" {
+			fmt.Printf("The Artist ID for %s is %s\n", artists[i].Name, artistID)
+		} else {
+			fmt.Printf("Artist %s not found\n", artists[i].Name)
+		}
+		api.ProcessSpotifyArtist(&artists[i], authToken)
+		//api.ProcessAudioDbArtist(&artists[i], "2")
 		pterm.Success.Println("Fetching album details for " + artists[i].Name)
 		pbalb.Increment()
 	}
-	// Wait for all goroutines to finish
-	wg.Wait()
-	//
-	//for _, artist := range artists {
-	//	name := api.SearchAlbumByArtistNAme(artist.Name)
-	//	//if err != nil {
-	//	//	return
-	//	//}
-	//	fmt.Println(name)
-	//}
-	//
-	//wg.Wait()
-	////artistName := "aerosmith"
-	////artist, err := api.SearchArtist(artists, artistName)
-	////if err != nil {
-	////	log.Printf("Artist not found: %s", err)
-	////} else {
-	////	fmt.Printf("Artist found:\n%s", artist)
-	////}
-	//// Print updated artists
-	//
+
 	for _, artist := range artists {
 		fmt.Printf("Artist Info:\n%s\n", artist)
 	}

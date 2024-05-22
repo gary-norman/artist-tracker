@@ -33,16 +33,17 @@ type SpotifyArtistResponse struct {
 type SpotifyAlbumResponse struct {
 	Albums struct {
 		Items []struct {
-			TotalTracks  int `json:"total_tracks"`
+			Name         string `json:"name"`
+			ReleaseDate  string `json:"release_date"`
+			TotalTracks  int    `json:"total_tracks"`
 			ExternalUrls struct {
 				Spotify string `json:"spotify"`
 			} `json:"external_urls"`
 			Images []struct {
 				Url string `json:"url"`
 			} `json:"images"`
-			Name string `json:"name"`
 		} `json:"items"`
-	}
+	} `json:"albums"`
 }
 
 type SpotifyArtistID struct {
@@ -306,21 +307,7 @@ func getSpotifyAlbums(artist, album, authToken string) (SpotifyAlbum, error) {
 		return SpotifyAlbum{}, err
 	}
 
-	var response struct {
-		Albums struct {
-			Items []struct {
-				Name         string `json:"name"`
-				ReleaseDate  string `json:"release_date"`
-				TotalTracks  int    `json:"total_tracks"`
-				ExternalUrls struct {
-					Spotify string `json:"spotify"`
-				} `json:"external_urls"`
-				Images []struct {
-					Url string `json:"url"`
-				} `json:"images"`
-			} `json:"items"`
-		} `json:"albums"`
-	}
+	var response SpotifyAlbumResponse
 
 	err = json.Unmarshal(body, &response)
 	if err != nil {
@@ -343,9 +330,9 @@ func getSpotifyAlbums(artist, album, authToken string) (SpotifyAlbum, error) {
 	return spotifyAlbum, nil
 }
 
-//	func ProcessArtist(wg *sync.WaitGroup, artist *Artist, authToken string) {
+//	func ProcessSpotifyArtist(wg *sync.WaitGroup, artist *Artist, authToken string) {
 //		defer wg.Done()
-func ProcessArtist(artist *Artist, authToken string) {
+func ProcessSpotifyArtist(artist *Artist, authToken string) {
 	//defer wg.Done()
 	// Extract year from FirstAlbum date
 	firstAlbumDate, err := time.Parse("02-01-2006", artist.FirstAlbum)
@@ -377,4 +364,5 @@ func ProcessArtist(artist *Artist, authToken string) {
 	}
 	newDate := parsedDate.Format("02-01-2006")
 	artist.SpotifyAlbum.ReleaseDate = newDate
+
 }

@@ -19,6 +19,7 @@ type Artist struct {
 	CreationDate int      `json:"creationDate"`
 	FirstAlbum   string   `json:"firstAlbum"`
 	SpotifyAlbum
+	TheAudioDbArtist
 	Locations      string              `json:"locations"`
 	ConcertDates   string              `json:"concertDates"`
 	Relations      string              `json:"relations"`
@@ -36,6 +37,14 @@ type SpotifyAlbum struct {
 	TotalTracks int    `json:"total_tracks"`
 	ExternalUrl string `json:"spotify"`
 	ImageUrl    string `json:"url"`
+}
+
+type TheAudioDbArtist struct {
+	IdArtist    string `json:"idArtist"`
+	Label       string `json:"strLabel"`
+	Genre       string `json:"strGenre"`
+	BiographyEn string `json:"strBiographyEN"`
+	ArtistImage string `json:"strArtistThumb"`
 }
 
 // Create a multi printer instance from the default one
