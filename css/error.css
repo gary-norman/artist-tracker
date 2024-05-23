@@ -1,0 +1,54 @@
+:root {
+    --origin: 50%;
+}
+.record-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15rem;
+}
+#record-main {
+    animation: record 1818ms linear 0s infinite normal forwards;
+    transform-origin: var(--origin) var(--origin);
+}
+.lyrics {
+    font-size: 2rem;
+    text-align: center;
+    max-width: 90%;
+}
+q {
+    font-style: italic;
+}
+a {
+    font-size: 3rem;
+}
+#record-highlight {
+    animation: highlight 100ms linear 0s infinite alternate backwards;
+    transform-origin: var(--origin) var(--origin);
+}
+
+@keyframes record {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes highlight {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(2deg);
+    }
+}
