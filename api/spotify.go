@@ -385,16 +385,16 @@ func ProcessSpotifyArtist(artist *Artist, authToken string) {
 		fmt.Printf("Error fetching %s for artist %s: %v\n", release, artist.Name, err)
 		return
 	}
-	// Update artist struct
-	artist.SpotifyAlbum = spotifyAlbum
-	// Update date format
-	oldDate := artist.SpotifyAlbum.ReleaseDate
-	parsedDate, err := time.Parse("2006-01-02", oldDate)
-	if err != nil {
-		fmt.Println("Error parsing date:", err)
-		return
-	}
-	newDate := parsedDate.Format("02-01-2006")
-	artist.SpotifyAlbum.ReleaseDate = newDate
+	//// Update artist struct
+	//artist.SpotifyAlbum = spotifyAlbum
+	//// Update date format
+	//oldDate := artist.SpotifyAlbum.ReleaseDate
+	//parsedDate, err := time.Parse("2006-01-02", oldDate)
+	//if err != nil {
+	//	fmt.Println("Error parsing date:", err)
+	//	return
+	//}
+	//newDate := parsedDate.Format("02-01-2006")
+	//artist.SpotifyAlbum.ReleaseDate = newDate
 
 }

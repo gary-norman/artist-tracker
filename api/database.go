@@ -18,7 +18,7 @@ type Artist struct {
 	Members      []string `json:"members"`
 	CreationDate int      `json:"creationDate"`
 	FirstAlbum   string   `json:"firstAlbum"`
-	SpotifyAlbum
+	TadbAlbum
 	TheAudioDbArtist
 	Locations      string              `json:"locations"`
 	ConcertDates   string              `json:"concertDates"`
@@ -29,6 +29,15 @@ type Artist struct {
 
 type DatesLocations struct {
 	DatesLocations map[string][]string `json:"datesLocations"`
+}
+
+type TadbAlbum struct {
+	IdAlbum            string `json:"idAlbum"`
+	Album              string `json:"strAlbum"`
+	YearReleased       string `json:"intYearReleased"`
+	AlbumThumb         string `json:"strAlbumThumb"`
+	DescriptionEN      string `json:"strDescriptionEN"`
+	MusicBrainzAlbumID string `json:"strMusicBrainzID"`
 }
 
 type SpotifyAlbum struct {

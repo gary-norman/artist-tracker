@@ -13,11 +13,11 @@ func main() {
 	tadbArtist, err := api.GetTADBartistIDs()
 	for i := range artists {
 		api.ProcessAudioDbArtist(&artists[i], artists[i].Name, tadbArtist[i].Id, err)
+		api.ProcessAudioDbAlbum(&artists[i], artists[i].Name, tadbArtist[i].Id, err)
 	}
 	//api.HandleRequests(artists, api.GetTemplate())
-		fmt.Println(artists[0])
-		//fmt.Printf("ID for %v: %s\n", artist.Name, api.SearchArtistByName(artist.Name))
-		//fmt.Printf("Release for %v: %s\n", artist.Name, api.GetReleasesByArtistID(api.SearchArtistByName(artist.Name)))
+	fmt.Println(artists[0])
+	//fmt.Printf("ID for %v: %s\n", artist.Name, api.SearchArtistByName(artist.Name))
+	//fmt.Printf("Release for %v: %s\n", artist.Name, api.GetReleasesByArtistID(api.SearchArtistByName(artist.Name)))
 
-	}
 }
