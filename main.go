@@ -7,16 +7,16 @@ import (
 
 func main() {
 	// Call AllJsonToStruct and print the result
-	artists := api.AllJsonToStruct("https://groupietrackers.herokuapp.com/api/artists")
+	Artists := api.AllJsonToStruct("https://groupietrackers.herokuapp.com/api/artists")
 	//api.IterateOverArtistsTADB()
-	api.UpdateArtistInfo(artists)
+	api.UpdateArtistInfo(Artists)
 	tadbArtist, err := api.GetTADBartistIDs()
-	for i := range artists {
-		api.ProcessAudioDbArtist(&artists[i], artists[i].Name, tadbArtist[i].Id, err)
-		api.ProcessAudioDbAlbum(&artists[i], artists[i].Name, tadbArtist[i].Id, err)
+	for i := range Artists {
+		api.ProcessAudioDbArtist(&Artists[i], Artists[i].Name, tadbArtist[i].Id, err)
+		api.ProcessAudioDbAlbum(&Artists[i], Artists[i].Name, tadbArtist[i].Id, err)
 	}
-	fmt.Println(artists[0])
-	api.HandleRequests(artists, api.GetTemplate())
+	fmt.Println(Artists[0])
+	api.HandleRequests(Artists, api.GetTemplate())
 	//fmt.Printf("ID for %v: %s\n", artist.Name, api.SearchArtistByName(artist.Name))
 	//fmt.Printf("Release for %v: %s\n", artist.Name, api.GetReleasesByArtistID(api.SearchArtistByName(artist.Name)))
 

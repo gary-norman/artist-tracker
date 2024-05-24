@@ -27,12 +27,13 @@ func HandleRequests(artists []Artist, tpl *template.Template) {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		HomePage(w, r, artists, tpl)
 	})
-	err := http.ListenAndServe(":8080", nil)
+	port := 8080
+	addr := fmt.Sprintf(":%d", port)
+	fmt.Printf("Server listening on http://localhost%s\n", addr)
+	err := http.ListenAndServe(addr, nil)
 	if err != nil {
-
-		return
+		panic(err)
 	}
-	fmt.Println("Server is running on port 8080")
 }
 
 func ErrorHandler(w http.ResponseWriter, r *http.Request, status int) {
@@ -43,7 +44,7 @@ func ErrorHandler(w http.ResponseWriter, r *http.Request, status int) {
 	fmt.Println("redirecting to", strconv.Itoa(status)+".html")
 	t, err := template.ParseFiles("templates/" + strconv.Itoa(status) + ".html")
 	if err != nil {
-		fmt.Printf("Error parsing files: Error", err.Error(), "\nStatus", err.Error(), "\n\n********************************************\n\n")
+		fmt.Printf("Error parsing files: %v\n\n********************************************\n\n", err.Error())
 		open500(w)
 		return
 	}
