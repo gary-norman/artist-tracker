@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"sync"
 )
 
 type TheAudioDbArtistResponse struct {
@@ -87,7 +88,8 @@ func GetTADBartistIDs() (TadbArtist, error) {
 	return tadbArtist, err
 }
 
-func GetAudioDbArtistInfo(artist string, artistID string) (TheAudioDbArtist, error) {
+func GetAudioDbArtistInfo(artist string, artistID string, wg *sync.WaitGroup) (TheAudioDbArtist, error) {
+	defer wg.Done()
 	encodedArtist := url.QueryEscape(artistID)
 	queryURL := fmt.Sprintf("https://www.theaudiodb.com/api/v1/json/2/artist.php?i=%s", encodedArtist)
 
@@ -143,11 +145,12 @@ func GetAudioDbArtistInfo(artist string, artistID string) (TheAudioDbArtist, err
 	return theAudioDbArtist, nil
 }
 
-func ProcessAudioDbArtist(artist *Artist, artistName string, artistID string, err error) {
-	artist.TheAudioDbArtist, err = GetAudioDbArtistInfo(artistName, artistID)
+func ProcessAudioDbArtist(artist *Artist, artistName string, artistID string, err error, wg *sync.WaitGroup) {
+	artist.TheAudioDbArtist, err = GetAudioDbArtistInfo(artistName, artistID, wg)
 }
 
-func GetAudioDbAlbumInfo(artist string, artistID string) (TadbAlbum, error) {
+func GetAudioDbAlbumInfo(artist string, artistID string, wg *sync.WaitGroup) (TadbAlbum, error) {
+	defer wg.Done()
 	encodedArtist := url.QueryEscape(artistID)
 	queryURL := fmt.Sprintf("https://www.theaudiodb.com/api/v1/json/2/album.php?i=%s", encodedArtist)
 
@@ -194,6 +197,6 @@ func GetAudioDbAlbumInfo(artist string, artistID string) (TadbAlbum, error) {
 	return theAudioDbAlbum, nil
 }
 
-func ProcessAudioDbAlbum(artist *Artist, artistName string, artistID string, err error) {
-	artist.TadbAlbum, err = GetAudioDbAlbumInfo(artistName, artistID)
+func ProcessAudioDbAlbum(artist *Artist, artistName string, artistID string, err error, wg *sync.WaitGroup) {
+	artist.TadbAlbum, err = GetAudioDbAlbumInfo(artistName, artistID, wg)
 }
