@@ -63,7 +63,12 @@ func GetTADBartistIDs() (TadbArtist, error) {
 		fmt.Println(err)
 		return TadbArtist{}, err
 	}
-	defer jsonFile.Close()
+	defer func(jsonFile *os.File) {
+		err2 := jsonFile.Close()
+		if err2 != nil {
+			fmt.Printf("Error closing json file: %s", err2)
+		}
+	}(jsonFile)
 
 	// Read the file contents
 	byteValue, err := io.ReadAll(jsonFile)
@@ -80,25 +85,6 @@ func GetTADBartistIDs() (TadbArtist, error) {
 		return TadbArtist{}, err
 	}
 	return tadbArtist, err
-}
-
-func GetArtistIDWithoutKey(artistName string) (string, error) {
-	baseURL := "https://www.theaudiodb.com/api/v1/json/1/search.php"
-	resp, err := http.Get(fmt.Sprintf("%s?s=%s", baseURL, artistName))
-	if err != nil {
-		return "", err
-	}
-	defer resp.Body.Close()
-
-	var response Response
-	if err := json.NewDecoder(resp.Body).Decode(&response); err != nil {
-		return "", err
-	}
-
-	if len(response.Artists) > 0 {
-		return response.Artists[0].IDArtist, nil
-	}
-	return "", nil
 }
 
 func GetAudioDbArtistInfo(artist string, artistID string) (TheAudioDbArtist, error) {
