@@ -40,11 +40,22 @@ type SpotifyAlbum struct {
 }
 
 type TheAudioDbArtist struct {
-	IdArtist    string `json:"idArtist"`
-	Label       string `json:"strLabel"`
-	Genre       string `json:"strGenre"`
-	BiographyEn string `json:"strBiographyEN"`
-	ArtistImage string `json:"strArtistThumb"`
+	IdArtist        string `json:"idArtist"`
+	Label           string `json:"strLabel"`
+	Genre           string `json:"strGenre"`
+	Website         string `json:"strWebsite"`
+	BiographyEn     string `json:"strBiographyEN"`
+	ArtistThumb     string `json:"strArtistThumb"`
+	ArtistLogo      string `json:"strArtistLogo"`
+	ArtistCutout    string `json:"strArtistCutout"`
+	ArtistClearart  string `json:"strArtistClearart"`
+	ArtistWidethumb string `json:"strArtistWidethumb"`
+	ArtistFanart    string `json:"strArtistFanart"`
+	ArtistFanart2   string `json:"strArtistFanart2"`
+	ArtistFanart3   string `json:"strArtistFanart3"`
+	ArtistFanart4   string `json:"strArtistFanart4"`
+	ArtistBanner    string `json:"strArtistBanner"`
+	MusicBrainzID   string `json:"strMusicBrainzID"`
 }
 
 // Create a multi printer instance from the default one

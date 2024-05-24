@@ -7,15 +7,32 @@ import (
 	"log"
 	"net/http"
 	"net/url"
-	"strings"
+	"os"
 )
 
 type TheAudioDbArtistResponse struct {
-	IdArtist    string `json:"idArtist"`
-	Label       string `json:"strLabel"`
-	Genre       string `json:"strGenre"`
-	BiographyEn string `json:"strBiographyEN"`
-	ArtistImage string `json:"strArtistThumb"`
+	Artists []struct {
+		IdArtist        string `json:"idArtist"`
+		Label           string `json:"strLabel"`
+		Genre           string `json:"strGenre"`
+		Website         string `json:"strWebsite"`
+		BiographyEn     string `json:"strBiographyEN"`
+		ArtistThumb     string `json:"strArtistThumb"`
+		ArtistLogo      string `json:"strArtistLogo"`
+		ArtistCutout    string `json:"strArtistCutout"`
+		ArtistClearart  string `json:"strArtistClearart"`
+		ArtistWidethumb string `json:"strArtistWidethumb"`
+		ArtistFanart    string `json:"strArtistFanart"`
+		ArtistFanart2   string `json:"strArtistFanart2"`
+		ArtistFanart3   string `json:"strArtistFanart3"`
+		ArtistFanart4   string `json:"strArtistFanart4"`
+		ArtistBanner    string `json:"strArtistBanner"`
+		MusicBrainzID   string `json:"strMusicBrainzID"`
+	} `json:"artists"`
+}
+type TadbArtist []struct {
+	Artist string `json:"artist"`
+	Id     string `json:"id"`
 }
 
 type CheekyArtist struct {
@@ -24,6 +41,31 @@ type CheekyArtist struct {
 
 type Response struct {
 	Artists []CheekyArtist `json:"artists"`
+}
+
+func GetTADBartistIDs() (TadbArtist, error) {
+	jsonFile, err := os.Open("db/tadb_artist_ids.json")
+	if err != nil {
+		fmt.Println(err)
+		return TadbArtist{}, err
+	}
+	defer jsonFile.Close()
+
+	// Read the file contents
+	byteValue, err := io.ReadAll(jsonFile)
+	if err != nil {
+		fmt.Println(err)
+		return TadbArtist{}, err
+	}
+
+	// Unmarshal the JSON data into a variable
+	var tadbArtist TadbArtist
+	err = json.Unmarshal(byteValue, &tadbArtist)
+	if err != nil {
+		fmt.Println(err)
+		return TadbArtist{}, err
+	}
+	return tadbArtist, err
 }
 
 func GetArtistIDWithoutKey(artistName string) (string, error) {
@@ -45,16 +87,15 @@ func GetArtistIDWithoutKey(artistName string) (string, error) {
 	return "", nil
 }
 
-func getAudioDbArtistInfo(artist string, authToken string) (TheAudioDbArtist, error) {
-	encodedArtist := url.QueryEscape(strings.Replace(artist, " ", "+", -1))
-	queryURL := fmt.Sprintf("https://www.theaudiodb.com/api/v1/json/2/search.php?s=%s", encodedArtist)
+func GetAudioDbArtistInfo(artist string, artistID string) (TheAudioDbArtist, error) {
+	fmt.Printf("Artist ID for %v: %v\n", artist, artistID)
+	encodedArtist := url.QueryEscape(artistID)
+	queryURL := fmt.Sprintf("https://www.theaudiodb.com/api/v1/json/2/artist.php?i=%s", encodedArtist)
 
 	req, err := http.NewRequest("GET", queryURL, nil)
 	if err != nil {
 		return TheAudioDbArtist{}, err
 	}
-
-	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", authToken))
 
 	client := &http.Client{}
 	resp, err := client.Do(req)
@@ -73,42 +114,37 @@ func getAudioDbArtistInfo(artist string, authToken string) (TheAudioDbArtist, er
 		return TheAudioDbArtist{}, fmt.Errorf("error response from TheAudioDB API: %s", body)
 	}
 
-	body, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return TheAudioDbArtist{}, err
-	}
-
 	var response TheAudioDbArtistResponse
-
-	err = json.Unmarshal(body, &response)
+	err = json.NewDecoder(resp.Body).Decode(&response)
 	if err != nil {
 		return TheAudioDbArtist{}, fmt.Errorf("error unmarshaling response: %w", err)
 	}
-
-	if len(response.IdArtist) == 0 {
+	fmt.Printf("Fetched data for %v: %s\n", artist, response.Artists[0].IdArtist)
+	if len(response.Artists[0].IdArtist) == 0 {
 		return TheAudioDbArtist{}, fmt.Errorf("no audiodb artist info found for %s", artist)
 	}
 
-	newartist := response
+	newartist := response.Artists[0]
 	theAudioDbArtist := TheAudioDbArtist{
-		IdArtist:    newartist.IdArtist,
-		Label:       newartist.Label,
-		Genre:       newartist.Genre,
-		BiographyEn: newartist.BiographyEn,
-		ArtistImage: newartist.ArtistImage,
+		IdArtist:        newartist.IdArtist,
+		Label:           newartist.Label,
+		Genre:           newartist.Genre,
+		BiographyEn:     newartist.BiographyEn,
+		ArtistThumb:     newartist.ArtistThumb,
+		ArtistLogo:      newartist.ArtistLogo,
+		ArtistCutout:    newartist.ArtistCutout,
+		ArtistClearart:  newartist.ArtistClearart,
+		ArtistWidethumb: newartist.ArtistWidethumb,
+		ArtistFanart:    newartist.ArtistFanart,
+		ArtistFanart2:   newartist.ArtistFanart2,
+		ArtistFanart3:   newartist.ArtistFanart3,
+		ArtistFanart4:   newartist.ArtistFanart4,
+		ArtistBanner:    newartist.ArtistBanner,
+		MusicBrainzID:   newartist.MusicBrainzID,
 	}
-
 	return theAudioDbArtist, nil
 }
 
-func ProcessAudioDbArtist(artist *Artist, apiToken string) {
-	// get images from The AudioDB
-	audiodbArtist, err := getAudioDbArtistInfo(artist.Name, apiToken)
-	fmt.Printf("AudioDbArtist: %v\n", audiodbArtist)
-	if err != nil {
-		fmt.Printf("Error fetching info for artist %s: %v\n", artist.Name, err)
-		return
-	}
-	// Update artist struct
-	artist.TheAudioDbArtist = audiodbArtist
+func ProcessAudioDbArtist(artist *Artist, artistName string, artistID string, err error) {
+	artist.TheAudioDbArtist, err = GetAudioDbArtistInfo(artistName, artistID)
 }
