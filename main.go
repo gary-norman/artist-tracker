@@ -15,8 +15,7 @@ func main() {
 		api.ProcessAudioDbArtist(&artists[i], artists[i].Name, tadbArtist[i].Id, err)
 	}
 	//api.HandleRequests(artists, api.GetTemplate())
-	for _, artist := range artists {
-		fmt.Println(artist)
+		fmt.Println(artists[0])
 		//fmt.Printf("ID for %v: %s\n", artist.Name, api.SearchArtistByName(artist.Name))
 		//fmt.Printf("Release for %v: %s\n", artist.Name, api.GetReleasesByArtistID(api.SearchArtistByName(artist.Name)))
 
