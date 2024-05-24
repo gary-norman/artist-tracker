@@ -47,21 +47,23 @@ func HandleRequests(artists []Artist, tpl *template.Template) {
 		// Log server listening messages
 		logger.Info("Starting server on port: " + pterm.Green(strconv.Itoa(port)))
 		logger.Info("Server listening on ", logger.Args("http://localhost"+addr, pterm.Green("success")))
-		if err2 := server.ListenAndServe(); !errors.Is(err2, http.ErrServerClosed) {
-			log.Fatalf("HTTP server error: %v", err2)
+		if err := server.ListenAndServe(); !errors.Is(err, http.ErrServerClosed) {
+			log.Fatalf("HTTP server error: %v", err)
 		}
 		logger.Info("Stopped serving new connections.")
 	}()
 
+	// set up a channel to listen for kill or interrupt
 	sigChan := make(chan os.Signal, 1)
 	signal.Notify(sigChan, syscall.SIGINT, syscall.SIGTERM)
 	<-sigChan
 
+	// create cancellation signal and timeout
 	shutdownCtx, shutdownRelease := context.WithTimeout(context.Background(), 10*time.Second)
 	defer shutdownRelease()
-
-	if err2 := server.Shutdown(shutdownCtx); err2 != nil {
-		log.Fatalf("HTTP shutdown error: %v", err2)
+	// shut down the server
+	if err := server.Shutdown(shutdownCtx); err != nil {
+		log.Fatalf("HTTP shutdown error: %v", err)
 	}
 	logger.Info("Graceful shutdown complete.")
 }

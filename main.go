@@ -21,7 +21,7 @@ func main() {
 	} // Render the big text to the terminal
 	spinnerInfo, _ := pterm.DefaultSpinner.Start("Fetching artist information")
 	start := time.Now()
-	// Call AllJsonToStruct and print the result
+	// Populate the artist struct with API data
 	Artists := api.AllJsonToStruct("https://groupietrackers.herokuapp.com/api/artists")
 	t := time.Now()
 	timetaken := t.Sub(start).Milliseconds()
@@ -30,8 +30,11 @@ func main() {
 	} else {
 		spinnerInfo.Success("Fetched artist information in " + strconv.FormatInt(timetaken, 10) + "ms")
 	}
+	// call the functions to populate extra information from TADB
 	api.UpdateArtistInfo(Artists)
-	pterm.Println(pterm.Cyan(Artists[23]))
+	t = time.Now()
+	// print 1 artist to the terminal for information and debugging
+	pterm.Println(pterm.Cyan(Artists[26]))
 	err2 := pterm.DefaultBigText.WithLetters(
 		putils.LettersFromStringWithStyle("Artist", pterm.FgCyan.ToStyle()),
 		putils.LettersFromStringWithRGB("-", pterm.NewRGB(255, 215, 0)),
@@ -41,7 +44,6 @@ func main() {
 		fmt.Printf("Could not print BigText: %v", err2)
 		return
 	} // Render the big text to the terminal
-	t = time.Now()
 	timetaken = t.Sub(start).Milliseconds()
 	pterm.Info.Println("All tasks completed successfully in " + pterm.Green(strconv.FormatInt(timetaken, 10)+"ms"))
 	api.HandleRequests(Artists, api.GetTemplate())
