@@ -2,6 +2,7 @@ package api
 
 import (
 	"fmt"
+	"github.com/pterm/pterm"
 	"html/template"
 	"net/http"
 	"strconv"
@@ -27,9 +28,11 @@ func HandleRequests(artists []Artist, tpl *template.Template) {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		HomePage(w, r, artists, tpl)
 	})
+	pbhttp, _ := pterm.DefaultProgressbar.WithTotal(100).WithWriter(multi.NewWriter()).Start("Fetching artist information")
 	port := 8080
 	addr := fmt.Sprintf(":%d", port)
-	fmt.Printf("Server listening on http://localhost%s\n", addr)
+	pbhttp.UpdateTitle("Starting server on port: " + string(rune(port)))
+	pterm.Success.Printf("Server listening on http://localhost%s\n", addr)
 	err := http.ListenAndServe(addr, nil)
 	if err != nil {
 		panic(err)

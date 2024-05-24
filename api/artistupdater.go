@@ -1,22 +1,49 @@
 package api
 
 import (
-	"fmt"
 	"github.com/pterm/pterm"
 	"sync"
 )
 
 func UpdateArtistInfo(artists []Artist) {
-	// Create a multi printer instance from the default one
-	multi := pterm.DefaultMultiPrinter
 	// Fetch DatesLocations data concurrently for each artist
 	var wg sync.WaitGroup
-	pba, _ := pterm.DefaultProgressbar.WithTotal(100).WithWriter(multi.NewWriter()).Start("Fetching artists")
+	pba, _ := pterm.DefaultProgressbar.WithTotal(100).WithWriter(multi.NewWriter()).Start("Fetching artist information")
+	tadbArtist, err := GetTADBartistIDs()
+	for i := range tadbArtist {
+		pba.UpdateTitle("Fetching TADB ID for: " + artists[i].Name)
+		if tadbArtist[i].Id != " " {
+			pterm.Success.Printf("Fetched ID: %v for %v\n", tadbArtist[i].Id, tadbArtist[i].Artist)
+		} else {
+			pterm.Error.Printf("Error fetching artist ID for%v\n", tadbArtist[i])
+		}
+	}
 	for i := range artists {
 		wg.Add(1)
-		pba.UpdateTitle("Fetching artist: " + artists[i].Name)
+		pba.UpdateTitle("Fetching dates/locations for: " + artists[i].Name)
 		go FetchDatesLocations(&artists[i], &wg)
-		pterm.Success.Println("Fetching artist: " + artists[i].Name)
+		if artists[i].Locations != " " {
+			pterm.Success.Printf("Fetched dates/locations for: %v\n", artists[i].Name)
+		} else {
+			pterm.Error.Printf("Error fetching dates/locations for: %v\n", artists[i].Name)
+		}
+		pba.Increment()
+		pba.UpdateTitle("Fetching artist IDs")
+		pba.UpdateTitle("Fetching TADB artist info for: " + artists[i].Name)
+		go ProcessAudioDbArtist(&artists[i], artists[i].Name, tadbArtist[i].Id, err)
+		if artists[i].IdArtist != " " {
+			pterm.Success.Printf("Fetched TADB artist info for: %v\n", artists[i].Name)
+		} else {
+			pterm.Error.Printf("Error fetching TADB artist info for: %v\n", artists[i].Name)
+		}
+		pba.Increment()
+		pba.UpdateTitle("Fetching TADB album info for: " + artists[i].Name)
+		go ProcessAudioDbAlbum(&artists[i], artists[i].Name, tadbArtist[i].Id, err)
+		if artists[i].IdAlbum != " " {
+			pterm.Success.Printf("Fetched TADB album info for: %v\n", artists[i].Name)
+		} else {
+			pterm.Error.Printf("Error fetching TADB album info for: %v\n", artists[i].Name)
+		}
 		pba.Increment()
 	}
 	// Wait for all goroutines to finish
@@ -30,7 +57,7 @@ func UpdateArtistInfo(artists []Artist) {
 		pterm.Success.Println("Updating " + oldName + " to " + newName)
 		pban.Increment()
 	} else {
-		fmt.Printf("Artist with name %s not found.\n", oldName)
+		pterm.Error.Println("Artist with name %s not found.\n", oldName)
 	}
 }
 

@@ -10,12 +10,14 @@ func main() {
 	Artists := api.AllJsonToStruct("https://groupietrackers.herokuapp.com/api/artists")
 	//api.IterateOverArtistsTADB()
 	api.UpdateArtistInfo(Artists)
-	tadbArtist, err := api.GetTADBartistIDs()
-	for i := range Artists {
-		api.ProcessAudioDbArtist(&Artists[i], Artists[i].Name, tadbArtist[i].Id, err)
-		api.ProcessAudioDbAlbum(&Artists[i], Artists[i].Name, tadbArtist[i].Id, err)
+	//tadbArtist, err := api.GetTADBartistIDs()
+	//for i := range Artists {
+	//	api.ProcessAudioDbArtist(&Artists[i], Artists[i].Name, tadbArtist[i].Id, err)
+	//	api.ProcessAudioDbAlbum(&Artists[i], Artists[i].Name, tadbArtist[i].Id, err)
+	//}
+	for i := 0; i < 60; i += 10 {
+		fmt.Println(Artists[i])
 	}
-	fmt.Println(Artists[0])
 	api.HandleRequests(Artists, api.GetTemplate())
 	//fmt.Printf("ID for %v: %s\n", artist.Name, api.SearchArtistByName(artist.Name))
 	//fmt.Printf("Release for %v: %s\n", artist.Name, api.GetReleasesByArtistID(api.SearchArtistByName(artist.Name)))
