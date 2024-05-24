@@ -1,11 +1,18 @@
 package api
 
 import (
+	"context"
+	"errors"
 	"fmt"
 	"github.com/pterm/pterm"
 	"html/template"
+	"log"
 	"net/http"
+	"os"
+	"os/signal"
 	"strconv"
+	"syscall"
+	"time"
 )
 
 func (se StatusError) Error() string {
@@ -23,20 +30,40 @@ type StatusError struct {
 }
 
 func HandleRequests(artists []Artist, tpl *template.Template) {
+	// Create a logger with trace level
+	logger := pterm.DefaultLogger.WithLevel(pterm.LogLevelTrace)
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.Handle("/icons/", http.StripPrefix("/icons/", http.FileServer(http.Dir("icons"))))
+	port := 8080
+	addr := fmt.Sprintf(":%d", port)
+	server := &http.Server{
+		Addr: addr,
+	}
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		HomePage(w, r, artists, tpl)
 	})
-	pbhttp, _ := pterm.DefaultProgressbar.WithTotal(100).WithWriter(multi.NewWriter()).Start("Fetching artist information")
-	port := 8080
-	addr := fmt.Sprintf(":%d", port)
-	pbhttp.UpdateTitle("Starting server on port: " + string(rune(port)))
-	pterm.Success.Printf("Server listening on http://localhost%s\n", addr)
-	err := http.ListenAndServe(addr, nil)
-	if err != nil {
-		panic(err)
+
+	go func() {
+		// Log server listening messages
+		logger.Info("Starting server on port: " + pterm.Green(strconv.Itoa(port)))
+		logger.Info("Server listening on ", logger.Args("http://localhost"+addr, pterm.Green("success")))
+		if err2 := server.ListenAndServe(); !errors.Is(err2, http.ErrServerClosed) {
+			log.Fatalf("HTTP server error: %v", err2)
+		}
+		logger.Info("Stopped serving new connections.")
+	}()
+
+	sigChan := make(chan os.Signal, 1)
+	signal.Notify(sigChan, syscall.SIGINT, syscall.SIGTERM)
+	<-sigChan
+
+	shutdownCtx, shutdownRelease := context.WithTimeout(context.Background(), 10*time.Second)
+	defer shutdownRelease()
+
+	if err2 := server.Shutdown(shutdownCtx); err2 != nil {
+		log.Fatalf("HTTP shutdown error: %v", err2)
 	}
+	logger.Info("Graceful shutdown complete.")
 }
 
 func ErrorHandler(w http.ResponseWriter, r *http.Request, status int) {
