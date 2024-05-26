@@ -46,6 +46,7 @@ func main() {
 	} // Render the big text to the terminal
 	timetaken = t.Sub(start).Milliseconds()
 	pterm.Info.Println("All tasks completed successfully in " + pterm.Green(strconv.FormatInt(timetaken, 10)+"ms"))
-	fmt.Println(api.GetTourInfo(Artists, "queen"))
+	//fmt.Println(api.GetTourInfo(Artists, "queen"))
+	api.GetTourInfo(Artists, Artists[0].Name)
 	api.HandleRequests(Artists, api.GetTemplate())
 }

@@ -1,12 +1,12 @@
 package api
 
 import (
-	"encoding/json"
 	"fmt"
 	"io"
 	"log"
 	"net/http"
 	"net/url"
+	"os"
 	"sort"
 	"strings"
 	"time"
@@ -84,7 +84,7 @@ func getFirstLastTourDates(artists []Artist, name string) (string, string) {
 	return first, last
 }
 
-func GetTourInfo(artists []Artist, name string) (TourDetails, error) {
+func GetTourInfo(artists []Artist, name string) {
 	apiKey := "dccdb0a36amsh783e1cc91e71909p1fadc0jsn9c03dce7a6cd"
 	first, last := getFirstLastTourDates(artists, name)
 	name = strings.Replace(name, " ", "%20", -1)
@@ -96,17 +96,19 @@ func GetTourInfo(artists []Artist, name string) (TourDetails, error) {
 	fmt.Printf("Query: %s\n", queryURL)
 	req, err := http.NewRequest("GET", queryURL, nil)
 	if err != nil {
-		return TourDetails{}, err
+		fmt.Printf("Query error: %v\n", err)
+		//return TourDetails{}, err
 	}
 
 	req.Header.Add("x-rapidapi-key", apiKey)
 	req.Header.Add("x-rapidapi-host", "concerts-artists-events-tracker.p.rapidapi.com")
-	//req.Header.Add("Accept", "application/json")
+	req.Header.Add("Accept", "application/json")
 
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		return TourDetails{}, err
+		fmt.Printf("http error: %v\n", err)
+		//return TourDetails{}, err
 	}
 	defer func(Body io.ReadCloser) {
 		err = Body.Close()
@@ -114,22 +116,42 @@ func GetTourInfo(artists []Artist, name string) (TourDetails, error) {
 			log.Fatalf("error closing file: %v", err)
 		}
 	}(resp.Body)
-	body, _ := io.ReadAll(resp.Body)
-	responseBody := string(body)
-	fmt.Printf("response body: %v\n", responseBody)
 
-	if resp.StatusCode != http.StatusOK {
-		return TourDetails{}, fmt.Errorf("error response from API: %v", resp.StatusCode)
-	}
-
-	var response TourDetails
-	err = json.NewDecoder(resp.Body).Decode(&response)
+	// Create the output file
+	outFile, err := os.Create("db/tourinfo/" + name + ".json")
 	if err != nil {
-		return TourDetails{}, fmt.Errorf("error unmarshaling response: %w", err)
+		fmt.Printf("Error creating json file: %v\n", err)
+		return
 	}
-	fmt.Printf("response: %v\n", response)
-	if len(response.Data) == 0 {
-		return TourDetails{}, fmt.Errorf("no tour data found for %s", name)
+	defer func(outFile *os.File) {
+		err = outFile.Close()
+		if err != nil {
+			fmt.Printf("Error closing file: %v\n", err)
+		}
+	}(outFile)
+
+	// Write the response body to the file
+	_, err = io.Copy(outFile, resp.Body)
+	if err != nil {
+		return
 	}
-	return response, nil
+
+	//body, _ := io.ReadAll(resp.Body)
+	//responseBody := string(body)
+	//fmt.Printf("response body: %v\n", responseBody)
+	//
+	//if resp.StatusCode != http.StatusOK {
+	//	return TourDetails{}, fmt.Errorf("error response from API: %v", resp.StatusCode)
+	//}
+	//
+	//var response TourDetails
+	//err = json.NewDecoder(resp.Body).Decode(&response)
+	//if err != nil {
+	//	return TourDetails{}, fmt.Errorf("error unmarshaling response: %w", err)
+	//}
+	//fmt.Printf("response: %v\n", response)
+	//if len(response.Data) == 0 {
+	//	return TourDetails{}, fmt.Errorf("no tour data found for %s", name)
+	//}
+	//return response, nil
 }
