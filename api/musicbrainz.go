@@ -28,7 +28,7 @@ type ReleaseSearchResponse struct {
 	} `json:"release-groups"`
 }
 
-func SearchArtistByName(artistName string) string {
+func SearchMusicBrainzArtistByName(artistName string) string {
 	endpoint := fmt.Sprintf("https://musicbrainz.org/ws/2/artist/?query=%s&fmt=json", url.QueryEscape(artistName))
 	req, err := http.NewRequest("GET", endpoint, nil)
 	if err != nil {
@@ -74,7 +74,7 @@ func SearchArtistByName(artistName string) string {
 			//fmt.Printf("ID for %s not found.\n", artistName)
 		}
 	}
-	//fmt.Printf("SearchArtistByName: %s\n", artistId)
+	//fmt.Printf("SearchMusicBrainzArtistByName: %s\n", artistId)
 	return artistId
 }
 
@@ -121,7 +121,7 @@ func findDebutAlbum(releases string) (string, error) {
 }
 
 func SearchAlbumByArtistNAme(artistName string) string {
-	artistID := SearchArtistByName(artistName)
+	artistID := SearchMusicBrainzArtistByName(artistName)
 
 	releases := GetReleasesByArtistID(artistID)
 

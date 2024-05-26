@@ -375,7 +375,7 @@ func ProcessSpotifyArtist(artist *Artist, authToken string) {
 	year := firstAlbumDate.Format("2006")
 	fmt.Printf("%v's extracted year: %s\n", artist.Name, year)
 	// Fetch albums from Spotify
-	artistID := SearchArtistByName(artist.Name)
+	artistID := SearchMusicBrainzArtistByName(artist.Name)
 	fmt.Println(artistID)
 	release := GetReleasesByArtistID(artistID)
 	fmt.Println(release)

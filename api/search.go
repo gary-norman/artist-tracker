@@ -29,8 +29,9 @@ func (a Artist) String() string {
 func SearchArtist(artists []Artist, name string) (*Artist, error) {
 	for _, artist := range artists {
 		if strings.ToLower(artist.Name) == strings.ToLower(name) {
-			return &artist, nil
+			result := &artist
+			return result, nil
 		}
 	}
-	return nil, fmt.Errorf("artist not found")
+	return &Artist{}, fmt.Errorf("artist not found")
 }
