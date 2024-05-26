@@ -18,7 +18,7 @@ type Artist struct {
 	Members      []string `json:"members"`
 	CreationDate int      `json:"creationDate"`
 	FirstAlbum   string   `json:"firstAlbum"`
-	SpotifyAlbum
+	TadbAlbum
 	TheAudioDbArtist
 	Locations      string              `json:"locations"`
 	ConcertDates   string              `json:"concertDates"`
@@ -31,6 +31,15 @@ type DatesLocations struct {
 	DatesLocations map[string][]string `json:"datesLocations"`
 }
 
+type TadbAlbum struct {
+	IdAlbum            string `json:"idAlbum"`
+	Album              string `json:"strAlbum"`
+	YearReleased       string `json:"intYearReleased"`
+	AlbumThumb         string `json:"strAlbumThumb"`
+	DescriptionEN      string `json:"strDescriptionEN"`
+	MusicBrainzAlbumID string `json:"strMusicBrainzID"`
+}
+
 type SpotifyAlbum struct {
 	Name        string `json:"name"`
 	ReleaseDate string `json:"releaseDate"`
@@ -40,11 +49,22 @@ type SpotifyAlbum struct {
 }
 
 type TheAudioDbArtist struct {
-	IdArtist    string `json:"idArtist"`
-	Label       string `json:"strLabel"`
-	Genre       string `json:"strGenre"`
-	BiographyEn string `json:"strBiographyEN"`
-	ArtistImage string `json:"strArtistThumb"`
+	IdArtist        string `json:"idArtist"`
+	Label           string `json:"strLabel"`
+	Genre           string `json:"strGenre"`
+	Website         string `json:"strWebsite"`
+	BiographyEn     string `json:"strBiographyEN"`
+	ArtistThumb     string `json:"strArtistThumb"`
+	ArtistLogo      string `json:"strArtistLogo"`
+	ArtistCutout    string `json:"strArtistCutout"`
+	ArtistClearart  string `json:"strArtistClearart"`
+	ArtistWidethumb string `json:"strArtistWidethumb"`
+	ArtistFanart    string `json:"strArtistFanart"`
+	ArtistFanart2   string `json:"strArtistFanart2"`
+	ArtistFanart3   string `json:"strArtistFanart3"`
+	ArtistFanart4   string `json:"strArtistFanart4"`
+	ArtistBanner    string `json:"strArtistBanner"`
+	MusicBrainzID   string `json:"strMusicBrainzID"`
 }
 
 // Create a multi printer instance from the default one

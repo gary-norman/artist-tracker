@@ -123,6 +123,38 @@ func IterateOverArtists() {
 	fmt.Println("Artist IDs written to spotify_artist_ids.json")
 }
 
+func IterateOverArtistsTADB() {
+	artistNames := []string{"Queen", "SOJA", "Pink Floyd", "Scorpions", "XXXTentacion", "Mac Miller", "Joyner Lucas",
+		"Kendrick Lamar", "ACDC", "Pearl Jam", "Katy Perry", "Rihanna", "Genesis", "Phil Collins", "Led Zeppelin",
+		"The Jimi Hendrix Experience", "Bee Gees", "Deep Purple", "Aerosmith", "Dire Straits", "Mamonas Assassinas",
+		"Thirty Seconds to Mars", "Imagine Dragons", "Juice Wrld", "Logic", "Alec Benjamin", "Bobby McFerrin", "R3HAB",
+		"Post Malone", "Travis Scott", "J. Cole", "Nickelback", "Mobb Deep", "Guns n Roses", "NWA", "U2", "Arctic Monkeys",
+		"Fall Out Boy", "Gorillaz", "Eagles", "Linkin Park", "Red Hot Chili Peppers", "Eminem", "Green Day", "Metallica",
+		"Coldplay", "Maroon 5", "Twenty One Pilots", "The Rolling Stones", "Muse", "Foo Fighters", "The Chainsmokers"} // Example slice of artist names
+	TADBartistIDs := []string{"111238", "131541", "111259", "111301", "147813", "114412", "156525", "114357", "119231",
+		"111341", "111827", "111305", "119229", "119232", "111257", "114369", "111264", "111846", "111268", "111278",
+		"125026", "112055", "114415", "151915", "122530", "153609", "114567", "136794", "145363", "144041", "113703",
+		"111365", "116021", "111283", "113029", "112045", "111644", "111769", "111393", "111416", "111358", "111507",
+		"111304", "111486", "111279", "111239", "111522", "123131", "119227", "111564", "111233", "128263"}
+	var artistIDs []SpotifyArtistID
+	for i := range artistNames {
+		artistIDs = append(artistIDs, SpotifyArtistID{Artist: artistNames[i], ID: TADBartistIDs[i]})
+	}
+
+	jsonData, err := json.Marshal(artistIDs)
+	if err != nil {
+		fmt.Println("Error marshaling JSON:", err)
+		return
+	}
+
+	err = os.WriteFile("db/tadb_artist_ids.json", jsonData, 0644)
+	if err != nil {
+		fmt.Println("Error writing JSON to file:", err)
+		return
+	}
+	fmt.Println("Artist IDs written to tadb_artist_ids.json")
+}
+
 func fetchArtistInfo(searchTerm, searchType, token string) (string, error) {
 	baseURL := "https://api.spotify.com/v1/search"
 	query := url.Values{}
@@ -353,16 +385,16 @@ func ProcessSpotifyArtist(artist *Artist, authToken string) {
 		fmt.Printf("Error fetching %s for artist %s: %v\n", release, artist.Name, err)
 		return
 	}
-	// Update artist struct
-	artist.SpotifyAlbum = spotifyAlbum
-	// Update date format
-	oldDate := artist.SpotifyAlbum.ReleaseDate
-	parsedDate, err := time.Parse("2006-01-02", oldDate)
-	if err != nil {
-		fmt.Println("Error parsing date:", err)
-		return
-	}
-	newDate := parsedDate.Format("02-01-2006")
-	artist.SpotifyAlbum.ReleaseDate = newDate
+	//// Update artist struct
+	//artist.SpotifyAlbum = spotifyAlbum
+	//// Update date format
+	//oldDate := artist.SpotifyAlbum.ReleaseDate
+	//parsedDate, err := time.Parse("2006-01-02", oldDate)
+	//if err != nil {
+	//	fmt.Println("Error parsing date:", err)
+	//	return
+	//}
+	//newDate := parsedDate.Format("02-01-2006")
+	//artist.SpotifyAlbum.ReleaseDate = newDate
 
 }

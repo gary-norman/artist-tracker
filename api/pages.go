@@ -56,12 +56,12 @@ func HomePage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *tem
 		case errors.As(err, &e):
 			//fmt.Println("Error3 in HomePageGary")
 
-			fmt.Printf("\nerr is:", err, "\nerrrr is:", err.Error())
+			fmt.Println("\nerr is:", err, "\nerrrr is:", err.Error())
 
 			ErrorHandler(w, r, e.Status())
 
 		default:
-			fmt.Printf("err is:", err, "errrr is:", err.Error())
+			fmt.Println("err is:", err, "errrr is:", err.Error())
 			ErrorHandler(w, r, http.StatusInternalServerError)
 		}
 		return

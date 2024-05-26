@@ -6,10 +6,10 @@ import (
 	"time"
 )
 
-var tpl *template.Template
+var Tpl *template.Template
 
 func init() {
-	tpl = template.Must(template.New("").Funcs(template.FuncMap{
+	Tpl = template.Must(template.New("").Funcs(template.FuncMap{
 		"random":    RandomInt,
 		"increment": Increment,
 		"decrement": Decrement,
@@ -38,5 +38,5 @@ func Shuffle(slice []int) {
 }
 
 func GetTemplate() *template.Template {
-	return tpl
+	return Tpl
 }

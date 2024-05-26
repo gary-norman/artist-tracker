@@ -2,6 +2,8 @@ module artist-tracker
 
 go 1.22.3
 
+// the non-standard packages are for terminal output only and are non-essential
+// for the core functionality
 require (
 	atomicgo.dev/cursor v0.2.0 // indirect
 	atomicgo.dev/keyboard v0.2.9 // indirect

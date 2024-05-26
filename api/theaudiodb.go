@@ -7,15 +7,47 @@ import (
 	"log"
 	"net/http"
 	"net/url"
-	"strings"
+	"os"
+	"sync"
 )
 
 type TheAudioDbArtistResponse struct {
-	IdArtist    string `json:"idArtist"`
-	Label       string `json:"strLabel"`
-	Genre       string `json:"strGenre"`
-	BiographyEn string `json:"strBiographyEN"`
-	ArtistImage string `json:"strArtistThumb"`
+	Artists []struct {
+		IdArtist        string `json:"idArtist"`
+		Label           string `json:"strLabel"`
+		Genre           string `json:"strGenre"`
+		Website         string `json:"strWebsite"`
+		BiographyEn     string `json:"strBiographyEN"`
+		ArtistThumb     string `json:"strArtistThumb"`
+		ArtistLogo      string `json:"strArtistLogo"`
+		ArtistCutout    string `json:"strArtistCutout"`
+		ArtistClearart  string `json:"strArtistClearart"`
+		ArtistWidethumb string `json:"strArtistWidethumb"`
+		ArtistFanart    string `json:"strArtistFanart"`
+		ArtistFanart2   string `json:"strArtistFanart2"`
+		ArtistFanart3   string `json:"strArtistFanart3"`
+		ArtistFanart4   string `json:"strArtistFanart4"`
+		ArtistBanner    string `json:"strArtistBanner"`
+		MusicBrainzID   string `json:"strMusicBrainzID"`
+	} `json:"artists"`
+}
+
+type TheAudioDbAlbumResponse struct {
+	Album []struct {
+		IdAlbum       string `json:"idAlbum"`
+		Album         string `json:"strAlbum"`
+		YearReleased  string `json:"intYearReleased"`
+		Genre         string `json:"strGenre"`
+		Label         string `json:"strLabel"`
+		AlbumThumb    string `json:"strAlbumThumb"`
+		DescriptionEN string `json:"strDescriptionEN"`
+		MusicBrainzID string `json:"strMusicBrainzID"`
+	} `json:"album"`
+}
+
+type TadbArtist []struct {
+	Artist string `json:"artist"`
+	Id     string `json:"id"`
 }
 
 type CheekyArtist struct {
@@ -26,35 +58,45 @@ type Response struct {
 	Artists []CheekyArtist `json:"artists"`
 }
 
-func GetArtistIDWithoutKey(artistName string) (string, error) {
-	baseURL := "https://www.theaudiodb.com/api/v1/json/1/search.php"
-	resp, err := http.Get(fmt.Sprintf("%s?s=%s", baseURL, artistName))
+func GetTADBartistIDs() (TadbArtist, error) {
+	jsonFile, err := os.Open("db/tadb_artist_ids.json")
 	if err != nil {
-		return "", err
+		fmt.Println(err)
+		return TadbArtist{}, err
 	}
-	defer resp.Body.Close()
+	defer func(jsonFile *os.File) {
+		err2 := jsonFile.Close()
+		if err2 != nil {
+			fmt.Printf("Error closing json file: %s", err2)
+		}
+	}(jsonFile)
 
-	var response Response
-	if err := json.NewDecoder(resp.Body).Decode(&response); err != nil {
-		return "", err
+	// Read the file contents
+	byteValue, err := io.ReadAll(jsonFile)
+	if err != nil {
+		fmt.Println(err)
+		return TadbArtist{}, err
 	}
 
-	if len(response.Artists) > 0 {
-		return response.Artists[0].IDArtist, nil
+	// Unmarshal the JSON data into a variable
+	var tadbArtist TadbArtist
+	err = json.Unmarshal(byteValue, &tadbArtist)
+	if err != nil {
+		fmt.Println(err)
+		return TadbArtist{}, err
 	}
-	return "", nil
+	return tadbArtist, err
 }
 
-func getAudioDbArtistInfo(artist string, authToken string) (TheAudioDbArtist, error) {
-	encodedArtist := url.QueryEscape(strings.Replace(artist, " ", "+", -1))
-	queryURL := fmt.Sprintf("https://www.theaudiodb.com/api/v1/json/2/search.php?s=%s", encodedArtist)
+func GetAudioDbArtistInfo(artist string, artistID string, wg *sync.WaitGroup) (TheAudioDbArtist, error) {
+	defer wg.Done()
+	encodedArtist := url.QueryEscape(artistID)
+	queryURL := fmt.Sprintf("https://www.theaudiodb.com/api/v1/json/2/artist.php?i=%s", encodedArtist)
 
 	req, err := http.NewRequest("GET", queryURL, nil)
 	if err != nil {
 		return TheAudioDbArtist{}, err
 	}
-
-	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", authToken))
 
 	client := &http.Client{}
 	resp, err := client.Do(req)
@@ -73,42 +115,88 @@ func getAudioDbArtistInfo(artist string, authToken string) (TheAudioDbArtist, er
 		return TheAudioDbArtist{}, fmt.Errorf("error response from TheAudioDB API: %s", body)
 	}
 
-	body, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return TheAudioDbArtist{}, err
-	}
-
 	var response TheAudioDbArtistResponse
-
-	err = json.Unmarshal(body, &response)
+	err = json.NewDecoder(resp.Body).Decode(&response)
 	if err != nil {
 		return TheAudioDbArtist{}, fmt.Errorf("error unmarshaling response: %w", err)
 	}
-
-	if len(response.IdArtist) == 0 {
+	if len(response.Artists[0].IdArtist) == 0 {
 		return TheAudioDbArtist{}, fmt.Errorf("no audiodb artist info found for %s", artist)
 	}
 
-	newartist := response
+	newartist := response.Artists[0]
 	theAudioDbArtist := TheAudioDbArtist{
-		IdArtist:    newartist.IdArtist,
-		Label:       newartist.Label,
-		Genre:       newartist.Genre,
-		BiographyEn: newartist.BiographyEn,
-		ArtistImage: newartist.ArtistImage,
+		IdArtist:        newartist.IdArtist,
+		Label:           newartist.Label,
+		Genre:           newartist.Genre,
+		BiographyEn:     newartist.BiographyEn,
+		ArtistThumb:     newartist.ArtistThumb,
+		ArtistLogo:      newartist.ArtistLogo,
+		ArtistCutout:    newartist.ArtistCutout,
+		ArtistClearart:  newartist.ArtistClearart,
+		ArtistWidethumb: newartist.ArtistWidethumb,
+		ArtistFanart:    newartist.ArtistFanart,
+		ArtistFanart2:   newartist.ArtistFanart2,
+		ArtistFanart3:   newartist.ArtistFanart3,
+		ArtistFanart4:   newartist.ArtistFanart4,
+		ArtistBanner:    newartist.ArtistBanner,
+		MusicBrainzID:   newartist.MusicBrainzID,
 	}
-
 	return theAudioDbArtist, nil
 }
 
-func ProcessAudioDbArtist(artist *Artist, apiToken string) {
-	// get images from The AudioDB
-	audiodbArtist, err := getAudioDbArtistInfo(artist.Name, apiToken)
-	fmt.Printf("AudioDbArtist: %v\n", audiodbArtist)
+func ProcessAudioDbArtist(artist *Artist, artistName string, artistID string, err error, wg *sync.WaitGroup) {
+	artist.TheAudioDbArtist, err = GetAudioDbArtistInfo(artistName, artistID, wg)
+}
+
+func GetAudioDbAlbumInfo(artist string, artistID string, wg *sync.WaitGroup) (TadbAlbum, error) {
+	defer wg.Done()
+	encodedArtist := url.QueryEscape(artistID)
+	queryURL := fmt.Sprintf("https://www.theaudiodb.com/api/v1/json/2/album.php?i=%s", encodedArtist)
+
+	req, err := http.NewRequest("GET", queryURL, nil)
 	if err != nil {
-		fmt.Printf("Error fetching info for artist %s: %v\n", artist.Name, err)
-		return
+		return TadbAlbum{}, err
 	}
-	// Update artist struct
-	artist.TheAudioDbArtist = audiodbArtist
+
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	if err != nil {
+		return TadbAlbum{}, err
+	}
+	defer func(Body io.ReadCloser) {
+		err := Body.Close()
+		if err != nil {
+			log.Fatalf("error closing file: %v", err)
+		}
+	}(resp.Body)
+
+	if resp.StatusCode != http.StatusOK {
+		body, _ := io.ReadAll(resp.Body)
+		return TadbAlbum{}, fmt.Errorf("error response from TheAudioDB API: %s", body)
+	}
+
+	var response TheAudioDbAlbumResponse
+	err = json.NewDecoder(resp.Body).Decode(&response)
+	if err != nil {
+		return TadbAlbum{}, fmt.Errorf("error unmarshaling response: %w", err)
+	}
+	if len(response.Album[0].IdAlbum) == 0 {
+		return TadbAlbum{}, fmt.Errorf("no audiodb album info found for %s", artist)
+	}
+
+	newalbum := response.Album[0]
+	theAudioDbAlbum := TadbAlbum{
+		IdAlbum:            newalbum.IdAlbum,
+		Album:              newalbum.Album,
+		YearReleased:       newalbum.YearReleased,
+		AlbumThumb:         newalbum.AlbumThumb,
+		DescriptionEN:      newalbum.DescriptionEN,
+		MusicBrainzAlbumID: newalbum.MusicBrainzID,
+	}
+	return theAudioDbAlbum, nil
+}
+
+func ProcessAudioDbAlbum(artist *Artist, artistName string, artistID string, err error, wg *sync.WaitGroup) {
+	artist.TadbAlbum, err = GetAudioDbAlbumInfo(artistName, artistID, wg)
 }
