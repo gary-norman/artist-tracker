@@ -12,11 +12,11 @@ func (a Artist) String() string {
 		"MusicBrainzAlbumID: %s\nTheAudioDbArtist:\n  IdArtist: %s\n  Label: %s\n  Genre: %s\n  Website: %s\n"+
 		"  BiographyEn: %s\n  ArtistThumb: %s\n  ArtistLogo: %s\n  ArtistCutout: %s\n  ArtistClearart: %s\n"+
 		"  ArtistWidethumb: %s\n  ArtistFanart: %s\n  ArtistFanart2: %s\n  ArtistFanart3: %s\n  ArtistFanart4: %s\n"+
-		"  ArtistBanner: %s\n  MusicBrainzID: %s\n",
+		"  ArtistBanner: %s\n  MusicBrainzID: %s\nTourDetails:\n ConcertId: %v\n",
 		a.Id, a.Image, a.Name, a.Members, a.CreationDate, a.FirstAlbum, a.IdAlbum, a.Album, a.YearReleased, a.AlbumThumb,
 		a.DescriptionEN, a.MusicBrainzAlbumID, a.IdArtist, a.Label, a.Genre,
 		a.Website, a.BiographyEn, a.ArtistThumb, a.ArtistLogo, a.ArtistCutout, a.ArtistClearart, a.ArtistWidethumb,
-		a.ArtistFanart, a.ArtistFanart2, a.ArtistFanart3, a.ArtistFanart4, a.ArtistBanner, a.MusicBrainzID)
+		a.ArtistFanart, a.ArtistFanart2, a.ArtistFanart3, a.ArtistFanart4, a.ArtistBanner, a.MusicBrainzID, a.TourDetails)
 
 	result += "DatesLocations:\n"
 	for location, dates := range a.DatesLocations {

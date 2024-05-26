@@ -1,6 +1,7 @@
 package api
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 	"log"
@@ -8,6 +9,7 @@ import (
 	"net/url"
 	"os"
 	"sort"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -28,9 +30,9 @@ type TourDetails struct {
 				StreetAddress   string `json:"streetAddress"`
 			} `json:"address"`
 			Geo struct {
-				Type      string `json:"@type"`
-				Latitude  string `json:"latitude"`
-				Longitude string `json:"longitude"`
+				Type      string  `json:"@type"`
+				Latitude  float32 `json:"latitude"`
+				Longitude float32 `json:"longitude"`
 			} `json:"geo"`
 			Name string `json:"name"`
 		} `json:"location"`
@@ -84,7 +86,7 @@ func getFirstLastTourDates(artists []Artist, name string) (string, string) {
 	return first, last
 }
 
-func GetTourInfo(artists []Artist, name string) {
+func GetTourInfo(artists []Artist, name string, i int) {
 	apiKey := "dccdb0a36amsh783e1cc91e71909p1fadc0jsn9c03dce7a6cd"
 	first, last := getFirstLastTourDates(artists, name)
 	name = strings.Replace(name, " ", "%20", -1)
@@ -118,7 +120,7 @@ func GetTourInfo(artists []Artist, name string) {
 	}(resp.Body)
 
 	// Create the output file
-	outFile, err := os.Create("db/tourinfo/" + name + ".json")
+	outFile, err := os.Create("db/tourinfo/" + strconv.Itoa(i) + ".json")
 	if err != nil {
 		fmt.Printf("Error creating json file: %v\n", err)
 		return
@@ -154,4 +156,33 @@ func GetTourInfo(artists []Artist, name string) {
 	//	return TourDetails{}, fmt.Errorf("no tour data found for %s", name)
 	//}
 	//return response, nil
+}
+
+func UnmarshallTourInfo(artists []Artist, i int) {
+	// open the json file
+	jsonLink := "db/tourinfo/" + strconv.Itoa(i) + ".json"
+	jsonFile, err := os.Open(jsonLink)
+	if err != nil {
+		fmt.Printf("Error opening %v: %s\n", jsonLink, err)
+	}
+	// close the json file
+	defer func(jsonFile *os.File) {
+		err = jsonFile.Close()
+		if err != nil {
+			fmt.Printf("Error closing %v: %s\n", jsonLink, err)
+		}
+	}(jsonFile)
+	// Read the file contents
+	byteValue, err := io.ReadAll(jsonFile)
+	if err != nil {
+		log.Fatalf("Failed to read JSON file: %s", err)
+	}
+	var tourdeets TourDetails
+	// Unmarshal the JSON into the struct
+	err = json.Unmarshal(byteValue, &tourdeets)
+	if err != nil {
+		log.Fatalf("Failed to unmarshal JSON: %s", err)
+	}
+	// update the artists struct with the unmarshalled data
+	artists[i].TourDetails = tourdeets
 }

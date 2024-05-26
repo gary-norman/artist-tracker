@@ -34,6 +34,8 @@ func main() {
 	api.UpdateArtistInfo(Artists)
 	t = time.Now()
 	// print 1 artist to the terminal for information and debugging
+	api.UnmarshallTourInfo(Artists, 0)
+	fmt.Println(Artists[0])
 	pterm.Println(pterm.Cyan(Artists[26]))
 	err2 := pterm.DefaultBigText.WithLetters(
 		putils.LettersFromStringWithStyle("Artist", pterm.FgCyan.ToStyle()),
@@ -47,6 +49,9 @@ func main() {
 	timetaken = t.Sub(start).Milliseconds()
 	pterm.Info.Println("All tasks completed successfully in " + pterm.Green(strconv.FormatInt(timetaken, 10)+"ms"))
 	//fmt.Println(api.GetTourInfo(Artists, "queen"))
-	api.GetTourInfo(Artists, Artists[0].Name)
+	//for i := 1; i < 10; i++ { // TODO run this on monday
+	//	api.GetTourInfo(Artists, Artists[i].Name, i)
+	//}
+
 	api.HandleRequests(Artists, api.GetTemplate())
 }

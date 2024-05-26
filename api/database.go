@@ -24,7 +24,8 @@ type Artist struct {
 	ConcertDates   string              `json:"concertDates"`
 	Relations      string              `json:"relations"`
 	DatesLocations map[string][]string `json:"datesLocations"`
-	RandIntFunc    func(int) int
+	TourDetails
+	RandIntFunc func(int) int
 }
 
 type DatesLocations struct {
