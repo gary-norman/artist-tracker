@@ -106,7 +106,6 @@ func UpdateArtistName(artists []Artist, oldName, newName string) (string, bool) 
 		} else {
 			response, state = "artist: "+oldName+" not found", false
 		}
-		fmt.Printf("Artist: %v, match: %v\n", artists[i].Name, state)
 	}
 	return response, state
 }

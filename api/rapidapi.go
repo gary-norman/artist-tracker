@@ -10,34 +10,72 @@ import (
 	"os"
 	"sort"
 	"strconv"
-	"strings"
 	"time"
 )
 
+//type TourDetails struct {
+//	Data []struct {
+//		ConcertId   string `json:"concert_id"`
+//		Description string `json:"description"`
+//		EndDate     string `json:"endDate"`
+//		Image       string `json:"image"`
+//		Location    struct {
+//			Type    string `json:"@type"`
+//			Address struct {
+//				AddressCountry  string `json:"addressCountry"`
+//				AddressLocality string `json:"addressLocality"`
+//				AddressRegion   string `json:"addressRegion"`
+//				PostalCode      string `json:"postalCode"`
+//				StreetAddress   string `json:"streetAddress"`
+//			} `json:"address"`
+//			Geo struct {
+//				Type      string  `json:"@type"`
+//				Latitude  float32 `json:"latitude"`
+//				Longitude float32 `json:"longitude"`
+//			} `json:"geo"`
+//			Name string `json:"name"`
+//		} `json:"location"`
+//		StartDate string `json:"startDate"`
+//	} `json:"data"`
+//}
+
+// Address represents a street address.
+type Address struct {
+	AddressCountry  string `json:"addressCountry"`
+	AddressLocality string `json:"addressLocality"`
+	AddressRegion   string `json:"addressRegion"`
+	PostalCode      string `json:"postalCode"`
+	StreetAddress   string `json:"streetAddress"`
+}
+
+// Geo represents geographical coordinates.
+type Geo struct {
+	Type      string  `json:"@type"`
+	Latitude  float32 `json:"latitude"`
+	Longitude float32 `json:"longitude"`
+}
+
+// Location represents a concert location.
+type Location struct {
+	Type    string  `json:"@type"`
+	Address Address `json:"address"`
+	Geo     Geo     `json:"geo"`
+	Name    string  `json:"name"`
+}
+
+// ConcertData represents details of a single concert.
+type ConcertData struct {
+	ConcertId   string   `json:"concert_id"`
+	Description string   `json:"description"`
+	EndDate     string   `json:"endDate"`
+	Image       string   `json:"image"`
+	Location    Location `json:"location"`
+	StartDate   string   `json:"startDate"`
+}
+
+// TourDetails represents the tour details with multiple concerts.
 type TourDetails struct {
-	Data []struct {
-		ConcertId   string `json:"concert_id"`
-		Description string `json:"description"`
-		EndDate     string `json:"endDate"`
-		Image       string `json:"image"`
-		Location    struct {
-			Type    string `json:"@type"`
-			Address struct {
-				AddressCountry  string `json:"addressCountry"`
-				AddressLocality string `json:"addressLocality"`
-				AddressRegion   string `json:"addressRegion"`
-				PostalCode      string `json:"postalCode"`
-				StreetAddress   string `json:"streetAddress"`
-			} `json:"address"`
-			Geo struct {
-				Type      string  `json:"@type"`
-				Latitude  float32 `json:"latitude"`
-				Longitude float32 `json:"longitude"`
-			} `json:"geo"`
-			Name string `json:"name"`
-		} `json:"location"`
-		StartDate string `json:"startDate"`
-	} `json:"data"`
+	Data []ConcertData `json:"data"`
 }
 
 func getFirstLastTourDates(artists []Artist, name string) (string, string) {
@@ -89,7 +127,7 @@ func getFirstLastTourDates(artists []Artist, name string) (string, string) {
 func GetTourInfo(artists []Artist, name string, i int) {
 	apiKey := "dccdb0a36amsh783e1cc91e71909p1fadc0jsn9c03dce7a6cd"
 	first, last := getFirstLastTourDates(artists, name)
-	name = strings.Replace(name, " ", "%20", -1)
+	//name = strings.Replace(name, " ", "%20", -1)
 	encodedArtist := url.QueryEscape(name)
 	encodedFirst := url.QueryEscape(first)
 	encodedLast := url.QueryEscape(last)
