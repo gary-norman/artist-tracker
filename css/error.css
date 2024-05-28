@@ -1,5 +1,6 @@
 :root {
     --origin: 50%;
+    --size: 50%;
 }
 .record-container {
     display: flex;
@@ -63,8 +64,12 @@ a {
         transform: rotate(-2deg);
     }
 
-    100% {
+    90% {
         transform: rotate(22deg);
+    }
+
+    100% {
+        transform: rotate(-2deg);
     }
 }
 
@@ -76,4 +81,11 @@ a {
     100% {
         transform: rotate(2deg);
     }
+}
+
+@media only screen and (max-width: 600px)  {
+        .record-arm, .record, .record-arm {
+            height: var(--size);
+            width: var(--size);
+        }
 }

@@ -37,20 +37,19 @@ func main() {
 	timetaken = t.Sub(update).Milliseconds()
 	spinnerInfo.Success("Updated artist information in " + strconv.FormatInt(timetaken, 10) + "ms\n")
 	tour := time.Now()
+	i := 20
 	// Fetch and update tour information
-	//i := 11
 	//api.GetTourInfo(Artists, Artists[i].Name, i)
+	pterm.Println(pterm.Cyan(Artists[i]))
+	pterm.Println(pterm.Cyan("TourDetails {"))
+	pterm.Println(pterm.Cyan(Artists[i].TourDetails))
+	pterm.Println(pterm.Cyan("}"))
 	pterm.DefaultBasicText.Println("Tour info" + pterm.Green(" only ") + "available for the following artists:")
-	//tourLogger := pterm.DefaultLogger.WithLevel(pterm.LogLevelTrace)
-	for i := 0; i < 12; i++ {
+	for i = 0; i < 20; i++ {
 		api.UnmarshallTourInfo(Artists, i)
 		if len(Artists[i].Data) > 0 {
 			pterm.DefaultBasicText.Println(Artists[i].Name + ": " + pterm.Green("success"))
 		}
-		//pterm.Println(pterm.Cyan(Artists[i]))
-		//pterm.Println(pterm.Cyan("TourDetails {"))
-		//pterm.Println(pterm.Cyan(Artists[i].TourDetails))
-		//pterm.Println(pterm.Cyan("}"))
 	}
 	t = time.Now()
 	timetaken = t.Sub(tour).Milliseconds()
