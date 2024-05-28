@@ -37,7 +37,12 @@ func main() {
 	timetaken = t.Sub(update).Milliseconds()
 	spinnerInfo.Success("Updated artist information in " + strconv.FormatInt(timetaken, 10) + "ms\n")
 	tour := time.Now()
-	i := 20
+	//for i := 0; i < 20; i++ {
+	//	api.GetTourInfo(Artists, Artists[i].Name, i)
+	//	duration := time.Second
+	//	time.Sleep(duration)
+	//}
+	i := 0
 	// Fetch and update tour information
 	//api.GetTourInfo(Artists, Artists[i].Name, i)
 	pterm.Println(pterm.Cyan(Artists[i]))
