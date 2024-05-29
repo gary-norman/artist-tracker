@@ -65,7 +65,8 @@ func main() {
 	//	return
 	//} // Render the big text to the terminal
 	timetaken = t.Sub(start).Milliseconds()
-	i := 8
+	i := 0
+	api.RapidToMapbox(i)
 	pterm.Info.Println("All tasks completed successfully in " + pterm.Green(strconv.FormatInt(timetaken, 10)+"ms"))
 	pterm.Println(pterm.Cyan(Artists[i]))
 	pterm.Println(pterm.Cyan("TourDetails {"))
