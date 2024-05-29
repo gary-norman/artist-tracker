@@ -104,9 +104,9 @@ func GetAudioDbArtistInfo(artist string, artistID string, wg *sync.WaitGroup) (T
 		return TheAudioDbArtist{}, err
 	}
 	defer func(Body io.ReadCloser) {
-		err := Body.Close()
-		if err != nil {
-			log.Fatalf("error closing file: %v", err)
+		err2 := Body.Close()
+		if err2 != nil {
+			log.Fatalf("error closing file: %v", err2)
 		}
 	}(resp.Body)
 

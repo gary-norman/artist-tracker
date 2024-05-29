@@ -25,12 +25,44 @@ func (a Artist) String() string {
 	return result
 }
 
+// String method for Address to provide a custom string representation.
+func (a Address) String() string {
+	return fmt.Sprintf("StreetAddress: %s\n     AddressLocality: %s\n     AddressRegion: %s\n     PostalCode: %s\n     AddressCountry: %s",
+		a.StreetAddress, a.AddressLocality, a.AddressRegion, a.PostalCode, a.AddressCountry)
+}
+
+// String method for Geo to provide a custom string representation.
+func (g Geo) String() string {
+	return fmt.Sprintf(" Geo {\n     Type: %s\n     Latitude: %f\n     Longitude: %f\n    }", g.Type, g.Latitude, g.Longitude)
+}
+
+// String method for Location to provide a custom string representation.
+func (l Location) String() string {
+	return fmt.Sprintf("   Location {\n    Name: %s\n    Address {\n     %s\n   %s", l.Name, l.Address, l.Geo)
+}
+
+// String method for ConcertData to provide a custom string representation.
+func (d ConcertData) String() string {
+	return fmt.Sprintf("Data {\n   Concert ID: %s\n   Description: %s\n   Start Date: %s\n   End Date: %s\n   Image: %s\n%s\n}",
+		d.ConcertId, d.Description, d.StartDate, d.EndDate, d.Image, d.Location)
+}
+
+// String method for TourDetails to provide a custom string representation.
+func (td TourDetails) String() string {
+	var sb strings.Builder
+	for _, data := range td.Data {
+		sb.WriteString(data.String() + "\n")
+	}
+	return sb.String()
+}
+
 // SearchArtist function searches for an artist by name and returns the artist details
 func SearchArtist(artists []Artist, name string) (*Artist, error) {
 	for _, artist := range artists {
 		if strings.ToLower(artist.Name) == strings.ToLower(name) {
-			return &artist, nil
+			result := &artist
+			return result, nil
 		}
 	}
-	return nil, fmt.Errorf("artist not found")
+	return &Artist{}, fmt.Errorf("artist not found")
 }

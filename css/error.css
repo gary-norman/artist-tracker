@@ -1,7 +1,8 @@
 :root {
     --origin: 50%;
+    --size: 50%;
 }
-.record-player {
+.record-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,6 +13,21 @@
     justify-content: center;
     align-items: center;
     height: 15rem;
+}
+.record-player {
+    position: relative;
+}
+.record {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+.record-arm {
+    position: absolute;
+    top: -130px;
+    right: -60px;
+    animation: record-arm 60s linear 0s infinite normal forwards;
+    transform-origin: var(--origin) var(--origin);
 }
 #record-main {
     animation: record 1818ms linear 0s infinite normal forwards;
@@ -43,6 +59,20 @@ a {
     }
 }
 
+@keyframes record-arm {
+    0% {
+        transform: rotate(-2deg);
+    }
+
+    90% {
+        transform: rotate(22deg);
+    }
+
+    100% {
+        transform: rotate(-2deg);
+    }
+}
+
 @keyframes highlight {
     0% {
         transform: rotate(0);
@@ -51,4 +81,11 @@ a {
     100% {
         transform: rotate(2deg);
     }
+}
+
+@media only screen and (max-width: 600px)  {
+        .record-arm, .record, .record-arm {
+            height: var(--size);
+            width: var(--size);
+        }
 }

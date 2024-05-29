@@ -24,7 +24,8 @@ type Artist struct {
 	ConcertDates   string              `json:"concertDates"`
 	Relations      string              `json:"relations"`
 	DatesLocations map[string][]string `json:"datesLocations"`
-	RandIntFunc    func(int) int
+	TourDetails
+	RandIntFunc func(int) int
 }
 
 type DatesLocations struct {
@@ -95,14 +96,18 @@ func AllJsonToStruct(url string) []Artist {
 }
 
 // UpdateArtistName Function to search for an artist by name and update their name
-func UpdateArtistName(artists []Artist, oldName, newName string) bool {
-	for i, artist := range artists {
-		if artist.Name == oldName {
+func UpdateArtistName(artists []Artist, oldName, newName string) (string, bool) {
+	var response string
+	var state bool
+	for i := range artists {
+		if artists[i].Name == oldName {
 			artists[i].Name = newName
-			return true
+			response, state = "successfully  updated "+oldName+" to "+newName, true
+		} else {
+			response, state = "artist: "+oldName+" not found", false
 		}
 	}
-	return false
+	return response, state
 }
 
 func formatLocation(location string) string {
