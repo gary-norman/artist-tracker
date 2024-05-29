@@ -43,16 +43,10 @@ func main() {
 	//	time.Sleep(duration)
 	//}
 	api.UpdateACDC(Artists)
-	i := 8
 	//api.GetTourInfo(Artists, Artists[i].Name, i)
 	// Fetch and update tour information
 	//api.GetTourInfo(Artists, Artists[i].Name, i)
-	pterm.Println(pterm.Cyan(Artists[i]))
-	pterm.Println(pterm.Cyan("TourDetails {"))
-	pterm.Println(pterm.Cyan(Artists[i].TourDetails))
-	pterm.Println(pterm.Cyan("}"))
-	pterm.DefaultBasicText.Println("Tour info" + pterm.Green(" only ") + "available for the following artists:")
-	for i = 0; i < 29; i++ {
+	for i := 0; i < 29; i++ {
 		api.UnmarshallTourInfo(Artists, i)
 		if len(Artists[i].Data) > 0 {
 			pterm.DefaultBasicText.Println(Artists[i].Name + ": " + pterm.Green("success"))
@@ -71,7 +65,12 @@ func main() {
 	//	return
 	//} // Render the big text to the terminal
 	timetaken = t.Sub(start).Milliseconds()
+	i := 8
 	pterm.Info.Println("All tasks completed successfully in " + pterm.Green(strconv.FormatInt(timetaken, 10)+"ms"))
+	pterm.Println(pterm.Cyan(Artists[i]))
+	pterm.Println(pterm.Cyan("TourDetails {"))
+	pterm.Println(pterm.Cyan(Artists[i].TourDetails))
+	pterm.Println(pterm.Cyan("}"))
 	//fmt.Println(api.GetTourInfo(Artists, "queen"))
 	//for i := 1; i < 10; i++ { // TODO run this on monday
 	//i := 3
