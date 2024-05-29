@@ -3,6 +3,7 @@ package api
 import (
 	"html/template"
 	"math/rand"
+	"strings"
 	"time"
 )
 
@@ -13,7 +14,21 @@ func init() {
 		"random":    RandomInt,
 		"increment": Increment,
 		"decrement": Decrement,
+		"check":     CheckArtistContainsName,
+		"same":      CheckSameName,
 	}).ParseGlob("templates/*.html"))
+}
+
+// function to:
+// check if member name is inside artist name
+// if so, "aka Eminem"
+// if identical, then dont show the artist as a member
+func CheckArtistContainsName(member, artist string) bool {
+	return strings.Contains(artist, member)
+}
+
+func CheckSameName(member, artist string) bool {
+	return member == artist
 }
 
 func RandomInt(max int) int {

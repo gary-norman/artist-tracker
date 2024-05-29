@@ -24,15 +24,53 @@
                 <label for="search-input"></label>
                 <input type="text" name="search-input" id="search-input" value="" placeholder="Search artist"  >
             </div>
-            <h3 class="floating">Recent searches</h3>
-            <div class="filters">
-
-                <h3 class="floating small">Showing 6 results</h3>
-                <div class="button-2">
-                    <div >
-
+            <h3 class="floating-md">Recent searches</h3>
+            <div class="floating-md filters go-down">
+                <div class="filters">
+                    <h3 class="small center">Showing 6 results</h3>
+                    <div class="button-2">
+                        <div class="button-container">
+                            <p>Filters (0)</p>
+                        </div>
                     </div>
                 </div>
+
+                <div class="floating-sm filter">
+                    <p>Artist creation date</p>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="floating-sm filter">
+                    <p>Album creation date</p>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="floating-sm filter">
+                    <p>Album creation date</p>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="floating-sm filter">
+                    <p>Number of Members</p>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="floating-sm filter">
+                    <p>Concert location</p>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
             </div>
             <div class="container">
                 <div id="search-artists" class="col col1">
@@ -53,20 +91,34 @@
                 <div id="search-members" class="col col1">
                     <h2>Members</h2>
                     <div class="col col3">
+                        {{ $member := "" }}
                         {{ range . }}
                         <div class="content">
                             <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
                             <div class="content-text go-down">
                                 <div class="p--bold" >
+                                    {{ $member = index .Members (random (len .Members)) }}
                                     {{ if gt (len .Members) 1}}
-                                    {{ index .Members (random (len .Members)) }}
+                                    {{ $member }}
                                     {{else}}
                                     {{ index .Members 0 }}
                                     {{ end }}
                                 </div>
-                                <div class="small">
-                                    {{ .Name }}
-                                </div>
+                                {{ if gt (len .Members) 1 }}
+                                    <div class="small">
+                                        {{ .Name }}
+                                    </div>
+                                {{else}}
+                                    {{if same $member .Name }}
+                                    <div class="small">
+                                        Member & Artist
+                                    </div>
+                                    {{else}}
+                                    <div class="small">
+                                        aka {{ .Name }}
+                                    </div>
+                                    {{ end }}
+                                {{ end }}
                             </div>
 
                         </div>
@@ -97,11 +149,11 @@
                                 <div>2004</div>
                             </div>
                             <div class="content-text go-down">
-                                <div class="p--bold concert">Eras Tour!</div>
+                                <div class="p--bold concert">Taylor Swift</div>
                                 <div class="concert">
-                                    <div class="small">Taylor Swift</div>
+                                    <div class="small">London</div>
                                     <div class="divider-dot"></div>
-                                    <div class="small">Manchester</div>
+                                    <div class="small">Wembley Arena</div>
                                 </div>
 
 
@@ -258,7 +310,7 @@
                     {{ range $index, $element := . }}
                         {{ if lt $index 10 }}
                         <div class="content">
-                                    <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
+                                    <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}/preview" alt="Profile image of {{.Name}}"/>
                                     <div class="content-text go-down">
                                         <div class="p--bold" >
                                             {{ if gt (len .Members) 1 }}
@@ -290,78 +342,18 @@
             <div class="col col1">
                 <h2>Trending Albums</h2>
                 <div class="row">
-                    <div class="content">
-                        <div class="pic album">
+                    {{ range $index, $element := . }}
+                        {{ if lt $index 10 }}
+                            <div class="content">
+                                <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
 
-                        </div>
-                        <div class="content-text go-down">
-                            <div class="p--bold" >The Tortured Poets Department: The Anthology</div>
-                            <div class="small">Your Mama</div>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <div class="pic album">
-
-                        </div>
-                        <div class="content-text go-down">
-                            <div class="p--bold" >The Tortured Poets Department: The Anthology</div>
-                            <div class="small">Taylor Swift</div>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <div class="pic album">
-
-                        </div>
-                        <div class="content-text go-down">
-                            <div class="p--bold" >The Tortured Poets Department: The Anthology</div>
-                            <div class="small">Taylor Swift</div>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <div class="pic album">
-
-                        </div>
-                        <div class="content-text go-down">
-                            <div class="p--bold" >The Tortured Poets Department: The Anthology</div>
-                            <div class="small">Taylor Swift</div>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <div class="pic album">
-
-                        </div>
-                        <div class="content-text go-down">
-                            <div class="p--bold" >The Tortured Poets Department: The Anthology</div>
-                            <div class="small">Taylor Swift</div>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <div class="pic album">
-
-                        </div>
-                        <div class="content-text go-down">
-                            <div class="p--bold" >The Tortured Poets Department: The Anthology</div>
-                            <div class="small">Taylor Swift</div>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <div class="pic album">
-
-                        </div>
-                        <div class="content-text go-down">
-                            <div class="p--bold" >The Tortured Poets Department: The Anthology</div>
-                            <div class="small">Taylor Swift</div>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <div class="pic album">
-
-                        </div>
-                        <div class="content-text go-down">
-                            <div class="p--bold" >The Tortured Poets Department: The Anthology</div>
-                            <div class="small">Taylor Swift</div>
-                        </div>
-                    </div>
+                                <div class="content-text go-down">
+                                    <div class="p--bold" >{{.TadbAlbum.Album}}</div>
+                                    <div class="small">{{.Name}}</div>
+                                </div>
+                            </div>
+                        {{ end }}
+                    {{ end }}
                 </div>
             </div>
         </section>
