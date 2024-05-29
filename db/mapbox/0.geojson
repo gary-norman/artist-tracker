@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -73.95802,
+      40.77007
+    ]
+  },
+  "properties": {
+    "title": "Queen",
+    "description": "Queen at Great Lawn, Central Park at 2019-09-28T14:00:00-0400",
+    "date": "28-09-2019"
+  }
+}

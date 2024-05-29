@@ -7,13 +7,14 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"time"
 )
 
 type InputGeo struct {
 	Data []struct {
 		Name        string `json:"name"`
 		Description string `json:"description"`
-		Date        string `json:"date"`
+		Date        string `json:"endDate"`
 		Location    struct {
 			Geo struct {
 				Type      string  `json:"@type"`
@@ -67,13 +68,19 @@ func RapidToMapbox(index int) {
 
 	latitude := inputGeo.Data[0].Location.Geo.Latitude
 	longitude := inputGeo.Data[0].Location.Geo.Longitude
-
+	// Define the date layout
+	const layoutUK = "02-01-2006"
+	const layoutUS = "2006-01-02"
+	date, err := time.Parse(layoutUS, inputGeo.Data[0].Date)
+	if err != nil {
+		fmt.Println("Error parsing date:", err)
+	}
 	geoJSON := GeoJSON{
 		Type: "Feature",
 		Properties: Properties{
 			Title:       inputGeo.Data[0].Name,
 			Description: inputGeo.Data[0].Description,
-			Date:        inputGeo.Data[0].Date,
+			Date:        date.Format(layoutUK),
 		},
 		Geometry: Geometry{
 			Type:        "Point",
