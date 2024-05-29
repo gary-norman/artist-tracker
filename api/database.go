@@ -96,7 +96,7 @@ func AllJsonToStruct(url string) []Artist {
 }
 
 // UpdateArtistName Function to search for an artist by name and update their name
-func UpdateArtistName(artists []Artist, oldName, newName string) (string, bool) {
+func UpdateArtistName(artists []Artist, oldName string, newName string) (string, bool) {
 	var response string
 	var state bool
 	for i := range artists {
@@ -108,6 +108,22 @@ func UpdateArtistName(artists []Artist, oldName, newName string) (string, bool) 
 		}
 	}
 	return response, state
+}
+
+// UpdateACDC updates ACDC members
+func UpdateACDC(artists []Artist) {
+	for i, member := range artists[8].Members {
+		fmt.Printf("Member: %s\n", member)
+		if member == "Axl Rose" {
+			fmt.Printf("Found member: %s\n", member)
+			artists[8].Members[i] = "Dave Evans"
+			fmt.Printf("Amended member: %s\n", member)
+		}
+	}
+	artists[8].Members[1] = "Phil Rudd"
+	artists[8].Members[3] = "Dave Evans"
+	artists[8].Members = append(artists[8].Members, "")
+	fmt.Printf("Members: %s\n", artists[8].Members)
 }
 
 func formatLocation(location string) string {

@@ -77,7 +77,7 @@ func UpdateArtistInfo(artists []Artist) {
 	oldName := "Bobby McFerrins"
 	newName := "Bobby McFerrin"
 	start = time.Now()
-	spinnerInfo, _ = pterm.DefaultSpinner.Start("Updating incorrect artist info for " + oldName)
+	spinnerInfo, _ = pterm.DefaultSpinner.Start("Updating incorrect artist info")
 	response, state := UpdateArtistName(artists, oldName, newName)
 	fmt.Printf("Response: %v, State: %v\n", response, state)
 	t = time.Now()
