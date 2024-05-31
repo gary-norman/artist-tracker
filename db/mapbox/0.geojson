@@ -1,15 +1,394 @@
 {
-  "type": "Feature",
-  "geometry": {
-    "type": "Point",
-    "coordinates": [
-      -73.95802,
-      40.77007
-    ]
-  },
-  "properties": {
-    "title": "Queen",
-    "description": "Queen at Great Lawn, Central Park at 2019-09-28T14:00:00-0400",
-    "date": "28-09-2019"
-  }
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Great Lawn, Central Park",
+        "description": "Queen at Great Lawn, Central Park at 2019-09-28T14:00:00-0400",
+        "date": "28-09-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -73.95802,
+          40.77007
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Spectrum Center",
+        "description": "Queen at Spectrum Center at 2019-08-23T20:00:00-0400",
+        "date": "23-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -80.83922,
+          35.22509
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "State Farm Arena",
+        "description": "Queen at State Farm Arena at 2019-08-22T20:00:00-0400",
+        "date": "22-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -84.39634,
+          33.75723
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Smoothie King Center",
+        "description": "Queen at Smoothie King Center at 2019-08-20T20:00:00-0500",
+        "date": "20-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -90.07983,
+          29.949
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Amalie Arena",
+        "description": "Queen at Amalie Arena at 2019-08-18T20:00:00-0400",
+        "date": "18-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -82.45174,
+          27.94275
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "BB\u0026T Center",
+        "description": "Queen at BB\u0026T Center at 2019-08-17T20:00:00-0400",
+        "date": "17-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -80.32555,
+          26.15847
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Bridgestone Arena",
+        "description": "Queen at Bridgestone Arena at 2019-08-15T20:00:00-0500",
+        "date": "15-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -86.77857,
+          36.15995
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Nationwide Arena",
+        "description": "Queen at Nationwide Arena at 2019-08-13T20:00:00-0400",
+        "date": "13-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -83.00636,
+          39.9694
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Xcel Energy Center",
+        "description": "Queen at Xcel Energy Center at 2019-08-10T20:00:00-0500",
+        "date": "10-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -93.09958,
+          44.94465
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "United Center",
+        "description": "Queen at United Center at 2019-08-09T20:00:00-0500",
+        "date": "09-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -87.69263,
+          41.88166
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Madison Square Garden",
+        "description": "Queen at Madison Square Garden at 2019-08-07T20:00:00-0400",
+        "date": "07-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -73.99156,
+          40.74971
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Madison Square Garden",
+        "description": "Queen at Madison Square Garden at 2019-08-06T20:00:00-0400",
+        "date": "06-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -73.99156,
+          40.74971
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Xfinity Center",
+        "description": "Queen at Xfinity Center at 2019-08-04T20:00:00-0400",
+        "date": "04-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.21065,
+          41.99443
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Wells Fargo Center",
+        "description": "Queen at Wells Fargo Center at 2019-08-03T20:00:00-0400",
+        "date": "03-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -75.17197,
+          39.90118
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "PPG Paints Arena",
+        "description": "Queen at PPG Paints Arena at 2019-07-31T20:00:00-0400",
+        "date": "31-07-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -79.98894,
+          40.43959
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Capital One Arena",
+        "description": "Queen at Capital One Arena at 2019-07-30T20:00:00-0400",
+        "date": "30-07-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -77.021,
+          38.89801
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Scotiabank Arena",
+        "description": "Queen at Scotiabank Arena at 2019-07-28T20:00:00-0400",
+        "date": "28-07-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -79.37908,
+          43.64352
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Little Caesars Arena",
+        "description": "Queen at Little Caesars Arena at 2019-07-27T20:00:00-0400",
+        "date": "27-07-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -83.05496,
+          42.34196
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Toyota Center",
+        "description": "Queen at Toyota Center at 2019-07-24T20:00:00-0500",
+        "date": "24-07-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -95.36218,
+          29.75198
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "American Airlines Center",
+        "description": "Queen at American Airlines Center at 2019-07-23T20:00:00-0500",
+        "date": "23-07-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -96.81015,
+          32.79031
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Kia Forum",
+        "description": "Queen at Kia Forum at 2019-07-20T20:00:00-0700",
+        "date": "20-07-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -118.34053,
+          33.9582
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Kia Forum",
+        "description": "Queen at Kia Forum at 2019-07-19T20:00:00-0700",
+        "date": "19-07-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -118.34053,
+          33.9582
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Footprint Center",
+        "description": "Queen at Footprint Center at 2019-07-16T20:00:00-0700",
+        "date": "16-07-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -112.07186,
+          33.44588
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "SAP Center at San Jose",
+        "description": "Queen at SAP Center at San Jose at 2019-07-14T20:00:00-0700",
+        "date": "14-07-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -121.90119,
+          37.33251
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Tacoma Dome",
+        "description": "Queen at Tacoma Dome at 2019-07-12T20:00:00-0700",
+        "date": "12-07-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -122.42683,
+          47.23634
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Rogers Arena",
+        "description": "Queen at Rogers Arena at 2019-07-10T19:00:00-0700",
+        "date": "10-07-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -123.10811,
+          49.27766
+        ],
+        "type": "Point"
+      }
+    }
+  ]
 }

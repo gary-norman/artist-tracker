@@ -1,0 +1,64 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Miami Stadium",
+        "description": "Bee Gees at Miami Stadium at 1979-10-05",
+        "date": "05-10-1979"
+      },
+      "geometry": {
+        "coordinates": [
+          0,
+          0
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "VyStar Veterans Memorial Arena",
+        "description": "Bee Gees at VyStar Veterans Memorial Arena at 1979-10-04",
+        "date": "04-10-1979"
+      },
+      "geometry": {
+        "coordinates": [
+          -81.64512,
+          30.32571
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Columbia",
+        "description": "Bee Gees at Columbia at 1979-10-03",
+        "date": "03-10-1979"
+      },
+      "geometry": {
+        "coordinates": [
+          0,
+          0
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Greensboro",
+        "description": "Bee Gees at Greensboro at 1979-10-02",
+        "date": "02-10-1979"
+      },
+      "geometry": {
+        "coordinates": [
+          0,
+          0
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

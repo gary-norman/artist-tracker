@@ -1,0 +1,64 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Deutschlandhalle",
+        "description": "The Jimi Hendrix Experience at Deutschlandhalle at 1970-09-04",
+        "date": "04-09-1970"
+      },
+      "geometry": {
+        "coordinates": [
+          13.27163,
+          52.49871
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "KB Hallen",
+        "description": "The Jimi Hendrix Experience at KB Hallen at 1970-09-03",
+        "date": "03-09-1970"
+      },
+      "geometry": {
+        "coordinates": [
+          12.49464,
+          55.67769
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Vejlby Risskov Hallen",
+        "description": "The Jimi Hendrix Experience at Vejlby Risskov Hallen at 1970-09-02",
+        "date": "02-09-1970"
+      },
+      "geometry": {
+        "coordinates": [
+          0,
+          0
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Stora Scenen",
+        "description": "The Jimi Hendrix Experience at Stora Scenen at 1970-09-01",
+        "date": "01-09-1970"
+      },
+      "geometry": {
+        "coordinates": [
+          11.99246,
+          57.69522
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

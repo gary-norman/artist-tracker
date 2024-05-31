@@ -12,11 +12,11 @@ import (
 
 type InputGeo struct {
 	Data []struct {
-		Name        string `json:"name"`
 		Description string `json:"description"`
 		Date        string `json:"endDate"`
 		Location    struct {
-			Geo struct {
+			Name string `json:"name"`
+			Geo  struct {
 				Type      string  `json:"@type"`
 				Latitude  float64 `json:"latitude"`
 				Longitude float64 `json:"longitude"`
@@ -25,15 +25,19 @@ type InputGeo struct {
 	} `json:"data"`
 }
 
-type GeoJSON struct {
+type GeoJSONCollection struct {
+	Features []GeoJSONFeature `json:"features"`
+}
+
+type GeoJSONFeature struct {
 	Type       string     `json:"type"`
-	Geometry   Geometry   `json:"geometry"`
 	Properties Properties `json:"properties"`
+	Geometry   Geometry   `json:"geometry"`
 }
 
 type Geometry struct {
-	Type        string    `json:"type"`
 	Coordinates []float64 `json:"coordinates"`
+	Type        string    `json:"type"`
 }
 
 type Properties struct {
@@ -66,28 +70,38 @@ func RapidToMapbox(index int) {
 		log.Fatalf("Error unmarshalling input JSON: %v", err)
 	}
 
-	latitude := inputGeo.Data[0].Location.Geo.Latitude
-	longitude := inputGeo.Data[0].Location.Geo.Longitude
-	// Define the date layout
-	const layoutUK = "02-01-2006"
-	const layoutUS = "2006-01-02"
-	date, err := time.Parse(layoutUS, inputGeo.Data[0].Date)
-	if err != nil {
-		fmt.Println("Error parsing date:", err)
+	features := make([]GeoJSONFeature, 0, len(inputGeo.Data))
+
+	for _, item := range inputGeo.Data {
+		// Define the date layout
+		const layoutUK = "02-01-2006"
+		const layoutUS = "2006-01-02"
+		date, err := time.Parse(layoutUS, item.Date)
+		if err != nil {
+			fmt.Println("Error parsing date:", err)
+		}
+		latitude := item.Location.Geo.Latitude
+		longitude := item.Location.Geo.Longitude
+
+		feature := GeoJSONFeature{
+			Type: "Feature",
+			Properties: Properties{
+				Title:       item.Location.Name,
+				Description: item.Description,
+				Date:        date.Format(layoutUK),
+			},
+			Geometry: Geometry{
+				Type:        "Point",
+				Coordinates: []float64{longitude, latitude},
+			},
+		}
+
+		features = append(features, feature)
 	}
-	geoJSON := GeoJSON{
-		Type: "Feature",
-		Properties: Properties{
-			Title:       inputGeo.Data[0].Name,
-			Description: inputGeo.Data[0].Description,
-			Date:        date.Format(layoutUK),
-		},
-		Geometry: Geometry{
-			Type:        "Point",
-			Coordinates: []float64{longitude, latitude},
-		},
+
+	geoJSON := GeoJSONCollection{
+		Features: features,
 	}
-	// TODO save geoJSON as db/mapbox/i.geojson
 
 	// Marshal the struct into JSON
 	jsonData, err := json.MarshalIndent(geoJSON, "", "  ")

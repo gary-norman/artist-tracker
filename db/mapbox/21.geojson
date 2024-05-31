@@ -1,0 +1,229 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Camp Mars",
+        "description": "Thirty Seconds to Mars at Camp Mars at 2019-09-08T19:30:00-0700",
+        "date": "08-09-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -118.73706,
+          34.14195
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Camp Mars",
+        "description": "Thirty Seconds to Mars at Camp Mars at 2019-09-08T10:00:00-0700",
+        "date": "08-09-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -118.73706,
+          34.14195
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Camp Mars",
+        "description": "Thirty Seconds to Mars at Camp Mars at 2019-09-07T19:30:00-0700",
+        "date": "07-09-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -118.73706,
+          34.14195
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Camp Mars",
+        "description": "Thirty Seconds to Mars at Camp Mars at 2019-09-07T10:00:00-0700",
+        "date": "07-09-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -118.73706,
+          34.14195
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Highfield Festival",
+        "description": "Thirty Seconds to Mars at Highfield Festival at 2019-08-17",
+        "date": "17-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          12.48312,
+          51.23772
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Schloss Salem",
+        "description": "Thirty Seconds to Mars at Schloss Salem at 2019-08-16T20:00:00+0200",
+        "date": "16-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          9.29717,
+          47.77306
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Mönchengladbach",
+        "description": "Thirty Seconds to Mars at Mönchengladbach at 2019-08-15T20:00:00+0200",
+        "date": "15-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          0,
+          0
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Skanderborg",
+        "description": "Thirty Seconds to Mars at Skanderborg at 2019-08-08",
+        "date": "08-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          0,
+          0
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "NDSM-werf",
+        "description": "Thirty Seconds to Mars at NDSM-werf at 2019-08-06",
+        "date": "06-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          4.89602,
+          52.4011
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Arenal Sound",
+        "description": "Thirty Seconds to Mars at Arenal Sound at 2019-08-03",
+        "date": "03-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          0,
+          0
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Qstock Festival",
+        "description": "Thirty Seconds to Mars at Qstock Festival at 2019-07-27",
+        "date": "27-07-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          25.48568,
+          65.01309
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Amfiteatr Dolina Charlotty",
+        "description": "Thirty Seconds to Mars at Amfiteatr Dolina Charlotty at 2019-07-25T22:00:00+0200",
+        "date": "25-07-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          0,
+          0
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Budapest Park Open Air",
+        "description": "Thirty Seconds to Mars at Budapest Park Open Air at 2019-07-23T18:00:00+0200",
+        "date": "23-07-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          19.04024,
+          47.49791
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Bánffy Castle",
+        "description": "Thirty Seconds to Mars at Bánffy Castle at 2019-07-21",
+        "date": "21-07-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          23.80933,
+          46.92047
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Deichbrand Festival 2019",
+        "description": "Thirty Seconds to Mars at Deichbrand Festival 2019 at 2019-07-19",
+        "date": "19-07-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          0,
+          0
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

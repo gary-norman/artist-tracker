@@ -1,0 +1,49 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "T-Mobile Arena",
+        "description": "Phil Collins at T-Mobile Arena at 2019-10-19T20:00:00-0700",
+        "date": "19-10-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -115.17817,
+          36.10312
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Footprint Center",
+        "description": "Phil Collins at Footprint Center at 2019-10-18T20:00:00-0700",
+        "date": "18-10-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -112.07186,
+          33.44588
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Chase Center",
+        "description": "Phil Collins at Chase Center at 2019-10-17T20:00:00-0700",
+        "date": "17-10-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -122.38712,
+          37.77037
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}
