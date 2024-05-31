@@ -28,49 +28,41 @@
             <div class="floating-md filters go-down">
                 <div class="filters">
                     <h3 class="small center">Showing 6 results</h3>
-                    <div class="button-2">
+                    <div class="button-2" id="button-filter">
                         <div class="button-container">
                             <p>Filters (0)</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="floating-sm filter">
-                    <p>Artist creation date</p>
-                    <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
+                <div class="floating-sm col filter">
+                    <div class="space">
+                        <p>Artist creation date</p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider-button round"></span>
+                        </label>
+                    </div>
+                    <div class="space">
+                        <label for="album-start-date" class="filter-label">
+                            Start Date
+                        </label>
+                        <label for="album-end-date" class="filter-label">
+                            End Date
+                        </label>
+                    </div>
+                    <div class="space">
+                        <div class="button-2" id="album-start-date">
+                            Pick a date
+                        </div>
+                        <p class="small" id="album-end-date">
+                            11 / 01 / 1990
+                        </p>
+                    </div>
+                    <div class="slide-container">
+                        <input type="range" min="1" max="100" value="50" class="slider" id="album-date-range">
+                    </div>
                 </div>
-                <div class="floating-sm filter">
-                    <p>Album creation date</p>
-                    <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-                <div class="floating-sm filter">
-                    <p>Album creation date</p>
-                    <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-                <div class="floating-sm filter">
-                    <p>Number of Members</p>
-                    <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-                <div class="floating-sm filter">
-                    <p>Concert location</p>
-                    <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-
             </div>
             <div class="container">
                 <div id="search-artists" class="col col1">
@@ -520,7 +512,7 @@
         </section>
     </div>
 </main>
-
+<script type="text/javascript" src="../js/default.js"></script>
 
 </body>
 </html>

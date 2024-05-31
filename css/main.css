@@ -175,6 +175,7 @@ a {
 .floating-sm {
     padding-left:  var(--h--1-2);
     padding-right:  var(--h--1-2);
+
     transition: padding-left 500ms;
     gap: var(--h--0-8);
     @media (max-width:700px){
@@ -442,6 +443,10 @@ input {
 }
 
 .filter {
+    padding-bottom: var(--h--2-4)
+}
+
+.space{
     width: 100%;
     display: flex;
     align-items: center;
@@ -450,7 +455,33 @@ input {
     & p {
         margin: 0;
     }
+
+    & label {
+        font-size: var(--h--1-2);
+    }
+
+    & .filter-label {
+        width: 15rem;
+    }
+
+    & #album-start-date {
+        display: flex;
+        padding: 1.2rem 1.6rem;
+        align-items: center;
+        gap: 1.6rem;
+        max-width: 20rem;
+    }
+
+    & #album-end-date {
+        padding: 0;
+        min-width: 15rem;
+
+    }
 }
+
+
+
+
 
 .button-1 {
 
@@ -461,8 +492,6 @@ input {
     position: relative;
     padding: var(--h--0-8) var(--h--1-6) ;
     justify-content: space-between;
-    min-width: 18rem;
-    max-width: 26rem;
     align-items: center;
     flex: 1 0 0;
     border-radius: var(--h--2-8);
@@ -472,7 +501,6 @@ input {
         padding: var(--h--0-4) var(--h--1-2) ;
     }
     &::after {
-        content: url('../icons/show_x24.svg');
         width: var(--h--2-4);
         height: var(--h--2-4);
         position: absolute;
@@ -500,7 +528,22 @@ input {
         }
     }
 
+    &#button-filter {
+        min-width: 18rem;
+        max-width: 26rem;
+
+        &::after {
+            content: url('../icons/show_x24.svg');
+        }
+    }
+    &#album-start-date {
+        &::after {
+            content: url('../icons/calendar_x24.svg');
+        }
+    }
 }
+
+
 
 @media (max-width: 500px) {
     .button-2::after {
@@ -516,7 +559,6 @@ input {
         height: var(--h--1-6);
         left: var(--h--1-2);
     }
-
 }
 
 .switch {
@@ -534,7 +576,7 @@ input {
 }
 
 /* The slider */
-.slider {
+.slider-button {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -546,7 +588,7 @@ input {
     transition: .4s;
 }
 
-.slider {
+.slider-button {
     &::before {
         position: absolute;
         content: "";
@@ -563,15 +605,67 @@ input {
         }
     }
 }
-input:checked + .slider {
+
+.slide-container {
+    width: 100%;
+    outline: none;
+    border: none;
+
+    & .slider {
+        -webkit-appearance: none;
+        width: 100%;
+        max-height: 0.8rem;
+        background: linear-gradient(to right, var(--green-0) 50%, var(--white-4) 50%);
+        outline: none;
+        border: none;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+        padding: 0;
+        margin: auto;
+
+        &:hover {
+            /*background: var(--white-4);*/
+            outline: none;
+            border: none;
+        }
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 2.4rem;
+            height: 2.4rem;
+            border-radius: 50%;
+            background: var(--green-0);
+            cursor: pointer;
+        }
+
+        &::-moz-range-thumb {
+            width: 2.4rem;
+            height: 2.4rem;
+            background: var(--green-0);
+            cursor: pointer;
+        }
+
+    }
+}
+
+
+
+
+
+
+
+
+
+input:checked + .slider-button {
     background: var(--main-grad);
 }
 
-input:focus-visible + .slider {
+input:focus-visible + .slider-button {
     box-shadow: 0 0 1px var(--green-3);
 }
 
-input:checked + .slider:before {
+input:checked + .slider-button:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
@@ -579,11 +673,11 @@ input:checked + .slider:before {
 }
 
 /* Rounded sliders */
-.slider.round {
+.slider-button.round {
     border-radius: 34px;
 }
 
-.slider.round:before {
+.slider-button.round:before {
     border-radius: 50%;
 }
 
