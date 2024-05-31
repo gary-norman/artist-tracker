@@ -1,0 +1,49 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "du Arena",
+        "description": "Rihanna at du Arena at 2016-11-27T20:00:00+0400",
+        "date": "27-11-2016"
+      },
+      "geometry": {
+        "coordinates": [
+          54.62691,
+          24.45931
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Central Park",
+        "description": "Rihanna at Central Park at 2016-09-24",
+        "date": "24-09-2016"
+      },
+      "geometry": {
+        "coordinates": [
+          -73.97566,
+          40.77011
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Benjamin Franklin Parkway",
+        "description": "Rihanna at Benjamin Franklin Parkway at 2016-09-03T12:00:00-0400",
+        "date": "04-09-2016"
+      },
+      "geometry": {
+        "coordinates": [
+          -75.17355,
+          39.96021
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

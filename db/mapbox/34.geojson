@@ -1,0 +1,94 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Boom Boom Room",
+        "description": "N.W.A. at Boom Boom Room at 2015-09-03T22:00:00-0400",
+        "date": "03-09-2015"
+      },
+      "geometry": {
+        "coordinates": [
+          -83.03917,
+          42.31723
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Hummingbird",
+        "description": "N.W.A. at Hummingbird at 1990-05-29",
+        "date": "29-05-1990"
+      },
+      "geometry": {
+        "coordinates": [
+          -1.89388,
+          52.48088
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Wachovia Spectrum Center",
+        "description": "N.W.A. at Wachovia Spectrum Center at 1989-06-25",
+        "date": "25-06-1989"
+      },
+      "geometry": {
+        "coordinates": [
+          -75.17197,
+          39.90118
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Riverfront Coliseum",
+        "description": "N.W.A. at Riverfront Coliseum at 1989-06-18",
+        "date": "18-06-1989"
+      },
+      "geometry": {
+        "coordinates": [
+          -84.50436,
+          39.09807
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Celebrity Theatre",
+        "description": "N.W.A. at Celebrity Theatre at 1989-03-24",
+        "date": "24-03-1989"
+      },
+      "geometry": {
+        "coordinates": [
+          -117.9114,
+          33.83413
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Riviera Theatre",
+        "description": "N.W.A. at Riviera Theatre at 1989-01-12",
+        "date": "12-01-1989"
+      },
+      "geometry": {
+        "coordinates": [
+          -87.66007,
+          41.96865
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}
