@@ -26,6 +26,7 @@ type InputGeo struct {
 }
 
 type GeoJSONCollection struct {
+	Type     string           `json:"type"`
 	Features []GeoJSONFeature `json:"features"`
 }
 
@@ -100,6 +101,7 @@ func RapidToMapbox(index int) {
 	}
 
 	geoJSON := GeoJSONCollection{
+		Type:     "FeatureCollection",
 		Features: features,
 	}
 

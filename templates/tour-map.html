@@ -29,7 +29,7 @@
     mapboxgl.accessToken = 'pk.eyJ1IjoibG9yZXdvcmxkIiwiYSI6ImNsd3FseDNsbDAzZjMyanF2czh3Mmt4eTgifQ.-_bXsAv_SR1bpcmvOSpDuA';
     const map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/loreworld/clwqra3cm00vg01pc0s6o0ikl',
+        style: 'mapbox://styles/loreworld/clwunn3x6016c01qx2kio2sfj',
         center: [-87.661557, 41.893748],
         zoom: 10.7
     });
@@ -39,7 +39,7 @@ Add an event listener that runs when a user clicks on the map element. */
     map.on('click', (event) => {
         // If the user clicked on one of your markers, get its information.
         const features = map.queryRenderedFeatures(event.point, {
-            layers: ['chicago-parks'] // replace with your layer name
+            layers: ['queen-tourdates'] // replace with your layer name
         });
         if (!features.length) {
             return;
