@@ -1,0 +1,139 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Honda Center",
+        "description": "Joyner Lucas at Honda Center at 2019-10-19T18:30:00-0700",
+        "date": "19-10-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -117.87652,
+          33.80772
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Viejas Arena at Aztec Bowl San Diego State University",
+        "description": "Joyner Lucas at Viejas Arena at Aztec Bowl San Diego State University at 2019-10-18T18:30:00-0700",
+        "date": "18-10-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -117.07444,
+          32.77396
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Save Mart Center",
+        "description": "Joyner Lucas at Save Mart Center at 2019-10-17T18:30:00-0700",
+        "date": "17-10-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -119.73945,
+          36.80865
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Oakland Arena",
+        "description": "Joyner Lucas at Oakland Arena at 2019-10-15T18:30:00-0700",
+        "date": "15-10-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -122.20157,
+          37.75155
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Golden 1 Center",
+        "description": "Joyner Lucas at Golden 1 Center at 2019-10-12T18:30:00-0700",
+        "date": "12-10-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -121.49935,
+          38.58021
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Crypto.com Arena",
+        "description": "Joyner Lucas at Crypto.com Arena at 2019-10-11T18:30:00-0700",
+        "date": "11-10-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -118.26736,
+          34.04301
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Footprint Center",
+        "description": "Joyner Lucas at Footprint Center at 2019-10-10T18:30:00-0700",
+        "date": "10-10-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -112.07186,
+          33.44588
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Frost Bank Center",
+        "description": "Joyner Lucas at Frost Bank Center at 2019-10-08T18:30:00-0500",
+        "date": "08-10-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.43369,
+          29.43398
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Toyota Center",
+        "description": "Joyner Lucas at Toyota Center at 2019-10-06T18:30:00-0500",
+        "date": "06-10-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -95.36218,
+          29.75198
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

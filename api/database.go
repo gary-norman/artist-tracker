@@ -112,18 +112,9 @@ func UpdateArtistName(artists []Artist, oldName string, newName string) (string,
 
 // UpdateACDC updates ACDC members
 func UpdateACDC(artists []Artist) {
-	for i, member := range artists[8].Members {
-		fmt.Printf("Member: %s\n", member)
-		if member == "Axl Rose" {
-			fmt.Printf("Found member: %s\n", member)
-			artists[8].Members[i] = "Dave Evans"
-			fmt.Printf("Amended member: %s\n", member)
-		}
-	}
-	artists[8].Members[1] = "Phil Rudd"
-	artists[8].Members[3] = "Dave Evans"
-	artists[8].Members = append(artists[8].Members, "")
-	fmt.Printf("Members: %s\n", artists[8].Members)
+	artists[8].Members[1] = "Larry Van Kriedt" // Replace Chris Slade to align with original lineup
+	artists[8].Members[3] = "Dave Evans"       // Replace Axl Rose, as incorrect
+	artists[8].Members = append(artists[8].Members, "Colin Burgess")
 }
 
 func formatLocation(location string) string {

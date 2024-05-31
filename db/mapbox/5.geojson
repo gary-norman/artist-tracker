@@ -1,0 +1,64 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Queen Mary Events Park",
+        "description": "Mac Miller at Queen Mary Events Park at 2018-04-28",
+        "date": "29-04-2018"
+      },
+      "geometry": {
+        "coordinates": [
+          -118.19025,
+          33.75255
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Autódromo José Carlos Pace (Interlagos)",
+        "description": "Mac Miller at Autódromo José Carlos Pace (Interlagos) at 2018-03-23T13:00:00-0300",
+        "date": "25-03-2018"
+      },
+      "geometry": {
+        "coordinates": [
+          -46.70092,
+          -23.70379
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Hipódromo de San Isidro",
+        "description": "Mac Miller at Hipódromo de San Isidro at 2018-03-16",
+        "date": "18-03-2018"
+      },
+      "geometry": {
+        "coordinates": [
+          -58.52233,
+          -34.47965
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Parque O'Higgins",
+        "description": "Mac Miller at Parque O'Higgins at 2018-03-16",
+        "date": "18-03-2018"
+      },
+      "geometry": {
+        "coordinates": [
+          -70.66369,
+          -33.46539
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

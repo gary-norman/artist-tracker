@@ -1,0 +1,64 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "The O2",
+        "description": "Led Zeppelin at The O2 at 2007-12-10",
+        "date": "10-12-2007"
+      },
+      "geometry": {
+        "coordinates": [
+          0.00536,
+          51.50094
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Empire Leicester Square",
+        "description": "Led Zeppelin at Empire Leicester Square at 2003-05-15",
+        "date": "15-05-2003"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.12949,
+          51.51046
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Waldorf Astoria Hotel",
+        "description": "Led Zeppelin at Waldorf Astoria Hotel at 1995-01-12",
+        "date": "12-01-1995"
+      },
+      "geometry": {
+        "coordinates": [
+          -73.97364,
+          40.75657
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Opera House",
+        "description": "Led Zeppelin at Opera House at 1994-04-17",
+        "date": "17-04-1994"
+      },
+      "geometry": {
+        "coordinates": [
+          -70.51894,
+          43.63786
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

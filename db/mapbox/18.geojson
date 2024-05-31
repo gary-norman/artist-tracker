@@ -1,0 +1,124 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Dolby Live at Park MGM",
+        "description": "Aerosmith at Dolby Live at Park MGM at 2020-02-15T20:00:00-0800",
+        "date": "15-02-2020"
+      },
+      "geometry": {
+        "coordinates": [
+          -115.17359,
+          36.10502
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Dolby Live at Park MGM",
+        "description": "Aerosmith at Dolby Live at Park MGM at 2020-02-13T20:00:00-0800",
+        "date": "13-02-2020"
+      },
+      "geometry": {
+        "coordinates": [
+          -115.17359,
+          36.10502
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Dolby Live at Park MGM",
+        "description": "Aerosmith at Dolby Live at Park MGM at 2020-02-10T20:00:00-0800",
+        "date": "10-02-2020"
+      },
+      "geometry": {
+        "coordinates": [
+          -115.17359,
+          36.10502
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Dolby Live at Park MGM",
+        "description": "Aerosmith at Dolby Live at Park MGM at 2020-02-08T20:00:00-0800",
+        "date": "08-02-2020"
+      },
+      "geometry": {
+        "coordinates": [
+          -115.17359,
+          36.10502
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Dolby Live at Park MGM",
+        "description": "Aerosmith at Dolby Live at Park MGM at 2020-02-05T20:00:00-0800",
+        "date": "05-02-2020"
+      },
+      "geometry": {
+        "coordinates": [
+          -115.17359,
+          36.10502
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Dolby Live at Park MGM",
+        "description": "Aerosmith at Dolby Live at Park MGM at 2020-02-03T20:00:00-0800",
+        "date": "03-02-2020"
+      },
+      "geometry": {
+        "coordinates": [
+          -115.17359,
+          36.10502
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Dolby Live at Park MGM",
+        "description": "Aerosmith at Dolby Live at Park MGM at 2020-01-31T20:00:00-0800",
+        "date": "31-01-2020"
+      },
+      "geometry": {
+        "coordinates": [
+          -115.17359,
+          36.10502
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Dolby Live at Park MGM",
+        "description": "Aerosmith at Dolby Live at Park MGM at 2020-01-29T20:00:00-0800",
+        "date": "29-01-2020"
+      },
+      "geometry": {
+        "coordinates": [
+          -115.17359,
+          36.10502
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}
