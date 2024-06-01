@@ -34,6 +34,8 @@ func HandleRequests(artists []Artist, tpl *template.Template) {
 	logger := pterm.DefaultLogger.WithLevel(pterm.LogLevelTrace)
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.Handle("/icons/", http.StripPrefix("/icons/", http.FileServer(http.Dir("icons"))))
+	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("js"))))
+
 	port := 8080
 	addr := fmt.Sprintf(":%d", port)
 	server := &http.Server{
