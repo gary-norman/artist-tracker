@@ -30,8 +30,8 @@
     const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/loreworld/clwunn3x6016c01qx2kio2sfj',
-        center: [-87.661557, 41.893748],
-        zoom: 10.7
+        center: [-96.818314, 39.338157],
+        zoom: 3.71
     });
 
     /*
@@ -50,7 +50,7 @@ Add an event listener that runs when a user clicks on the map element. */
         const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-                `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+                `<h3>${feature.properties.title}</h3><p>${feature.properties.date}</p>`
             )
             .addTo(map);
     });

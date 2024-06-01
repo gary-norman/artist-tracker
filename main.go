@@ -37,22 +37,23 @@ func main() {
 	timetaken = t.Sub(update).Milliseconds()
 	spinnerInfo.Success("Updated artist information in " + strconv.FormatInt(timetaken, 10) + "ms\n")
 	tour := time.Now()
-	//for i := 39; i < 49; i++ {
+	//for i := 49; i < 53; i++ {
 	//	api.GetTourInfo(Artists, Artists[i].Name, i)
 	//	duration := time.Second
 	//	time.Sleep(duration)
 	//}
 	api.UpdateACDC(Artists)
-	//api.GetTourInfo(Artists, Artists[i].Name, i)
 	// Fetch and update tour information
 	//api.GetTourInfo(Artists, Artists[i].Name, i)
-	for i := 0; i < 39; i++ {
-		api.UnmarshallTourInfo(Artists, i)
-		if len(Artists[i].Data) > 0 {
-			pterm.DefaultBasicText.Println(Artists[i].Name + ": " + pterm.Green("success"))
-		}
-	}
-	api.RapidToMapbox(0)
+	//var i int
+	//for i = 0; i < 53; i++ {
+	//	api.UnmarshallTourInfo(Artists, i)
+	//	if len(Artists[i].Data) > 0 {
+	//		pterm.DefaultBasicText.Println(Artists[i].Name + ": " + pterm.Green("success"))
+	//	}
+	//	api.RapidToMapbox(i)
+	//}
+
 	t = time.Now()
 	timetaken = t.Sub(tour).Milliseconds()
 	spinnerInfo.Success("Updated tour information in " + strconv.FormatInt(timetaken, 10) + "ms\n\n")
@@ -66,12 +67,12 @@ func main() {
 	//	return
 	//} // Render the big text to the terminal
 	timetaken = t.Sub(start).Milliseconds()
-	i := 0
+	//i = 48
 	pterm.Info.Println("All tasks completed successfully in " + pterm.Green(strconv.FormatInt(timetaken, 10)+"ms"))
-	pterm.Println(pterm.Cyan(Artists[i]))
-	pterm.Println(pterm.Cyan("TourDetails {"))
-	pterm.Println(pterm.Cyan(Artists[i].TourDetails))
-	pterm.Println(pterm.Cyan("}"))
+	//pterm.Println(pterm.Cyan(Artists[i]))
+	//pterm.Println(pterm.Cyan("TourDetails {"))
+	//pterm.Println(pterm.Cyan(Artists[i].TourDetails))
+	//pterm.Println(pterm.Cyan("}"))
 	//fmt.Println(api.GetTourInfo(Artists, "queen"))
 	//for i := 1; i < 10; i++ { // TODO run this on monday
 	//i := 3
