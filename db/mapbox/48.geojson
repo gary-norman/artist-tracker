@@ -1,0 +1,80 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Hard Rock Stadium",
+        "description": "The Rolling Stones at Hard Rock Stadium at 2019-08-31T20:00:00-0400",
+        "date": "31-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -80.35159,
+          25.68701
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "State Farm Stadium",
+        "description": "The Rolling Stones at State Farm Stadium at 2019-08-26T20:00:00-0700",
+        "date": "26-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -112.26228,
+          33.52827
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Rose Bowl",
+        "description": "The Rolling Stones at Rose Bowl at 2019-08-22T19:30:00-0700",
+        "date": "22-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -118.16747,
+          34.16097
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Levi's® Stadium",
+        "description": "The Rolling Stones at Levi's® Stadium at 2019-08-18T19:30:00-0700",
+        "date": "18-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -121.9693,
+          37.40464
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Lumen Field",
+        "description": "The Rolling Stones at Lumen Field at 2019-08-14T19:30:00-0700",
+        "date": "14-08-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          -122.33323,
+          47.59418
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

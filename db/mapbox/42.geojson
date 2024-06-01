@@ -1,0 +1,80 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "du Arena",
+        "description": "Eminem at du Arena at 2019-10-25",
+        "date": "25-10-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          54.62691,
+          24.45931
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Sky Stadium",
+        "description": "Eminem at Sky Stadium at 2019-03-02",
+        "date": "02-03-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          174.78334,
+          -41.27728
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Optus Stadium",
+        "description": "Eminem at Optus Stadium at 2019-02-27",
+        "date": "27-02-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          115.89537,
+          -31.95438
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Melbourne Cricket Ground",
+        "description": "Eminem at Melbourne Cricket Ground at 2019-02-24",
+        "date": "24-02-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          144.98346,
+          -37.82145
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Accor Stadium",
+        "description": "Eminem at Accor Stadium at 2019-02-22",
+        "date": "22-02-2019"
+      },
+      "geometry": {
+        "coordinates": [
+          151.06188,
+          -33.84892
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}
