@@ -84,7 +84,13 @@ document.addEventListener('DOMContentLoaded', () => {
             $(minBtn).val(maxVal);
         }
         minVal = parseInt($(minBtn).val());
-        $(range_min).html(addSeparator(minVal) + ' Members');
+        if(minVal > 9 ) {
+            $(range_min).html(addSeparator(minVal) + '+ Members');
+        } else if(minVal > 1 ) {
+            $(range_min).html(addSeparator(minVal) + ' Members');
+        } else {
+            $(range_min).html(addSeparator(minVal) + ' Member');
+        }
 
 
         if(origin === 'max' && maxVal < minVal){
@@ -93,8 +99,10 @@ document.addEventListener('DOMContentLoaded', () => {
         maxVal = parseInt($(maxBtn).val());
         if(maxVal > 9 ) {
             $(range_max).html(addSeparator(maxVal) + '+ Members');
-        } else {
+        } else if(maxVal > 1 ) {
             $(range_max).html(addSeparator(maxVal) + ' Members');
+         }else {
+            $(range_max).html(addSeparator(maxVal) + ' Member');
         }
     }
 
