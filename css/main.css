@@ -282,6 +282,10 @@ a {
             position: absolute;
             right: var(--h--1-6);
         }
+
+        &:hover {
+            opacity: 90%;
+        }
     }
 }
 
@@ -348,9 +352,10 @@ input {
 
     &:hover {
         background-color: var(--grey-2);
-        opacity: 90%;
+        /*opacity: 90%;*/
         border: 0.2rem solid var(--white-4);
     }
+
 
     &:focus-visible {
         background-color: var(--grey-2);

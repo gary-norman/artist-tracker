@@ -22,17 +22,22 @@ function updateDoubleSliderBackground(slider1, slider2) {
     const value2 = slider2.value;
     const min = slider1.min;
     const max = slider2.max;
-    const percentageLeft = ((value1 - min) / (max - min)) * 10;
-    const percentageRight = ((value2 - min) / (max -min)) * 10;
-    const percentageCenter = (value2 - value1) * 10;
+    const percentageLeft = ((value1 - min) / (max - min)) * 100;
+    const percentageRight = ((value2 - min) / (max -min)) * 100;
+
+    slider1.style.background = `linear-gradient(
+    to right, 
+    var(--white-4) ${percentageLeft}%, 
+    var(--green-0) ${percentageLeft}%, 
+    var(--green-0) ${percentageRight}%, 
+    var(--white-4) ${percentageRight}%)`;
 
     slider2.style.background = `linear-gradient(
     to right, 
-    var(--white-4) 0%, 
     var(--white-4) ${percentageLeft}%, 
-    var(--green-0) ${percentageCenter}%, 
+    var(--green-0) ${percentageLeft}%, 
+    var(--green-0) ${percentageRight}%, 
     var(--white-4) ${percentageRight}%)`;
-
 
 }
 
@@ -42,7 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const slider2 = document.getElementById('members-max-range');
     updateDoubleSliderBackground(slider1, slider2);
 
-    slider.addEventListener('input', () => {
+    slider1.addEventListener('input', () => {
+        updateDoubleSliderBackground(slider1, slider2);
+    });
+
+    slider2.addEventListener('input', () => {
         updateDoubleSliderBackground(slider1, slider2);
     });
 });
