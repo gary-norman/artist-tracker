@@ -11,8 +11,8 @@
       },
       "geometry": {
         "coordinates": [
-          0,
-          0
+          -80.2421728,
+          25.958326
         ],
         "type": "Point"
       }
@@ -36,15 +36,15 @@
     {
       "type": "Feature",
       "properties": {
-        "title": "Columbia",
+        "title": "Carolina Coliseum",
         "description": "Bee Gees at Columbia at 1979-10-03",
         "date": "03-10-1979",
         "eventAddress": "Columbia, SC, US"
       },
       "geometry": {
         "coordinates": [
-          0,
-          0
+          -81.0379193,
+          33.9936686
         ],
         "type": "Point"
       }
@@ -52,15 +52,15 @@
     {
       "type": "Feature",
       "properties": {
-        "title": "Greensboro",
+        "title": "Greensboro Coliseum",
         "description": "Bee Gees at Greensboro at 1979-10-02",
         "date": "02-10-1979",
         "eventAddress": "Greensboro, NC, US"
       },
       "geometry": {
         "coordinates": [
-          0,
-          0
+          -79.8283136,
+          36.0595689
         ],
         "type": "Point"
       }

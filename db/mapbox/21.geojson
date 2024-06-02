@@ -100,15 +100,15 @@
     {
       "type": "Feature",
       "properties": {
-        "title": "Mönchengladbach",
+        "title": "SparkassenPark",
         "description": "Thirty Seconds to Mars at Mönchengladbach at 2019-08-15T20:00:00+0200",
         "date": "15-08-2019",
         "eventAddress": "Mönchengladbach, Germany"
       },
       "geometry": {
         "coordinates": [
-          0,
-          0
+          5.0387511,
+          52.8709386
         ],
         "type": "Point"
       }
@@ -116,15 +116,15 @@
     {
       "type": "Feature",
       "properties": {
-        "title": "Skanderborg",
+        "title": "Smukfest",
         "description": "Thirty Seconds to Mars at Skanderborg at 2019-08-08",
         "date": "08-08-2019",
         "eventAddress": "Skanderborg, Denmark"
       },
       "geometry": {
         "coordinates": [
-          0,
-          0
+          9.8149208,
+          56.01904
         ],
         "type": "Point"
       }
@@ -155,8 +155,8 @@
       },
       "geometry": {
         "coordinates": [
-          0,
-          0
+          -0.0695371,
+          39.8643232
         ],
         "type": "Point"
       }
@@ -187,8 +187,8 @@
       },
       "geometry": {
         "coordinates": [
-          0,
-          0
+          16.9494664,
+          54.525538
         ],
         "type": "Point"
       }
@@ -235,8 +235,8 @@
       },
       "geometry": {
         "coordinates": [
-          0,
-          0
+          8.6714404,
+          53.7581441
         ],
         "type": "Point"
       }
