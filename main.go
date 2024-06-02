@@ -37,7 +37,7 @@ func main() {
 	timetaken = t.Sub(update).Milliseconds()
 	spinnerInfo.Success("Updated artist information in " + strconv.FormatInt(timetaken, 10) + "ms\n")
 	tour := time.Now()
-	//for i := 49; i < 53; i++ {
+	//for i := 49; i < 52; i++ {
 	//	api.GetTourInfo(Artists, Artists[i].Name, i)
 	//	duration := time.Second
 	//	time.Sleep(duration)
@@ -46,13 +46,17 @@ func main() {
 	// Fetch and update tour information
 	//api.GetTourInfo(Artists, Artists[i].Name, i)
 	//var i int
-	//for i = 0; i < 53; i++ {
+	//for i = 0; i < 52; i++ {
 	//	api.UnmarshallTourInfo(Artists, i)
 	//	if len(Artists[i].Data) > 0 {
 	//		pterm.DefaultBasicText.Println(Artists[i].Name + ": " + pterm.Green("success"))
 	//	}
 	//	api.RapidToMapbox(i)
 	//}
+	fmt.Println("Artists with geojson data:")
+	for i := 0; i < 52; i++ {
+		api.GeojsonCheck(i, Artists[i].Name)
+	}
 
 	t = time.Now()
 	timetaken = t.Sub(tour).Milliseconds()

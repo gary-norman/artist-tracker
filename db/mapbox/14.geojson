@@ -6,7 +6,8 @@
       "properties": {
         "title": "The O2",
         "description": "Led Zeppelin at The O2 at 2007-12-10",
-        "date": "10-12-2007"
+        "date": "10-12-2007",
+        "eventAddress": "London, UK"
       },
       "geometry": {
         "coordinates": [
@@ -21,7 +22,8 @@
       "properties": {
         "title": "Empire Leicester Square",
         "description": "Led Zeppelin at Empire Leicester Square at 2003-05-15",
-        "date": "15-05-2003"
+        "date": "15-05-2003",
+        "eventAddress": "London, UK"
       },
       "geometry": {
         "coordinates": [
@@ -36,7 +38,8 @@
       "properties": {
         "title": "Waldorf Astoria Hotel",
         "description": "Led Zeppelin at Waldorf Astoria Hotel at 1995-01-12",
-        "date": "12-01-1995"
+        "date": "12-01-1995",
+        "eventAddress": "New York (NYC), NY, US"
       },
       "geometry": {
         "coordinates": [
@@ -51,7 +54,8 @@
       "properties": {
         "title": "Opera House",
         "description": "Led Zeppelin at Opera House at 1994-04-17",
-        "date": "17-04-1994"
+        "date": "17-04-1994",
+        "eventAddress": "Buxton, ME, US"
       },
       "geometry": {
         "coordinates": [

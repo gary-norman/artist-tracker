@@ -15,8 +15,13 @@ type InputGeo struct {
 		Description string `json:"description"`
 		Date        string `json:"endDate"`
 		Location    struct {
-			Name string `json:"name"`
-			Geo  struct {
+			Name    string `json:"name"`
+			Address struct {
+				AddressLocality string `json:"addressLocality"`
+				AddressRegion   string `json:"addressRegion"`
+				AddressCountry  string `json:"addressCountry"`
+			} `json:"address"`
+			Geo struct {
 				Type      string  `json:"@type"`
 				Latitude  float64 `json:"latitude"`
 				Longitude float64 `json:"longitude"`
@@ -45,6 +50,7 @@ type Properties struct {
 	Title       string `json:"title"`
 	Description string `json:"description"`
 	Date        string `json:"date"`
+	Address     string `json:"eventAddress"`
 }
 
 func RapidToMapbox(index int) {
@@ -83,6 +89,15 @@ func RapidToMapbox(index int) {
 		}
 		latitude := item.Location.Geo.Latitude
 		longitude := item.Location.Geo.Longitude
+		city := item.Location.Address.AddressLocality
+		region := item.Location.Address.AddressRegion
+		country := item.Location.Address.AddressCountry
+		var eventAddress string
+		if region != "" {
+			eventAddress = city + ", " + region + ", " + country
+		} else {
+			eventAddress = city + ", " + country
+		}
 
 		feature := GeoJSONFeature{
 			Type: "Feature",
@@ -90,6 +105,7 @@ func RapidToMapbox(index int) {
 				Title:       item.Location.Name,
 				Description: item.Description,
 				Date:        date.Format(layoutUK),
+				Address:     eventAddress,
 			},
 			Geometry: Geometry{
 				Type:        "Point",
@@ -112,8 +128,8 @@ func RapidToMapbox(index int) {
 		return
 	}
 
-	// Print JSON data
-	fmt.Printf("JSON data: %s\n", string(jsonData))
+	//// Print JSON data
+	//fmt.Printf("JSON data: %s\n", string(jsonData))
 
 	// Save JSON data to a file
 	file, err := os.Create("db/mapbox/" + indexInt + ".geojson")
@@ -135,4 +151,33 @@ func RapidToMapbox(index int) {
 	}
 
 	fmt.Println("JSON data successfully written to db/mapbox/" + indexInt + ".geojson")
+}
+
+func GeojsonCheck(index int, artist string) {
+	indexInt := strconv.Itoa(index)
+	geoJsonFile, err := os.Open("db/mapbox/" + indexInt + ".geojson")
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer func(geoJsonFile *os.File) {
+		err2 := geoJsonFile.Close()
+		if err2 != nil {
+			fmt.Printf("Error closing json file: %s", err2)
+		}
+	}(geoJsonFile)
+
+	// Read the file contents
+	byteValue, err := io.ReadAll(geoJsonFile)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	var inputGeo GeoJSONCollection
+	if err = json.Unmarshal(byteValue, &inputGeo); err != nil {
+		log.Fatalf("Error unmarshalling input JSON: %v", err)
+	}
+	if len(inputGeo.Features) > 0 {
+		fmt.Printf("%v - %s\n", indexInt, artist)
+	}
+
 }

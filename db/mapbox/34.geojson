@@ -6,7 +6,8 @@
       "properties": {
         "title": "Boom Boom Room",
         "description": "N.W.A. at Boom Boom Room at 2015-09-03T22:00:00-0400",
-        "date": "03-09-2015"
+        "date": "03-09-2015",
+        "eventAddress": "Windsor, ON, Canada"
       },
       "geometry": {
         "coordinates": [
@@ -21,7 +22,8 @@
       "properties": {
         "title": "Hummingbird",
         "description": "N.W.A. at Hummingbird at 1990-05-29",
-        "date": "29-05-1990"
+        "date": "29-05-1990",
+        "eventAddress": "Birmingham, UK"
       },
       "geometry": {
         "coordinates": [
@@ -36,7 +38,8 @@
       "properties": {
         "title": "Wachovia Spectrum Center",
         "description": "N.W.A. at Wachovia Spectrum Center at 1989-06-25",
-        "date": "25-06-1989"
+        "date": "25-06-1989",
+        "eventAddress": "Philadelphia, PA, US"
       },
       "geometry": {
         "coordinates": [
@@ -51,7 +54,8 @@
       "properties": {
         "title": "Riverfront Coliseum",
         "description": "N.W.A. at Riverfront Coliseum at 1989-06-18",
-        "date": "18-06-1989"
+        "date": "18-06-1989",
+        "eventAddress": "Cincinnati, OH, US"
       },
       "geometry": {
         "coordinates": [
@@ -66,7 +70,8 @@
       "properties": {
         "title": "Celebrity Theatre",
         "description": "N.W.A. at Celebrity Theatre at 1989-03-24",
-        "date": "24-03-1989"
+        "date": "24-03-1989",
+        "eventAddress": "Anaheim, CA, US"
       },
       "geometry": {
         "coordinates": [
@@ -81,7 +86,8 @@
       "properties": {
         "title": "Riviera Theatre",
         "description": "N.W.A. at Riviera Theatre at 1989-01-12",
-        "date": "12-01-1989"
+        "date": "12-01-1989",
+        "eventAddress": "Chicago, IL, US"
       },
       "geometry": {
         "coordinates": [

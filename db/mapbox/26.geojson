@@ -6,7 +6,8 @@
       "properties": {
         "title": "Rose Theater, Jazz at Lincoln Center",
         "description": "Bobby McFerrin at Rose Theater, Jazz at Lincoln Center at 2020-05-23",
-        "date": "23-05-2020"
+        "date": "23-05-2020",
+        "eventAddress": "New York (NYC), NY, US"
       },
       "geometry": {
         "coordinates": [
@@ -21,7 +22,8 @@
       "properties": {
         "title": "Rose Theater, Jazz at Lincoln Center",
         "description": "Bobby McFerrin at Rose Theater, Jazz at Lincoln Center at 2020-05-22",
-        "date": "22-05-2020"
+        "date": "22-05-2020",
+        "eventAddress": "New York (NYC), NY, US"
       },
       "geometry": {
         "coordinates": [
@@ -36,7 +38,8 @@
       "properties": {
         "title": "Music Hall",
         "description": "Bobby McFerrin at Music Hall at 2020-02-29T20:00:00-0500",
-        "date": "29-02-2020"
+        "date": "29-02-2020",
+        "eventAddress": "Portsmouth, NH, US"
       },
       "geometry": {
         "coordinates": [
@@ -51,7 +54,8 @@
       "properties": {
         "title": "DeVos Performance Hall",
         "description": "Bobby McFerrin at DeVos Performance Hall at 2020-01-16T20:30:00-0500",
-        "date": "16-01-2020"
+        "date": "16-01-2020",
+        "eventAddress": "Grand Rapids, MI, US"
       },
       "geometry": {
         "coordinates": [
@@ -66,7 +70,8 @@
       "properties": {
         "title": "Arena Ursynów",
         "description": "Bobby McFerrin at Arena Ursynów at 2019-11-22T20:00:00+0100",
-        "date": "22-11-2019"
+        "date": "22-11-2019",
+        "eventAddress": "Warsaw, Poland"
       },
       "geometry": {
         "coordinates": [
@@ -81,7 +86,8 @@
       "properties": {
         "title": "La Mals",
         "description": "Bobby McFerrin at La Mals at 2019-11-20T20:00:00+0100",
-        "date": "20-11-2019"
+        "date": "20-11-2019",
+        "eventAddress": "Sochaux, France"
       },
       "geometry": {
         "coordinates": [
@@ -96,7 +102,8 @@
       "properties": {
         "title": "Auditorium-Orchestre National de Lyon",
         "description": "Bobby McFerrin at Auditorium-Orchestre National de Lyon at 2019-11-18T20:00:00+0100",
-        "date": "18-11-2019"
+        "date": "18-11-2019",
+        "eventAddress": "Lyon, France"
       },
       "geometry": {
         "coordinates": [
@@ -111,7 +118,8 @@
       "properties": {
         "title": "Muziekgebouw Eindhoven",
         "description": "Bobby McFerrin at Muziekgebouw Eindhoven at 2019-11-14T20:15:00+0100",
-        "date": "14-11-2019"
+        "date": "14-11-2019",
+        "eventAddress": "Eindhoven, Netherlands"
       },
       "geometry": {
         "coordinates": [
@@ -126,7 +134,8 @@
       "properties": {
         "title": "Sentrum Scene",
         "description": "Bobby McFerrin at Sentrum Scene at 2019-11-10T19:00:00+0100",
-        "date": "10-11-2019"
+        "date": "10-11-2019",
+        "eventAddress": "Oslo, Norway"
       },
       "geometry": {
         "coordinates": [
@@ -141,7 +150,8 @@
       "properties": {
         "title": "Grote Zaal, Concertgebouw Amsterdam",
         "description": "Bobby McFerrin at Grote Zaal, Concertgebouw Amsterdam at 2019-11-07T20:15:00+0100",
-        "date": "07-11-2019"
+        "date": "07-11-2019",
+        "eventAddress": "Amsterdam, Netherlands"
       },
       "geometry": {
         "coordinates": [

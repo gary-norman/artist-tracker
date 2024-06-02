@@ -6,7 +6,8 @@
       "properties": {
         "title": "Madison Square Garden",
         "description": "AC/DC at Madison Square Garden at 2016-09-14",
-        "date": "14-09-2016"
+        "date": "14-09-2016",
+        "eventAddress": "New York (NYC), NY, US"
       },
       "geometry": {
         "coordinates": [
@@ -21,7 +22,8 @@
       "properties": {
         "title": "KeyBank Center",
         "description": "AC/DC at KeyBank Center at 2016-09-11T19:30:00-0400",
-        "date": "11-09-2016"
+        "date": "11-09-2016",
+        "eventAddress": "Buffalo, NY, US"
       },
       "geometry": {
         "coordinates": [
@@ -36,7 +38,8 @@
       "properties": {
         "title": "Merkur Spiel-Arena",
         "description": "AC/DC at Merkur Spiel-Arena at 2016-06-15T19:00:00+0200",
-        "date": "15-06-2016"
+        "date": "15-06-2016",
+        "eventAddress": "Düsseldorf, Germany"
       },
       "geometry": {
         "coordinates": [
@@ -51,7 +54,8 @@
       "properties": {
         "title": "Ceres Park",
         "description": "AC/DC at Ceres Park at 2016-06-12",
-        "date": "12-06-2016"
+        "date": "12-06-2016",
+        "eventAddress": "Aarhus, Denmark"
       },
       "geometry": {
         "coordinates": [
@@ -66,7 +70,8 @@
       "properties": {
         "title": "Etihad Stadium",
         "description": "AC/DC at Etihad Stadium at 2016-06-09T17:00:00+0100",
-        "date": "09-06-2016"
+        "date": "09-06-2016",
+        "eventAddress": "Manchester, UK"
       },
       "geometry": {
         "coordinates": [

@@ -6,7 +6,8 @@
       "properties": {
         "title": "du Arena",
         "description": "Rihanna at du Arena at 2016-11-27T20:00:00+0400",
-        "date": "27-11-2016"
+        "date": "27-11-2016",
+        "eventAddress": "Abu Dhabi, United Arab Emirates"
       },
       "geometry": {
         "coordinates": [
@@ -21,7 +22,8 @@
       "properties": {
         "title": "Central Park",
         "description": "Rihanna at Central Park at 2016-09-24",
-        "date": "24-09-2016"
+        "date": "24-09-2016",
+        "eventAddress": "New York (NYC), NY, US"
       },
       "geometry": {
         "coordinates": [
@@ -36,7 +38,8 @@
       "properties": {
         "title": "Benjamin Franklin Parkway",
         "description": "Rihanna at Benjamin Franklin Parkway at 2016-09-03T12:00:00-0400",
-        "date": "04-09-2016"
+        "date": "04-09-2016",
+        "eventAddress": "Philadelphia, PA, US"
       },
       "geometry": {
         "coordinates": [

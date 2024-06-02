@@ -6,7 +6,8 @@
       "properties": {
         "title": "T-Mobile Arena",
         "description": "Phil Collins at T-Mobile Arena at 2019-10-19T20:00:00-0700",
-        "date": "19-10-2019"
+        "date": "19-10-2019",
+        "eventAddress": "Las Vegas, NV, US"
       },
       "geometry": {
         "coordinates": [
@@ -21,7 +22,8 @@
       "properties": {
         "title": "Footprint Center",
         "description": "Phil Collins at Footprint Center at 2019-10-18T20:00:00-0700",
-        "date": "18-10-2019"
+        "date": "18-10-2019",
+        "eventAddress": "Phoenix, AZ, US"
       },
       "geometry": {
         "coordinates": [
@@ -36,7 +38,8 @@
       "properties": {
         "title": "Chase Center",
         "description": "Phil Collins at Chase Center at 2019-10-17T20:00:00-0700",
-        "date": "17-10-2019"
+        "date": "17-10-2019",
+        "eventAddress": "San Francisco, CA, US"
       },
       "geometry": {
         "coordinates": [

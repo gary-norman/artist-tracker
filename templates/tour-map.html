@@ -50,7 +50,7 @@ Add an event listener that runs when a user clicks on the map element. */
         const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-                `<h3>${feature.properties.title}</h3><p>${feature.properties.date}</p>`
+                `<h3>${feature.properties.title}</h3><p>${feature.properties.date}</p><p>${feature.properties.eventAddress}</p>`
             )
             .addTo(map);
     });

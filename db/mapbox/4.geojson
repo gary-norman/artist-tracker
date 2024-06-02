@@ -6,7 +6,8 @@
       "properties": {
         "title": "National Orange Show (NOS) Events Center",
         "description": "XXXTentacion at National Orange Show (NOS) Events Center at 2017-12-16T13:00:00-0800",
-        "date": "17-12-2017"
+        "date": "17-12-2017",
+        "eventAddress": "San Bernardino, CA, US"
       },
       "geometry": {
         "coordinates": [
@@ -21,7 +22,8 @@
       "properties": {
         "title": "Shoreline Amphitheatre",
         "description": "XXXTentacion at Shoreline Amphitheatre at 2017-10-21",
-        "date": "22-10-2017"
+        "date": "22-10-2017",
+        "eventAddress": "Mountain View, CA, US"
       },
       "geometry": {
         "coordinates": [

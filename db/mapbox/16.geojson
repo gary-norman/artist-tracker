@@ -6,7 +6,8 @@
       "properties": {
         "title": "Miami Stadium",
         "description": "Bee Gees at Miami Stadium at 1979-10-05",
-        "date": "05-10-1979"
+        "date": "05-10-1979",
+        "eventAddress": "Miami, FL, US"
       },
       "geometry": {
         "coordinates": [
@@ -21,7 +22,8 @@
       "properties": {
         "title": "VyStar Veterans Memorial Arena",
         "description": "Bee Gees at VyStar Veterans Memorial Arena at 1979-10-04",
-        "date": "04-10-1979"
+        "date": "04-10-1979",
+        "eventAddress": "Jacksonville, FL, US"
       },
       "geometry": {
         "coordinates": [
@@ -36,7 +38,8 @@
       "properties": {
         "title": "Columbia",
         "description": "Bee Gees at Columbia at 1979-10-03",
-        "date": "03-10-1979"
+        "date": "03-10-1979",
+        "eventAddress": "Columbia, SC, US"
       },
       "geometry": {
         "coordinates": [
@@ -51,7 +54,8 @@
       "properties": {
         "title": "Greensboro",
         "description": "Bee Gees at Greensboro at 1979-10-02",
-        "date": "02-10-1979"
+        "date": "02-10-1979",
+        "eventAddress": "Greensboro, NC, US"
       },
       "geometry": {
         "coordinates": [

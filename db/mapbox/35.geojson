@@ -6,7 +6,8 @@
       "properties": {
         "title": "D.Y.Patil Stadium",
         "description": "U2 at D.Y.Patil Stadium at 2019-12-15T16:00:00+0530",
-        "date": "15-12-2019"
+        "date": "15-12-2019",
+        "eventAddress": "Mumbai, India"
       },
       "geometry": {
         "coordinates": [
@@ -21,7 +22,8 @@
       "properties": {
         "title": "Philippine Arena",
         "description": "U2 at Philippine Arena at 2019-12-11",
-        "date": "11-12-2019"
+        "date": "11-12-2019",
+        "eventAddress": "Manila, Philippines"
       },
       "geometry": {
         "coordinates": [
@@ -36,7 +38,8 @@
       "properties": {
         "title": "Gocheok Sky Dome / 고척스카이돔",
         "description": "U2 at Gocheok Sky Dome / 고척스카이돔 at 2019-12-08T19:00:00+0900",
-        "date": "08-12-2019"
+        "date": "08-12-2019",
+        "eventAddress": "Seoul, Korea, Republic Of"
       },
       "geometry": {
         "coordinates": [
@@ -51,7 +54,8 @@
       "properties": {
         "title": "Saitama Super Arena / さいたまスーパーアリーナ",
         "description": "U2 at Saitama Super Arena / さいたまスーパーアリーナ at 2019-12-04T18:00:00+0900",
-        "date": "04-12-2019"
+        "date": "04-12-2019",
+        "eventAddress": "Saitama, Japan"
       },
       "geometry": {
         "coordinates": [
@@ -66,7 +70,8 @@
       "properties": {
         "title": "National Stadium",
         "description": "U2 at National Stadium at 2019-12-01",
-        "date": "01-12-2019"
+        "date": "01-12-2019",
+        "eventAddress": "Singapore, Singapore"
       },
       "geometry": {
         "coordinates": [
@@ -81,7 +86,8 @@
       "properties": {
         "title": "Kallang National Stadium",
         "description": "U2 at Kallang National Stadium at 2019-11-30",
-        "date": "30-11-2019"
+        "date": "30-11-2019",
+        "eventAddress": "Singapore, Singapore"
       },
       "geometry": {
         "coordinates": [
@@ -96,7 +102,8 @@
       "properties": {
         "title": "Optus Stadium",
         "description": "U2 at Optus Stadium at 2019-11-27T19:00:00+0800",
-        "date": "27-11-2019"
+        "date": "27-11-2019",
+        "eventAddress": "Burswood, WA, Australia"
       },
       "geometry": {
         "coordinates": [
@@ -111,7 +118,8 @@
       "properties": {
         "title": "Sydney Cricket Ground",
         "description": "U2 at Sydney Cricket Ground at 2019-11-23",
-        "date": "23-11-2019"
+        "date": "23-11-2019",
+        "eventAddress": "Sydney, NSW, Australia"
       },
       "geometry": {
         "coordinates": [
@@ -126,7 +134,8 @@
       "properties": {
         "title": "Sydney Cricket Ground",
         "description": "U2 at Sydney Cricket Ground at 2019-11-22",
-        "date": "22-11-2019"
+        "date": "22-11-2019",
+        "eventAddress": "Sydney, NSW, Australia"
       },
       "geometry": {
         "coordinates": [
@@ -141,7 +150,8 @@
       "properties": {
         "title": "Marvel Stadium",
         "description": "U2 at Marvel Stadium at 2019-11-15T19:00:00+1100",
-        "date": "15-11-2019"
+        "date": "15-11-2019",
+        "eventAddress": "Melbourne, VIC, Australia"
       },
       "geometry": {
         "coordinates": [

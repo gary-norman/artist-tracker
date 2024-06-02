@@ -6,7 +6,8 @@
       "properties": {
         "title": "Festival Pier at Penn's Landing",
         "description": "Mobb Deep at Festival Pier at Penn's Landing at 2017-06-03T12:00:00-0400",
-        "date": "03-06-2017"
+        "date": "03-06-2017",
+        "eventAddress": "Philadelphia, PA, US"
       },
       "geometry": {
         "coordinates": [
@@ -21,7 +22,8 @@
       "properties": {
         "title": "YMCA HQ",
         "description": "Mobb Deep at YMCA HQ at 2017-06-03",
-        "date": "03-06-2017"
+        "date": "03-06-2017",
+        "eventAddress": "Perth, WA, Australia"
       },
       "geometry": {
         "coordinates": [
@@ -36,7 +38,8 @@
       "properties": {
         "title": "House of Blues - Old Location",
         "description": "Mobb Deep at House of Blues - Old Location at 2017-05-04T21:30:00-0700",
-        "date": "04-05-2017"
+        "date": "04-05-2017",
+        "eventAddress": "Anaheim, CA, US"
       },
       "geometry": {
         "coordinates": [
@@ -51,7 +54,8 @@
       "properties": {
         "title": "PURE NIGHTCLUB",
         "description": "Mobb Deep at PURE NIGHTCLUB at 2017-04-16T21:00:00+0100",
-        "date": "16-04-2017"
+        "date": "16-04-2017",
+        "eventAddress": "Wigan, UK"
       },
       "geometry": {
         "coordinates": [
@@ -66,7 +70,8 @@
       "properties": {
         "title": "Cabaret Sauvage",
         "description": "Mobb Deep at Cabaret Sauvage at 2017-03-31T19:30:00+0200",
-        "date": "31-03-2017"
+        "date": "31-03-2017",
+        "eventAddress": "Paris, France"
       },
       "geometry": {
         "coordinates": [
@@ -81,7 +86,8 @@
       "properties": {
         "title": "Amityville Music Hall",
         "description": "Mobb Deep at Amityville Music Hall at 2017-03-22T20:00:00-0400",
-        "date": "22-03-2017"
+        "date": "22-03-2017",
+        "eventAddress": "Amityville, NY, US"
       },
       "geometry": {
         "coordinates": [
@@ -96,7 +102,8 @@
       "properties": {
         "title": "Portage Theater",
         "description": "Mobb Deep at Portage Theater at 2017-03-17T20:00:00-0500",
-        "date": "17-03-2017"
+        "date": "17-03-2017",
+        "eventAddress": "Chicago, IL, US"
       },
       "geometry": {
         "coordinates": [
@@ -111,7 +118,8 @@
       "properties": {
         "title": "Privé Minneapolis",
         "description": "Mobb Deep at Privé Minneapolis at 2017-03-16",
-        "date": "16-03-2017"
+        "date": "16-03-2017",
+        "eventAddress": "Minneapolis, MN, US"
       },
       "geometry": {
         "coordinates": [
@@ -126,7 +134,8 @@
       "properties": {
         "title": "St. Andrew's Hall",
         "description": "Mobb Deep at St. Andrew's Hall at 2017-03-15T20:00:00-0400",
-        "date": "15-03-2017"
+        "date": "15-03-2017",
+        "eventAddress": "Detroit, MI, US"
       },
       "geometry": {
         "coordinates": [

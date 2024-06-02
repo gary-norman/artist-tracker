@@ -6,7 +6,8 @@
       "properties": {
         "title": "Estadio de la Romareda",
         "description": "Dire Straits at Estadio de la Romareda at 1992-10-09",
-        "date": "09-10-1992"
+        "date": "09-10-1992",
+        "eventAddress": "Zaragoza, Spain"
       },
       "geometry": {
         "coordinates": [
@@ -21,7 +22,8 @@
       "properties": {
         "title": "Plaza de Toros de Las Ventas",
         "description": "Dire Straits at Plaza de Toros de Las Ventas at 1992-10-07",
-        "date": "07-10-1992"
+        "date": "07-10-1992",
+        "eventAddress": "Madrid, Spain"
       },
       "geometry": {
         "coordinates": [
@@ -36,7 +38,8 @@
       "properties": {
         "title": "Plaza de Toros de Las Ventas",
         "description": "Dire Straits at Plaza de Toros de Las Ventas at 1992-10-06",
-        "date": "06-10-1992"
+        "date": "06-10-1992",
+        "eventAddress": "Madrid, Spain"
       },
       "geometry": {
         "coordinates": [
@@ -51,7 +54,8 @@
       "properties": {
         "title": "Palau Sant Jordi",
         "description": "Dire Straits at Palau Sant Jordi at 1992-10-04",
-        "date": "04-10-1992"
+        "date": "04-10-1992",
+        "eventAddress": "Barcelona, Spain"
       },
       "geometry": {
         "coordinates": [
@@ -66,7 +70,8 @@
       "properties": {
         "title": "Palau Sant Jordi",
         "description": "Dire Straits at Palau Sant Jordi at 1992-10-03",
-        "date": "03-10-1992"
+        "date": "03-10-1992",
+        "eventAddress": "Barcelona, Spain"
       },
       "geometry": {
         "coordinates": [
@@ -81,7 +86,8 @@
       "properties": {
         "title": "Palau Sant Jordi",
         "description": "Dire Straits at Palau Sant Jordi at 1992-10-02",
-        "date": "02-10-1992"
+        "date": "02-10-1992",
+        "eventAddress": "Barcelona, Spain"
       },
       "geometry": {
         "coordinates": [

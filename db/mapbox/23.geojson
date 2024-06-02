@@ -6,7 +6,8 @@
       "properties": {
         "title": "Festival Hall Melbourne",
         "description": "Juice WRLD at Festival Hall Melbourne at 2019-11-29T20:30:00+1100",
-        "date": "29-11-2019"
+        "date": "29-11-2019",
+        "eventAddress": "West Melbourne, VIC, Australia"
       },
       "geometry": {
         "coordinates": [
@@ -21,7 +22,8 @@
       "properties": {
         "title": "Spilt Milk Festival 2019",
         "description": "Juice WRLD at Spilt Milk Festival 2019 at 2019-11-23",
-        "date": "23-11-2019"
+        "date": "23-11-2019",
+        "eventAddress": "Canberra, ACT, Australia"
       },
       "geometry": {
         "coordinates": [
@@ -36,7 +38,8 @@
       "properties": {
         "title": "Dodger Stadium",
         "description": "Juice WRLD at Dodger Stadium at 2019-11-09",
-        "date": "10-11-2019"
+        "date": "10-11-2019",
+        "eventAddress": "Los Angeles (LA), CA, US"
       },
       "geometry": {
         "coordinates": [
@@ -51,7 +54,8 @@
       "properties": {
         "title": "Las Vegas Festival Grounds",
         "description": "Juice WRLD at Las Vegas Festival Grounds at 2019-11-01",
-        "date": "03-11-2019"
+        "date": "03-11-2019",
+        "eventAddress": "Las Vegas, NV, US"
       },
       "geometry": {
         "coordinates": [
@@ -66,7 +70,8 @@
       "properties": {
         "title": "Nelson W. Wolff Municipal Stadium",
         "description": "Juice WRLD at Nelson W. Wolff Municipal Stadium at 2019-10-26",
-        "date": "27-10-2019"
+        "date": "27-10-2019",
+        "eventAddress": "San Antonio, TX, US"
       },
       "geometry": {
         "coordinates": [
@@ -81,7 +86,8 @@
       "properties": {
         "title": "Nelson W. Wolff Municipal Stadium",
         "description": "Juice WRLD at Nelson W. Wolff Municipal Stadium at 2019-10-26",
-        "date": "26-10-2019"
+        "date": "26-10-2019",
+        "eventAddress": "San Antonio, TX, US"
       },
       "geometry": {
         "coordinates": [
@@ -96,7 +102,8 @@
       "properties": {
         "title": "Ryan Center",
         "description": "Juice WRLD at Ryan Center at 2019-10-10T20:00:00-0400",
-        "date": "10-10-2019"
+        "date": "10-10-2019",
+        "eventAddress": "Narragansett, RI, US"
       },
       "geometry": {
         "coordinates": [
@@ -111,7 +118,8 @@
       "properties": {
         "title": "RingCentral Coliseum",
         "description": "Juice WRLD at RingCentral Coliseum at 2019-09-28T13:00:00-0700",
-        "date": "28-09-2019"
+        "date": "28-09-2019",
+        "eventAddress": "Oakland, CA, US"
       },
       "geometry": {
         "coordinates": [
@@ -126,7 +134,8 @@
       "properties": {
         "title": "Las Vegas Festival Grounds",
         "description": "Juice WRLD at Las Vegas Festival Grounds at 2019-09-21T11:00:00-0700",
-        "date": "21-09-2019"
+        "date": "21-09-2019",
+        "eventAddress": "Las Vegas, NV, US"
       },
       "geometry": {
         "coordinates": [
@@ -141,7 +150,8 @@
       "properties": {
         "title": "Ben Franklin Parkway",
         "description": "Juice WRLD at Ben Franklin Parkway at 2019-08-31T12:00:00-0400",
-        "date": "01-09-2019"
+        "date": "01-09-2019",
+        "eventAddress": "Philadelphia, PA, US"
       },
       "geometry": {
         "coordinates": [
@@ -156,7 +166,8 @@
       "properties": {
         "title": "Drai's Live",
         "description": "Juice WRLD at Drai's Live at 2019-08-30T22:30:00-0700",
-        "date": "30-08-2019"
+        "date": "30-08-2019",
+        "eventAddress": "Las Vegas, NV, US"
       },
       "geometry": {
         "coordinates": [
@@ -171,7 +182,8 @@
       "properties": {
         "title": "Bramham Park",
         "description": "Juice WRLD at Bramham Park at 2019-08-23T11:00:00+0100",
-        "date": "25-08-2019"
+        "date": "25-08-2019",
+        "eventAddress": "Wetherby, UK"
       },
       "geometry": {
         "coordinates": [
@@ -186,7 +198,8 @@
       "properties": {
         "title": "Richfield Avenue",
         "description": "Juice WRLD at Richfield Avenue at 2019-08-23T11:30:00+0100",
-        "date": "25-08-2019"
+        "date": "25-08-2019",
+        "eventAddress": "Reading, UK"
       },
       "geometry": {
         "coordinates": [
@@ -201,7 +214,8 @@
       "properties": {
         "title": "Auto Club Speedway",
         "description": "Juice WRLD at Auto Club Speedway at 2019-08-03T13:00:00-0700",
-        "date": "04-08-2019"
+        "date": "04-08-2019",
+        "eventAddress": "Fontana, CA, US"
       },
       "geometry": {
         "coordinates": [
@@ -216,7 +230,8 @@
       "properties": {
         "title": "Ford Center",
         "description": "Juice WRLD at Ford Center at 2019-07-27",
-        "date": "27-07-2019"
+        "date": "27-07-2019",
+        "eventAddress": "Frisco, TX, US"
       },
       "geometry": {
         "coordinates": [
@@ -231,7 +246,8 @@
       "properties": {
         "title": "Shoreline Amphitheatre",
         "description": "Juice WRLD at Shoreline Amphitheatre at 2019-07-13",
-        "date": "14-07-2019"
+        "date": "14-07-2019",
+        "eventAddress": "Mountain View, CA, US"
       },
       "geometry": {
         "coordinates": [
@@ -246,7 +262,8 @@
       "properties": {
         "title": "Ferropolis",
         "description": "Juice WRLD at Ferropolis at 2019-07-11",
-        "date": "13-07-2019"
+        "date": "13-07-2019",
+        "eventAddress": "Gräfenhainichen, Germany"
       },
       "geometry": {
         "coordinates": [
@@ -261,7 +278,8 @@
       "properties": {
         "title": "Skral Festival",
         "description": "Juice WRLD at Skral Festival at 2019-07-09",
-        "date": "11-07-2019"
+        "date": "11-07-2019",
+        "eventAddress": "Grimstad, Norway"
       },
       "geometry": {
         "coordinates": [
@@ -276,7 +294,8 @@
       "properties": {
         "title": "Marlay Park",
         "description": "Juice WRLD at Marlay Park at 2019-07-07T13:30:00+0100",
-        "date": "07-07-2019"
+        "date": "07-07-2019",
+        "eventAddress": "Rathfarnham, Ireland"
       },
       "geometry": {
         "coordinates": [
@@ -291,7 +310,8 @@
       "properties": {
         "title": "Finsbury Park",
         "description": "Juice WRLD at Finsbury Park at 2019-07-05T13:30:00+0100",
-        "date": "07-07-2019"
+        "date": "07-07-2019",
+        "eventAddress": "London, UK"
       },
       "geometry": {
         "coordinates": [
@@ -306,7 +326,8 @@
       "properties": {
         "title": "Stockholm Stadion",
         "description": "Juice WRLD at Stockholm Stadion at 2019-07-02",
-        "date": "03-07-2019"
+        "date": "03-07-2019",
+        "eventAddress": "Stockholm, Sweden"
       },
       "geometry": {
         "coordinates": [
@@ -321,7 +342,8 @@
       "properties": {
         "title": "Douglas Park Cultural \u0026 Community Center",
         "description": "Juice WRLD at Douglas Park Cultural \u0026 Community Center at 2019-06-29",
-        "date": "30-06-2019"
+        "date": "30-06-2019",
+        "eventAddress": "Chicago, IL, US"
       },
       "geometry": {
         "coordinates": [
@@ -336,7 +358,8 @@
       "properties": {
         "title": "The Bomb Factory",
         "description": "Juice WRLD at The Bomb Factory at 2019-06-09T20:00:00-0500",
-        "date": "09-06-2019"
+        "date": "09-06-2019",
+        "eventAddress": "Dallas, TX, US"
       },
       "geometry": {
         "coordinates": [
@@ -351,7 +374,8 @@
       "properties": {
         "title": "The Bomb Factory",
         "description": "Juice WRLD at The Bomb Factory at 2019-06-08T20:00:00-0500",
-        "date": "08-06-2019"
+        "date": "08-06-2019",
+        "eventAddress": "Dallas, TX, US"
       },
       "geometry": {
         "coordinates": [
@@ -366,7 +390,8 @@
       "properties": {
         "title": "Revention Music Center",
         "description": "Juice WRLD at Revention Music Center at 2019-06-06T20:00:00-0500",
-        "date": "06-06-2019"
+        "date": "06-06-2019",
+        "eventAddress": "Houston, TX, US"
       },
       "geometry": {
         "coordinates": [
@@ -381,7 +406,8 @@
       "properties": {
         "title": "Chaifetz Arena",
         "description": "Juice WRLD at Chaifetz Arena at 2019-06-04T20:00:00-0500",
-        "date": "04-06-2019"
+        "date": "04-06-2019",
+        "eventAddress": "St Louis, MO, US"
       },
       "geometry": {
         "coordinates": [
@@ -396,7 +422,8 @@
       "properties": {
         "title": "Silverstein Eye Centers Arena",
         "description": "Juice WRLD at Silverstein Eye Centers Arena at 2019-06-02T19:00:00-0500",
-        "date": "02-06-2019"
+        "date": "02-06-2019",
+        "eventAddress": "Independence, MO, US"
       },
       "geometry": {
         "coordinates": [
@@ -411,7 +438,8 @@
       "properties": {
         "title": "The Rave/Eagles Club",
         "description": "Juice WRLD at The Rave/Eagles Club at 2019-05-31T19:00:00-0500",
-        "date": "31-05-2019"
+        "date": "31-05-2019",
+        "eventAddress": "Milwaukee, WI, US"
       },
       "geometry": {
         "coordinates": [
@@ -426,7 +454,8 @@
       "properties": {
         "title": "Byline Bank Aragon Ballroom",
         "description": "Juice WRLD at Byline Bank Aragon Ballroom at 2019-05-30T18:30:00-0500",
-        "date": "30-05-2019"
+        "date": "30-05-2019",
+        "eventAddress": "Chicago, IL, US"
       },
       "geometry": {
         "coordinates": [
@@ -441,7 +470,8 @@
       "properties": {
         "title": "Stage AE",
         "description": "Juice WRLD at Stage AE at 2019-05-28T18:30:00-0400",
-        "date": "28-05-2019"
+        "date": "28-05-2019",
+        "eventAddress": "Pittsburgh, PA, US"
       },
       "geometry": {
         "coordinates": [
@@ -456,7 +486,8 @@
       "properties": {
         "title": "Masonic Temple",
         "description": "Juice WRLD at Masonic Temple at 2019-05-26T19:00:00-0400",
-        "date": "26-05-2019"
+        "date": "26-05-2019",
+        "eventAddress": "Detroit, MI, US"
       },
       "geometry": {
         "coordinates": [
@@ -471,7 +502,8 @@
       "properties": {
         "title": "Coca-Cola Coliseum",
         "description": "Juice WRLD at Coca-Cola Coliseum at 2019-05-25T20:00:00-0400",
-        "date": "25-05-2019"
+        "date": "25-05-2019",
+        "eventAddress": "Toronto, ON, Canada"
       },
       "geometry": {
         "coordinates": [
@@ -486,7 +518,8 @@
       "properties": {
         "title": "Xfinity Theatre",
         "description": "Juice WRLD at Xfinity Theatre at 2019-05-24T20:00:00-0400",
-        "date": "24-05-2019"
+        "date": "24-05-2019",
+        "eventAddress": "Hartford, CT, US"
       },
       "geometry": {
         "coordinates": [
@@ -501,7 +534,8 @@
       "properties": {
         "title": "Agganis Arena",
         "description": "Juice WRLD at Agganis Arena at 2019-05-23T20:00:00-0400",
-        "date": "23-05-2019"
+        "date": "23-05-2019",
+        "eventAddress": "Boston, MA, US"
       },
       "geometry": {
         "coordinates": [
@@ -516,7 +550,8 @@
       "properties": {
         "title": "Manhattan Center Hammerstein Ballroom",
         "description": "Juice WRLD at Manhattan Center Hammerstein Ballroom at 2019-05-21T20:00:00-0400",
-        "date": "21-05-2019"
+        "date": "21-05-2019",
+        "eventAddress": "New York (NYC), NY, US"
       },
       "geometry": {
         "coordinates": [
@@ -531,7 +566,8 @@
       "properties": {
         "title": "Manhattan Center Hammerstein Ballroom",
         "description": "Juice WRLD at Manhattan Center Hammerstein Ballroom at 2019-05-20T20:00:00-0400",
-        "date": "20-05-2019"
+        "date": "20-05-2019",
+        "eventAddress": "New York (NYC), NY, US"
       },
       "geometry": {
         "coordinates": [
@@ -546,7 +582,8 @@
       "properties": {
         "title": "Metro Metro Festival 2019",
         "description": "Juice WRLD at Metro Metro Festival 2019 at 2019-05-18",
-        "date": "19-05-2019"
+        "date": "19-05-2019",
+        "eventAddress": "Montreal, QC, Canada"
       },
       "geometry": {
         "coordinates": [
@@ -561,7 +598,8 @@
       "properties": {
         "title": "Pimlico Race Course",
         "description": "Juice WRLD at Pimlico Race Course at 2019-05-18T09:00:00-0400",
-        "date": "18-05-2019"
+        "date": "18-05-2019",
+        "eventAddress": "Baltimore, MD, US"
       },
       "geometry": {
         "coordinates": [
@@ -576,7 +614,8 @@
       "properties": {
         "title": "The Anthem",
         "description": "Juice WRLD at The Anthem at 2019-05-17T20:00:00-0400",
-        "date": "17-05-2019"
+        "date": "17-05-2019",
+        "eventAddress": "Washington, DC, US"
       },
       "geometry": {
         "coordinates": [
@@ -591,7 +630,8 @@
       "properties": {
         "title": "Skyline Stage, Mann Center for the Performing Arts",
         "description": "Juice WRLD at Skyline Stage, Mann Center for the Performing Arts at 2019-05-15T19:00:00-0400",
-        "date": "15-05-2019"
+        "date": "15-05-2019",
+        "eventAddress": "Philadelphia, PA, US"
       },
       "geometry": {
         "coordinates": [
@@ -606,7 +646,8 @@
       "properties": {
         "title": "Virginia Credit Union LIVE! at Richmond Raceway",
         "description": "Juice WRLD at Virginia Credit Union LIVE! at Richmond Raceway at 2019-05-14T19:00:00-0400",
-        "date": "14-05-2019"
+        "date": "14-05-2019",
+        "eventAddress": "Richmond, VA, US"
       },
       "geometry": {
         "coordinates": [
@@ -621,7 +662,8 @@
       "properties": {
         "title": "Coca-Cola Roxy",
         "description": "Juice WRLD at Coca-Cola Roxy at 2019-05-12T20:00:00-0400",
-        "date": "12-05-2019"
+        "date": "12-05-2019",
+        "eventAddress": "Atlanta, GA, US"
       },
       "geometry": {
         "coordinates": [
@@ -636,7 +678,8 @@
       "properties": {
         "title": "LIV",
         "description": "Juice WRLD at LIV at 2019-05-11T11:00:00-0400",
-        "date": "11-05-2019"
+        "date": "11-05-2019",
+        "eventAddress": "Miami Beach, FL, US"
       },
       "geometry": {
         "coordinates": [
@@ -651,7 +694,8 @@
       "properties": {
         "title": "St. Augustine Amphitheatre",
         "description": "Juice WRLD at St. Augustine Amphitheatre at 2019-05-09T19:00:00-0400",
-        "date": "09-05-2019"
+        "date": "09-05-2019",
+        "eventAddress": "Saint Augustine, FL, US"
       },
       "geometry": {
         "coordinates": [
@@ -666,7 +710,8 @@
       "properties": {
         "title": "UNO Lakefront Arena",
         "description": "Juice WRLD at UNO Lakefront Arena at 2019-05-07T18:00:00-0500",
-        "date": "07-05-2019"
+        "date": "07-05-2019",
+        "eventAddress": "New Orleans, LA, US"
       },
       "geometry": {
         "coordinates": [
@@ -681,7 +726,8 @@
       "properties": {
         "title": "UNO Lakefront Arena",
         "description": "Juice WRLD at UNO Lakefront Arena at 2019-05-07T20:00:00-0500",
-        "date": "07-05-2019"
+        "date": "07-05-2019",
+        "eventAddress": "New Orleans, LA, US"
       },
       "geometry": {
         "coordinates": [
@@ -696,7 +742,8 @@
       "properties": {
         "title": "Tingley Coliseum",
         "description": "Juice WRLD at Tingley Coliseum at 2019-05-05T19:30:00-0600",
-        "date": "05-05-2019"
+        "date": "05-05-2019",
+        "eventAddress": "Albuquerque, NM, US"
       },
       "geometry": {
         "coordinates": [
@@ -711,7 +758,8 @@
       "properties": {
         "title": "Mesa Amphitheatre",
         "description": "Juice WRLD at Mesa Amphitheatre at 2019-05-04T19:00:00-0700",
-        "date": "04-05-2019"
+        "date": "04-05-2019",
+        "eventAddress": "Mesa, AZ, US"
       },
       "geometry": {
         "coordinates": [
@@ -726,7 +774,8 @@
       "properties": {
         "title": "The Joint, Hard Rock Hotel \u0026 Casino",
         "description": "Juice WRLD at The Joint, Hard Rock Hotel \u0026 Casino at 2019-05-03T20:00:00-0700",
-        "date": "03-05-2019"
+        "date": "03-05-2019",
+        "eventAddress": "Las Vegas, NV, US"
       },
       "geometry": {
         "coordinates": [
@@ -741,7 +790,8 @@
       "properties": {
         "title": "Greek Theatre",
         "description": "Juice WRLD at Greek Theatre at 2019-05-02T20:00:00-0700",
-        "date": "02-05-2019"
+        "date": "02-05-2019",
+        "eventAddress": "Los Angeles (LA), CA, US"
       },
       "geometry": {
         "coordinates": [

@@ -6,7 +6,8 @@
       "properties": {
         "title": "Queen Mary Events Park",
         "description": "Mac Miller at Queen Mary Events Park at 2018-04-28",
-        "date": "29-04-2018"
+        "date": "29-04-2018",
+        "eventAddress": "Long Beach, CA, US"
       },
       "geometry": {
         "coordinates": [
@@ -21,7 +22,8 @@
       "properties": {
         "title": "Autódromo José Carlos Pace (Interlagos)",
         "description": "Mac Miller at Autódromo José Carlos Pace (Interlagos) at 2018-03-23T13:00:00-0300",
-        "date": "25-03-2018"
+        "date": "25-03-2018",
+        "eventAddress": "São Paulo, Brazil"
       },
       "geometry": {
         "coordinates": [
@@ -36,7 +38,8 @@
       "properties": {
         "title": "Hipódromo de San Isidro",
         "description": "Mac Miller at Hipódromo de San Isidro at 2018-03-16",
-        "date": "18-03-2018"
+        "date": "18-03-2018",
+        "eventAddress": "San Isidro, Argentina"
       },
       "geometry": {
         "coordinates": [
@@ -51,7 +54,8 @@
       "properties": {
         "title": "Parque O'Higgins",
         "description": "Mac Miller at Parque O'Higgins at 2018-03-16",
-        "date": "18-03-2018"
+        "date": "18-03-2018",
+        "eventAddress": "Santiago, Chile"
       },
       "geometry": {
         "coordinates": [

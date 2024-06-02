@@ -6,7 +6,8 @@
       "properties": {
         "title": "Qualistage",
         "description": "Mamonas Assassinas at Qualistage at 1996-02-10",
-        "date": "10-02-1996"
+        "date": "10-02-1996",
+        "eventAddress": "Rio de Janeiro, Brazil"
       },
       "geometry": {
         "coordinates": [
@@ -21,7 +22,8 @@
       "properties": {
         "title": "Clube Português",
         "description": "Mamonas Assassinas at Clube Português at 1995-12-28",
-        "date": "28-12-1995"
+        "date": "28-12-1995",
+        "eventAddress": "Recife, Brazil"
       },
       "geometry": {
         "coordinates": [
