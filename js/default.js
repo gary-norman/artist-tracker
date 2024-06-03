@@ -45,13 +45,23 @@ function updateDoubleSliderBackground(slider1, slider2) {
 document.addEventListener('DOMContentLoaded', () => {
     const slider1 = document.getElementById('members-min-range');
     const slider2 = document.getElementById('members-max-range');
+    const labelMin = document.querySelector('.range_min');
+    const labelMax = document.querySelector('.range_max');
     updateDoubleSliderBackground(slider1, slider2);
 
     slider1.addEventListener('input', () => {
+        // Update the position of the labels
+        updateLabelPosition(slider1, labelMin);
+
+        // Update background colour
         updateDoubleSliderBackground(slider1, slider2);
     });
 
     slider2.addEventListener('input', () => {
+        // Update the position of the labels
+        updateLabelPosition(slider2, labelMax);
+
+        // Update background colour
         updateDoubleSliderBackground(slider1, slider2);
     });
 });
@@ -101,10 +111,20 @@ document.addEventListener('DOMContentLoaded', () => {
             $(range_max).html(addSeparator(maxVal) + '+ Members');
         } else if(maxVal > 1 ) {
             $(range_max).html(addSeparator(maxVal) + ' Members');
-         }else {
+        }else {
             $(range_max).html(addSeparator(maxVal) + ' Member');
         }
     }
 
     $('input[type="range"]').on( 'input', rangeInputChangeEventHandler);
 })();
+
+function updateLabelPosition(slider, label) {
+    const sliderWidth = slider.offsetWidth;
+    const sliderMin = parseInt(slider.min);
+    const sliderMax = parseInt(slider.max);
+    const sliderValue = parseInt(slider.value);
+
+    const position = ((sliderValue - sliderMin) / (sliderMax - sliderMin)) * 100;
+    label.style.left = `calc(${position}%)`; // Adjust '20px' to center the label correctly
+}

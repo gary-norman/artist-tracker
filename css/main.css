@@ -4,7 +4,7 @@
     --white-1: rgb(220,220,220);
     --white-2: rgb(180,180,180);
     --white-3: rgb(130,130,130);
-    --white-4: rgba(255,255,255,0.15);
+    --white-4: rgba(110,110,110);
 
     --grey-0: rgb(50,50,50);
     --grey-1: rgb(60,60,60);
@@ -700,12 +700,14 @@ input[type='range']::-webkit-slider-thumb {
         max-height: 0.8rem;
         padding: 0;
         margin: 0;
+        border: 0;
     }
 
     & label{
         position: absolute;
         margin-top: 2.4rem;
         left: 0;
+        overflow: visible !important;
     }
 
     & .right{
