@@ -75,12 +75,12 @@ func MapboxReverseLookup(artist Artist) {
 		//	}
 		//}(resp.Body)
 
-		reverseFeature := GeoReverseFeature{
-			Type:       "Feature",
-			Properties: PropertiesReverse,
-			Geometry:   mapboxResponse.Features.Geometry,
-		}
-		reverseFeatures = append(reverseFeatures, reverseFeature)
+		//reverseFeature := GeoReverseFeature{
+		//	Type:       "Feature",
+		//	Properties: PropertiesReverse,
+		//	Geometry:   mapboxResponse.Features.Geometry,
+		//}
+		//reverseFeatures = append(reverseFeatures, reverseFeature)
 	}
 	fmt.Println(reverseFeatures)
 }

@@ -6,6 +6,7 @@ import (
 	"github.com/pterm/pterm"
 	"github.com/pterm/pterm/putils"
 	"strconv"
+	"strings"
 	"time"
 )
 
@@ -23,30 +24,30 @@ func main() {
 	start := time.Now()
 	// Populate the artist struct with API data
 	Artists := api.AllJsonToStruct("https://groupietrackers.herokuapp.com/api/artists")
-	MapBoxHtmlValues := make([][]string, 52)
-	MapBoxHtmlValues[0] = []string{"clwunn3x6016c01qx2kio2sfj", Artists[0].Name + "-tourdates"}
-	MapBoxHtmlValues[2] = []string{"clwxi2kg0017h01pca2qs5ay1", Artists[2].Name + "-tourdates"}
-	MapBoxHtmlValues[4] = []string{"clwxj7j4h01gn01qrg1ba9esp", Artists[4].Name + "-tourdates"}
-	MapBoxHtmlValues[5] = []string{"clwxq6lkk01h501qr1hyxargt", Artists[5].Name + "-tourdates"}
-	MapBoxHtmlValues[6] = []string{"clwxqtxg9018101pc5860cdo8", Artists[5].Name + "-tourdates"}
-	MapBoxHtmlValues[8] = []string{"clwxr03zk01h801qr41qs1kym", Artists[8].Name + "-tourdates"}
-	MapBoxHtmlValues[11] = []string{"clwxr4pik01f301nye5wh4cxl", Artists[11].Name + "-tourdates"}
-	MapBoxHtmlValues[13] = []string{"clwxrbg4g01f401nygj1d46xd", Artists[13].Name + "-tourdates"}
-	MapBoxHtmlValues[14] = []string{"clwxrf5aa01am01qx2sj8d83f", Artists[14].Name + "-tourdates"}
-	MapBoxHtmlValues[15] = []string{"clwxrkjf501f501nygntrglk7", Artists[15].Name + "-tourdates"}
-	MapBoxHtmlValues[16] = []string{"", Artists[16].Name + "-tourdates"}
-	MapBoxHtmlValues[18] = []string{"", Artists[18].Name + "-tourdates"}
-	MapBoxHtmlValues[19] = []string{"", Artists[19].Name + "-tourdates"}
-	MapBoxHtmlValues[20] = []string{"", Artists[20].Name + "-tourdates"}
-	MapBoxHtmlValues[21] = []string{"", Artists[21].Name + "-tourdates"}
-	MapBoxHtmlValues[23] = []string{"", Artists[23].Name + "-tourdates"}
-	MapBoxHtmlValues[26] = []string{"", Artists[26].Name + "-tourdates"}
-	MapBoxHtmlValues[32] = []string{"", Artists[32].Name + "-tourdates"}
-	MapBoxHtmlValues[34] = []string{"", Artists[34].Name + "-tourdates"}
-	MapBoxHtmlValues[35] = []string{"", Artists[35].Name + "-tourdates"}
-	MapBoxHtmlValues[40] = []string{"", Artists[40].Name + "-tourdates"}
-	MapBoxHtmlValues[42] = []string{"", Artists[42].Name + "-tourdates"}
-	MapBoxHtmlValues[48] = []string{"", Artists[48].Name + "-tourdates"}
+	MapBoxHtmlValues := make(map[string][]string, 52)
+	MapBoxHtmlValues[Artists[0].Name] = []string{"clwunn3x6016c01qx2kio2sfj", strings.Replace(Artists[0].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[2].Name] = []string{"clwxi2kg0017h01pca2qs5ay1", strings.Replace(Artists[2].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[4].Name] = []string{"clwxj7j4h01gn01qrg1ba9esp", strings.Replace(Artists[4].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[5].Name] = []string{"clwxq6lkk01h501qr1hyxargt", strings.Replace(Artists[5].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[6].Name] = []string{"clwxqtxg9018101pc5860cdo8", strings.Replace(Artists[5].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[8].Name] = []string{"clwxr03zk01h801qr41qs1kym", strings.Replace(Artists[8].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[11].Name] = []string{"clwxr4pik01f301nye5wh4cxl", strings.Replace(Artists[11].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[13].Name] = []string{"clwxrbg4g01f401nygj1d46xd", strings.Replace(Artists[13].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[14].Name] = []string{"clwxrf5aa01am01qx2sj8d83f", strings.Replace(Artists[14].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[15].Name] = []string{"clwxrkjf501f501nygntrglk7", strings.Replace(Artists[15].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[16].Name] = []string{"clwz2oy7p00wx01poh4qlc1o8", strings.Replace(Artists[16].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[18].Name] = []string{"", strings.Replace(Artists[18].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[19].Name] = []string{"", strings.Replace(Artists[19].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[20].Name] = []string{"", strings.Replace(Artists[20].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[21].Name] = []string{"", strings.Replace(Artists[21].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[23].Name] = []string{"", strings.Replace(Artists[23].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[26].Name] = []string{"", strings.Replace(Artists[26].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[32].Name] = []string{"", strings.Replace(Artists[32].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[34].Name] = []string{"", strings.Replace(Artists[34].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[35].Name] = []string{"", strings.Replace(Artists[35].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[40].Name] = []string{"", strings.Replace(Artists[40].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[42].Name] = []string{"", strings.Replace(Artists[42].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[48].Name] = []string{"", strings.Replace(Artists[48].Name, " ", "-", -1) + "-tourdates"}
 	t := time.Now()
 	timetaken := t.Sub(start).Milliseconds()
 	if len(Artists) == 0 {
