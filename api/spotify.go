@@ -176,7 +176,7 @@ func fetchArtistInfo(searchTerm, searchType, token string) (string, error) {
 		return "", fmt.Errorf("error making request: %w", err)
 	}
 	defer func(Body io.ReadCloser) {
-		err := Body.Close()
+		err = Body.Close()
 		if err != nil {
 			log.Fatalf("error closing file: %v", err)
 		}

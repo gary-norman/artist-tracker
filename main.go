@@ -96,7 +96,7 @@ func main() {
 	timetaken = t.Sub(start).Milliseconds()
 	//i = 48
 	pterm.Info.Println("All tasks completed successfully in " + pterm.Green(strconv.FormatInt(timetaken, 10)+"ms"))
-	//pterm.Println(pterm.Cyan(Artists[i]))
+	//pterm.Println(pterm.Cyan(Artists[1]))
 	//pterm.Println(pterm.Cyan("TourDetails {"))
 	//pterm.Println(pterm.Cyan(Artists[i].TourDetails))
 	//pterm.Println(pterm.Cyan("}"))
@@ -110,5 +110,6 @@ func main() {
 	//for _, i := range indices {
 	//	api.MapboxDataset(i, Artists[i].Name)
 	//}
+	api.MapboxReverseLookup(Artists[1])
 	api.HandleRequests(Artists, api.GetTemplate())
 }

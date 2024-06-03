@@ -29,6 +29,8 @@
     mapboxgl.accessToken = 'pk.eyJ1IjoibG9yZXdvcmxkIiwiYSI6ImNsd3FseDNsbDAzZjMyanF2czh3Mmt4eTgifQ.-_bXsAv_SR1bpcmvOSpDuA';
     const map = new mapboxgl.Map({
         container: 'map',
+        // the final string in the url is found in MapBoxHtmlValues[0][0]
+        // the first [0] is for queen (1st artist), the 2nd [0] is the string location
         style: 'mapbox://styles/loreworld/clwunn3x6016c01qx2kio2sfj',
         center: [-96.818314, 39.338157],
         zoom: 3.71
@@ -39,7 +41,7 @@ Add an event listener that runs when a user clicks on the map element. */
     map.on('click', (event) => {
         // If the user clicked on one of your markers, get its information.
         const features = map.queryRenderedFeatures(event.point, {
-            layers: ['queen-tourdates'] // replace with your layer name
+            layers: ['queen-tourdates'] //  MapBoxHtmlValues[0][1]
         });
         if (!features.length) {
             return;

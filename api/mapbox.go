@@ -84,9 +84,9 @@ func RapidToMapbox(index int) {
 		// Define the date layout
 		const layoutUK = "02-01-2006"
 		const layoutUS = "2006-01-02"
-		date, err := time.Parse(layoutUS, item.Date)
-		if err != nil {
-			fmt.Println("Error parsing date:", err)
+		date, err2 := time.Parse(layoutUS, item.Date)
+		if err2 != nil {
+			fmt.Println("Error parsing date:", err2)
 		}
 		latitude := item.Location.Geo.Latitude
 		longitude := item.Location.Geo.Longitude
