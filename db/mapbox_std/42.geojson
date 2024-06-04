@@ -5,23 +5,6 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Eminem live at Wellington, New Zealand",
-        "description": "",
-        "date": "02-03-2019",
-        "eventAddress": "Wellington, New Zealand"
-      },
-      "geometry": {
-        "coordinates": [
-          174.775218,
-          -41.291319
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
         "title": "Eminem live at Abu Dhabi, United Arab Emirates",
         "description": "",
         "date": "25-10-2019",
@@ -82,6 +65,23 @@
         "coordinates": [
           151.206987,
           -33.870782
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Eminem live at Wellington, New Zealand",
+        "description": "",
+        "date": "02-03-2019",
+        "eventAddress": "Wellington, New Zealand"
+      },
+      "geometry": {
+        "coordinates": [
+          174.775218,
+          -41.291319
         ],
         "type": "Point"
       }

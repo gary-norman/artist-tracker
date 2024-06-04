@@ -5,6 +5,23 @@
       "type": "Feature",
       "properties": {
         "ID": "",
+        "title": "Rihanna live at Pennsylvania, USA",
+        "description": "",
+        "date": "03-09-2016, 04-09-2016",
+        "eventAddress": "Pennsylvania, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -78.2907462468837,
+          41.0911397651497
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
         "title": "Rihanna live at Abu Dhabi, United Arab Emirates",
         "description": "",
         "date": "27-11-2016",
@@ -31,23 +48,6 @@
         "coordinates": [
           -74.0059945,
           40.7127492
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Rihanna live at Pennsylvania, USA",
-        "description": "",
-        "date": "03-09-2016, 04-09-2016",
-        "eventAddress": "Pennsylvania, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -78.2907462468837,
-          41.0911397651497
         ],
         "type": "Point"
       }

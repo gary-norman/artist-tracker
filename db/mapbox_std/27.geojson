@@ -5,15 +5,15 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "R3HAB live at Changzhou, China",
+        "title": "R3HAB live at Jakarta, Indonesia",
         "description": "",
-        "date": "27-12-2019",
-        "eventAddress": "Changzhou, China"
+        "date": "13-12-2019, 14-12-2019, 15-12-2019",
+        "eventAddress": "Jakarta, Indonesia"
       },
       "geometry": {
         "coordinates": [
-          119.968817,
-          31.811465
+          106.827183,
+          -6.1753942
         ],
         "type": "Point"
       }
@@ -22,49 +22,15 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "R3HAB live at Michigan, USA",
+        "title": "R3HAB live at Washington, USA",
         "description": "",
-        "date": "22-12-2019",
-        "eventAddress": "Michigan, USA"
+        "date": "30-11-2019",
+        "eventAddress": "Washington, USA"
       },
       "geometry": {
         "coordinates": [
-          -84.525239999781,
-          44.9337458924535
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "R3HAB live at Texas, USA",
-        "description": "",
-        "date": "20-12-2019, 23-11-2019",
-        "eventAddress": "Texas, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -98.8223185136653,
-          31.8039734986915
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "R3HAB live at Hong Kong, China",
-        "description": "",
-        "date": "29-12-2019",
-        "eventAddress": "Hong Kong, China"
-      },
-      "geometry": {
-        "coordinates": [
-          111.667227,
-          36.250509
+          -120.094292506456,
+          48.0250054263449
         ],
         "type": "Point"
       }
@@ -124,6 +90,40 @@
       "type": "Feature",
       "properties": {
         "ID": "",
+        "title": "R3HAB live at Changzhou, China",
+        "description": "",
+        "date": "27-12-2019",
+        "eventAddress": "Changzhou, China"
+      },
+      "geometry": {
+        "coordinates": [
+          119.968817,
+          31.811465
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "R3HAB live at Hong Kong, China",
+        "description": "",
+        "date": "29-12-2019",
+        "eventAddress": "Hong Kong, China"
+      },
+      "geometry": {
+        "coordinates": [
+          111.667227,
+          36.250509
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
         "title": "R3HAB live at Aalborg, Denmark",
         "description": "",
         "date": "17-01-2020",
@@ -141,49 +141,15 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "R3HAB live at Toronto, Canada",
+        "title": "R3HAB live at Texas, USA",
         "description": "",
-        "date": "22-11-2019",
-        "eventAddress": "Toronto, Canada"
+        "date": "20-12-2019, 23-11-2019",
+        "eventAddress": "Texas, USA"
       },
       "geometry": {
         "coordinates": [
-          -79.38355,
-          43.647938
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "R3HAB live at Jakarta, Indonesia",
-        "description": "",
-        "date": "13-12-2019, 14-12-2019, 15-12-2019",
-        "eventAddress": "Jakarta, Indonesia"
-      },
-      "geometry": {
-        "coordinates": [
-          106.827183,
-          -6.1753942
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "R3HAB live at Washington, USA",
-        "description": "",
-        "date": "30-11-2019",
-        "eventAddress": "Washington, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -120.094292506456,
-          48.0250054263449
+          -98.8223185136653,
+          31.8039734986915
         ],
         "type": "Point"
       }
@@ -201,6 +167,40 @@
         "coordinates": [
           114.409263,
           23.113784
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "R3HAB live at Michigan, USA",
+        "description": "",
+        "date": "22-12-2019",
+        "eventAddress": "Michigan, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -84.525239999781,
+          44.9337458924535
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "R3HAB live at Toronto, Canada",
+        "description": "",
+        "date": "22-11-2019",
+        "eventAddress": "Toronto, Canada"
+      },
+      "geometry": {
+        "coordinates": [
+          -79.38355,
+          43.647938
         ],
         "type": "Point"
       }

@@ -5,15 +5,15 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Travis Scott live at Santiago, Chile",
+        "title": "Travis Scott live at Frauenfeld, Switzerland",
         "description": "",
-        "date": "29-03-2020",
-        "eventAddress": "Santiago, Chile"
+        "date": "11-07-2019",
+        "eventAddress": "Frauenfeld, Switzerland"
       },
       "geometry": {
         "coordinates": [
-          -70.64937,
-          -33.440643
+          8.8972296,
+          47.5555644
         ],
         "type": "Point"
       }
@@ -22,15 +22,32 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Travis Scott live at London, UK",
+        "title": "Travis Scott live at Philadelphia, USA",
         "description": "",
-        "date": "16-07-2019",
-        "eventAddress": "London, UK"
+        "date": "31-08-2019",
+        "eventAddress": "Philadelphia, USA"
       },
       "geometry": {
         "coordinates": [
-          -0.127647,
-          51.5073
+          -75.16401,
+          39.950886
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Travis Scott live at New Orleans, USA",
+        "description": "",
+        "date": "07-10-2019",
+        "eventAddress": "New Orleans, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -90.0782,
+          29.975962
         ],
         "type": "Point"
       }
@@ -48,6 +65,40 @@
         "coordinates": [
           -46.638775,
           -23.548157
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Travis Scott live at Houston, USA",
+        "description": "",
+        "date": "10-11-2019, 09-11-2019, 24-08-2019",
+        "eventAddress": "Houston, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -95.36166,
+          29.759424
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Travis Scott live at London, UK",
+        "description": "",
+        "date": "16-07-2019",
+        "eventAddress": "London, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.127647,
+          51.5073
         ],
         "type": "Point"
       }
@@ -90,23 +141,6 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Travis Scott live at Frauenfeld, Switzerland",
-        "description": "",
-        "date": "11-07-2019",
-        "eventAddress": "Frauenfeld, Switzerland"
-      },
-      "geometry": {
-        "coordinates": [
-          8.8972296,
-          47.5555644
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
         "title": "Travis Scott live at Los Angeles, USA",
         "description": "",
         "date": "24-11-2019",
@@ -124,49 +158,15 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Travis Scott live at New Orleans, USA",
+        "title": "Travis Scott live at Santiago, Chile",
         "description": "",
-        "date": "07-10-2019",
-        "eventAddress": "New Orleans, USA"
+        "date": "29-03-2020",
+        "eventAddress": "Santiago, Chile"
       },
       "geometry": {
         "coordinates": [
-          -90.0782,
-          29.975962
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Travis Scott live at Houston, USA",
-        "description": "",
-        "date": "10-11-2019, 09-11-2019, 24-08-2019",
-        "eventAddress": "Houston, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -95.36166,
-          29.759424
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Travis Scott live at Philadelphia, USA",
-        "description": "",
-        "date": "31-08-2019",
-        "eventAddress": "Philadelphia, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -75.16401,
-          39.950886
+          -70.64937,
+          -33.440643
         ],
         "type": "Point"
       }

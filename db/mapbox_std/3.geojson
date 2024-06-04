@@ -5,74 +5,6 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Scorpions live at Bratislava, Slovakia",
-        "description": "",
-        "date": "20-11-2019",
-        "eventAddress": "Bratislava, Slovakia"
-      },
-      "geometry": {
-        "coordinates": [
-          17.105914,
-          48.143899
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Scorpions live at Budapest, Hungary",
-        "description": "",
-        "date": "18-11-2019",
-        "eventAddress": "Budapest, Hungary"
-      },
-      "geometry": {
-        "coordinates": [
-          19.0403594,
-          47.4979937
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Scorpions live at Minsk, Belarus",
-        "description": "",
-        "date": "15-11-2019",
-        "eventAddress": "Minsk, Belarus"
-      },
-      "geometry": {
-        "coordinates": [
-          27.5618225,
-          53.9024716
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Scorpions live at New South Wales, Australia",
-        "description": "",
-        "date": "22-02-2020",
-        "eventAddress": "New South Wales, Australia"
-      },
-      "geometry": {
-        "coordinates": [
-          147.014694071448,
-          -32.168971672412
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
         "title": "Scorpions live at Queensland, Australia",
         "description": "",
         "date": "24-02-2020",
@@ -133,6 +65,74 @@
         "coordinates": [
           174.765917,
           -36.846997
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Scorpions live at Bratislava, Slovakia",
+        "description": "",
+        "date": "20-11-2019",
+        "eventAddress": "Bratislava, Slovakia"
+      },
+      "geometry": {
+        "coordinates": [
+          17.105914,
+          48.143899
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Scorpions live at Budapest, Hungary",
+        "description": "",
+        "date": "18-11-2019",
+        "eventAddress": "Budapest, Hungary"
+      },
+      "geometry": {
+        "coordinates": [
+          19.0403594,
+          47.4979937
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Scorpions live at Minsk, Belarus",
+        "description": "",
+        "date": "15-11-2019",
+        "eventAddress": "Minsk, Belarus"
+      },
+      "geometry": {
+        "coordinates": [
+          27.5618225,
+          53.9024716
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Scorpions live at New South Wales, Australia",
+        "description": "",
+        "date": "22-02-2020",
+        "eventAddress": "New South Wales, Australia"
+      },
+      "geometry": {
+        "coordinates": [
+          147.014694071448,
+          -32.168971672412
         ],
         "type": "Point"
       }

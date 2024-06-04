@@ -5,6 +5,23 @@
       "type": "Feature",
       "properties": {
         "ID": "",
+        "title": "The Jimi Hendrix Experience live at Gothenburg, Sweden",
+        "description": "",
+        "date": "01-09-1970",
+        "eventAddress": "Gothenburg, Sweden"
+      },
+      "geometry": {
+        "coordinates": [
+          11.968916,
+          57.704826
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
         "title": "The Jimi Hendrix Experience live at Aarhus, Denmark",
         "description": "",
         "date": "02-09-1970",
@@ -48,23 +65,6 @@
         "coordinates": [
           12.5697339,
           55.6753132
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "The Jimi Hendrix Experience live at Gothenburg, Sweden",
-        "description": "",
-        "date": "01-09-1970",
-        "eventAddress": "Gothenburg, Sweden"
-      },
-      "geometry": {
-        "coordinates": [
-          11.968916,
-          57.704826
         ],
         "type": "Point"
       }

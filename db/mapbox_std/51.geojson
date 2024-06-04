@@ -5,6 +5,23 @@
       "type": "Feature",
       "properties": {
         "ID": "",
+        "title": "The Chainsmokers live at Oregon, USA",
+        "description": "",
+        "date": "05-12-2019",
+        "eventAddress": "Oregon, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -120.281411696945,
+          44.0328841608707
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
         "title": "The Chainsmokers live at Prague, Czechia",
         "description": "",
         "date": "08-10-2020",
@@ -99,23 +116,6 @@
         "coordinates": [
           -116.598821819119,
           40.071120297646
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "The Chainsmokers live at Oregon, USA",
-        "description": "",
-        "date": "05-12-2019",
-        "eventAddress": "Oregon, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -120.281411696945,
-          44.0328841608707
         ],
         "type": "Point"
       }

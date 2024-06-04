@@ -5,74 +5,6 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Red Hot Chili Peppers live at Florence, Italy",
-        "description": "",
-        "date": "13-06-2020",
-        "eventAddress": "Florence, Italy"
-      },
-      "geometry": {
-        "coordinates": [
-          11.256129,
-          43.771485
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Red Hot Chili Peppers live at Landgraaf, Netherlands",
-        "description": "",
-        "date": "19-06-2020",
-        "eventAddress": "Landgraaf, Netherlands"
-      },
-      "geometry": {
-        "coordinates": [
-          6.025055,
-          50.9068231
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Red Hot Chili Peppers live at Los Angeles, USA",
-        "description": "",
-        "date": "02-11-2019",
-        "eventAddress": "Los Angeles, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -118.24168,
-          34.054077
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Red Hot Chili Peppers live at Massachusetts, USA",
-        "description": "",
-        "date": "22-05-2020",
-        "eventAddress": "Massachusetts, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -71.9603257607071,
-          42.3204700602381
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
         "title": "Red Hot Chili Peppers live at Rio De Janeiro, Brazil",
         "description": "",
         "date": "03-10-2019",
@@ -133,6 +65,74 @@
         "coordinates": [
           -119.699375153073,
           37.0743595873945
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Red Hot Chili Peppers live at Florence, Italy",
+        "description": "",
+        "date": "13-06-2020",
+        "eventAddress": "Florence, Italy"
+      },
+      "geometry": {
+        "coordinates": [
+          11.256129,
+          43.771485
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Red Hot Chili Peppers live at Landgraaf, Netherlands",
+        "description": "",
+        "date": "19-06-2020",
+        "eventAddress": "Landgraaf, Netherlands"
+      },
+      "geometry": {
+        "coordinates": [
+          6.025055,
+          50.9068231
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Red Hot Chili Peppers live at Los Angeles, USA",
+        "description": "",
+        "date": "02-11-2019",
+        "eventAddress": "Los Angeles, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -118.24168,
+          34.054077
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Red Hot Chili Peppers live at Massachusetts, USA",
+        "description": "",
+        "date": "22-05-2020",
+        "eventAddress": "Massachusetts, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.9603257607071,
+          42.3204700602381
         ],
         "type": "Point"
       }

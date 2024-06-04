@@ -5,40 +5,6 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "U2 live at Melbourne, Australia",
-        "description": "",
-        "date": "15-11-2019",
-        "eventAddress": "Melbourne, Australia"
-      },
-      "geometry": {
-        "coordinates": [
-          144.964568,
-          -37.813983
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "U2 live at Mumbai, India",
-        "description": "",
-        "date": "15-12-2019",
-        "eventAddress": "Mumbai, India"
-      },
-      "geometry": {
-        "coordinates": [
-          72.878723,
-          19.077793
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
         "title": "U2 live at Sydney, Australia",
         "description": "",
         "date": "22-11-2019",
@@ -99,6 +65,40 @@
         "coordinates": [
           120.9782618,
           14.5948914
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "U2 live at Melbourne, Australia",
+        "description": "",
+        "date": "15-11-2019",
+        "eventAddress": "Melbourne, Australia"
+      },
+      "geometry": {
+        "coordinates": [
+          144.964568,
+          -37.813983
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "U2 live at Mumbai, India",
+        "description": "",
+        "date": "15-12-2019",
+        "eventAddress": "Mumbai, India"
+      },
+      "geometry": {
+        "coordinates": [
+          72.878723,
+          19.077793
         ],
         "type": "Point"
       }

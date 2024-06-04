@@ -5,15 +5,15 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Logic live at Cleveland, USA",
+        "title": "Logic live at Madison, USA",
         "description": "",
-        "date": "12-11-2019",
-        "eventAddress": "Cleveland, USA"
+        "date": "16-11-2019",
+        "eventAddress": "Madison, USA"
       },
       "geometry": {
         "coordinates": [
-          -81.690315,
-          41.501377
+          -89.38996,
+          43.074776
         ],
         "type": "Point"
       }
@@ -22,15 +22,15 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Logic live at Utah, USA",
+        "title": "Logic live at Sydney, Australia",
         "description": "",
-        "date": "15-10-2019",
-        "eventAddress": "Utah, USA"
+        "date": "02-12-2019",
+        "eventAddress": "Sydney, Australia"
       },
       "geometry": {
         "coordinates": [
-          -111.602499934826,
-          39.254817164782
+          151.206987,
+          -33.870782
         ],
         "type": "Point"
       }
@@ -48,40 +48,6 @@
         "coordinates": [
           -74.0059945,
           40.7127492
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Logic live at Toronto, Canada",
-        "description": "",
-        "date": "13-11-2019",
-        "eventAddress": "Toronto, Canada"
-      },
-      "geometry": {
-        "coordinates": [
-          -79.38355,
-          43.647938
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Logic live at Boston, USA",
-        "description": "",
-        "date": "05-11-2019",
-        "eventAddress": "Boston, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -71.0568,
-          42.35888
         ],
         "type": "Point"
       }
@@ -141,15 +107,15 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Logic live at Madison, USA",
+        "title": "Logic live at Cleveland, USA",
         "description": "",
-        "date": "16-11-2019",
-        "eventAddress": "Madison, USA"
+        "date": "12-11-2019",
+        "eventAddress": "Cleveland, USA"
       },
       "geometry": {
         "coordinates": [
-          -89.38996,
-          43.074776
+          -81.690315,
+          41.501377
         ],
         "type": "Point"
       }
@@ -158,15 +124,49 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Logic live at Sydney, Australia",
+        "title": "Logic live at Toronto, Canada",
         "description": "",
-        "date": "02-12-2019",
-        "eventAddress": "Sydney, Australia"
+        "date": "13-11-2019",
+        "eventAddress": "Toronto, Canada"
       },
       "geometry": {
         "coordinates": [
-          151.206987,
-          -33.870782
+          -79.38355,
+          43.647938
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Logic live at Utah, USA",
+        "description": "",
+        "date": "15-10-2019",
+        "eventAddress": "Utah, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -111.602499934826,
+          39.254817164782
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Logic live at Boston, USA",
+        "description": "",
+        "date": "05-11-2019",
+        "eventAddress": "Boston, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.0568,
+          42.35888
         ],
         "type": "Point"
       }

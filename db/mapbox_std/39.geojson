@@ -5,6 +5,23 @@
       "type": "Feature",
       "properties": {
         "ID": "",
+        "title": "Eagles live at London, UK",
+        "description": "",
+        "date": "29-08-2020, 30-08-2020",
+        "eventAddress": "London, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.127647,
+          51.5073
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
         "title": "Eagles live at New York, USA",
         "description": "",
         "date": "15-02-2020, 14-02-2020, 18-02-2020",
@@ -82,23 +99,6 @@
         "coordinates": [
           -95.36166,
           29.759424
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Eagles live at London, UK",
-        "description": "",
-        "date": "29-08-2020, 30-08-2020",
-        "eventAddress": "London, UK"
-      },
-      "geometry": {
-        "coordinates": [
-          -0.127647,
-          51.5073
         ],
         "type": "Point"
       }

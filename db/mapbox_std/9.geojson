@@ -5,23 +5,6 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Pearl Jam live at Berlin, Germany",
-        "description": "",
-        "date": "25-06-2020",
-        "eventAddress": "Berlin, Germany"
-      },
-      "geometry": {
-        "coordinates": [
-          13.3888599,
-          52.5170365
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
         "title": "Pearl Jam live at Copenhagen, Denmark",
         "description": "",
         "date": "29-06-2020",
@@ -82,6 +65,23 @@
         "coordinates": [
           4.692803,
           50.97131
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Pearl Jam live at Berlin, Germany",
+        "description": "",
+        "date": "25-06-2020",
+        "eventAddress": "Berlin, Germany"
+      },
+      "geometry": {
+        "coordinates": [
+          13.3888599,
+          52.5170365
         ],
         "type": "Point"
       }

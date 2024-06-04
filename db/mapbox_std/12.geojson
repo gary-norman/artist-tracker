@@ -5,6 +5,23 @@
       "type": "Feature",
       "properties": {
         "ID": "",
+        "title": "Genesis live at Illinois, USA",
+        "description": "",
+        "date": "06-09-2012",
+        "eventAddress": "Illinois, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -89.2749461071049,
+          40.1492928594374
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
         "title": "Genesis live at Merkers, Germany",
         "description": "",
         "date": "29-06-2012, 30-06-2012",
@@ -31,23 +48,6 @@
         "coordinates": [
           0.695068,
           51.540515
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Genesis live at Illinois, USA",
-        "description": "",
-        "date": "06-09-2012",
-        "eventAddress": "Illinois, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -89.2749461071049,
-          40.1492928594374
         ],
         "type": "Point"
       }

@@ -5,6 +5,40 @@
       "type": "Feature",
       "properties": {
         "ID": "",
+        "title": "J. Cole live at Brooklyn, USA",
+        "description": "",
+        "date": "04-06-2019",
+        "eventAddress": "Brooklyn, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -73.9497,
+          40.6526
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "J. Cole live at Las Vegas, USA",
+        "description": "",
+        "date": "01-11-2019, 02-11-2019, 03-11-2019",
+        "eventAddress": "Las Vegas, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -115.14062,
+          36.169212
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
         "title": "J. Cole live at Montreal, Canada",
         "description": "",
         "date": "05-10-2018",
@@ -99,40 +133,6 @@
         "coordinates": [
           -71.0568,
           42.35888
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "J. Cole live at Brooklyn, USA",
-        "description": "",
-        "date": "04-06-2019",
-        "eventAddress": "Brooklyn, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -73.9497,
-          40.6526
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "J. Cole live at Las Vegas, USA",
-        "description": "",
-        "date": "01-11-2019, 02-11-2019, 03-11-2019",
-        "eventAddress": "Las Vegas, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -115.14062,
-          36.169212
         ],
         "type": "Point"
       }

@@ -5,193 +5,6 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Post Malone live at Grand Rapids, USA",
-        "description": "",
-        "date": "12-02-2020",
-        "eventAddress": "Grand Rapids, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -85.67017,
-          42.965473
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Post Malone live at Uniondale, USA",
-        "description": "",
-        "date": "19-02-2020",
-        "eventAddress": "Uniondale, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -73.592354,
-          40.70956
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Post Malone live at Hershey, USA",
-        "description": "",
-        "date": "22-02-2020",
-        "eventAddress": "Hershey, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -76.65201,
-          40.28494
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Post Malone live at Indianapolis, USA",
-        "description": "",
-        "date": "09-02-2020",
-        "eventAddress": "Indianapolis, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -86.159904,
-          39.76712
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Post Malone live at Kansas City, USA",
-        "description": "",
-        "date": "05-02-2020",
-        "eventAddress": "Kansas City, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -94.58319,
-          39.099934
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Post Malone live at Newark, USA",
-        "description": "",
-        "date": "18-02-2020",
-        "eventAddress": "Newark, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -74.17212,
-          40.735588
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Post Malone live at Pittsburgh, USA",
-        "description": "",
-        "date": "24-02-2020",
-        "eventAddress": "Pittsburgh, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -79.99585,
-          40.440742
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Post Malone live at Washington, USA",
-        "description": "",
-        "date": "27-02-2020",
-        "eventAddress": "Washington, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -120.094292506456,
-          48.0250054263449
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Post Malone live at Philadelphia, USA",
-        "description": "",
-        "date": "21-02-2020",
-        "eventAddress": "Philadelphia, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -75.16401,
-          39.950886
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Post Malone live at Toronto, USA",
-        "description": "",
-        "date": "14-02-2020",
-        "eventAddress": "Toronto, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -80.60095,
-          40.465397
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Post Malone live at Omaha, USA",
-        "description": "",
-        "date": "04-02-2020",
-        "eventAddress": "Omaha, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -95.934525,
-          41.257595
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
         "title": "Post Malone live at Rosemont, USA",
         "description": "",
         "date": "11-02-2020",
@@ -201,23 +14,6 @@
         "coordinates": [
           -87.87584,
           41.99442
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Post Malone live at Columbia, USA",
-        "description": "",
-        "date": "29-02-2020",
-        "eventAddress": "Columbia, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -81.03574,
-          34.002117
         ],
         "type": "Point"
       }
@@ -243,6 +39,57 @@
       "type": "Feature",
       "properties": {
         "ID": "",
+        "title": "Post Malone live at Kansas City, USA",
+        "description": "",
+        "date": "05-02-2020",
+        "eventAddress": "Kansas City, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -94.58319,
+          39.099934
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Post Malone live at Omaha, USA",
+        "description": "",
+        "date": "04-02-2020",
+        "eventAddress": "Omaha, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -95.934525,
+          41.257595
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Post Malone live at Philadelphia, USA",
+        "description": "",
+        "date": "21-02-2020",
+        "eventAddress": "Philadelphia, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -75.16401,
+          39.950886
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
         "title": "Post Malone live at Montreal, USA",
         "description": "",
         "date": "16-02-2020",
@@ -252,6 +99,159 @@
         "coordinates": [
           -84.25707,
           33.834084
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Post Malone live at Pittsburgh, USA",
+        "description": "",
+        "date": "24-02-2020",
+        "eventAddress": "Pittsburgh, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -79.99585,
+          40.440742
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Post Malone live at Toronto, USA",
+        "description": "",
+        "date": "14-02-2020",
+        "eventAddress": "Toronto, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -80.60095,
+          40.465397
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Post Malone live at Hershey, USA",
+        "description": "",
+        "date": "22-02-2020",
+        "eventAddress": "Hershey, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -76.65201,
+          40.28494
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Post Malone live at Uniondale, USA",
+        "description": "",
+        "date": "19-02-2020",
+        "eventAddress": "Uniondale, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -73.592354,
+          40.70956
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Post Malone live at Columbia, USA",
+        "description": "",
+        "date": "29-02-2020",
+        "eventAddress": "Columbia, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -81.03574,
+          34.002117
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Post Malone live at Newark, USA",
+        "description": "",
+        "date": "18-02-2020",
+        "eventAddress": "Newark, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -74.17212,
+          40.735588
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Post Malone live at Grand Rapids, USA",
+        "description": "",
+        "date": "12-02-2020",
+        "eventAddress": "Grand Rapids, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -85.67017,
+          42.965473
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Post Malone live at Washington, USA",
+        "description": "",
+        "date": "27-02-2020",
+        "eventAddress": "Washington, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -120.094292506456,
+          48.0250054263449
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Post Malone live at Indianapolis, USA",
+        "description": "",
+        "date": "09-02-2020",
+        "eventAddress": "Indianapolis, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -86.159904,
+          39.76712
         ],
         "type": "Point"
       }

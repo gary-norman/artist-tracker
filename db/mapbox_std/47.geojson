@@ -5,23 +5,6 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Twenty One Pilots live at Texas, USA",
-        "description": "",
-        "date": "08-11-2019",
-        "eventAddress": "Texas, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -98.8223185136653,
-          31.8039734986915
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
         "title": "Twenty One Pilots live at Arras, France",
         "description": "",
         "date": "03-07-2020",
@@ -133,6 +116,23 @@
         "coordinates": [
           9.376546,
           47.424859
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Twenty One Pilots live at Texas, USA",
+        "description": "",
+        "date": "08-11-2019",
+        "eventAddress": "Texas, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.8223185136653,
+          31.8039734986915
         ],
         "type": "Point"
       }

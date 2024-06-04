@@ -63,7 +63,7 @@ func main() {
 	t = time.Now()
 	timetaken = t.Sub(update).Milliseconds()
 	spinnerInfo.Success("Updated artist information in " + strconv.FormatInt(timetaken, 10) + "ms\n")
-	tour := time.Now()
+	//tour := time.Now()
 	//for i := 49; i < 52; i++ {
 	//	api.GetTourInfo(Artists, Artists[i].Name, i)
 	//	duration := time.Second
@@ -80,15 +80,19 @@ func main() {
 	//	}
 	//	api.RapidToMapbox(i)
 	//}
-	fmt.Println("Artists with geojson data:")
-	for i := 0; i < 52; i++ {
-		api.GeojsonCheck(i, Artists[i].Name)
-		api.MapboxReverseLookup(i, Artists[i])
-		api.MapboxDataset(i, Artists[i].Name)
-	}
-	t = time.Now()
-	timetaken = t.Sub(tour).Milliseconds()
-	spinnerInfo.Success("Updated tour information in " + strconv.FormatInt(timetaken, 10) + "ms\n\n")
+
+	//commenting out to speed up start-up//
+	//fmt.Println("Artists with geojson data:")
+	//for i := 0; i < 52; i++ {
+	//	api.GeojsonCheck(i, Artists[i].Name)
+	//	api.MapboxReverseLookup(i, Artists[i])
+	//	api.MapboxDataset(i, Artists[i].Name)
+	//}
+	//t = time.Now()
+	//timetaken = t.Sub(tour).Milliseconds()
+	//spinnerInfo.Success("Updated tour information in " + strconv.FormatInt(timetaken, 10) + "ms\n\n")
+	//commenting out to speed up start-up//
+
 	//err2 := pterm.DefaultBigText.WithLetters(
 	//	putils.LettersFromStringWithStyle("Artist", pterm.FgCyan.ToStyle()),
 	//	putils.LettersFromStringWithRGB("-", pterm.NewRGB(255, 215, 0)),

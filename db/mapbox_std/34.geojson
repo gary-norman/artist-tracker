@@ -5,57 +5,6 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "NWA live at Chicago, USA",
-        "description": "",
-        "date": "12-01-1989",
-        "eventAddress": "Chicago, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -87.63236,
-          41.881954
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "NWA live at Cincinnati, USA",
-        "description": "",
-        "date": "18-06-1989",
-        "eventAddress": "Cincinnati, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -84.51362,
-          39.10369
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "NWA live at Windsor, Canada",
-        "description": "",
-        "date": "03-09-2015",
-        "eventAddress": "Windsor, Canada"
-      },
-      "geometry": {
-        "coordinates": [
-          -83.03833,
-          42.316418
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
         "title": "NWA live at Anaheim, USA",
         "description": "",
         "date": "24-03-1989",
@@ -99,6 +48,57 @@
         "coordinates": [
           -73.9497,
           40.6526
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "NWA live at Chicago, USA",
+        "description": "",
+        "date": "12-01-1989",
+        "eventAddress": "Chicago, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -87.63236,
+          41.881954
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "NWA live at Cincinnati, USA",
+        "description": "",
+        "date": "18-06-1989",
+        "eventAddress": "Cincinnati, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -84.51362,
+          39.10369
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "NWA live at Windsor, Canada",
+        "description": "",
+        "date": "03-09-2015",
+        "eventAddress": "Windsor, Canada"
+      },
+      "geometry": {
+        "coordinates": [
+          -83.03833,
+          42.316418
         ],
         "type": "Point"
       }

@@ -1,3 +1,42 @@
+document.addEventListener('DOMContentLoaded', function () {
+    // Function to toggle the visibility of filter-open containers
+    function toggleFilterContainers() {
+        // Select all input elements that match the criteria
+        const filterInputs = document.querySelectorAll('input[id^="filter-"]');
+
+        // Loop through each input element
+        filterInputs.forEach(input => {
+            // Traverse up the DOM to find the parent with the class 'filter'
+            let parent = input.closest('.filter');
+            if (parent) {
+                // Find all elements within the parent that have a class starting with 'filter-open'
+                const filterOpenElements = parent.querySelectorAll('[class^="filter-open"]');
+
+                // Toggle the 'hide' class on each element based on checkbox state
+                filterOpenElements.forEach(element => {
+                    if (input.checked) {
+                        element.classList.remove('hide');
+                    } else {
+                        element.classList.add('hide');
+                    }
+                });
+            }
+        });
+    }
+
+    // Select all input elements that match the criteria
+    const filterInputs = document.querySelectorAll('input[id^="filter-"]');
+
+    // Add event listeners to each input element
+    filterInputs.forEach(input => {
+        input.addEventListener('change', toggleFilterContainers);
+    });
+
+    // Initial check to set the correct visibility state
+    toggleFilterContainers();
+});
+
+
 function updateSliderBackground(slider) {
     const value = slider.value;
     const min = slider.min;
@@ -130,5 +169,5 @@ function updateLabelPosition(slider, label) {
     const position = ((sliderValue - sliderMin) / (sliderMax - sliderMin)) * 100;
     counter += 6
 
-    label.style.left = `calc(${position}% - ${counter}px)`; // Adjust '20px' to center the label correctly
+    label.style.left = `calc(${position}%)`; // Adjust '20px' to center the label correctly
 }

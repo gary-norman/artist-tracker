@@ -5,23 +5,6 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Fall Out Boy live at Paris, France",
-        "description": "",
-        "date": "13-06-2020",
-        "eventAddress": "Paris, France"
-      },
-      "geometry": {
-        "coordinates": [
-          2.3483915,
-          48.8534951
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
         "title": "Fall Out Boy live at Vienna, Austria",
         "description": "",
         "date": "21-06-2020",
@@ -99,6 +82,23 @@
         "coordinates": [
           -0.127647,
           51.5073
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Fall Out Boy live at Paris, France",
+        "description": "",
+        "date": "13-06-2020",
+        "eventAddress": "Paris, France"
+      },
+      "geometry": {
+        "coordinates": [
+          2.3483915,
+          48.8534951
         ],
         "type": "Point"
       }

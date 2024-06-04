@@ -135,20 +135,21 @@ a {
 }
 
 .small {
-    display: inline;
+    /*display: inline;*/
     font-family: "Inter", sans-serif;
     font-size: var(--h--1-2);
     font-weight:  var(--font-weight-400);
     font-style: normal;
     line-height: normal;
-    color: var(--white-2);
-    max-width: fit-content;
 
-
+    &.light {
+        color: var(--white-2);
+    }
 
     &.center{
         text-align: center;
         align-self: center;
+        max-width: fit-content;
     }
 
 }
@@ -455,6 +456,10 @@ input {
     overflow: visible;
 }
 
+.filter-open {
+    transition: translate 500ms;
+}
+
 .space{
     width: 100%;
     display: flex;
@@ -465,10 +470,6 @@ input {
         margin: 0;
     }
 
-    & label {
-        font-size: var(--h--1-2);
-
-    }
 
     & .filter-label {
         width: 15rem;
@@ -480,13 +481,12 @@ input {
         padding: 1.2rem 1.6rem;
         align-items: center;
         gap: 1.6rem;
-        max-width: 20rem;
+        max-width: 15rem;
     }
 
     & #album-end-date {
         padding: 0;
         min-width: 15rem;
-
     }
 }
 
@@ -599,7 +599,7 @@ input {
     bottom: 0;
     background-color: var(--white-0);
     -webkit-transition: .4s;
-    transition: .4s;
+    transition: background-color .4s, transform .4s;
 }
 
 .slider-button {
@@ -610,18 +610,18 @@ input {
         width: 2.6rem;
         left: 0.4rem;
         bottom: 0.4rem;
-        background: var(--main-grad);
+        background-color: var(--green-0);
         -webkit-transition: .4s;
-        transition: .4s;
+        transition: background-color .4s, transform .4s;
 
         &:focus-visible {
-            background: var(--main-grad);
+            background-color:var(--green-3);
         }
     }
 }
 
 input:checked + .slider-button {
-    background: var(--main-grad);
+    background-color: var(--green-0);
 }
 
 input:focus-visible + .slider-button {
@@ -632,7 +632,7 @@ input:checked + .slider-button:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
-    background: var(--white-0);
+    background-color: var(--white-0);
 }
 
 .slider-button.round {
@@ -820,4 +820,7 @@ input[type='range']::-webkit-slider-thumb {
     }
 }
 
-
+.hide {
+    display: none;
+    transform: translateX(12px);
+}

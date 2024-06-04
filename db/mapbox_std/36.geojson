@@ -5,6 +5,23 @@
       "type": "Feature",
       "properties": {
         "ID": "",
+        "title": "Arctic Monkeys live at Bogota, Colombia",
+        "description": "",
+        "date": "07-04-2019",
+        "eventAddress": "Bogota, Colombia"
+      },
+      "geometry": {
+        "coordinates": [
+          -74.0836453,
+          4.6534649
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
         "title": "Arctic Monkeys live at Lima, Peru",
         "description": "",
         "date": "26-03-2019",
@@ -82,23 +99,6 @@
         "coordinates": [
           -46.638775,
           -23.548157
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Arctic Monkeys live at Bogota, Colombia",
-        "description": "",
-        "date": "07-04-2019",
-        "eventAddress": "Bogota, Colombia"
-      },
-      "geometry": {
-        "coordinates": [
-          -74.0836453,
-          4.6534649
         ],
         "type": "Point"
       }

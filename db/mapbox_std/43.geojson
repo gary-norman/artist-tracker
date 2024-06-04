@@ -5,40 +5,6 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Green Day live at Hong Kong, China",
-        "description": "",
-        "date": "20-03-2020",
-        "eventAddress": "Hong Kong, China"
-      },
-      "geometry": {
-        "coordinates": [
-          111.667227,
-          36.250509
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Green Day live at Los Angeles, USA",
-        "description": "",
-        "date": "24-11-2019",
-        "eventAddress": "Los Angeles, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -118.24168,
-          34.054077
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
         "title": "Green Day live at Madrid, Spain",
         "description": "",
         "date": "30-10-2019",
@@ -133,6 +99,40 @@
         "coordinates": [
           100.4935089,
           13.7524938
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Green Day live at Hong Kong, China",
+        "description": "",
+        "date": "20-03-2020",
+        "eventAddress": "Hong Kong, China"
+      },
+      "geometry": {
+        "coordinates": [
+          111.667227,
+          36.250509
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Green Day live at Los Angeles, USA",
+        "description": "",
+        "date": "24-11-2019",
+        "eventAddress": "Los Angeles, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -118.24168,
+          34.054077
         ],
         "type": "Point"
       }

@@ -5,23 +5,6 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Mac Miller live at California, USA",
-        "description": "",
-        "date": "28-04-2018, 29-04-2018",
-        "eventAddress": "California, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -119.699375153073,
-          37.0743595873945
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
         "title": "Mac Miller live at San Isidro, Argentina",
         "description": "",
         "date": "16-03-2018, 17-03-2018, 18-03-2018",
@@ -48,6 +31,23 @@
         "coordinates": [
           -46.638775,
           -23.548157
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Mac Miller live at California, USA",
+        "description": "",
+        "date": "28-04-2018, 29-04-2018",
+        "eventAddress": "California, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -119.699375153073,
+          37.0743595873945
         ],
         "type": "Point"
       }

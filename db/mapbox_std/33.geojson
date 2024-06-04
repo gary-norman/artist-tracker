@@ -5,74 +5,6 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Guns N' Roses live at Houston, USA",
-        "description": "",
-        "date": "10-11-2017",
-        "eventAddress": "Houston, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -95.36166,
-          29.759424
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Guns N' Roses live at Inglewood, USA",
-        "description": "",
-        "date": "25-11-2017",
-        "eventAddress": "Inglewood, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -118.35334,
-          33.961777
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Guns N' Roses live at Los Angeles, USA",
-        "description": "",
-        "date": "24-11-2017",
-        "eventAddress": "Los Angeles, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -118.24168,
-          34.054077
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Guns N' Roses live at Madrid, Spain",
-        "description": "",
-        "date": "04-06-2017",
-        "eventAddress": "Madrid, Spain"
-      },
-      "geometry": {
-        "coordinates": [
-          -3.702979,
-          40.419223
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
         "title": "Guns N' Roses live at Oakland, USA",
         "description": "",
         "date": "21-11-2017",
@@ -133,6 +65,74 @@
         "coordinates": [
           -87.63236,
           41.881954
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Guns N' Roses live at Houston, USA",
+        "description": "",
+        "date": "10-11-2017",
+        "eventAddress": "Houston, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -95.36166,
+          29.759424
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Guns N' Roses live at Inglewood, USA",
+        "description": "",
+        "date": "25-11-2017",
+        "eventAddress": "Inglewood, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -118.35334,
+          33.961777
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Guns N' Roses live at Los Angeles, USA",
+        "description": "",
+        "date": "24-11-2017",
+        "eventAddress": "Los Angeles, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -118.24168,
+          34.054077
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Guns N' Roses live at Madrid, Spain",
+        "description": "",
+        "date": "04-06-2017",
+        "eventAddress": "Madrid, Spain"
+      },
+      "geometry": {
+        "coordinates": [
+          -3.702979,
+          40.419223
         ],
         "type": "Point"
       }

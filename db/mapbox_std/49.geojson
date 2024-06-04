@@ -5,6 +5,23 @@
       "type": "Feature",
       "properties": {
         "ID": "",
+        "title": "Muse live at Sao Paulo, Brazil",
+        "description": "",
+        "date": "09-10-2019",
+        "eventAddress": "Sao Paulo, Brazil"
+      },
+      "geometry": {
+        "coordinates": [
+          -46.638775,
+          -23.548157
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
         "title": "Muse live at Buenos Aires, Argentina",
         "description": "",
         "date": "11-10-2019",
@@ -65,23 +82,6 @@
         "coordinates": [
           -70.64937,
           -33.440643
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Muse live at Sao Paulo, Brazil",
-        "description": "",
-        "date": "09-10-2019",
-        "eventAddress": "Sao Paulo, Brazil"
-      },
-      "geometry": {
-        "coordinates": [
-          -46.638775,
-          -23.548157
         ],
         "type": "Point"
       }

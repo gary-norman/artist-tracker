@@ -5,74 +5,6 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Deep Purple live at Klagenfurt, Austria",
-        "description": "",
-        "date": "01-12-2019",
-        "eventAddress": "Klagenfurt, Austria"
-      },
-      "geometry": {
-        "coordinates": [
-          14.306923,
-          46.625223
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Deep Purple live at Nimes, France",
-        "description": "",
-        "date": "01-07-2020",
-        "eventAddress": "Nimes, France"
-      },
-      "geometry": {
-        "coordinates": [
-          4.3595932,
-          43.8348712
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Deep Purple live at Ostrava, Czechia",
-        "description": "",
-        "date": "04-12-2019",
-        "eventAddress": "Ostrava, Czechia"
-      },
-      "geometry": {
-        "coordinates": [
-          18.289057,
-          49.835354
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Deep Purple live at Pagney Derriere Barine, France",
-        "description": "",
-        "date": "25-01-2020",
-        "eventAddress": "Pagney Derriere Barine, France"
-      },
-      "geometry": {
-        "coordinates": [
-          5.84608,
-          48.692884
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
         "title": "Deep Purple live at Sion, Switzerland",
         "description": "",
         "date": "08-07-2020, 09-07-2020",
@@ -133,6 +65,74 @@
         "coordinates": [
           10.000654,
           53.550341
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Deep Purple live at Klagenfurt, Austria",
+        "description": "",
+        "date": "01-12-2019",
+        "eventAddress": "Klagenfurt, Austria"
+      },
+      "geometry": {
+        "coordinates": [
+          14.306923,
+          46.625223
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Deep Purple live at Nimes, France",
+        "description": "",
+        "date": "01-07-2020",
+        "eventAddress": "Nimes, France"
+      },
+      "geometry": {
+        "coordinates": [
+          4.3595932,
+          43.8348712
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Deep Purple live at Ostrava, Czechia",
+        "description": "",
+        "date": "04-12-2019",
+        "eventAddress": "Ostrava, Czechia"
+      },
+      "geometry": {
+        "coordinates": [
+          18.289057,
+          49.835354
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Deep Purple live at Pagney Derriere Barine, France",
+        "description": "",
+        "date": "25-01-2020",
+        "eventAddress": "Pagney Derriere Barine, France"
+      },
+      "geometry": {
+        "coordinates": [
+          5.84608,
+          48.692884
         ],
         "type": "Point"
       }

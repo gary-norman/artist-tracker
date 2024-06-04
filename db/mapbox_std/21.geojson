@@ -5,49 +5,15 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Thirty Seconds to Mars live at Oulu, Finland",
+        "title": "Thirty Seconds to Mars live at Monchengladbach, Germany",
         "description": "",
-        "date": "27-07-2019",
-        "eventAddress": "Oulu, Finland"
+        "date": "15-08-2019",
+        "eventAddress": "Monchengladbach, Germany"
       },
       "geometry": {
         "coordinates": [
-          25.471447,
-          65.012653
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Thirty Seconds to Mars live at Salem, Germany",
-        "description": "",
-        "date": "16-08-2019",
-        "eventAddress": "Salem, Germany"
-      },
-      "geometry": {
-        "coordinates": [
-          10.822705,
-          53.655736
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Thirty Seconds to Mars live at Leipzig, Germany",
-        "description": "",
-        "date": "17-08-2019",
-        "eventAddress": "Leipzig, Germany"
-      },
-      "geometry": {
-        "coordinates": [
-          12.375101,
-          51.340832
+          6.4359585,
+          51.1945251
         ],
         "type": "Point"
       }
@@ -73,15 +39,66 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Thirty Seconds to Mars live at Monchengladbach, Germany",
+        "title": "Thirty Seconds to Mars live at California, USA",
         "description": "",
-        "date": "15-08-2019",
-        "eventAddress": "Monchengladbach, Germany"
+        "date": "08-09-2019, 07-09-2019",
+        "eventAddress": "California, USA"
       },
       "geometry": {
         "coordinates": [
-          6.4359585,
-          51.1945251
+          -119.699375153073,
+          37.0743595873945
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Thirty Seconds to Mars live at Salem, Germany",
+        "description": "",
+        "date": "16-08-2019",
+        "eventAddress": "Salem, Germany"
+      },
+      "geometry": {
+        "coordinates": [
+          10.822705,
+          53.655736
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Thirty Seconds to Mars live at Budapest, Hungary",
+        "description": "",
+        "date": "23-07-2019",
+        "eventAddress": "Budapest, Hungary"
+      },
+      "geometry": {
+        "coordinates": [
+          19.0403594,
+          47.4979937
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Thirty Seconds to Mars live at Oulu, Finland",
+        "description": "",
+        "date": "27-07-2019",
+        "eventAddress": "Oulu, Finland"
+      },
+      "geometry": {
+        "coordinates": [
+          25.471447,
+          65.012653
         ],
         "type": "Point"
       }
@@ -124,23 +141,6 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Thirty Seconds to Mars live at Budapest, Hungary",
-        "description": "",
-        "date": "23-07-2019",
-        "eventAddress": "Budapest, Hungary"
-      },
-      "geometry": {
-        "coordinates": [
-          19.0403594,
-          47.4979937
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
         "title": "Thirty Seconds to Mars live at Burriana, Spain",
         "description": "",
         "date": "03-08-2019",
@@ -158,23 +158,6 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Thirty Seconds to Mars live at California, USA",
-        "description": "",
-        "date": "08-09-2019, 07-09-2019",
-        "eventAddress": "California, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -119.699375153073,
-          37.0743595873945
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
         "title": "Thirty Seconds to Mars live at Cuxhaven, Germany",
         "description": "",
         "date": "19-07-2019",
@@ -184,6 +167,23 @@
         "coordinates": [
           8.703326,
           53.868437
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Thirty Seconds to Mars live at Leipzig, Germany",
+        "description": "",
+        "date": "17-08-2019",
+        "eventAddress": "Leipzig, Germany"
+      },
+      "geometry": {
+        "coordinates": [
+          12.375101,
+          51.340832
         ],
         "type": "Point"
       }

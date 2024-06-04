@@ -5,6 +5,23 @@
       "type": "Feature",
       "properties": {
         "ID": "",
+        "title": "Joyner Lucas live at Texas, USA",
+        "description": "",
+        "date": "06-10-2019",
+        "eventAddress": "Texas, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.8223185136653,
+          31.8039734986915
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
         "title": "Joyner Lucas live at Arizona, USA",
         "description": "",
         "date": "08-10-2019",
@@ -31,23 +48,6 @@
         "coordinates": [
           -119.699375153073,
           37.0743595873945
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Joyner Lucas live at Texas, USA",
-        "description": "",
-        "date": "06-10-2019",
-        "eventAddress": "Texas, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -98.8223185136653,
-          31.8039734986915
         ],
         "type": "Point"
       }

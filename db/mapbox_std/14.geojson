@@ -5,23 +5,6 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Led Zeppelin live at London, UK",
-        "description": "",
-        "date": "10-12-2007, 15-03-2003",
-        "eventAddress": "London, UK"
-      },
-      "geometry": {
-        "coordinates": [
-          -0.127647,
-          51.5073
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
         "title": "Led Zeppelin live at Maine, USA",
         "description": "",
         "date": "17-04-1994",
@@ -48,6 +31,23 @@
         "coordinates": [
           -74.0059945,
           40.7127492
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Led Zeppelin live at London, UK",
+        "description": "",
+        "date": "10-12-2007, 15-03-2003",
+        "eventAddress": "London, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.127647,
+          51.5073
         ],
         "type": "Point"
       }

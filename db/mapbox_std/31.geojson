@@ -5,15 +5,15 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Nickelback live at London, UK",
+        "title": "Nickelback live at Stockholm, Sweden",
         "description": "",
-        "date": "10-07-2020",
-        "eventAddress": "London, UK"
+        "date": "29-06-2020",
+        "eventAddress": "Stockholm, Sweden"
       },
       "geometry": {
         "coordinates": [
-          -0.127647,
-          51.5073
+          18.071765,
+          59.324334
         ],
         "type": "Point"
       }
@@ -39,23 +39,6 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Nickelback live at Stockholm, Sweden",
-        "description": "",
-        "date": "29-06-2020",
-        "eventAddress": "Stockholm, Sweden"
-      },
-      "geometry": {
-        "coordinates": [
-          18.071765,
-          59.324334
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
         "title": "Nickelback live at Krakow, Poland",
         "description": "",
         "date": "13-07-2020",
@@ -73,6 +56,40 @@
       "type": "Feature",
       "properties": {
         "ID": "",
+        "title": "Nickelback live at London, UK",
+        "description": "",
+        "date": "10-07-2020",
+        "eventAddress": "London, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.127647,
+          51.5073
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Nickelback live at Vienna, Austria",
+        "description": "",
+        "date": "07-07-2020",
+        "eventAddress": "Vienna, Austria"
+      },
+      "geometry": {
+        "coordinates": [
+          16.3725042,
+          48.2083537
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
         "title": "Nickelback live at Zurich, Switzerland",
         "description": "",
         "date": "17-07-2020",
@@ -82,23 +99,6 @@
         "coordinates": [
           8.541096,
           47.369733
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Nickelback live at Berlin, Germany",
-        "description": "",
-        "date": "25-06-2020",
-        "eventAddress": "Berlin, Germany"
-      },
-      "geometry": {
-        "coordinates": [
-          13.3888599,
-          52.5170365
         ],
         "type": "Point"
       }
@@ -158,15 +158,15 @@
       "type": "Feature",
       "properties": {
         "ID": "",
-        "title": "Nickelback live at Vienna, Austria",
+        "title": "Nickelback live at Berlin, Germany",
         "description": "",
-        "date": "07-07-2020",
-        "eventAddress": "Vienna, Austria"
+        "date": "25-06-2020",
+        "eventAddress": "Berlin, Germany"
       },
       "geometry": {
         "coordinates": [
-          16.3725042,
-          48.2083537
+          13.3888599,
+          52.5170365
         ],
         "type": "Point"
       }
