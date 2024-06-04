@@ -31,14 +31,14 @@
         container: 'map',
         // the final string in the url is found in MapBoxHtmlValues[0][0]
         // the first [0] is for queen (1st artist), the 2nd [0] is the string location
-        style: 'mapbox://styles/loreworld/clx092dss00z301po866f6vp0',
+        style: 'mapbox://styles/loreworld/clwunn3x6016c01qx2kio2sfj',
         projection: 'globe', // Display the map as a globe, since satellite-v9 defaults to Mercator
         zoom: 2,
         center: [30, 15]
     });
 
     map.addControl(new mapboxgl.NavigationControl());
-    map.scrollZoom.disable();
+    // map.scrollZoom.disable();
 
     map.on('style.load', () => {
         map.setFog({
@@ -101,7 +101,7 @@ Add an event listener that runs when a user clicks on the map element. */
     map.on('click', (event) => {
         // If the user clicked on one of your markers, get its information.
         const features = map.queryRenderedFeatures(event.point, {
-            layers: ['soja-tourdates-std'] //  MapBoxHtmlValues[0][1]
+            layers: ['queen-tourdates'] //  MapBoxHtmlValues[0][1]
         });
         if (!features.length) {
             return;
