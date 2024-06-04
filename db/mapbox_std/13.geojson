@@ -1,0 +1,50 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Phil Collins",
+        "date_1": "18-10-2019",
+        "title": "Arizona, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -111.422127989113,
+          34.2202611707236
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Phil Collins",
+        "date_1": "17-10-2019",
+        "title": "California, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -119.699375153073,
+          37.0743595873945
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Phil Collins",
+        "date_1": "19-10-2019",
+        "title": "Nevada, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -116.598821819119,
+          40.071120297646
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

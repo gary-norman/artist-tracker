@@ -1,0 +1,127 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "J. Cole",
+        "date_1": "06-10-2018",
+        "title": "Philadelphia, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -75.16401,
+          39.950886
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "J. Cole",
+        "date_1": "04-10-2018",
+        "title": "Toronto, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -80.60095,
+          40.465397
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "J. Cole",
+        "date_1": "08-10-2018",
+        "title": "Washington, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -120.094292506456,
+          48.0250054263449
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "J. Cole",
+        "date_1": "10-10-2018",
+        "title": "Boston, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.0568,
+          42.35888
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "J. Cole",
+        "date_1": "04-06-2019",
+        "title": "Brooklyn, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -73.9497,
+          40.6526
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "J. Cole",
+        "date_1": "01-11-2019",
+        "date_2": "02-11-2019",
+        "date_3": "03-11-2019",
+        "title": "Las Vegas, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -115.14062,
+          36.169212
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "J. Cole",
+        "date_1": "05-10-2018",
+        "title": "Montreal, Canada"
+      },
+      "geometry": {
+        "coordinates": [
+          -73.57338,
+          45.50025
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "J. Cole",
+        "date_1": "01-10-2018",
+        "title": "New York, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -74.0059945,
+          40.7127492
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "U2",
+        "date_1": "08-11-2019",
+        "title": "Auckland, New Zealand"
+      },
+      "geometry": {
+        "coordinates": [
+          174.765917,
+          -36.846997
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "U2",
+        "date_1": "12-11-2019",
+        "title": "Brisbane, Australia"
+      },
+      "geometry": {
+        "coordinates": [
+          153.027696,
+          -27.469099
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "U2",
+        "date_1": "11-12-2019",
+        "title": "Manila, Philippines"
+      },
+      "geometry": {
+        "coordinates": [
+          120.9782618,
+          14.5948914
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "U2",
+        "date_1": "15-11-2019",
+        "title": "Melbourne, Australia"
+      },
+      "geometry": {
+        "coordinates": [
+          144.964568,
+          -37.813983
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "U2",
+        "date_1": "15-12-2019",
+        "title": "Mumbai, India"
+      },
+      "geometry": {
+        "coordinates": [
+          72.878723,
+          19.077793
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "U2",
+        "date_1": "22-11-2019",
+        "title": "Sydney, Australia"
+      },
+      "geometry": {
+        "coordinates": [
+          151.206987,
+          -33.870782
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

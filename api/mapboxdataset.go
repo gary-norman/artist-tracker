@@ -28,9 +28,17 @@ type FeatureCollection struct {
 }
 
 type Feature struct {
-	Type       string     `json:"type"`
-	Geometry   Geometry   `json:"geometry"`
-	Properties Properties `json:"properties"`
+	Type       string            `json:"type"`
+	Geometry   Geometry          `json:"geometry"`
+	Properties datasetProperties `json:"properties"`
+}
+
+type datasetProperties struct {
+	ID          string
+	Title       string `json:"title"`
+	Description string `json:"description"`
+	Date        string `json:"date"`
+	Address     string `json:"eventAddress"`
 }
 
 func MapboxDataset(index int, artist string) {

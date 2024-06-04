@@ -1,0 +1,65 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "The Jimi Hendrix Experience",
+        "date_1": "01-09-1970",
+        "title": "Gothenburg, Sweden"
+      },
+      "geometry": {
+        "coordinates": [
+          11.968916,
+          57.704826
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "The Jimi Hendrix Experience",
+        "date_1": "02-09-1970",
+        "title": "Aarhus, Denmark"
+      },
+      "geometry": {
+        "coordinates": [
+          10.209716,
+          56.156858
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "The Jimi Hendrix Experience",
+        "date_1": "04-09-1970",
+        "title": "Berlin, Germany"
+      },
+      "geometry": {
+        "coordinates": [
+          13.3888599,
+          52.5170365
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "The Jimi Hendrix Experience",
+        "date_1": "03-09-1970",
+        "title": "Copenhagen, Denmark"
+      },
+      "geometry": {
+        "coordinates": [
+          12.5697339,
+          55.6753132
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "The Chainsmokers",
+        "date_1": "10-10-2020",
+        "title": "Milan, Italy"
+      },
+      "geometry": {
+        "coordinates": [
+          9.1885578,
+          45.4639447
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "The Chainsmokers",
+        "date_1": "07-10-2020",
+        "title": "Munich, Germany"
+      },
+      "geometry": {
+        "coordinates": [
+          11.5759683,
+          48.1369727
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "The Chainsmokers",
+        "date_1": "07-12-2019",
+        "date_2": "14-12-2019",
+        "date_3": "31-12-2019",
+        "date_4": "11-01-2020",
+        "date_5": "18-01-2020",
+        "title": "Nevada, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -116.598821819119,
+          40.071120297646
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "The Chainsmokers",
+        "date_1": "05-12-2019",
+        "title": "Oregon, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -120.281411696945,
+          44.0328841608707
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "The Chainsmokers",
+        "date_1": "08-10-2020",
+        "title": "Prague, Czechia"
+      },
+      "geometry": {
+        "coordinates": [
+          14.422954,
+          50.085837
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "The Chainsmokers",
+        "date_1": "06-12-2019",
+        "title": "Vancouver, Canada"
+      },
+      "geometry": {
+        "coordinates": [
+          -123.11498,
+          49.260975
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "The Chainsmokers",
+        "date_1": "23-01-2020",
+        "title": "Colorado, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -105.604997408086,
+          39.1902459990462
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Gorillaz",
+        "date_1": "24-10-2018",
+        "title": "Mexico City, Mexico"
+      },
+      "geometry": {
+        "coordinates": [
+          -99.1331785,
+          19.4326296
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Gorillaz",
+        "date_1": "11-10-2018",
+        "title": "Philadelphia, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -75.16401,
+          39.950886
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Gorillaz",
+        "date_1": "20-10-2018",
+        "title": "Pico Rivera, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -118.09717,
+          33.98325
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Gorillaz",
+        "date_1": "13-10-2018",
+        "title": "Boston, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.0568,
+          42.35888
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Gorillaz",
+        "date_1": "16-10-2018",
+        "title": "Chicago, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -87.63236,
+          41.881954
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

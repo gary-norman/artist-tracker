@@ -1,0 +1,80 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Muse",
+        "date_1": "13-10-2019",
+        "title": "Santiago, Chile"
+      },
+      "geometry": {
+        "coordinates": [
+          -70.64937,
+          -33.440643
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Muse",
+        "date_1": "09-10-2019",
+        "title": "Sao Paulo, Brazil"
+      },
+      "geometry": {
+        "coordinates": [
+          -46.638775,
+          -23.548157
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Muse",
+        "date_1": "11-10-2019",
+        "title": "Buenos Aires, Argentina"
+      },
+      "geometry": {
+        "coordinates": [
+          -58.4370894,
+          -34.6075682
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Muse",
+        "date_1": "15-10-2019",
+        "title": "Lima, Peru"
+      },
+      "geometry": {
+        "coordinates": [
+          -77.03205,
+          -12.047044
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Muse",
+        "date_1": "03-10-2019",
+        "title": "Mexico City, Mexico"
+      },
+      "geometry": {
+        "coordinates": [
+          -99.1331785,
+          19.4326296
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

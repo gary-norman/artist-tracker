@@ -1,0 +1,95 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Arctic Monkeys",
+        "date_1": "26-03-2019",
+        "title": "Lima, Peru"
+      },
+      "geometry": {
+        "coordinates": [
+          -77.03205,
+          -12.047044
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Arctic Monkeys",
+        "date_1": "03-04-2019",
+        "title": "Rio De Janeiro, Brazil"
+      },
+      "geometry": {
+        "coordinates": [
+          -43.209934,
+          -22.909534
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Arctic Monkeys",
+        "date_1": "29-03-2019",
+        "title": "San Isidro, Argentina"
+      },
+      "geometry": {
+        "coordinates": [
+          -58.510563,
+          -34.46826
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Arctic Monkeys",
+        "date_1": "29-03-2019",
+        "title": "Santiago, Chile"
+      },
+      "geometry": {
+        "coordinates": [
+          -70.64937,
+          -33.440643
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Arctic Monkeys",
+        "date_1": "03-04-2019",
+        "title": "Sao Paulo, Brazil"
+      },
+      "geometry": {
+        "coordinates": [
+          -46.638775,
+          -23.548157
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Arctic Monkeys",
+        "date_1": "07-04-2019",
+        "title": "Bogota, Colombia"
+      },
+      "geometry": {
+        "coordinates": [
+          -74.0836453,
+          4.6534649
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

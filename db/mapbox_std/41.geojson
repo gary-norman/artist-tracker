@@ -1,0 +1,125 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Red Hot Chili Peppers",
+        "date_1": "13-06-2020",
+        "title": "Florence, Italy"
+      },
+      "geometry": {
+        "coordinates": [
+          11.256129,
+          43.771485
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Red Hot Chili Peppers",
+        "date_1": "19-06-2020",
+        "title": "Landgraaf, Netherlands"
+      },
+      "geometry": {
+        "coordinates": [
+          6.025055,
+          50.9068231
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Red Hot Chili Peppers",
+        "date_1": "02-11-2019",
+        "title": "Los Angeles, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -118.24168,
+          34.054077
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Red Hot Chili Peppers",
+        "date_1": "22-05-2020",
+        "title": "Massachusetts, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.9603257607071,
+          42.3204700602381
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Red Hot Chili Peppers",
+        "date_1": "03-10-2019",
+        "title": "Rio De Janeiro, Brazil"
+      },
+      "geometry": {
+        "coordinates": [
+          -43.209934,
+          -22.909534
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Red Hot Chili Peppers",
+        "date_1": "15-05-2020",
+        "title": "Alabama, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -86.7892920871389,
+          32.8288658080717
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Red Hot Chili Peppers",
+        "date_1": "05-06-2020",
+        "title": "Athens, Greece"
+      },
+      "geometry": {
+        "coordinates": [
+          23.729275,
+          37.97757
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Red Hot Chili Peppers",
+        "date_1": "29-09-2019",
+        "title": "California, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -119.699375153073,
+          37.0743595873945
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

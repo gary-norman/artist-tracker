@@ -1,0 +1,80 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Linkin Park",
+        "date_1": "06-07-2017",
+        "title": "Birmingham, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -1.9026910999999993,
+          52.479699199999985
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Linkin Park",
+        "date_1": "04-07-2017",
+        "title": "Brixton, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.111788,
+          51.461873
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Linkin Park",
+        "date_1": "27-10-2017",
+        "title": "California, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -119.699375153073,
+          37.0743595873945
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Linkin Park",
+        "date_1": "03-07-2017",
+        "title": "London, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.127647,
+          51.5073
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Linkin Park",
+        "date_1": "02-07-2017",
+        "title": "Rotselaar, Belgium"
+      },
+      "geometry": {
+        "coordinates": [
+          4.7094054,
+          50.9514713
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

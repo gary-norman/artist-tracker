@@ -1,0 +1,101 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Eagles",
+        "date_1": "07-03-2020",
+        "title": "Houston, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -95.36166,
+          29.759424
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Eagles",
+        "date_1": "29-08-2020",
+        "date_2": "30-08-2020",
+        "title": "London, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.127647,
+          51.5073
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Eagles",
+        "date_1": "15-02-2020",
+        "date_2": "14-02-2020",
+        "date_3": "18-02-2020",
+        "title": "New York, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -74.0059945,
+          40.7127492
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Eagles",
+        "date_1": "31-12-2019",
+        "title": "Berwyn, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -87.793335,
+          41.850567
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Eagles",
+        "date_1": "29-02-2020",
+        "date_2": "01-03-2020",
+        "title": "Dallas, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -96.79954,
+          32.780582
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Eagles",
+        "date_1": "07-02-2020",
+        "date_2": "08-02-2020",
+        "date_3": "11-02-2020",
+        "title": "Georgia, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -83.2572560296474,
+          32.3305706594431
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

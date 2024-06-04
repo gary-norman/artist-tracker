@@ -81,6 +81,7 @@ func main() {
 	fmt.Println("Artists with geojson data:")
 	for i := 0; i < 52; i++ {
 		api.GeojsonCheck(i, Artists[i].Name)
+		api.MapboxReverseLookup(i, Artists[i])
 	}
 	t = time.Now()
 	timetaken = t.Sub(tour).Milliseconds()
@@ -111,6 +112,5 @@ func main() {
 	//for _, i := range indices {
 	//	api.MapboxDataset(i, Artists[i].Name)
 	//}
-	api.MapboxReverseLookup(Artists[1])
 	api.HandleRequests(Artists, api.GetTemplate())
 }

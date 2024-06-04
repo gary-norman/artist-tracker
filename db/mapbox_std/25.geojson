@@ -1,0 +1,192 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Alec Benjamin",
+        "date_1": "20-11-2019",
+        "title": "Milan, Italy"
+      },
+      "geometry": {
+        "coordinates": [
+          9.1885578,
+          45.4639447
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Alec Benjamin",
+        "date_1": "25-11-2019",
+        "title": "Paris, France"
+      },
+      "geometry": {
+        "coordinates": [
+          2.3483915,
+          48.8534951
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Alec Benjamin",
+        "date_1": "08-03-2020",
+        "date_2": "09-03-2020",
+        "date_3": "28-11-2019",
+        "title": "Dublin, Ireland"
+      },
+      "geometry": {
+        "coordinates": [
+          -6.2602964,
+          53.3498006
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Alec Benjamin",
+        "date_1": "23-11-2019",
+        "title": "Warsaw, Poland"
+      },
+      "geometry": {
+        "coordinates": [
+          21.016317,
+          52.23072
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Alec Benjamin",
+        "date_1": "15-03-2020",
+        "title": "Aberdeen, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -2.0928095,
+          57.1482429
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Alec Benjamin",
+        "date_1": "05-03-2020",
+        "date_2": "06-03-2020",
+        "title": "Glasgow, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -4.2488787,
+          55.860982499999984
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Alec Benjamin",
+        "date_1": "12-03-2020",
+        "date_2": "13-03-2020",
+        "date_3": "27-11-2019",
+        "date_4": "26-11-2019",
+        "title": "London, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.127647,
+          51.5073
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Alec Benjamin",
+        "date_1": "02-03-2020",
+        "date_2": "03-03-2020",
+        "title": "Manchester, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -2.2451148,
+          53.47948920000002
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Alec Benjamin",
+        "date_1": "22-11-2019",
+        "title": "Berlin, Germany"
+      },
+      "geometry": {
+        "coordinates": [
+          13.3888599,
+          52.5170365
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Alec Benjamin",
+        "date_1": "11-03-2020",
+        "title": "Cardiff, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -3.1791934,
+          51.481654599999985
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Alec Benjamin",
+        "date_1": "08-07-2020",
+        "title": "Madrid, Spain"
+      },
+      "geometry": {
+        "coordinates": [
+          -3.702979,
+          40.419223
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Alec Benjamin",
+        "date_1": "26-06-2020",
+        "title": "Stockholm, Sweden"
+      },
+      "geometry": {
+        "coordinates": [
+          18.071765,
+          59.324334
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

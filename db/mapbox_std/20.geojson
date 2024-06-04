@@ -1,0 +1,35 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Mamonas Assassinas",
+        "date_1": "28-12-1995",
+        "title": "Recife, Brazil"
+      },
+      "geometry": {
+        "coordinates": [
+          -34.883263,
+          -8.060838
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Mamonas Assassinas",
+        "date_1": "10-02-1996",
+        "title": "Rio De Janeiro, Brazil"
+      },
+      "geometry": {
+        "coordinates": [
+          -43.209934,
+          -22.909534
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

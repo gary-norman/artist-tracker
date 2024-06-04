@@ -1,0 +1,156 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Bobby McFerrin",
+        "date_1": "07-09-2020",
+        "title": "Colorado, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -105.604997408086,
+          39.1902459990462
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Bobby McFerrin",
+        "date_1": "29-01-2020",
+        "title": "New Hampshire, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.5783054333969,
+          43.6898878153712
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Bobby McFerrin",
+        "date_1": "29-02-2020",
+        "date_2": "23-05-2020",
+        "title": "New York, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -74.0059945,
+          40.7127492
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Bobby McFerrin",
+        "date_1": "07-11-2019",
+        "title": "Amsterdam, Netherlands"
+      },
+      "geometry": {
+        "coordinates": [
+          4.9,
+          52.378
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Bobby McFerrin",
+        "date_1": "16-01-2020",
+        "title": "Michigan, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -84.525239999781,
+          44.9337458924535
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Bobby McFerrin",
+        "date_1": "20-11-2019",
+        "title": "Sochaux, France"
+      },
+      "geometry": {
+        "coordinates": [
+          6.830913,
+          47.514683
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Bobby McFerrin",
+        "date_1": "18-11-2019",
+        "title": "Lyon, France"
+      },
+      "geometry": {
+        "coordinates": [
+          4.831476,
+          45.76518
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Bobby McFerrin",
+        "date_1": "10-11-2019",
+        "title": "Oslo, Norway"
+      },
+      "geometry": {
+        "coordinates": [
+          10.7389701,
+          59.9133301
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Bobby McFerrin",
+        "date_1": "22-11-2019",
+        "title": "Warsaw, Poland"
+      },
+      "geometry": {
+        "coordinates": [
+          21.016317,
+          52.23072
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Bobby McFerrin",
+        "date_1": "14-11-2019",
+        "title": "Eindhoven, Netherlands"
+      },
+      "geometry": {
+        "coordinates": [
+          5.480267,
+          51.437727
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

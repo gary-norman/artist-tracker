@@ -1,0 +1,55 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Joyner Lucas",
+        "date_1": "08-10-2019",
+        "title": "Arizona, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -111.422127989113,
+          34.2202611707236
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Joyner Lucas",
+        "date_1": "19-10-2019",
+        "date_2": "18-10-2019",
+        "date_3": "17-10-2019",
+        "date_4": "15-10-2019",
+        "date_5": "12-10-2019",
+        "date_6": "11-10-2019",
+        "title": "California, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -119.699375153073,
+          37.0743595873945
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Joyner Lucas",
+        "date_1": "06-10-2019",
+        "title": "Texas, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.8223185136653,
+          31.8039734986915
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

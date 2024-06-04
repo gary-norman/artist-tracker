@@ -1,0 +1,140 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Juice Wrld",
+        "date_1": "30-05-2019",
+        "title": "Chicago, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -87.63236,
+          41.881954
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Juice Wrld",
+        "date_1": "18-03-2019",
+        "title": "Manchester, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -2.2451148,
+          53.47948920000002
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Juice Wrld",
+        "date_1": "18-01-2019",
+        "title": "Missouri, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -92.585914899503,
+          38.19080239858
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Juice Wrld",
+        "date_1": "08-12-2018",
+        "title": "Washington, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -120.094292506456,
+          48.0250054263449
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Juice Wrld",
+        "date_1": "01-05-2019",
+        "title": "Copenhagen, Denmark"
+      },
+      "geometry": {
+        "coordinates": [
+          12.5697339,
+          55.6753132
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Juice Wrld",
+        "date_1": "25-03-2019",
+        "title": "Amsterdam, Netherlands"
+      },
+      "geometry": {
+        "coordinates": [
+          4.9,
+          52.378
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Juice Wrld",
+        "date_1": "14-05-2019",
+        "title": "Birmingham, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -1.9026910999999993,
+          52.479699199999985
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Juice Wrld",
+        "date_1": "07-03-2019",
+        "title": "Paris, France"
+      },
+      "geometry": {
+        "coordinates": [
+          2.3483915,
+          48.8534951
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Juice Wrld",
+        "date_1": "29-11-2019",
+        "title": "West Melbourne, Australia"
+      },
+      "geometry": {
+        "coordinates": [
+          144.922328,
+          -37.808048
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

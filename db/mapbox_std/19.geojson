@@ -1,0 +1,53 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Dire Straits",
+        "date_1": "04-10-1992",
+        "date_2": "03-10-1992",
+        "date_3": "02-10-1992",
+        "title": "Barcelona, Spain"
+      },
+      "geometry": {
+        "coordinates": [
+          2.16538,
+          41.38723
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Dire Straits",
+        "date_1": "07-10-1992",
+        "date_2": "06-10-1992",
+        "title": "Madrid, Spain"
+      },
+      "geometry": {
+        "coordinates": [
+          -3.702979,
+          40.419223
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Dire Straits",
+        "date_1": "09-10-1992",
+        "title": "Zaragoza, Spain"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.879501,
+          41.652952
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

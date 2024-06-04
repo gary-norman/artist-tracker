@@ -1,0 +1,66 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "ACDC",
+        "date_1": "12-06-2016",
+        "title": "Aarhus, Denmark"
+      },
+      "geometry": {
+        "coordinates": [
+          10.209716,
+          56.156858
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "ACDC",
+        "date_1": "15-06-2016",
+        "title": "Dusseldorf, Germany"
+      },
+      "geometry": {
+        "coordinates": [
+          6.773766,
+          51.226152
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "ACDC",
+        "date_1": "09-06-2016",
+        "title": "Manchester, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -2.2451148,
+          53.47948920000002
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "ACDC",
+        "date_1": "14-09-2016",
+        "date_2": "11-09-2016",
+        "title": "New York, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -74.0059945,
+          40.7127492
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

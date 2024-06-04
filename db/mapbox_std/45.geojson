@@ -1,0 +1,82 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Coldplay",
+        "date_1": "14-11-2017",
+        "date_2": "15-11-2017",
+        "title": "La Plata, Argentina"
+      },
+      "geometry": {
+        "coordinates": [
+          -57.95106,
+          -34.91725
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Coldplay",
+        "date_1": "25-11-2019",
+        "title": "London, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.127647,
+          51.5073
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Coldplay",
+        "date_1": "11-11-2017",
+        "title": "Porto Alegre, Brazil"
+      },
+      "geometry": {
+        "coordinates": [
+          -51.22783,
+          -30.031565
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Coldplay",
+        "date_1": "07-11-2017",
+        "date_2": "08-11-2017",
+        "title": "Sao Paulo, Brazil"
+      },
+      "geometry": {
+        "coordinates": [
+          -46.638775,
+          -23.548157
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Coldplay",
+        "date_1": "08-10-2017",
+        "title": "California, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -119.699375153073,
+          37.0743595873945
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

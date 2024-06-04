@@ -1,0 +1,120 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Kendrick Lamar",
+        "date_1": "26-06-2020",
+        "date_2": "27-06-2020",
+        "date_3": "28-06-2020",
+        "title": "Stockholm, Sweden"
+      },
+      "geometry": {
+        "coordinates": [
+          18.071765,
+          59.324334
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Kendrick Lamar",
+        "date_1": "04-07-2020",
+        "title": "Werchter, Belgium"
+      },
+      "geometry": {
+        "coordinates": [
+          4.692803,
+          50.97131
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Kendrick Lamar",
+        "date_1": "09-07-2020",
+        "date_2": "10-07-2020",
+        "date_3": "11-07-2020",
+        "title": "Bilbao, Spain"
+      },
+      "geometry": {
+        "coordinates": [
+          -2.931943,
+          43.263356
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Kendrick Lamar",
+        "date_1": "05-04-2019",
+        "date_2": "06-04-2019",
+        "date_3": "07-04-2019",
+        "title": "Bogota, Colombia"
+      },
+      "geometry": {
+        "coordinates": [
+          -74.0836453,
+          4.6534649
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Kendrick Lamar",
+        "date_1": "08-06-2019",
+        "title": "Georgia, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -83.2572560296474,
+          32.3305706594431
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Kendrick Lamar",
+        "date_1": "09-07-2020",
+        "date_2": "10-07-2020",
+        "date_3": "11-07-2020",
+        "title": "Lisbon, Portugal"
+      },
+      "geometry": {
+        "coordinates": [
+          -9.144851,
+          38.715424
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Kendrick Lamar",
+        "date_1": "05-04-2019",
+        "date_2": "06-04-2019",
+        "date_3": "07-04-2019",
+        "title": "Sao Paulo, Brazil"
+      },
+      "geometry": {
+        "coordinates": [
+          -46.638775,
+          -23.548157
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

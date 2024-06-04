@@ -1,0 +1,51 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Genesis",
+        "date_1": "06-09-2012",
+        "title": "Illinois, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -89.2749461071049,
+          40.1492928594374
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Genesis",
+        "date_1": "29-06-2012",
+        "date_2": "30-06-2012",
+        "title": "Merkers, Germany"
+      },
+      "geometry": {
+        "coordinates": [
+          10.116707,
+          50.823597
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Genesis",
+        "date_1": "07-10-2012",
+        "title": "Westcliff On Sea, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          0.695068,
+          51.540515
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

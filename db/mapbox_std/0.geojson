@@ -1,0 +1,125 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Queen",
+        "date_1": "28-01-2020",
+        "title": "Osaka, Japan"
+      },
+      "geometry": {
+        "coordinates": [
+          135.500961,
+          34.692528
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Queen",
+        "date_1": "07-02-2020",
+        "title": "Penrose, New Zealand"
+      },
+      "geometry": {
+        "coordinates": [
+          174.814652,
+          -36.911905
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Queen",
+        "date_1": "26-01-2020",
+        "title": "Saitama, Japan"
+      },
+      "geometry": {
+        "coordinates": [
+          139.646823,
+          35.86089
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Queen",
+        "date_1": "10-02-2020",
+        "title": "Dunedin, New Zealand"
+      },
+      "geometry": {
+        "coordinates": [
+          170.503828,
+          -45.873731
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Queen",
+        "date_1": "22-08-2019",
+        "title": "Georgia, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -83.2572560296474,
+          32.3305706594431
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Queen",
+        "date_1": "20-08-2019",
+        "title": "Los Angeles, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -118.24168,
+          34.054077
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Queen",
+        "date_1": "30-01-2019",
+        "title": "Nagoya, Japan"
+      },
+      "geometry": {
+        "coordinates": [
+          136.902403,
+          35.187295
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Queen",
+        "date_1": "23-08-2019",
+        "title": "North Carolina, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -79.3896838690365,
+          35.5568849207634
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

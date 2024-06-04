@@ -1,0 +1,80 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Eminem",
+        "date_1": "22-02-2019",
+        "title": "Sydney, Australia"
+      },
+      "geometry": {
+        "coordinates": [
+          151.206987,
+          -33.870782
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Eminem",
+        "date_1": "02-03-2019",
+        "title": "Wellington, New Zealand"
+      },
+      "geometry": {
+        "coordinates": [
+          174.775218,
+          -41.291319
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Eminem",
+        "date_1": "25-10-2019",
+        "title": "Abu Dhabi, United Arab Emirates"
+      },
+      "geometry": {
+        "coordinates": [
+          54.377438,
+          24.453523
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Eminem",
+        "date_1": "27-02-2019",
+        "title": "Burswood, Australia"
+      },
+      "geometry": {
+        "coordinates": [
+          115.895607,
+          -31.959235
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Eminem",
+        "date_1": "24-02-2019",
+        "title": "Melbourne, Australia"
+      },
+      "geometry": {
+        "coordinates": [
+          144.964568,
+          -37.813983
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

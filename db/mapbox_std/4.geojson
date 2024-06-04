@@ -1,0 +1,55 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "XXXTentacion",
+        "date_1": "01-08-2017",
+        "title": "Georgia, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -83.2572560296474,
+          32.3305706594431
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "XXXTentacion",
+        "date_1": "04-08-2017",
+        "title": "Nevada, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -116.598821819119,
+          40.071120297646
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "XXXTentacion",
+        "date_1": "16-12-2017",
+        "date_2": "17-12-2017",
+        "date_3": "21-10-2017",
+        "date_4": "22-10-2017",
+        "date_5": "13-08-2017",
+        "date_6": "12-08-2017",
+        "title": "California, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -119.699375153073,
+          37.0743595873945
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

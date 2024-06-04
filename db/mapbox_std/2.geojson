@@ -1,0 +1,66 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Pink Floyd",
+        "date_1": "23-09-1994",
+        "title": "Lyon, France"
+      },
+      "geometry": {
+        "coordinates": [
+          4.831476,
+          45.76518
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Pink Floyd",
+        "date_1": "25-09-1994",
+        "title": "Lausanne, Switzerland"
+      },
+      "geometry": {
+        "coordinates": [
+          6.632528,
+          46.520712
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Pink Floyd",
+        "date_1": "10-05-2007",
+        "date_10": "20-10-1994",
+        "date_11": "19-10-1994",
+        "date_12": "17-10-1994",
+        "date_13": "16-10-1994",
+        "date_14": "15-10-1994",
+        "date_15": "14-10-1994",
+        "date_16": "13-10-1994",
+        "date_17": "12-10-1994",
+        "date_2": "02-07-2005",
+        "date_3": "29-10-1994",
+        "date_4": "28-10-1994",
+        "date_5": "27-10-1994",
+        "date_6": "26-10-1994",
+        "date_7": "23-10-1994",
+        "date_8": "22-10-1994",
+        "date_9": "21-10-1994",
+        "title": "London, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.127647,
+          51.5073
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

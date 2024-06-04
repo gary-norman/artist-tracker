@@ -1,0 +1,51 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Bee Gees",
+        "date_1": "02-10-1979",
+        "title": "North Carolina, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -79.3896838690365,
+          35.5568849207634
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Bee Gees",
+        "date_1": "03-10-1979",
+        "title": "South Carolina, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -80.9007732114739,
+          33.9184118141794
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Bee Gees",
+        "date_1": "05-10-1979",
+        "date_2": "04-10-1979",
+        "title": "Florida, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -82.033629763236,
+          28.9444647055242
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Foo Fighters",
+        "date_1": "14-06-2020",
+        "title": "Milan, Italy"
+      },
+      "geometry": {
+        "coordinates": [
+          9.1885578,
+          45.4639447
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Foo Fighters",
+        "date_1": "06-12-2019",
+        "title": "Nevada, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -116.598821819119,
+          40.071120297646
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Foo Fighters",
+        "date_1": "10-06-2020",
+        "title": "Nickelsdorf, Austria"
+      },
+      "geometry": {
+        "coordinates": [
+          17.074819,
+          47.93856
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Foo Fighters",
+        "date_1": "04-10-2019",
+        "title": "San Jose, Costa Rica"
+      },
+      "geometry": {
+        "coordinates": [
+          -84.07486,
+          9.932607
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Foo Fighters",
+        "date_1": "01-10-2019",
+        "title": "Bogota, Colombia"
+      },
+      "geometry": {
+        "coordinates": [
+          -74.0836453,
+          4.6534649
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Foo Fighters",
+        "date_1": "20-06-2020",
+        "title": "Lisbon, Portugal"
+      },
+      "geometry": {
+        "coordinates": [
+          -9.144851,
+          38.715424
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Foo Fighters",
+        "date_1": "22-05-2020",
+        "title": "Massachusetts, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.9603257607071,
+          42.3204700602381
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

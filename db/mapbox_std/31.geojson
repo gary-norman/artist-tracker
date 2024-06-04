@@ -1,0 +1,155 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Nickelback",
+        "date_1": "29-06-2020",
+        "title": "Stockholm, Sweden"
+      },
+      "geometry": {
+        "coordinates": [
+          18.071765,
+          59.324334
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Nickelback",
+        "date_1": "13-07-2020",
+        "title": "Krakow, Poland"
+      },
+      "geometry": {
+        "coordinates": [
+          19.937974,
+          50.062323
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Nickelback",
+        "date_1": "17-07-2020",
+        "title": "Zurich, Switzerland"
+      },
+      "geometry": {
+        "coordinates": [
+          8.541096,
+          47.369733
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Nickelback",
+        "date_1": "25-06-2020",
+        "title": "Berlin, Germany"
+      },
+      "geometry": {
+        "coordinates": [
+          13.3888599,
+          52.5170365
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Nickelback",
+        "date_1": "15-07-2020",
+        "title": "Budapest, Hungary"
+      },
+      "geometry": {
+        "coordinates": [
+          19.0403594,
+          47.4979937
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Nickelback",
+        "date_1": "07-07-2020",
+        "title": "Vienna, Austria"
+      },
+      "geometry": {
+        "coordinates": [
+          16.3725042,
+          48.2083537
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Nickelback",
+        "date_1": "02-07-2020",
+        "title": "Copenhagen, Denmark"
+      },
+      "geometry": {
+        "coordinates": [
+          12.5697339,
+          55.6753132
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Nickelback",
+        "date_1": "23-06-2020",
+        "title": "Frankfurt, Germany"
+      },
+      "geometry": {
+        "coordinates": [
+          8.678239,
+          50.113395
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Nickelback",
+        "date_1": "05-07-2020",
+        "title": "Imola, Italy"
+      },
+      "geometry": {
+        "coordinates": [
+          11.714131,
+          44.353405
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Nickelback",
+        "date_1": "10-07-2020",
+        "title": "London, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.127647,
+          51.5073
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

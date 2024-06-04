@@ -1,0 +1,54 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "SOJA",
+        "date_1": "15-11-2019",
+        "title": "Noumea, New Caledonia"
+      },
+      "geometry": {
+        "coordinates": [
+          166.439931,
+          -22.275595
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "SOJA",
+        "date_1": "16-11-2019",
+        "title": "Papeete, French Polynesia"
+      },
+      "geometry": {
+        "coordinates": [
+          -149.453446,
+          -17.63576
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "SOJA",
+        "date_1": "05-12-2019",
+        "date_2": "06-12-2019",
+        "date_3": "07-12-2019",
+        "date_4": "08-12-2019",
+        "date_5": "09-12-2019",
+        "title": "Playa Del Carmen, Mexico"
+      },
+      "geometry": {
+        "coordinates": [
+          -87.07056,
+          20.62918
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

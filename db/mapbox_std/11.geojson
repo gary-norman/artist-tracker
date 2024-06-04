@@ -1,0 +1,51 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Rihanna",
+        "date_1": "24-09-2016",
+        "title": "New York, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -74.0059945,
+          40.7127492
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Rihanna",
+        "date_1": "03-09-2016",
+        "date_2": "04-09-2016",
+        "title": "Pennsylvania, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -78.2907462468837,
+          41.0911397651497
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Rihanna",
+        "date_1": "27-11-2016",
+        "title": "Abu Dhabi, United Arab Emirates"
+      },
+      "geometry": {
+        "coordinates": [
+          54.377438,
+          24.453523
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

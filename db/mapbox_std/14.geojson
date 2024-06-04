@@ -1,0 +1,51 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Led Zeppelin",
+        "date_1": "10-12-2007",
+        "date_2": "15-03-2003",
+        "title": "London, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.127647,
+          51.5073
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Led Zeppelin",
+        "date_1": "17-04-1994",
+        "title": "Maine, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -69.2365510393463,
+          45.3982848479073
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Led Zeppelin",
+        "date_1": "12-01-1995",
+        "title": "New York, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -74.0059945,
+          40.7127492
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Guns N' Roses",
+        "date_1": "24-11-2017",
+        "title": "Los Angeles, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -118.24168,
+          34.054077
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Guns N' Roses",
+        "date_1": "04-06-2017",
+        "title": "Madrid, Spain"
+      },
+      "geometry": {
+        "coordinates": [
+          -3.702979,
+          40.419223
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Guns N' Roses",
+        "date_1": "21-11-2017",
+        "title": "Oakland, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -122.27206,
+          37.802948
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Guns N' Roses",
+        "date_1": "03-06-2018",
+        "title": "Berlin, Germany"
+      },
+      "geometry": {
+        "coordinates": [
+          13.3888599,
+          52.5170365
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Guns N' Roses",
+        "date_1": "25-09-2019",
+        "title": "Charlotte, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -80.84309,
+          35.227207
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Guns N' Roses",
+        "date_1": "06-03-2017",
+        "title": "Chicago, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -87.63236,
+          41.881954
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Guns N' Roses",
+        "date_1": "10-11-2017",
+        "title": "Houston, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -95.36166,
+          29.759424
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Guns N' Roses",
+        "date_1": "25-11-2017",
+        "title": "Inglewood, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -118.35334,
+          33.961777
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

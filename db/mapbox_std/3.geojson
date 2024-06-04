@@ -1,0 +1,125 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Scorpions",
+        "date_1": "22-02-2020",
+        "title": "New South Wales, Australia"
+      },
+      "geometry": {
+        "coordinates": [
+          147.014694071448,
+          -32.168971672412
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Scorpions",
+        "date_1": "24-02-2020",
+        "title": "Queensland, Australia"
+      },
+      "geometry": {
+        "coordinates": [
+          144.550390100876,
+          -22.572791380262
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Scorpions",
+        "date_1": "19-02-2020",
+        "title": "Victoria, Australia"
+      },
+      "geometry": {
+        "coordinates": [
+          145.288812139665,
+          -37.1323374266933
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Scorpions",
+        "date_1": "01-03-2019",
+        "title": "Yogyakarta, Indonesia"
+      },
+      "geometry": {
+        "coordinates": [
+          110.368076,
+          -7.790416
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Scorpions",
+        "date_1": "27-02-2020",
+        "title": "Auckland, New Zealand"
+      },
+      "geometry": {
+        "coordinates": [
+          174.765917,
+          -36.846997
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Scorpions",
+        "date_1": "20-11-2019",
+        "title": "Bratislava, Slovakia"
+      },
+      "geometry": {
+        "coordinates": [
+          17.105914,
+          48.143899
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Scorpions",
+        "date_1": "18-11-2019",
+        "title": "Budapest, Hungary"
+      },
+      "geometry": {
+        "coordinates": [
+          19.0403594,
+          47.4979937
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Scorpions",
+        "date_1": "15-11-2019",
+        "title": "Minsk, Belarus"
+      },
+      "geometry": {
+        "coordinates": [
+          27.5618225,
+          53.9024716
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

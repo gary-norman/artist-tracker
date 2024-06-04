@@ -1,0 +1,125 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Twenty One Pilots",
+        "date_1": "09-11-2019",
+        "title": "Oklahoma, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -97.5389608460746,
+          35.9015874097089
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Twenty One Pilots",
+        "date_1": "19-06-2020",
+        "title": "Scheessel, Germany"
+      },
+      "geometry": {
+        "coordinates": [
+          9.485171,
+          53.168766
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Twenty One Pilots",
+        "date_1": "25-06-2020",
+        "title": "St Gallen, Switzerland"
+      },
+      "geometry": {
+        "coordinates": [
+          9.376546,
+          47.424859
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Twenty One Pilots",
+        "date_1": "08-11-2019",
+        "title": "Texas, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.8223185136653,
+          31.8039734986915
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Twenty One Pilots",
+        "date_1": "03-07-2020",
+        "title": "Arras, France"
+      },
+      "geometry": {
+        "coordinates": [
+          2.778784,
+          50.290787
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Twenty One Pilots",
+        "date_1": "08-12-2019",
+        "title": "California, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -119.699375153073,
+          37.0743595873945
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Twenty One Pilots",
+        "date_1": "01-07-2020",
+        "title": "Gdynia, Poland"
+      },
+      "geometry": {
+        "coordinates": [
+          18.53892,
+          54.517682
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Twenty One Pilots",
+        "date_1": "13-12-2019",
+        "title": "Illinois, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -89.2749461071049,
+          40.1492928594374
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

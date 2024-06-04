@@ -1,0 +1,203 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "R3HAB",
+        "date_1": "15-12-2019",
+        "title": "Huizhou, China"
+      },
+      "geometry": {
+        "coordinates": [
+          114.409263,
+          23.113784
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "R3HAB",
+        "date_1": "13-12-2019",
+        "date_2": "14-12-2019",
+        "date_3": "15-12-2019",
+        "title": "Jakarta, Indonesia"
+      },
+      "geometry": {
+        "coordinates": [
+          106.827183,
+          -6.1753942
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "R3HAB",
+        "date_1": "16-11-2019",
+        "title": "Seattle, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -122.330284,
+          47.603245
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "R3HAB",
+        "date_1": "27-12-2019",
+        "title": "Changzhou, China"
+      },
+      "geometry": {
+        "coordinates": [
+          119.968817,
+          31.811465
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "R3HAB",
+        "date_1": "22-11-2019",
+        "title": "Toronto, Canada"
+      },
+      "geometry": {
+        "coordinates": [
+          -79.38355,
+          43.647938
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "R3HAB",
+        "date_1": "17-01-2020",
+        "title": "Aalborg, Denmark"
+      },
+      "geometry": {
+        "coordinates": [
+          9.9193088,
+          57.0477157
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "R3HAB",
+        "date_1": "22-12-2019",
+        "title": "Michigan, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -84.525239999781,
+          44.9337458924535
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "R3HAB",
+        "date_1": "20-12-2019",
+        "date_2": "23-11-2019",
+        "title": "Texas, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -98.8223185136653,
+          31.8039734986915
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "R3HAB",
+        "date_1": "30-11-2019",
+        "title": "Washington, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -120.094292506456,
+          48.0250054263449
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "R3HAB",
+        "date_1": "07-09-2020",
+        "title": "Colorado, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -105.604997408086,
+          39.1902459990462
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "R3HAB",
+        "date_1": "29-11-2019",
+        "title": "New York, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -74.0059945,
+          40.7127492
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "R3HAB",
+        "date_1": "01-01-2020",
+        "title": "Sanya, China"
+      },
+      "geometry": {
+        "coordinates": [
+          109.50331,
+          18.253267
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "R3HAB",
+        "date_1": "29-12-2019",
+        "title": "Hong Kong, China"
+      },
+      "geometry": {
+        "coordinates": [
+          111.667227,
+          36.250509
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

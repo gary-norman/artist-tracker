@@ -1,0 +1,64 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Aerosmith",
+        "date_1": "15-07-2020",
+        "title": "London, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.127647,
+          51.5073
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Aerosmith",
+        "date_1": "18-07-2020",
+        "title": "Manchester, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -2.2451148,
+          53.47948920000002
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Aerosmith",
+        "date_1": "29-01-2020",
+        "date_10": "23-05-2020",
+        "date_11": "25-05-2020",
+        "date_12": "28-05-2020",
+        "date_13": "30-05-2020",
+        "date_14": "02-06-2020",
+        "date_15": "04-06-2020",
+        "date_2": "31-01-2020",
+        "date_3": "03-02-2020",
+        "date_4": "05-02-2020",
+        "date_5": "08-02-2020",
+        "date_6": "10-02-2020",
+        "date_7": "13-02-2020",
+        "date_8": "15-02-2020",
+        "date_9": "20-05-2020",
+        "title": "Nevada, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -116.598821819119,
+          40.071120297646
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Deep Purple",
+        "date_1": "01-07-2020",
+        "title": "Nimes, France"
+      },
+      "geometry": {
+        "coordinates": [
+          4.3595932,
+          43.8348712
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Deep Purple",
+        "date_1": "04-12-2019",
+        "title": "Ostrava, Czechia"
+      },
+      "geometry": {
+        "coordinates": [
+          18.289057,
+          49.835354
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Deep Purple",
+        "date_1": "25-01-2020",
+        "title": "Pagney Derriere Barine, France"
+      },
+      "geometry": {
+        "coordinates": [
+          5.84608,
+          48.692884
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Deep Purple",
+        "date_1": "08-07-2020",
+        "date_2": "09-07-2020",
+        "title": "Sion, Switzerland"
+      },
+      "geometry": {
+        "coordinates": [
+          7.35953,
+          46.230938
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Deep Purple",
+        "date_1": "30-06-2020",
+        "title": "Boulogne Billancourt, France"
+      },
+      "geometry": {
+        "coordinates": [
+          2.241284,
+          48.835009
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Deep Purple",
+        "date_1": "09-12-2019",
+        "title": "Freyming Merlebach, France"
+      },
+      "geometry": {
+        "coordinates": [
+          6.818128,
+          49.146692
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Deep Purple",
+        "date_1": "24-06-2020",
+        "title": "Hamburg, Germany"
+      },
+      "geometry": {
+        "coordinates": [
+          10.000654,
+          53.550341
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "artist": "Deep Purple",
+        "date_1": "01-12-2019",
+        "title": "Klagenfurt, Austria"
+      },
+      "geometry": {
+        "coordinates": [
+          14.306923,
+          46.625223
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}
