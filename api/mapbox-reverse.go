@@ -9,6 +9,7 @@ import (
 	"net/url"
 	"os"
 	"strconv"
+	"strings"
 )
 
 type GeoReverseResponse struct {
@@ -17,8 +18,9 @@ type GeoReverseResponse struct {
 }
 
 type GeoReverseResponseFeature struct {
-	Type     string   `json:"type"`
-	Geometry Geometry `json:"geometry"`
+	Type       string     `json:"type"`
+	Properties Properties `json:"properties"`
+	Geometry   Geometry   `json:"geometry"`
 }
 
 type GeoReverseCollection struct {
@@ -27,9 +29,9 @@ type GeoReverseCollection struct {
 }
 
 type GeoReverseFeature struct {
-	Type       string            `json:"type"`
-	Properties map[string]string `json:"properties"`
-	Geometry   Geometry          `json:"geometry"`
+	Type       string     `json:"type"`
+	Properties Properties `json:"properties"`
+	Geometry   Geometry   `json:"geometry"`
 }
 
 func MapboxReverseLookup(index int, artist Artist) {
@@ -63,17 +65,13 @@ func MapboxReverseLookup(index int, artist Artist) {
 			fmt.Printf("error parsing JSON: %v\n", err)
 		}
 
-		PropertiesReverse := make(map[string]string, len(location))
 		// loop through the dates
-		counter := 0
+		var itemDates string
 		for _, date := range dates {
-			counter += 1
 			// insert each date as an item
-			PropertiesReverse["date_"+strconv.Itoa(counter)] = date
+			itemDates += date + ", "
 		}
-		// insert the location and artist
-		PropertiesReverse["title"] = location
-		PropertiesReverse["artist"] = artist.Name
+		itemDates = strings.TrimRight(itemDates, ", ")
 		func(Body io.ReadCloser) {
 			err = Body.Close()
 			if err != nil {
@@ -82,9 +80,13 @@ func MapboxReverseLookup(index int, artist Artist) {
 		}(resp.Body)
 
 		reverseFeature := GeoReverseFeature{
-			Type:       "Feature",
-			Properties: PropertiesReverse,
-			Geometry:   mapboxResponse.Features[0].Geometry,
+			Type: "Feature",
+			Properties: Properties{
+				Title:   artist.Name + " live at " + location,
+				Date:    itemDates,
+				Address: location,
+			},
+			Geometry: mapboxResponse.Features[0].Geometry,
 		}
 		reverseFeatures = append(reverseFeatures, reverseFeature)
 	}

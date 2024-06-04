@@ -4,39 +4,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Logic",
-        "date_1": "15-10-2019",
-        "title": "Utah, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -111.602499934826,
-          39.254817164782
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Logic",
-        "date_1": "05-11-2019",
-        "title": "Boston, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -71.0568,
-          42.35888
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Logic",
-        "date_1": "12-11-2019",
-        "title": "Cleveland, USA"
+        "ID": "",
+        "title": "Logic live at Cleveland, USA",
+        "description": "",
+        "date": "12-11-2019",
+        "eventAddress": "Cleveland, USA"
       },
       "geometry": {
         "coordinates": [
@@ -49,14 +21,16 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Logic",
-        "date_1": "16-11-2019",
-        "title": "Madison, USA"
+        "ID": "",
+        "title": "Logic live at Utah, USA",
+        "description": "",
+        "date": "15-10-2019",
+        "eventAddress": "Utah, USA"
       },
       "geometry": {
         "coordinates": [
-          -89.38996,
-          43.074776
+          -111.602499934826,
+          39.254817164782
         ],
         "type": "Point"
       }
@@ -64,9 +38,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Logic",
-        "date_1": "08-11-2019",
-        "title": "New York, USA"
+        "ID": "",
+        "title": "Logic live at New York, USA",
+        "description": "",
+        "date": "08-11-2019",
+        "eventAddress": "New York, USA"
       },
       "geometry": {
         "coordinates": [
@@ -79,24 +55,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Logic",
-        "date_1": "02-12-2019",
-        "title": "Sydney, Australia"
-      },
-      "geometry": {
-        "coordinates": [
-          151.206987,
-          -33.870782
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Logic",
-        "date_1": "13-11-2019",
-        "title": "Toronto, Canada"
+        "ID": "",
+        "title": "Logic live at Toronto, Canada",
+        "description": "",
+        "date": "13-11-2019",
+        "eventAddress": "Toronto, Canada"
       },
       "geometry": {
         "coordinates": [
@@ -109,10 +72,28 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Logic",
-        "date_1": "19-10-2019",
-        "date_2": "18-10-2019",
-        "title": "Texas, USA"
+        "ID": "",
+        "title": "Logic live at Boston, USA",
+        "description": "",
+        "date": "05-11-2019",
+        "eventAddress": "Boston, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.0568,
+          42.35888
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Logic live at Texas, USA",
+        "description": "",
+        "date": "19-10-2019, 18-10-2019",
+        "eventAddress": "Texas, USA"
       },
       "geometry": {
         "coordinates": [
@@ -125,9 +106,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Logic",
-        "date_1": "04-12-2019",
-        "title": "West Melbourne, Australia"
+        "ID": "",
+        "title": "Logic live at West Melbourne, Australia",
+        "description": "",
+        "date": "04-12-2019",
+        "eventAddress": "West Melbourne, Australia"
       },
       "geometry": {
         "coordinates": [
@@ -140,14 +123,50 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Logic",
-        "date_1": "12-10-2019",
-        "title": "California, USA"
+        "ID": "",
+        "title": "Logic live at California, USA",
+        "description": "",
+        "date": "12-10-2019",
+        "eventAddress": "California, USA"
       },
       "geometry": {
         "coordinates": [
           -119.699375153073,
           37.0743595873945
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Logic live at Madison, USA",
+        "description": "",
+        "date": "16-11-2019",
+        "eventAddress": "Madison, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -89.38996,
+          43.074776
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Logic live at Sydney, Australia",
+        "description": "",
+        "date": "02-12-2019",
+        "eventAddress": "Sydney, Australia"
+      },
+      "geometry": {
+        "coordinates": [
+          151.206987,
+          -33.870782
         ],
         "type": "Point"
       }

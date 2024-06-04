@@ -4,9 +4,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "ACDC",
-        "date_1": "12-06-2016",
-        "title": "Aarhus, Denmark"
+        "ID": "",
+        "title": "ACDC live at Aarhus, Denmark",
+        "description": "",
+        "date": "12-06-2016",
+        "eventAddress": "Aarhus, Denmark"
       },
       "geometry": {
         "coordinates": [
@@ -19,9 +21,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "ACDC",
-        "date_1": "15-06-2016",
-        "title": "Dusseldorf, Germany"
+        "ID": "",
+        "title": "ACDC live at Dusseldorf, Germany",
+        "description": "",
+        "date": "15-06-2016",
+        "eventAddress": "Dusseldorf, Germany"
       },
       "geometry": {
         "coordinates": [
@@ -34,9 +38,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "ACDC",
-        "date_1": "09-06-2016",
-        "title": "Manchester, UK"
+        "ID": "",
+        "title": "ACDC live at Manchester, UK",
+        "description": "",
+        "date": "09-06-2016",
+        "eventAddress": "Manchester, UK"
       },
       "geometry": {
         "coordinates": [
@@ -49,10 +55,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "ACDC",
-        "date_1": "14-09-2016",
-        "date_2": "11-09-2016",
-        "title": "New York, USA"
+        "ID": "",
+        "title": "ACDC live at New York, USA",
+        "description": "",
+        "date": "14-09-2016, 11-09-2016",
+        "eventAddress": "New York, USA"
       },
       "geometry": {
         "coordinates": [

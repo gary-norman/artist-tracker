@@ -4,9 +4,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Mamonas Assassinas",
-        "date_1": "28-12-1995",
-        "title": "Recife, Brazil"
+        "ID": "",
+        "title": "Mamonas Assassinas live at Recife, Brazil",
+        "description": "",
+        "date": "28-12-1995",
+        "eventAddress": "Recife, Brazil"
       },
       "geometry": {
         "coordinates": [
@@ -19,9 +21,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Mamonas Assassinas",
-        "date_1": "10-02-1996",
-        "title": "Rio De Janeiro, Brazil"
+        "ID": "",
+        "title": "Mamonas Assassinas live at Rio De Janeiro, Brazil",
+        "description": "",
+        "date": "10-02-1996",
+        "eventAddress": "Rio De Janeiro, Brazil"
       },
       "geometry": {
         "coordinates": [

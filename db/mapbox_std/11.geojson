@@ -4,9 +4,28 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Rihanna",
-        "date_1": "24-09-2016",
-        "title": "New York, USA"
+        "ID": "",
+        "title": "Rihanna live at Abu Dhabi, United Arab Emirates",
+        "description": "",
+        "date": "27-11-2016",
+        "eventAddress": "Abu Dhabi, United Arab Emirates"
+      },
+      "geometry": {
+        "coordinates": [
+          54.377438,
+          24.453523
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Rihanna live at New York, USA",
+        "description": "",
+        "date": "24-09-2016",
+        "eventAddress": "New York, USA"
       },
       "geometry": {
         "coordinates": [
@@ -19,30 +38,16 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Rihanna",
-        "date_1": "03-09-2016",
-        "date_2": "04-09-2016",
-        "title": "Pennsylvania, USA"
+        "ID": "",
+        "title": "Rihanna live at Pennsylvania, USA",
+        "description": "",
+        "date": "03-09-2016, 04-09-2016",
+        "eventAddress": "Pennsylvania, USA"
       },
       "geometry": {
         "coordinates": [
           -78.2907462468837,
           41.0911397651497
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Rihanna",
-        "date_1": "27-11-2016",
-        "title": "Abu Dhabi, United Arab Emirates"
-      },
-      "geometry": {
-        "coordinates": [
-          54.377438,
-          24.453523
         ],
         "type": "Point"
       }

@@ -4,9 +4,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Phil Collins",
-        "date_1": "18-10-2019",
-        "title": "Arizona, USA"
+        "ID": "",
+        "title": "Phil Collins live at Arizona, USA",
+        "description": "",
+        "date": "18-10-2019",
+        "eventAddress": "Arizona, USA"
       },
       "geometry": {
         "coordinates": [
@@ -19,9 +21,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Phil Collins",
-        "date_1": "17-10-2019",
-        "title": "California, USA"
+        "ID": "",
+        "title": "Phil Collins live at California, USA",
+        "description": "",
+        "date": "17-10-2019",
+        "eventAddress": "California, USA"
       },
       "geometry": {
         "coordinates": [
@@ -34,9 +38,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Phil Collins",
-        "date_1": "19-10-2019",
-        "title": "Nevada, USA"
+        "ID": "",
+        "title": "Phil Collins live at Nevada, USA",
+        "description": "",
+        "date": "19-10-2019",
+        "eventAddress": "Nevada, USA"
       },
       "geometry": {
         "coordinates": [

@@ -4,9 +4,28 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Bee Gees",
-        "date_1": "02-10-1979",
-        "title": "North Carolina, USA"
+        "ID": "",
+        "title": "Bee Gees live at Florida, USA",
+        "description": "",
+        "date": "05-10-1979, 04-10-1979",
+        "eventAddress": "Florida, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -82.033629763236,
+          28.9444647055242
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Bee Gees live at North Carolina, USA",
+        "description": "",
+        "date": "02-10-1979",
+        "eventAddress": "North Carolina, USA"
       },
       "geometry": {
         "coordinates": [
@@ -19,30 +38,16 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Bee Gees",
-        "date_1": "03-10-1979",
-        "title": "South Carolina, USA"
+        "ID": "",
+        "title": "Bee Gees live at South Carolina, USA",
+        "description": "",
+        "date": "03-10-1979",
+        "eventAddress": "South Carolina, USA"
       },
       "geometry": {
         "coordinates": [
           -80.9007732114739,
           33.9184118141794
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Bee Gees",
-        "date_1": "05-10-1979",
-        "date_2": "04-10-1979",
-        "title": "Florida, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -82.033629763236,
-          28.9444647055242
         ],
         "type": "Point"
       }

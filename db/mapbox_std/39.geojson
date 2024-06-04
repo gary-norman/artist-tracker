@@ -4,42 +4,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Eagles",
-        "date_1": "07-03-2020",
-        "title": "Houston, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -95.36166,
-          29.759424
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Eagles",
-        "date_1": "29-08-2020",
-        "date_2": "30-08-2020",
-        "title": "London, UK"
-      },
-      "geometry": {
-        "coordinates": [
-          -0.127647,
-          51.5073
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Eagles",
-        "date_1": "15-02-2020",
-        "date_2": "14-02-2020",
-        "date_3": "18-02-2020",
-        "title": "New York, USA"
+        "ID": "",
+        "title": "Eagles live at New York, USA",
+        "description": "",
+        "date": "15-02-2020, 14-02-2020, 18-02-2020",
+        "eventAddress": "New York, USA"
       },
       "geometry": {
         "coordinates": [
@@ -52,9 +21,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Eagles",
-        "date_1": "31-12-2019",
-        "title": "Berwyn, USA"
+        "ID": "",
+        "title": "Eagles live at Berwyn, USA",
+        "description": "",
+        "date": "31-12-2019",
+        "eventAddress": "Berwyn, USA"
       },
       "geometry": {
         "coordinates": [
@@ -67,10 +38,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Eagles",
-        "date_1": "29-02-2020",
-        "date_2": "01-03-2020",
-        "title": "Dallas, USA"
+        "ID": "",
+        "title": "Eagles live at Dallas, USA",
+        "description": "",
+        "date": "29-02-2020, 01-03-2020",
+        "eventAddress": "Dallas, USA"
       },
       "geometry": {
         "coordinates": [
@@ -83,16 +55,50 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Eagles",
-        "date_1": "07-02-2020",
-        "date_2": "08-02-2020",
-        "date_3": "11-02-2020",
-        "title": "Georgia, USA"
+        "ID": "",
+        "title": "Eagles live at Georgia, USA",
+        "description": "",
+        "date": "07-02-2020, 08-02-2020, 11-02-2020",
+        "eventAddress": "Georgia, USA"
       },
       "geometry": {
         "coordinates": [
           -83.2572560296474,
           32.3305706594431
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Eagles live at Houston, USA",
+        "description": "",
+        "date": "07-03-2020",
+        "eventAddress": "Houston, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -95.36166,
+          29.759424
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Eagles live at London, UK",
+        "description": "",
+        "date": "29-08-2020, 30-08-2020",
+        "eventAddress": "London, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.127647,
+          51.5073
         ],
         "type": "Point"
       }

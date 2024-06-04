@@ -43,7 +43,7 @@ type datasetProperties struct {
 
 func MapboxDataset(index int, artist string) {
 	indexInt := strconv.Itoa(index)
-	datasetName := strings.Replace(artist, " ", "-", -1) + "-tourdates"
+	datasetName := strings.Replace(artist, " ", "-", -1) + "-tourdates_std"
 	// Step 1: Create a new dataset
 	datasetID, err := createDataset(datasetName, "Tourdata for "+artist)
 	if err != nil {
@@ -53,7 +53,7 @@ func MapboxDataset(index int, artist string) {
 	fmt.Println("Created dataset with ID:", datasetID)
 
 	// Step 2: Add features to the dataset from the JSON file
-	features, err := readFeaturesFromFile("db/mapbox/" + indexInt + ".geojson")
+	features, err := readFeaturesFromFile("db/mapbox_std/" + indexInt + ".geojson")
 	if err != nil {
 		fmt.Println("Error reading features:", err)
 		return

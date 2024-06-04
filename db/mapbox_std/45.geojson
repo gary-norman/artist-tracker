@@ -4,10 +4,28 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Coldplay",
-        "date_1": "14-11-2017",
-        "date_2": "15-11-2017",
-        "title": "La Plata, Argentina"
+        "ID": "",
+        "title": "Coldplay live at California, USA",
+        "description": "",
+        "date": "08-10-2017",
+        "eventAddress": "California, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -119.699375153073,
+          37.0743595873945
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Coldplay live at La Plata, Argentina",
+        "description": "",
+        "date": "14-11-2017, 15-11-2017",
+        "eventAddress": "La Plata, Argentina"
       },
       "geometry": {
         "coordinates": [
@@ -20,9 +38,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Coldplay",
-        "date_1": "25-11-2019",
-        "title": "London, UK"
+        "ID": "",
+        "title": "Coldplay live at London, UK",
+        "description": "",
+        "date": "25-11-2019",
+        "eventAddress": "London, UK"
       },
       "geometry": {
         "coordinates": [
@@ -35,9 +55,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Coldplay",
-        "date_1": "11-11-2017",
-        "title": "Porto Alegre, Brazil"
+        "ID": "",
+        "title": "Coldplay live at Porto Alegre, Brazil",
+        "description": "",
+        "date": "11-11-2017",
+        "eventAddress": "Porto Alegre, Brazil"
       },
       "geometry": {
         "coordinates": [
@@ -50,30 +72,16 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Coldplay",
-        "date_1": "07-11-2017",
-        "date_2": "08-11-2017",
-        "title": "Sao Paulo, Brazil"
+        "ID": "",
+        "title": "Coldplay live at Sao Paulo, Brazil",
+        "description": "",
+        "date": "07-11-2017, 08-11-2017",
+        "eventAddress": "Sao Paulo, Brazil"
       },
       "geometry": {
         "coordinates": [
           -46.638775,
           -23.548157
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Coldplay",
-        "date_1": "08-10-2017",
-        "title": "California, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -119.699375153073,
-          37.0743595873945
         ],
         "type": "Point"
       }

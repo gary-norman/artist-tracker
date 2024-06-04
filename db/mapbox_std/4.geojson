@@ -4,9 +4,28 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "XXXTentacion",
-        "date_1": "01-08-2017",
-        "title": "Georgia, USA"
+        "ID": "",
+        "title": "XXXTentacion live at California, USA",
+        "description": "",
+        "date": "16-12-2017, 17-12-2017, 21-10-2017, 22-10-2017, 13-08-2017, 12-08-2017",
+        "eventAddress": "California, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -119.699375153073,
+          37.0743595873945
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "XXXTentacion live at Georgia, USA",
+        "description": "",
+        "date": "01-08-2017",
+        "eventAddress": "Georgia, USA"
       },
       "geometry": {
         "coordinates": [
@@ -19,34 +38,16 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "XXXTentacion",
-        "date_1": "04-08-2017",
-        "title": "Nevada, USA"
+        "ID": "",
+        "title": "XXXTentacion live at Nevada, USA",
+        "description": "",
+        "date": "04-08-2017",
+        "eventAddress": "Nevada, USA"
       },
       "geometry": {
         "coordinates": [
           -116.598821819119,
           40.071120297646
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "XXXTentacion",
-        "date_1": "16-12-2017",
-        "date_2": "17-12-2017",
-        "date_3": "21-10-2017",
-        "date_4": "22-10-2017",
-        "date_5": "13-08-2017",
-        "date_6": "12-08-2017",
-        "title": "California, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -119.699375153073,
-          37.0743595873945
         ],
         "type": "Point"
       }

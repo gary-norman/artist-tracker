@@ -4,54 +4,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Twenty One Pilots",
-        "date_1": "09-11-2019",
-        "title": "Oklahoma, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -97.5389608460746,
-          35.9015874097089
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Twenty One Pilots",
-        "date_1": "19-06-2020",
-        "title": "Scheessel, Germany"
-      },
-      "geometry": {
-        "coordinates": [
-          9.485171,
-          53.168766
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Twenty One Pilots",
-        "date_1": "25-06-2020",
-        "title": "St Gallen, Switzerland"
-      },
-      "geometry": {
-        "coordinates": [
-          9.376546,
-          47.424859
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Twenty One Pilots",
-        "date_1": "08-11-2019",
-        "title": "Texas, USA"
+        "ID": "",
+        "title": "Twenty One Pilots live at Texas, USA",
+        "description": "",
+        "date": "08-11-2019",
+        "eventAddress": "Texas, USA"
       },
       "geometry": {
         "coordinates": [
@@ -64,9 +21,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Twenty One Pilots",
-        "date_1": "03-07-2020",
-        "title": "Arras, France"
+        "ID": "",
+        "title": "Twenty One Pilots live at Arras, France",
+        "description": "",
+        "date": "03-07-2020",
+        "eventAddress": "Arras, France"
       },
       "geometry": {
         "coordinates": [
@@ -79,9 +38,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Twenty One Pilots",
-        "date_1": "08-12-2019",
-        "title": "California, USA"
+        "ID": "",
+        "title": "Twenty One Pilots live at California, USA",
+        "description": "",
+        "date": "08-12-2019",
+        "eventAddress": "California, USA"
       },
       "geometry": {
         "coordinates": [
@@ -94,9 +55,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Twenty One Pilots",
-        "date_1": "01-07-2020",
-        "title": "Gdynia, Poland"
+        "ID": "",
+        "title": "Twenty One Pilots live at Gdynia, Poland",
+        "description": "",
+        "date": "01-07-2020",
+        "eventAddress": "Gdynia, Poland"
       },
       "geometry": {
         "coordinates": [
@@ -109,14 +72,67 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Twenty One Pilots",
-        "date_1": "13-12-2019",
-        "title": "Illinois, USA"
+        "ID": "",
+        "title": "Twenty One Pilots live at Illinois, USA",
+        "description": "",
+        "date": "13-12-2019",
+        "eventAddress": "Illinois, USA"
       },
       "geometry": {
         "coordinates": [
           -89.2749461071049,
           40.1492928594374
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Twenty One Pilots live at Oklahoma, USA",
+        "description": "",
+        "date": "09-11-2019",
+        "eventAddress": "Oklahoma, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -97.5389608460746,
+          35.9015874097089
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Twenty One Pilots live at Scheessel, Germany",
+        "description": "",
+        "date": "19-06-2020",
+        "eventAddress": "Scheessel, Germany"
+      },
+      "geometry": {
+        "coordinates": [
+          9.485171,
+          53.168766
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Twenty One Pilots live at St Gallen, Switzerland",
+        "description": "",
+        "date": "25-06-2020",
+        "eventAddress": "St Gallen, Switzerland"
+      },
+      "geometry": {
+        "coordinates": [
+          9.376546,
+          47.424859
         ],
         "type": "Point"
       }

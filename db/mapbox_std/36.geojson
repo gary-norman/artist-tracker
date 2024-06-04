@@ -4,9 +4,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Arctic Monkeys",
-        "date_1": "26-03-2019",
-        "title": "Lima, Peru"
+        "ID": "",
+        "title": "Arctic Monkeys live at Lima, Peru",
+        "description": "",
+        "date": "26-03-2019",
+        "eventAddress": "Lima, Peru"
       },
       "geometry": {
         "coordinates": [
@@ -19,9 +21,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Arctic Monkeys",
-        "date_1": "03-04-2019",
-        "title": "Rio De Janeiro, Brazil"
+        "ID": "",
+        "title": "Arctic Monkeys live at Rio De Janeiro, Brazil",
+        "description": "",
+        "date": "03-04-2019",
+        "eventAddress": "Rio De Janeiro, Brazil"
       },
       "geometry": {
         "coordinates": [
@@ -34,9 +38,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Arctic Monkeys",
-        "date_1": "29-03-2019",
-        "title": "San Isidro, Argentina"
+        "ID": "",
+        "title": "Arctic Monkeys live at San Isidro, Argentina",
+        "description": "",
+        "date": "29-03-2019",
+        "eventAddress": "San Isidro, Argentina"
       },
       "geometry": {
         "coordinates": [
@@ -49,9 +55,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Arctic Monkeys",
-        "date_1": "29-03-2019",
-        "title": "Santiago, Chile"
+        "ID": "",
+        "title": "Arctic Monkeys live at Santiago, Chile",
+        "description": "",
+        "date": "29-03-2019",
+        "eventAddress": "Santiago, Chile"
       },
       "geometry": {
         "coordinates": [
@@ -64,9 +72,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Arctic Monkeys",
-        "date_1": "03-04-2019",
-        "title": "Sao Paulo, Brazil"
+        "ID": "",
+        "title": "Arctic Monkeys live at Sao Paulo, Brazil",
+        "description": "",
+        "date": "03-04-2019",
+        "eventAddress": "Sao Paulo, Brazil"
       },
       "geometry": {
         "coordinates": [
@@ -79,9 +89,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Arctic Monkeys",
-        "date_1": "07-04-2019",
-        "title": "Bogota, Colombia"
+        "ID": "",
+        "title": "Arctic Monkeys live at Bogota, Colombia",
+        "description": "",
+        "date": "07-04-2019",
+        "eventAddress": "Bogota, Colombia"
       },
       "geometry": {
         "coordinates": [

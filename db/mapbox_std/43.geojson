@@ -4,54 +4,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Green Day",
-        "date_1": "03-11-2019",
-        "title": "Seville, Spain"
-      },
-      "geometry": {
-        "coordinates": [
-          -5.99456,
-          37.389464
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Green Day",
-        "date_1": "17-03-2020",
-        "title": "Taipei, Taiwan"
-      },
-      "geometry": {
-        "coordinates": [
-          121.543938,
-          25.044979
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Green Day",
-        "date_1": "11-03-2020",
-        "title": "Bangkok, Thailand"
-      },
-      "geometry": {
-        "coordinates": [
-          100.4935089,
-          13.7524938
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Green Day",
-        "date_1": "20-03-2020",
-        "title": "Hong Kong, China"
+        "ID": "",
+        "title": "Green Day live at Hong Kong, China",
+        "description": "",
+        "date": "20-03-2020",
+        "eventAddress": "Hong Kong, China"
       },
       "geometry": {
         "coordinates": [
@@ -64,9 +21,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Green Day",
-        "date_1": "24-11-2019",
-        "title": "Los Angeles, USA"
+        "ID": "",
+        "title": "Green Day live at Los Angeles, USA",
+        "description": "",
+        "date": "24-11-2019",
+        "eventAddress": "Los Angeles, USA"
       },
       "geometry": {
         "coordinates": [
@@ -79,9 +38,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Green Day",
-        "date_1": "30-10-2019",
-        "title": "Madrid, Spain"
+        "ID": "",
+        "title": "Green Day live at Madrid, Spain",
+        "description": "",
+        "date": "30-10-2019",
+        "eventAddress": "Madrid, Spain"
       },
       "geometry": {
         "coordinates": [
@@ -94,9 +55,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Green Day",
-        "date_1": "14-03-2020",
-        "title": "Manila, Philippines"
+        "ID": "",
+        "title": "Green Day live at Manila, Philippines",
+        "description": "",
+        "date": "14-03-2020",
+        "eventAddress": "Manila, Philippines"
       },
       "geometry": {
         "coordinates": [
@@ -109,14 +72,67 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Green Day",
-        "date_1": "22-03-2020",
-        "title": "Seoul, South Korea"
+        "ID": "",
+        "title": "Green Day live at Seoul, South Korea",
+        "description": "",
+        "date": "22-03-2020",
+        "eventAddress": "Seoul, South Korea"
       },
       "geometry": {
         "coordinates": [
           126.9782914,
           37.5666791
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Green Day live at Seville, Spain",
+        "description": "",
+        "date": "03-11-2019",
+        "eventAddress": "Seville, Spain"
+      },
+      "geometry": {
+        "coordinates": [
+          -5.99456,
+          37.389464
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Green Day live at Taipei, Taiwan",
+        "description": "",
+        "date": "17-03-2020",
+        "eventAddress": "Taipei, Taiwan"
+      },
+      "geometry": {
+        "coordinates": [
+          121.543938,
+          25.044979
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Green Day live at Bangkok, Thailand",
+        "description": "",
+        "date": "11-03-2020",
+        "eventAddress": "Bangkok, Thailand"
+      },
+      "geometry": {
+        "coordinates": [
+          100.4935089,
+          13.7524938
         ],
         "type": "Point"
       }

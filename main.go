@@ -26,6 +26,7 @@ func main() {
 	Artists := api.AllJsonToStruct("https://groupietrackers.herokuapp.com/api/artists")
 	MapBoxHtmlValues := make(map[string][]string, 52)
 	MapBoxHtmlValues[Artists[0].Name] = []string{"clwunn3x6016c01qx2kio2sfj", strings.Replace(Artists[0].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[1].Name] = []string{"clwunn3x6016c01qx2kio2sfj", strings.Replace(Artists[1].Name, " ", "-", -1) + "-tourdates-std"}
 	MapBoxHtmlValues[Artists[2].Name] = []string{"clwxi2kg0017h01pca2qs5ay1", strings.Replace(Artists[2].Name, " ", "-", -1) + "-tourdates"}
 	MapBoxHtmlValues[Artists[4].Name] = []string{"clwxj7j4h01gn01qrg1ba9esp", strings.Replace(Artists[4].Name, " ", "-", -1) + "-tourdates"}
 	MapBoxHtmlValues[Artists[5].Name] = []string{"clwxq6lkk01h501qr1hyxargt", strings.Replace(Artists[5].Name, " ", "-", -1) + "-tourdates"}
@@ -36,7 +37,7 @@ func main() {
 	MapBoxHtmlValues[Artists[14].Name] = []string{"clwxrf5aa01am01qx2sj8d83f", strings.Replace(Artists[14].Name, " ", "-", -1) + "-tourdates"}
 	MapBoxHtmlValues[Artists[15].Name] = []string{"clwxrkjf501f501nygntrglk7", strings.Replace(Artists[15].Name, " ", "-", -1) + "-tourdates"}
 	MapBoxHtmlValues[Artists[16].Name] = []string{"clwz2oy7p00wx01poh4qlc1o8", strings.Replace(Artists[16].Name, " ", "-", -1) + "-tourdates"}
-	MapBoxHtmlValues[Artists[18].Name] = []string{"", strings.Replace(Artists[18].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[18].Name] = []string{"clx09zgzt01b101qsdabn9piw", strings.Replace(Artists[18].Name, " ", "-", -1) + "-tourdates"}
 	MapBoxHtmlValues[Artists[19].Name] = []string{"", strings.Replace(Artists[19].Name, " ", "-", -1) + "-tourdates"}
 	MapBoxHtmlValues[Artists[20].Name] = []string{"", strings.Replace(Artists[20].Name, " ", "-", -1) + "-tourdates"}
 	MapBoxHtmlValues[Artists[21].Name] = []string{"", strings.Replace(Artists[21].Name, " ", "-", -1) + "-tourdates"}
@@ -47,6 +48,7 @@ func main() {
 	MapBoxHtmlValues[Artists[35].Name] = []string{"", strings.Replace(Artists[35].Name, " ", "-", -1) + "-tourdates"}
 	MapBoxHtmlValues[Artists[40].Name] = []string{"", strings.Replace(Artists[40].Name, " ", "-", -1) + "-tourdates"}
 	MapBoxHtmlValues[Artists[42].Name] = []string{"", strings.Replace(Artists[42].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[46].Name] = []string{"clx09zgzt01b101qsdabn9piw", strings.Replace(Artists[46].Name, " ", "-", -1) + "-tourdates-std"}
 	MapBoxHtmlValues[Artists[48].Name] = []string{"", strings.Replace(Artists[48].Name, " ", "-", -1) + "-tourdates"}
 	t := time.Now()
 	timetaken := t.Sub(start).Milliseconds()
@@ -82,6 +84,7 @@ func main() {
 	for i := 0; i < 52; i++ {
 		api.GeojsonCheck(i, Artists[i].Name)
 		api.MapboxReverseLookup(i, Artists[i])
+		api.MapboxDataset(i, Artists[i].Name)
 	}
 	t = time.Now()
 	timetaken = t.Sub(tour).Milliseconds()
@@ -112,5 +115,6 @@ func main() {
 	//for _, i := range indices {
 	//	api.MapboxDataset(i, Artists[i].Name)
 	//}
+	//api.MapboxReverseLookup(1, Artists[1])
 	api.HandleRequests(Artists, api.GetTemplate())
 }

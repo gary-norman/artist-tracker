@@ -4,9 +4,28 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Pearl Jam",
-        "date_1": "29-06-2020",
-        "title": "Copenhagen, Denmark"
+        "ID": "",
+        "title": "Pearl Jam live at Berlin, Germany",
+        "description": "",
+        "date": "25-06-2020",
+        "eventAddress": "Berlin, Germany"
+      },
+      "geometry": {
+        "coordinates": [
+          13.3888599,
+          52.5170365
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Pearl Jam live at Copenhagen, Denmark",
+        "description": "",
+        "date": "29-06-2020",
+        "eventAddress": "Copenhagen, Denmark"
       },
       "geometry": {
         "coordinates": [
@@ -19,9 +38,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Pearl Jam",
-        "date_1": "23-06-2020",
-        "title": "Frankfurt, Germany"
+        "ID": "",
+        "title": "Pearl Jam live at Frankfurt, Germany",
+        "description": "",
+        "date": "23-06-2020",
+        "eventAddress": "Frankfurt, Germany"
       },
       "geometry": {
         "coordinates": [
@@ -34,11 +55,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Pearl Jam",
-        "date_1": "26-06-2020",
-        "date_2": "27-06-2020",
-        "date_3": "28-06-2020",
-        "title": "Stockholm, Sweden"
+        "ID": "",
+        "title": "Pearl Jam live at Stockholm, Sweden",
+        "description": "",
+        "date": "26-06-2020, 27-06-2020, 28-06-2020",
+        "eventAddress": "Stockholm, Sweden"
       },
       "geometry": {
         "coordinates": [
@@ -51,29 +72,16 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Pearl Jam",
-        "date_1": "02-07-2020",
-        "title": "Werchter, Belgium"
+        "ID": "",
+        "title": "Pearl Jam live at Werchter, Belgium",
+        "description": "",
+        "date": "02-07-2020",
+        "eventAddress": "Werchter, Belgium"
       },
       "geometry": {
         "coordinates": [
           4.692803,
           50.97131
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Pearl Jam",
-        "date_1": "25-06-2020",
-        "title": "Berlin, Germany"
-      },
-      "geometry": {
-        "coordinates": [
-          13.3888599,
-          52.5170365
         ],
         "type": "Point"
       }

@@ -4,9 +4,28 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Katy Perry",
-        "date_1": "16-11-2019",
-        "title": "Mumbai, India"
+        "ID": "",
+        "title": "Katy Perry live at Minnesota, USA",
+        "description": "",
+        "date": "09-12-2019",
+        "eventAddress": "Minnesota, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -94.1991167709013,
+          46.3434063154299
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Katy Perry live at Mumbai, India",
+        "description": "",
+        "date": "16-11-2019",
+        "eventAddress": "Mumbai, India"
       },
       "geometry": {
         "coordinates": [
@@ -19,9 +38,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Katy Perry",
-        "date_1": "06-12-2019",
-        "title": "California, USA"
+        "ID": "",
+        "title": "Katy Perry live at California, USA",
+        "description": "",
+        "date": "06-12-2019",
+        "eventAddress": "California, USA"
       },
       "geometry": {
         "coordinates": [
@@ -34,9 +55,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Katy Perry",
-        "date_1": "15-12-2019",
-        "title": "Doha, Qatar"
+        "ID": "",
+        "title": "Katy Perry live at Doha, Qatar",
+        "description": "",
+        "date": "15-12-2019",
+        "eventAddress": "Doha, Qatar"
       },
       "geometry": {
         "coordinates": [
@@ -49,29 +72,16 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Katy Perry",
-        "date_1": "07-12-2019",
-        "title": "Illinois, USA"
+        "ID": "",
+        "title": "Katy Perry live at Illinois, USA",
+        "description": "",
+        "date": "07-12-2019",
+        "eventAddress": "Illinois, USA"
       },
       "geometry": {
         "coordinates": [
           -89.2749461071049,
           40.1492928594374
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Katy Perry",
-        "date_1": "09-12-2019",
-        "title": "Minnesota, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -94.1991167709013,
-          46.3434063154299
         ],
         "type": "Point"
       }

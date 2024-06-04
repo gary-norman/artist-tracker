@@ -4,39 +4,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Muse",
-        "date_1": "13-10-2019",
-        "title": "Santiago, Chile"
-      },
-      "geometry": {
-        "coordinates": [
-          -70.64937,
-          -33.440643
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Muse",
-        "date_1": "09-10-2019",
-        "title": "Sao Paulo, Brazil"
-      },
-      "geometry": {
-        "coordinates": [
-          -46.638775,
-          -23.548157
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Muse",
-        "date_1": "11-10-2019",
-        "title": "Buenos Aires, Argentina"
+        "ID": "",
+        "title": "Muse live at Buenos Aires, Argentina",
+        "description": "",
+        "date": "11-10-2019",
+        "eventAddress": "Buenos Aires, Argentina"
       },
       "geometry": {
         "coordinates": [
@@ -49,9 +21,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Muse",
-        "date_1": "15-10-2019",
-        "title": "Lima, Peru"
+        "ID": "",
+        "title": "Muse live at Lima, Peru",
+        "description": "",
+        "date": "15-10-2019",
+        "eventAddress": "Lima, Peru"
       },
       "geometry": {
         "coordinates": [
@@ -64,14 +38,50 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Muse",
-        "date_1": "03-10-2019",
-        "title": "Mexico City, Mexico"
+        "ID": "",
+        "title": "Muse live at Mexico City, Mexico",
+        "description": "",
+        "date": "03-10-2019",
+        "eventAddress": "Mexico City, Mexico"
       },
       "geometry": {
         "coordinates": [
           -99.1331785,
           19.4326296
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Muse live at Santiago, Chile",
+        "description": "",
+        "date": "13-10-2019",
+        "eventAddress": "Santiago, Chile"
+      },
+      "geometry": {
+        "coordinates": [
+          -70.64937,
+          -33.440643
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Muse live at Sao Paulo, Brazil",
+        "description": "",
+        "date": "09-10-2019",
+        "eventAddress": "Sao Paulo, Brazil"
+      },
+      "geometry": {
+        "coordinates": [
+          -46.638775,
+          -23.548157
         ],
         "type": "Point"
       }

@@ -4,24 +4,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Eminem",
-        "date_1": "22-02-2019",
-        "title": "Sydney, Australia"
-      },
-      "geometry": {
-        "coordinates": [
-          151.206987,
-          -33.870782
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Eminem",
-        "date_1": "02-03-2019",
-        "title": "Wellington, New Zealand"
+        "ID": "",
+        "title": "Eminem live at Wellington, New Zealand",
+        "description": "",
+        "date": "02-03-2019",
+        "eventAddress": "Wellington, New Zealand"
       },
       "geometry": {
         "coordinates": [
@@ -34,9 +21,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Eminem",
-        "date_1": "25-10-2019",
-        "title": "Abu Dhabi, United Arab Emirates"
+        "ID": "",
+        "title": "Eminem live at Abu Dhabi, United Arab Emirates",
+        "description": "",
+        "date": "25-10-2019",
+        "eventAddress": "Abu Dhabi, United Arab Emirates"
       },
       "geometry": {
         "coordinates": [
@@ -49,9 +38,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Eminem",
-        "date_1": "27-02-2019",
-        "title": "Burswood, Australia"
+        "ID": "",
+        "title": "Eminem live at Burswood, Australia",
+        "description": "",
+        "date": "27-02-2019",
+        "eventAddress": "Burswood, Australia"
       },
       "geometry": {
         "coordinates": [
@@ -64,14 +55,33 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Eminem",
-        "date_1": "24-02-2019",
-        "title": "Melbourne, Australia"
+        "ID": "",
+        "title": "Eminem live at Melbourne, Australia",
+        "description": "",
+        "date": "24-02-2019",
+        "eventAddress": "Melbourne, Australia"
       },
       "geometry": {
         "coordinates": [
           144.964568,
           -37.813983
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Eminem live at Sydney, Australia",
+        "description": "",
+        "date": "22-02-2019",
+        "eventAddress": "Sydney, Australia"
+      },
+      "geometry": {
+        "coordinates": [
+          151.206987,
+          -33.870782
         ],
         "type": "Point"
       }

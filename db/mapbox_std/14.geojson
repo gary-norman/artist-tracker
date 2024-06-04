@@ -4,10 +4,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Led Zeppelin",
-        "date_1": "10-12-2007",
-        "date_2": "15-03-2003",
-        "title": "London, UK"
+        "ID": "",
+        "title": "Led Zeppelin live at London, UK",
+        "description": "",
+        "date": "10-12-2007, 15-03-2003",
+        "eventAddress": "London, UK"
       },
       "geometry": {
         "coordinates": [
@@ -20,9 +21,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Led Zeppelin",
-        "date_1": "17-04-1994",
-        "title": "Maine, USA"
+        "ID": "",
+        "title": "Led Zeppelin live at Maine, USA",
+        "description": "",
+        "date": "17-04-1994",
+        "eventAddress": "Maine, USA"
       },
       "geometry": {
         "coordinates": [
@@ -35,9 +38,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Led Zeppelin",
-        "date_1": "12-01-1995",
-        "title": "New York, USA"
+        "ID": "",
+        "title": "Led Zeppelin live at New York, USA",
+        "description": "",
+        "date": "12-01-1995",
+        "eventAddress": "New York, USA"
       },
       "geometry": {
         "coordinates": [

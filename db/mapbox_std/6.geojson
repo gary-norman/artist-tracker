@@ -4,9 +4,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Joyner Lucas",
-        "date_1": "08-10-2019",
-        "title": "Arizona, USA"
+        "ID": "",
+        "title": "Joyner Lucas live at Arizona, USA",
+        "description": "",
+        "date": "08-10-2019",
+        "eventAddress": "Arizona, USA"
       },
       "geometry": {
         "coordinates": [
@@ -19,14 +21,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Joyner Lucas",
-        "date_1": "19-10-2019",
-        "date_2": "18-10-2019",
-        "date_3": "17-10-2019",
-        "date_4": "15-10-2019",
-        "date_5": "12-10-2019",
-        "date_6": "11-10-2019",
-        "title": "California, USA"
+        "ID": "",
+        "title": "Joyner Lucas live at California, USA",
+        "description": "",
+        "date": "19-10-2019, 18-10-2019, 17-10-2019, 15-10-2019, 12-10-2019, 11-10-2019",
+        "eventAddress": "California, USA"
       },
       "geometry": {
         "coordinates": [
@@ -39,9 +38,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Joyner Lucas",
-        "date_1": "06-10-2019",
-        "title": "Texas, USA"
+        "ID": "",
+        "title": "Joyner Lucas live at Texas, USA",
+        "description": "",
+        "date": "06-10-2019",
+        "eventAddress": "Texas, USA"
       },
       "geometry": {
         "coordinates": [

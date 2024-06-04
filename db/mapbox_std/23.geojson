@@ -4,9 +4,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Juice Wrld",
-        "date_1": "30-05-2019",
-        "title": "Chicago, USA"
+        "ID": "",
+        "title": "Juice Wrld live at Chicago, USA",
+        "description": "",
+        "date": "30-05-2019",
+        "eventAddress": "Chicago, USA"
       },
       "geometry": {
         "coordinates": [
@@ -19,9 +21,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Juice Wrld",
-        "date_1": "18-03-2019",
-        "title": "Manchester, UK"
+        "ID": "",
+        "title": "Juice Wrld live at Manchester, UK",
+        "description": "",
+        "date": "18-03-2019",
+        "eventAddress": "Manchester, UK"
       },
       "geometry": {
         "coordinates": [
@@ -34,69 +38,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Juice Wrld",
-        "date_1": "18-01-2019",
-        "title": "Missouri, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -92.585914899503,
-          38.19080239858
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Juice Wrld",
-        "date_1": "08-12-2018",
-        "title": "Washington, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -120.094292506456,
-          48.0250054263449
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Juice Wrld",
-        "date_1": "01-05-2019",
-        "title": "Copenhagen, Denmark"
-      },
-      "geometry": {
-        "coordinates": [
-          12.5697339,
-          55.6753132
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Juice Wrld",
-        "date_1": "25-03-2019",
-        "title": "Amsterdam, Netherlands"
-      },
-      "geometry": {
-        "coordinates": [
-          4.9,
-          52.378
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Juice Wrld",
-        "date_1": "14-05-2019",
-        "title": "Birmingham, UK"
+        "ID": "",
+        "title": "Juice Wrld live at Birmingham, UK",
+        "description": "",
+        "date": "14-05-2019",
+        "eventAddress": "Birmingham, UK"
       },
       "geometry": {
         "coordinates": [
@@ -109,9 +55,28 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Juice Wrld",
-        "date_1": "07-03-2019",
-        "title": "Paris, France"
+        "ID": "",
+        "title": "Juice Wrld live at Washington, USA",
+        "description": "",
+        "date": "08-12-2018",
+        "eventAddress": "Washington, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -120.094292506456,
+          48.0250054263449
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Juice Wrld live at Paris, France",
+        "description": "",
+        "date": "07-03-2019",
+        "eventAddress": "Paris, France"
       },
       "geometry": {
         "coordinates": [
@@ -124,14 +89,67 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Juice Wrld",
-        "date_1": "29-11-2019",
-        "title": "West Melbourne, Australia"
+        "ID": "",
+        "title": "Juice Wrld live at Amsterdam, Netherlands",
+        "description": "",
+        "date": "25-03-2019",
+        "eventAddress": "Amsterdam, Netherlands"
+      },
+      "geometry": {
+        "coordinates": [
+          4.9,
+          52.378
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Juice Wrld live at Missouri, USA",
+        "description": "",
+        "date": "18-01-2019",
+        "eventAddress": "Missouri, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -92.585914899503,
+          38.19080239858
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Juice Wrld live at West Melbourne, Australia",
+        "description": "",
+        "date": "29-11-2019",
+        "eventAddress": "West Melbourne, Australia"
       },
       "geometry": {
         "coordinates": [
           144.922328,
           -37.808048
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Juice Wrld live at Copenhagen, Denmark",
+        "description": "",
+        "date": "01-05-2019",
+        "eventAddress": "Copenhagen, Denmark"
+      },
+      "geometry": {
+        "coordinates": [
+          12.5697339,
+          55.6753132
         ],
         "type": "Point"
       }

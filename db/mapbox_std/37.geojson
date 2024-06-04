@@ -4,39 +4,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Fall Out Boy",
-        "date_1": "14-06-2020",
-        "title": "Groningen, Netherlands"
-      },
-      "geometry": {
-        "coordinates": [
-          6.569525,
-          53.218415
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Fall Out Boy",
-        "date_1": "26-06-2020",
-        "title": "London, UK"
-      },
-      "geometry": {
-        "coordinates": [
-          -0.127647,
-          51.5073
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Fall Out Boy",
-        "date_1": "13-06-2020",
-        "title": "Paris, France"
+        "ID": "",
+        "title": "Fall Out Boy live at Paris, France",
+        "description": "",
+        "date": "13-06-2020",
+        "eventAddress": "Paris, France"
       },
       "geometry": {
         "coordinates": [
@@ -49,9 +21,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Fall Out Boy",
-        "date_1": "21-06-2020",
-        "title": "Vienna, Austria"
+        "ID": "",
+        "title": "Fall Out Boy live at Vienna, Austria",
+        "description": "",
+        "date": "21-06-2020",
+        "eventAddress": "Vienna, Austria"
       },
       "geometry": {
         "coordinates": [
@@ -64,9 +38,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Fall Out Boy",
-        "date_1": "19-06-2020",
-        "title": "Antwerp, Belgium"
+        "ID": "",
+        "title": "Fall Out Boy live at Antwerp, Belgium",
+        "description": "",
+        "date": "19-06-2020",
+        "eventAddress": "Antwerp, Belgium"
       },
       "geometry": {
         "coordinates": [
@@ -79,14 +55,50 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Fall Out Boy",
-        "date_1": "24-06-2020",
-        "title": "Glasgow, UK"
+        "ID": "",
+        "title": "Fall Out Boy live at Glasgow, UK",
+        "description": "",
+        "date": "24-06-2020",
+        "eventAddress": "Glasgow, UK"
       },
       "geometry": {
         "coordinates": [
           -4.2488787,
           55.860982499999984
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Fall Out Boy live at Groningen, Netherlands",
+        "description": "",
+        "date": "14-06-2020",
+        "eventAddress": "Groningen, Netherlands"
+      },
+      "geometry": {
+        "coordinates": [
+          6.569525,
+          53.218415
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Fall Out Boy live at London, UK",
+        "description": "",
+        "date": "26-06-2020",
+        "eventAddress": "London, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.127647,
+          51.5073
         ],
         "type": "Point"
       }

@@ -4,10 +4,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Mac Miller",
-        "date_1": "28-04-2018",
-        "date_2": "29-04-2018",
-        "title": "California, USA"
+        "ID": "",
+        "title": "Mac Miller live at California, USA",
+        "description": "",
+        "date": "28-04-2018, 29-04-2018",
+        "eventAddress": "California, USA"
       },
       "geometry": {
         "coordinates": [
@@ -20,11 +21,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Mac Miller",
-        "date_1": "16-03-2018",
-        "date_2": "17-03-2018",
-        "date_3": "18-03-2018",
-        "title": "San Isidro, Argentina"
+        "ID": "",
+        "title": "Mac Miller live at San Isidro, Argentina",
+        "description": "",
+        "date": "16-03-2018, 17-03-2018, 18-03-2018",
+        "eventAddress": "San Isidro, Argentina"
       },
       "geometry": {
         "coordinates": [
@@ -37,11 +38,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Mac Miller",
-        "date_1": "23-03-2018",
-        "date_2": "24-03-2018",
-        "date_3": "25-03-2018",
-        "title": "Sao Paulo, Brazil"
+        "ID": "",
+        "title": "Mac Miller live at Sao Paulo, Brazil",
+        "description": "",
+        "date": "23-03-2018, 24-03-2018, 25-03-2018",
+        "eventAddress": "Sao Paulo, Brazil"
       },
       "geometry": {
         "coordinates": [

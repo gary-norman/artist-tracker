@@ -4,69 +4,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Foo Fighters",
-        "date_1": "14-06-2020",
-        "title": "Milan, Italy"
-      },
-      "geometry": {
-        "coordinates": [
-          9.1885578,
-          45.4639447
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Foo Fighters",
-        "date_1": "06-12-2019",
-        "title": "Nevada, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -116.598821819119,
-          40.071120297646
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Foo Fighters",
-        "date_1": "10-06-2020",
-        "title": "Nickelsdorf, Austria"
-      },
-      "geometry": {
-        "coordinates": [
-          17.074819,
-          47.93856
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Foo Fighters",
-        "date_1": "04-10-2019",
-        "title": "San Jose, Costa Rica"
-      },
-      "geometry": {
-        "coordinates": [
-          -84.07486,
-          9.932607
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Foo Fighters",
-        "date_1": "01-10-2019",
-        "title": "Bogota, Colombia"
+        "ID": "",
+        "title": "Foo Fighters live at Bogota, Colombia",
+        "description": "",
+        "date": "01-10-2019",
+        "eventAddress": "Bogota, Colombia"
       },
       "geometry": {
         "coordinates": [
@@ -79,9 +21,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Foo Fighters",
-        "date_1": "20-06-2020",
-        "title": "Lisbon, Portugal"
+        "ID": "",
+        "title": "Foo Fighters live at Lisbon, Portugal",
+        "description": "",
+        "date": "20-06-2020",
+        "eventAddress": "Lisbon, Portugal"
       },
       "geometry": {
         "coordinates": [
@@ -94,14 +38,84 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Foo Fighters",
-        "date_1": "22-05-2020",
-        "title": "Massachusetts, USA"
+        "ID": "",
+        "title": "Foo Fighters live at Massachusetts, USA",
+        "description": "",
+        "date": "22-05-2020",
+        "eventAddress": "Massachusetts, USA"
       },
       "geometry": {
         "coordinates": [
           -71.9603257607071,
           42.3204700602381
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Foo Fighters live at Milan, Italy",
+        "description": "",
+        "date": "14-06-2020",
+        "eventAddress": "Milan, Italy"
+      },
+      "geometry": {
+        "coordinates": [
+          9.1885578,
+          45.4639447
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Foo Fighters live at Nevada, USA",
+        "description": "",
+        "date": "06-12-2019",
+        "eventAddress": "Nevada, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -116.598821819119,
+          40.071120297646
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Foo Fighters live at Nickelsdorf, Austria",
+        "description": "",
+        "date": "10-06-2020",
+        "eventAddress": "Nickelsdorf, Austria"
+      },
+      "geometry": {
+        "coordinates": [
+          17.074819,
+          47.93856
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Foo Fighters live at San Jose, Costa Rica",
+        "description": "",
+        "date": "04-10-2019",
+        "eventAddress": "San Jose, Costa Rica"
+      },
+      "geometry": {
+        "coordinates": [
+          -84.07486,
+          9.932607
         ],
         "type": "Point"
       }

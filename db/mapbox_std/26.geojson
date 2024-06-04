@@ -4,70 +4,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Bobby McFerrin",
-        "date_1": "07-09-2020",
-        "title": "Colorado, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -105.604997408086,
-          39.1902459990462
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Bobby McFerrin",
-        "date_1": "29-01-2020",
-        "title": "New Hampshire, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -71.5783054333969,
-          43.6898878153712
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Bobby McFerrin",
-        "date_1": "29-02-2020",
-        "date_2": "23-05-2020",
-        "title": "New York, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -74.0059945,
-          40.7127492
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Bobby McFerrin",
-        "date_1": "07-11-2019",
-        "title": "Amsterdam, Netherlands"
-      },
-      "geometry": {
-        "coordinates": [
-          4.9,
-          52.378
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Bobby McFerrin",
-        "date_1": "16-01-2020",
-        "title": "Michigan, USA"
+        "ID": "",
+        "title": "Bobby McFerrin live at Michigan, USA",
+        "description": "",
+        "date": "16-01-2020",
+        "eventAddress": "Michigan, USA"
       },
       "geometry": {
         "coordinates": [
@@ -80,24 +21,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Bobby McFerrin",
-        "date_1": "20-11-2019",
-        "title": "Sochaux, France"
-      },
-      "geometry": {
-        "coordinates": [
-          6.830913,
-          47.514683
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "artist": "Bobby McFerrin",
-        "date_1": "18-11-2019",
-        "title": "Lyon, France"
+        "ID": "",
+        "title": "Bobby McFerrin live at Lyon, France",
+        "description": "",
+        "date": "18-11-2019",
+        "eventAddress": "Lyon, France"
       },
       "geometry": {
         "coordinates": [
@@ -110,14 +38,16 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Bobby McFerrin",
-        "date_1": "10-11-2019",
-        "title": "Oslo, Norway"
+        "ID": "",
+        "title": "Bobby McFerrin live at New Hampshire, USA",
+        "description": "",
+        "date": "29-01-2020",
+        "eventAddress": "New Hampshire, USA"
       },
       "geometry": {
         "coordinates": [
-          10.7389701,
-          59.9133301
+          -71.5783054333969,
+          43.6898878153712
         ],
         "type": "Point"
       }
@@ -125,9 +55,11 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Bobby McFerrin",
-        "date_1": "22-11-2019",
-        "title": "Warsaw, Poland"
+        "ID": "",
+        "title": "Bobby McFerrin live at Warsaw, Poland",
+        "description": "",
+        "date": "22-11-2019",
+        "eventAddress": "Warsaw, Poland"
       },
       "geometry": {
         "coordinates": [
@@ -140,9 +72,96 @@
     {
       "type": "Feature",
       "properties": {
-        "artist": "Bobby McFerrin",
-        "date_1": "14-11-2019",
-        "title": "Eindhoven, Netherlands"
+        "ID": "",
+        "title": "Bobby McFerrin live at Oslo, Norway",
+        "description": "",
+        "date": "10-11-2019",
+        "eventAddress": "Oslo, Norway"
+      },
+      "geometry": {
+        "coordinates": [
+          10.7389701,
+          59.9133301
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Bobby McFerrin live at Sochaux, France",
+        "description": "",
+        "date": "20-11-2019",
+        "eventAddress": "Sochaux, France"
+      },
+      "geometry": {
+        "coordinates": [
+          6.830913,
+          47.514683
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Bobby McFerrin live at Amsterdam, Netherlands",
+        "description": "",
+        "date": "07-11-2019",
+        "eventAddress": "Amsterdam, Netherlands"
+      },
+      "geometry": {
+        "coordinates": [
+          4.9,
+          52.378
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Bobby McFerrin live at New York, USA",
+        "description": "",
+        "date": "29-02-2020, 23-05-2020",
+        "eventAddress": "New York, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -74.0059945,
+          40.7127492
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Bobby McFerrin live at Colorado, USA",
+        "description": "",
+        "date": "07-09-2020",
+        "eventAddress": "Colorado, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -105.604997408086,
+          39.1902459990462
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "",
+        "title": "Bobby McFerrin live at Eindhoven, Netherlands",
+        "description": "",
+        "date": "14-11-2019",
+        "eventAddress": "Eindhoven, Netherlands"
       },
       "geometry": {
         "coordinates": [
