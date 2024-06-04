@@ -119,6 +119,8 @@ document.addEventListener('DOMContentLoaded', () => {
     $('input[type="range"]').on( 'input', rangeInputChangeEventHandler);
 })();
 
+
+var counter = 0
 function updateLabelPosition(slider, label) {
     const sliderWidth = slider.offsetWidth;
     const sliderMin = parseInt(slider.min);
@@ -126,5 +128,7 @@ function updateLabelPosition(slider, label) {
     const sliderValue = parseInt(slider.value);
 
     const position = ((sliderValue - sliderMin) / (sliderMax - sliderMin)) * 100;
-    label.style.left = `calc(${position}%)`; // Adjust '20px' to center the label correctly
+    counter += 6
+
+    label.style.left = `calc(${position}% - ${counter}px)`; // Adjust '20px' to center the label correctly
 }

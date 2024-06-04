@@ -452,6 +452,7 @@ input {
 
 .filter {
     padding-bottom: 1.2rem;
+    overflow: visible;
 }
 
 .space{
@@ -466,11 +467,13 @@ input {
 
     & label {
         font-size: var(--h--1-2);
+
     }
 
     & .filter-label {
         width: 15rem;
     }
+
 
     & #album-start-date {
         display: flex;
@@ -694,6 +697,8 @@ input[type='range']::-webkit-slider-thumb {
     display: inline-block;
     outline: none;
     border: none;
+    padding-top: 1.2rem;
+    padding-bottom: 1.6rem;
 
     & input{
         position: absolute;
@@ -706,14 +711,19 @@ input[type='range']::-webkit-slider-thumb {
     & label{
         position: absolute;
         margin-top: 2.4rem;
-        left: 0;
+        left: 10px;
         overflow: visible !important;
     }
 
     & .right{
         position: relative;
-        float: right;
-        margin-right: -5px;
+        /*float: left;*/
+        /*margin-left: 70px;*/
+    }
+
+    & .left {
+        position: relative;
+
     }
 }
 
