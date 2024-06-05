@@ -45,6 +45,34 @@
                         </label>
                     </div>
                     <div class="filter-open space labels hide">
+                        <label for="artist-start-date" class="filter-label small light">
+                            Start Date
+                        </label>
+                        <label for="artist-end-date" class="filter-label small light">
+                            End Date
+                        </label>
+                    </div>
+                    <div class="filter-open space">
+                        <label class="button-2 small" id="artist-start-date">
+                            Pick a date
+                        </label>
+                        <label for="artist-date-range" class="small" id="artist-end-date">
+                            11 / 01 / 1990
+                        </label>
+                    </div>
+                    <div class="filter-open single-slide-container">
+                        <input id="artist-date-range" type="range" min="1" max="100" value="0" class="slider" >
+                    </div>
+                </div>
+                <div class="floating-sm col filter">
+                    <div class="space">
+                        <label for="filter-album-creation">Album creation date</label>
+                        <label class="switch">
+                            <input id="filter-album-creation" type="checkbox">
+                            <span class="slider-button round"></span>
+                        </label>
+                    </div>
+                    <div class="filter-open space labels hide">
                         <label for="album-start-date" class="filter-label small light">
                             Start Date
                         </label>
@@ -64,6 +92,7 @@
                         <input id="album-date-range" type="range" min="1" max="100" value="0" class="slider" >
                     </div>
                 </div>
+
                 <div class="floating-sm col filter">
                     <div class="space">
                         <label for="filter-members-number">Number of Members</label>
