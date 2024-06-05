@@ -38,9 +38,9 @@ func main() {
 	MapBoxHtmlValues[Artists[15].Name] = []string{"clwxrkjf501f501nygntrglk7", strings.Replace(Artists[15].Name, " ", "-", -1) + "-tourdates"}
 	MapBoxHtmlValues[Artists[16].Name] = []string{"clwz2oy7p00wx01poh4qlc1o8", strings.Replace(Artists[16].Name, " ", "-", -1) + "-tourdates"}
 	MapBoxHtmlValues[Artists[18].Name] = []string{"clx09zgzt01b101qsdabn9piw", strings.Replace(Artists[18].Name, " ", "-", -1) + "-tourdates"}
-	MapBoxHtmlValues[Artists[19].Name] = []string{"", strings.Replace(Artists[19].Name, " ", "-", -1) + "-tourdates"}
-	MapBoxHtmlValues[Artists[20].Name] = []string{"", strings.Replace(Artists[20].Name, " ", "-", -1) + "-tourdates"}
-	MapBoxHtmlValues[Artists[21].Name] = []string{"", strings.Replace(Artists[21].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[19].Name] = []string{"clx1vt09001mq01pn10pj71gu", strings.Replace(Artists[19].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[20].Name] = []string{"clx1w2mm401ev01qs2fuaeg8l", strings.Replace(Artists[20].Name, " ", "-", -1) + "-tourdates"}
+	MapBoxHtmlValues[Artists[21].Name] = []string{"clx1w8l2u01rv01qs9s24b3ym", strings.Replace(Artists[21].Name, " ", "-", -1) + "-tourdates"}
 	MapBoxHtmlValues[Artists[23].Name] = []string{"", strings.Replace(Artists[23].Name, " ", "-", -1) + "-tourdates"}
 	MapBoxHtmlValues[Artists[26].Name] = []string{"", strings.Replace(Artists[26].Name, " ", "-", -1) + "-tourdates"}
 	MapBoxHtmlValues[Artists[32].Name] = []string{"", strings.Replace(Artists[32].Name, " ", "-", -1) + "-tourdates"}
@@ -120,5 +120,14 @@ func main() {
 	//	api.MapboxDataset(i, Artists[i].Name)
 	//}
 	//api.MapboxReverseLookup(1, Artists[1])
+	for _, artist := range Artists {
+		fmt.Printf("Artist: %v\n", artist.Name)
+		for location, dates := range artist.DatesLocations {
+			fmt.Printf("Location: %v\n", location)
+			for _, date := range dates {
+				fmt.Printf("Date: %v\n", date)
+			}
+		}
+	}
 	api.HandleRequests(Artists, api.GetTemplate())
 }

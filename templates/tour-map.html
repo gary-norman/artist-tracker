@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Points on a map</title>
+    <title>{{ .Name }} tour dates</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
     <link
@@ -29,12 +29,12 @@
     mapboxgl.accessToken = 'pk.eyJ1IjoibG9yZXdvcmxkIiwiYSI6ImNsd3FseDNsbDAzZjMyanF2czh3Mmt4eTgifQ.-_bXsAv_SR1bpcmvOSpDuA';
     const map = new mapboxgl.Map({
         container: 'map',
-        // the final string in the url is found in MapBoxHtmlValues[0][0]
-        // the first [0] is for queen (1st artist), the 2nd [0] is the string location
+        // the final string in the url is found in MapBoxHtmlValues["artist"][0]
+        // index [0] is the string location
         style: 'mapbox://styles/loreworld/clwunn3x6016c01qx2kio2sfj',
         projection: 'globe', // Display the map as a globe, since satellite-v9 defaults to Mercator
         zoom: 2,
-        center: [30, 15]
+        center: [0, 15]
     });
 
     map.addControl(new mapboxgl.NavigationControl());
@@ -48,13 +48,12 @@
             "high-color": "#07173e",
             "space-color": "#000000",
             "star-intensity": 0.35
-        }); // Set the default atmosphere style
+        }); //
     });
-
     // The following values can be changed to control rotation speed:
 
     // At low zooms, complete a revolution every two minutes.
-    const secondsPerRevolution = 240;
+    const secondsPerRevolution = 120;
     // Above zoom level 5, do not rotate.
     const maxSpinZoom = 5;
     // Rotate at intermediate speeds between zoom levels 3 and 5.
