@@ -147,7 +147,10 @@ function updateDoubleSliderBackground(slider1, slider2) {
         const sliderValue = parseInt(slider.value);
 
 
-        if (window.innerWidth < 700) {
+        if (window.innerWidth < 500) {
+            const position = ((sliderValue - sliderMin) / (sliderMax - sliderMin)) * 94.5;
+            label.style.left = `calc(${position}% - 0.4rem)`;
+        } else if (window.innerWidth < 700){
             const position = ((sliderValue - sliderMin) / (sliderMax - sliderMin)) * 96;
             label.style.left = `calc(${position}% - 0.4rem)`;
         } else {
