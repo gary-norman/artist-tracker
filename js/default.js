@@ -88,6 +88,11 @@ function updateDoubleSliderBackground(slider1, slider2) {
     var(--green-0) ${percentageRight}%, 
     var(--white-4) ${percentageRight}%)`;
 
+    const filterBar = `linear-gradient(to right, var(--white-4) ${percentageLeft}%, var(--green-0) ${percentageLeft}%, var(--green-0) ${percentageRight}%, var(--white-4) ${percentageRight}%)`;
+    document.documentElement.style.setProperty("--filter-bar", filterBar);
+
+
+
 }
 
 (function() {
@@ -146,6 +151,13 @@ function updateDoubleSliderBackground(slider1, slider2) {
         const sliderMax = parseInt(slider.max);
         const sliderValue = parseInt(slider.value);
 
+        const slider1 = document.getElementById('members-min-range');
+        const slider2 = document.getElementById('members-max-range');
+        const label1 = document.getElementById('label-members-min');
+        const label2 = document.getElementById('label-members-max');
+
+
+
 
         if (window.innerWidth < 500) {
             const position = ((sliderValue - sliderMin) / (sliderMax - sliderMin)) * 94.5;
@@ -156,7 +168,13 @@ function updateDoubleSliderBackground(slider1, slider2) {
         } else {
             const position = ((sliderValue - sliderMin) / (sliderMax - sliderMin)) * 97.5;
             label.style.left = `calc(${position}% - 3.2rem)`;
+        }
 
+        //set one of the labels to invisible when they overlap
+        if (slider1.value === slider2.value) {
+            label1.style.visibility = 'hidden';
+        } else {
+            label1.style.visibility = 'visible';
         }
     }
 
