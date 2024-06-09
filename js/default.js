@@ -109,7 +109,7 @@ function updateDoubleSliderBackground(slider1, slider2) {
     }
 
     function updateRangeLabel(range_min, range_max, minVal, maxVal) {
-        if (window.innerWidth < 700) {
+        if (window.innerWidth < 800) {
             $(range_min).html(addSeparator(minVal));
             $(range_max).html(addSeparator(maxVal));
         } else {
@@ -162,7 +162,7 @@ function updateDoubleSliderBackground(slider1, slider2) {
         if (window.innerWidth < 500) {
             const position = ((sliderValue - sliderMin) / (sliderMax - sliderMin)) * 94.5;
             label.style.left = `calc(${position}% - 0.4rem)`;
-        } else if (window.innerWidth < 700){
+        } else if (window.innerWidth < 800){
             const position = ((sliderValue - sliderMin) / (sliderMax - sliderMin)) * 96;
             label.style.left = `calc(${position}% - 0.4rem)`;
         } else {

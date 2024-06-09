@@ -113,8 +113,8 @@
                 </div>
 
                 <div class="floating-sm col filter">
-                    <label for="filter-members-number" class="space first">
-                        <label for="filter-members-number">Concert location</label>
+                    <label for="filter-concert-location" class="space first">
+                        <label for="filter-checkbox-locations">Concert location</label>
                         <label class="switch">
                             <input id="filter-concert-location" type="checkbox">
                             <span class="slider-button round"></span>
@@ -123,10 +123,49 @@
                     <div class="filter-open checkbox-container col col2">
                         <div class="button-2" id="button-filter-checkbox">
                             <div class="button-container">
-                                <p id="button-filter-concert-location">Search location</p>
+                                <p id="button-filter-concert-location" class="small">Search location</p>
                             </div>
                         </div>
-                        <input class="max" id="members-max-range" name="range_1" type="range" min="1" max="10" value="2" />
+                        <div id="filter-checkbox-locations" class="container go-down col col1 ">
+                            <label for="loc-london-uk" class="go-across" >
+                                <input class="checkbox-location" id="loc-london-uk" name="london-uk" type="checkbox" value="London, UK">
+                                <label class="small--bold" for="loc-london-uk">London, UK</label>
+                            </label>
+                            <label for="loc-berlin-germany" class="go-across" >
+                                <input class="checkbox-location" id="loc-berlin-germany" name="berlin-germany" type="checkbox" value="Berlin, Germany">
+                                <label class="small--bold" for="loc-berlin-germany">Berlin, Germany</label>
+                            </label>
+                            <label for="loc-dublin-ireland" class="go-across" >
+                                <input class="checkbox-location" id="loc-dublin-ireland" name="dublin-ireland" type="checkbox" value="Dublin, Ireland">
+                                <label class="small--bold" for="loc-dublin-ireland">Dublin, Ireland</label>
+                            </label>
+                            <label for="loc-madrid-spain" class="go-across" >
+                                <input class="checkbox-location" id="loc-madrid-spain" name="madrid-spain" type="checkbox" value="Madrid, Spain">
+                                <label class="small--bold" for="loc-madrid-spain">Madrid, Spain</label>
+                            </label>
+                            <label for="loc-florence-italy" class="go-across" >
+                                <input class="checkbox-location" id="loc-florence-italy" name="florence-itely" type="checkbox" value="Florence, Italy">
+                                <label class="small--bold" for="loc-florence-italy">Florence, Italy</label>
+                            </label>
+                            <label for="loc-florence-italy" class="go-across" >
+                                <input class="checkbox-location" id="loc-florence-italy" name="florence-itely" type="checkbox" value="Florence, Italy">
+                                <label class="small--bold" for="loc-florence-italy">Florence, Italy</label>
+                            </label>
+                            <label for="loc-florence-italy" class="go-across" >
+                                <input class="checkbox-location" id="loc-florence-italy" name="florence-itely" type="checkbox" value="Florence, Italy">
+                                <label class="small--bold" for="loc-florence-italy">Florence, Italy</label>
+                            </label>
+                            <label for="loc-florence-italy" class="go-across" >
+                                <input class="checkbox-location" id="loc-florence-italy" name="florence-itely" type="checkbox" value="Florence, Italy">
+                                <label class="small--bold" for="loc-florence-italy">Florence, Italy</label>
+                            </label>
+                            <label for="loc-florence-italy" class="go-across" >
+                                <input class="checkbox-location" id="loc-florence-italy" name="florence-itely" type="checkbox" value="Florence, Italy">
+                                <label class="small--bold" for="loc-florence-italy">Florence, Italy</label>
+                            </label>
+                        </div>
+
+
                     </div>
                 </div>
 
@@ -140,7 +179,7 @@
                         <div class="content">
                             <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
                             <div class="content-text go-down">
-                                <div class="p--bold" >
+                                <div class="p--bold cut" >
                                     {{ .Name }}
                                 </div>
                             </div>
@@ -156,7 +195,7 @@
                         <div class="content">
                             <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
                             <div class="content-text go-down">
-                                <div class="p--bold" >
+                                <div class="p--bold cut" >
                                     {{ $member = index .Members (random (len .Members)) }}
                                     {{ if gt (len .Members) 1}}
                                     {{ $member }}
@@ -165,16 +204,16 @@
                                     {{ end }}
                                 </div>
                                 {{ if gt (len .Members) 1 }}
-                                <div class="small">
+                                <div class="small cut">
                                     {{ .Name }}
                                 </div>
                                 {{else}}
                                 {{if same $member .Name }}
-                                <div class="small">
+                                <div class="small cut">
                                     Member & Artist
                                 </div>
                                 {{else}}
-                                <div class="small">
+                                <div class="small cut">
                                     aka {{ .Name }}
                                 </div>
                                 {{ end }}
@@ -193,8 +232,8 @@
                             <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
 
                             <div class="content-text go-down">
-                                <div class="p--bold" >{{.TadbAlbum.Album}}</div>
-                                <div class="small">{{.Name}}</div>
+                                <div class="p--bold cut" >{{.TadbAlbum.Album}}</div>
+                                <div class="small cut">{{.Name}}</div>
                             </div>
                         </div>
                         {{ end }}
@@ -209,11 +248,46 @@
                                 <div>2004</div>
                             </div>
                             <div class="content-text go-down">
-                                <div class="p--bold concert">Taylor Swift</div>
+                                <div class="p--bold cut concert">Taylor Swift</div>
                                 <div class="concert">
-                                    <div class="small">London</div>
+                                    <div class="small cut">London</div>
                                     <div class="divider-dot"></div>
-                                    <div class="small">Wembley Arena</div>
+                                    <div class="small cut">Wembley Arena</div>
+                                </div>
+
+
+                            </div>
+
+
+
+                        </div><div class="content">
+                            <div class="pic date">
+                                <div>32 Mar</div>
+                                <div>2004</div>
+                            </div>
+                            <div class="content-text go-down">
+                                <div class="p--bold cut concert">Eras Tour!</div>
+                                <div class="concert">
+                                    <div class="small cut">Taylor Swift</div>
+                                    <div class="divider-dot"></div>
+                                    <div class="small cut">Manchester</div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="content">
+                            <div class="pic date">
+                                <div>32 Mar</div>
+                                <div>2004</div>
+                            </div>
+                            <div class="content-text go-down">
+                                <div class="p--bold cut concert">Eras Tour!</div>
+                                <div class="concert">
+                                    <div class="small cut">Taylor Swift</div>
+                                    <div class="divider-dot"></div>
+                                    <div class="small cut">Manchester</div>
                                 </div>
 
 
@@ -228,28 +302,11 @@
                                 <div>2004</div>
                             </div>
                             <div class="content-text go-down">
-                                <div class="p--bold concert">Eras Tour!</div>
+                                <div class="p--bold cut concert">Eras Tour!</div>
                                 <div class="concert">
-                                    <div class="small">Taylor Swift</div>
+                                    <div class="small cut">Taylor Swift</div>
                                     <div class="divider-dot"></div>
-                                    <div class="small">Manchester</div>
-                                </div>
-                            </div>
-
-
-
-                        </div>
-                        <div class="content">
-                            <div class="pic date">
-                                <div>32 Mar</div>
-                                <div>2004</div>
-                            </div>
-                            <div class="content-text go-down">
-                                <div class="p--bold concert">Eras Tour!</div>
-                                <div class="concert">
-                                    <div class="small">Taylor Swift</div>
-                                    <div class="divider-dot"></div>
-                                    <div class="small">Manchester</div>
+                                    <div class="small cut">Manchester</div>
                                 </div>
 
 
@@ -264,11 +321,11 @@
                                 <div>2004</div>
                             </div>
                             <div class="content-text go-down">
-                                <div class="p--bold concert">Eras Tour!</div>
+                                <div class="p--bold cut concert">Eras Tour!</div>
                                 <div class="concert">
-                                    <div class="small">Taylor Swift</div>
+                                    <div class="small cut">Taylor Swift</div>
                                     <div class="divider-dot"></div>
-                                    <div class="small">Manchester</div>
+                                    <div class="small cut">Manchester</div>
                                 </div>
 
 
@@ -283,11 +340,11 @@
                                 <div>2004</div>
                             </div>
                             <div class="content-text go-down">
-                                <div class="p--bold concert">Eras Tour!</div>
+                                <div class="p--bold cut concert">Eras Tour!</div>
                                 <div class="concert">
-                                    <div class="small">Taylor Swift</div>
+                                    <div class="small cut">Taylor Swift</div>
                                     <div class="divider-dot"></div>
-                                    <div class="small">Manchester</div>
+                                    <div class="small cut">Manchester</div>
                                 </div>
 
 
@@ -302,11 +359,11 @@
                                 <div>2004</div>
                             </div>
                             <div class="content-text go-down">
-                                <div class="p--bold concert">Eras Tour!</div>
+                                <div class="p--bold cut concert">Eras Tour!</div>
                                 <div class="concert">
-                                    <div class="small">Taylor Swift</div>
+                                    <div class="small cut">Taylor Swift</div>
                                     <div class="divider-dot"></div>
-                                    <div class="small">Manchester</div>
+                                    <div class="small cut">Manchester</div>
                                 </div>
 
 
@@ -321,30 +378,11 @@
                                 <div>2004</div>
                             </div>
                             <div class="content-text go-down">
-                                <div class="p--bold concert">Eras Tour!</div>
+                                <div class="p--bold cut concert">Eras Tour!</div>
                                 <div class="concert">
-                                    <div class="small">Taylor Swift</div>
+                                    <div class="small cut">Taylor Swift</div>
                                     <div class="divider-dot"></div>
-                                    <div class="small">Manchester</div>
-                                </div>
-
-
-                            </div>
-
-
-
-                        </div>
-                        <div class="content">
-                            <div class="pic date">
-                                <div>32 Mar</div>
-                                <div>2004</div>
-                            </div>
-                            <div class="content-text go-down">
-                                <div class="p--bold concert">Eras Tour!</div>
-                                <div class="concert">
-                                    <div class="small">Taylor Swift</div>
-                                    <div class="divider-dot"></div>
-                                    <div class="small">Manchester</div>
+                                    <div class="small cut">Manchester</div>
                                 </div>
 
 
@@ -369,8 +407,8 @@
                     {{ if lt $index 10 }}
                     <div class="content">
                         <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}/preview" alt="Profile image of {{.Name}}"/>
-                        <div class="content-text go-down">
-                            <div class="p--bold" >
+                        <div class="content-text go-down-home">
+                            <div class="p--bold cut center" >
                                 {{ if gt (len .Members) 1 }}
                                 <!-- chooses a random index from pool of member -->
                                 {{ index .Members 0}}
@@ -380,7 +418,7 @@
                                 {{ end }}
                             </div>
                             {{ if gt (len .Members) 1 }}
-                            <div class="small">
+                            <div class="small cut">
                                 {{ .Name }}
                             </div>
                             {{ end }}
@@ -405,9 +443,9 @@
                     <div class="content">
                         <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
 
-                        <div class="content-text go-down">
-                            <div class="p--bold" >{{.TadbAlbum.Album}}</div>
-                            <div class="small">{{.Name}}</div>
+                        <div class="content-text go-down-home">
+                            <div class="p--bold cut" >{{.TadbAlbum.Album}}</div>
+                            <div class="small cut">{{.Name}}</div>
                         </div>
                     </div>
                     {{ end }}
@@ -424,12 +462,12 @@
                         <div class="pic date">
                             <div></div>
                         </div>
-                        <div class="content-text go-down">
-                            <div class="p--bold concert">{{.Name}}</div>
+                        <div class="content-text go-down-home">
+                            <div class="p--bold cut concert">{{.Name}}</div>
                             <div class="concert">
-                                <div class="small">{{ .TourDetails.Data}}</div>
+                                <div class="small cut">{{ .TourDetails.Data}}</div>
                                 <div class="divider-dot"></div>
-                                <div class="small"></div>
+                                <div class="small cut"></div>
 
                             </div>
                         </div>
