@@ -324,6 +324,7 @@ a {
 
 .col2 {
     grid-template-columns: 1fr 1fr;
+    flex: 1 1 0;
     @media (max-width: 550px){
         grid-template-columns: none;
     }
@@ -578,25 +579,43 @@ input {
             }
         }
         &::before {
-            content: url('../icons/filter_x24.svg');
-            width: var(--h--2-4);
-            height: var(--h--2-4);
             position: absolute;
             left: var(--h--1-6);
             transition: width 500ms, height 500ms, left 500ms;
         }
+
+        &:has(#button-filter-number)::before {
+            width: var(--h--2-4);
+            height: var(--h--2-4);
+            content: url('../icons/filter_x24.svg');
+        }
+
+        &:has(#button-filter-concert-location)::before {
+            width: 1.6rem;
+            height: 1.6rem;
+            content: url('../icons/map-marker_x16.svg');
+        }
     }
 
-    &#button-filter {
+
+
+    &#button-filter,  &#button-filter-checkbox {
         min-width: 18rem;
         max-width: 26rem;
 
         &::after {
-            content: url('../icons/show_x16.svg');
             display: flex;
             justify-content: center;
             align-items: center;
         }
+    }
+    &#button-filter::after {
+        content: url('../icons/show_x16.svg');
+    }
+
+    &#button-filter-checkbox::after {
+        content: url('../icons/search_x16.svg');
+
     }
     &#album-start-date, &#artist-start-date {
         &::after {
@@ -851,7 +870,7 @@ input[type='range']::-webkit-slider-thumb {
         border: none;
         display: block;
         position: relative;
-        top: 0.75rem;
+        top: 0;
     }
 
     .double-slider-container input[type='range']:nth-child(1),
@@ -891,11 +910,10 @@ input[type='range']::-webkit-slider-thumb {
         height: 0;
         z-index: 2;
         background: none;
-        &::-moz-range-thumb {
-            background: var(--green-3);
-        }
+
     }
-
-
+    #members-max-range::-moz-range-thumb{
+        background: var(--green-1);
+    }
 
 }
