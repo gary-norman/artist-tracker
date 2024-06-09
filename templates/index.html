@@ -35,15 +35,14 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="floating-sm col filter">
-                    <div class="space">
+                    <label for="filter-artist-creation" class="first space">
                         <label for="filter-artist-creation">Artist creation date</label>
                         <label class="switch">
                             <input id="filter-artist-creation" type="checkbox">
                             <span class="slider-button round"></span>
                         </label>
-                    </div>
+                    </label>
                     <div class="filter-open space labels hide">
                         <label for="artist-start-date" class="filter-label small light">
                             Start Date
@@ -65,14 +64,14 @@
                     </div>
                 </div>
                 <div class="floating-sm col filter">
-                    <div class="space">
+                    <label for="filter-album-creation" class="space first">
                         <label for="filter-album-creation">Album creation date</label>
                         <label class="switch">
                             <input id="filter-album-creation" type="checkbox">
                             <span class="slider-button round"></span>
                         </label>
-                    </div>
-                    <div class="filter-open space labels hide">
+                    </label>
+                    <div class="filter-open space labels">
                         <label for="album-start-date" class="filter-label small light">
                             Start Date
                         </label>
@@ -94,13 +93,13 @@
                 </div>
 
                 <div class="floating-sm col filter">
-                    <div class="space">
+                    <label for="filter-members-number" class="space first">
                         <label for="filter-members-number">Number of members</label>
                         <label class="switch">
                             <input id="filter-members-number" type="checkbox">
                             <span class="slider-button round"></span>
                         </label>
-                    </div>
+                    </label>
                     <div class="filter-open double-slider-container">
                         <label id="label-members-min" for="members-min-range" class="range_min  filter-label small">
                             1 Member
@@ -112,20 +111,21 @@
                         <input class="max" id="members-max-range" name="range_1" type="range" min="1" max="10" value="2" />
                     </div>
                 </div>
+
             </div>
             <div class="container">
                 <div id="search-artists" class="col col1">
                     <h2>Artists</h2>
                     <div class="col col3">
                         {{ range . }}
-                            <div class="content">
-                                <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
-                                <div class="content-text go-down">
-                                    <div class="p--bold" >
-                                        {{ .Name }}
-                                    </div>
+                        <div class="content">
+                            <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
+                            <div class="content-text go-down">
+                                <div class="p--bold" >
+                                    {{ .Name }}
                                 </div>
                             </div>
+                        </div>
                         {{ end }}
                     </div>
                 </div>
@@ -146,19 +146,19 @@
                                     {{ end }}
                                 </div>
                                 {{ if gt (len .Members) 1 }}
-                                    <div class="small">
-                                        {{ .Name }}
-                                    </div>
+                                <div class="small">
+                                    {{ .Name }}
+                                </div>
                                 {{else}}
-                                    {{if same $member .Name }}
-                                    <div class="small">
-                                        Member & Artist
-                                    </div>
-                                    {{else}}
-                                    <div class="small">
-                                        aka {{ .Name }}
-                                    </div>
-                                    {{ end }}
+                                {{if same $member .Name }}
+                                <div class="small">
+                                    Member & Artist
+                                </div>
+                                {{else}}
+                                <div class="small">
+                                    aka {{ .Name }}
+                                </div>
+                                {{ end }}
                                 {{ end }}
                             </div>
 
@@ -171,7 +171,7 @@
                     <div class="col col2">
                         {{ range . }}
                         <div class="content">
-                                <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
+                            <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
 
                             <div class="content-text go-down">
                                 <div class="p--bold" >{{.TadbAlbum.Album}}</div>
@@ -215,8 +215,6 @@
                                     <div class="divider-dot"></div>
                                     <div class="small">Manchester</div>
                                 </div>
-
-
                             </div>
 
 
@@ -349,29 +347,29 @@
                 <h2>Discover Artists and Members</h2>
                 <div class="row row-sm">
                     {{ range $index, $element := . }}
-                        {{ if lt $index 10 }}
-                        <div class="content">
-                                    <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}/preview" alt="Profile image of {{.Name}}"/>
-                                    <div class="content-text go-down">
-                                        <div class="p--bold" >
-                                            {{ if gt (len .Members) 1 }}
-                                            <!-- chooses a random index from pool of member -->
-                                            {{ index .Members 0}}
-                                            {{ else }}
-                                            <!-- If there's only 1 member or no members, display the ArtistName -->
-                                            {{ .Name }}
-                                            {{ end }}
-                                        </div>
-                                        {{ if gt (len .Members) 1 }}
-                                            <div class="small">
-                                                {{ .Name }}
-                                            </div>
-                                        {{ end }}
-
-                                    </div>
-
+                    {{ if lt $index 10 }}
+                    <div class="content">
+                        <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}/preview" alt="Profile image of {{.Name}}"/>
+                        <div class="content-text go-down">
+                            <div class="p--bold" >
+                                {{ if gt (len .Members) 1 }}
+                                <!-- chooses a random index from pool of member -->
+                                {{ index .Members 0}}
+                                {{ else }}
+                                <!-- If there's only 1 member or no members, display the ArtistName -->
+                                {{ .Name }}
+                                {{ end }}
                             </div>
-                        {{ end }}
+                            {{ if gt (len .Members) 1 }}
+                            <div class="small">
+                                {{ .Name }}
+                            </div>
+                            {{ end }}
+
+                        </div>
+
+                    </div>
+                    {{ end }}
                     {{ end }}
                 </div>
             </div>
@@ -384,16 +382,16 @@
                 <h2>Trending Albums</h2>
                 <div class="row">
                     {{ range $index, $element := . }}
-                        {{ if lt $index 10 }}
-                            <div class="content">
-                                <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
+                    {{ if lt $index 10 }}
+                    <div class="content">
+                        <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
 
-                                <div class="content-text go-down">
-                                    <div class="p--bold" >{{.TadbAlbum.Album}}</div>
-                                    <div class="small">{{.Name}}</div>
-                                </div>
-                            </div>
-                        {{ end }}
+                        <div class="content-text go-down">
+                            <div class="p--bold" >{{.TadbAlbum.Album}}</div>
+                            <div class="small">{{.Name}}</div>
+                        </div>
+                    </div>
+                    {{ end }}
                     {{ end }}
                 </div>
             </div>
