@@ -137,12 +137,13 @@ a {
 }
 
 .small {
-    /*display: inline;*/
+    display: flex;
     font-family: "Inter", sans-serif;
     font-size: var(--h--1-2);
     font-weight:  var(--font-weight-400);
     font-style: normal;
     line-height: normal;
+    justify-content: flex-start;
 
     &.light {
         color: var(--white-2);
@@ -390,17 +391,14 @@ a {
     overflow-x: auto;
     align-items: stretch;
 
-    & .content{
-        height: auto;
-        & .go-down {
-            align-items: center;
-            text-align: center;
+    & .content {
+        & .small {
+            justify-content: center;
         }
     }
+
     & > * {
         flex-direction: column;
-
-
     }
 }
 
@@ -418,8 +416,8 @@ a {
 .col2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     width: 100%;
-    @media (max-width: 550px){
-        grid-template-columns: none;
+    @media (max-width: 500px){
+        grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 }
 
@@ -429,10 +427,10 @@ a {
     width: 100%;
 
     @media (max-width: 800px) {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    @media (max-width: 550px){
-        grid-template-columns: none;
+    @media (max-width: 500px){
+        grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 }
 
@@ -538,7 +536,8 @@ input {
     padding: var(--h--0-8);
     gap: var(--h--1-2);
     border-radius: var(--radius-md);
-    flex: 1 1 1fr;
+    flex: 1 1 auto;
+    height: auto;
 
     &:hover {
         background-color: var(--grey-2);
@@ -591,11 +590,13 @@ input {
             text-align: center;
             width: clamp(10rem, 14rem, 16rem);
         }
+        &.go-down-home:has(.concert) {
+            text-align: left;
+        }
     }
 
     & .concert {
-        display: flex;
-        width: 50%;
+        width: 100%;
         align-items: center;
         justify-content: flex-start;
         gap: var(--h--0-8);
@@ -849,6 +850,8 @@ input {
 
 .filter-label-sm {
     width: 8rem;
+    text-align: center;
+    justify-content: center;
 
 
     @media (max-width: 800px) {

@@ -11,11 +11,12 @@ var Tpl *template.Template
 
 func init() {
 	Tpl = template.Must(template.New("").Funcs(template.FuncMap{
-		"random":    RandomInt,
-		"increment": Increment,
-		"decrement": Decrement,
-		"check":     CheckArtistContainsName,
-		"same":      CheckSameName,
+		"random":     RandomInt,
+		"increment":  Increment,
+		"decrement":  Decrement,
+		"check":      CheckArtistContainsName,
+		"same":       CheckSameName,
+		"formatDate": ParseDate,
 	}).ParseGlob("templates/*.html"))
 }
 
@@ -50,6 +51,18 @@ func Shuffle(slice []int) {
 		j := rand.Intn(i + 1)
 		slice[i], slice[j] = slice[j], slice[i]
 	}
+}
+
+func ParseDate(dateStr string) (DateParts, error) {
+	date, err := time.Parse("02-01-2006", dateStr)
+	if err != nil {
+		return DateParts{}, err
+	}
+	return DateParts{
+		Day:   date.Format("02"),
+		Month: date.Format("Jan"),
+		Year:  date.Format("2006"),
+	}, nil
 }
 
 func GetTemplate() *template.Template {

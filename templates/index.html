@@ -446,25 +446,32 @@
 
         </section>
         <section id="home-concerts" class="container">
-            <div  class="scroll col col1">
+            <div  class="container scroll col col1">
                 <h2>Concerts</h2>
                 <div class="col col3">
-                    {{ range .}}
+                    {{ range . }}
+                    {{ $artist := . }}
+                    {{ range $location, $dates := $artist.DatesLocations }}
+                    {{ range $date := $dates }}
+                    {{ $dateParts := formatDate $date }}
                     <div class="content">
                         <div class="pic date">
-                            <div></div>
+                            <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
+<!--                            <div>{{ $dateParts.Month }}</div>-->
+                            <div>{{ $dateParts.Year }}</div>
                         </div>
                         <div class="content-text go-down-home">
-                            <div class="p--bold cut concert">{{.Name}}</div>
+                            <div class="p--bold cut concert">{{ $artist.Name }}</div>
                             <div class="concert">
-                                <div class="small light">{{ .TourDetails.Data}}</div>
-                                <div class="divider-dot"></div>
-                                <div class="small light cut"></div>
-
+                                <div class="small light cut">{{ $location }}</div>
+<!--                                <div class="divider-dot"></div>-->
+<!--                                <div class="small light cut"></div>-->
                             </div>
                         </div>
                     </div>
-                    {{end}}
+                    {{ end }}
+                    {{ end }}
+                    {{ end }}
 
 
                 </div>

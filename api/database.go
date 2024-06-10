@@ -68,6 +68,12 @@ type TheAudioDbArtist struct {
 	MusicBrainzID   string `json:"strMusicBrainzID"`
 }
 
+type DateParts struct {
+	Day   string
+	Month string
+	Year  string
+}
+
 // Create a multi printer instance from the default one
 var multi = pterm.DefaultMultiPrinter
 
