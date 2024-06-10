@@ -239,157 +239,29 @@
                     <div id="search-concerts" class="col col1">
                         <h2>Concerts</h2>
                         <div class="col col3">
+                            {{ range . }}
+                            {{ $artist := . }}
+                            {{ range $location, $dates := $artist.DatesLocations }}
+                            {{ $sortedDates := sortDates $dates }}
+                            {{ range $date := $sortedDates }}
+                            {{ $dateParts := formatDate $date }}
                             <div class="content">
                                 <div class="pic date">
-                                    <div>32 Mar</div>
-                                    <div>2004</div>
+                                    <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
+                                    <div>{{ $dateParts.Year }}</div>
                                 </div>
-                                <div class="content-text go-down">
-                                    <div class="p--bold cut concert">Taylor Swift</div>
+                                <div class="content-text go-down-home">
+                                    <div class="p--bold cut concert">{{ $artist.Name }}</div>
                                     <div class="concert">
-                                        <div class="small cut">London</div>
-                                        <div class="divider-dot"></div>
-                                        <div class="small cut">Wembley Arena</div>
+                                        <div class="small light cut">{{ $location }}</div>
+                                        <!--                                <div class="divider-dot"></div>-->
+                                        <!--                                <div class="small light cut"></div>-->
                                     </div>
-
-
-                                </div>
-
-
-
-                            </div><div class="content">
-                            <div class="pic date">
-                                <div>32 Mar</div>
-                                <div>2004</div>
-                            </div>
-                            <div class="content-text go-down">
-                                <div class="p--bold cut concert">Eras Tour!</div>
-                                <div class="concert">
-                                    <div class="small cut">Taylor Swift</div>
-                                    <div class="divider-dot"></div>
-                                    <div class="small cut">Manchester</div>
                                 </div>
                             </div>
-
-
-
-                        </div>
-                            <div class="content">
-                                <div class="pic date">
-                                    <div>32 Mar</div>
-                                    <div>2004</div>
-                                </div>
-                                <div class="content-text go-down">
-                                    <div class="p--bold cut concert">Eras Tour!</div>
-                                    <div class="concert">
-                                        <div class="small cut">Taylor Swift</div>
-                                        <div class="divider-dot"></div>
-                                        <div class="small cut">Manchester</div>
-                                    </div>
-
-
-                                </div>
-
-
-
-                            </div>
-                            <div class="content">
-                                <div class="pic date">
-                                    <div>32 Mar</div>
-                                    <div>2004</div>
-                                </div>
-                                <div class="content-text go-down">
-                                    <div class="p--bold cut concert">Eras Tour!</div>
-                                    <div class="concert">
-                                        <div class="small cut">Taylor Swift</div>
-                                        <div class="divider-dot"></div>
-                                        <div class="small cut">Manchester</div>
-                                    </div>
-
-
-                                </div>
-
-
-
-                            </div>
-                            <div class="content">
-                                <div class="pic date">
-                                    <div>32 Mar</div>
-                                    <div>2004</div>
-                                </div>
-                                <div class="content-text go-down">
-                                    <div class="p--bold cut concert">Eras Tour!</div>
-                                    <div class="concert">
-                                        <div class="small cut">Taylor Swift</div>
-                                        <div class="divider-dot"></div>
-                                        <div class="small cut">Manchester</div>
-                                    </div>
-
-
-                                </div>
-
-
-
-                            </div>
-                            <div class="content">
-                                <div class="pic date">
-                                    <div>32 Mar</div>
-                                    <div>2004</div>
-                                </div>
-                                <div class="content-text go-down">
-                                    <div class="p--bold cut concert">Eras Tour!</div>
-                                    <div class="concert">
-                                        <div class="small cut">Taylor Swift</div>
-                                        <div class="divider-dot"></div>
-                                        <div class="small cut">Manchester</div>
-                                    </div>
-
-
-                                </div>
-
-
-
-                            </div>
-                            <div class="content">
-                                <div class="pic date">
-                                    <div>32 Mar</div>
-                                    <div>2004</div>
-                                </div>
-                                <div class="content-text go-down">
-                                    <div class="p--bold cut concert">Eras Tour!</div>
-                                    <div class="concert">
-                                        <div class="small cut">Taylor Swift</div>
-                                        <div class="divider-dot"></div>
-                                        <div class="small cut">Manchester</div>
-                                    </div>
-
-
-                                </div>
-
-
-
-                            </div>
-                            <div class="content">
-                                <div class="pic date">
-                                    <div>32 Mar</div>
-                                    <div>2004</div>
-                                </div>
-                                <div class="content-text go-down">
-                                    <div class="p--bold cut concert">Eras Tour!</div>
-                                    <div class="concert">
-                                        <div class="small cut">Taylor Swift</div>
-                                        <div class="divider-dot"></div>
-                                        <div class="small cut">Manchester</div>
-                                    </div>
-
-
-                                </div>
-
-
-
-                            </div>
-
-
+                            {{ end }}
+                            {{ end }}
+                            {{ end }}
                         </div>
                     </div>
                 </div>
@@ -452,8 +324,8 @@
                     {{ range . }}
                     {{ $artist := . }}
                     {{ range $location, $dates := $artist.DatesLocations }}
-                    {{ $sortedDates := sortDates $dates }}
-                    {{ range $date := $sortedDates }}
+                    {{ $randomDates := randomiseDates $dates }}
+                    {{ range $date := $randomDates }}
                     {{ $dateParts := formatDate $date }}
                     <div class="content">
                         <div class="pic date">
@@ -472,8 +344,6 @@
                     {{ end }}
                     {{ end }}
                     {{ end }}
-
-
                 </div>
             </div>
         </section>

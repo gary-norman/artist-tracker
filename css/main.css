@@ -279,7 +279,7 @@ a {
         gap: 0;
     }
 
-    &#search-results {
+    &#search-results, &#home-concerts > .scroll {
         max-height: 60rem;
         overflow-x: hidden;
         display: flex;
@@ -291,7 +291,9 @@ a {
 
 
 
-    &#home-albums, &#home-artists, &#home-concerts {
+
+
+    &#home-albums, &#home-artists{
         overflow-y: hidden;
         padding-top: 2.4rem;
         padding-left: 0.4rem;
