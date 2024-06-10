@@ -110,8 +110,18 @@ function updateDoubleSliderBackground(slider1, slider2) {
 
     function updateRangeLabel(range_min, range_max, minVal, maxVal) {
         if (window.innerWidth < 800) {
-            $(range_min).html(addSeparator(minVal));
-            $(range_max).html(addSeparator(maxVal));
+            if (minVal === 10) {
+                $(range_min).html(addSeparator(minVal) + '+');
+            } else {
+                $(range_min).html(addSeparator(minVal));
+            }
+
+            if (maxVal === 10) {
+                $(range_max).html(addSeparator(maxVal) + '+');
+            } else {
+                $(range_max).html(addSeparator(maxVal));
+            }
+
         } else {
             var minText = minVal > 9 ? addSeparator(minVal) + '+ Members' : minVal > 1 ? addSeparator(minVal) + ' Members' : addSeparator(minVal) + ' Member';
             var maxText = maxVal > 9 ? addSeparator(maxVal) + '+ Members' : maxVal > 1 ? addSeparator(maxVal) + ' Members' : addSeparator(maxVal) + ' Member';
@@ -159,8 +169,14 @@ function updateDoubleSliderBackground(slider1, slider2) {
 
 
 
-        if (window.innerWidth < 500) {
+        if (window.innerWidth < 400) {
+            const position = ((sliderValue - sliderMin) / (sliderMax - sliderMin)) * 93;
+            label.style.left = `calc(${position}% - 0.4rem)`;
+        } else if (window.innerWidth < 500) {
             const position = ((sliderValue - sliderMin) / (sliderMax - sliderMin)) * 94.5;
+            label.style.left = `calc(${position}% - 0.4rem)`;
+        } else if (window.innerWidth < 600) {
+            const position = ((sliderValue - sliderMin) / (sliderMax - sliderMin)) * 95;
             label.style.left = `calc(${position}% - 0.4rem)`;
         } else if (window.innerWidth < 800){
             const position = ((sliderValue - sliderMin) / (sliderMax - sliderMin)) * 96;

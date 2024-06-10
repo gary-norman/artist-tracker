@@ -20,14 +20,14 @@
             <div class="small center">by Gary Norman & Kamil Ornal</div>
         </section>
 
-        <section id="search-container" class="search-container">
+        <section class="search-container">
             <div class="search-input">
                 <label for="search-input"></label>
                 <input type="text" name="search-input" id="search-input" value="" placeholder="Search artist"  >
             </div>
             <h3 class="floating-md">Recent searches</h3>
             <div class="floating-md filters go-down">
-                <div class="filters">
+                <div class="space">
                     <h3 class="small light center">Showing 6 results</h3>
                     <div class="button-2" id="button-filter">
                         <div class="button-container">
@@ -44,10 +44,10 @@
                         </label>
                     </label>
                     <div class="filter-open space labels hide">
-                        <label for="artist-start-date" class="filter-label small light">
+                        <label for="artist-start-date" class="filter-label-md small light">
                             Start Date
                         </label>
-                        <label for="artist-end-date" class="filter-label small light">
+                        <label for="artist-end-date" class="filter-label-md small light">
                             End Date
                         </label>
                     </div>
@@ -55,7 +55,7 @@
                         <label class="button-2 small" id="artist-start-date">
                             Pick a date
                         </label>
-                        <label for="artist-date-range" class="small" id="artist-end-date">
+                        <label for="artist-date-range" class="filter-label-md small" id="artist-end-date">
                             11 / 01 / 1990
                         </label>
                     </div>
@@ -72,10 +72,10 @@
                         </label>
                     </label>
                     <div class="filter-open space labels">
-                        <label for="album-start-date" class="filter-label small light">
+                        <label for="album-start-date" class="filter-label-md small light">
                             Start Date
                         </label>
-                        <label for="album-end-date" class="filter-label small light">
+                        <label for="album-end-date" class="filter-label-md small light">
                             End Date
                         </label>
                     </div>
@@ -83,7 +83,7 @@
                         <label class="button-2 small" id="album-start-date">
                             Pick a date
                         </label>
-                        <label for="album-date-range" class="small" id="album-end-date">
+                        <label for="album-date-range" class="filter-label-md small" id="album-end-date">
                             11 / 01 / 1990
                         </label>
                     </div>
@@ -91,7 +91,6 @@
                         <input id="album-date-range" type="range" min="1" max="100" value="0" class="slider" >
                     </div>
                 </div>
-
                 <div class="floating-sm col filter">
                     <label for="filter-members-number" class="space first">
                         <label for="filter-members-number">Number of members</label>
@@ -101,17 +100,16 @@
                         </label>
                     </label>
                     <div class="filter-open double-slider-container">
-                        <label id="label-members-min" for="members-min-range" class="range_min  filter-label small">
+                        <label id="label-members-min" for="members-min-range" class="range_min filter-label-sm small">
                             1 Member
                         </label>
-                        <label id="label-members-max" for="members-max-range" class="range_max  filter-label small">
+                        <label id="label-members-max" for="members-max-range" class="range_max filter-label-sm small">
                             2 Members
                         </label>
                         <input class="min" id="members-min-range" name="range_1" type="range" min="1" max="10" value="1" />
                         <input class="max" id="members-max-range" name="range_1" type="range" min="1" max="10" value="2" />
                     </div>
                 </div>
-
                 <div class="floating-sm col filter">
                     <label for="filter-concert-location" class="space first">
                         <label for="filter-checkbox-locations">Concert location</label>
@@ -120,58 +118,54 @@
                             <span class="slider-button round"></span>
                         </label>
                     </label>
-                    <div class="filter-open checkbox-container col col2">
+                    <div class="filter-open col col2">
                         <div class="button-2" id="button-filter-checkbox">
                             <div class="button-container">
                                 <p id="button-filter-concert-location" class="small">Search location</p>
                             </div>
                         </div>
-                        <div id="filter-checkbox-locations" class="container go-down col col1 ">
-                            <label for="loc-london-uk" class="go-across" >
-                                <input class="checkbox-location" id="loc-london-uk" name="london-uk" type="checkbox" value="London, UK">
-                                <label class="small--bold" for="loc-london-uk">London, UK</label>
+                        <div id="filter-checkbox-locations" class="scroll container go-down col col1 ">
+                            <label for="loc-london-uk" class="checkbox-location go-across " >
+                                <input class="checkbox-location" id="loc-london-uk" name="loc-london-uk" type="checkbox" value="London, UK">
+                                <label class="checkbox-location small--bold" for="loc-london-uk">London, UK</label>
                             </label>
-                            <label for="loc-berlin-germany" class="go-across" >
-                                <input class="checkbox-location" id="loc-berlin-germany" name="berlin-germany" type="checkbox" value="Berlin, Germany">
-                                <label class="small--bold" for="loc-berlin-germany">Berlin, Germany</label>
+                            <label for="loc-berlin-germany" class="checkbox-location go-across" >
+                                <input class="checkbox-location" id="loc-berlin-germany" name="loc-berlin-germany" type="checkbox" value="Berlin, Germany">
+                                <label class="checkbox-location small--bold" for="loc-berlin-germany">Berlin, Germany</label>
                             </label>
-                            <label for="loc-dublin-ireland" class="go-across" >
-                                <input class="checkbox-location" id="loc-dublin-ireland" name="dublin-ireland" type="checkbox" value="Dublin, Ireland">
-                                <label class="small--bold" for="loc-dublin-ireland">Dublin, Ireland</label>
+                            <label for="loc-dublin-ireland" class="checkbox-location go-across" >
+                                <input class="checkbox-location" id="loc-dublin-ireland" name="loc-dublin-ireland" type="checkbox" value="Dublin, Ireland">
+                                <label class="checkbox-location small--bold" for="loc-dublin-ireland">Dublin, Ireland</label>
                             </label>
-                            <label for="loc-madrid-spain" class="go-across" >
-                                <input class="checkbox-location" id="loc-madrid-spain" name="madrid-spain" type="checkbox" value="Madrid, Spain">
-                                <label class="small--bold" for="loc-madrid-spain">Madrid, Spain</label>
+                            <label for="loc-madrid-spain" class="checkbox-location go-across" >
+                                <input class="checkbox-location" id="loc-madrid-spain" name="loc-madrid-spain" type="checkbox" value="Madrid, Spain">
+                                <label class="checkbox-location small--bold" for="loc-madrid-spain">Madrid, Spain</label>
                             </label>
-                            <label for="loc-florence-italy" class="go-across" >
-                                <input class="checkbox-location" id="loc-florence-italy" name="florence-itely" type="checkbox" value="Florence, Italy">
-                                <label class="small--bold" for="loc-florence-italy">Florence, Italy</label>
+                            <label for="loc-florence-italy" class="checkbox-location go-across" >
+                                <input class="checkbox-location" id="loc-osaka-japan" name="loc-osaka-japan" type="checkbox" value="Osaka, Japan">
+                                <label class="checkbox-location small--bold" for="loc-osaka-japan">Osaka, Japan</label>
                             </label>
-                            <label for="loc-florence-italy" class="go-across" >
-                                <input class="checkbox-location" id="loc-florence-italy" name="florence-itely" type="checkbox" value="Florence, Italy">
-                                <label class="small--bold" for="loc-florence-italy">Florence, Italy</label>
+                            <label for="loc-florence-italy" class="checkbox-location go-across" >
+                                <input class="checkbox-location" id="loc-florence-italy" name="loc-florence-italy" type="checkbox" value="Florence, Italy">
+                                <label class="checkbox-location small--bold" for="loc-florence-italy">Florence, Italy</label>
                             </label>
-                            <label for="loc-florence-italy" class="go-across" >
-                                <input class="checkbox-location" id="loc-florence-italy" name="florence-itely" type="checkbox" value="Florence, Italy">
-                                <label class="small--bold" for="loc-florence-italy">Florence, Italy</label>
+                            <label for="loc-florence-italy" class="checkbox-location go-across" >
+                                <input class="checkbox-location" id="loc-lima-peru" name="loc-lima-peru" type="checkbox" value="Lima, Peru">
+                                <label class="checkbox-location small--bold" for="loc-lima-peru">Lima, Peru</label>
                             </label>
-                            <label for="loc-florence-italy" class="go-across" >
-                                <input class="checkbox-location" id="loc-florence-italy" name="florence-itely" type="checkbox" value="Florence, Italy">
-                                <label class="small--bold" for="loc-florence-italy">Florence, Italy</label>
+                            <label for="loc-florence-italy" class="checkbox-location go-across" >
+                                <input class="checkbox-location" id="loc-cairo-egypt" name="loc-cairo-egypt" type="checkbox" value="Cairo, Egypt">
+                                <label class="checkbox-location small--bold" for="loc-cairo-egypt">Cairo, Egypt</label>
                             </label>
-                            <label for="loc-florence-italy" class="go-across" >
-                                <input class="checkbox-location" id="loc-florence-italy" name="florence-itely" type="checkbox" value="Florence, Italy">
-                                <label class="small--bold" for="loc-florence-italy">Florence, Italy</label>
+                            <label for="loc-florence-italy" class="checkbox-location go-across" >
+                                <input class="checkbox-location" id="loc-toronto-canada" name="loc-toronto-canada" type="checkbox" value="Toronto, Canada">
+                                <label class="checkbox-location small--bold" for="loc-toronto-canada">Toronto, Canada</label>
                             </label>
                         </div>
-
-
                     </div>
                 </div>
-
-
             </div>
-            <div class="container">
+            <div id="search-results" class="scroll container">
                 <div id="search-artists" class="col col1">
                     <h2>Artists</h2>
                     <div class="col col3">
@@ -397,47 +391,41 @@
                 </div>
             </div>
         </section>
-
-
-        <section id="home-artists" class="container">
-            <div class="col col1">
-                <h2>Discover Artists and Members</h2>
-                <div class="row row-sm">
-                    {{ range $index, $element := . }}
-                    {{ if lt $index 10 }}
-                    <div class="content">
-                        <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}/preview" alt="Profile image of {{.Name}}"/>
-                        <div class="content-text go-down-home">
-                            <div class="p--bold cut center" >
-                                {{ if gt (len .Members) 1 }}
-                                <!-- chooses a random index from pool of member -->
-                                {{ index .Members 0}}
-                                {{ else }}
-                                <!-- If there's only 1 member or no members, display the ArtistName -->
-                                {{ .Name }}
-                                {{ end }}
-                            </div>
+        <section id="home-artists" class=" container col col1">
+            <h2>Discover Artists and Members</h2>
+            <div class="scroll row row-sm">
+                {{ range $index, $element := . }}
+                {{ if lt $index 10 }}
+                <div class="content">
+                    <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}/preview" alt="Profile image of {{.Name}}"/>
+                    <div class="content-text go-down-home">
+                        <div class="p--bold cut center" >
                             {{ if gt (len .Members) 1 }}
-                            <div class="small cut">
-                                {{ .Name }}
-                            </div>
+                            <!-- chooses a random index from pool of member -->
+                            {{ index .Members 0}}
+                            {{ else }}
+                            <!-- If there's only 1 member or no members, display the ArtistName -->
+                            {{ .Name }}
                             {{ end }}
-
                         </div>
+                        {{ if gt (len .Members) 1 }}
+                        <div class="small light cut">
+                            {{ .Name }}
+                        </div>
+                        {{ end }}
 
                     </div>
-                    {{ end }}
-                    {{ end }}
+
                 </div>
+                {{ end }}
+                {{ end }}
             </div>
-
-
-
         </section>
-        <section id="home-albums" class="container">
-            <div class="col col1">
+
+        <section id="home-albums" class="container col col1">
+
                 <h2>Trending Albums</h2>
-                <div class="row">
+                <div class="row scroll">
                     {{ range $index, $element := . }}
                     {{ if lt $index 10 }}
                     <div class="content">
@@ -445,16 +433,16 @@
 
                         <div class="content-text go-down-home">
                             <div class="p--bold cut" >{{.TadbAlbum.Album}}</div>
-                            <div class="small cut">{{.Name}}</div>
+                            <div class="small light cut">{{.Name}}</div>
                         </div>
                     </div>
                     {{ end }}
                     {{ end }}
                 </div>
-            </div>
+
         </section>
         <section id="home-concerts" class="container">
-            <div  class="col col1">
+            <div  class="scroll col col1">
                 <h2>Concerts</h2>
                 <div class="col col3">
                     {{ range .}}
@@ -465,9 +453,9 @@
                         <div class="content-text go-down-home">
                             <div class="p--bold cut concert">{{.Name}}</div>
                             <div class="concert">
-                                <div class="small cut">{{ .TourDetails.Data}}</div>
+                                <div class="small light">{{ .TourDetails.Data}}</div>
                                 <div class="divider-dot"></div>
-                                <div class="small cut"></div>
+                                <div class="small light cut"></div>
 
                             </div>
                         </div>

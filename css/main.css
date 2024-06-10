@@ -66,15 +66,15 @@ html {
 }
 
 body {
-    scrollbar-color: var(--green-0) var(--grey-1);
-    scrollbar-width: thin;
-    scrollbar
     margin: 0 auto;
     background: var(--main-bg-grad);
     font-family: "Inter", sans-serif;
     font-size: var(--h--1-6);
     color: var(--white-0);
+
+
 }
+
 
 *, *::before, *::after {
     outline: 1px solid dimgrey;
@@ -207,6 +207,32 @@ a {
     color: var(--white-2);
 }
 
+/* scrollbar styling */
+.scroll {
+
+    padding-right: 1rem;
+    &::-webkit-scrollbar {
+        width: 0.8rem;
+        height: 0.8rem;
+    }
+    &::-webkit-scrollbar-track {
+        margin: 0.4rem;
+        width: 0.8rem;
+        height: 0.8rem;
+        background: var(--grey-1);
+        border-radius: var(--radius-lg);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--green-0);
+        border-radius: var(--radius-lg);
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: var(--green-1);
+    }
+}
+
 
 /* containers */
 .wrapper {
@@ -239,18 +265,25 @@ a {
     &#filter-checkbox-locations {
         padding: var(--h--0-8) ;
         max-height: 20rem;
-        overflow: auto;
+        overflow-y: auto;
     }
+
+    &#search-results {
+        max-height: 60rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    &#home-albums, &#home-artists, &#home-concerts {
+        overflow-y: hidden;
+        overflow-x: scroll;
+    }
+
 
     @media (max-width: 800px) {
         border-radius:  var(--radius-md);
         padding: var(--h--1-2) ;
     }
-}
-
-.checkbox-container {
-
-    overflow-y: scroll;
 }
 
 .logo-container {
@@ -312,7 +345,7 @@ a {
     display: flex;
     flex-wrap: nowrap;
     gap: var(--h--1-2);
-    overflow-x: scroll;
+    overflow-x: auto;
     padding-bottom: var(--h--1-2);
 
     & .content{
@@ -331,16 +364,16 @@ a {
 .col {
     display: grid;
     gap: var(--h--1-2);
-    overflow: hidden;
+    height: max-content;
 }
 
 .col1 {
-    grid-template-columns: none;
-    /*width: 100%;*/
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    width: 100%;
 }
 
 .col2 {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     width: 100%;
     @media (max-width: 550px){
         grid-template-columns: none;
@@ -349,7 +382,7 @@ a {
 
 .col3 {
 
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     width: 100%;
 
     @media (max-width: 800px) {
@@ -382,15 +415,17 @@ input {
 
     &.checkbox-location {
         appearance: none;
-        background: var(--grey-2);
+        background: var(--grey-3);
         width: 2rem;
         height: 2rem;
         border: 0.2rem solid var(--white-4);
+        cursor: pointer;
 
         &:hover {
-            background-color: var(--grey-2);
+            background-color: var(--grey-5);
             /*opacity: 90%;*/
-            border: 0.2rem solid var(--grey-1);
+            border: 0.2rem solid var(--grey-0);
+            cursor: pointer;
         }
 
         &:focus-visible {
@@ -411,6 +446,7 @@ input {
             &:hover {
                 border-width: 0.2rem;
                 border-color: var(--green-2);
+                cursor: pointer;
             }
 
             &:after {
@@ -528,7 +564,6 @@ input {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: 1.2rem;
 }
 
 .filter {
@@ -561,9 +596,7 @@ input {
     }
 
 
-    & .filter-label {
-        width: 15rem;
-    }
+
 
 
     & #album-start-date, #artist-start-date {
@@ -574,10 +607,10 @@ input {
         max-width: 15rem;
     }
 
-    & #album-end-date, #artist-end-date {
-        padding: 0;
-        min-width: 15rem;
-    }
+    /*& #album-end-date, #artist-end-date {*/
+    /*    padding: 0;*/
+    /*    min-width: 15rem;*/
+    /*}*/
 }
 
 .filter-open {
@@ -658,15 +691,21 @@ input {
         }
 
         &:has(#button-filter-number)::before {
-            width: var(--h--2-4);
-            height: var(--h--2-4);
+            width: 2.4rem;
+            height: 2.4rem;
             content: url('../icons/filter_x24.svg');
+            @media (max-width:500px){
+                width: 1.6rem;
+                height: 1.6rem;
+                content: url('../icons/filter_x16.svg');
+            }
         }
 
         &:has(#button-filter-concert-location)::before {
             width: 1.6rem;
             height: 1.6rem;
             content: url('../icons/map-marker_x16.svg');
+
         }
     }
 
@@ -683,18 +722,37 @@ input {
         }
     }
     &#button-filter::after {
-        content: url('../icons/show_x16.svg');
+        width: 2.4rem;
+        height: 2.4rem;
+        content: url('../icons/show_x24.svg');
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media (max-width:500px){
+            width: 1.6rem;
+            height: 1.6rem;
+            content: url('../icons/show_x16.svg');
+        }
     }
 
     &#button-filter-checkbox::after {
+        width: 1.6rem;
+        height: 1.6rem;
         content: url('../icons/search_x16.svg');
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
     }
     &#album-start-date, &#artist-start-date {
         &::after {
+            width: 1.6rem;
+            height: 1.6rem;
             content: url('../icons/calendar_x16.svg');
             display: flex;
             justify-content: center;
+            align-self: center;
+            align-content: center;
             align-items: center;
         }
     }
@@ -716,6 +774,20 @@ input {
         height: var(--h--1-6);
         left: var(--h--1-2);
     }
+}
+
+.filter-label-sm {
+    width: 8rem;
+
+
+    @media (max-width: 800px) {
+        width: 3.2rem;
+    }
+}
+
+.filter-label-md {
+    padding: 0;
+    width: 15rem;
 }
 
 
