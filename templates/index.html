@@ -201,16 +201,16 @@
                                         {{ end }}
                                     </div>
                                     {{ if gt (len .Members) 1 }}
-                                    <div class="small cut">
+                                    <div class="small light cut">
                                         {{ .Name }}
                                     </div>
                                     {{else}}
                                     {{if same $member .Name }}
-                                    <div class="small cut">
+                                    <div class="small light cut">
                                         Member & Artist
                                     </div>
                                     {{else}}
-                                    <div class="small cut">
+                                    <div class="small light cut">
                                         aka {{ .Name }}
                                     </div>
                                     {{ end }}
@@ -230,7 +230,7 @@
 
                                 <div class="content-text go-down">
                                     <div class="p--bold cut" >{{.TadbAlbum.Album}}</div>
-                                    <div class="small cut">{{.Name}}</div>
+                                    <div class="small light cut">{{.Name}}</div>
                                 </div>
                             </div>
                             {{ end }}
@@ -400,7 +400,7 @@
             <h2>Discover Artists and Members</h2>
             <div class="scroll row row-sm">
                 {{ range $index, $element := . }}
-                {{ if lt $index 10 }}
+                {{ if lt $index 20 }}
                 <div class="content">
                     <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}/preview" alt="Profile image of {{.Name}}"/>
                     <div class="content-text go-down-home">
@@ -431,7 +431,7 @@
                 <h2>Trending Albums</h2>
                 <div class="row scroll">
                     {{ range $index, $element := . }}
-                    {{ if lt $index 10 }}
+                    {{ if lt $index 20 }}
                     <div class="content">
                         <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
 
@@ -452,12 +452,12 @@
                     {{ range . }}
                     {{ $artist := . }}
                     {{ range $location, $dates := $artist.DatesLocations }}
-                    {{ range $date := $dates }}
+                    {{ $sortedDates := sortDates $dates }}
+                    {{ range $date := $sortedDates }}
                     {{ $dateParts := formatDate $date }}
                     <div class="content">
                         <div class="pic date">
                             <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
-<!--                            <div>{{ $dateParts.Month }}</div>-->
                             <div>{{ $dateParts.Year }}</div>
                         </div>
                         <div class="content-text go-down-home">
