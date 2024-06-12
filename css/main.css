@@ -269,7 +269,7 @@ a {
     flex-direction: column;
     gap: 2.4rem;
     transition: border-radius 500ms, padding 500ms;
-
+    filter: var(--shadow-dark-0);
 
     &#filter-checkbox-locations {
         max-height: 20rem;
@@ -314,6 +314,7 @@ a {
     & .container {
         background: none;
         padding: 2rem;
+        filter: none;
     }
 
     &:has(.row) {
