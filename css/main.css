@@ -709,15 +709,14 @@ input {
     }
 }
 
-.first {
-    z-index: 2;
-}
+
 
 .button-1 {
 
 }
 
 .button-2 {
+
     display: flex;
     position: relative;
     padding: 0.8rem 1.6rem ;
@@ -727,7 +726,7 @@ input {
     border-radius: var(--radius-xl);
     background: var(--grey-2);
     transition: padding 500ms;
-    height: fit-content;
+    height: 4rem;
     @media (max-width:500px){
         padding: 0.8rem 1.2rem ;
     }
@@ -765,7 +764,10 @@ input {
         }
 
         &:has(#button-filter-concert-location)::before {
-            content: url('../icons/map-marker_x24.svg');
+            width: 1.6rem;
+            height: 1.6rem;
+            top: 27%;
+            content: url('../icons/map-marker_x16.svg');
         }
     }
 
@@ -782,7 +784,10 @@ input {
     }
 
     &#button-filter-checkbox::after {
-       content: url('../icons/search_x24.svg');
+       content: url('../icons/search_x16.svg');
+        width: 1.6rem;
+        height: 1.6rem;
+        top: 27%;
     }
     &#album-start-date, &#artist-start-date {
         &::after {
@@ -803,13 +808,13 @@ input {
     .button-container::before {
         width: 1.6rem !important;
         height: 1.6rem !important;
-        top: 22%;
+        top: 26%;
     }
 
     .button-2::after {
         width: 1.6rem !important;
         height: 1.6rem !important;
-        top: 22%;
+        top: 26%;
     }
 
     #button-filter::after {
