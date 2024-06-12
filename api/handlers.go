@@ -36,6 +36,7 @@ func HandleRequests(artists []Artist, tpl *template.Template) {
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.Handle("/icons/", http.StripPrefix("/icons/", http.FileServer(http.Dir("icons"))))
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("js"))))
+	http.Handle("/db/", http.StripPrefix("/db/", http.FileServer(http.Dir("db"))))
 
 	port := 8080
 	addr := fmt.Sprintf(":%d", port)
