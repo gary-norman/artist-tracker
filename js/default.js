@@ -51,18 +51,27 @@ function updateSliderBackground(slider) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const filterButton = document.getElementById('button-filter-number');
+    const filterButton = document.getElementById('button-filter');
     const filters = document.querySelectorAll('.filter:not(:first-child)');
+    const show = "url('../icons/show_x24.svg')";
+    const hide = "url('../icons/hide_x24.svg')";
 
-    // Loop through each input element
-    filters.forEach(filter => {
-        if (filter.className === "hide") {
-            filter.classList.add('open');
-            filter.classList.remove('hide');
-        } else {
-            filter.classList.remove('open');
-            filter.classList.add('hide');
-        }
+    console.log("Initializing pseudo-icon to hide");
+    document.documentElement.style.setProperty("--pseudo-icon", show);
+
+
+    filterButton.addEventListener('click', () => {
+        filters.forEach(filter => {
+            if (filter.classList.contains('hide')) {
+                filter.classList.remove('hide');
+                console.log("Setting pseudo-icon to hide");
+                document.documentElement.style.setProperty("--pseudo-icon", hide);
+            } else {
+                filter.classList.add('hide');
+                console.log("Setting pseudo-icon to show");
+                document.documentElement.style.setProperty("--pseudo-icon", show);
+            }
+        });
     });
 });
 
