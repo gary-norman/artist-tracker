@@ -119,7 +119,7 @@ p {
     font-family: "Inter", sans-serif;
     font-size: 1.6rem;
     /*border: 0.1rem solid red;*/
-    display: inline;
+    /*display: inline;*/
 }
 
 .p--bold {
