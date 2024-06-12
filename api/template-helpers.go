@@ -1,7 +1,6 @@
 package api
 
 import (
-	"fmt"
 	"html/template"
 	"math/rand"
 	"sort"
@@ -94,11 +93,6 @@ func SortDates(dates []string) ([]string, error) {
 	var sortedDates []string
 	for _, date := range parsedDates {
 		sortedDates = append(sortedDates, date.Format("02-01-2006"))
-	}
-
-	//fmt.Println("sorted dates are:")
-	for i, date := range sortedDates {
-		fmt.Printf("i: %d, date: %v\n", i, date)
 	}
 
 	return sortedDates, nil

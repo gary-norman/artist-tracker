@@ -34,30 +34,13 @@
     --font-weight-800: 800;
     --font-weight-900: 900;
 
-    /* set heights */
-    --h--18: 18rem;
-    --h--8: 8rem;
-    --h--6: 6rem;
-    --h--5-2: 5.2rem;
-    --h--4-8: 4.8rem;
-    --h--4-4: 4.4rem;
-    --h--4: 4rem;
-    --h--3-6: 3.6rem;
-    --h--3-2: 3.2rem;
-    --h--2-8: 2.8rem;
-    --h--2-4: 2.4rem;
-    --h--2: 2rem;
-    --h--1-6: 1.6rem;
-    --h--1-2: 1.2rem;
-    --h--0-8: 0.8rem;
-    --h--0-4: 0.4rem;
-
-    --radius-xl: var(--h--2-4);
-    --radius-lg: var(--h--1-2);
-    --radius-md: var(--h--0-8);
-    --radius-sm: var(--h--0-4);
+    --radius-xl: 2.4rem;
+    --radius-lg: 1.2rem;
+    --radius-md: 0.8rem;
+    --radius-sm: 0.4rem;
 
 }
+
 
 /* main */
 html {
@@ -69,7 +52,7 @@ body {
     margin: 0 auto;
     background: var(--main-bg-grad);
     font-family: "Inter", sans-serif;
-    font-size: var(--h--1-6);
+    font-size: 1.6rem;
     color: var(--white-0);
 
 
@@ -83,46 +66,46 @@ body {
 /* text */
 h1 {
     font-family: "Inter", sans-serif;
-    font-size: var(--h--5-2);
+    font-size: 5.2rem;
     text-align: left;
 }
 
 h2 {
     font-family: "Inter", sans-serif;
     font-weight: var(--font-weight-500);
-    font-size: var(--h--2-4);
+    font-size: 2.4rem;
     display:block;
     width: 100%;
     margin: 0;
     transition: font-size 500ms;
     @media (max-width: 800px) {
-        font-size: var(--h--2);
+        font-size: 2rem;
     }
 }
 
 h3 {
     font-family: "Inter", sans-serif;
     font-weight: var(--font-weight-500);
-    font-size: var(--h--1-6);
+    font-size: 1.6rem;
     display:block;
     width: 100%;
     margin: 0;
     transition: font-size 500ms;
     @media (max-width: 800px) {
-        font-size: var(--h--1-2);
+        font-size: 1.2rem;
     }
 }
 
 p {
     font-family: "Inter", sans-serif;
-    font-size: var(--h--1-6);
+    font-size: 1.6rem;
     /*border: 0.1rem solid red;*/
     display: inline;
 }
 
 .p--bold {
     font-family: "Inter", sans-serif;
-    font-size: var(--h--1-6);
+    font-size: 1.6rem;
     font-style: normal;
     font-weight:  var(--font-weight-500);
     line-height: normal;
@@ -139,7 +122,7 @@ a {
 .small {
     /*display: flex;*/
     font-family: "Inter", sans-serif;
-    font-size: var(--h--1-2);
+    font-size: 1.2rem;
     font-weight:  var(--font-weight-400);
     font-style: normal;
     line-height: normal;
@@ -153,13 +136,14 @@ a {
         text-align: center;
         align-self: center;
         max-width: fit-content;
+        text-wrap: nowrap;
     }
 
 }
 
 .small--bold {
     font-family: "Inter", sans-serif;
-    font-size: var(--h--1-2);
+    font-size: 1.2rem;
     font-weight:  var(--font-weight-600);
 }
 .cut{
@@ -170,33 +154,33 @@ a {
 }
 
 .floating-md {
-    padding-left:  var(--h--2-4);
-    padding-right:  var(--h--2-4);
+    padding-left:  2.4rem;
+    padding-right:  2.4rem;
     transition: padding-left 500ms;
-    gap: var(--h--0-8);
+    gap: 0.8rem;
     @media (max-width:800px){
-        padding-left: var(--h--1-6);
-        padding-right:  var(--h--1-6);
+        padding-left: 1.6rem;
+        padding-right:  1.6rem;
     }
     @media (max-width:500px){
-        padding-left: var(--h--0-8);
-        padding-right:  var(--h--0-8);
+        padding-left: 0.8rem;
+        padding-right:  0.8rem;
     }
 }
 
 .floating-sm {
-    padding-left:  var(--h--1-2);
-    padding-right:  var(--h--1-2);
+    padding-left:  1.2rem;
+    padding-right:  1.2rem;
 
     transition: padding-left 500ms;
-    gap: var(--h--0-8);
+    gap: 0.8rem;
     @media (max-width:800px){
-        padding-left: var(--h--0-8);
-        padding-right:  var(--h--0-8);
+        padding-left: 0.8rem;
+        padding-right:  0.8rem;
     }
     @media (max-width:500px){
-        padding-left: var(--h--0-4);
-        padding-right:  var(--h--0-4);
+        padding-left: 0.4rem;
+        padding-right:  0.4rem;
     }
 }
 
@@ -242,29 +226,29 @@ a {
 /* containers */
 .wrapper {
     display: flex;
-    gap:  var(--h--4);
+    gap:  4rem;
     flex-direction: column;
     margin: auto;
     max-width: 108rem;
-    padding:  var(--h--4);
+    padding:  4rem;
     transition: padding 500ms;
     overflow: hidden;
     @media (max-width: 800px) {
-        padding: var(--h--1-2);
+        padding: 1.2rem;
     }
     @media (max-width: 550px) {
-        padding: var(--h--0-8);
+        padding: 0.8rem;
     }
 }
 
 .container{
     width: 100%;
-    padding: var(--h--2-4) ;
+    padding: 2.4rem ;
     background: var(--grey-3);
     border-radius: var(--radius-lg);
     display: flex;
     flex-direction: column;
-    gap: var(--h--2-4);
+    gap: 2.4rem;
     transition: border-radius 500ms, padding 500ms;
 
 
@@ -285,7 +269,6 @@ a {
         display: flex;
         flex-direction: column;
         overflow-y: scroll;
-        padding-right: 0.8rem;
         width: 100%;
     }
 
@@ -327,7 +310,7 @@ a {
 
     @media (max-width: 800px) {
         border-radius:  var(--radius-md);
-        padding: var(--h--1-2) ;
+        padding: 1.2rem ;
     }
 }
 
@@ -342,14 +325,14 @@ a {
     };
     & a {
         font-family: "Jockey One", serif;
-        font-size: var(--h--8);
+        font-size: 8rem;
         font-weight: var(--font-weight-400);
         text-align: center;
         transition: font-size 500ms;
         margin-bottom: 0;
         line-height: 1.2;
         @media (max-width: 800px) {
-            font-size: var(--h--6);
+            font-size: 6rem;
         }
     };
 }
@@ -361,7 +344,7 @@ a {
     justify-content: center;
     align-content:center;
     width: 100%;
-    gap: var(--h--2-4);
+    gap: 2.4rem;
     flex-grow: 1;
 
     & .search-input{
@@ -374,10 +357,10 @@ a {
 
         &::after {
             content: url('../icons/search_x24.svg');
-            width: var(--h--2-4);
-            height: var(--h--2-4);
+            width: 2.4rem;
+            height: 2.4rem;
             position: absolute;
-            right: var(--h--1-6);
+            right: 1.6rem;
         }
 
         &:hover {
@@ -389,7 +372,7 @@ a {
 .row {
     display: flex;
     flex-wrap: nowrap;
-    gap: var(--h--1-2);
+    gap: 1.2rem;
     overflow-x: auto;
     align-items: stretch;
 
@@ -406,7 +389,7 @@ a {
 
 .col {
     display: grid;
-    gap: var(--h--1-2);
+    gap: 1.2rem;
     /*height: max-content;*/
 }
 
@@ -445,12 +428,12 @@ input {
     background-color: var(--grey-2);
     border: 0.2rem solid var(--white-4);
     border-radius: var(--radius-sm);
-    gap: var(--h--1-6);
+    gap: 1.6rem;
 
 
     &#search-input {
         height: 4.8rem;
-        padding: var(--h--1-6);
+        padding: 1.6rem;
         padding-right: 5.6rem;
         border-radius: var(--radius-xl);
     }
@@ -535,8 +518,8 @@ input {
     display: flex;
     /*width: 100%;*/
     align-items: center;
-    padding: var(--h--0-8);
-    gap: var(--h--1-2);
+    padding: 0.8rem;
+    gap: 1.2rem;
     border-radius: var(--radius-md);
     flex: 1 1 auto;
     height: auto;
@@ -564,29 +547,29 @@ input {
 
     & .user {
         background: darkgrey;
-        border-radius: var(--h--6);
+        border-radius: 6rem;
     }
 
     & .date {
         flex-direction: column;
         font-family: "Jockey One", serif;
-        font-size: var(--h--1-6);
+        font-size: 1.6rem;
         font-weight: var(--font-weight-400);
         transition: font-size 500ms;
         line-height: 1.2;
         background: var(--event-bg-grad);
-        border-radius: var(--h--0-4);
+        border-radius: 0.4rem;
 
         /*@media (max-width: 550px) {*/
         /*    font-weight: var(--font-weight-300);*/
-        /*    font-size: var(--h--1-6);*/
+        /*    font-size: 1.6rem;*/
         /*}*/
 
     }
 
     & .content-text {
         display: flex;
-        gap: var(--h--0-4);
+        gap: 0.4rem;
         flex: 1 0 0;
         align-items: flex-start;
         overflow: hidden;
@@ -608,7 +591,7 @@ input {
         width: 100%;
         align-items: center;
         justify-content: flex-start;
-        gap: var(--h--0-8);
+        gap: 0.8rem;
         transition: gap 500ms;
     }
 }
@@ -641,10 +624,10 @@ input {
 }
 
 .divider-dot {
-    width: var(--h--0-4);
-    height: var(--h--0-4);
+    width: 0.4rem;
+    height: 0.4rem;
     background: var(--white-2);
-    border-radius: var(--h--0-4);
+    border-radius: 0.4rem;
 }
 
 .filters {
@@ -671,6 +654,7 @@ input {
     justify-content: space-between;
     opacity: 1;
     translate: 0 0;
+    gap: 2.4rem;
 
     & label  {
         align-content:  center;
@@ -736,7 +720,7 @@ input {
 .button-2 {
     display: flex;
     position: relative;
-    padding: var(--h--0-8) var(--h--1-6) ;
+    padding: 0.8rem 1.6rem ;
     justify-content: space-between;
     align-items: center;
     flex: 1 0 0;
@@ -745,29 +729,28 @@ input {
     transition: padding 500ms;
     height: fit-content;
     @media (max-width:500px){
-        padding: var(--h--0-4) var(--h--1-2) ;
+        padding: 0.4rem 1.2rem ;
     }
     &::after {
-        width: var(--h--2-4);
-        height: var(--h--2-4);
+        width: 2.4rem;
+        height: 2.4rem;
         position: absolute;
-        right: var(--h--1-6);
+        right: 1.6rem;
         transition: width 500ms, height 500ms, right 500ms;
-        align-self: center;
     }
 
 
     & .button-container {
         & p {
             margin: 0;
-            padding-left: var(--h--3-2);
+            padding-left: 3.2rem;
             @media (max-width:500px){
-                font-size: var(--h--1-2);
+                font-size: 1.2rem;
             }
         }
         &::before {
             position: absolute;
-            left: var(--h--1-6);
+            left: 1.6rem;
             transition: width 500ms, height 500ms, left 500ms;
         }
 
@@ -775,11 +758,7 @@ input {
             width: 2.4rem;
             height: 2.4rem;
             content: url('../icons/filter_x24.svg');
-            @media (max-width:500px){
-                width: 1.6rem;
-                height: 1.6rem;
-                content: url('../icons/filter_x16.svg');
-            }
+            
         }
 
         &:has(#button-filter-concert-location)::before {
@@ -793,27 +772,13 @@ input {
 
 
     &#button-filter{
-        min-width: 18rem;
-        max-width: 26rem;
-
-        &::after {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+        min-width: 15rem;
+        max-width: 22rem;
     }
     &#button-filter::after {
         width: 2.4rem;
         height: 2.4rem;
         content: url('../icons/show_x24.svg');
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        @media (max-width:500px){
-            width: 1.6rem;
-            height: 1.6rem;
-            content: url('../icons/show_x16.svg');
-        }
     }
 
     &#button-filter-checkbox::after {
@@ -839,21 +804,20 @@ input {
     }
 }
 
-
-
 @media (max-width: 500px) {
-    .button-2::after {
-        content: url('../icons/show_x16.svg');
-        width: var(--h--1-6);
-        height: var(--h--1-6);
-        right: var(--h--1-2);
-        color: red;
+
+    #button-filter::after {
+        width: 1.6rem !important;
+        height: 1.6rem !important;
+        content: url('../icons/show_x16.svg') !important;
+        top: 22%;
+        right: 1.2rem;
     }
     .button-2 .button-container::before {
-        content: url('../icons/filter_x16.svg');
-        width: var(--h--1-6);
-        height: var(--h--1-6);
-        left: var(--h--1-2);
+        content: url('../icons/filter_x16.svg')!important;
+        width: 1.6rem!important;
+        height: 1.6rem!important;
+        left: 1.2rem;
     }
 }
 
