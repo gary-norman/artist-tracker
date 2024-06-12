@@ -12,11 +12,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Find all elements within the parent that have a class starting with 'filter-open'
                 const filterOpenElements = parent.querySelectorAll('[class^="filter-open"]');
 
+
                 // Toggle the 'hide' class on each element based on checkbox state
                 filterOpenElements.forEach(element => {
                     if (input.checked) {
+
+                        parent.classList.add('open');
                         element.classList.remove('hide');
                     } else {
+                        parent.classList.remove('open');
                         element.classList.add('hide');
                     }
                 });
@@ -45,6 +49,31 @@ function updateSliderBackground(slider) {
 
     slider.style.background = `linear-gradient(to right, var(--green-0) ${percentage}%, var(--white-4) ${percentage}%)`;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const filterButton = document.getElementById('button-filter');
+    const filters = document.querySelectorAll('.filter:not(:first-child)');
+    const show = "url('../icons/show_x24.svg')";
+    const hide = "url('../icons/hide_x24.svg')";
+
+    console.log("Initializing pseudo-icon to hide");
+    document.documentElement.style.setProperty("--pseudo-icon", show);
+
+
+    filterButton.addEventListener('click', () => {
+        filters.forEach(filter => {
+            if (filter.classList.contains('hide')) {
+                filter.classList.remove('hide');
+                console.log("Setting pseudo-icon to hide");
+                document.documentElement.style.setProperty("--pseudo-icon", hide);
+            } else {
+                filter.classList.add('hide');
+                console.log("Setting pseudo-icon to show");
+                document.documentElement.style.setProperty("--pseudo-icon", show);
+            }
+        });
+    });
+});
 
 // Initialize the background on page load
 document.addEventListener('DOMContentLoaded', () => {
