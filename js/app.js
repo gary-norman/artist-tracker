@@ -44,7 +44,7 @@ fetch('/db/mapbox/0.geojson')
                     new mapboxgl.Popup({ offset: 25 }) // add popups
                         .setHTML(
                             `<p class="p--bold">${feature.properties.title}</p>
-                             <p class="small">${feature.properties.date}</p>
+                             <p class="small"> {{ $dateParts := formatDate feature.properties.date }} {{ $dateParts.Day }} {{ $dateParts.Month }} {{ $dateParts.Year }}</p>
                              <p class="small">${feature.properties.eventAddress}</p>`
                         )
                 )

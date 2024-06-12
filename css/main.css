@@ -77,6 +77,17 @@ body {
 
 }
 
+.marker {
+    background-image: url("/icons/marker-3d.svg");
+    background-size: cover;
+    width: 20px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.mapboxgl-popup-content {
+    color: var(--grey-2);
+}
 
 *, *::before, *::after {
     outline: 1px solid dimgrey;
