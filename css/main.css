@@ -439,7 +439,7 @@ input {
     }
 
 
-    &.checkbox-location {
+    &.checkbox {
         appearance: none;
         background: var(--grey-3);
         width: 2rem;
@@ -481,8 +481,8 @@ input {
                 position: absolute;
                 width: 100%;
                 height: 100%;
-                top: calc(50% - 0.8rem);
-                left: calc(50% - 0.8rem);
+                top: calc(50% - 0.75rem);
+                left: calc(50% - 0.75rem);
                 border: none;
                 opacity: 1;
                 outline: none;
@@ -493,7 +493,7 @@ input {
 
 }
 
-.checkbox-location {
+.checkbox {
     cursor: pointer;
     border-radius: var(--radius-sm);
 
@@ -638,7 +638,11 @@ input {
 
 .filter {
     padding-bottom: 1.2rem;
-    overflow: visible;
+    transition: padding-bottom .4s;
+
+}
+.open {
+    padding-bottom: 3.6rem;
 }
 
 

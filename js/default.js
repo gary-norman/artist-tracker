@@ -12,11 +12,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Find all elements within the parent that have a class starting with 'filter-open'
                 const filterOpenElements = parent.querySelectorAll('[class^="filter-open"]');
 
+
                 // Toggle the 'hide' class on each element based on checkbox state
                 filterOpenElements.forEach(element => {
                     if (input.checked) {
+
+                        parent.classList.add('open');
                         element.classList.remove('hide');
                     } else {
+                        parent.classList.remove('open');
                         element.classList.add('hide');
                     }
                 });
@@ -45,6 +49,22 @@ function updateSliderBackground(slider) {
 
     slider.style.background = `linear-gradient(to right, var(--green-0) ${percentage}%, var(--white-4) ${percentage}%)`;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const filterButton = document.getElementById('button-filter-number');
+    const filters = document.querySelectorAll('.filter:not(:first-child)');
+
+    // Loop through each input element
+    filters.forEach(filter => {
+        if (filter.className === "hide") {
+            filter.classList.add('open');
+            filter.classList.remove('hide');
+        } else {
+            filter.classList.remove('open');
+            filter.classList.add('hide');
+        }
+    });
+});
 
 // Initialize the background on page load
 document.addEventListener('DOMContentLoaded', () => {

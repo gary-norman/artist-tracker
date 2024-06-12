@@ -23,31 +23,32 @@ func init() {
 	}).ParseGlob("templates/*.html"))
 }
 
-// function to:
-// check if member name is inside artist name
-// if so, "aka Eminem"
-// if identical, then dont show the artist as a member
+// Function to check if member name is inside artist name for go templates
 func CheckArtistContainsName(member, artist string) bool {
 	return strings.Contains(artist, member)
 }
 
+// Function to check if the member and artist names are the same, for go templates
 func CheckSameName(member, artist string) bool {
 	return member == artist
 }
 
+// Function to get a random integer between 0 and the max number, for go templates
 func RandomInt(max int) int {
 	return rand.Intn(max)
 }
 
+// Function to increment an integer for go templates
 func Increment(n int) int {
 	return n + 1
 }
 
+// Function to decrement an integer for go templates
 func Decrement(n int) int {
 	return n - 1
 }
 
-// Function to shuffle a slice of integers
+// Function to shuffle a slice of integers for go templates
 func Shuffle(slice []int) {
 	rand.Seed(time.Now().UnixNano())
 	for i := len(slice) - 1; i > 0; i-- {
@@ -56,6 +57,7 @@ func Shuffle(slice []int) {
 	}
 }
 
+// Function to pass a date in standard format and return it in "01 Jan 2001" format for go templates
 func ParseDate(dateStr string) (DateParts, error) {
 	date, err := time.Parse("02-01-2006", dateStr)
 	if err != nil {
@@ -68,12 +70,14 @@ func ParseDate(dateStr string) (DateParts, error) {
 	}, nil
 }
 
+// Function to randomise passed dates for go templates
 func RandomizeDates(dates []string) []string {
 	rand.Seed(time.Now().UnixNano())
 	rand.Shuffle(len(dates), func(i, j int) { dates[i], dates[j] = dates[j], dates[i] })
 	return dates
 }
 
+// Function to sort passed dates for go templates
 func SortDates(dates []string) ([]string, error) {
 	var parsedDates []time.Time
 	for _, dateStr := range dates {
