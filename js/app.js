@@ -20,6 +20,16 @@ map.on('style.load', () => {
     }); //
 });
 
+function parseDate(dateStr) {
+    const [day, month, year] = dateStr.split('-');
+    return new Date(`${year}-${month}-${day}`);
+}
+
+function formatDate(date) {
+    const options = { day: '2-digit', month: 'short', year: 'numeric' };
+    return date.toLocaleDateString('en-GB', options);
+}
+
 // Fetch GeoJSON data from a local file
 fetch('/db/mapbox/0.geojson')
     .then(response => {
@@ -41,10 +51,10 @@ fetch('/db/mapbox/0.geojson')
             new mapboxgl.Marker(el)
                 .setLngLat(feature.geometry.coordinates)
                 .setPopup(
-                    new mapboxgl.Popup({ offset: 25 }) // add popups
+                    new mapboxgl.Popup({ offset: 20 }) // add popups
                         .setHTML(
                             `<p class="p--bold">${feature.properties.title}</p>
-                             <p class="small"> {{ $dateParts := formatDate feature.properties.date }} {{ $dateParts.Day }} {{ $dateParts.Month }} {{ $dateParts.Year }}</p>
+                             <p class="small">${formatDate(parseDate(feature.properties.date))}</p>
                              <p class="small">${feature.properties.eventAddress}</p>`
                         )
                 )

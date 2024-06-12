@@ -87,6 +87,12 @@ body {
 
 .mapboxgl-popup-content {
     color: var(--grey-2);
+    border-radius: 10px !important;
+    padding: 5px 10px 10px !important;
+}
+
+.mapboxgl-popup-close-button {
+    color: #841ae7;
 }
 
 *, *::before, *::after {
