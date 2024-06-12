@@ -1,13 +1,11 @@
 :root {
     /* colours */
-    /* white */
     --white-0: rgb(255,255,255);
     --white-1: rgb(220,220,220);
     --white-2: rgb(180,180,180);
     --white-3: rgb(130,130,130);
     --white-4: rgba(110,110,110);
 
-    /* grey */
     --grey-0: rgb(50,50,50);
     --grey-1: rgb(70,70,70);
     --grey-2: rgb(80,80,80);
@@ -15,25 +13,10 @@
     --grey-4: rgb(95, 95, 95);
     --grey-5: rgb(100, 100, 100);
 
-    /* black */
-    --black-0: rgba(40, 40, 40, 80);
-    --black-1: rgba(40, 40, 40, 50);
-    --black-2: rgba(40, 40, 40, 20);
-
-    /* green */
     --green-0: #16B3C9;
     --green-1: #1190a3;
     --green-2: #0e6d7c;
     --green-3: #176267;
-
-    /* shadows */
-    /* light */
-    --shadow-light-0: drop-shadow(2px 2px 8px var(--grey-1));
-    --shadow-light-1: drop-shadow(2px 2px 8px var(--grey-2));
-
-    /* dark */
-    --shadow-dark-0: drop-shadow(1px 1px 4px var(--black-1));
-    --shadow-dark-1: drop-shadow(1px 1px 4px var(--black-2));
 
     /* gradients */
     --main-bg-grad: linear-gradient(163deg, #333 42%, #2A2A2A 90.61%);
@@ -51,13 +34,11 @@
     --font-weight-800: 800;
     --font-weight-900: 900;
 
-    /* radius */
     --radius-xl: 2.4rem;
     --radius-lg: 1.2rem;
     --radius-md: 0.8rem;
     --radius-sm: 0.4rem;
 
-    --pseudo-icon: url('../icons/show_x24.svg');
 }
 
 
@@ -73,8 +54,6 @@ body {
     font-family: "Inter", sans-serif;
     font-size: 1.6rem;
     color: var(--white-0);
-
-
 }
 
 
@@ -119,7 +98,7 @@ p {
     font-family: "Inter", sans-serif;
     font-size: 1.6rem;
     /*border: 0.1rem solid red;*/
-    /*display: inline;*/
+    display: inline;
 }
 
 .p--bold {
@@ -458,7 +437,7 @@ input {
     }
 
 
-    &.checkbox {
+    &.checkbox-location {
         appearance: none;
         background: var(--grey-3);
         width: 2rem;
@@ -500,8 +479,8 @@ input {
                 position: absolute;
                 width: 100%;
                 height: 100%;
-                top: calc(50% - 0.75rem);
-                left: calc(50% - 0.75rem);
+                top: calc(50% - 0.8rem);
+                left: calc(50% - 0.8rem);
                 border: none;
                 opacity: 1;
                 outline: none;
@@ -512,7 +491,7 @@ input {
 
 }
 
-.checkbox {
+.checkbox-location {
     cursor: pointer;
     border-radius: var(--radius-sm);
 
@@ -657,16 +636,7 @@ input {
 
 .filter {
     padding-bottom: 1.2rem;
-    transition: padding-bottom .4s;
-
-}
-
-#button-filter.hide-filters::after {
-    content: url('../icons/hide_x24.svg');
-}
-
-.open {
-    padding-bottom: 3.6rem;
+    overflow: visible;
 }
 
 
@@ -708,6 +678,7 @@ input {
 
 .filter-open {
     opacity: 1;
+    /*display: flex;*/
     translate: 0 0;
     transition-property: display opacity;
     transition-duration: .4s;
@@ -752,21 +723,8 @@ input {
     flex: 1 0 0;
     border-radius: var(--radius-xl);
     background: var(--grey-2);
+    transition: padding 500ms;
     height: 4rem;
-    cursor: pointer;
-    user-select: none; /* Prevent text selection */
-    transition: background-color 0.3s, padding 500ms;
-    filter: var(--shadow-dark-0);
-
-    &:hover {
-        background-color: var(--grey-3);
-        filter: var(--shadow-dark-1);
-    }
-
-    &:active {
-        background-color: var(--grey-2);
-    }
-
     @media (max-width:500px){
         padding: 0.8rem 1.2rem ;
     }
@@ -794,7 +752,7 @@ input {
             transition: width 500ms, height 500ms, left 500ms;
         }
 
-        &:has(.button-text)::before {
+        &:has(.button-2-text)::before {
             width: 2.4rem;
             height: 2.4rem;
         }
@@ -820,7 +778,7 @@ input {
     &#button-filter::after {
         width: 2.4rem;
         height: 2.4rem;
-        content: var(--pseudo-icon) !important;
+        content: url('../icons/show_x24.svg');
     }
 
     &#button-filter-checkbox::after {
@@ -843,11 +801,6 @@ input {
     }
 }
 
-.button-text {
-    text-wrap: nowrap;
-    width: max-content;
-}
-
 @media (max-width: 500px) {
 
     .button-container::before {
@@ -863,7 +816,7 @@ input {
     }
 
     #button-filter::after {
-        content: var(--pseudo-icon) !important;
+        content: url('../icons/show_x16.svg') !important;
     }
     #button-filter-checkbox::after {
         content: url('../icons/search_x16.svg') !important;
@@ -921,7 +874,6 @@ input {
     -webkit-transition: .4s;
     transition: background-color .4s, transform .4s;
     height: 3.4rem;
-    filter: var(--shadow-light-0);
 }
 
 .slider-button {
@@ -935,6 +887,10 @@ input {
         background-color: var(--green-0);
         -webkit-transition: .4s;
         transition: background-color .4s, transform .4s;
+
+        &:focus-visible {
+            background-color:var(--green-3);
+        }
     }
     &.round {
         border-radius: 34px;
@@ -1007,12 +963,12 @@ input[type='range']::-webkit-slider-thumb {
 
 #members-min-range::-webkit-slider-thumb {
     background: var(--green-0);
-    filter: var(--shadow-dark-0);
+    filter: drop-shadow(2px 2px 8px var(--grey-0));
     z-index: 1;
 }
 #members-max-range::-webkit-slider-thumb {
     background: var(--green-1);
-    filter: var(--shadow-dark-0);
+    filter: drop-shadow(2px 2px 8px var(--grey-0));
     z-index: 2;
 }
 
@@ -1080,7 +1036,7 @@ input[type='range']::-webkit-slider-thumb {
         padding: 0;
         margin-top: 1.2rem;
         margin-bottom: 1.6rem;
-        filter: var(--shadow-light-0);
+        filter: drop-shadow(2px 2px 8px var(--grey-0));
 
         &:hover {
             outline: none;
@@ -1095,7 +1051,7 @@ input[type='range']::-webkit-slider-thumb {
             border-radius: 50%;
             background: var(--green-0);
             cursor: pointer;
-            filter: var(--shadow-dark-0);
+            filter: drop-shadow(2px 2px 8px var(--grey-0));
             position: relative;
             z-index: 1;
         }
@@ -1147,7 +1103,7 @@ input[type='range']::-webkit-slider-thumb {
         border: none;
         background: var(--green-0);
         cursor: pointer;
-        filter: var(--shadow-dark-0);
+        filter: drop-shadow(2px 2px 8px var(--grey-0));
         top: -0.4rem;
         margin-top: -7px;
         z-index: 2;
