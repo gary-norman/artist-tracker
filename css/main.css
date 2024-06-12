@@ -71,6 +71,18 @@ body {
     color: var(--white-0);
 }
 
+.marker {
+    background-image: url('/icons/marker-3d.svg');
+    background-size: cover;
+    width: 20px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.mapboxgl-popup-content {
+    color: var(--grey-2)
+}
+
 *, *::before, *::after {
     outline: 1px solid dimgrey;
 }
@@ -112,7 +124,7 @@ p {
     font-family: "Inter", sans-serif;
     font-size: var(--h--1-6);
     /*border: 0.1rem solid red;*/
-    display: inline;
+    /*display: inline;*/
 }
 
 .p--bold {

@@ -57,6 +57,19 @@
             "star-intensity": 0.35
         }); //
     });
+    map.on('load', () => {
+        map.addLayer({
+            // id: 'rpd_parks',
+            // type: 'fill',
+            source: {
+                "type": "vector",
+                "url": "mapbox://loreworld.clwxnxcwe0icw1tkjygvz1ipj-6x8am"
+            },
+            layout: {
+                visibility: 'visible'
+            },
+        });
+    });
     /* Add an event listener that runs when a user clicks on the map element. */
     map.on('click', (event) => {
         // If the user clicked on one of your markers, get its information.
