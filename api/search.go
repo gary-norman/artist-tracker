@@ -1,7 +1,10 @@
 package api
 
 import (
+	"encoding/json"
 	"fmt"
+	"html/template"
+	"net/http"
 	"strings"
 )
 
@@ -65,4 +68,45 @@ func SearchArtist(artists []Artist, name string) (*Artist, error) {
 		}
 	}
 	return &Artist{}, fmt.Errorf("artist not found")
+}
+
+// display live suggestion when typing
+func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *template.Template) {
+	searchQuery := strings.ToLower(r.FormValue("query"))
+	var suggestions []string
+
+	for _, artist := range artists {
+		// Check artist name
+		if strings.Contains(strings.ToLower(artist.Name), searchQuery) {
+			suggestions = append(suggestions, fmt.Sprintf("Artist: %s", artist.Name))
+		}
+
+		// Check artist members
+		for _, member := range artist.Members {
+			if strings.Contains(strings.ToLower(member), searchQuery) {
+				suggestions = append(suggestions, fmt.Sprintf("Member: %s", member))
+			}
+		}
+
+		// Check artist locations
+		for locations, _ := range artist.DatesLocations {
+			if strings.Contains(strings.ToLower(locations), searchQuery) {
+				suggestions = append(suggestions, fmt.Sprintf("Location: %s", locations))
+			}
+		}
+
+		// Check artist first album
+		if strings.Contains(strings.ToLower(artist.FirstAlbum), searchQuery) {
+			suggestions = append(suggestions, fmt.Sprintf("Album: %s", artist.FirstAlbum))
+		}
+	}
+
+	jsonData, err := json.Marshal(suggestions)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(jsonData)
 }

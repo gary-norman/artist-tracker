@@ -20,10 +20,13 @@
             <div class="small center">by Gary Norman & Kamil Ornal</div>
         </section>
         <section class="search-container">
-            <div class="search-input">
-                <label for="search-input"></label>
-                <input type="text" name="search-input" id="search-input" value="" placeholder="Search artist"  >
-            </div>
+            <form action="/search/" method="get">
+                <div class="search-input">
+                    <label for="search-input"></label>
+                    <input type="text" name="search-input" id="search-input" placeholder="Search artist" required autocomplete="off" >
+                    <div id="suggestions" class="suggestions"></div>
+                </div>
+            </form>
             <h3 class="floating-md">Recent searches</h3>
             <div class="floating-md filters go-down">
                 <div class="space filter">
@@ -350,6 +353,8 @@
     </div>
 </main>
 <script type="text/javascript" src="../js/default.js"></script>
+<!--for search-bar-suggestions-->
+<script type="text/javascript" src="../js/suggestion.js"></script>
 
 
 </body>

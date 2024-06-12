@@ -4,7 +4,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/pterm/pterm"
 	"html/template"
 	"log"
 	"net/http"
@@ -13,6 +12,8 @@ import (
 	"strconv"
 	"syscall"
 	"time"
+
+	"github.com/pterm/pterm"
 )
 
 func (se StatusError) Error() string {
@@ -44,6 +45,12 @@ func HandleRequests(artists []Artist, tpl *template.Template) {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		HomePage(w, r, artists, tpl)
 	})
+	http.HandleFunc("/suggest", func(w http.ResponseWriter, r *http.Request) {
+		SuggestHandler(w, r, artists, tpl)
+	})
+	/* http.HandleFunc("/search", func(w http.ResponseWriter, r *http.Request) {
+		SearchHandler(w, r, artists, tpl)
+	}) */
 
 	go func() {
 		// Log server listening messages
