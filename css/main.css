@@ -729,7 +729,7 @@ input {
     transition: padding 500ms;
     height: fit-content;
     @media (max-width:500px){
-        padding: 0.4rem 1.2rem ;
+        padding: 0.8rem 1.2rem ;
     }
     &::after {
         width: 2.4rem;
@@ -741,6 +741,7 @@ input {
 
 
     & .button-container {
+        display: flex;
         & p {
             margin: 0;
             padding-left: 3.2rem;
@@ -754,18 +755,17 @@ input {
             transition: width 500ms, height 500ms, left 500ms;
         }
 
-        &:has(#button-filter-number)::before {
+        &:has(.button-2-text)::before {
             width: 2.4rem;
             height: 2.4rem;
+        }
+
+        &:has(#button-filter-number)::before {
             content: url('../icons/filter_x24.svg');
-            
         }
 
         &:has(#button-filter-concert-location)::before {
-            width: 1.6rem;
-            height: 1.6rem;
-            content: url('../icons/map-marker_x16.svg');
-
+            content: url('../icons/map-marker_x24.svg');
         }
     }
 
@@ -782,13 +782,7 @@ input {
     }
 
     &#button-filter-checkbox::after {
-        width: 1.6rem;
-        height: 1.6rem;
-        content: url('../icons/search_x16.svg');
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
+       content: url('../icons/search_x24.svg');
     }
     &#album-start-date, &#artist-start-date {
         &::after {
@@ -806,18 +800,29 @@ input {
 
 @media (max-width: 500px) {
 
-    #button-filter::after {
+    .button-container::before {
         width: 1.6rem !important;
         height: 1.6rem !important;
-        content: url('../icons/show_x16.svg') !important;
         top: 22%;
-        right: 1.2rem;
     }
-    .button-2 .button-container::before {
+
+    .button-2::after {
+        width: 1.6rem !important;
+        height: 1.6rem !important;
+        top: 22%;
+    }
+
+    #button-filter::after {
+        content: url('../icons/show_x16.svg') !important;
+    }
+    #button-filter-checkbox::after {
+        content: url('../icons/search_x16.svg') !important;
+    }
+    #button-filter-container::before {
         content: url('../icons/filter_x16.svg')!important;
-        width: 1.6rem!important;
-        height: 1.6rem!important;
-        left: 1.2rem;
+    }
+    #button-filter-checkbox-container::before {
+        content: url('../icons/map-marker_x16.svg')!important;
     }
 }
 
