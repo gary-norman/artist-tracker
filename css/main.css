@@ -22,8 +22,8 @@
 
     /* green */
     --green-0: #16B3C9;
-    --green-1: #1190a3;
-    --green-2: #0e6d7c;
+    --green-1: rgb(17 144 163);
+    --green-2: rgb(14 109 124);
     --green-3: #176267;
     /* purple */
     --purple-purp: rgb(106 88 175);
