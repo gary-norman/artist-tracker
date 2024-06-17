@@ -98,17 +98,6 @@ func main() {
 	pterm.Println(pterm.Cyan("TourDetails {"))
 	pterm.Println(pterm.Cyan(Artists[i].TourDetails))
 	pterm.Println(pterm.Cyan("}"))
-	//fmt.Println(api.GetTourInfo(Artists, "queen", 0))
-	//for i, artist := range Artists {
-	//	fmt.Printf("%d: %v\n", i, artist.Name)
-	//for location, dates := range artist.DatesLocations {
-	//	fmt.Printf("Location: %v\n", location)
-	//	for _, date := range dates {
-	//		fmt.Printf("Date: %v\n", date)
-	//	}
-	//}
-	//}
-	//api.MapboxReverseLookup(1, Artists[1])
 
 	// debug print, to see better all the informations of an aritsts
 	artistsResult, _ := api.SearchArtist(Artists, "Led Zeppelin")
