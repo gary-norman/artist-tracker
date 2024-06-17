@@ -8,9 +8,6 @@ async function fetchSuggestions(query) {
     throw new Error('Failed to fetch suggestions');
 }
 
-
-// delay the execution of the fetch request, 
-// ensuring that rapid inputs do not result in multiple network requests being sent in quick succession.
 function debounce(fn, delay) {
     let timer;
     return function (...args) {
@@ -50,7 +47,7 @@ function showSuggestions(suggestionsData) {
     searchResults.innerHTML = '';
 
     // Log all suggestionsData details to console for debugging
-    console.log("recieved suggestionsData:=",suggestionsData);
+    console.log("received suggestionsData:=", suggestionsData);
 
     // Create containers for each category
     const categories = {
@@ -64,46 +61,84 @@ function showSuggestions(suggestionsData) {
     for (const category in categories) {
         const categoryContainer = categories[category];
         categoryContainer.className = 'col col1';
+
+        // Create a result container for grid display
+        const resultContainer = document.createElement('div');
+        resultContainer.className = 'result-container';
+        resultContainer.style.display = 'grid';
+        resultContainer.style.gridTemplateColumns = 'repeat(3, minmax(0, 1fr))'; // Single column layout
+        resultContainer.style.gap = '1.2rem'; // Gap between grid items
+
+        categoryContainer.appendChild(resultContainer);
+        categoryContainer.resultContainer = resultContainer; // Store reference for later use
         categoryContainer.resultsCount = 0; // Initialize a counter for each category
     }
 
-    // Iterate through each suggestion in suggestionsData
+    // Check if suggestionsData is null or undefined or empty
+    if (!suggestionsData || suggestionsData.length === 0) {
+        const noResultsMessage = document.createElement('div');
+        noResultsMessage.textContent = 'No results found.';
+        searchResults.appendChild(noResultsMessage);
+        return; // Exit function early
+    } else{
+        // Update the count of search results in the header
+    const resultsHeader = document.querySelector('.filters .small.light.center');
+    if (resultsHeader) {
+        resultsHeader.textContent = `Showing ${suggestionsData.length} results`;
+    }
+    }
+
     suggestionsData.forEach(function (suggestion) {
         if (suggestion.category === 'Concert' && suggestion.matchitem && suggestion.matchitem.dates) {
-            // Iterate over each date for the concert location
-            suggestion.matchitem.dates.forEach(function (date) {
-                // Create elements for each suggestion
-                var content = document.createElement('div');
-                content.className = 'content';
+            // Create elements for each suggestion
+            var content = document.createElement('div');
+            content.className = 'content';
 
-                var dateDiv = document.createElement('div');
-                dateDiv.className = 'pic date';
-                dateDiv.textContent = date; // Display the date
+            var dateDiv = document.createElement('div');
+            dateDiv.className = 'pic date';
 
-                var contentText = document.createElement('div');
-                contentText.className = 'content-text go-down-home';
+            // Create divs for month and year
+            var monthYearDiv = document.createElement('div');
+            monthYearDiv.className = 'month-year';
 
-                var artistName = document.createElement('div');
-                artistName.className = 'p--bold cut concert';
-                artistName.textContent = suggestion.artist && suggestion.artist.name ? suggestion.artist.name : 'Unknown Artist'; // Handle undefined artist name
+            var monthDiv = document.createElement('div');
+            monthDiv.textContent = suggestion.matchitem.dates.Month;
 
-                var locationName = document.createElement('div');
-                locationName.className = 'small light cut concert';
-                locationName.textContent = suggestion.matchitem.location || 'Unknown Location';
+            var yearDiv = document.createElement('div');
+            yearDiv.textContent = suggestion.matchitem.dates.Year;
 
-                contentText.appendChild(artistName);
-                contentText.appendChild(locationName);
-                content.appendChild(dateDiv);
-                content.appendChild(contentText);
+            monthYearDiv.appendChild(monthDiv);
+            monthYearDiv.appendChild(yearDiv);
 
-                // Append content to the corresponding category container if it exists
-                if (categories[suggestion.category]) {
-                    categories[suggestion.category].appendChild(content);
-                    categories[suggestion.category].resultsCount++; // Increment the counter
-                } else {
-                    console.warn(`Category ${suggestion.category} not found in categories object.`);
-                }
-            });
+            var dayDiv = document.createElement('div');
+            dayDiv.textContent = suggestion.matchitem.dates.Day;
+
+            dateDiv.appendChild(dayDiv);
+            dateDiv.appendChild(monthYearDiv);
+
+            var contentText = document.createElement('div');
+            contentText.className = 'content-text go-down-home';
+
+            var artistName = document.createElement('div');
+            artistName.className = 'p--bold cut concert';
+            artistName.textContent = suggestion.artist && suggestion.artist.name ? suggestion.artist.name : 'Unknown Artist'; // Handle undefined artist name
+
+            var locationName = document.createElement('div');
+            locationName.className = 'small light cut concert';
+            locationName.textContent = suggestion.matchitem.location || 'Unknown Location';
+
+            contentText.appendChild(artistName);
+            contentText.appendChild(locationName);
+            content.appendChild(dateDiv);
+            content.appendChild(contentText);
+
+            // Append content to the corresponding category container if it exists
+            if (categories[suggestion.category]) {
+                categories[suggestion.category].resultContainer.appendChild(content);
+                categories[suggestion.category].resultsCount++; // Increment the counter
+            } else {
+                console.warn(`Category ${suggestion.category} not found in categories object.`);
+            }
         } else {
             // Handle other categories
             var content = document.createElement('div');
@@ -124,15 +159,8 @@ function showSuggestions(suggestionsData) {
             // Display artist name only once if it matches exactly
             if (suggestion.category === 'Artist' && suggestion.matchitem && suggestion.matchitem.toLowerCase() === suggestion.artist.name.toLowerCase()) {
                 contentText.appendChild(boldCut);
-                // debug print
-               /*  console.log("artist matchitem:", suggestion.matchitem);
-                console.log("artist name:", suggestion.artist.name); */
             } else if (suggestion.category === 'Member' && suggestion.matchitem) {
-                // Check if suggestion.artist.Members exists and is an array
                 if (suggestion.artist.Members !== "") {
-                     // debug print
-               /*  console.log("artist matchitem:", suggestion.matchitem);
-                console.log("artist name:", suggestion.artist.name); */
                     if (suggestion.matchitem.toLowerCase() === suggestion.artist.name.toLowerCase()) {
                         contentText.appendChild(boldCut);
                     } else {
@@ -162,7 +190,7 @@ function showSuggestions(suggestionsData) {
 
             // Append content to the corresponding category container if it exists
             if (categories[suggestion.category]) {
-                categories[suggestion.category].appendChild(content);
+                categories[suggestion.category].resultContainer.appendChild(content);
                 categories[suggestion.category].resultsCount++; // Increment the counter
             } else {
                 console.warn(`Category ${suggestion.category} not found in categories object.`);

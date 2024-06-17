@@ -156,12 +156,23 @@ func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tp
 		for location, dates := range artist.DatesLocations {
 			// Check for exact match in location
 			if strings.EqualFold(strings.ToLower(location), normalizedQuery) {
-				// Add suggestion for the concert location
-				suggestions = append(suggestions, Suggestion{
-					Category:  "Concert",
-					MatchItem: map[string]interface{}{"location": location, "dates": dates}, // Store location and all dates
-					Artist:    &artist,
-				})
+				// Format dates
+				for _, date := range dates {
+					var formattedDate interface{}
+					formattedDate, err := ParseDate(date)
+					if err != nil {
+						fmt.Println("Error parsing date:", err)
+						continue
+					}
+					fmt.Println("formatted date", formattedDate)
+					// Add suggestion for the concert date
+					suggestions = append(suggestions, Suggestion{
+						Category:  "Concert",
+						MatchItem: map[string]interface{}{"location": location, "dates": formattedDate},
+						Artist:    &artist,
+					})
+				}
+
 				// debug print
 				/* 	fmt.Println("Filtered category -- concert")
 				fmt.Printf("Match item -- %v (%v) \n", date, location)*/
@@ -169,12 +180,22 @@ func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tp
 
 			// Check for partial match in location
 			if strings.Contains(strings.ToLower(location), searchQuery) {
-				// Add suggestion for the concert location
-				suggestions = append(suggestions, Suggestion{
-					Category:  "Concert",
-					MatchItem: map[string]interface{}{"location": location, "dates": dates}, // Store location and all dates
-					Artist:    &artist,
-				})
+				// Format dates
+				for _, date := range dates {
+					var formattedDate interface{}
+					formattedDate, err := ParseDate(date)
+					if err != nil {
+						fmt.Println("Error parsing date:", err)
+						continue
+					}
+
+					// Add suggestion for the concert date
+					suggestions = append(suggestions, Suggestion{
+						Category:  "Concert",
+						MatchItem: map[string]interface{}{"location": location, "dates": formattedDate},
+						Artist:    &artist,
+					})
+				}
 				// debug print
 				/* 	fmt.Println("Filtered category -- concert")
 				fmt.Printf("Match item -- %v (%v) \n", date, location) */
@@ -183,12 +204,22 @@ func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tp
 			// Check for match in dates
 			for _, date := range dates {
 				if strings.Contains(strings.ToLower(date), searchQuery) {
-					// Add suggestion for the concert date
-					suggestions = append(suggestions, Suggestion{
-						Category:  "Concert",
-						MatchItem: map[string]interface{}{"location": location, "dates": []string{date}}, // Store location and single date
-						Artist:    &artist,
-					})
+					// Format dates
+					for _, date := range dates {
+						var formattedDate interface{}
+						formattedDate, err := ParseDate(date)
+						if err != nil {
+							fmt.Println("Error parsing date:", err)
+							continue
+						}
+
+						// Add suggestion for the concert date
+						suggestions = append(suggestions, Suggestion{
+							Category:  "Concert",
+							MatchItem: map[string]interface{}{"location": location, "dates": formattedDate},
+							Artist:    &artist,
+						})
+					}
 					// debug print
 					/* 	fmt.Println("Filtered category -- concert")
 					fmt.Printf("Match item -- %v (%v) \n", date, location) */
