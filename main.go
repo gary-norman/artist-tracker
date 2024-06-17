@@ -3,10 +3,11 @@ package main
 import (
 	"artist-tracker/api"
 	"fmt"
-	"github.com/pterm/pterm"
-	"github.com/pterm/pterm/putils"
 	"strconv"
 	"time"
+
+	"github.com/pterm/pterm"
+	"github.com/pterm/pterm/putils"
 )
 
 func main() {
@@ -107,5 +108,11 @@ func main() {
 	//	}
 	//}
 	//}
+	//api.MapboxReverseLookup(1, Artists[1])
+
+	// debug print, to see better all the informations of an aritsts
+	artistsResult, _ := api.SearchArtist(Artists, "Led Zeppelin")
+	api.PrintArtistDetails(artistsResult)
+
 	api.HandleRequests(Artists, api.GetTemplate())
 }

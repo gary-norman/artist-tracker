@@ -10,6 +10,8 @@ import (
 func HomePage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *template.Template) {
 
 	if r.URL.Path != "/" {
+		// debug print
+		// fmt.Println("r.URL.Path:", r.URL.Path)
 		ErrorHandler(w, r, http.StatusNotFound)
 		return
 	}
@@ -20,36 +22,11 @@ func HomePage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *tem
 		return
 	}
 
-	maxArtists := len(artists)
-	var homeArtists []Artist
-
-	// Create a list of indices and Shuffle it
-	indices := make([]int, len(artists))
-	for i := range indices {
-		indices[i] = i
-	}
-	Shuffle(indices)
-
-	for i := 0; i < maxArtists; i++ {
-		randomArtist := artists[indices[i]]
-		homeArtists = append(homeArtists, randomArtist)
+	pageData := PageData{
+		HomeArtists: ShuffledArtists(artists),
 	}
 
-	//homeIds := artists.Id
-
-	// Limit the number of artists
-	//if len(artists) > maxArtists {
-	//	homeArtists = artists[:maxArtists]
-	//}
-
-	//artist := &Artist{
-	//	Name: "title",
-	//	Id:   5,
-	//	Image: ,
-	//	Members: ,
-	//}
-
-	err := t.Execute(w, homeArtists)
+	err := t.Execute(w, &pageData)
 	if err != nil {
 		var e Error
 		switch {
