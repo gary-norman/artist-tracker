@@ -4,24 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
-        "title": "Deep Purple live at Sion, Switzerland",
-        "description": "",
-        "date": "08-07-2020, 09-07-2020",
-        "eventAddress": "Sion, Switzerland"
-      },
-      "geometry": {
-        "coordinates": [
-          7.35953,
-          46.230938
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
+        "ID": "deep purple_event_0001",
+        "artist": "Deep Purple",
         "title": "Deep Purple live at Boulogne Billancourt, France",
         "description": "",
         "date": "30-06-2020",
@@ -30,7 +14,7 @@
       "geometry": {
         "coordinates": [
           2.241284,
-          48.835009
+          48.83501
         ],
         "type": "Point"
       }
@@ -38,7 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "deep purple_event_0002",
+        "artist": "Deep Purple",
         "title": "Deep Purple live at Freyming Merlebach, France",
         "description": "",
         "date": "09-12-2019",
@@ -47,7 +32,7 @@
       "geometry": {
         "coordinates": [
           6.818128,
-          49.146692
+          49.14669
         ],
         "type": "Point"
       }
@@ -55,7 +40,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "deep purple_event_0003",
+        "artist": "Deep Purple",
         "title": "Deep Purple live at Hamburg, Germany",
         "description": "",
         "date": "24-06-2020",
@@ -72,7 +58,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "deep purple_event_0004",
+        "artist": "Deep Purple",
         "title": "Deep Purple live at Klagenfurt, Austria",
         "description": "",
         "date": "01-12-2019",
@@ -81,7 +68,7 @@
       "geometry": {
         "coordinates": [
           14.306923,
-          46.625223
+          46.62522
         ],
         "type": "Point"
       }
@@ -89,7 +76,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "deep purple_event_0005",
+        "artist": "Deep Purple",
         "title": "Deep Purple live at Nimes, France",
         "description": "",
         "date": "01-07-2020",
@@ -106,7 +94,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "deep purple_event_0006",
+        "artist": "Deep Purple",
         "title": "Deep Purple live at Ostrava, Czechia",
         "description": "",
         "date": "04-12-2019",
@@ -123,7 +112,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "deep purple_event_0007",
+        "artist": "Deep Purple",
         "title": "Deep Purple live at Pagney Derriere Barine, France",
         "description": "",
         "date": "25-01-2020",
@@ -132,7 +122,25 @@
       "geometry": {
         "coordinates": [
           5.84608,
-          48.692884
+          48.692883
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "deep purple_event_0008",
+        "artist": "Deep Purple",
+        "title": "Deep Purple live at Sion, Switzerland",
+        "description": "",
+        "date": "08-07-2020, 09-07-2020",
+        "eventAddress": "Sion, Switzerland"
+      },
+      "geometry": {
+        "coordinates": [
+          7.35953,
+          46.230938
         ],
         "type": "Point"
       }

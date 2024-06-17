@@ -4,24 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
-        "title": "Dire Straits live at Zaragoza, Spain",
-        "description": "",
-        "date": "09-10-1992",
-        "eventAddress": "Zaragoza, Spain"
-      },
-      "geometry": {
-        "coordinates": [
-          -0.879501,
-          41.652952
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
+        "ID": "dire straits_event_0001",
+        "artist": "Dire Straits",
         "title": "Dire Straits live at Barcelona, Spain",
         "description": "",
         "date": "04-10-1992, 03-10-1992, 02-10-1992",
@@ -38,7 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "dire straits_event_0002",
+        "artist": "Dire Straits",
         "title": "Dire Straits live at Madrid, Spain",
         "description": "",
         "date": "07-10-1992, 06-10-1992",
@@ -47,7 +32,25 @@
       "geometry": {
         "coordinates": [
           -3.702979,
-          40.419223
+          40.419224
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "dire straits_event_0003",
+        "artist": "Dire Straits",
+        "title": "Dire Straits live at Zaragoza, Spain",
+        "description": "",
+        "date": "09-10-1992",
+        "eventAddress": "Zaragoza, Spain"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.879501,
+          41.65295
         ],
         "type": "Point"
       }

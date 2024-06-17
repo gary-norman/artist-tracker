@@ -4,7 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "nwa_event_0001",
+        "artist": "NWA",
         "title": "NWA live at Anaheim, USA",
         "description": "",
         "date": "24-03-1989",
@@ -21,7 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "nwa_event_0002",
+        "artist": "NWA",
         "title": "NWA live at Birmingham, UK",
         "description": "",
         "date": "25-06-1989",
@@ -38,7 +40,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "nwa_event_0003",
+        "artist": "NWA",
         "title": "NWA live at Brooklyn, USA",
         "description": "",
         "date": "03-09-2016",
@@ -55,7 +58,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "nwa_event_0004",
+        "artist": "NWA",
         "title": "NWA live at Chicago, USA",
         "description": "",
         "date": "12-01-1989",
@@ -72,7 +76,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "nwa_event_0005",
+        "artist": "NWA",
         "title": "NWA live at Cincinnati, USA",
         "description": "",
         "date": "18-06-1989",
@@ -89,7 +94,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "nwa_event_0006",
+        "artist": "NWA",
         "title": "NWA live at Windsor, Canada",
         "description": "",
         "date": "03-09-2015",

@@ -4,126 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
-        "title": "Imagine Dragons live at Riyadh, Saudi Arabia",
-        "description": "",
-        "date": "22-11-2019, 07-09-2019",
-        "eventAddress": "Riyadh, Saudi Arabia"
-      },
-      "geometry": {
-        "coordinates": [
-          46.716667,
-          24.633333
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Imagine Dragons live at Rio De Janeiro, Brazil",
-        "description": "",
-        "date": "27-09-2019",
-        "eventAddress": "Rio De Janeiro, Brazil"
-      },
-      "geometry": {
-        "coordinates": [
-          -43.209934,
-          -22.909534
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Imagine Dragons live at Quebec, Canada",
-        "description": "",
-        "date": "14-07-2019",
-        "eventAddress": "Quebec, Canada"
-      },
-      "geometry": {
-        "coordinates": [
-          -71.21272,
-          46.81289
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Imagine Dragons live at Berlin, Germany",
-        "description": "",
-        "date": "08-09-2018",
-        "eventAddress": "Berlin, Germany"
-      },
-      "geometry": {
-        "coordinates": [
-          13.3888599,
-          52.5170365
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Imagine Dragons live at California, USA",
-        "description": "",
-        "date": "24-05-2019, 26-05-2019",
-        "eventAddress": "California, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -119.699375153073,
-          37.0743595873945
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Imagine Dragons live at Canton, USA",
-        "description": "",
-        "date": "04-08-2019",
-        "eventAddress": "Canton, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -81.37488,
-          40.79847
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Imagine Dragons live at Mexico City, Mexico",
-        "description": "",
-        "date": "17-11-2018, 18-10-2018",
-        "eventAddress": "Mexico City, Mexico"
-      },
-      "geometry": {
-        "coordinates": [
-          -99.1331785,
-          19.4326296
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
+        "ID": "imagine dragons_event_0001",
+        "artist": "Imagine Dragons",
         "title": "Imagine Dragons live at Monterrey, Mexico",
         "description": "",
         "date": "17-07-2018",
@@ -140,7 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "imagine dragons_event_0002",
+        "artist": "Imagine Dragons",
         "title": "Imagine Dragons live at New York, USA",
         "description": "",
         "date": "25-05-2019",
@@ -157,16 +40,17 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
-        "title": "Imagine Dragons live at Del Mar, USA",
+        "ID": "imagine dragons_event_0003",
+        "artist": "Imagine Dragons",
+        "title": "Imagine Dragons live at Rio De Janeiro, Brazil",
         "description": "",
-        "date": "22-09-2018",
-        "eventAddress": "Del Mar, USA"
+        "date": "27-09-2019",
+        "eventAddress": "Rio De Janeiro, Brazil"
       },
       "geometry": {
         "coordinates": [
-          -117.26535,
-          32.959637
+          -43.209934,
+          -22.909534
         ],
         "type": "Point"
       }
@@ -174,7 +58,26 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "imagine dragons_event_0004",
+        "artist": "Imagine Dragons",
+        "title": "Imagine Dragons live at Riyadh, Saudi Arabia",
+        "description": "",
+        "date": "22-11-2019, 07-09-2019",
+        "eventAddress": "Riyadh, Saudi Arabia"
+      },
+      "geometry": {
+        "coordinates": [
+          46.716667,
+          24.633333
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "imagine dragons_event_0005",
+        "artist": "Imagine Dragons",
         "title": "Imagine Dragons live at Las Vegas, USA",
         "description": "",
         "date": "31-12-2018, 22-09-2018",
@@ -191,7 +94,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "imagine dragons_event_0006",
+        "artist": "Imagine Dragons",
         "title": "Imagine Dragons live at Lisbon, Portugal",
         "description": "",
         "date": "04-09-2018",
@@ -201,6 +105,114 @@
         "coordinates": [
           -9.144851,
           38.715424
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "imagine dragons_event_0007",
+        "artist": "Imagine Dragons",
+        "title": "Imagine Dragons live at Mexico City, Mexico",
+        "description": "",
+        "date": "17-11-2018, 18-10-2018",
+        "eventAddress": "Mexico City, Mexico"
+      },
+      "geometry": {
+        "coordinates": [
+          -99.1331785,
+          19.4326296
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "imagine dragons_event_0008",
+        "artist": "Imagine Dragons",
+        "title": "Imagine Dragons live at California, USA",
+        "description": "",
+        "date": "24-05-2019, 26-05-2019",
+        "eventAddress": "California, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -119.699375153073,
+          37.0743595873945
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "imagine dragons_event_0009",
+        "artist": "Imagine Dragons",
+        "title": "Imagine Dragons live at Quebec, Canada",
+        "description": "",
+        "date": "14-07-2019",
+        "eventAddress": "Quebec, Canada"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.21272,
+          46.81289
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "imagine dragons_event_0010",
+        "artist": "Imagine Dragons",
+        "title": "Imagine Dragons live at Canton, USA",
+        "description": "",
+        "date": "04-08-2019",
+        "eventAddress": "Canton, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -81.37488,
+          40.79847
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "imagine dragons_event_0011",
+        "artist": "Imagine Dragons",
+        "title": "Imagine Dragons live at Del Mar, USA",
+        "description": "",
+        "date": "22-09-2018",
+        "eventAddress": "Del Mar, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -117.26535,
+          32.959637
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "imagine dragons_event_0012",
+        "artist": "Imagine Dragons",
+        "title": "Imagine Dragons live at Berlin, Germany",
+        "description": "",
+        "date": "08-09-2018",
+        "eventAddress": "Berlin, Germany"
+      },
+      "geometry": {
+        "coordinates": [
+          13.3888599,
+          52.5170365
         ],
         "type": "Point"
       }

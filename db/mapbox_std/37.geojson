@@ -4,24 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
-        "title": "Fall Out Boy live at Vienna, Austria",
-        "description": "",
-        "date": "21-06-2020",
-        "eventAddress": "Vienna, Austria"
-      },
-      "geometry": {
-        "coordinates": [
-          16.3725042,
-          48.2083537
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
+        "ID": "fall out boy_event_0001",
+        "artist": "Fall Out Boy",
         "title": "Fall Out Boy live at Antwerp, Belgium",
         "description": "",
         "date": "19-06-2020",
@@ -38,7 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "fall out boy_event_0002",
+        "artist": "Fall Out Boy",
         "title": "Fall Out Boy live at Glasgow, UK",
         "description": "",
         "date": "24-06-2020",
@@ -55,7 +40,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "fall out boy_event_0003",
+        "artist": "Fall Out Boy",
         "title": "Fall Out Boy live at Groningen, Netherlands",
         "description": "",
         "date": "14-06-2020",
@@ -64,7 +50,7 @@
       "geometry": {
         "coordinates": [
           6.569525,
-          53.218415
+          53.218414
         ],
         "type": "Point"
       }
@@ -72,7 +58,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "fall out boy_event_0004",
+        "artist": "Fall Out Boy",
         "title": "Fall Out Boy live at London, UK",
         "description": "",
         "date": "26-06-2020",
@@ -89,7 +76,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "fall out boy_event_0005",
+        "artist": "Fall Out Boy",
         "title": "Fall Out Boy live at Paris, France",
         "description": "",
         "date": "13-06-2020",
@@ -99,6 +87,24 @@
         "coordinates": [
           2.3483915,
           48.8534951
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "fall out boy_event_0006",
+        "artist": "Fall Out Boy",
+        "title": "Fall Out Boy live at Vienna, Austria",
+        "description": "",
+        "date": "21-06-2020",
+        "eventAddress": "Vienna, Austria"
+      },
+      "geometry": {
+        "coordinates": [
+          16.3725042,
+          48.2083537
         ],
         "type": "Point"
       }

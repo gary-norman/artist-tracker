@@ -4,24 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
-        "title": "Guns N' Roses live at Oakland, USA",
-        "description": "",
-        "date": "21-11-2017",
-        "eventAddress": "Oakland, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.27206,
-          37.802948
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
+        "ID": "guns n' roses_event_0001",
+        "artist": "Guns N' Roses",
         "title": "Guns N' Roses live at Berlin, Germany",
         "description": "",
         "date": "03-06-2018",
@@ -38,7 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "guns n' roses_event_0002",
+        "artist": "Guns N' Roses",
         "title": "Guns N' Roses live at Charlotte, USA",
         "description": "",
         "date": "25-09-2019",
@@ -55,7 +40,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "guns n' roses_event_0003",
+        "artist": "Guns N' Roses",
         "title": "Guns N' Roses live at Chicago, USA",
         "description": "",
         "date": "06-03-2017",
@@ -72,7 +58,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "guns n' roses_event_0004",
+        "artist": "Guns N' Roses",
         "title": "Guns N' Roses live at Houston, USA",
         "description": "",
         "date": "10-11-2017",
@@ -89,7 +76,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "guns n' roses_event_0005",
+        "artist": "Guns N' Roses",
         "title": "Guns N' Roses live at Inglewood, USA",
         "description": "",
         "date": "25-11-2017",
@@ -106,7 +94,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "guns n' roses_event_0006",
+        "artist": "Guns N' Roses",
         "title": "Guns N' Roses live at Los Angeles, USA",
         "description": "",
         "date": "24-11-2017",
@@ -123,7 +112,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "guns n' roses_event_0007",
+        "artist": "Guns N' Roses",
         "title": "Guns N' Roses live at Madrid, Spain",
         "description": "",
         "date": "04-06-2017",
@@ -132,7 +122,25 @@
       "geometry": {
         "coordinates": [
           -3.702979,
-          40.419223
+          40.419224
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "guns n' roses_event_0008",
+        "artist": "Guns N' Roses",
+        "title": "Guns N' Roses live at Oakland, USA",
+        "description": "",
+        "date": "21-11-2017",
+        "eventAddress": "Oakland, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -122.27206,
+          37.802948
         ],
         "type": "Point"
       }
