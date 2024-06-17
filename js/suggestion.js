@@ -111,7 +111,7 @@ function showSuggestions(suggestionsData) {
 
             var img = document.createElement('img');
             img.className = 'pic user';
-            img.src = suggestion.artist && suggestion.artist.image ? suggestion.artist.image : 'default-image-url.jpg'; // Handle undefined image
+            img.src = suggestion.artist && suggestion.artist.strArtistThumb ? suggestion.artist.strArtistThumb : 'default-image-url.jpg'; // Handle undefined image
             img.alt = 'Profile image of ' + (suggestion.artist && suggestion.artist.name ? suggestion.artist.name : 'Unknown Artist'); // Handle undefined name
 
             var contentText = document.createElement('div');

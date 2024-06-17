@@ -100,7 +100,7 @@ func main() {
 	pterm.Println(pterm.Cyan("}"))
 
 	// debug print, to see better all the informations of an aritsts
-	artistsResult, _ := api.SearchArtist(Artists, "Led Zeppelin")
+	artistsResult, _ := api.SearchArtist(Artists, "Queen")
 	api.PrintArtistDetails(artistsResult)
 
 	api.HandleRequests(Artists, api.GetTemplate())

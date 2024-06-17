@@ -35,7 +35,7 @@ const geojsonFiles = [];
 const numFiles = 51; // Number of GeoJSON files
 
 for (let i = 0; i < numFiles; i++) {
-    geojsonFiles.push(`/db/mapbox/${i}.geojson`);
+    geojsonFiles.push(`/db/mapbox_std/${i}.geojson`);
 }
 
 // Fetch all GeoJSON files and process them
