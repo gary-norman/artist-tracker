@@ -4,7 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "xxxtentacion_event_0001",
+        "artist": "XXXTentacion",
         "title": "XXXTentacion live at California, USA",
         "description": "",
         "date": "16-12-2017, 17-12-2017, 21-10-2017, 22-10-2017, 13-08-2017, 12-08-2017",
@@ -21,7 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "xxxtentacion_event_0002",
+        "artist": "XXXTentacion",
         "title": "XXXTentacion live at Georgia, USA",
         "description": "",
         "date": "01-08-2017",
@@ -38,7 +40,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "xxxtentacion_event_0003",
+        "artist": "XXXTentacion",
         "title": "XXXTentacion live at Nevada, USA",
         "description": "",
         "date": "04-08-2017",

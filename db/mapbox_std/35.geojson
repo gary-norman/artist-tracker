@@ -4,24 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
-        "title": "U2 live at Sydney, Australia",
-        "description": "",
-        "date": "22-11-2019",
-        "eventAddress": "Sydney, Australia"
-      },
-      "geometry": {
-        "coordinates": [
-          151.206987,
-          -33.870782
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
+        "ID": "u2_event_0001",
+        "artist": "U2",
         "title": "U2 live at Auckland, New Zealand",
         "description": "",
         "date": "08-11-2019",
@@ -29,8 +13,8 @@
       },
       "geometry": {
         "coordinates": [
-          174.765917,
-          -36.846997
+          174.76591,
+          -36.846996
         ],
         "type": "Point"
       }
@@ -38,7 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "u2_event_0002",
+        "artist": "U2",
         "title": "U2 live at Brisbane, Australia",
         "description": "",
         "date": "12-11-2019",
@@ -46,7 +31,7 @@
       },
       "geometry": {
         "coordinates": [
-          153.027696,
+          153.0277,
           -27.469099
         ],
         "type": "Point"
@@ -55,7 +40,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "u2_event_0003",
+        "artist": "U2",
         "title": "U2 live at Manila, Philippines",
         "description": "",
         "date": "11-12-2019",
@@ -72,7 +58,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "u2_event_0004",
+        "artist": "U2",
         "title": "U2 live at Melbourne, Australia",
         "description": "",
         "date": "15-11-2019",
@@ -80,8 +67,8 @@
       },
       "geometry": {
         "coordinates": [
-          144.964568,
-          -37.813983
+          144.96457,
+          -37.813984
         ],
         "type": "Point"
       }
@@ -89,7 +76,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "u2_event_0005",
+        "artist": "U2",
         "title": "U2 live at Mumbai, India",
         "description": "",
         "date": "15-12-2019",
@@ -99,6 +87,24 @@
         "coordinates": [
           72.878723,
           19.077793
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "u2_event_0006",
+        "artist": "U2",
+        "title": "U2 live at Sydney, Australia",
+        "description": "",
+        "date": "22-11-2019",
+        "eventAddress": "Sydney, Australia"
+      },
+      "geometry": {
+        "coordinates": [
+          151.20699,
+          -33.87078
         ],
         "type": "Point"
       }

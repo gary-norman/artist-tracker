@@ -4,7 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "eagles_event_0001",
+        "artist": "Eagles",
         "title": "Eagles live at London, UK",
         "description": "",
         "date": "29-08-2020, 30-08-2020",
@@ -21,7 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "eagles_event_0002",
+        "artist": "Eagles",
         "title": "Eagles live at New York, USA",
         "description": "",
         "date": "15-02-2020, 14-02-2020, 18-02-2020",
@@ -38,7 +40,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "eagles_event_0003",
+        "artist": "Eagles",
         "title": "Eagles live at Berwyn, USA",
         "description": "",
         "date": "31-12-2019",
@@ -55,7 +58,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "eagles_event_0004",
+        "artist": "Eagles",
         "title": "Eagles live at Dallas, USA",
         "description": "",
         "date": "29-02-2020, 01-03-2020",
@@ -72,7 +76,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "eagles_event_0005",
+        "artist": "Eagles",
         "title": "Eagles live at Georgia, USA",
         "description": "",
         "date": "07-02-2020, 08-02-2020, 11-02-2020",
@@ -89,7 +94,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "eagles_event_0006",
+        "artist": "Eagles",
         "title": "Eagles live at Houston, USA",
         "description": "",
         "date": "07-03-2020",

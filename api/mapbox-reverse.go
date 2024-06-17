@@ -35,11 +35,14 @@ type GeoReverseFeature struct {
 }
 
 func MapboxReverseLookup(index int, artist Artist) {
+	idString := strings.ToLower(artist.Name) + "_event_"
+	eventNo := 1
 	indexInt := strconv.Itoa(index)
 	// make an empty struct to hold all geo data
 	reverseFeatures := make([]GeoReverseFeature, 0, len(artist.DatesLocations))
 	// make an empty map to hold every date for each location
 	for location, dates := range artist.DatesLocations {
+		eventNoStr := fmt.Sprintf("%04d", eventNo)
 		// use mapbox api to get Geometry
 		encodedLocation := url.QueryEscape(location)
 		requestURL := fmt.Sprintf("https://api.mapbox.com/search/geocode/v6/forward?q=%s&access_token=%s", encodedLocation, accessToken)
@@ -82,6 +85,8 @@ func MapboxReverseLookup(index int, artist Artist) {
 		reverseFeature := GeoReverseFeature{
 			Type: "Feature",
 			Properties: Properties{
+				ID:      idString + eventNoStr,
+				Artist:  artist.Name,
 				Title:   artist.Name + " live at " + location,
 				Date:    itemDates,
 				Address: location,
@@ -89,6 +94,7 @@ func MapboxReverseLookup(index int, artist Artist) {
 			Geometry: mapboxResponse.Features[0].Geometry,
 		}
 		reverseFeatures = append(reverseFeatures, reverseFeature)
+		eventNo += 1
 	}
 	geoJSON := GeoReverseCollection{
 		Type:     "FeatureCollection",

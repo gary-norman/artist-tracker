@@ -4,7 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "pink floyd_event_0001",
+        "artist": "Pink Floyd",
         "title": "Pink Floyd live at Lausanne, Switzerland",
         "description": "",
         "date": "25-09-1994",
@@ -13,7 +14,7 @@
       "geometry": {
         "coordinates": [
           6.632528,
-          46.520712
+          46.520714
         ],
         "type": "Point"
       }
@@ -21,7 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "pink floyd_event_0002",
+        "artist": "Pink Floyd",
         "title": "Pink Floyd live at London, UK",
         "description": "",
         "date": "10-05-2007, 02-07-2005, 29-10-1994, 28-10-1994, 27-10-1994, 26-10-1994, 23-10-1994, 22-10-1994, 21-10-1994, 20-10-1994, 19-10-1994, 17-10-1994, 16-10-1994, 15-10-1994, 14-10-1994, 13-10-1994, 12-10-1994",
@@ -38,7 +40,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "pink floyd_event_0003",
+        "artist": "Pink Floyd",
         "title": "Pink Floyd live at Lyon, France",
         "description": "",
         "date": "23-09-1994",

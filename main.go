@@ -92,16 +92,16 @@ func main() {
 	spinnerInfo.Success("Updated artist information in " + strconv.FormatInt(timetaken, 10) + "ms\n")
 	api.UpdateACDC(Artists)
 	timetaken = t.Sub(start).Milliseconds()
-	i := 48
-	pterm.Info.Println("All tasks completed successfully in " + pterm.Green(strconv.FormatInt(timetaken, 10)+"ms"))
-	pterm.Println(pterm.Cyan(Artists[i]))
-	pterm.Println(pterm.Cyan("TourDetails {"))
-	pterm.Println(pterm.Cyan(Artists[i].TourDetails))
-	pterm.Println(pterm.Cyan("}"))
-
+	//i := 48
+	//pterm.Info.Println("All tasks completed successfully in " + pterm.Green(strconv.FormatInt(timetaken, 10)+"ms"))
+	//pterm.Println(pterm.Cyan(Artists[i]))
+	//pterm.Println(pterm.Cyan("TourDetails {"))
+	//pterm.Println(pterm.Cyan(Artists[i].TourDetails))
+	//pterm.Println(pterm.Cyan("}"))
+	api.MapboxReverseLookup(51, Artists[51])
 	// debug print, to see better all the informations of an aritsts
-	artistsResult, _ := api.SearchArtist(Artists, "Led Zeppelin")
-	api.PrintArtistDetails(artistsResult)
+	//artistsResult, _ := api.SearchArtist(Artists, "queen")
+	//api.PrintArtistDetails(artistsResult)
 
 	api.HandleRequests(Artists, api.GetTemplate())
 }

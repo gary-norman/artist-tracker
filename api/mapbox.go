@@ -48,6 +48,7 @@ type Geometry struct {
 
 type Properties struct {
 	ID          string
+	Artist      string `json:"artist"`
 	Title       string `json:"title"`
 	Description string `json:"description"`
 	Date        string `json:"date"`

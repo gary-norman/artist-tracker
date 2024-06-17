@@ -4,58 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
-        "title": "Coldplay live at London, UK",
-        "description": "",
-        "date": "25-11-2019",
-        "eventAddress": "London, UK"
-      },
-      "geometry": {
-        "coordinates": [
-          -0.127647,
-          51.5073
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Coldplay live at Porto Alegre, Brazil",
-        "description": "",
-        "date": "11-11-2017",
-        "eventAddress": "Porto Alegre, Brazil"
-      },
-      "geometry": {
-        "coordinates": [
-          -51.22783,
-          -30.031565
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Coldplay live at Sao Paulo, Brazil",
-        "description": "",
-        "date": "07-11-2017, 08-11-2017",
-        "eventAddress": "Sao Paulo, Brazil"
-      },
-      "geometry": {
-        "coordinates": [
-          -46.638775,
-          -23.548157
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
+        "ID": "coldplay_event_0001",
+        "artist": "Coldplay",
         "title": "Coldplay live at California, USA",
         "description": "",
         "date": "08-10-2017",
@@ -72,7 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "coldplay_event_0002",
+        "artist": "Coldplay",
         "title": "Coldplay live at La Plata, Argentina",
         "description": "",
         "date": "14-11-2017, 15-11-2017",
@@ -82,6 +33,60 @@
         "coordinates": [
           -57.95106,
           -34.91725
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "coldplay_event_0003",
+        "artist": "Coldplay",
+        "title": "Coldplay live at London, UK",
+        "description": "",
+        "date": "25-11-2019",
+        "eventAddress": "London, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.127647,
+          51.5073
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "coldplay_event_0004",
+        "artist": "Coldplay",
+        "title": "Coldplay live at Porto Alegre, Brazil",
+        "description": "",
+        "date": "11-11-2017",
+        "eventAddress": "Porto Alegre, Brazil"
+      },
+      "geometry": {
+        "coordinates": [
+          -51.22783,
+          -30.031565
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "coldplay_event_0005",
+        "artist": "Coldplay",
+        "title": "Coldplay live at Sao Paulo, Brazil",
+        "description": "",
+        "date": "07-11-2017, 08-11-2017",
+        "eventAddress": "Sao Paulo, Brazil"
+      },
+      "geometry": {
+        "coordinates": [
+          -46.638775,
+          -23.548157
         ],
         "type": "Point"
       }

@@ -4,41 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
-        "title": "Mobb Deep live at Amityville, USA",
-        "description": "",
-        "date": "22-03-2017",
-        "eventAddress": "Amityville, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -73.4173,
-          40.679165
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Mobb Deep live at Chicago, USA",
-        "description": "",
-        "date": "17-03-2017",
-        "eventAddress": "Chicago, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -87.63236,
-          41.881954
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
+        "ID": "mobb deep_event_0001",
+        "artist": "Mobb Deep",
         "title": "Mobb Deep live at Detroit, USA",
         "description": "",
         "date": "15-03-2017",
@@ -55,7 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "mobb deep_event_0002",
+        "artist": "Mobb Deep",
         "title": "Mobb Deep live at Minneapolis, USA",
         "description": "",
         "date": "16-03-2017",
@@ -72,7 +40,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "mobb deep_event_0003",
+        "artist": "Mobb Deep",
         "title": "Mobb Deep live at Paris, France",
         "description": "",
         "date": "31-03-2017",
@@ -89,7 +58,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "mobb deep_event_0004",
+        "artist": "Mobb Deep",
         "title": "Mobb Deep live at Philadelphia, USA",
         "description": "",
         "date": "03-06-2017",
@@ -99,6 +69,42 @@
         "coordinates": [
           -75.16401,
           39.950886
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "mobb deep_event_0005",
+        "artist": "Mobb Deep",
+        "title": "Mobb Deep live at Amityville, USA",
+        "description": "",
+        "date": "22-03-2017",
+        "eventAddress": "Amityville, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -73.4173,
+          40.679165
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "mobb deep_event_0006",
+        "artist": "Mobb Deep",
+        "title": "Mobb Deep live at Chicago, USA",
+        "description": "",
+        "date": "17-03-2017",
+        "eventAddress": "Chicago, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -87.63236,
+          41.881954
         ],
         "type": "Point"
       }

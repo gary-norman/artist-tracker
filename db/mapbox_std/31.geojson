@@ -4,7 +4,26 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "nickelback_event_0001",
+        "artist": "Nickelback",
+        "title": "Nickelback live at Berlin, Germany",
+        "description": "",
+        "date": "25-06-2020",
+        "eventAddress": "Berlin, Germany"
+      },
+      "geometry": {
+        "coordinates": [
+          13.3888599,
+          52.5170365
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "nickelback_event_0002",
+        "artist": "Nickelback",
         "title": "Nickelback live at Stockholm, Sweden",
         "description": "",
         "date": "29-06-2020",
@@ -12,8 +31,8 @@
       },
       "geometry": {
         "coordinates": [
-          18.071765,
-          59.324334
+          18.071766,
+          59.324333
         ],
         "type": "Point"
       }
@@ -21,92 +40,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
-        "title": "Nickelback live at Budapest, Hungary",
-        "description": "",
-        "date": "15-07-2020",
-        "eventAddress": "Budapest, Hungary"
-      },
-      "geometry": {
-        "coordinates": [
-          19.0403594,
-          47.4979937
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Nickelback live at Krakow, Poland",
-        "description": "",
-        "date": "13-07-2020",
-        "eventAddress": "Krakow, Poland"
-      },
-      "geometry": {
-        "coordinates": [
-          19.937974,
-          50.062323
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Nickelback live at London, UK",
-        "description": "",
-        "date": "10-07-2020",
-        "eventAddress": "London, UK"
-      },
-      "geometry": {
-        "coordinates": [
-          -0.127647,
-          51.5073
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Nickelback live at Vienna, Austria",
-        "description": "",
-        "date": "07-07-2020",
-        "eventAddress": "Vienna, Austria"
-      },
-      "geometry": {
-        "coordinates": [
-          16.3725042,
-          48.2083537
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Nickelback live at Zurich, Switzerland",
-        "description": "",
-        "date": "17-07-2020",
-        "eventAddress": "Zurich, Switzerland"
-      },
-      "geometry": {
-        "coordinates": [
-          8.541096,
-          47.369733
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
+        "ID": "nickelback_event_0003",
+        "artist": "Nickelback",
         "title": "Nickelback live at Copenhagen, Denmark",
         "description": "",
         "date": "02-07-2020",
@@ -123,7 +58,62 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "nickelback_event_0004",
+        "artist": "Nickelback",
+        "title": "Nickelback live at London, UK",
+        "description": "",
+        "date": "10-07-2020",
+        "eventAddress": "London, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -0.127647,
+          51.5073
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "nickelback_event_0005",
+        "artist": "Nickelback",
+        "title": "Nickelback live at Zurich, Switzerland",
+        "description": "",
+        "date": "17-07-2020",
+        "eventAddress": "Zurich, Switzerland"
+      },
+      "geometry": {
+        "coordinates": [
+          8.541096,
+          47.369733
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "nickelback_event_0006",
+        "artist": "Nickelback",
+        "title": "Nickelback live at Budapest, Hungary",
+        "description": "",
+        "date": "15-07-2020",
+        "eventAddress": "Budapest, Hungary"
+      },
+      "geometry": {
+        "coordinates": [
+          19.0403594,
+          47.4979937
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "nickelback_event_0007",
+        "artist": "Nickelback",
         "title": "Nickelback live at Frankfurt, Germany",
         "description": "",
         "date": "23-06-2020",
@@ -132,7 +122,7 @@
       "geometry": {
         "coordinates": [
           8.678239,
-          50.113395
+          50.113396
         ],
         "type": "Point"
       }
@@ -140,7 +130,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "nickelback_event_0008",
+        "artist": "Nickelback",
         "title": "Nickelback live at Imola, Italy",
         "description": "",
         "date": "05-07-2020",
@@ -157,16 +148,35 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
-        "title": "Nickelback live at Berlin, Germany",
+        "ID": "nickelback_event_0009",
+        "artist": "Nickelback",
+        "title": "Nickelback live at Krakow, Poland",
         "description": "",
-        "date": "25-06-2020",
-        "eventAddress": "Berlin, Germany"
+        "date": "13-07-2020",
+        "eventAddress": "Krakow, Poland"
       },
       "geometry": {
         "coordinates": [
-          13.3888599,
-          52.5170365
+          19.937975,
+          50.062325
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "nickelback_event_0010",
+        "artist": "Nickelback",
+        "title": "Nickelback live at Vienna, Austria",
+        "description": "",
+        "date": "07-07-2020",
+        "eventAddress": "Vienna, Austria"
+      },
+      "geometry": {
+        "coordinates": [
+          16.3725042,
+          48.2083537
         ],
         "type": "Point"
       }

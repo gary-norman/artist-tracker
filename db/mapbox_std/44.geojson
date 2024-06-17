@@ -4,41 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
-        "title": "Metallica live at Porto Alegre, Brazil",
-        "description": "",
-        "date": "21-04-2020, 23-04-2020",
-        "eventAddress": "Porto Alegre, Brazil"
-      },
-      "geometry": {
-        "coordinates": [
-          -51.22783,
-          -30.031565
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Metallica live at San Francisco, USA",
-        "description": "",
-        "date": "06-09-2019, 08-09-2019",
-        "eventAddress": "San Francisco, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.419359,
-          37.7792376
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
+        "ID": "metallica_event_0001",
+        "artist": "Metallica",
         "title": "Metallica live at Santiago, Chile",
         "description": "",
         "date": "15-04-2020",
@@ -55,7 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "metallica_event_0002",
+        "artist": "Metallica",
         "title": "Metallica live at Sao Paulo, Brazil",
         "description": "",
         "date": "25-04-2020",
@@ -72,7 +40,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "metallica_event_0003",
+        "artist": "Metallica",
         "title": "Metallica live at Belo Horizonte, Brazil",
         "description": "",
         "date": "27-04-2020",
@@ -89,7 +58,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "metallica_event_0004",
+        "artist": "Metallica",
         "title": "Metallica live at Buenos Aires, Argentina",
         "description": "",
         "date": "18-04-2020",
@@ -106,7 +76,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "metallica_event_0005",
+        "artist": "Metallica",
         "title": "Metallica live at Mannheim, Germany",
         "description": "",
         "date": "25-09-2019",
@@ -115,7 +86,7 @@
       "geometry": {
         "coordinates": [
           8.469515,
-          49.486456
+          49.486458
         ],
         "type": "Point"
       }
@@ -123,7 +94,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "metallica_event_0006",
+        "artist": "Metallica",
         "title": "Metallica live at Munich, Germany",
         "description": "",
         "date": "23-08-2019",
@@ -133,6 +105,42 @@
         "coordinates": [
           11.5759683,
           48.1369727
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "metallica_event_0007",
+        "artist": "Metallica",
+        "title": "Metallica live at Porto Alegre, Brazil",
+        "description": "",
+        "date": "21-04-2020, 23-04-2020",
+        "eventAddress": "Porto Alegre, Brazil"
+      },
+      "geometry": {
+        "coordinates": [
+          -51.22783,
+          -30.031565
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "metallica_event_0008",
+        "artist": "Metallica",
+        "title": "Metallica live at San Francisco, USA",
+        "description": "",
+        "date": "06-09-2019, 08-09-2019",
+        "eventAddress": "San Francisco, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -122.419359,
+          37.7792376
         ],
         "type": "Point"
       }

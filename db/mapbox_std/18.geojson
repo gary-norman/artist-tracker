@@ -4,24 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
-        "title": "Aerosmith live at Nevada, USA",
-        "description": "",
-        "date": "29-01-2020, 31-01-2020, 03-02-2020, 05-02-2020, 08-02-2020, 10-02-2020, 13-02-2020, 15-02-2020, 20-05-2020, 23-05-2020, 25-05-2020, 28-05-2020, 30-05-2020, 02-06-2020, 04-06-2020",
-        "eventAddress": "Nevada, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -116.598821819119,
-          40.071120297646
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
+        "ID": "aerosmith_event_0001",
+        "artist": "Aerosmith",
         "title": "Aerosmith live at London, UK",
         "description": "",
         "date": "15-07-2020",
@@ -38,7 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "aerosmith_event_0002",
+        "artist": "Aerosmith",
         "title": "Aerosmith live at Manchester, UK",
         "description": "",
         "date": "18-07-2020",
@@ -48,6 +33,24 @@
         "coordinates": [
           -2.2451148,
           53.47948920000002
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "aerosmith_event_0003",
+        "artist": "Aerosmith",
+        "title": "Aerosmith live at Nevada, USA",
+        "description": "",
+        "date": "29-01-2020, 31-01-2020, 03-02-2020, 05-02-2020, 08-02-2020, 10-02-2020, 13-02-2020, 15-02-2020, 20-05-2020, 23-05-2020, 25-05-2020, 28-05-2020, 30-05-2020, 02-06-2020, 04-06-2020",
+        "eventAddress": "Nevada, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -116.598821819119,
+          40.071120297646
         ],
         "type": "Point"
       }

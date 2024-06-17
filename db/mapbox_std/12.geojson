@@ -4,7 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "genesis_event_0001",
+        "artist": "Genesis",
         "title": "Genesis live at Illinois, USA",
         "description": "",
         "date": "06-09-2012",
@@ -21,7 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "genesis_event_0002",
+        "artist": "Genesis",
         "title": "Genesis live at Merkers, Germany",
         "description": "",
         "date": "29-06-2012, 30-06-2012",
@@ -38,7 +40,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "genesis_event_0003",
+        "artist": "Genesis",
         "title": "Genesis live at Westcliff On Sea, UK",
         "description": "",
         "date": "07-10-2012",
@@ -47,7 +50,7 @@
       "geometry": {
         "coordinates": [
           0.695068,
-          51.540515
+          51.540516
         ],
         "type": "Point"
       }

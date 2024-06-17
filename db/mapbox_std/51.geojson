@@ -4,92 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
-        "title": "The Chainsmokers live at Oregon, USA",
-        "description": "",
-        "date": "05-12-2019",
-        "eventAddress": "Oregon, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -120.281411696945,
-          44.0328841608707
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "The Chainsmokers live at Prague, Czechia",
-        "description": "",
-        "date": "08-10-2020",
-        "eventAddress": "Prague, Czechia"
-      },
-      "geometry": {
-        "coordinates": [
-          14.422954,
-          50.085837
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "The Chainsmokers live at Vancouver, Canada",
-        "description": "",
-        "date": "06-12-2019",
-        "eventAddress": "Vancouver, Canada"
-      },
-      "geometry": {
-        "coordinates": [
-          -123.11498,
-          49.260975
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "The Chainsmokers live at Colorado, USA",
-        "description": "",
-        "date": "23-01-2020",
-        "eventAddress": "Colorado, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -105.604997408086,
-          39.1902459990462
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "The Chainsmokers live at Milan, Italy",
-        "description": "",
-        "date": "10-10-2020",
-        "eventAddress": "Milan, Italy"
-      },
-      "geometry": {
-        "coordinates": [
-          9.1885578,
-          45.4639447
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
+        "ID": "the chainsmokers_event_0001",
+        "artist": "The Chainsmokers",
         "title": "The Chainsmokers live at Munich, Germany",
         "description": "",
         "date": "07-10-2020",
@@ -106,7 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "the chainsmokers_event_0002",
+        "artist": "The Chainsmokers",
         "title": "The Chainsmokers live at Nevada, USA",
         "description": "",
         "date": "07-12-2019, 14-12-2019, 31-12-2019, 11-01-2020, 18-01-2020",
@@ -116,6 +33,96 @@
         "coordinates": [
           -116.598821819119,
           40.071120297646
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "the chainsmokers_event_0003",
+        "artist": "The Chainsmokers",
+        "title": "The Chainsmokers live at Oregon, USA",
+        "description": "",
+        "date": "05-12-2019",
+        "eventAddress": "Oregon, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -120.281411696945,
+          44.0328841608707
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "the chainsmokers_event_0004",
+        "artist": "The Chainsmokers",
+        "title": "The Chainsmokers live at Prague, Czechia",
+        "description": "",
+        "date": "08-10-2020",
+        "eventAddress": "Prague, Czechia"
+      },
+      "geometry": {
+        "coordinates": [
+          14.422954,
+          50.08584
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "the chainsmokers_event_0005",
+        "artist": "The Chainsmokers",
+        "title": "The Chainsmokers live at Vancouver, Canada",
+        "description": "",
+        "date": "06-12-2019",
+        "eventAddress": "Vancouver, Canada"
+      },
+      "geometry": {
+        "coordinates": [
+          -123.11498,
+          49.260975
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "the chainsmokers_event_0006",
+        "artist": "The Chainsmokers",
+        "title": "The Chainsmokers live at Colorado, USA",
+        "description": "",
+        "date": "23-01-2020",
+        "eventAddress": "Colorado, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -105.604997408086,
+          39.1902459990462
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "the chainsmokers_event_0007",
+        "artist": "The Chainsmokers",
+        "title": "The Chainsmokers live at Milan, Italy",
+        "description": "",
+        "date": "10-10-2020",
+        "eventAddress": "Milan, Italy"
+      },
+      "geometry": {
+        "coordinates": [
+          9.1885578,
+          45.4639447
         ],
         "type": "Point"
       }
