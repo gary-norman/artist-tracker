@@ -47,6 +47,25 @@ func Decrement(n int) int {
 	return n - 1
 }
 
+// return a list of ramdon Artists
+func ShuffledArtists(artists []Artist) []Artist {
+	maxArtists := len(artists)
+	var homeArtists []Artist
+
+	// Create a list of indices and Shuffle it
+	indices := make([]int, len(artists))
+	for i := range indices {
+		indices[i] = i
+	}
+	Shuffle(indices)
+
+	for i := 0; i < maxArtists; i++ {
+		randomArtist := artists[indices[i]]
+		homeArtists = append(homeArtists, randomArtist)
+	}
+	return homeArtists
+}
+
 // Function to shuffle a slice of integers
 func Shuffle(slice []int) {
 	rand.Seed(time.Now().UnixNano())
