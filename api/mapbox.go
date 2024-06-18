@@ -45,7 +45,7 @@ type Geometry struct {
 	Coordinates []float64 `json:"coordinates"`
 	Type        string    `json:"type"`
 }
-
+``
 type Properties struct {
 	ID          string
 	Artist      string `json:"artist"`
