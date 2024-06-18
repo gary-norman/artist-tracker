@@ -50,7 +50,7 @@ func HandleRequests(artists []Artist, tpl *template.Template) {
 		SuggestHandler(w, r, artists, tpl)
 	})
 	http.HandleFunc("/artist", func(w http.ResponseWriter, r *http.Request) {
-		ArtistPage(w, r, artists[0], tpl)
+		ArtistPage(w, r, artists[34], tpl)
 	})
 	/* http.HandleFunc("/search/", func(w http.ResponseWriter, r *http.Request) {
 		SearchHandler(w, r, artists, tpl)
