@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="artist-details-small">
-            <p class="create">created on {{ .created }}</p>
+            <p class="create">created on {{ .CreationDate }}</p>
             <p class="p--bold">Band Members</p>
             <div class="content">
                 <img class="pic user smallpic" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
@@ -41,11 +41,12 @@
                         <h2>First Album</h2>
                         <div class="col col2">
                             <div class="content">
-                                <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
-
-                                <div class="content-text go-down">
-                                    <div class="p--bold cut" >{{.TadbAlbum.Album}}</div>
-                                    <p class="create">created on {{ .created }}</p>
+                                <div class="content">
+                                    <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
+                                    <div class="content-text go-down">
+                                        <div class="p--bold cut" >{{.TadbAlbum.Album}}</div>
+                                        <p class="create">created on {{ .FirstAlbum }}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -60,12 +61,10 @@
                 <div class="row scroll">
                     <div class="content">
                         <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
-
                         <div class="content-text go-down-home">
                             <div class="p--bold cut" >{{.TadbAlbum.Album}}</div>
                             <div class="small light cut">{{.Name}}</div>
                         </div>
-                    </div>
                 </div>
 
         </section>
