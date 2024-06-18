@@ -17,29 +17,43 @@ const (
 // PrintArtistDetails prints detailed information about the artist with colors
 func PrintArtistDetails(artist *Artist) {
 	fmt.Println()
-	fmt.Println(Bold + Yellow + "*********Searching result************" + Reset)
+	fmt.Println(Bold + Cyan + "*********Searching result************" + Reset)
 	fmt.Printf(Bold+Cyan+"Artist Name: "+Reset+Blue+"%v\n"+Reset, artist.Name)
 	fmt.Printf(Bold+Cyan+"ID: "+Reset+Blue+"%v\n"+Reset, artist.Id)
 	fmt.Printf(Bold+Cyan+"Image: "+Reset+Blue+"%v\n"+Reset, artist.Image)
 	fmt.Printf(Bold+Cyan+"Members: "+Reset+Blue+"%v\n"+Reset, strings.Join(artist.Members, ", "))
 	fmt.Printf(Bold+Cyan+"Creation Date: "+Reset+Blue+"%v\n"+Reset, artist.CreationDate)
 	fmt.Printf(Bold+Cyan+"First Album: "+Reset+Blue+"%v\n"+Reset, artist.FirstAlbum)
+
+	// TadbAlbum details
+	fmt.Println(Bold + Cyan + "------Album Details------" + Reset)
 	fmt.Printf(Bold+Cyan+"Album Name: "+Reset+Blue+"%v\n"+Reset, artist.TadbAlbum.Album)
 	fmt.Printf(Bold+Cyan+"Album Image Link: "+Reset+Blue+"%v\n"+Reset, artist.TadbAlbum.AlbumThumb)
 	fmt.Printf(Bold+Cyan+"Album Year Released: "+Reset+Blue+"%v\n"+Reset, artist.TadbAlbum.YearReleased)
 	fmt.Printf(Bold+Cyan+"Album Description: "+Reset+Blue+"%v\n"+Reset, artist.TadbAlbum.DescriptionEN)
-	fmt.Printf(Bold+Cyan+"Concert Dates and Locations: "+Reset+Blue+"%v\n"+Reset, artist.DatesLocations)
+	fmt.Printf(Bold+Cyan+"MusicBrainz Album ID: "+Reset+Blue+"%v\n"+Reset, artist.TadbAlbum.MusicBrainzAlbumID)
 
+	// Dates and Locations
+	fmt.Println(Bold + Cyan + "------Concert Dates and Locations------" + Reset)
 	for location, dates := range artist.DatesLocations {
 		fmt.Printf(Bold+Cyan+"Location: "+Reset+Blue+"%v, "+Bold+Cyan+"Dates: "+Reset+Blue+"%v\n"+Reset, location, strings.Join(dates, ", "))
 	}
 
+	// TheAudioDbArtist details
+	fmt.Println(Bold + Cyan + "------Artist Details------" + Reset)
 	fmt.Printf(Bold+Cyan+"Label: "+Reset+Blue+"%v\n"+Reset, artist.TheAudioDbArtist.Label)
 	fmt.Printf(Bold+Cyan+"Genre: "+Reset+Blue+"%v\n"+Reset, artist.TheAudioDbArtist.Genre)
 	fmt.Printf(Bold+Cyan+"Website: "+Reset+Blue+"%v\n"+Reset, artist.TheAudioDbArtist.Website)
 	fmt.Printf(Bold+Cyan+"Biography: "+Reset+Blue+"%v\n"+Reset, artist.TheAudioDbArtist.BiographyEn)
 	fmt.Printf(Bold+Cyan+"Artist Thumb: "+Reset+Blue+"%v\n"+Reset, artist.TheAudioDbArtist.ArtistThumb)
 	fmt.Printf(Bold+Cyan+"Artist Logo: "+Reset+Blue+"%v\n"+Reset, artist.TheAudioDbArtist.ArtistLogo)
+	fmt.Printf(Bold+Cyan+"Artist Cutout: "+Reset+Blue+"%v\n"+Reset, artist.TheAudioDbArtist.ArtistCutout)
+	fmt.Printf(Bold+Cyan+"Artist Clearart: "+Reset+Blue+"%v\n"+Reset, artist.TheAudioDbArtist.ArtistClearart)
+	fmt.Printf(Bold+Cyan+"Artist Widethumb: "+Reset+Blue+"%v\n"+Reset, artist.TheAudioDbArtist.ArtistWidethumb)
+	fmt.Printf(Bold+Cyan+"Artist Fanart: "+Reset+Blue+"%v\n"+Reset, artist.TheAudioDbArtist.ArtistFanart)
+	fmt.Printf(Bold+Cyan+"Artist Fanart2: "+Reset+Blue+"%v\n"+Reset, artist.TheAudioDbArtist.ArtistFanart2)
+	fmt.Printf(Bold+Cyan+"Artist Fanart3: "+Reset+Blue+"%v\n"+Reset, artist.TheAudioDbArtist.ArtistFanart3)
+	fmt.Printf(Bold+Cyan+"Artist Fanart4: "+Reset+Blue+"%v\n"+Reset, artist.TheAudioDbArtist.ArtistFanart4)
 	fmt.Printf(Bold+Cyan+"Artist Banner: "+Reset+Blue+"%v\n"+Reset, artist.TheAudioDbArtist.ArtistBanner)
 	fmt.Printf(Bold+Cyan+"MusicBrainz ID: "+Reset+Blue+"%v\n"+Reset, artist.TheAudioDbArtist.MusicBrainzID)
 }

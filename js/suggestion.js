@@ -80,12 +80,12 @@ function showSuggestions(suggestionsData) {
         noResultsMessage.textContent = 'No results found.';
         searchResults.appendChild(noResultsMessage);
         return; // Exit function early
-    } else{
+    } else {
         // Update the count of search results in the header
-    const resultsHeader = document.querySelector('.filters .small.light.center');
-    if (resultsHeader) {
-        resultsHeader.textContent = `Showing ${suggestionsData.length} results`;
-    }
+        const resultsHeader = document.querySelector('.filters .small.light.center');
+        if (resultsHeader) {
+            resultsHeader.textContent = `Showing ${suggestionsData.length} results`;
+        }
     }
 
     suggestionsData.forEach(function (suggestion) {
@@ -145,9 +145,15 @@ function showSuggestions(suggestionsData) {
             content.className = 'content';
 
             var img = document.createElement('img');
-            img.className = 'pic user';
-            img.src = suggestion.artist && suggestion.artist.strArtistThumb ? suggestion.artist.strArtistThumb : 'default-image-url.jpg'; // Handle undefined image
-            img.alt = 'Profile image of ' + (suggestion.artist && suggestion.artist.name ? suggestion.artist.name : 'Unknown Artist'); // Handle undefined name
+            if (suggestion.category === 'Album') {
+                img.className = 'pic album';
+                img.src = suggestion.artist.strAlbumThumb ? suggestion.artist.strAlbumThumb : 'default-album-image-url.jpg'; // Handle undefined album image
+                img.alt = 'Album cover of ' + (suggestion.matchitem || 'Unknown Album'); // Handle undefined album name
+            } else {
+                img.className = 'pic user';
+                img.src = suggestion.artist && suggestion.artist.strArtistThumb ? suggestion.artist.strArtistThumb : 'default-image-url.jpg'; // Handle undefined image
+                img.alt = 'Profile image of ' + (suggestion.artist && suggestion.artist.name ? suggestion.artist.name : 'Unknown Artist'); // Handle undefined name
+            }
 
             var contentText = document.createElement('div');
             contentText.className = 'content-text go-down';

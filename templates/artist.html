@@ -58,8 +58,6 @@
 
                 <h2>Albums</h2>
                 <div class="row scroll">
-                    {{ range $index, $element := . }}
-                    {{ if lt $index 20 }}
                     <div class="content">
                         <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
 
@@ -68,8 +66,6 @@
                             <div class="small light cut">{{.Name}}</div>
                         </div>
                     </div>
-                    {{ end }}
-                    {{ end }}
                 </div>
 
         </section>
@@ -78,7 +74,6 @@
                 <h2>Concerts</h2>
                 <div id="map" style="width: 100%; min-height: 500px;"></div>
                 <div class="col col3">
-                    {{ range . }}
                     {{ $artist := . }}
                     {{ range $location, $dates := $artist.DatesLocations }}
                     {{ $randomDates := randomiseDates $dates }}
@@ -98,7 +93,6 @@
                             </div>
                         </div>
                     </div>
-                    {{ end }}
                     {{ end }}
                     {{ end }}
                 </div>
