@@ -46,6 +46,9 @@ func HandleRequests(artists []Artist, tpl *template.Template) {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		HomePage(w, r, artists, tpl)
 	})
+	http.HandleFunc("/artist/", func(w http.ResponseWriter, r *http.Request) {
+		ArtistHandler(w, r, artists, tpl)
+	})
 	http.HandleFunc("/suggest", func(w http.ResponseWriter, r *http.Request) {
 		SuggestHandler(w, r, artists, tpl)
 	})
