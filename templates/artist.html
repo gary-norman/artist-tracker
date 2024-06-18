@@ -4,40 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Name }} - Artist Tracker</title>
-    <style>
-        .artistwrapper {
-            position: relative;
-        }
-        .artistwrapper::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 300px;
-            background: url('{{.TheAudioDbArtist.ArtistFanart2}}') no-repeat 0 -150px;
-            /*background: url("https://www.theaudiodb.com/images/media/artist/fanart/uyuvtx1367246043.jpg") no-repeat 0 -150px;*/
-            --webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-            z-index: -2;
-        }
 
-        .artistwrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 300px;
-            background: url('{{.TheAudioDbArtist.ArtistClearart}}') no-repeat right bottom 10px;
-            /*background: url("https://www.theaudiodb.com/images/media/artist/logo/j7ym8t1704047891.png") no-repeat right bottom 10px;*/
-            background-size: 20%;
-            opacity: 50%;
-            z-index: -1;
-        }
-    </style>
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Jockey One' rel='stylesheet'>
     <link rel="stylesheet" href="../css/main.css">
@@ -88,12 +55,10 @@
 
         </section>
 
-        <section class="container col col1">
+        <section id="home-albums" class="container col col1">
 
                 <h2>Albums</h2>
-<!--                <div class="row scroll">-->
-<!--                    {{ range $index, $element := . }}-->
-<!--                    {{ if lt $index 20 }}-->
+                <div class="row scroll">
                     <div class="content">
                         <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
                         <div class="content-text go-down-home">
@@ -103,37 +68,35 @@
                 </div>
 
         </section>
-<!--        <section id="home-concerts" class="container">-->
-<!--            <div  class="container scroll col col1">-->
-<!--                <h2>Concerts</h2>-->
-<!--                <div id="map" style="width: 100%; min-height: 500px;"></div>-->
-<!--                <div class="col col3">-->
-<!--&lt;!&ndash;                    {{ range . }}&ndash;&gt;-->
-<!--&lt;!&ndash;                    {{ $artist := . }}&ndash;&gt;-->
-<!--&lt;!&ndash;                    {{ range $location, $dates := $artist.DatesLocations }}&ndash;&gt;-->
-<!--&lt;!&ndash;                    {{ $randomDates := randomiseDates $dates }}&ndash;&gt;-->
-<!--&lt;!&ndash;                    {{ range $date := $randomDates }}&ndash;&gt;-->
-<!--&lt;!&ndash;                    {{ $dateParts := formatDate $date }}&ndash;&gt;-->
-<!--                    <div class="content">-->
-<!--                        <div class="pic date">-->
-<!--                            <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>-->
-<!--                            <div>{{ $dateParts.Year }}</div>-->
-<!--                        </div>-->
-<!--                        <div class="content-text go-down-home">-->
-<!--                            <div class="p&#45;&#45;bold cut concert">{{ $artist.Name }}</div>-->
-<!--                            <div class="concert">-->
-<!--                                <div class="small light cut">{{ $location }}</div>-->
-<!--&lt;!&ndash;                                <div class="divider-dot"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <div class="small light cut"></div>&ndash;&gt;-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--&lt;!&ndash;                    {{ end }}&ndash;&gt;-->
-<!--&lt;!&ndash;                    {{ end }}&ndash;&gt;-->
-<!--&lt;!&ndash;                    {{ end }}&ndash;&gt;-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </section>-->
+        <section id="home-concerts" class="container">
+            <div  class="container scroll col col1">
+                <h2>Concerts</h2>
+                <div id="map" style="width: 100%; min-height: 500px;"></div>
+                <div class="col col3">
+                    {{ $artist := . }}
+                    {{ range $location, $dates := $artist.DatesLocations }}
+                    {{ $randomDates := randomiseDates $dates }}
+                    {{ range $date := $randomDates }}
+                    {{ $dateParts := formatDate $date }}
+                    <div class="content">
+                        <div class="pic date">
+                            <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
+                            <div>{{ $dateParts.Year }}</div>
+                        </div>
+                        <div class="content-text go-down-home">
+                            <div class="p--bold cut concert">{{ $artist.Name }}</div>
+                            <div class="concert">
+                                <div class="small light cut">{{ $location }}</div>
+<!--                                <div class="divider-dot"></div>-->
+<!--                                <div class="small light cut"></div>-->
+                            </div>
+                        </div>
+                    </div>
+                    {{ end }}
+                    {{ end }}
+                </div>
+            </div>
+        </section>
     </div>
 </main>
 <script type="text/javascript" src="../js/default.js"></script>

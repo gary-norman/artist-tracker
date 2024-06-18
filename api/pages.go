@@ -81,7 +81,6 @@ func ArtistHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tpl
 		return
 	}
 
-	err := t.Execute(w, &artist)
 	// later Gary can modify more, to read from the URl id number
 	artstExample, _ := SearchArtist(artists, "Rihanna")
 
@@ -90,7 +89,6 @@ func ArtistHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tpl
 		var e Error
 		switch {
 		case errors.As(err, &e):
-			//fmt.Println("Error3 in HomePageGary")
 
 			fmt.Println("\nerr is:", err, "\nerrrr is:", err.Error())
 
