@@ -4,7 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "j. cole_event_0001",
+        "artist": "J. Cole",
         "title": "J. Cole live at Brooklyn, USA",
         "description": "",
         "date": "04-06-2019",
@@ -21,7 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "j. cole_event_0002",
+        "artist": "J. Cole",
         "title": "J. Cole live at Las Vegas, USA",
         "description": "",
         "date": "01-11-2019, 02-11-2019, 03-11-2019",
@@ -38,7 +40,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "j. cole_event_0003",
+        "artist": "J. Cole",
         "title": "J. Cole live at Montreal, Canada",
         "description": "",
         "date": "05-10-2018",
@@ -55,7 +58,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "j. cole_event_0004",
+        "artist": "J. Cole",
         "title": "J. Cole live at New York, USA",
         "description": "",
         "date": "01-10-2018",
@@ -72,7 +76,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "j. cole_event_0005",
+        "artist": "J. Cole",
         "title": "J. Cole live at Philadelphia, USA",
         "description": "",
         "date": "06-10-2018",
@@ -89,7 +94,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "j. cole_event_0006",
+        "artist": "J. Cole",
         "title": "J. Cole live at Toronto, USA",
         "description": "",
         "date": "04-10-2018",
@@ -106,7 +112,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "j. cole_event_0007",
+        "artist": "J. Cole",
         "title": "J. Cole live at Washington, USA",
         "description": "",
         "date": "08-10-2018",
@@ -123,7 +130,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "j. cole_event_0008",
+        "artist": "J. Cole",
         "title": "J. Cole live at Boston, USA",
         "description": "",
         "date": "10-10-2018",

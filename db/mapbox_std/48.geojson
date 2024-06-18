@@ -4,41 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
-        "title": "The Rolling Stones live at Florida, USA",
-        "description": "",
-        "date": "31-08-2020",
-        "eventAddress": "Florida, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -82.033629763236,
-          28.9444647055242
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "The Rolling Stones live at Washington, USA",
-        "description": "",
-        "date": "14-08-2019",
-        "eventAddress": "Washington, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -120.094292506456,
-          48.0250054263449
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
+        "ID": "the rolling stones_event_0001",
+        "artist": "The Rolling Stones",
         "title": "The Rolling Stones live at Arizona, USA",
         "description": "",
         "date": "26-08-2019",
@@ -55,7 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "the rolling stones_event_0002",
+        "artist": "The Rolling Stones",
         "title": "The Rolling Stones live at California, USA",
         "description": "",
         "date": "22-08-2019",
@@ -65,6 +33,42 @@
         "coordinates": [
           -119.699375153073,
           37.0743595873945
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "the rolling stones_event_0003",
+        "artist": "The Rolling Stones",
+        "title": "The Rolling Stones live at Florida, USA",
+        "description": "",
+        "date": "31-08-2020",
+        "eventAddress": "Florida, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -82.033629763236,
+          28.9444647055242
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "the rolling stones_event_0004",
+        "artist": "The Rolling Stones",
+        "title": "The Rolling Stones live at Washington, USA",
+        "description": "",
+        "date": "14-08-2019",
+        "eventAddress": "Washington, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -120.094292506456,
+          48.0250054263449
         ],
         "type": "Point"
       }

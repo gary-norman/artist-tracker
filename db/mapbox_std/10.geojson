@@ -4,7 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "katy perry_event_0001",
+        "artist": "Katy Perry",
         "title": "Katy Perry live at California, USA",
         "description": "",
         "date": "06-12-2019",
@@ -21,7 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "katy perry_event_0002",
+        "artist": "Katy Perry",
         "title": "Katy Perry live at Doha, Qatar",
         "description": "",
         "date": "15-12-2019",
@@ -38,7 +40,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "katy perry_event_0003",
+        "artist": "Katy Perry",
         "title": "Katy Perry live at Illinois, USA",
         "description": "",
         "date": "07-12-2019",
@@ -55,7 +58,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "katy perry_event_0004",
+        "artist": "Katy Perry",
         "title": "Katy Perry live at Minnesota, USA",
         "description": "",
         "date": "09-12-2019",
@@ -72,7 +76,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "katy perry_event_0005",
+        "artist": "Katy Perry",
         "title": "Katy Perry live at Mumbai, India",
         "description": "",
         "date": "16-11-2019",

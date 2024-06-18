@@ -70,8 +70,6 @@ func SearchMusicBrainzArtistByName(artistName string) string {
 			firstArtist := response.Artists[0]
 			artistId = firstArtist.ID
 			//fmt.Printf("ID: %s, Name: %s\n", firstArtist.ID, firstArtist.Name)
-		} else {
-			//fmt.Printf("ID for %s not found.\n", artistName)
 		}
 	}
 	//fmt.Printf("SearchMusicBrainzArtistByName: %s\n", artistId)

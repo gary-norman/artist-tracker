@@ -4,7 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "soja_event_0001",
+        "artist": "SOJA",
         "title": "SOJA live at Noumea, New Caledonia",
         "description": "",
         "date": "15-11-2019",
@@ -21,7 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "soja_event_0002",
+        "artist": "SOJA",
         "title": "SOJA live at Papeete, French Polynesia",
         "description": "",
         "date": "16-11-2019",
@@ -38,7 +40,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "soja_event_0003",
+        "artist": "SOJA",
         "title": "SOJA live at Playa Del Carmen, Mexico",
         "description": "",
         "date": "05-12-2019, 06-12-2019, 07-12-2019, 08-12-2019, 09-12-2019",

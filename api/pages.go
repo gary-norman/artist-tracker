@@ -10,6 +10,8 @@ import (
 func HomePage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *template.Template) {
 
 	if r.URL.Path != "/" {
+		// debug print
+		// fmt.Println("r.URL.Path:", r.URL.Path)
 		ErrorHandler(w, r, http.StatusNotFound)
 		return
 	}
@@ -20,36 +22,11 @@ func HomePage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *tem
 		return
 	}
 
-	maxArtists := len(artists)
-	var homeArtists []Artist
-
-	// Create a list of indices and Shuffle it
-	indices := make([]int, len(artists))
-	for i := range indices {
-		indices[i] = i
-	}
-	Shuffle(indices)
-
-	for i := 0; i < maxArtists; i++ {
-		randomArtist := artists[indices[i]]
-		homeArtists = append(homeArtists, randomArtist)
+	pageData := PageData{
+		HomeArtists: ShuffledArtists(artists),
 	}
 
-	//homeIds := artists.Id
-
-	// Limit the number of artists
-	//if len(artists) > maxArtists {
-	//	homeArtists = artists[:maxArtists]
-	//}
-
-	//artist := &Artist{
-	//	Name: "title",
-	//	Id:   5,
-	//	Image: ,
-	//	Members: ,
-	//}
-
-	err := t.Execute(w, homeArtists)
+	err := t.Execute(w, &pageData)
 	if err != nil {
 		var e Error
 		switch {
@@ -66,4 +43,62 @@ func HomePage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *tem
 		}
 		return
 	}
+}
+
+func ArtistPage(w http.ResponseWriter, r *http.Request, artist Artist, tpl *template.Template) {
+	//if r.URL.Path != "/" {
+	//	// debug print
+	//	// fmt.Println("r.URL.Path:", r.URL.Path)
+	//	ErrorHandler(w, r, http.StatusNotFound)
+	//	return
+	//}
+	t := tpl.Lookup("artist.html")
+	if t == nil {
+		ErrorHandler(w, r, http.StatusInternalServerError)
+		return
+	}
+	err := t.Execute(w, &artist)
+	if err != nil {
+		var e Error
+		switch {
+		case errors.As(err, &e):
+			//fmt.Println("Error3 in HomePageGary")
+			fmt.Println("\nerr is:", err, "\nerrrr is:", err.Error())
+			ErrorHandler(w, r, e.Status())
+		default:
+			fmt.Println("err is:", err, "errrr is:", err.Error())
+			ErrorHandler(w, r, http.StatusInternalServerError)
+		}
+		return
+	}
+}
+
+func ArtistHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *template.Template) {
+
+	t := tpl.Lookup("artist.html")
+	if t == nil {
+		ErrorHandler(w, r, http.StatusInternalServerError)
+		return
+	}
+
+	// later Gary can modify more, to read from the URl id number
+	artstExample, _ := SearchArtist(artists, "Rihanna")
+
+	err := t.Execute(w, &artstExample)
+	if err != nil {
+		var e Error
+		switch {
+		case errors.As(err, &e):
+
+			fmt.Println("\nerr is:", err, "\nerrrr is:", err.Error())
+
+			ErrorHandler(w, r, e.Status())
+
+		default:
+			fmt.Println("err is:", err, "errrr is:", err.Error())
+			ErrorHandler(w, r, http.StatusInternalServerError)
+		}
+		return
+	}
+
 }

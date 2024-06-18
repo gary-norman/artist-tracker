@@ -4,58 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
-        "title": "Red Hot Chili Peppers live at Rio De Janeiro, Brazil",
-        "description": "",
-        "date": "03-10-2019",
-        "eventAddress": "Rio De Janeiro, Brazil"
-      },
-      "geometry": {
-        "coordinates": [
-          -43.209934,
-          -22.909534
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Red Hot Chili Peppers live at Alabama, USA",
-        "description": "",
-        "date": "15-05-2020",
-        "eventAddress": "Alabama, USA"
-      },
-      "geometry": {
-        "coordinates": [
-          -86.7892920871389,
-          32.8288658080717
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Red Hot Chili Peppers live at Athens, Greece",
-        "description": "",
-        "date": "05-06-2020",
-        "eventAddress": "Athens, Greece"
-      },
-      "geometry": {
-        "coordinates": [
-          23.729275,
-          37.97757
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
+        "ID": "red hot chili peppers_event_0001",
+        "artist": "Red Hot Chili Peppers",
         "title": "Red Hot Chili Peppers live at California, USA",
         "description": "",
         "date": "29-09-2019",
@@ -72,7 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "red hot chili peppers_event_0002",
+        "artist": "Red Hot Chili Peppers",
         "title": "Red Hot Chili Peppers live at Florence, Italy",
         "description": "",
         "date": "13-06-2020",
@@ -81,7 +32,7 @@
       "geometry": {
         "coordinates": [
           11.256129,
-          43.771485
+          43.771484
         ],
         "type": "Point"
       }
@@ -89,7 +40,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "red hot chili peppers_event_0003",
+        "artist": "Red Hot Chili Peppers",
         "title": "Red Hot Chili Peppers live at Landgraaf, Netherlands",
         "description": "",
         "date": "19-06-2020",
@@ -106,7 +58,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "red hot chili peppers_event_0004",
+        "artist": "Red Hot Chili Peppers",
         "title": "Red Hot Chili Peppers live at Los Angeles, USA",
         "description": "",
         "date": "02-11-2019",
@@ -123,7 +76,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "red hot chili peppers_event_0005",
+        "artist": "Red Hot Chili Peppers",
         "title": "Red Hot Chili Peppers live at Massachusetts, USA",
         "description": "",
         "date": "22-05-2020",
@@ -133,6 +87,60 @@
         "coordinates": [
           -71.9603257607071,
           42.3204700602381
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "red hot chili peppers_event_0006",
+        "artist": "Red Hot Chili Peppers",
+        "title": "Red Hot Chili Peppers live at Rio De Janeiro, Brazil",
+        "description": "",
+        "date": "03-10-2019",
+        "eventAddress": "Rio De Janeiro, Brazil"
+      },
+      "geometry": {
+        "coordinates": [
+          -43.209934,
+          -22.909534
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "red hot chili peppers_event_0007",
+        "artist": "Red Hot Chili Peppers",
+        "title": "Red Hot Chili Peppers live at Alabama, USA",
+        "description": "",
+        "date": "15-05-2020",
+        "eventAddress": "Alabama, USA"
+      },
+      "geometry": {
+        "coordinates": [
+          -86.7892920871389,
+          32.8288658080717
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "red hot chili peppers_event_0008",
+        "artist": "Red Hot Chili Peppers",
+        "title": "Red Hot Chili Peppers live at Athens, Greece",
+        "description": "",
+        "date": "05-06-2020",
+        "eventAddress": "Athens, Greece"
+      },
+      "geometry": {
+        "coordinates": [
+          23.729275,
+          37.97757
         ],
         "type": "Point"
       }

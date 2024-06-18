@@ -146,7 +146,7 @@ func GetAudioDbArtistInfo(artist string, artistID string, wg *sync.WaitGroup) (T
 }
 
 func ProcessAudioDbArtist(artist *Artist, artistName string, artistID string, err error, wg *sync.WaitGroup) {
-	artist.TheAudioDbArtist, err = GetAudioDbArtistInfo(artistName, artistID, wg)
+	artist.TheAudioDbArtist, _ = GetAudioDbArtistInfo(artistName, artistID, wg)
 }
 
 func GetAudioDbAlbumInfo(artist string, artistID string, wg *sync.WaitGroup) (TadbAlbum, error) {
@@ -198,5 +198,5 @@ func GetAudioDbAlbumInfo(artist string, artistID string, wg *sync.WaitGroup) (Ta
 }
 
 func ProcessAudioDbAlbum(artist *Artist, artistName string, artistID string, err error, wg *sync.WaitGroup) {
-	artist.TadbAlbum, err = GetAudioDbAlbumInfo(artistName, artistID, wg)
+	artist.TadbAlbum, _ = GetAudioDbAlbumInfo(artistName, artistID, wg)
 }

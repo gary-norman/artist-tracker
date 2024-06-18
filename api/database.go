@@ -3,13 +3,28 @@ package api
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/pterm/pterm"
 	"log"
 	"math/rand"
 	"net/http"
 	"strings"
 	"sync"
+	"unicode"
+
+	"github.com/pterm/pterm"
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
+
+type PageData struct {
+	HomeArtists      []Artist
+	SuggestedArtists []Suggestion
+}
+
+type Suggestion struct {
+	Category  string      `json:"category"`
+	MatchItem interface{} `json:"matchitem"`
+	Artist    *Artist     `json:"artist,omitempty"`
+}
 
 type Artist struct {
 	Id           int      `json:"id"`
@@ -25,7 +40,7 @@ type Artist struct {
 	Relations      string              `json:"relations"`
 	DatesLocations map[string][]string `json:"datesLocations"`
 	TourDetails
-	RandIntFunc func(int) int
+	RandIntFunc func(int) int `json:"-"`
 }
 
 type DatesLocations struct {
@@ -38,7 +53,7 @@ type TadbAlbum struct {
 	YearReleased       string `json:"intYearReleased"`
 	AlbumThumb         string `json:"strAlbumThumb"`
 	DescriptionEN      string `json:"strDescriptionEN"`
-	MusicBrainzAlbumID string `json:"strMusicBrainzID"`
+	MusicBrainzAlbumID string `json:"strMusicBrainzalbumID"`
 }
 
 type SpotifyAlbum struct {
@@ -129,12 +144,18 @@ func formatLocation(location string) string {
 	// Replace underscores with spaces
 	location = strings.ReplaceAll(location, "_", " ")
 
+	// Add space after commas if missing, to check if user input like london,uk
+	location = addSpaceAfterComma(location)
+
 	// Split location into words
 	words := strings.Fields(location)
 
+	// Create a Title caser for the English language
+	titleCaser := cases.Title(language.English)
+
 	// Capitalize the first letter of each word
 	for i, word := range words {
-		words[i] = strings.Title(word)
+		words[i] = titleCaser.String(word) // don't use strings.Title, because it is deprecated
 		words[i] = strings.ReplaceAll(words[i], "Uk", "UK")
 		words[i] = strings.ReplaceAll(words[i], "Usa", "USA")
 	}
@@ -143,6 +164,18 @@ func formatLocation(location string) string {
 	formattedLocation := strings.Join(words, " ")
 
 	return formattedLocation
+}
+
+// addSpaceAfterComma function adds a space after commas if missing
+func addSpaceAfterComma(input string) string {
+	var result strings.Builder
+	for i, char := range input {
+		result.WriteRune(char)
+		if char == ',' && i+1 < len(input) && !unicode.IsSpace(rune(input[i+1])) {
+			result.WriteRune(' ')
+		}
+	}
+	return result.String()
 }
 
 // FetchDatesLocations fetches DatesLocations data for each artist concurrently

@@ -4,7 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "linkin park_event_0001",
+        "artist": "Linkin Park",
         "title": "Linkin Park live at Rotselaar, Belgium",
         "description": "",
         "date": "02-07-2017",
@@ -21,7 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "linkin park_event_0002",
+        "artist": "Linkin Park",
         "title": "Linkin Park live at Birmingham, UK",
         "description": "",
         "date": "06-07-2017",
@@ -38,7 +40,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "linkin park_event_0003",
+        "artist": "Linkin Park",
         "title": "Linkin Park live at Brixton, UK",
         "description": "",
         "date": "04-07-2017",
@@ -55,7 +58,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "linkin park_event_0004",
+        "artist": "Linkin Park",
         "title": "Linkin Park live at California, USA",
         "description": "",
         "date": "27-10-2017",
@@ -72,7 +76,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "linkin park_event_0005",
+        "artist": "Linkin Park",
         "title": "Linkin Park live at London, UK",
         "description": "",
         "date": "03-07-2017",

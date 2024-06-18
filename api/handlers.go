@@ -4,7 +4,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/pterm/pterm"
 	"html/template"
 	"log"
 	"net/http"
@@ -13,6 +12,8 @@ import (
 	"strconv"
 	"syscall"
 	"time"
+
+	"github.com/pterm/pterm"
 )
 
 func (se StatusError) Error() string {
@@ -35,6 +36,7 @@ func HandleRequests(artists []Artist, tpl *template.Template) {
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.Handle("/icons/", http.StripPrefix("/icons/", http.FileServer(http.Dir("icons"))))
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("js"))))
+	http.Handle("/db/", http.StripPrefix("/db/", http.FileServer(http.Dir("db"))))
 
 	port := 8080
 	addr := fmt.Sprintf(":%d", port)
@@ -44,6 +46,19 @@ func HandleRequests(artists []Artist, tpl *template.Template) {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		HomePage(w, r, artists, tpl)
 	})
+	http.HandleFunc("/artist/", func(w http.ResponseWriter, r *http.Request) {
+		ArtistHandler(w, r, artists, tpl)
+	})
+	http.HandleFunc("/suggest", func(w http.ResponseWriter, r *http.Request) {
+		SuggestHandler(w, r, artists, tpl)
+	})
+	/* 	http.HandleFunc("/artist", func(w http.ResponseWriter, r *http.Request) {
+		ArtistPage(w, r, artists[34], tpl)
+	}) */
+
+	/* http.HandleFunc("/search/", func(w http.ResponseWriter, r *http.Request) {
+		SearchHandler(w, r, artists, tpl)
+	}) */
 
 	go func() {
 		// Log server listening messages

@@ -4,16 +4,17 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
-        "title": "Alec Benjamin live at Paris, France",
+        "ID": "alec benjamin_event_0001",
+        "artist": "Alec Benjamin",
+        "title": "Alec Benjamin live at Warsaw, Poland",
         "description": "",
-        "date": "25-11-2019",
-        "eventAddress": "Paris, France"
+        "date": "23-11-2019",
+        "eventAddress": "Warsaw, Poland"
       },
       "geometry": {
         "coordinates": [
-          2.3483915,
-          48.8534951
+          21.016317,
+          52.23072
         ],
         "type": "Point"
       }
@@ -21,160 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
-        "title": "Alec Benjamin live at Aberdeen, UK",
-        "description": "",
-        "date": "15-03-2020",
-        "eventAddress": "Aberdeen, UK"
-      },
-      "geometry": {
-        "coordinates": [
-          -2.0928095,
-          57.1482429
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Alec Benjamin live at Berlin, Germany",
-        "description": "",
-        "date": "22-11-2019",
-        "eventAddress": "Berlin, Germany"
-      },
-      "geometry": {
-        "coordinates": [
-          13.3888599,
-          52.5170365
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Alec Benjamin live at Manchester, UK",
-        "description": "",
-        "date": "02-03-2020, 03-03-2020",
-        "eventAddress": "Manchester, UK"
-      },
-      "geometry": {
-        "coordinates": [
-          -2.2451148,
-          53.47948920000002
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Alec Benjamin live at Stockholm, Sweden",
-        "description": "",
-        "date": "26-06-2020",
-        "eventAddress": "Stockholm, Sweden"
-      },
-      "geometry": {
-        "coordinates": [
-          18.071765,
-          59.324334
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Alec Benjamin live at Cardiff, UK",
-        "description": "",
-        "date": "11-03-2020",
-        "eventAddress": "Cardiff, UK"
-      },
-      "geometry": {
-        "coordinates": [
-          -3.1791934,
-          51.481654599999985
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Alec Benjamin live at Madrid, Spain",
-        "description": "",
-        "date": "08-07-2020",
-        "eventAddress": "Madrid, Spain"
-      },
-      "geometry": {
-        "coordinates": [
-          -3.702979,
-          40.419223
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Alec Benjamin live at Milan, Italy",
-        "description": "",
-        "date": "20-11-2019",
-        "eventAddress": "Milan, Italy"
-      },
-      "geometry": {
-        "coordinates": [
-          9.1885578,
-          45.4639447
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Alec Benjamin live at Dublin, Ireland",
-        "description": "",
-        "date": "08-03-2020, 09-03-2020, 28-11-2019",
-        "eventAddress": "Dublin, Ireland"
-      },
-      "geometry": {
-        "coordinates": [
-          -6.2602964,
-          53.3498006
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Alec Benjamin live at Glasgow, UK",
-        "description": "",
-        "date": "05-03-2020, 06-03-2020",
-        "eventAddress": "Glasgow, UK"
-      },
-      "geometry": {
-        "coordinates": [
-          -4.2488787,
-          55.860982499999984
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
+        "ID": "alec benjamin_event_0002",
+        "artist": "Alec Benjamin",
         "title": "Alec Benjamin live at London, UK",
         "description": "",
         "date": "12-03-2020, 13-03-2020, 27-11-2019, 26-11-2019",
@@ -191,16 +40,179 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
-        "title": "Alec Benjamin live at Warsaw, Poland",
+        "ID": "alec benjamin_event_0003",
+        "artist": "Alec Benjamin",
+        "title": "Alec Benjamin live at Glasgow, UK",
         "description": "",
-        "date": "23-11-2019",
-        "eventAddress": "Warsaw, Poland"
+        "date": "05-03-2020, 06-03-2020",
+        "eventAddress": "Glasgow, UK"
       },
       "geometry": {
         "coordinates": [
-          21.016317,
-          52.23072
+          -4.2488787,
+          55.860982499999984
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "alec benjamin_event_0004",
+        "artist": "Alec Benjamin",
+        "title": "Alec Benjamin live at Cardiff, UK",
+        "description": "",
+        "date": "11-03-2020",
+        "eventAddress": "Cardiff, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -3.1791934,
+          51.481654599999985
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "alec benjamin_event_0005",
+        "artist": "Alec Benjamin",
+        "title": "Alec Benjamin live at Manchester, UK",
+        "description": "",
+        "date": "02-03-2020, 03-03-2020",
+        "eventAddress": "Manchester, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -2.2451148,
+          53.47948920000002
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "alec benjamin_event_0006",
+        "artist": "Alec Benjamin",
+        "title": "Alec Benjamin live at Milan, Italy",
+        "description": "",
+        "date": "20-11-2019",
+        "eventAddress": "Milan, Italy"
+      },
+      "geometry": {
+        "coordinates": [
+          9.1885578,
+          45.4639447
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "alec benjamin_event_0007",
+        "artist": "Alec Benjamin",
+        "title": "Alec Benjamin live at Paris, France",
+        "description": "",
+        "date": "25-11-2019",
+        "eventAddress": "Paris, France"
+      },
+      "geometry": {
+        "coordinates": [
+          2.3483915,
+          48.8534951
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "alec benjamin_event_0008",
+        "artist": "Alec Benjamin",
+        "title": "Alec Benjamin live at Aberdeen, UK",
+        "description": "",
+        "date": "15-03-2020",
+        "eventAddress": "Aberdeen, UK"
+      },
+      "geometry": {
+        "coordinates": [
+          -2.0928095,
+          57.1482429
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "alec benjamin_event_0009",
+        "artist": "Alec Benjamin",
+        "title": "Alec Benjamin live at Berlin, Germany",
+        "description": "",
+        "date": "22-11-2019",
+        "eventAddress": "Berlin, Germany"
+      },
+      "geometry": {
+        "coordinates": [
+          13.3888599,
+          52.5170365
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "alec benjamin_event_0010",
+        "artist": "Alec Benjamin",
+        "title": "Alec Benjamin live at Dublin, Ireland",
+        "description": "",
+        "date": "08-03-2020, 09-03-2020, 28-11-2019",
+        "eventAddress": "Dublin, Ireland"
+      },
+      "geometry": {
+        "coordinates": [
+          -6.2602964,
+          53.3498006
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "alec benjamin_event_0011",
+        "artist": "Alec Benjamin",
+        "title": "Alec Benjamin live at Stockholm, Sweden",
+        "description": "",
+        "date": "26-06-2020",
+        "eventAddress": "Stockholm, Sweden"
+      },
+      "geometry": {
+        "coordinates": [
+          18.071766,
+          59.324333
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "alec benjamin_event_0012",
+        "artist": "Alec Benjamin",
+        "title": "Alec Benjamin live at Madrid, Spain",
+        "description": "",
+        "date": "08-07-2020",
+        "eventAddress": "Madrid, Spain"
+      },
+      "geometry": {
+        "coordinates": [
+          -3.702979,
+          40.419224
         ],
         "type": "Point"
       }

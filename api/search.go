@@ -1,8 +1,14 @@
 package api
 
 import (
+	"encoding/json"
 	"fmt"
+	"html/template"
+	"net/http"
+	"regexp"
+	"strconv"
 	"strings"
+	"unicode"
 )
 
 // Custom String method for Artist struct to format output
@@ -59,10 +65,216 @@ func (td TourDetails) String() string {
 // SearchArtist function searches for an artist by name and returns the artist details
 func SearchArtist(artists []Artist, name string) (*Artist, error) {
 	for _, artist := range artists {
-		if strings.ToLower(artist.Name) == strings.ToLower(name) {
+		if strings.EqualFold(artist.Name, name) {
 			result := &artist
 			return result, nil
 		}
 	}
 	return &Artist{}, fmt.Errorf("artist not found")
+}
+
+func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *template.Template) {
+	searchQuery := strings.ToLower(strings.TrimSpace(r.URL.Query().Get("query"))) // Lowercase and trim whitespace
+	var normalizedQuery string
+
+	// debug print
+	fmt.Println()
+	fmt.Println("############################")
+	fmt.Println("Received search query:", searchQuery)
+	fmt.Println("############################")
+	fmt.Println()
+
+	// Normalize the search query
+	if isDate(searchQuery) {
+		normalizedQuery = searchQuery // Keep dates as is
+	} else if isLocationLike(searchQuery) {
+		normalizedQuery = formatLocation(searchQuery)
+		// debug print
+		fmt.Println("After format:", normalizedQuery)
+	} else {
+		normalizedQuery = searchQuery // Use the search query as is
+	}
+	// debug print
+	fmt.Println("Changed query:", normalizedQuery)
+
+	var suggestions []Suggestion
+
+	for _, artist := range artists {
+		// Check artist name
+		if strings.Contains(strings.ToLower(artist.Name), searchQuery) {
+			suggestions = append(suggestions, Suggestion{"Artist", artist.Name, &artist})
+			// debug print
+			/* fmt.Println("Filtered category -- artist")
+			fmt.Printf("Match item -- %v \n", artist.Name) */
+		}
+
+		// Check artist creation date (exact match)
+		if queryYear, err := strconv.Atoi(searchQuery); err == nil {
+			if artist.CreationDate == queryYear {
+				suggestions = append(suggestions, Suggestion{"Artist", strconv.Itoa(artist.CreationDate), &artist})
+				// debug print
+				/* fmt.Println("Filtered category -- artist")
+				fmt.Printf("Match item -- %v \n", artist.CreationDate) */
+			}
+		}
+
+		// Check first album name
+		if strings.Contains(strings.ToLower(artist.FirstAlbum), searchQuery) {
+			suggestions = append(suggestions, Suggestion{"Album", artist.FirstAlbum, &artist})
+			// debug print
+			/* 	fmt.Println("Filtered category -- album")
+			fmt.Printf("Match item -- %v \n", artist.FirstAlbum) */
+		}
+
+		// Check artist members
+		for _, member := range artist.Members {
+			if strings.Contains(strings.ToLower(member), searchQuery) {
+				suggestions = append(suggestions, Suggestion{"Member", member, &artist})
+				// debug print
+				/* fmt.Println("Filtered category -- member")
+				fmt.Printf("Match item -- %v \n", member) */
+			}
+		}
+
+		// Check TadbAlbum name
+		if artist.TadbAlbum.Album != "" && strings.Contains(strings.ToLower(artist.TadbAlbum.Album), searchQuery) {
+			suggestions = append(suggestions, Suggestion{"Album", artist.TadbAlbum.Album, &artist})
+			// debug print
+			/* 	fmt.Println("Filtered category -- album")
+			fmt.Printf("Match item -- %v \n", artist.TadbAlbum.Album) */
+		}
+
+		// Check TadbAlbum year released (exact match)
+		if artist.TadbAlbum.YearReleased != "" && strings.EqualFold(artist.TadbAlbum.YearReleased, searchQuery) {
+			suggestions = append(suggestions, Suggestion{"Album Year Released", artist.TadbAlbum.YearReleased, &artist})
+			// debug print
+			/* 	fmt.Println("Filtered category -- album year released")
+			fmt.Printf("Match item -- %v \n", artist.TadbAlbum.YearReleased) */
+		}
+
+		// Check locations and concert dates
+		for location, dates := range artist.DatesLocations {
+			// Check for exact match in location
+			if strings.EqualFold(strings.ToLower(location), normalizedQuery) {
+				// Format dates
+				for _, date := range dates {
+					var formattedDate interface{}
+					formattedDate, err := ParseDate(date)
+					if err != nil {
+						fmt.Println("Error parsing date:", err)
+						continue
+					}
+					fmt.Println("formatted date", formattedDate)
+					// Add suggestion for the concert date
+					suggestions = append(suggestions, Suggestion{
+						Category:  "Concert",
+						MatchItem: map[string]interface{}{"location": location, "dates": formattedDate},
+						Artist:    &artist,
+					})
+				}
+
+				// debug print
+				/* 	fmt.Println("Filtered category -- concert")
+				fmt.Printf("Match item -- %v (%v) \n", date, location)*/
+			}
+
+			// Check for partial match in location
+			if strings.Contains(strings.ToLower(location), searchQuery) {
+				// Format dates
+				for _, date := range dates {
+					var formattedDate interface{}
+					formattedDate, err := ParseDate(date)
+					if err != nil {
+						fmt.Println("Error parsing date:", err)
+						continue
+					}
+
+					// Add suggestion for the concert date
+					suggestions = append(suggestions, Suggestion{
+						Category:  "Concert",
+						MatchItem: map[string]interface{}{"location": location, "dates": formattedDate},
+						Artist:    &artist,
+					})
+				}
+				// debug print
+				/* 	fmt.Println("Filtered category -- concert")
+				fmt.Printf("Match item -- %v (%v) \n", date, location) */
+			}
+
+			// Check for match in dates
+			for _, date := range dates {
+				if strings.Contains(strings.ToLower(date), searchQuery) {
+					// Format dates
+					for _, date := range dates {
+						var formattedDate interface{}
+						formattedDate, err := ParseDate(date)
+						if err != nil {
+							fmt.Println("Error parsing date:", err)
+							continue
+						}
+
+						// Add suggestion for the concert date
+						suggestions = append(suggestions, Suggestion{
+							Category:  "Concert",
+							MatchItem: map[string]interface{}{"location": location, "dates": formattedDate},
+							Artist:    &artist,
+						})
+					}
+					// debug print
+					/* 	fmt.Println("Filtered category -- concert")
+					fmt.Printf("Match item -- %v (%v) \n", date, location) */
+				}
+			}
+		}
+
+		// Check artist genre
+		if strings.Contains(strings.ToLower(artist.TheAudioDbArtist.Genre), searchQuery) {
+			suggestions = append(suggestions, Suggestion{"Artist", artist.TheAudioDbArtist.Genre, &artist})
+			// debug print
+			/* 		fmt.Println("Filtered category -- artist (by genre)")
+			fmt.Printf("Match item -- %v \n", artist.TheAudioDbArtist.Genre) */
+		}
+	}
+
+	// Check if suggestions are empty and log it
+	if len(suggestions) == 0 {
+		fmt.Println("No suggestions found.")
+	}
+
+	// Print all suggestions details
+	PrintSuggestionsDetails(suggestions)
+
+	// Marshal suggestions to JSON
+	jsonData, err := json.Marshal(suggestions)
+	if err != nil {
+		fmt.Println("Error marshalling JSON:", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(jsonData)
+}
+
+// isDate function
+func isDate(input string) bool {
+	// Regular expression to match dates in the format of "dd-mm-yyyy" or "yyyy-mm-dd"
+	dateRegex := regexp.MustCompile(`^\d{2}-\d{2}-\d{4}$|^\d{4}-\d{2}-\d{2}$`)
+	return dateRegex.MatchString(input)
+}
+
+// isLocationLike function to determine if a string is location-like
+func isLocationLike(input string) bool {
+	// Check if input contains hyphens or underscores, or if it contains any digits
+	return strings.Contains(input, ",") || strings.Contains(input, "-") || strings.Contains(input, "_") || containsDigits(input)
+}
+
+// containsDigits function to check if a string contains any digits
+func containsDigits(input string) bool {
+	for _, char := range input {
+		if unicode.IsDigit(char) {
+			return true
+		}
+	}
+	return false
 }

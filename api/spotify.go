@@ -298,9 +298,7 @@ func UpdateArtistImages(artists []Artist, spotifyArtistIDs []SpotifyArtistID, au
 	}
 
 	updatedArtists := make([]Artist, 0, len(artists))
-	for _, artist := range artists {
-		updatedArtists = append(updatedArtists, artist)
-	}
+	updatedArtists = append(updatedArtists, artists...)
 
 	return updatedArtists, nil
 }

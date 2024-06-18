@@ -4,41 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
-        "title": "Foo Fighters live at Bogota, Colombia",
-        "description": "",
-        "date": "01-10-2019",
-        "eventAddress": "Bogota, Colombia"
-      },
-      "geometry": {
-        "coordinates": [
-          -74.0836453,
-          4.6534649
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
-        "title": "Foo Fighters live at Lisbon, Portugal",
-        "description": "",
-        "date": "20-06-2020",
-        "eventAddress": "Lisbon, Portugal"
-      },
-      "geometry": {
-        "coordinates": [
-          -9.144851,
-          38.715424
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": "",
+        "ID": "foo fighters_event_0001",
+        "artist": "Foo Fighters",
         "title": "Foo Fighters live at Massachusetts, USA",
         "description": "",
         "date": "22-05-2020",
@@ -55,7 +22,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "foo fighters_event_0002",
+        "artist": "Foo Fighters",
         "title": "Foo Fighters live at Milan, Italy",
         "description": "",
         "date": "14-06-2020",
@@ -72,7 +40,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "foo fighters_event_0003",
+        "artist": "Foo Fighters",
         "title": "Foo Fighters live at Nevada, USA",
         "description": "",
         "date": "06-12-2019",
@@ -89,7 +58,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "foo fighters_event_0004",
+        "artist": "Foo Fighters",
         "title": "Foo Fighters live at Nickelsdorf, Austria",
         "description": "",
         "date": "10-06-2020",
@@ -97,7 +67,7 @@
       },
       "geometry": {
         "coordinates": [
-          17.074819,
+          17.07482,
           47.93856
         ],
         "type": "Point"
@@ -106,7 +76,8 @@
     {
       "type": "Feature",
       "properties": {
-        "ID": "",
+        "ID": "foo fighters_event_0005",
+        "artist": "Foo Fighters",
         "title": "Foo Fighters live at San Jose, Costa Rica",
         "description": "",
         "date": "04-10-2019",
@@ -116,6 +87,42 @@
         "coordinates": [
           -84.07486,
           9.932607
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "foo fighters_event_0006",
+        "artist": "Foo Fighters",
+        "title": "Foo Fighters live at Bogota, Colombia",
+        "description": "",
+        "date": "01-10-2019",
+        "eventAddress": "Bogota, Colombia"
+      },
+      "geometry": {
+        "coordinates": [
+          -74.0836453,
+          4.6534649
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "foo fighters_event_0007",
+        "artist": "Foo Fighters",
+        "title": "Foo Fighters live at Lisbon, Portugal",
+        "description": "",
+        "date": "20-06-2020",
+        "eventAddress": "Lisbon, Portugal"
+      },
+      "geometry": {
+        "coordinates": [
+          -9.144851,
+          38.715424
         ],
         "type": "Point"
       }

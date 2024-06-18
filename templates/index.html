@@ -9,8 +9,9 @@
     <link href='https://fonts.googleapis.com/css?family=Jockey One' rel='stylesheet'>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/andy_bell-css_reset.css">
+    <link rel="icon" href="../icons/favicon-record.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css' rel='stylesheet' />
 </head>
 <body>
 <main>
@@ -20,10 +21,12 @@
             <div class="small center">by Gary Norman & Kamil Ornal</div>
         </section>
         <section class="search-container">
-            <div class="search-input">
-                <label for="search-input"></label>
-                <input type="text" name="search-input" id="search-input" value="" placeholder="Search artist"  >
-            </div>
+            <form action="/search/" method="get">
+                <div class="search-input">
+                    <label for="search-input"></label>
+                    <input type="text" name="search-input" id="search-input" placeholder="Search artist" required autocomplete="off">
+                </div>
+            </form>
             <h3 class="floating-md">Recent searches</h3>
             <div class="floating-md filters go-down">
                 <div class="space filter">
@@ -168,84 +171,159 @@
                 </div>
             </div>
             <div class="container">
-                <div id="search-results"  class="container scroll" >
+                <div id="search-results" class="container scroll">
                     <div id="search-artists" class="col col1">
                         <h2>Artists</h2>
                         <div class="col col3">
-                            {{ range . }}
-                            <div class="content">
-                                <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
-                                <div class="content-text go-down">
-                                    <div class="p--bold cut" >
-                                        {{ .Name }}
+                            {{ range .HomeArtists }}
+                            <a href="/artist/{{ .Id }}">
+                                <div class="content">
+                                    <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
+                                    <div class="content-text go-down">
+                                        <div class="p--bold cut">
+                                            {{ .Name }}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                             {{ end }}
                         </div>
                     </div>
                     <div id="search-members" class="col col1">
                         <h2>Members</h2>
                         <div class="col col3">
-                            {{ $member := "" }}
-                            {{ range . }}
-                            <div class="content">
-                                <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
-                                <div class="content-text go-down">
-                                    <div class="p--bold cut" >
-                                        {{ $member = index .Members (random (len .Members)) }}
-                                        {{ if gt (len .Members) 1}}
-                                        {{ $member }}
-                                        {{else}}
-                                        {{ index .Members 0 }}
-                                        {{ end }}
-                                    </div>
-                                    {{ if gt (len .Members) 1 }}
-                                    <div class="small light cut">
-                                        {{ .Name }}
-                                    </div>
-                                    {{else}}
-                                    {{if same $member .Name }}
-                                    <div class="small light cut">
-                                        Member & Artist
-                                    </div>
-                                    {{else}}
-                                    <div class="small light cut">
-                                        aka {{ .Name }}
-                                    </div>
-                                    {{ end }}
-                                    {{ end }}
+                            {{ range .HomeArtists }}
+                            <a href="/artist/{{ .Id }}">
+                                <div class="content">
+                                        <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
+                                        <div class="content-text go-down">
+                                            <div class="p--bold cut">
+                                                {{ if gt (len .Members) 1 }}
+                                                {{ index .Members 0 }}
+                                                {{ else }}
+                                                {{ .Name }}
+                                                {{ end }}
+                                            </div>
+                                            {{ if gt (len .Members) 1 }}
+                                            <div class="small light cut">
+                                                {{ .Name }}
+                                            </div>
+                                            {{ end }}
+                                        </div>
                                 </div>
-
-                            </div>
+                            </a>
+                            
                             {{ end }}
                         </div>
                     </div>
                     <div id="search-albums" class="col col1">
                         <h2>Albums</h2>
                         <div class="col col2">
-                            {{ range . }}
-                            <div class="content">
-                                <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
-
-                                <div class="content-text go-down">
-                                    <div class="p--bold cut" >{{.TadbAlbum.Album}}</div>
-                                    <div class="small light cut">{{.Name}}</div>
+                            {{ range .HomeArtists }}
+                            <a href="/artist/{{ .Id }}">
+                                <div class="content">
+                                        <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
+                                        <div class="content-text go-down">
+                                            <div class="p--bold cut">{{.TadbAlbum.Album}}</div>
+                                            <div class="small light cut">{{.Name}}</div>
+                                        </div>
                                 </div>
-                            </div>
+                            </a>
                             {{ end }}
                         </div>
                     </div>
                     <div id="search-concerts" class="col col1">
                         <h2>Concerts</h2>
                         <div class="col col3">
-                            {{ range . }}
+                            {{ range .HomeArtists }}
                             {{ $artist := . }}
                             {{ range $location, $dates := $artist.DatesLocations }}
                             {{ $sortedDates := sortDates $dates }}
                             {{ range $date := $sortedDates }}
                             {{ $dateParts := formatDate $date }}
-                            <div class="content">
+                            <a href="/artist/{{ $artist.Id }}">
+                                <div class="content">
+                                        <div class="pic date">
+                                            <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
+                                            <div>{{ $dateParts.Year }}</div>
+                                        </div>
+                                        <div class="content-text go-down-home">
+                                            <div class="p--bold cut concert">{{ $artist.Name }}</div>
+                                            <div class="concert">
+                                                <div class="small light cut">{{ $location }}</div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </a>
+                            
+                            {{ end }}
+                            {{ end }}
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="home-artists" class="container col col1">
+            <h2>Discover Artists and Members</h2>
+            <div class="scroll row row-sm">
+                {{ range $index, $element := .HomeArtists }}
+                {{ if lt $index 20 }}
+                <a href="/artist/{{ .Id }}">
+                    <div class="content">
+                            <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}/preview" alt="Profile image of {{.Name}}"/>
+                            <div class="content-text go-down-home">
+                                <div class="p--bold cut center">
+                                    {{ if gt (len .Members) 1 }}
+                                    {{ index .Members 0 }}
+                                    {{ else }}
+                                    {{ .Name }}
+                                    {{ end }}
+                                </div>
+                                {{ if gt (len .Members) 1 }}
+                                <div class="small light cut">
+                                    {{ .Name }}
+                                </div>
+                                {{ end }}
+                            </div>
+                    </div>
+                </a>
+                
+                {{ end }}
+                {{ end }}
+            </div>
+        </section>
+        <section id="home-albums" class="container col col1">
+            <h2>Trending Albums</h2>
+            <div class="row scroll">
+                {{ range $index, $element := .HomeArtists }}
+                {{ if lt $index 20 }}
+                <a href="/artist/{{ .Id }}">
+                    <div class="content">
+                            <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
+                            <div class="content-text go-down-home">
+                                <div class="p--bold cut">{{.TadbAlbum.Album}}</div>
+                                <div class="small light cut">{{.Name}}</div>
+                            </div>
+                    </div>
+                </a>
+                {{ end }}
+                {{ end }}
+            </div>
+        </section>
+        <section id="home-concerts" class="container">
+            <div class="container scroll col col1">
+                <h2>Concerts</h2>
+                <div id="map" style="width: 100%; min-height: 500px;"></div>
+                <div class="col col3">
+                    {{ range .HomeArtists }}
+                    {{ $artist := . }}
+                    {{ range $location, $dates := $artist.DatesLocations }}
+                    {{ $randomDates := randomiseDates $dates }}
+                    {{ range $date := $randomDates }}
+                    {{ $dateParts := formatDate $date }}
+                    <a href="/artist/{{ $artist.Id }}">
+                        <div class="content">
                                 <div class="pic date">
                                     <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
                                     <div>{{ $dateParts.Year }}</div>
@@ -256,89 +334,9 @@
                                         <div class="small light cut">{{ $location }}</div>
                                     </div>
                                 </div>
-                            </div>
-                            {{ end }}
-                            {{ end }}
-                            {{ end }}
                         </div>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-        <section id="home-artists" class="container col col1">
-            <h2>Discover Artists and Members</h2>
-            <div class="scroll row row-sm">
-                {{ range $index, $element := . }}
-                {{ if lt $index 20 }}
-                <div class="content">
-                    <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}/preview" alt="Profile image of {{.Name}}"/>
-                    <div class="content-text go-down-home">
-                        <div class="p--bold cut center" >
-                            {{ if gt (len .Members) 1 }}
-                            <!-- chooses a random index from pool of member -->
-                            {{ index .Members 0}}
-                            {{ else }}
-                            <!-- If there's only 1 member or no members, display the ArtistName -->
-                            {{ .Name }}
-                            {{ end }}
-                        </div>
-                        {{ if gt (len .Members) 1 }}
-                        <div class="small light cut">
-                            {{ .Name }}
-                        </div>
-                        {{ end }}
-
-                    </div>
-
-                </div>
-                {{ end }}
-                {{ end }}
-            </div>
-        </section>
-        <section id="home-albums" class="container col col1">
-
-                <h2>Trending Albums</h2>
-                <div class="row scroll">
-                    {{ range $index, $element := . }}
-                    {{ if lt $index 20 }}
-                    <div class="content">
-                        <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
-
-                        <div class="content-text go-down-home">
-                            <div class="p--bold cut" >{{.TadbAlbum.Album}}</div>
-                            <div class="small light cut">{{.Name}}</div>
-                        </div>
-                    </div>
-                    {{ end }}
-                    {{ end }}
-                </div>
-
-        </section>
-        <section id="home-concerts" class="container">
-            <div  class="container scroll col col1">
-                <h2>Concerts</h2>
-                <div class="col col3">
-                    {{ range . }}
-                    {{ $artist := . }}
-                    {{ range $location, $dates := $artist.DatesLocations }}
-                    {{ $randomDates := randomiseDates $dates }}
-                    {{ range $date := $randomDates }}
-                    {{ $dateParts := formatDate $date }}
-                    <div class="content">
-                        <div class="pic date">
-                            <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
-                            <div>{{ $dateParts.Year }}</div>
-                        </div>
-                        <div class="content-text go-down-home">
-                            <div class="p--bold cut concert">{{ $artist.Name }}</div>
-                            <div class="concert">
-                                <div class="small light cut">{{ $location }}</div>
-<!--                                <div class="divider-dot"></div>-->
-<!--                                <div class="small light cut"></div>-->
-                            </div>
-                        </div>
-                    </div>
+                    </a>
+                    
                     {{ end }}
                     {{ end }}
                     {{ end }}
@@ -348,7 +346,9 @@
     </div>
 </main>
 <script type="text/javascript" src="../js/default.js"></script>
-
-
+<!--for search-bar-suggestions-->
+<script type="text/javascript" src="../js/suggestion.js"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+<script src="/js/map_all.js"></script>
 </body>
 </html>
