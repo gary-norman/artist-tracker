@@ -176,7 +176,7 @@
                         <h2>Artists</h2>
                         <div class="col col3">
                             {{ range .HomeArtists }}
-                            <a href="/artist/{{ .Id }}">
+                            <a href="/artist?name={{ .Name }}">
                                 <div class="content">
                                     <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
                                     <div class="content-text go-down">
@@ -193,7 +193,7 @@
                         <h2>Members</h2>
                         <div class="col col3">
                             {{ range .HomeArtists }}
-                            <a href="/artist/{{ .Id }}">
+                            <a href="/artist?name={{ .Name }}">
                                 <div class="content">
                                         <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
                                         <div class="content-text go-down">
@@ -220,7 +220,7 @@
                         <h2>Albums</h2>
                         <div class="col col2">
                             {{ range .HomeArtists }}
-                            <a href="/artist/{{ .Id }}">
+                            <a href="/artist?name={{ .Name }}">
                                 <div class="content">
                                         <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
                                         <div class="content-text go-down">
@@ -241,7 +241,7 @@
                             {{ $sortedDates := sortDates $dates }}
                             {{ range $date := $sortedDates }}
                             {{ $dateParts := formatDate $date }}
-                            <a href="/artist/{{ $artist.Id }}">
+                            <a href="/artist/{{ $artist.Name }}">
                                 <div class="content">
                                         <div class="pic date">
                                             <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
@@ -269,7 +269,7 @@
             <div class="scroll row row-sm">
                 {{ range $index, $element := .HomeArtists }}
                 {{ if lt $index 20 }}
-                <a href="/artist/{{ .Id }}">
+                <a href="/artist?name={{ .Name }}">
                     <div class="content">
                             <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}/preview" alt="Profile image of {{.Name}}"/>
                             <div class="content-text go-down-home">
@@ -298,7 +298,7 @@
             <div class="row scroll">
                 {{ range $index, $element := .HomeArtists }}
                 {{ if lt $index 20 }}
-                <a href="/artist/{{ .Id }}">
+                <a href="/artist?name={{.Name }}">
                     <div class="content">
                             <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
                             <div class="content-text go-down-home">
@@ -322,7 +322,7 @@
                     {{ $randomDates := randomiseDates $dates }}
                     {{ range $date := $randomDates }}
                     {{ $dateParts := formatDate $date }}
-                    <a href="/artist/{{ $artist.Id }}">
+                    <a href="/artist?name={{ $artist.Name }}"></a>
                         <div class="content">
                                 <div class="pic date">
                                     <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>

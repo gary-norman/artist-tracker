@@ -45,7 +45,8 @@ func HomePage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *tem
 	}
 }
 
-func ArtistPage(w http.ResponseWriter, r *http.Request, artist Artist, tpl *template.Template) {
+// Gary
+/* func ArtistPage(w http.ResponseWriter, r *http.Request, artist Artist, tpl *template.Template) {
 	//if r.URL.Path != "/" {
 	//	// debug print
 	//	// fmt.Println("r.URL.Path:", r.URL.Path)
@@ -71,9 +72,10 @@ func ArtistPage(w http.ResponseWriter, r *http.Request, artist Artist, tpl *temp
 		}
 		return
 	}
-}
+} */
 
-func ArtistHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *template.Template) {
+// Rin
+func ArtistPage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *template.Template) {
 
 	t := tpl.Lookup("artist.html")
 	if t == nil {
@@ -81,10 +83,23 @@ func ArtistHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tpl
 		return
 	}
 
-	// later Gary can modify more, to read from the URl id number
-	artstExample, _ := SearchArtist(artists, "Rihanna")
+	// Extract artist name from the URL query or request body
+	artistName := r.URL.Query().Get("name")
+	// debug print
+	// fmt.Println("Artist Name:", artistName)
+	if artistName == "" {
+		// no page yet...
+		ErrorHandler(w, r, http.StatusBadRequest)
+		return
+	}
 
-	err := t.Execute(w, &artstExample)
+	artist, err := SearchArtist(artists, artistName)
+	if err != nil {
+		ErrorHandler(w, r, http.StatusNotFound)
+		return
+	}
+
+	err = t.Execute(w, &artist)
 	if err != nil {
 		var e Error
 		switch {
@@ -100,5 +115,4 @@ func ArtistHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tpl
 		}
 		return
 	}
-
 }
