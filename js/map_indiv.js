@@ -31,7 +31,7 @@ function formatDate(date) {
 }
 
 // Fetch GeoJSON data from a local file
-fetch('/db/mapbox/0.geojson')
+fetch('/db/mapbox_std/48.geojson')
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
