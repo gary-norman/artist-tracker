@@ -30,6 +30,16 @@ function formatDate(date) {
     return date.toLocaleDateString('en-GB', options);
 }
 
+function expandDates(dateString) {
+    let tags = '';
+    const dateArray = dateString.split(", ");
+    for (const i of dateArray) {
+        tags += formatDate(parseDate(i)) + ", "
+    }
+    tags = tags.replace(/,\s*$/, '');
+    return tags;
+}
+
 
 async function loadGeoJSONForArtist() {
     const artistName = getArtistNameFromURL();
@@ -71,7 +81,7 @@ async function loadGeoJSONForArtist() {
                     new mapboxgl.Popup({ offset: 20 }) // add popups
                         .setHTML(
                             `<p class="p--bold">${feature.properties.title}</p>
-                             <p class="small">${formatDate(parseDate(feature.properties.date))}</p>
+                             <p class="small justify">${expandDates(feature.properties.date)}</p>
                              <p class="small">${feature.properties.eventAddress}</p>`
                         )
                 )
