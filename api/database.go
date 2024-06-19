@@ -30,7 +30,8 @@ type Artist struct {
 	Id           int      `json:"id"`
 	Image        string   `json:"image"`
 	Name         string   `json:"name"`
-	Members      []string `json:"members"`
+	MemberList   []string `json:"members"`
+	Members      []Member `json:"memberstruct"`
 	CreationDate int      `json:"creationDate"`
 	FirstAlbum   string   `json:"firstAlbum"`
 	TadbAlbum
@@ -45,6 +46,11 @@ type Artist struct {
 
 type DatesLocations struct {
 	DatesLocations map[string][]string `json:"datesLocations"`
+}
+
+type Member struct {
+	MemberName  string `json:"memberName"`
+	MemberImage string `json:"memberImage"`
 }
 
 type TadbAlbum struct {
@@ -133,9 +139,9 @@ func UpdateArtistName(artists []Artist, oldName string, newName string) (string,
 
 // UpdateACDC updates ACDC members
 func UpdateACDC(artists []Artist) {
-	artists[8].Members[1] = "Larry Van Kriedt" // Replace Chris Slade to align with original lineup
-	artists[8].Members[3] = "Dave Evans"       // Replace Axl Rose, as incorrect
-	artists[8].Members = append(artists[8].Members, "Colin Burgess")
+	artists[8].MemberList[1] = "Larry Van Kriedt" // Replace Chris Slade to align with original lineup
+	artists[8].MemberList[3] = "Dave Evans"       // Replace Axl Rose, as incorrect
+	artists[8].MemberList = append(artists[8].MemberList, "Colin Burgess")
 }
 
 func formatLocation(location string) string {

@@ -21,7 +21,7 @@ func PrintArtistDetails(artist *Artist) {
 	fmt.Printf(Bold+Cyan+"Artist Name: "+Reset+Blue+"%v\n"+Reset, artist.Name)
 	fmt.Printf(Bold+Cyan+"ID: "+Reset+Blue+"%v\n"+Reset, artist.Id)
 	fmt.Printf(Bold+Cyan+"Image: "+Reset+Blue+"%v\n"+Reset, artist.Image)
-	fmt.Printf(Bold+Cyan+"Members: "+Reset+Blue+"%v\n"+Reset, strings.Join(artist.Members, ", "))
+	fmt.Printf(Bold+Cyan+"MemberList: "+Reset+Blue+"%v\n"+Reset, strings.Join(artist.MemberList, ", "))
 	fmt.Printf(Bold+Cyan+"Creation Date: "+Reset+Blue+"%v\n"+Reset, artist.CreationDate)
 	fmt.Printf(Bold+Cyan+"First Album: "+Reset+Blue+"%v\n"+Reset, artist.FirstAlbum)
 

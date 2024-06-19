@@ -19,7 +19,7 @@ func (a Artist) String() string {
 		"  BiographyEn: %s\n  ArtistThumb: %s\n  ArtistLogo: %s\n  ArtistCutout: %s\n  ArtistClearart: %s\n"+
 		"  ArtistWidethumb: %s\n  ArtistFanart: %s\n  ArtistFanart2: %s\n  ArtistFanart3: %s\n  ArtistFanart4: %s\n"+
 		"  ArtistBanner: %s\n  MusicBrainzID: %s\n",
-		a.Id, a.Image, a.Name, a.Members, a.CreationDate, a.FirstAlbum, a.IdAlbum, a.Album, a.YearReleased, a.AlbumThumb,
+		a.Id, a.Image, a.Name, a.MemberList, a.CreationDate, a.FirstAlbum, a.IdAlbum, a.Album, a.YearReleased, a.AlbumThumb,
 		a.DescriptionEN, a.MusicBrainzAlbumID, a.IdArtist, a.Label, a.Genre,
 		a.Website, a.BiographyEn, a.ArtistThumb, a.ArtistLogo, a.ArtistCutout, a.ArtistClearart, a.ArtistWidethumb,
 		a.ArtistFanart, a.ArtistFanart2, a.ArtistFanart3, a.ArtistFanart4, a.ArtistBanner, a.MusicBrainzID)
@@ -127,7 +127,7 @@ func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tp
 		}
 
 		// Check artist members
-		for _, member := range artist.Members {
+		for _, member := range artist.MemberList {
 			if strings.Contains(strings.ToLower(member), searchQuery) {
 				suggestions = append(suggestions, Suggestion{"Member", member, &artist})
 				// debug print

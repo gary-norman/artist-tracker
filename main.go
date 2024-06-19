@@ -99,7 +99,7 @@ func main() {
 	pterm.Println(pterm.Cyan(Artists[i].TourDetails))
 	pterm.Println(pterm.Cyan("}"))
 
-	// debug print, to see better all the informations of an aritsts
+	// debug print, to see better all the information of an artist
 	artistsResult, _ := api.SearchArtist(Artists, "Led Zeppelin")
 	api.PrintArtistDetails(artistsResult)
 
