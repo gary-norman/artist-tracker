@@ -64,7 +64,7 @@
             <p class="create">created on {{ .CreationDate }}</p>
             <p class="p--bold">Band Members</p>
             <div class="content">
-                <img class="pic user smallpic" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
+                <img class="pic user smallpic" src="{{.Members[0].MemberImage}}" alt="Profile image of {{.Members[0].MemberName}}"/>
                 <img class="pic user smallpic" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
                 <img class="pic user smallpic" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
                 <img class="pic user smallpic" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
@@ -100,8 +100,8 @@
                             <div class="p--bold cut" >{{.TadbAlbum.Album}}</div>
                             <div class="small light cut">{{.Name}}</div>
                         </div>
+                    </div>
                 </div>
-
         </section>
         <section id="home-concerts" class="container">
             <div  class="container scroll col col1">

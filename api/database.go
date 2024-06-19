@@ -31,7 +31,7 @@ type Artist struct {
 	Image        string   `json:"image"`
 	Name         string   `json:"name"`
 	MemberList   []string `json:"members"`
-	Members      []Member `json:"memberstruct"`
+	Members      []Member `json:"memberStruct"`
 	CreationDate int      `json:"creationDate"`
 	FirstAlbum   string   `json:"firstAlbum"`
 	TadbAlbum
@@ -142,6 +142,7 @@ func UpdateACDC(artists []Artist) {
 	artists[8].MemberList[1] = "Larry Van Kriedt" // Replace Chris Slade to align with original lineup
 	artists[8].MemberList[3] = "Dave Evans"       // Replace Axl Rose, as incorrect
 	artists[8].MemberList = append(artists[8].MemberList, "Colin Burgess")
+	artists[48].MemberList[3] = "Ronnie Wood" // Replace Ron Wood
 }
 
 func formatLocation(location string) string {

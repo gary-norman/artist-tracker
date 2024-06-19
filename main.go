@@ -100,8 +100,8 @@ func main() {
 	pterm.Println(pterm.Cyan("}"))
 
 	// debug print, to see better all the information of an artist
-	artistsResult, _ := api.SearchArtist(Artists, "Led Zeppelin")
-	api.PrintArtistDetails(artistsResult)
-
+	//artistsResult, _ := api.SearchArtist(Artists, "Led Zeppelin")
+	//api.PrintArtistDetails(artistsResult)
+	api.WikiImageFetcher(Artists[48])
 	api.HandleRequests(Artists, api.GetTemplate())
 }
