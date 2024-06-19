@@ -4,6 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Name }} - Artist Tracker</title>
+    <style>
+        .artistwrapper {
+            position: relative;
+        }
+        .artistwrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 300px;
+            background: url('{{.TheAudioDbArtist.ArtistFanart2}}') no-repeat 0 -150px;
+            /*background: url("https://www.theaudiodb.com/images/media/artist/fanart/uyuvtx1367246043.jpg") no-repeat 0 -150px;*/
+            --webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+            z-index: -2;
+        }
+
+        .artistwrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 300px;
+            background: url('{{.TheAudioDbArtist.ArtistClearart}}') no-repeat right bottom 10px;
+            /*background: url("https://www.theaudiodb.com/images/media/artist/logo/j7ym8t1704047891.png") no-repeat right bottom 10px;*/
+            background-size: 20%;
+            opacity: 50%;
+            z-index: -1;
+        }
+    </style>
 
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Jockey One' rel='stylesheet'>
