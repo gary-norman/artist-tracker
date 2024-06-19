@@ -216,16 +216,16 @@ document.addEventListener('DOMContentLoaded', function () {
             const response = await fetch(`/artist?name=${encodeURIComponent(artistName)}`);
             if (response.ok) {
                 const artistPageContent = await response.text();
-                const mainContent = document.getElementById('main-content');
+                // this part seem never reach....
+                console.log("response from artstPage:",artistPageContent)
+               /*  const mainContent = document.getElementById('main-content');
                 if (mainContent) {
                     mainContent.innerHTML = artistPageContent;
                     // Update the URL without reloading the page
                     history.pushState(null, '', `/artist?name=${encodeURIComponent(artistName)}`);
-                    // Reinitialize any necessary scripts for the dynamically loaded content
-                    initializeMap();
                 } else {
                     console.error('Element with id "main-content" not found.');
-                }
+                } */
             } else {
                 console.error('Failed to load artist page');
             }
@@ -245,16 +245,4 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
-
-    // Function to reinitialize the map for the dynamically loaded artist page
-    function initializeMap() {
-        mapboxgl.accessToken = 'pk.eyJ1IjoibG9yZXdvcmxkIiwiYSI6ImNsd3FseDNsbDAzZjMyanF2czh3Mmt4eTgifQ.-_bXsAv_SR1bpcmvOSpDuA';
-        var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v11',
-            center: [-74.5, 40],
-            zoom: 9
-        });
-        // Additional map initialization code if needed
-    }
 });

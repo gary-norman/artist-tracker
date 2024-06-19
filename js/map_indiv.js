@@ -30,8 +30,65 @@ function formatDate(date) {
     return date.toLocaleDateString('en-GB', options);
 }
 
+
+async function loadGeoJSONForArtist() {
+    const artistName = getArtistNameFromURL();
+    if (!artistName) {
+        console.error('No artist name found in URL.');
+        return;
+    }
+
+    
+    // Fetch artist ID based on artist name
+    const artistID = await fetchArtistID(artistName);
+    if (!artistID) {
+        console.error('No artist ID found for artist name:', artistName);
+        return;
+    }
+
+    const fileNB = artistID - 1; 
+    const geoJSONPath = `/db/mapbox_std/${fileNB}.geojson`;
+
+    try {
+        const response = await fetch(geoJSONPath);
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+
+        const geojson = await response.json();
+        console.log('GeoJSON Data:', geojson);
+
+        // add markers to map
+        for (const feature of geojson.features) {
+            // create an HTML element for each feature
+            const el = document.createElement('div');
+            el.className = 'marker';
+
+            // make a marker for each feature and add it to the map
+            new mapboxgl.Marker(el)
+                .setLngLat(feature.geometry.coordinates)
+                .setPopup(
+                    new mapboxgl.Popup({ offset: 20 }) // add popups
+                        .setHTML(
+                            `<p class="p--bold">${feature.properties.title}</p>
+                             <p class="small">${formatDate(parseDate(feature.properties.date))}</p>
+                             <p class="small">${feature.properties.eventAddress}</p>`
+                        )
+                )
+                .addTo(map);
+        }
+
+    } catch (error) {
+        console.error('There has been a problem with your fetch operation:', error);
+    }
+}
+        
+    
+
+
+// Gary
 // Fetch GeoJSON data from a local file
-fetch('/db/mapbox_std/48.geojson')
+/* fetch('/db/mapbox_std/48.geojson')
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
@@ -108,3 +165,27 @@ fetch('/db/mapbox_std/48.geojson')
     .catch(error => {
         console.error('There has been a problem with your fetch operation:', error);
     });
+ */
+
+function getArtistNameFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.has('name') ? decodeURIComponent(urlParams.get('name')) : null;
+}
+
+async function fetchArtistID(artistName) {
+    
+    try {
+        const response = await fetch(`/artist/id?name=${encodeURIComponent(artistName)}`);
+        if (!response.ok) {
+            throw new Error('Failed to fetch artist ID');
+        }
+        const data = await response.json();
+        console.log('Artist ID:', data.artistId);
+        return data.artistId; 
+    } catch (error) {
+        console.error('Error fetching artist ID:', error);
+        throw error;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', loadGeoJSONForArtist);
