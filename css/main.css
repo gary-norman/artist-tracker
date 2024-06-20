@@ -408,11 +408,12 @@ a {
 
     & .search-input{
         display: flex;
-        min-width: 31.2rem;
-        max-width: 48rem;
         width:100%;
+        justify-content: center;
         align-items: center;
         position:relative;
+        min-width: 31.2rem;
+        max-width: 48rem;
 
         &::after {
             content: url('../icons/search_x24.svg');
@@ -864,6 +865,11 @@ input {
     &#button-filter{
         min-width: 15rem;
         max-width: 22rem;
+        transition: max-width, 0.3s;
+
+        @media (max-width: 500px) {
+            max-width: 16rem;
+        }
     }
     &#button-filter::after {
         width: 2.4rem;

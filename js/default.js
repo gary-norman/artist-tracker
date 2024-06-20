@@ -53,26 +53,36 @@ function updateSliderBackground(slider) {
 document.addEventListener('DOMContentLoaded', () => {
     const filterButton = document.getElementById('button-filter');
     const filters = document.querySelectorAll('.filter:not(:first-child)');
-    const show = "url('../icons/show_x24.svg')";
-    const hide = "url('../icons/hide_x24.svg')";
+    const show24 = "url('../icons/show_x24.svg')";
+    const hide24 = "url('../icons/hide_x24.svg')";
+    const show16 = "url('../icons/show_x16.svg')";
+    const hide16 = "url('../icons/hide_x16.svg')";
 
-    console.log("Initializing pseudo-icon to hide");
-    document.documentElement.style.setProperty("--pseudo-icon", show);
+    console.log("Initializing pseudo-icon to hide24");
+    document.documentElement.style.setProperty("--pseudo-icon", show24);
 
+    const updatePseudoIcon = () => {
+        const isHidden = filters[0].classList.contains('hide');
+        if (window.innerWidth < 500) {
+            console.log(`Setting pseudo-icon to ${isHidden ? 'show16' : 'hide16'}`);
+            document.documentElement.style.setProperty("--pseudo-icon", isHidden ? show16 : hide16);
+        } else {
+            console.log(`Setting pseudo-icon to ${isHidden ? 'show24' : 'hide24'}`);
+            document.documentElement.style.setProperty("--pseudo-icon", isHidden ? show24 : hide24);
+        }
+    };
 
     filterButton.addEventListener('click', () => {
         filters.forEach(filter => {
-            if (filter.classList.contains('hide')) {
-                filter.classList.remove('hide');
-                console.log("Setting pseudo-icon to hide");
-                document.documentElement.style.setProperty("--pseudo-icon", hide);
-            } else {
-                filter.classList.add('hide');
-                console.log("Setting pseudo-icon to show");
-                document.documentElement.style.setProperty("--pseudo-icon", show);
-            }
+            filter.classList.toggle('hide');
         });
+        updatePseudoIcon();
     });
+
+    window.addEventListener('resize', updatePseudoIcon);
+
+    // Initial update based on the current window size
+    updatePseudoIcon();
 });
 
 // Initialize the background on page load
