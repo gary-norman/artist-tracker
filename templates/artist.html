@@ -64,7 +64,13 @@
             <p class="create">created on {{ .CreationDate }}</p>
             <p class="p--bold">Band Members</p>
             <div class="content">
-                <img class="pic user smallpic" src="{{.Members[0].MemberImage}}" alt="Profile image of {{.Members[0].MemberName}}"/>
+                {{ $artist := . }}
+                {{ range $memberName, $memberImage := $artist.Members }}
+                <div class="content">
+                    <p>{{ $memberName }}</p>
+                    <img class="pic user smallpic" src="{{ $memberImage }}" alt="Profile image of {{ $memberName }}"/>
+                </div>
+                {{ end }}
                 <img class="pic user smallpic" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
                 <img class="pic user smallpic" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
                 <img class="pic user smallpic" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
