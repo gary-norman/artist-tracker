@@ -312,7 +312,7 @@ a {
     flex-direction: column;
     gap: 2.4rem;
     transition: border-radius 500ms, padding 500ms;
-
+    filter: var(--shadow-dark-0);
 
     &#filter-checkbox-locations {
         max-height: 20rem;
@@ -357,6 +357,7 @@ a {
     & .container {
         background: none;
         padding: 2rem;
+        filter: none;
     }
 
     &:has(.row) {
@@ -411,11 +412,12 @@ a {
 
     & .search-input{
         display: flex;
-        min-width: 31.2rem;
-        max-width: 48rem;
         width:100%;
+        justify-content: center;
         align-items: center;
         position:relative;
+        min-width: 31.2rem;
+        max-width: 48rem;
 
         &::after {
             content: url('../icons/search_x24.svg');
@@ -857,7 +859,7 @@ input {
         &:has(#button-filter-concert-location)::before {
             width: 1.6rem;
             height: 1.6rem;
-            top: 27%;
+            top: 22%;
             content: url('../icons/map-marker_x16.svg');
         }
     }
@@ -867,6 +869,11 @@ input {
     &#button-filter{
         min-width: 15rem;
         max-width: 22rem;
+        transition: max-width, 0.3s;
+
+        @media (max-width: 500px) {
+            max-width: 16rem;
+        }
     }
     &#button-filter::after {
         width: 2.4rem;
@@ -878,7 +885,7 @@ input {
        content: url('../icons/search_x16.svg');
         width: 1.6rem;
         height: 1.6rem;
-        top: 27%;
+        top: 22%;
     }
     &#album-start-date, &#artist-start-date {
         &::after {
@@ -904,13 +911,13 @@ input {
     .button-container::before {
         width: 1.6rem !important;
         height: 1.6rem !important;
-        top: 26%;
+        top: 22%;
     }
 
     .button-2::after {
         width: 1.6rem !important;
         height: 1.6rem !important;
-        top: 26%;
+        top: 22%;
     }
 
     #button-filter::after {

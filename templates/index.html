@@ -21,11 +21,9 @@
             <div class="small center">by Gary Norman & Kamil Ornal</div>
         </section>
         <section class="search-container">
-            <form action="/search/" method="get">
-                <div class="search-input">
-                    <label for="search-input"></label>
-                    <input type="text" name="search-input" id="search-input" placeholder="Search artist" required autocomplete="off">
-                </div>
+            <form class="search-input" action="/search/" method="get">
+                <label for="search-input"></label>
+                <input type="text" name="search-input" id="search-input" placeholder="Search artist" required autocomplete="off">
             </form>
             <h3 class="floating-md">Recent searches</h3>
             <div class="floating-md filters go-down">
@@ -220,6 +218,12 @@
                         <h2>Albums</h2>
                         <div class="col col2">
                             {{ range .HomeArtists }}
+                            <a href="/artist?name={{ .Name }}" class="content">
+                                    <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
+                                    <div class="content-text go-down">
+                                        <div class="p--bold cut">{{.TadbAlbum.Album}}</div>
+                                        <div class="small light cut">{{.Name}}</div>
+                                    </div>
                             <a href="/artist?name={{ .Name }}">
                                 <div class="content">
                                         <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
