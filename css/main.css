@@ -855,7 +855,7 @@ input {
         &:has(#button-filter-concert-location)::before {
             width: 1.6rem;
             height: 1.6rem;
-            top: 27%;
+            top: 22%;
             content: url('../icons/map-marker_x16.svg');
         }
     }
@@ -881,7 +881,7 @@ input {
        content: url('../icons/search_x16.svg');
         width: 1.6rem;
         height: 1.6rem;
-        top: 27%;
+        top: 22%;
     }
     &#album-start-date, &#artist-start-date {
         &::after {
@@ -907,13 +907,13 @@ input {
     .button-container::before {
         width: 1.6rem !important;
         height: 1.6rem !important;
-        top: 26%;
+        top: 22%;
     }
 
     .button-2::after {
         width: 1.6rem !important;
         height: 1.6rem !important;
-        top: 26%;
+        top: 22%;
     }
 
     #button-filter::after {
