@@ -82,7 +82,7 @@ const updateSearchCancelIcon = () => {
 };
 
 searchButton.addEventListener('click', () => {
-    searchButton.classList.toggle('hide');
+    // searchButton.classList.toggle('hide');
 
     updateSearchCancelIcon();
 });
