@@ -39,70 +39,120 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initial check to set the correct visibility state
     toggleFilterContainers();
 });
-const searchButton = document.getElementById("search-input");
-const homeElements = document.querySelectorAll('[id^="home"]');
 
-// Function to check if the input is active
-function isInputActive() {
-    return document.activeElement === searchButton;
-}
 
-// Add an event listener to log the result when the input is focused or blurred
-searchButton.addEventListener('focus', () => {
-    console.log('Search Input is active:', isInputActive());
-    const homeElements = document.querySelectorAll('[id^="home"]');
+document.addEventListener('DOMContentLoaded', () => {
+    const searchButton = document.getElementById("search-input");
+    const home = document.querySelectorAll('[id^="home"]');
+    const recent = document.getElementById("search-recent-text");
+    const filters = document.getElementById("search-filters");
     const searchResults = document.getElementById("search-results");
+    const logo = document.querySelector('.logo');
+    const subLogo = document.querySelector('.sub-logo');
+    let isSearching = false;
 
-    homeElements.forEach(section => {
-        section.classList.add('hide');
+    console.log("home is:", home);
+    console.log("subLogo is:", subLogo);
+    const homeElements = [...home, subLogo];
+    console.log("homeElements is:", homeElements);
+    const searchElements = [searchResults, recent, filters];
+    console.log(searchElements)
+
+    // Add an event listener to log the result when the input is focused or blurred
+    searchButton.addEventListener('focus', () => {
+        console.log('Search Input is active:', isInputActive());
+        showSections(searchElements);
+        hideSections(homeElements);
+        changeLogo(logo, subLogo, "small");
+        console.log("isSearching is:", isSearching);
     });
-    searchResults.classList.remove('hide');
 
-    updateSearchCancelIcon();
-});
-
-searchButton.addEventListener('blur', () => {
-    console.log('Search Input is active:', isInputActive());
-    const homeElements = document.querySelectorAll('[id^="home"]');
-    const searchResults = document.getElementById("search-results");
-
-    homeElements.forEach(section => {
-        section.classList.remove('hide');
+    searchButton.addEventListener('input', function() {
+        isSearching = true;
+        console.log("isSearching is:", isSearching);
+        if (searchButton.value.trim() !== '') {
+            console.log('Input has text');
+            updateSearchCancelIcon("cancel");
+        } else {
+            console.log('Input is empty');
+            // Handle empty input case
+            console.log("input changed");
+            updateSearchCancelIcon("search");
+        }
     });
-    searchResults.classList.add('hide');
 
-    updateSearchCancelIcon();
-});
+    searchButton.addEventListener('click', function() {
+        if (isSearching) {
+            updateSearchCancelIcon("search");
+            showSections(homeElements);
+            hideSections(searchElements);
+            changeLogo(logo, subLogo, "large");
+        }
 
-const updateSearchCancelIcon = () => {
-    const homeElements = document.querySelectorAll('[id^="home"]');
-    const isHidden = homeElements.classList.contains('hide');
+    });
 
-    const search16 = "url('../icons/search_x16.svg')";
-    const search24 = "url('../icons/search_x24.svg')";
-    const cancel16 = "url('../icons/close_x16.svg')";
-    const cancel24 = "url('../icons/close_x24.svg')";
-    if (window.innerWidth < 500) {
-        console.log(`Setting search-cancel-icon to ${isHidden ? 'search16' : 'cancel16'}`);
-        document.documentElement.style.setProperty("-search-cancel-icon", isHidden ? show16 : hide16);
-    } else {
-        console.log(`Setting search-cancel-icon to ${!isHidden ? 'search24' : 'cancel24'}`);
-        document.documentElement.style.setProperty("--search-cancel-icon", isHidden ? show24 : hide24);
+    searchButton.addEventListener('blur', () => {
+        console.log('Search Input is active:', isInputActive());
+        isSearching = false;
+        if (searchButton.value.trim() === '') {
+            showSections(homeElements);
+            hideSections(searchElements);
+            changeLogo(logo, subLogo, "large");
+            updateSearchCancelIcon("search");
+        }
+
+    });
+
+    // Function to check if the input is active
+    function isInputActive() {
+        return document.activeElement === searchButton;
     }
-};
 
-// searchButton.addEventListener('click', () => {
-//     const homeElements = document.querySelectorAll('[id^="home"]');
-//     const searchResults = document.getElementById("search-results");
-//
-//     homeElements.forEach(section => {
-//         section.classList.toggle('hide');
-//
-//     });
-//     searchResults.classList.toggle('hide');
-//
-//     updateSearchCancelIcon();
-// });
+    const updateSearchCancelIcon = (button) => {
+        const search16 = "url('../icons/search_x16.svg')";
+        const search24 = "url('../icons/search_x24.svg')";
+        const cancel16 = "url('../icons/close_x16.svg')";
+        const cancel24 = "url('../icons/close_x24.svg')";
+
+        if (button === "cancel") {
+            console.log("updating search/cancel icon to cancel");
+            document.documentElement.style.setProperty("--search-cancel-icon", cancel24);
+        } else {
+            console.log("updating search/cancel icon to cancel");
+            document.documentElement.style.setProperty("--search-cancel-icon", search24);
+        }
+
+
+
+
+    };
+
+    function showSections(elements) {
+        elements.forEach(element => {
+            element.classList.remove('hide');
+        });
+    }
+
+    function hideSections(elements) {
+        elements.forEach(element => {
+            element.classList.add('hide');
+        });
+    }
+
+    function changeLogo(logo, subLogo, size) {
+        if (size === "large") {
+            logo.style.fontSize = '8rem';
+            logo.style.lineHeight = '1.2';
+            subLogo.style.lineHeight = 'normal';
+        } else if (size === "small") {
+            logo.style.fontSize = '4rem';
+            logo.style.lineHeight = '1.5';
+            subLogo.style.lineHeight = '1.5';
+        }
+
+    }
+});
+
 
 
 function updateSliderBackground(slider) {

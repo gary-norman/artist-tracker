@@ -275,11 +275,13 @@ a {
     flex-direction: column;
     margin: auto;
     max-width: 108rem;
-    padding:  4rem;
+    padding: 4rem;
     transition: padding 500ms;
     overflow: hidden;
+    padding-top: 0;
     @media (max-width: 800px) {
         padding: 1.2rem;
+
     }
     @media (max-width: 550px) {
         padding: 0.8rem;
@@ -403,6 +405,21 @@ a {
             font-size: 6rem;
         }
     };
+    & .sub-logo {
+        opacity: 1;
+
+        translate: 0 0;
+
+        transition-property: translate opacity;
+        transition-duration: .3s;
+        transition-behavior: allow-discrete;
+
+        @starting-style{
+            max-height: 100%;
+            translate: 0 -1.2rem;
+            opacity: 0;
+        }
+    }
 }
 
 .search-container{
@@ -423,6 +440,7 @@ a {
         position:relative;
         min-width: 31.2rem;
         max-width: 48rem;
+        /*pointer-events: none;*/
 
         &::after {
             content: var(--search-cancel-icon);
@@ -430,6 +448,8 @@ a {
             height: 2.4rem;
             position: absolute;
             right: 1.6rem;
+            cursor: pointer;
+            /*pointer-events: auto;*/
         }
 
         &:hover {

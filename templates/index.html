@@ -18,15 +18,15 @@
     <div class="wrapper">
         <section class="logo-container">
             <a class="logo" href="/">Artist Tracker</a>
-            <div class="small center">by Gary Norman & Kamil Ornal</div>
+            <div class="sub-logo small center">by Gary, Kamil & Rin</div>
         </section>
         <section class="search-container">
             <form class="search-input" action="/search/" method="get">
                 <label for="search-input"></label>
                 <input type="text" name="search-input" id="search-input" placeholder="Search artist" required autocomplete="off">
             </form>
-            <h3 class="floating-md">Recent searches</h3>
-            <div class="floating-md filters go-down">
+            <h3 id="search-recent-text" class="floating-md hide">Recent searches</h3>
+            <div id="search-filters" class="floating-md filters go-down hide">
                 <div class="space filter">
                     <h3 class="small light center">Showing 6 results</h3>
                     <div class="button-2" id="button-filter">
