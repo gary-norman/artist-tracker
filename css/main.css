@@ -327,7 +327,7 @@ a {
         gap: 0;
     }
 
-    &#search-results, &#home-concerts > .scroll {
+    &#search-results > .scroll, &#home-concerts > .scroll {
         max-height: 60rem;
         overflow-x: hidden;
         display: flex;
@@ -337,6 +337,9 @@ a {
     }
 
 
+    #home-artists, #home-albums, #home-concerts, #search-results {
+        transition: opacity 3s;
+    }
 
 
 

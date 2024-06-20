@@ -50,19 +50,29 @@ function isInputActive() {
 // Add an event listener to log the result when the input is focused or blurred
 searchButton.addEventListener('focus', () => {
     console.log('Search Input is active:', isInputActive());
+    const homeElements = document.querySelectorAll('[id^="home"]');
+    const searchResults = document.getElementById("search-results");
+
+    homeElements.forEach(section => {
+        section.classList.add('hide');
+    });
+    searchResults.classList.remove('hide');
+
+    updateSearchCancelIcon();
 });
 
 searchButton.addEventListener('blur', () => {
     console.log('Search Input is active:', isInputActive());
-});
-
-const toggleSearchScreen = () => {
     const homeElements = document.querySelectorAll('[id^="home"]');
+    const searchResults = document.getElementById("search-results");
 
+    homeElements.forEach(section => {
+        section.classList.remove('hide');
+    });
+    searchResults.classList.add('hide');
 
-
-
-};
+    updateSearchCancelIcon();
+});
 
 const updateSearchCancelIcon = () => {
     const homeElements = document.querySelectorAll('[id^="home"]');
@@ -81,11 +91,18 @@ const updateSearchCancelIcon = () => {
     }
 };
 
-searchButton.addEventListener('click', () => {
-    searchButton.classList.toggle('hide');
-
-    updateSearchCancelIcon();
-});
+// searchButton.addEventListener('click', () => {
+//     const homeElements = document.querySelectorAll('[id^="home"]');
+//     const searchResults = document.getElementById("search-results");
+//
+//     homeElements.forEach(section => {
+//         section.classList.toggle('hide');
+//
+//     });
+//     searchResults.classList.toggle('hide');
+//
+//     updateSearchCancelIcon();
+// });
 
 
 function updateSliderBackground(slider) {
