@@ -25,7 +25,7 @@ type WikiResponse struct {
 }
 
 func WikiImageFetcher(artist Artist) {
-	Members := make(map[string]string)
+	artist.Members = make(map[string]string)
 	for _, member := range artist.MemberList {
 		member = strings.Replace(member, " ", "_", -1)
 		queryURL := fmt.Sprintf("https://en.wikipedia.org/w/api.php?action=query&titles=%s&prop=pageimages&format=json&pithumbsize=500", member)
@@ -48,12 +48,12 @@ func WikiImageFetcher(artist Artist) {
 			return
 		}
 
-		// Add the image URL to the struct
+		// Add the image URL to the map
 		for _, page := range result.WikiQuery.Pages {
 			if page.WikiThumbnail.Source != "" {
-				Members[strings.Replace(member, "_", " ", -1)] = page.WikiThumbnail.Source
+				artist.Members[strings.Replace(member, "_", " ", -1)] = page.WikiThumbnail.Source
 			} else {
-				Members[strings.Replace(member, "_", " ", -1)] = "/icons/artist_placeholder_08.png"
+				artist.Members[strings.Replace(member, "_", " ", -1)] = "/icons/artist_placeholder_08.png"
 			}
 			//fmt.Println("Main Image URL:", page.WikiThumbnail.Source)
 		}
@@ -68,6 +68,6 @@ func WikiImageFetcher(artist Artist) {
 			//fmt.Println("Main Image URL:", page.WikiThumbnail.Source)
 		}
 	}
-	fmt.Println(artist.MemberStruct[0].MemberName)
-	fmt.Println(artist.MemberStruct[0].MemberImage)
+	fmt.Printf("Struct Artist: %v\nStruct Image:%v\n", artist.MemberStruct[0].MemberName, artist.MemberStruct[0].MemberImage)
+	fmt.Printf("Map:%v\n", artist.Members)
 }

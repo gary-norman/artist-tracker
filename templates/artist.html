@@ -66,10 +66,7 @@
             <div class="content">
                 {{ $artist := . }}
                 {{ range $memberName, $memberImage := $artist.Members }}
-                <div class="content">
-                    <p>{{ $memberName }}</p>
-                    <img class="pic user smallpic" src="{{ $memberImage }}" alt="Profile image of {{ $memberName }}"/>
-                </div>
+                <img class="pic user smallpic" src="{{ $memberImage }}" alt="Profile image of {{ $memberName }}"/>
                 {{ end }}
                 <img class="pic user smallpic" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
                 <img class="pic user smallpic" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
