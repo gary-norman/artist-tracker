@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const home = document.querySelectorAll('[id^="home"]');
     const recent = document.getElementById("search-recent-text");
     const filters = document.getElementById("search-filters");
+    const searchIcon = document.getElementById("search-icon");
     const searchResults = document.getElementById("search-results");
     const logo = document.querySelector('.logo');
     const subLogo = document.querySelector('.sub-logo');
@@ -68,12 +69,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     searchButton.addEventListener('input', function() {
-        isSearching = true;
-        console.log("isSearching is:", isSearching);
+
         if (searchButton.value.trim() !== '') {
+            isSearching = true;
+            console.log("isSearching is:", isSearching);
             console.log('Input has text');
             updateSearchCancelIcon("cancel");
         } else {
+            isSearching = false;
+            console.log("isSearching is:", isSearching);
             console.log('Input is empty');
             // Handle empty input case
             console.log("input changed");
@@ -91,15 +95,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
+    searchIcon.addEventListener('click', function(e) {  // Added
+        e.stopPropagation(); // Prevent the click from propagating to the parent element**  // Added
+
+        // Handle the click on the clear icon**  // Added
+
+        searchButton.value = ''; // Clear the input text**  // Added
+        updateSearchCancelIcon("search");  // Added
+        showSections(homeElements);  // Added
+        hideSections(searchElements);  // Added
+        changeLogo(logo, subLogo, "large");  // Added
+    });  // Added
+
     searchButton.addEventListener('blur', () => {
         console.log('Search Input is active:', isInputActive());
         isSearching = false;
+
+        const filterButton = document.getElementById('button-filter');
+
         if (searchButton.value.trim() === '') {
             showSections(homeElements);
             hideSections(searchElements);
             changeLogo(logo, subLogo, "large");
             updateSearchCancelIcon("search");
         }
+
 
     });
 

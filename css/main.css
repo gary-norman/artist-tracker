@@ -440,23 +440,48 @@ a {
         position:relative;
         min-width: 31.2rem;
         max-width: 48rem;
+        /*padding-right: 3.6rem;*/
         /*pointer-events: none;*/
 
-        &::after {
-            content: var(--search-cancel-icon);
+        & #clear-icon {
+            position: absolute;
+            top: 12px;
+            right: 1.6rem;
             width: 2.4rem;
             height: 2.4rem;
-            position: absolute;
-            right: 1.6rem;
             cursor: pointer;
-            /*pointer-events: auto;*/
+            /*display: none; !* Initially hidden *!*/
+            background-size: contain; /* Ensure the icon is properly sized */
+            background-image: var(--search-cancel-icon); /* Use your icon variable */
         }
+
+        &:not(:placeholder-shown) ~ #clear-icon {
+            display: block; /* Show clear icon when input has text */
+        }
+
+        /*&::after {*/
+        /*    content: var(--search-cancel-icon);*/
+        /*    width: 2.4rem;*/
+        /*    height: 2.4rem;*/
+        /*    position: absolute;*/
+        /*    right: 1.6rem;*/
+        /*    cursor: pointer;*/
+        /*    !*pointer-events: auto;*!*/
+        /*}*/
 
         &:hover {
             opacity: 90%;
         }
     }
 }
+
+/*.c1 {*/
+/*    background-color: red;*/
+/*}*/
+
+/*.c2 {*/
+/*    background-color: violet;*/
+/*}*/
 
 .row {
     display: flex;
@@ -567,7 +592,6 @@ input {
 
             &:after {
                 content: url('../icons/tick_x16.svg');
-                content: url('../icons/cl_x16.svg');
                 position: absolute;
                 width: 100%;
                 height: 100%;
