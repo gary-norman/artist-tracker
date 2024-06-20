@@ -24,7 +24,7 @@ type WikiResponse struct {
 	WikiQuery WikiQuery `json:"query"`
 }
 
-func WikiImageFetcher(artist Artist) {
+func WikiImageFetcher(artist *Artist) {
 	artist.Members = make(map[string]string)
 	for _, member := range artist.MemberList {
 		member = strings.Replace(member, " ", "_", -1)
@@ -69,5 +69,8 @@ func WikiImageFetcher(artist Artist) {
 		}
 	}
 	fmt.Printf("Struct Artist: %v\nStruct Image:%v\n", artist.MemberStruct[0].MemberName, artist.MemberStruct[0].MemberImage)
-	fmt.Printf("Map:%v\n", artist.Members)
+	fmt.Printf("=== member's data of aritst:%v === \n", artist.Name)
+	for memberName, imgLink := range artist.Members {
+		fmt.Printf("Member: %v, imgLink: %v\n", memberName, imgLink)
+	}
 }
