@@ -60,7 +60,9 @@
     --radius-md: 0.8rem;
     --radius-sm: 0.4rem;
 
-    --pseudo-icon: url('../icons/show_x24.svg');
+    /* icons to change with js */
+    --show-hide-icon: url('../icons/show_x24.svg');
+    --search-cancel-icon: url('../icons/search_x24.svg');
 }
 
 
@@ -420,7 +422,7 @@ a {
         max-width: 48rem;
 
         &::after {
-            content: url('../icons/search_x24.svg');
+            content: var(--search-cancel-icon);
             width: 2.4rem;
             height: 2.4rem;
             position: absolute;
@@ -542,6 +544,7 @@ input {
 
             &:after {
                 content: url('../icons/tick_x16.svg');
+                content: url('../icons/cl_x16.svg');
                 position: absolute;
                 width: 100%;
                 height: 100%;
@@ -878,7 +881,7 @@ input {
     &#button-filter::after {
         width: 2.4rem;
         height: 2.4rem;
-        content: var(--pseudo-icon) !important;
+        content: var(--show-hide-icon) !important;
     }
 
     &#button-filter-checkbox::after {
@@ -921,7 +924,7 @@ input {
     }
 
     #button-filter::after {
-        content: var(--pseudo-icon) !important;
+        content: var(--show-hide-icon) !important;
     }
     #button-filter-checkbox::after {
         content: url('../icons/search_x16.svg') !important;

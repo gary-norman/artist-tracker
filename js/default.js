@@ -39,6 +39,53 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initial check to set the correct visibility state
     toggleFilterContainers();
 });
+const searchButton = document.getElementById("search-input");
+const homeElements = document.querySelectorAll('[id^="home"]');
+
+// Function to check if the input is active
+function isInputActive() {
+    return document.activeElement === searchButton;
+}
+
+// Add an event listener to log the result when the input is focused or blurred
+searchButton.addEventListener('focus', () => {
+    console.log('Search Input is active:', isInputActive());
+});
+
+searchButton.addEventListener('blur', () => {
+    console.log('Search Input is active:', isInputActive());
+});
+
+const toggleSearchScreen = () => {
+    const homeElements = document.querySelectorAll('[id^="home"]');
+
+
+
+
+};
+
+const updateSearchCancelIcon = () => {
+    const homeElements = document.querySelectorAll('[id^="home"]');
+    const isHidden = homeElements.classList.contains('hide');
+
+    const search16 = "url('../icons/search_x16.svg')";
+    const search24 = "url('../icons/search_x24.svg')";
+    const cancel16 = "url('../icons/close_x16.svg')";
+    const cancel24 = "url('../icons/close_x24.svg')";
+    if (window.innerWidth < 500) {
+        console.log(`Setting search-cancel-icon to ${isHidden ? 'search16' : 'cancel16'}`);
+        document.documentElement.style.setProperty("-search-cancel-icon", isHidden ? show16 : hide16);
+    } else {
+        console.log(`Setting search-cancel-icon to ${!isHidden ? 'search24' : 'cancel24'}`);
+        document.documentElement.style.setProperty("--search-cancel-icon", isHidden ? show24 : hide24);
+    }
+};
+
+searchButton.addEventListener('click', () => {
+    searchButton.classList.toggle('hide');
+
+    updateSearchCancelIcon();
+});
 
 
 function updateSliderBackground(slider) {
@@ -58,17 +105,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const show16 = "url('../icons/show_x16.svg')";
     const hide16 = "url('../icons/hide_x16.svg')";
 
-    console.log("Initializing pseudo-icon to hide24");
-    document.documentElement.style.setProperty("--pseudo-icon", show24);
+    console.log("Initializing show-hide-icon to hide24");
+    document.documentElement.style.setProperty("--show-hide-icon", show24);
 
-    const updatePseudoIcon = () => {
+    const updateShowHideIcon = () => {
         const isHidden = filters[0].classList.contains('hide');
         if (window.innerWidth < 500) {
-            console.log(`Setting pseudo-icon to ${isHidden ? 'show16' : 'hide16'}`);
-            document.documentElement.style.setProperty("--pseudo-icon", isHidden ? show16 : hide16);
+            console.log(`Setting show-hide-icon to ${isHidden ? 'show16' : 'hide16'}`);
+            document.documentElement.style.setProperty("--show-hide-icon", isHidden ? show16 : hide16);
         } else {
-            console.log(`Setting pseudo-icon to ${isHidden ? 'show24' : 'hide24'}`);
-            document.documentElement.style.setProperty("--pseudo-icon", isHidden ? show24 : hide24);
+            console.log(`Setting show-hide-icon to ${isHidden ? 'show24' : 'hide24'}`);
+            document.documentElement.style.setProperty("--show-hide-icon", isHidden ? show24 : hide24);
         }
     };
 
@@ -76,13 +123,13 @@ document.addEventListener('DOMContentLoaded', () => {
         filters.forEach(filter => {
             filter.classList.toggle('hide');
         });
-        updatePseudoIcon();
+        updateShowHideIcon();
     });
 
-    window.addEventListener('resize', updatePseudoIcon);
+    window.addEventListener('resize', updateShowHideIcon);
 
     // Initial update based on the current window size
-    updatePseudoIcon();
+    updateShowHideIcon();
 });
 
 // Initialize the background on page load
