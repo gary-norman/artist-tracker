@@ -275,11 +275,13 @@ a {
     flex-direction: column;
     margin: auto;
     max-width: 108rem;
-    padding:  4rem;
+    padding: 4rem;
     transition: padding 500ms;
     overflow: hidden;
+    padding-top: 0;
     @media (max-width: 800px) {
         padding: 1.2rem;
+
     }
     @media (max-width: 550px) {
         padding: 0.8rem;
@@ -327,7 +329,7 @@ a {
         gap: 0;
     }
 
-    &#search-results, &#home-concerts > .scroll {
+    &#search-results > .scroll, &#home-concerts > .scroll {
         max-height: 60rem;
         overflow-x: hidden;
         display: flex;
@@ -337,6 +339,9 @@ a {
     }
 
 
+    #home-artists, #home-albums, #home-concerts, #search-results {
+        transition: opacity 3s;
+    }
 
 
 
@@ -400,6 +405,21 @@ a {
             font-size: 6rem;
         }
     };
+    & .sub-logo {
+        opacity: 1;
+
+        translate: 0 0;
+
+        transition-property: translate opacity;
+        transition-duration: .3s;
+        transition-behavior: allow-discrete;
+
+        @starting-style{
+            max-height: 100%;
+            translate: 0 -1.2rem;
+            opacity: 0;
+        }
+    }
 }
 
 .search-container{
@@ -420,20 +440,48 @@ a {
         position:relative;
         min-width: 31.2rem;
         max-width: 48rem;
+        /*padding-right: 3.6rem;*/
+        /*pointer-events: none;*/
 
-        &::after {
-            content: var(--search-cancel-icon);
+        & #clear-icon {
+            position: absolute;
+            top: 12px;
+            right: 1.6rem;
             width: 2.4rem;
             height: 2.4rem;
-            position: absolute;
-            right: 1.6rem;
+            cursor: pointer;
+            /*display: none; !* Initially hidden *!*/
+            background-size: contain; /* Ensure the icon is properly sized */
+            background-image: var(--search-cancel-icon); /* Use your icon variable */
         }
+
+        &:not(:placeholder-shown) ~ #clear-icon {
+            display: block; /* Show clear icon when input has text */
+        }
+
+        /*&::after {*/
+        /*    content: var(--search-cancel-icon);*/
+        /*    width: 2.4rem;*/
+        /*    height: 2.4rem;*/
+        /*    position: absolute;*/
+        /*    right: 1.6rem;*/
+        /*    cursor: pointer;*/
+        /*    !*pointer-events: auto;*!*/
+        /*}*/
 
         &:hover {
             opacity: 90%;
         }
     }
 }
+
+/*.c1 {*/
+/*    background-color: red;*/
+/*}*/
+
+/*.c2 {*/
+/*    background-color: violet;*/
+/*}*/
 
 .row {
     display: flex;
@@ -544,7 +592,6 @@ input {
 
             &:after {
                 content: url('../icons/tick_x16.svg');
-                content: url('../icons/cl_x16.svg');
                 position: absolute;
                 width: 100%;
                 height: 100%;
