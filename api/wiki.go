@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"net/url"
 	"strings"
 )
 
@@ -32,18 +31,12 @@ type WikiResponse struct {
 	} `json:"query"`
 }
 
-func FetchAllArtistsImages(artists []Artist) {
-	for i := range artists {
-		WikiImageFetcher(&artists[i])
-	}
-}
-
 // get individul arttist's image
 func WikiImageFetcher(artist *Artist) {
 	artist.Members = make(map[string]string)
 	for _, member := range artist.MemberList {
-		encodedMember := url.QueryEscape(member)
-		queryURL := fmt.Sprintf("https://en.wikipedia.org/w/api.php?action=query&titles=%s&prop=pageimages&format=json&pithumbsize=500", encodedMember)
+		member = strings.Replace(member, " ", "_", -1)
+		queryURL := fmt.Sprintf("https://en.wikipedia.org/w/api.php?action=query&titles=%s&prop=pageimages&format=json&pithumbsize=500", member)
 		resp, err := http.Get(queryURL)
 		if err != nil {
 			fmt.Println("here")
@@ -63,24 +56,23 @@ func WikiImageFetcher(artist *Artist) {
 		body, err := io.ReadAll(resp.Body)
 		if err != nil {
 			fmt.Println("Error:", err)
-			// return
-			continue
+			return
 		}
 
 		var result WikiResponse
 		if err = json.Unmarshal(body, &result); err != nil {
 			fmt.Println("Error unmarshalling JSON:", err)
 			fmt.Println("Error:", err)
-			//return
-			continue
+			return
 		}
 
 		// Add the image URL to the map
 		for _, page := range result.WikiQuery.Pages {
+			memberName := strings.Replace(member, "_", " ", -1)
 			if page.WikiThumbnail.Source != "" {
-				artist.Members[member] = page.WikiThumbnail.Source
+				artist.Members[memberName] = page.WikiThumbnail.Source
 			} else {
-				artist.Members[member] = "/icons/artist_placeholder_08.png"
+				artist.Members[memberName] = "/icons/artist_placeholder.png"
 			}
 			//fmt.Println("Main Image URL:", page.WikiThumbnail.Source)
 		}
@@ -91,14 +83,14 @@ func WikiImageFetcher(artist *Artist) {
 			if page.WikiThumbnail.Source != "" {
 				artist.MemberStruct = append(artist.MemberStruct, Member{memberName, page.WikiThumbnail.Source})
 			} else {
-				artist.MemberStruct = append(artist.MemberStruct, Member{memberName, "/icons/artist_placeholder_08.png"})
+				artist.MemberStruct = append(artist.MemberStruct, Member{memberName, "/icons/artist_placeholder.png"})
 			}
 			//fmt.Println("Main Image URL:", page.WikiThumbnail.Source)
 		}
 	}
-	/* fmt.Printf("Struct Artist: %v\nStruct Image:%v\n", artist.MemberStruct[0].MemberName, artist.MemberStruct[0].MemberImage)
+	fmt.Printf("Struct Artist: %v\nStruct Image:%v\n", artist.MemberStruct[0].MemberName, artist.MemberStruct[0].MemberImage)
 	fmt.Printf("=== member's data of aritst:%v === \n", artist.Name)
 	for memberName, imgLink := range artist.Members {
 		fmt.Printf("Member: %v, imgLink: %v\n", memberName, imgLink)
-	} */
+	}
 }
