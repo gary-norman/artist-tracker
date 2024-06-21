@@ -197,13 +197,13 @@
                                         <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
                                         <div class="content-text go-down">
                                             <div class="p--bold cut">
-                                                {{ if gt (len .Members) 1 }}
-                                                {{ index .Members 0 }}
+                                                {{ if gt (len .MemberList) 1 }}
+                                                {{ index .MemberList 0 }}
                                                 {{ else }}
                                                 {{ .Name }}
                                                 {{ end }}
                                             </div>
-                                            {{ if gt (len .Members) 1 }}
+                                            {{ if gt (len .MemberList) 1 }}
                                             <div class="small light cut">
                                                 {{ .Name }}
                                             </div>
@@ -279,13 +279,13 @@
                             <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}/preview" alt="Profile image of {{.Name}}"/>
                             <div class="content-text go-down-home">
                                 <div class="p--bold cut center">
-                                    {{ if gt (len .Members) 1 }}
-                                    {{ index .Members 0 }}
+                                    {{ if gt (len .MemberList) 1 }}
+                                    {{ index .MemberList 0 }}
                                     {{ else }}
                                     {{ .Name }}
                                     {{ end }}
                                 </div>
-                                {{ if gt (len .Members) 1 }}
+                                {{ if gt (len .MemberList) 1 }}
                                 <div class="small light cut">
                                     {{ .Name }}
                                 </div>
