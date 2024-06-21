@@ -72,7 +72,7 @@ func WikiImageFetcher(artist *Artist) {
 			if page.WikiThumbnail.Source != "" {
 				artist.Members[memberName] = page.WikiThumbnail.Source
 			} else {
-				artist.Members[memberName] = "/icons/artist_placeholder.webp"
+				artist.Members[memberName] = "/icons/artist_placeholder.png"
 			}
 			//fmt.Println("Main Image URL:", page.WikiThumbnail.Source)
 		}
@@ -83,7 +83,7 @@ func WikiImageFetcher(artist *Artist) {
 			if page.WikiThumbnail.Source != "" {
 				artist.MemberStruct = append(artist.MemberStruct, Member{memberName, page.WikiThumbnail.Source})
 			} else {
-				artist.MemberStruct = append(artist.MemberStruct, Member{memberName, "/icons/artist_placeholder.webp"})
+				artist.MemberStruct = append(artist.MemberStruct, Member{memberName, "/icons/artist_placeholder.png"})
 			}
 			//fmt.Println("Main Image URL:", page.WikiThumbnail.Source)
 		}
