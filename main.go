@@ -102,6 +102,6 @@ func main() {
 	// debug print, to see better all the information of an artist
 	//artistsResult, _ := api.SearchArtist(Artists, "Led Zeppelin")
 	//api.PrintArtistDetails(artistsResult)
-	api.WikiImageFetcher(&Artists[0])
+	api.WikiImageFetcher(Artists[0])
 	api.HandleRequests(Artists, api.GetTemplate())
 }
