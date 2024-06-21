@@ -103,15 +103,5 @@ func main() {
 	//artistsResult, _ := api.SearchArtist(Artists, "Led Zeppelin")
 	//api.PrintArtistDetails(artistsResult)
 
-	api.FetchAllArtistsImages(Artists)
-
-	// Now all artists in the Artists slice should have their images fetched
-	/* for _, artist := range Artists {
-		fmt.Printf("=== member's data of artist:%v === \n", artist.Name)
-		for memberName, imgLink := range artist.Members {
-			fmt.Printf("Member: %v, imgLink: %v\n", memberName, imgLink)
-		}
-	} */
-	//api.WikiImageFetcher(&Artists[0])
 	api.HandleRequests(Artists, api.GetTemplate())
 }
