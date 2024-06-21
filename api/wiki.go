@@ -56,16 +56,14 @@ func WikiImageFetcher(artist *Artist) {
 		body, err := io.ReadAll(resp.Body)
 		if err != nil {
 			fmt.Println("Error:", err)
-			// return
-			continue
+			return
 		}
 
 		var result WikiResponse
 		if err = json.Unmarshal(body, &result); err != nil {
 			fmt.Println("Error unmarshalling JSON:", err)
 			fmt.Println("Error:", err)
-			//return
-			continue
+			return
 		}
 
 		// Add the image URL to the map
@@ -74,7 +72,7 @@ func WikiImageFetcher(artist *Artist) {
 			if page.WikiThumbnail.Source != "" {
 				artist.Members[memberName] = page.WikiThumbnail.Source
 			} else {
-				artist.Members[memberName] = "/icons/artist_placeholder_08.png"
+				artist.Members[memberName] = "/icons/artist_placeholder.webp"
 			}
 			//fmt.Println("Main Image URL:", page.WikiThumbnail.Source)
 		}
@@ -85,7 +83,7 @@ func WikiImageFetcher(artist *Artist) {
 			if page.WikiThumbnail.Source != "" {
 				artist.MemberStruct = append(artist.MemberStruct, Member{memberName, page.WikiThumbnail.Source})
 			} else {
-				artist.MemberStruct = append(artist.MemberStruct, Member{memberName, "/icons/artist_placeholder_08.png"})
+				artist.MemberStruct = append(artist.MemberStruct, Member{memberName, "/icons/artist_placeholder.webp"})
 			}
 			//fmt.Println("Main Image URL:", page.WikiThumbnail.Source)
 		}
