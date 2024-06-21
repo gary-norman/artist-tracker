@@ -107,21 +107,19 @@ document.addEventListener('DOMContentLoaded', () => {
         changeLogo(logo, subLogo, "large");  // Added
     });  // Added
 
-    searchButton.addEventListener('blur', () => {
-        console.log('Search Input is active:', isInputActive());
-        isSearching = false;
 
-        const filterButton = document.getElementById('button-filter');
-
-        if (searchButton.value.trim() === '') {
+    document.addEventListener('click', function(event) {
+        let isClickInside = document.getElementById('search-container').contains(event.target);
+        if (!isClickInside && searchButton.value.trim() === ''){
+            // Clicked outside the #search-container
+            console.log('Clicked outside the search container');
             showSections(homeElements);
             hideSections(searchElements);
             changeLogo(logo, subLogo, "large");
             updateSearchCancelIcon("search");
         }
-
-
     });
+
 
     // Function to check if the input is active
     function isInputActive() {
