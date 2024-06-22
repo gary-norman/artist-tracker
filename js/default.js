@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const homeElements = [...home, subLogo];
     console.log("homeElements is:", homeElements);
     const searchElements = [searchResults, recent, filters];
+    const allSearchElements = [searchButton, searchResults, recent, filters]
     console.log(searchElements)
 
     // Add an event listener to log the result when the input is focused or blurred
@@ -65,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showSections(searchElements);
         hideSections(homeElements);
         changeLogo(logo, subLogo, "small");
+        updateSearchCancelIcon("cancel");
         console.log("isSearching is:", isSearching);
     });
 
@@ -107,21 +109,26 @@ document.addEventListener('DOMContentLoaded', () => {
         changeLogo(logo, subLogo, "large");  // Added
     });  // Added
 
-    searchButton.addEventListener('blur', () => {
-        console.log('Search Input is active:', isInputActive());
-        isSearching = false;
 
-        const filterButton = document.getElementById('button-filter');
+    document.addEventListener('click', function(event) {
+        let clickInsideAnyElement = false;
 
-        if (searchButton.value.trim() === '') {
+        allSearchElements.forEach(element => {
+            if (element.contains(event.target)) {
+                clickInsideAnyElement = true;
+            }
+        });
+
+        if (!clickInsideAnyElement) {
+            // Clicked outside all specified search elements
+            console.log('Clicked outside the search container');
             showSections(homeElements);
             hideSections(searchElements);
             changeLogo(logo, subLogo, "large");
             updateSearchCancelIcon("search");
         }
-
-
     });
+
 
     // Function to check if the input is active
     function isInputActive() {
