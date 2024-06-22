@@ -102,6 +102,7 @@ func ArtistPage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *t
 		ErrorHandler(w, r, http.StatusNotFound)
 		return
 	}
+	WikiImageFetcher(artist)
 
 	err = t.Execute(w, &artist)
 	if err != nil {

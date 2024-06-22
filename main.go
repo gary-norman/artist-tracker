@@ -90,9 +90,9 @@ func main() {
 	t = time.Now()
 	timetaken = t.Sub(update).Milliseconds()
 	spinnerInfo.Success("Updated artist information in " + strconv.FormatInt(timetaken, 10) + "ms\n")
-	api.UpdateACDC(Artists)
+	api.CorrectMisnamedMembers(Artists)
 	timetaken = t.Sub(start).Milliseconds()
-	i := 48
+	i := 0
 	pterm.Info.Println("All tasks completed successfully in " + pterm.Green(strconv.FormatInt(timetaken, 10)+"ms"))
 	pterm.Println(pterm.Cyan(Artists[i]))
 	pterm.Println(pterm.Cyan("TourDetails {"))
@@ -102,6 +102,6 @@ func main() {
 	// debug print, to see better all the information of an artist
 	//artistsResult, _ := api.SearchArtist(Artists, "Led Zeppelin")
 	//api.PrintArtistDetails(artistsResult)
-	api.WikiImageFetcher(Artists[48])
+	api.WikiImageFetcher(&Artists[0])
 	api.HandleRequests(Artists, api.GetTemplate())
 }

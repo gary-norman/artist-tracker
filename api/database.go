@@ -138,12 +138,15 @@ func UpdateArtistName(artists []Artist, oldName string, newName string) (string,
 	return response, state
 }
 
-// UpdateACDC updates ACDC members
-func UpdateACDC(artists []Artist) {
+// CorrectMisnamedMembers updates ACDC members
+func CorrectMisnamedMembers(artists []Artist) {
 	artists[8].MemberList[1] = "Larry Van Kriedt" // Replace Chris Slade to align with original lineup
 	artists[8].MemberList[3] = "Dave Evans"       // Replace Axl Rose, as incorrect
 	artists[8].MemberList = append(artists[8].MemberList, "Colin Burgess")
 	artists[48].MemberList[3] = "Ronnie Wood" // Replace Ron Wood
+	artists[0].MemberList[2] = "John Deacon"  // Replace John Daecon
+	artists[0].MemberList[3] = "Roger Taylor" // Replace Roger Meddows-Taylor
+	artists[0].MemberList[6] = "Doug Bougie"  // Replace Doug Fogie
 }
 
 func formatLocation(location string) string {
