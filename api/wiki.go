@@ -40,8 +40,14 @@ func FetchAllArtistsImages(artists []Artist) {
 // WikiImageFetcher get individual member's image
 func WikiImageFetcher(artist *Artist) {
 	artist.Members = make(map[string]string)
+	imageFailCounter := 1
 	for _, member := range artist.MemberList {
-		encodedMember := url.QueryEscape(member)
+		var encodedMember string
+		if member == "Roger Taylor" {
+			encodedMember = "Roger_Taylor_(Queen_drummer)"
+		} else {
+			encodedMember = url.QueryEscape(member)
+		}
 		queryURL := fmt.Sprintf("https://en.wikipedia.org/w/api.php?action=query&titles=%s&prop=pageimages&format=json&pithumbsize=500", encodedMember)
 		resp, err := http.Get(queryURL)
 		if err != nil {
@@ -73,7 +79,6 @@ func WikiImageFetcher(artist *Artist) {
 		}
 
 		// Add the image URL to the map
-		imageFailCounter := 1
 		for _, page := range result.WikiQuery.Pages {
 			if page.WikiThumbnail.Source != "" {
 				artist.Members[member] = page.WikiThumbnail.Source
