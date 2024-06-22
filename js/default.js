@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const home = document.querySelectorAll('[id^="home"]');
     const recent = document.getElementById("search-recent-text");
     const filters = document.getElementById("search-filters");
+    const filterSubmit = document.getElementById("search-submit-filter");
     const searchIcon = document.getElementById("search-icon");
     const searchResults = document.getElementById("search-results");
     const logo = document.querySelector('.logo');
@@ -57,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const homeElements = [...home, subLogo];
     console.log("homeElements is:", homeElements);
     const searchElements = [searchResults, recent, filters];
-    const allSearchElements = [searchButton, searchResults, recent, filters]
+    const allSearchElements = document.querySelectorAll('[id^="search"]');
     console.log(searchElements)
 
     // Add an event listener to log the result when the input is focused or blurred
@@ -194,6 +195,8 @@ function updateSliderBackground(slider) {
 document.addEventListener('DOMContentLoaded', () => {
     const filterButton = document.getElementById('button-filter');
     const filters = document.querySelectorAll('.filter:not(:first-child)');
+    const filterSubmit = document.getElementById("search-submit-filter");
+
     const show24 = "url('../icons/show_x24.svg')";
     const hide24 = "url('../icons/hide_x24.svg')";
     const show16 = "url('../icons/show_x16.svg')";
@@ -214,6 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     filterButton.addEventListener('click', () => {
+        filterSubmit.classList.toggle('hide');
         filters.forEach(filter => {
             filter.classList.toggle('hide');
         });

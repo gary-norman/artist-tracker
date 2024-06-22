@@ -21,184 +21,185 @@
             <div class="sub-logo small center">by Gary, Kamil & Rin</div>
         </section>
         <section class="search-container">
-            <form class="search-input" action="/search/" method="get">
-                <label for="search-input"></label>
-                <input type="text" name="search-input" id="search-input" placeholder="Search artist" required autocomplete="off">
-                <span id="search-icon"></span>
-            </form>
-            <h3 id="search-recent-text" class="floating-md hide">Recent searches</h3>
-            <form id="search-filters" class="floating-md filters go-down hide">
-                <div class="space filter">
-                    <h3 class="small light center">Showing all results</h3>
-                    <div class="button-2" id="button-filter">
-                        <div id="button-filter-container" class="button-container">
-                            <p class="button-text" id="button-filter-number">Filters (0)</p>
-                        </div>
-                    </div>
+            <form class="search-container" action="/search/" method="get">
+                <div class="search-input" >
+                    <label for="search-input"></label>
+                    <input type="text" name="search-input" id="search-input" placeholder="Search artist" required autocomplete="off">
+                    <span id="search-icon"></span>
                 </div>
-                <div class="floating-sm col filter hide">
-                    <label for="filter-artist-creation" class="space">
-                        <label for="filter-artist-creation">Artist creation date</label>
-                        <label class="switch">
-                            <input id="filter-artist-creation" type="checkbox">
-                            <span class="slider-button round"></span>
-                        </label>
-                    </label>
-                    <div class="filter-open space labels hide">
-                        <label for="artist-start-date" class="filter-label-md small light">
-                            Start Date
-                        </label>
-                        <label for="artist-end-date" class="filter-label-md small light">
-                            End Date
-                        </label>
-                    </div>
-                    <div class="filter-open space">
-                        <label class="button-2 small" id="artist-start-date">
-                            Pick a date
-                        </label>
-                        <label for="artist-date-range" class="filter-label-md small" id="artist-end-date">
-                            11 / 01 / 1990
-                        </label>
-                    </div>
-                    <div class="filter-open single-slide-container">
-                        <input id="artist-date-range" type="range" min="1" max="100" value="0" class="slider" >
-                    </div>
-                </div>
-                <div class="floating-sm col filter hide">
-                    <label for="filter-album-creation" class="space ">
-                        <label for="filter-album-creation">Album creation date</label>
-                        <label class="switch">
-                            <input id="filter-album-creation" type="checkbox">
-                            <span class="slider-button round"></span>
-                        </label>
-                    </label>
-                    <div class="filter-open space labels">
-                        <label for="album-start-date" class="filter-label-md small light">
-                            Start Date
-                        </label>
-                        <label for="album-end-date" class="filter-label-md small light">
-                            End Date
-                        </label>
-                    </div>
-                    <div class="filter-open space">
-                        <label class="button-2 small" id="album-start-date">
-                            Pick a date
-                        </label>
-                        <label for="album-date-range" class="filter-label-md small" id="album-end-date">
-                            11 / 01 / 1990
-                        </label>
-                    </div>
-                    <div class="filter-open single-slide-container">
-                        <input id="album-date-range" type="range" min="1" max="100" value="0" class="slider" >
-                    </div>
-                </div>
-                <div class="floating-sm col filter hide">
-                    <label for="filter-members-number" class="space">
-                        <label for="filter-members-number">Number of members</label>
-                        <label class="switch">
-                            <input id="filter-members-number" type="checkbox">
-                            <span class="slider-button round"></span>
-                        </label>
-                    </label>
-                    <div class="filter-open double-slider-container">
-                        <label id="label-members-min" for="members-min-range" class="range_min filter-label-sm small">
-                            1 Member
-                        </label>
-                        <label id="label-members-max" for="members-max-range" class="range_max filter-label-sm small">
-                            2 Members
-                        </label>
-                        <input class="min" id="members-min-range" name="range_1" type="range" min="1" max="10" value="1" />
-                        <input class="max" id="members-max-range" name="range_1" type="range" min="1" max="10" value="2" />
-                    </div>
-                </div>
-                <div class="floating-sm col filter hide">
-                    <label for="filter-concert-location" class="space">
-                        <label for="filter-concert-location">Concert location</label>
-                        <label class="switch">
-                            <input id="filter-concert-location" type="checkbox">
-                            <span class="slider-button round"></span>
-                        </label>
-                    </label>
-                    <div class="filter-open col col2">
-                        <div class="button-2" id="button-filter-checkbox">
-                            <div id="button-filter-checkbox-container" class="button-container">
-                                <p id="button-filter-concert-location" class="small button-2-text">Search location</p>
+                <h3 id="search-recent-text" class="floating-md hide">Recent searches</h3>
+                <div id="search-filters" class="floating-md filters go-down hide">
+                    <div class="space filter">
+                        <h3 class="small light center">Showing all results</h3>
+                        <div class="button button-2" id="button-filter">
+                            <div id="button-filter-container" class="button-container">
+                                <p class="button-text" id="button-filter-number">Filters (0)</p>
                             </div>
                         </div>
-                        <div  class="container">
-                            <div id="filter-checkbox-locations" class="scroll container col col1">
-                                <label for="loc-london-uk" class="checkbox go-across-sm " >
-                                    <input class="checkbox" id="loc-london-uk" name="loc-london-uk" type="checkbox" value="London, UK">
-                                    <label class="checkbox small" for="loc-london-uk">London, UK</label>
-                                </label>
-                                <label for="loc-berlin-germany" class="checkbox go-across-sm" >
-                                    <input class="checkbox" id="loc-berlin-germany" name="loc-berlin-germany" type="checkbox" value="Berlin, Germany">
-                                    <label class="checkbox small" for="loc-berlin-germany">Berlin, Germany</label>
-                                </label>
-                                <label for="loc-dublin-ireland" class="checkbox go-across-sm" >
-                                    <input class="checkbox" id="loc-dublin-ireland" name="loc-dublin-ireland" type="checkbox" value="Dublin, Ireland">
-                                    <label class="checkbox small" for="loc-dublin-ireland">Dublin, Ireland</label>
-                                </label>
-                                <label for="loc-madrid-spain" class="checkbox go-across-sm" >
-                                    <input class="checkbox" id="loc-madrid-spain" name="loc-madrid-spain" type="checkbox" value="Madrid, Spain">
-                                    <label class="checkbox small" for="loc-madrid-spain">Madrid, Spain</label>
-                                </label>
-                                <label for="loc-osaka-japan" class="checkbox go-across-sm" >
-                                    <input class="checkbox" id="loc-osaka-japan" name="loc-osaka-japan" type="checkbox" value="Osaka, Japan">
-                                    <label class="checkbox small" for="loc-osaka-japan">Osaka, Japan</label>
-                                </label>
-                                <label for="loc-florence-italy" class="checkbox go-across-sm" >
-                                    <input class="checkbox" id="loc-florence-italy" name="loc-florence-italy" type="checkbox" value="Florence, Italy">
-                                    <label class="checkbox small" for="loc-florence-italy">Florence, Italy</label>
-                                </label>
-                                <label for="loc-lima-peru" class="checkbox go-across-sm" >
-                                    <input class="checkbox" id="loc-lima-peru" name="loc-lima-peru" type="checkbox" value="Lima, Peru">
-                                    <label class="checkbox small" for="loc-lima-peru">Lima, Peru</label>
-                                </label>
-                                <label for="loc-cairo-egypt" class="checkbox go-across-sm" >
-                                    <input class="checkbox" id="loc-cairo-egypt" name="loc-cairo-egypt" type="checkbox" value="Cairo, Egypt">
-                                    <label class="checkbox small" for="loc-cairo-egypt">Cairo, Egypt</label>
-                                </label>
-                                <label for="loc-toronto-canada" class="checkbox go-across-sm sm" >
-                                    <input class="checkbox" id="loc-toronto-canada" name="loc-toronto-canada" type="checkbox" value="Toronto, Canada">
-                                    <label class="checkbox small" for="loc-toronto-canada">Toronto, Canada</label>
-                                </label>
+                    </div>
+                    <div class="floating-sm col filter hide">
+                        <label for="filter-artist-creation" class="space">
+                            <label for="filter-artist-creation">Artist creation date</label>
+                            <label class="switch">
+                                <input id="filter-artist-creation" type="checkbox">
+                                <span class="slider-button round"></span>
+                            </label>
+                        </label>
+                        <div class="filter-open space labels hide">
+                            <label for="artist-start-date" class="filter-label-md small light">
+                                Start Date
+                            </label>
+                            <label for="artist-end-date" class="filter-label-md small light">
+                                End Date
+                            </label>
+                        </div>
+                        <div class="filter-open space">
+                            <label class="button small" id="artist-start-date">
+                                Pick a date
+                            </label>
+                            <label for="artist-date-range" class="filter-label-md small" id="artist-end-date">
+                                11 / 01 / 1990
+                            </label>
+                        </div>
+                        <div class="filter-open single-slide-container">
+                            <input id="artist-date-range" type="range" min="1" max="100" value="0" class="slider" >
+                        </div>
+                    </div>
+                    <div class="floating-sm col filter hide">
+                        <label for="filter-album-creation" class="space ">
+                            <label for="filter-album-creation">Album creation date</label>
+                            <label class="switch">
+                                <input id="filter-album-creation" type="checkbox">
+                                <span class="slider-button round"></span>
+                            </label>
+                        </label>
+                        <div class="filter-open space labels">
+                            <label for="album-start-date" class="filter-label-md small light">
+                                Start Date
+                            </label>
+                            <label for="album-end-date" class="filter-label-md small light">
+                                End Date
+                            </label>
+                        </div>
+                        <div class="filter-open space">
+                            <label class="button small" id="album-start-date">
+                                Pick a date
+                            </label>
+                            <label for="album-date-range" class="filter-label-md small" id="album-end-date">
+                                11 / 01 / 1990
+                            </label>
+                        </div>
+                        <div class="filter-open single-slide-container">
+                            <input id="album-date-range" type="range" min="1" max="100" value="0" class="slider" >
+                        </div>
+                    </div>
+                    <div class="floating-sm col filter hide">
+                        <label for="filter-members-number" class="space">
+                            <label for="filter-members-number">Number of members</label>
+                            <label class="switch">
+                                <input id="filter-members-number" type="checkbox">
+                                <span class="slider-button round"></span>
+                            </label>
+                        </label>
+                        <div class="filter-open double-slider-container">
+                            <label id="label-members-min" for="members-min-range" class="range_min filter-label-sm small">
+                                1 Member
+                            </label>
+                            <label id="label-members-max" for="members-max-range" class="range_max filter-label-sm small">
+                                2 Members
+                            </label>
+                            <input class="min" id="members-min-range" name="range_1" type="range" min="1" max="10" value="1" />
+                            <input class="max" id="members-max-range" name="range_1" type="range" min="1" max="10" value="2" />
+                        </div>
+                    </div>
+                    <div class="floating-sm col filter hide">
+                        <label for="filter-concert-location" class="space">
+                            <label for="filter-concert-location">Concert location</label>
+                            <label class="switch">
+                                <input id="filter-concert-location" type="checkbox">
+                                <span class="slider-button round"></span>
+                            </label>
+                        </label>
+                        <div class="filter-open col col2">
+                            <div class="button button-2" id="button-filter-checkbox">
+                                <div id="button-filter-checkbox-container" class="button-container">
+                                    <p id="button-filter-concert-location" class="small button-2-text">Search location</p>
+                                </div>
                             </div>
+                            <div  class="container">
+                                <div id="filter-checkbox-locations" class="scroll container col col1">
+                                    <label for="loc-london-uk" class="checkbox go-across-sm " >
+                                        <input class="checkbox" id="loc-london-uk" name="loc-london-uk" type="checkbox" value="London, UK">
+                                        <label class="checkbox small" for="loc-london-uk">London, UK</label>
+                                    </label>
+                                    <label for="loc-berlin-germany" class="checkbox go-across-sm" >
+                                        <input class="checkbox" id="loc-berlin-germany" name="loc-berlin-germany" type="checkbox" value="Berlin, Germany">
+                                        <label class="checkbox small" for="loc-berlin-germany">Berlin, Germany</label>
+                                    </label>
+                                    <label for="loc-dublin-ireland" class="checkbox go-across-sm" >
+                                        <input class="checkbox" id="loc-dublin-ireland" name="loc-dublin-ireland" type="checkbox" value="Dublin, Ireland">
+                                        <label class="checkbox small" for="loc-dublin-ireland">Dublin, Ireland</label>
+                                    </label>
+                                    <label for="loc-madrid-spain" class="checkbox go-across-sm" >
+                                        <input class="checkbox" id="loc-madrid-spain" name="loc-madrid-spain" type="checkbox" value="Madrid, Spain">
+                                        <label class="checkbox small" for="loc-madrid-spain">Madrid, Spain</label>
+                                    </label>
+                                    <label for="loc-osaka-japan" class="checkbox go-across-sm" >
+                                        <input class="checkbox" id="loc-osaka-japan" name="loc-osaka-japan" type="checkbox" value="Osaka, Japan">
+                                        <label class="checkbox small" for="loc-osaka-japan">Osaka, Japan</label>
+                                    </label>
+                                    <label for="loc-florence-italy" class="checkbox go-across-sm" >
+                                        <input class="checkbox" id="loc-florence-italy" name="loc-florence-italy" type="checkbox" value="Florence, Italy">
+                                        <label class="checkbox small" for="loc-florence-italy">Florence, Italy</label>
+                                    </label>
+                                    <label for="loc-lima-peru" class="checkbox go-across-sm" >
+                                        <input class="checkbox" id="loc-lima-peru" name="loc-lima-peru" type="checkbox" value="Lima, Peru">
+                                        <label class="checkbox small" for="loc-lima-peru">Lima, Peru</label>
+                                    </label>
+                                    <label for="loc-cairo-egypt" class="checkbox go-across-sm" >
+                                        <input class="checkbox" id="loc-cairo-egypt" name="loc-cairo-egypt" type="checkbox" value="Cairo, Egypt">
+                                        <label class="checkbox small" for="loc-cairo-egypt">Cairo, Egypt</label>
+                                    </label>
+                                    <label for="loc-toronto-canada" class="checkbox go-across-sm sm" >
+                                        <input class="checkbox" id="loc-toronto-canada" name="loc-toronto-canada" type="checkbox" value="Toronto, Canada">
+                                        <label class="checkbox small" for="loc-toronto-canada">Toronto, Canada</label>
+                                    </label>
+                                </div>
 
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="button-1" id="submit-filter">
-                    <div id="button-filter-container" class="button-container">
-                        <p class="button-text" id="button-filter-number">Filters (0)</p>
+                    <div class="button button-1 hide" id="search-submit-filter">
+
+                        <p class="button-text">Apply filters</p>
+
                     </div>
                 </div>
-            </form>
-            <div class="container hide" id="search-results">
-                <div  class="container scroll">
-                    <div id="search-artists" class="col col1">
-                        <h2>Artists</h2>
-                        <div class="col col3">
-                            {{ range .HomeArtists }}
-                            <a href="/artist?name={{ .Name }}">
-                                <div class="content">
-                                    <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
-                                    <div class="content-text go-down">
-                                        <div class="p--bold cut">
-                                            {{ .Name }}
+                <div class="container hide" id="search-results">
+                    <div  class="container scroll">
+                        <div id="search-artists" class="col col1">
+                            <h2>Artists</h2>
+                            <div class="col col3">
+                                {{ range .HomeArtists }}
+                                <a href="/artist?name={{ .Name }}">
+                                    <div class="content">
+                                        <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
+                                        <div class="content-text go-down">
+                                            <div class="p--bold cut">
+                                                {{ .Name }}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </a>
-                            {{ end }}
+                                </a>
+                                {{ end }}
+                            </div>
                         </div>
-                    </div>
-                    <div id="search-members" class="col col1">
-                        <h2>Members</h2>
-                        <div class="col col3">
-                            {{ range .HomeArtists }}
-                            <a href="/artist?name={{ .Name }}">
-                                <div class="content">
+                        <div id="search-members" class="col col1">
+                            <h2>Members</h2>
+                            <div class="col col3">
+                                {{ range .HomeArtists }}
+                                <a href="/artist?name={{ .Name }}">
+                                    <div class="content">
                                         <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
                                         <div class="content-text go-down">
                                             <div class="p--bold cut">
@@ -214,45 +215,45 @@
                                             </div>
                                             {{ end }}
                                         </div>
-                                </div>
-                            </a>
-                            
-                            {{ end }}
+                                    </div>
+                                </a>
+
+                                {{ end }}
+                            </div>
                         </div>
-                    </div>
-                    <div id="search-albums" class="col col1">
-                        <h2>Albums</h2>
-                        <div class="col col2">
-                            {{ range .HomeArtists }}
-                            <a href="/artist?name={{ .Name }}" class="content">
+                        <div id="search-albums" class="col col1">
+                            <h2>Albums</h2>
+                            <div class="col col2">
+                                {{ range .HomeArtists }}
+                                <a href="/artist?name={{ .Name }}" class="content">
                                     <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
                                     <div class="content-text go-down">
                                         <div class="p--bold cut">{{.TadbAlbum.Album}}</div>
                                         <div class="small light cut">{{.Name}}</div>
                                     </div>
-                            <a href="/artist?name={{ .Name }}">
-                                <div class="content">
-                                        <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
-                                        <div class="content-text go-down">
-                                            <div class="p--bold cut">{{.TadbAlbum.Album}}</div>
-                                            <div class="small light cut">{{.Name}}</div>
+                                    <a href="/artist?name={{ .Name }}">
+                                        <div class="content">
+                                            <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
+                                            <div class="content-text go-down">
+                                                <div class="p--bold cut">{{.TadbAlbum.Album}}</div>
+                                                <div class="small light cut">{{.Name}}</div>
+                                            </div>
                                         </div>
-                                </div>
-                            </a>
-                            {{ end }}
+                                    </a>
+                                    {{ end }}
+                            </div>
                         </div>
-                    </div>
-                    <div id="search-concerts" class="col col1">
-                        <h2>Concerts</h2>
-                        <div class="col col3">
-                            {{ range .HomeArtists }}
-                            {{ $artist := . }}
-                            {{ range $location, $dates := $artist.DatesLocations }}
-                            {{ $sortedDates := sortDates $dates }}
-                            {{ range $date := $sortedDates }}
-                            {{ $dateParts := formatDate $date }}
-                            <a href="/artist/{{ $artist.Name }}">
-                                <div class="content">
+                        <div id="search-concerts" class="col col1">
+                            <h2>Concerts</h2>
+                            <div class="col col3">
+                                {{ range .HomeArtists }}
+                                {{ $artist := . }}
+                                {{ range $location, $dates := $artist.DatesLocations }}
+                                {{ $sortedDates := sortDates $dates }}
+                                {{ range $date := $sortedDates }}
+                                {{ $dateParts := formatDate $date }}
+                                <a href="/artist/{{ $artist.Name }}">
+                                    <div class="content">
                                         <div class="pic date">
                                             <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
                                             <div>{{ $dateParts.Year }}</div>
@@ -263,16 +264,18 @@
                                                 <div class="small light cut">{{ $location }}</div>
                                             </div>
                                         </div>
-                                </div>
-                            </a>
-                            
-                            {{ end }}
-                            {{ end }}
-                            {{ end }}
+                                    </div>
+                                </a>
+
+                                {{ end }}
+                                {{ end }}
+                                {{ end }}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
+
         </section>
         <section id="home-artists" class="container col col1">
             <h2>Discover Artists and Members</h2>

@@ -756,9 +756,14 @@ input {
     width: 100%;
     display: flex;
     justify-content: space-between;
+
+    &#search-filters {
+        align-items: center;
+    }
 }
 
 .filter {
+    width: 100%;
     padding-bottom: 1.2rem;
     transition: padding-bottom .4s;
 
@@ -839,13 +844,7 @@ input {
     }
 }
 
-
-
-.button-1 {
-
-}
-
-.button-2 {
+.button {
 
     display: flex;
     position: relative;
@@ -854,21 +853,64 @@ input {
     align-items: center;
     flex: 1 0 0;
     border-radius: var(--radius-xl);
-    background: var(--grey-2);
+
     height: 4rem;
     cursor: pointer;
     user-select: none; /* Prevent text selection */
     transition: background-color 0.3s, padding 500ms;
     filter: var(--shadow-dark-0);
 
-    &:hover {
-        background-color: var(--grey-3);
-        filter: var(--shadow-dark-1);
+    &.button-1 {
+        background: var(--green-0);
+        width: fit-content;
+
+        &:has(.button-text)::before {
+            width: 2.4rem;
+            height: 2.4rem;
+        }
+
+        &#search-submit-filter::before {
+            content: url('../icons/tick_x24.svg');
+        }
+
+        & p {
+            margin: 0;
+            padding-left: 3.2rem;
+            @media (max-width:500px){
+                font-size: 1.2rem;
+            }
+        }
+
+        &:hover {
+            background-color: var(--green-1);
+            filter: var(--shadow-dark-1);
+        }
+        &:active {
+            background-color: var(--green-2);
+        }
+
+        &::before {
+            position: absolute;
+            left: 1.6rem;
+            transition: width 500ms, height 500ms, left 500ms;
+        }
     }
 
-    &:active {
-        background-color: var(--grey-2);
+    &.button-2 {
+        background: var(--grey-2);
+
+        &:hover {
+            background-color: var(--grey-3);
+            filter: var(--shadow-dark-1);
+        }
+        &:active {
+            background-color: var(--grey-2);
+        }
     }
+
+
+
+
 
     @media (max-width:500px){
         padding: 0.8rem 1.2rem ;
@@ -964,7 +1006,7 @@ input {
         top: 22%;
     }
 
-    .button-2::after {
+    .button::after {
         width: 1.6rem !important;
         height: 1.6rem !important;
         top: 22%;
