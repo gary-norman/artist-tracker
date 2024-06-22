@@ -112,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
             showSections(searchElements);
             hideSections(homeElements);
             searchButton.value = '';
+            searchButton.placeholder = 'Start typing...';
             searchResults.innerHTML = ''; // Clear suggestions if input is empty
             changeLogo(logo, subLogo, "small");
             updateSearchCancelIcon("cancel");
@@ -135,28 +136,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 100));
 
-    // searchButton.addEventListener('click', debounce(function() {
-    //     if (isSearching) {
-    //         updateSearchCancelIcon("search");
-    //         showSections(homeElements);
-    //         hideSections(searchElements);
-    //         console.log("hiding from click 1")
-    //         changeLogo(logo, subLogo, "large");
-    //     } else {
-    //         updateSearchCancelIcon("cancel");
-    //         showSections(searchElements);
-    //         hideSections(homeElements);
-    //         console.log("hiding from click 2")
-    //         changeLogo(logo, subLogo, "small");
-    //     }
-    // }, 300));
-
     searchIcon.addEventListener('click', debounce (function(e) {
         e.stopPropagation(); // Prevent the click from propagating to the parent element**
 
         // Handle the click on the clear icon
         searchButton.value = '';
         searchResults.innerHTML = ''; // Clear suggestions if input is empty
+        searchButton.placeholder = 'Search an artist, member, album or concert';
         updateSearchCancelIcon("search");
         showSections(homeElements);
         hideSections(searchElements);
