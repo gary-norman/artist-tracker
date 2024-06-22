@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"strings"
+	"net/url"
 )
 
 type WikiQuery struct {
@@ -31,12 +31,18 @@ type WikiResponse struct {
 	} `json:"query"`
 }
 
-// get individul arttist's image
+func FetchAllArtistsImages(artists []Artist) {
+	for i := range artists {
+		WikiImageFetcher(&artists[i])
+	}
+}
+
+// WikiImageFetcher get individual member's image
 func WikiImageFetcher(artist *Artist) {
 	artist.Members = make(map[string]string)
 	for _, member := range artist.MemberList {
-		member = strings.Replace(member, " ", "_", -1)
-		queryURL := fmt.Sprintf("https://en.wikipedia.org/w/api.php?action=query&titles=%s&prop=pageimages&format=json&pithumbsize=500", member)
+		encodedMember := url.QueryEscape(member)
+		queryURL := fmt.Sprintf("https://en.wikipedia.org/w/api.php?action=query&titles=%s&prop=pageimages&format=json&pithumbsize=500", encodedMember)
 		resp, err := http.Get(queryURL)
 		if err != nil {
 			fmt.Println("here")
@@ -67,23 +73,24 @@ func WikiImageFetcher(artist *Artist) {
 		}
 
 		// Add the image URL to the map
+		imageFailCounter := 1
 		for _, page := range result.WikiQuery.Pages {
-			memberName := strings.Replace(member, "_", " ", -1)
 			if page.WikiThumbnail.Source != "" {
-				artist.Members[memberName] = page.WikiThumbnail.Source
+				artist.Members[member] = page.WikiThumbnail.Source
 			} else {
-				artist.Members[memberName] = "/icons/artist_placeholder.png"
+				artist.Members[member] = "/icons/artist_placeholder.png"
+				fmt.Printf("%v: No member image found for %v\n", imageFailCounter, member)
+				imageFailCounter += 1
 			}
 			//fmt.Println("Main Image URL:", page.WikiThumbnail.Source)
 		}
 
 		// Add the image URL to the struct
 		for _, page := range result.WikiQuery.Pages {
-			memberName := strings.Replace(member, "_", " ", -1)
 			if page.WikiThumbnail.Source != "" {
-				artist.MemberStruct = append(artist.MemberStruct, Member{memberName, page.WikiThumbnail.Source})
+				artist.MemberStruct = append(artist.MemberStruct, Member{member, page.WikiThumbnail.Source})
 			} else {
-				artist.MemberStruct = append(artist.MemberStruct, Member{memberName, "/icons/artist_placeholder.png"})
+				artist.MemberStruct = append(artist.MemberStruct, Member{member, "/icons/artist_placeholder.png"})
 			}
 			//fmt.Println("Main Image URL:", page.WikiThumbnail.Source)
 		}
