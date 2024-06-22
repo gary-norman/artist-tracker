@@ -3,7 +3,13 @@ document.addEventListener('DOMContentLoaded', function () {
     function toggleFilterContainers() {
         // Select all input elements that match the criteria
         const filterInputs = document.querySelectorAll('input[id^="filter-"]');
+        const filterSubmit = document.getElementById("search-submit-filter");
 
+        if (!(filterSubmit.classList.contains('hide'))) {
+            filterSubmit.classList.add('hide');
+        } else {
+            filterSubmit.classList.remove('hide');
+        }
         // Loop through each input element
         filterInputs.forEach(input => {
             // Traverse up the DOM to find the parent with the class 'filter'
@@ -16,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Toggle the 'hide' class on each element based on checkbox state
                 filterOpenElements.forEach(element => {
                     if (input.checked) {
-
                         parent.classList.add('open');
                         element.classList.remove('hide');
                     } else {
@@ -34,6 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Add event listeners to each input element
     filterInputs.forEach(input => {
         input.addEventListener('change', toggleFilterContainers);
+        const filters = document.getElementById("search-filters");
+        filters.classList.add('open');
     });
 
     // Initial check to set the correct visibility state
@@ -43,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', () => {
     const searchButton = document.getElementById("search-input");
     const home = document.querySelectorAll('[id^="home"]');
-    const recent = document.getElementById("search-recent-text");
     const filters = document.getElementById("search-filters");
     const searchResults = document.getElementById("search-results");
     const searchIcon = document.getElementById("search-icon");
@@ -51,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const subLogo = document.querySelector('.sub-logo');
     let isSearching = false;
     const homeElements = [...home, subLogo];
-    const searchElements = [searchResults, recent, filters];
+    const searchElements = [searchResults, filters];
     const allSearchElements = document.querySelectorAll('[id^="search"]');
 
     function debounce(func, wait) {
@@ -65,17 +71,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function showSections(elements) {
         elements.forEach(element => {
-            if (element.classList.contains('hide')) {
+            // if (element.classList.contains('hide')) {
                 element.classList.remove('hide');
-            }
+            // }
         });
     }
 
     function hideSections(elements) {
         elements.forEach(element => {
-            if (!element.classList.contains('hide')) {
+            // if (!element.classList.contains('hide')) {
                 element.classList.add('hide');
-            }
+            // }
         });
     }
 
@@ -105,9 +111,11 @@ document.addEventListener('DOMContentLoaded', () => {
     searchButton.addEventListener('focus', debounce(() => {
             showSections(searchElements);
             hideSections(homeElements);
+            searchButton.value = '';
+            searchResults.innerHTML = ''; // Clear suggestions if input is empty
             changeLogo(logo, subLogo, "small");
             updateSearchCancelIcon("cancel");
-    }, 200));
+    }, 300));
 
     searchButton.addEventListener('input', debounce(function() {
         if (searchButton.value.trim() !== '') {
@@ -118,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("hiding from click 2")
             changeLogo(logo, subLogo, "small");
         } else {
-            isSearching = false;
+            isSearching = true;
             updateSearchCancelIcon("search");
             showSections(homeElements);
             hideSections(searchElements);
@@ -127,21 +135,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 100));
 
-    searchButton.addEventListener('click', debounce(function() {
-        if (isSearching) {
-            updateSearchCancelIcon("search");
-            showSections(homeElements);
-            hideSections(searchElements);
-            console.log("hiding from click 1")
-            changeLogo(logo, subLogo, "large");
-        } else {
-            updateSearchCancelIcon("cancel");
-            showSections(searchElements);
-            hideSections(homeElements);
-            console.log("hiding from click 2")
-            changeLogo(logo, subLogo, "small");
-        }
-    }, 200));
+    // searchButton.addEventListener('click', debounce(function() {
+    //     if (isSearching) {
+    //         updateSearchCancelIcon("search");
+    //         showSections(homeElements);
+    //         hideSections(searchElements);
+    //         console.log("hiding from click 1")
+    //         changeLogo(logo, subLogo, "large");
+    //     } else {
+    //         updateSearchCancelIcon("cancel");
+    //         showSections(searchElements);
+    //         hideSections(homeElements);
+    //         console.log("hiding from click 2")
+    //         changeLogo(logo, subLogo, "small");
+    //     }
+    // }, 300));
 
     searchIcon.addEventListener('click', debounce (function(e) {
         e.stopPropagation(); // Prevent the click from propagating to the parent element**
@@ -154,7 +162,9 @@ document.addEventListener('DOMContentLoaded', () => {
         hideSections(searchElements);
         console.log("hiding from searchIcon click")
         changeLogo(logo, subLogo, "large");
-    }, 200));
+    }, 300));
+    
+    
 
 
     document.addEventListener('click', debounce(function(event) {
@@ -176,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
             changeLogo(logo, subLogo, "large");
             updateSearchCancelIcon("search");
         }
-    }, 400));
+    }, 300));
 });
 
 
@@ -193,8 +203,6 @@ function updateSliderBackground(slider) {
 document.addEventListener('DOMContentLoaded', () => {
     const filterButton = document.getElementById('button-filter');
     const filters = document.querySelectorAll('.filter:not(:first-child)');
-    const filterSubmit = document.getElementById("search-submit-filter");
-    const formContainer = $(filterSubmit).parent();
 
     const show24 = "url('../icons/show_x24.svg')";
     const hide24 = "url('../icons/hide_x24.svg')";
@@ -216,8 +224,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     filterButton.addEventListener('click', () => {
-        filterSubmit.classList.toggle('hide');
-        // formContainer.classList.toggle('open')
         filters.forEach(filter => {
             filter.classList.toggle('hide');
         });
@@ -353,7 +359,7 @@ function updateDoubleSliderBackground(slider1, slider2) {
 
 
 
-        if (window.innerWidth < 400) {
+        if (window.innerWidth < 300) {
             const position = ((sliderValue - sliderMin) / (sliderMax - sliderMin)) * 93;
             label.style.left = `calc(${position}% - 0.4rem)`;
         } else if (window.innerWidth < 500) {
