@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>loading animation</title>
+    <style>
+        :root {
+            --m: 4.75;
+            --wavefreq: calc(100ms * var(--m));
+        }
+        body {
+            background: rgba(1 1 1 / 0);
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        section {
+            display: flex;
+            gap: 15px;
+            margin-top: 5vw;
+            background: rgba(1 1 1 / 0.2);
+            padding: 2rem 1rem;
+            border-radius: 20px;
+            width: fit-content;
+        }
+        [class*='wave'] {
+            aspect-ratio: .125/1;
+            animation: waveform var(--wavefreq) ease-in-out infinite forwards;
+            background-color: white;
+            border-radius: 15px;
+            width: .5vw;
+        }
+        @keyframes waveform {
+            0% {
+                transform: scaleY(.5);
+            }
+            50% {
+                transform: scaleY(1.5);
+            }
+            100% {
+                transform: scaleY(.5);
+            }
+        }
+        .wave1 {
+            --wavefreq: calc(200ms * var(--m));
+        }
+
+        .wave2 {
+            --wavefreq: calc(100ms * var(--m));
+        }
+
+        .wave3 {
+            --wavefreq: calc(250ms * var(--m));
+        }
+
+        .wave4 {
+            --wavefreq: calc(350ms * var(--m));
+        }
+
+        .wave5 {
+            --wavefreq: calc(100ms * var(--m));
+        }
+
+        .wave6 {
+            --wavefreq: calc(160ms * var(--m));
+        }
+
+    </style>
+</head>
+<body>
+<section>
+    <div class="wave0">
+    </div>
+    <div class="wave1">
+    </div>
+    <div class="wave2">
+    </div>
+    <div class="wave3">
+    </div>
+    <div class="wave4">
+    </div>
+    <div class="wave5">
+    </div>
+    <div class="wave6">
+    </div>
+</section>
+</body>
+</html>
