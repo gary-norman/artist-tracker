@@ -55,60 +55,58 @@ func WikiImageFetcher(artist *Artist) {
 		} else {
 			queryURL = fmt.Sprintf("https://en.wikipedia.org/w/api.php?action=query&titles=%s&prop=pageimages&format=json&pithumbsize=500", encodedMember)
 		}
-		resp, err := http.Get(queryURL)
-		if err != nil {
-			fmt.Println("here")
-			fmt.Println("Error:", err)
-			return
-		}
-		defer resp.Body.Close()
-
-		// debug only, delete later
-		if resp.StatusCode != http.StatusOK {
-			fmt.Printf("Error: received status code %d for member %s\n", resp.StatusCode, member)
-			body, _ := io.ReadAll(resp.Body)
-			fmt.Println("Response body:", string(body))
-			continue
-		}
-
-		body, err := io.ReadAll(resp.Body)
-		if err != nil {
-			fmt.Println("Error:", err)
-			return
-		}
-
-		var result WikiResponse
-		if err = json.Unmarshal(body, &result); err != nil {
-			fmt.Println("Error unmarshalling JSON:", err)
-			fmt.Println("Error:", err)
-			return
-		}
-
-		// Add the image URL to the map
-		for _, page := range result.WikiQuery.Pages {
-			if page.WikiThumbnail.Source != "" {
-				artist.Members[member] = page.WikiThumbnail.Source
-				fmt.Printf("%v - %v: success!\n", searchCounter, member)
-			} else {
-				artist.Members[member] = "/icons/artist_placeholder.png"
-				fmt.Printf("%v - %v: no member image found\n", searchCounter, member)
+		func() {
+			resp, err := http.Get(queryURL)
+			if err != nil {
+				fmt.Println("Error:", err)
+				return
 			}
-			searchCounter += 1
-		}
+			defer func(Body io.ReadCloser) {
+				err = Body.Close()
+				if err != nil {
+					fmt.Println("Error closing connection:", err)
+				}
+			}(resp.Body)
 
-		// Add the image URL to the struct
-		for _, page := range result.WikiQuery.Pages {
-			if page.WikiThumbnail.Source != "" {
-				artist.MemberStruct = append(artist.MemberStruct, Member{member, page.WikiThumbnail.Source})
-			} else {
-				artist.MemberStruct = append(artist.MemberStruct, Member{member, "/icons/artist_placeholder.png"})
+			// debug only, delete later
+			if resp.StatusCode != http.StatusOK {
+				fmt.Printf("Error: received status code %d for member %s\n", resp.StatusCode, member)
+				body, _ := io.ReadAll(resp.Body)
+				fmt.Println("Response body:", string(body))
 			}
-			//fmt.Println("Main Image URL:", page.WikiThumbnail.Source)
-		}
+
+			body, err := io.ReadAll(resp.Body)
+			if err != nil {
+				fmt.Println("Error:", err)
+				return
+			}
+			var result WikiResponse
+			if err = json.Unmarshal(body, &result); err != nil {
+				fmt.Println("Error unmarshalling JSON:", err)
+				fmt.Println("Error:", err)
+				return
+			}
+
+			// Add the image URL to the map
+			for _, page := range result.WikiQuery.Pages {
+				if page.WikiThumbnail.Source != "" {
+					artist.Members[member] = page.WikiThumbnail.Source
+					fmt.Printf("%v - %v: success!\n", searchCounter, member)
+				} else {
+					artist.Members[member] = "/icons/artist_placeholder.png"
+					fmt.Printf("%v - %v: no member image found\n", searchCounter, member)
+				}
+				searchCounter += 1
+			}
+
+			// Add the image URL to the struct
+			for _, page := range result.WikiQuery.Pages {
+				if page.WikiThumbnail.Source != "" {
+					artist.MemberStruct = append(artist.MemberStruct, Member{member, page.WikiThumbnail.Source})
+				} else {
+					artist.MemberStruct = append(artist.MemberStruct, Member{member, "/icons/artist_placeholder.png"})
+				}
+			}
+		}()
 	}
-	//fmt.Printf("Struct Artist: %v\nStruct Image:%v\n", artist.MemberStruct[0].MemberName, artist.MemberStruct[0].MemberImage)
-	//fmt.Printf("=== member's data of aritst:%v === \n", artist.Name)
-	//for memberName, imgLink := range artist.Members {
-	//	fmt.Printf("Member: %v, imgLink: %v\n", memberName, imgLink)
-	//}
 }
