@@ -307,7 +307,7 @@ a {
     font-size: 1.2rem;
 }
 
-.container{
+. container{
     width: 100%;
     padding: 2.4rem ;
     background: var(--grey-3);

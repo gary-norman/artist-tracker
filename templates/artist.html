@@ -61,7 +61,7 @@
             </div>
         </div>
         <div class="artist-details-small">
-            <p class="create">created on {{ .CreationDate }}</p>
+            <p class="create">created: {{ .CreationDate }}</p>
             <p class="p--bold">Band Members</p>
             <div class="content">
                 {{ range $memberName, $imgLink := .Members }}
@@ -106,10 +106,41 @@
                 </div>
         </section>
         <!-- TODO change the styling so the tourdates are in a list with the map on the right of that list -->
+        <section class="container">
+            <div class="container scroll">
+                <h2>Concerts</h2>
+                <div class="container scroll" style="flex-direction: row; padding: 0">
+                    <div class="col col1" style="height: 500px; overflow-y: auto">
+                        {{ $artist := . }}
+                        {{ range $location, $dates := $artist.DatesLocations }}
+                        {{ $randomDates := randomiseDates $dates }}
+                        {{ range $date := $randomDates }}
+                        {{ $dateParts := formatDate $date }}
+                        <div class="content">
+                            <div class="pic date">
+                                <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
+                                <div>{{ $dateParts.Year }}</div>
+                            </div>
+                            <div class="content-text go-down-home">
+                                <div class="p--bold cut concert">{{ $artist.Name }}</div>
+                                <div class="concert">
+                                    <div class="small light cut">{{ $location }}</div>
+                                    <!--                                <div class="divider-dot"></div>-->
+                                    <!--                                <div class="small light cut"></div>-->
+                                </div>
+                            </div>
+                        </div>
+                        {{ end }}
+                        {{ end }}
+                    </div>
+                    <div id="map" style="width: 100%; min-height: 500px; border-radius: 10px"></div>
+                </div>
+            </div>
+        </section>
         <section id="home-concerts" class="container">
             <div  class="container scroll col col1">
                 <h2>Concerts</h2>
-                <div id="map" style="width: 100%; min-height: 500px;"></div>
+                <div id="map2" style="width: 100%; min-height: 500px;"></div>
                 <div class="col col3">
                     {{ $artist := . }}
                     {{ range $location, $dates := $artist.DatesLocations }}
