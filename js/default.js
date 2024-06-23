@@ -1,3 +1,10 @@
+const date = new Date();
+let day = date.getDate();
+let month = date.getMonth() + 1;
+let year = date.getFullYear();
+let currentDate = `${day}-${month}-${year}`;
+
+
 document.addEventListener('DOMContentLoaded', function () {
     // Function to toggle the visibility of filter-open containers
     function toggleFilterContainers() {
@@ -30,6 +37,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Select all input elements that match the criteria
     const filterInputs = document.querySelectorAll('input[id^="filter-"]');
+    // find all the end date elements
+    const endDates = document.querySelectorAll('[id$="end-date"]');
+    const artistEndDate = document.querySelector('[id="artist-end-date"]');
+    const albumEndDate = document.querySelector('[id="album-end-date"]');
+    // set the end date of filters to today's date
+    albumEndDate.innerHTML = currentDate
+    artistEndDate.innerHTML = currentDate
 
     // Add event listeners to each input element
     filterInputs.forEach(input => {
