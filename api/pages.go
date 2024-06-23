@@ -55,15 +55,11 @@ func ArtistPage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *t
 
 	// Extract artist name from the URL query or request body
 	artistName := r.URL.Query().Get("name")
-	fmt.Printf("artistName: %v", artistName)
 	if len(artistName) < 1 {
-		fmt.Println("artistName == \"\"")
+		fmt.Printf("artistName for %v is empty", artistName)
 		ErrorHandler(w, r, http.StatusBadRequest)
 		return
 	}
-
-	// debug print
-	fmt.Println("Received request for artist:", artistName)
 
 	artist, err := SearchArtist(artists, artistName)
 	if err != nil {

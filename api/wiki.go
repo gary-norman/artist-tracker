@@ -39,16 +39,22 @@ func FetchAllArtistsImages(artists []Artist) {
 
 // WikiImageFetcher get individual member's image
 func WikiImageFetcher(artist *Artist) {
+	fmt.Printf("Getting member images for %v\n", artist.Name)
 	artist.Members = make(map[string]string)
-	imageFailCounter := 1
+	searchCounter := 1
 	for _, member := range artist.MemberList {
+		var queryURL string
 		var encodedMember string
 		if member == "Roger Taylor" {
 			encodedMember = "Roger_Taylor_(Queen_drummer)"
 		} else {
 			encodedMember = url.QueryEscape(member)
 		}
-		queryURL := fmt.Sprintf("https://en.wikipedia.org/w/api.php?action=query&titles=%s&prop=pageimages&format=json&pithumbsize=500", encodedMember)
+		if artist.Name == "Mamonas Assassinas" {
+			queryURL = fmt.Sprintf("https://pt.wikipedia.org/w/api.php?action=query&titles=%s&prop=pageimages&format=json&pithumbsize=500", encodedMember)
+		} else {
+			queryURL = fmt.Sprintf("https://en.wikipedia.org/w/api.php?action=query&titles=%s&prop=pageimages&format=json&pithumbsize=500", encodedMember)
+		}
 		resp, err := http.Get(queryURL)
 		if err != nil {
 			fmt.Println("here")
@@ -82,12 +88,12 @@ func WikiImageFetcher(artist *Artist) {
 		for _, page := range result.WikiQuery.Pages {
 			if page.WikiThumbnail.Source != "" {
 				artist.Members[member] = page.WikiThumbnail.Source
+				fmt.Printf("%v - %v: success!\n", searchCounter, member)
 			} else {
 				artist.Members[member] = "/icons/artist_placeholder.png"
-				fmt.Printf("%v: No member image found for %v\n", imageFailCounter, member)
-				imageFailCounter += 1
+				fmt.Printf("%v - %v: no member image found\n", searchCounter, member)
 			}
-			//fmt.Println("Main Image URL:", page.WikiThumbnail.Source)
+			searchCounter += 1
 		}
 
 		// Add the image URL to the struct
@@ -100,9 +106,9 @@ func WikiImageFetcher(artist *Artist) {
 			//fmt.Println("Main Image URL:", page.WikiThumbnail.Source)
 		}
 	}
-	fmt.Printf("Struct Artist: %v\nStruct Image:%v\n", artist.MemberStruct[0].MemberName, artist.MemberStruct[0].MemberImage)
-	fmt.Printf("=== member's data of aritst:%v === \n", artist.Name)
-	for memberName, imgLink := range artist.Members {
-		fmt.Printf("Member: %v, imgLink: %v\n", memberName, imgLink)
-	}
+	//fmt.Printf("Struct Artist: %v\nStruct Image:%v\n", artist.MemberStruct[0].MemberName, artist.MemberStruct[0].MemberImage)
+	//fmt.Printf("=== member's data of aritst:%v === \n", artist.Name)
+	//for memberName, imgLink := range artist.Members {
+	//	fmt.Printf("Member: %v, imgLink: %v\n", memberName, imgLink)
+	//}
 }
