@@ -263,6 +263,7 @@ a {
 /* scrollbar styling */
 .scroll {
 
+    overflow-y: auto;
     & > * {
         height: max-content;
     }
@@ -332,7 +333,7 @@ a {
 
 .container {
     width: 100%;
-    padding: 2.4rem ;
+    padding: 2.4rem;
     background: var(--grey-3);
     border-radius: var(--radius-lg);
     display: flex;
@@ -351,13 +352,31 @@ a {
         gap: 0;
     }
 
-    &#search-results > .scroll, &#home-concerts > .scroll {
+    &#search-results > .scroll {
         max-height: 60rem;
         overflow-x: hidden;
         display: flex;
         flex-direction: column;
         overflow-y: scroll;
         width: 100%;
+    }
+
+    &#home-concerts {
+        max-height: 60rem;
+
+        & > * {
+            &.go-across-md {
+                align-items: flex-start;
+            }
+
+            & .scroll {
+                width: 40%;
+                height: 50rem;
+                overflow-y: scroll;
+                padding-right: 0.8rem;
+                gap: 0;
+            }
+        }
     }
 
 
@@ -389,7 +408,7 @@ a {
         filter: none;
     }
 
-    &:has(.row) {
+    &:has(#home-artists), &:has(#home-albums){
         padding: 0.4rem;
     }
 
@@ -507,6 +526,7 @@ a {
 
 .row {
     display: flex;
+    flex-direction: row;
     flex-wrap: nowrap;
     gap: 1.2rem;
     overflow-x: auto;

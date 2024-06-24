@@ -322,36 +322,36 @@
             </div>
         </section>
         <section id="home-concerts" class="container col col1">
-            <div class="row">
                 <h2>Concerts</h2>
-                <div id="map" style="width: 100%; min-height: 500px;"></div>
-                <div class="col col1 scroll">
-                    {{ range .HomeArtists }}
-                    {{ $artist := . }}
-                    {{ range $location, $dates := $artist.DatesLocations }}
-                    {{ $randomDates := randomiseDates $dates }}
-                    {{ range $date := $randomDates }}
-                    {{ $dateParts := formatDate $date }}
-                    <a href="/artist?name={{ $artist.Name }}">
-                        <div class="content">
-                            <div class="pic date">
-                                <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
-                                <div>{{ $dateParts.Year }}</div>
-                            </div>
-                            <div class="content-text go-down-home">
-                                <div class="p--bold cut concert">{{ $artist.Name }}</div>
-                                <div class="concert">
-                                    <div class="small light cut">{{ $location }}</div>
+                <div class="go-across-md" style="max-height: 100%;">
+                    <div class="col col1 scroll">
+                        {{ range .HomeArtists }}
+                        {{ $artist := . }}
+                        {{ range $location, $dates := $artist.DatesLocations }}
+                        {{ $randomDates := randomiseDates $dates }}
+                        {{ range $date := $randomDates }}
+                        {{ $dateParts := formatDate $date }}
+                        <a href="/artist?name={{ $artist.Name }}">
+                            <div class="content">
+                                <div class="pic date">
+                                    <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
+                                    <div>{{ $dateParts.Year }}</div>
+                                </div>
+                                <div class="content-text go-down-home">
+                                    <div class="p--bold cut concert">{{ $artist.Name }}</div>
+                                    <div class="concert">
+                                        <div class="small light cut">{{ $location }}</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-
-                    {{ end }}
-                    {{ end }}
-                    {{ end }}
+                        </a>
+                        {{ end }}
+                        {{ end }}
+                        {{ end }}
+                    </div>
+                    <div id="map" style="width: 60%; min-height: 500px;"></div>
                 </div>
-            </div>
+
         </section>
 
         <!--        <section id="home-concerts" class="container">-->
