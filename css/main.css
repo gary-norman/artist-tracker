@@ -365,16 +365,21 @@ a {
         max-height: 60rem;
 
         & > * {
-            &.go-across-md {
+            &.go-across-lg {
                 align-items: flex-start;
             }
 
             & .scroll {
                 width: 40%;
-                height: 50rem;
-                overflow-y: scroll;
-                padding-right: 0.8rem;
+                max-height: 50rem;
+                overflow-y: auto;
+                padding-right: 1.2rem;
+                align-items: flex-start;
                 gap: 0;
+
+                & > * {
+                    margin: 0;
+                }
             }
         }
     }
