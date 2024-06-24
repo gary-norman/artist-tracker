@@ -323,7 +323,7 @@
         </section>
         <section id="home-concerts" class="container col col1">
                 <h2>Concerts</h2>
-                <div class="go-across-md" style="max-height: 100%;">
+                <div class="go-across-lg" style="max-height: 100%;">
                     <div class="col col1 scroll">
                         {{ range .HomeArtists }}
                         {{ $artist := . }}
@@ -331,8 +331,7 @@
                         {{ $randomDates := randomiseDates $dates }}
                         {{ range $date := $randomDates }}
                         {{ $dateParts := formatDate $date }}
-                        <a href="/artist?name={{ $artist.Name }}">
-                            <div class="content">
+                        <a class="content" href="/artist?name={{ $artist.Name }}">
                                 <div class="pic date">
                                     <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
                                     <div>{{ $dateParts.Year }}</div>
@@ -343,13 +342,12 @@
                                         <div class="small light cut">{{ $location }}</div>
                                     </div>
                                 </div>
-                            </div>
                         </a>
                         {{ end }}
                         {{ end }}
                         {{ end }}
                     </div>
-                    <div id="map" style="width: 60%; min-height: 500px;"></div>
+                    <div id="map" style="border-radius:  var(--radius-md); width: 60%; min-height: 500px; "></div>
                 </div>
 
         </section>
