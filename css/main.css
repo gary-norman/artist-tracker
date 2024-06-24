@@ -655,7 +655,7 @@ input {
         max-width: 6rem;
         min-height: 6rem;
         max-height: 6rem;
-        background: center / cover no-repeat;
+        background: top / cover no-repeat;
         /*overflow: hidden;*/
     }
 
@@ -675,6 +675,8 @@ input {
     & .user {
         background: darkgrey;
         border-radius: 6rem;
+        object-fit: cover;
+        object-position: top;
     }
 
     & .date {
