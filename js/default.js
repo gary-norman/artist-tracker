@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchButton = document.getElementById("search-input");
     const home = document.querySelectorAll('[id^="home"]');
     const filters = document.getElementById("search-filters");
+    const resultsHeader = document.querySelector('.filters .small.light.center');
     const searchResults = document.getElementById("search-results");
     const searchIcon = document.getElementById("search-icon");
     const logo = document.querySelector('.logo');
@@ -155,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Handle the click on the clear icon
         searchButton.value = '';
+        resultsHeader.textContent = `Showing 0 results`; // reset numbers of search results
         searchResults.innerHTML = ''; // Clear suggestions if input is empty
         searchButton.placeholder = 'Search an artist, member, album or concert';
         updateSearchCancelIcon("search");
