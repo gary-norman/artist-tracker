@@ -82,22 +82,39 @@ body {
 
 }
 
+/*Mapbox styling*/
+
 .marker {
     background-image: url("/icons/marker-3d.svg");
     background-size: cover;
-    width: 20px;
-    height: 50px;
+    width: 2rem;
+    height: 5rem;
     cursor: pointer;
+}
+
+[class^="mapbox"] * {
+    &:focus-visible {
+        border: none;
+        outline: none;
+    }
+    /*& > * {*/
+    /*    & > * {*/
+    /*        &:focus-visible {*/
+    /*            border: none;*/
+    /*            outline: none;*/
+    /*        }*/
+    /*    }*/
+    /*    }*/
 }
 
 .mapboxgl-popup-content {
     color: var(--grey-2);
-    border-radius: 10px !important;
-    padding: 5px 10px 10px !important;
+    border-radius: 1rem !important;
+    padding: .5rem 1rem 1rem !important;
 }
 
 .mapboxgl-popup-close-button {
-    color: var(--purple-purp);
+    color: var(--purple-pink);
 }
 
 *, *::before, *::after {
@@ -1355,22 +1372,4 @@ input[type='range']::-webkit-slider-thumb {
 
 }
 
-/*Mapbox styling*/
 
-.marker {
-    background-image: url("/icons/marker-3d.svg");
-    background-size: cover;
-    width: 20px;
-    height: 50px;
-    cursor: pointer;
-}
-
-.mapboxgl-popup-content {
-    color: var(--grey-2);
-    border-radius: 10px !important;
-    padding: 5px 10px 10px !important;
-}
-
-.mapboxgl-popup-close-button {
-    color: var(--purple-purp);
-}
