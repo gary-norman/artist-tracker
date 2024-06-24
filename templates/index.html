@@ -24,13 +24,13 @@
             <form class="search-container" action="/search/" method="get">
                 <div class="search-input" >
                     <label for="search-input"></label>
-                    <input type="text" name="search-input" id="search-input" placeholder="Search artist" required autocomplete="off">
+                    <input type="text" name="search-input" id="search-input" placeholder="Search an artist, member, album or concert" required autocomplete="off">
                     <span id="search-icon"></span>
                 </div>
-                <h3 id="search-recent-text" class="floating-md hide">Recent searches</h3>
+<!--                <h3 id="search-recent-text" class="floating-md hide">Recent searches</h3>-->
                 <div id="search-filters" class="floating-md filters go-down hide">
                     <div class="space filter">
-                        <h3 class="small light center">Showing all results</h3>
+                        <h3 class="small light center">Showing 0 results</h3>
                         <div class="button button-2" id="button-filter">
                             <div id="button-filter-container" class="button-container">
                                 <p class="button-text" id="button-filter-number">Filters (0)</p>
@@ -54,7 +54,7 @@
                             </label>
                         </div>
                         <div class="filter-open space">
-                            <label class="button small" id="artist-start-date">
+                            <label class="button button-2 small" id="artist-start-date">
                                 Pick a date
                             </label>
                             <label for="artist-date-range" class="filter-label-md small" id="artist-end-date">
@@ -82,7 +82,7 @@
                             </label>
                         </div>
                         <div class="filter-open space">
-                            <label class="button small" id="album-start-date">
+                            <label class="button button-2 small" id="album-start-date">
                                 Pick a date
                             </label>
                             <label for="album-date-range" class="filter-label-md small" id="album-end-date">
@@ -168,10 +168,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="button button-1 hide" id="search-submit-filter">
-
+                    <div class="button button-1" id="search-submit-filter">
                         <p class="button-text">Apply filters</p>
-
                     </div>
                 </div>
                 <div class="container hide" id="search-results">

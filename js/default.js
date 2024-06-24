@@ -10,7 +10,13 @@ document.addEventListener('DOMContentLoaded', function () {
     function toggleFilterContainers() {
         // Select all input elements that match the criteria
         const filterInputs = document.querySelectorAll('input[id^="filter-"]');
+        const filterSubmit = document.getElementById("search-submit-filter");
 
+        if (!(filterSubmit.classList.contains('hide'))) {
+            filterSubmit.classList.add('hide');
+        } else {
+            filterSubmit.classList.remove('hide');
+        }
         // Loop through each input element
         filterInputs.forEach(input => {
             // Traverse up the DOM to find the parent with the class 'filter'
@@ -23,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Toggle the 'hide' class on each element based on checkbox state
                 filterOpenElements.forEach(element => {
                     if (input.checked) {
-
                         parent.classList.add('open');
                         element.classList.remove('hide');
                     } else {
@@ -48,136 +53,49 @@ document.addEventListener('DOMContentLoaded', function () {
     // Add event listeners to each input element
     filterInputs.forEach(input => {
         input.addEventListener('change', toggleFilterContainers);
+        const filters = document.getElementById("search-filters");
+        filters.classList.add('open');
     });
 
     // Initial check to set the correct visibility state
     toggleFilterContainers();
 });
 
-
 document.addEventListener('DOMContentLoaded', () => {
     const searchButton = document.getElementById("search-input");
     const home = document.querySelectorAll('[id^="home"]');
-    const recent = document.getElementById("search-recent-text");
     const filters = document.getElementById("search-filters");
-    const filterSubmit = document.getElementById("search-submit-filter");
-    const searchIcon = document.getElementById("search-icon");
     const searchResults = document.getElementById("search-results");
+    const searchIcon = document.getElementById("search-icon");
     const logo = document.querySelector('.logo');
     const subLogo = document.querySelector('.sub-logo');
     let isSearching = false;
-
-    console.log("home is:", home);
-    console.log("subLogo is:", subLogo);
     const homeElements = [...home, subLogo];
-    console.log("homeElements is:", homeElements);
-    const searchElements = [searchResults, recent, filters];
+    const searchElements = [searchResults, filters];
     const allSearchElements = document.querySelectorAll('[id^="search"]');
-    console.log(searchElements)
 
-    // Add an event listener to log the result when the input is focused or blurred
-    searchButton.addEventListener('focus', () => {
-        console.log('Search Input is active:', isInputActive());
-        showSections(searchElements);
-        hideSections(homeElements);
-        changeLogo(logo, subLogo, "small");
-        updateSearchCancelIcon("cancel");
-        console.log("isSearching is:", isSearching);
-    });
-
-    searchButton.addEventListener('input', function() {
-
-        if (searchButton.value.trim() !== '') {
-            isSearching = true;
-            console.log("isSearching is:", isSearching);
-            console.log('Input has text');
-            updateSearchCancelIcon("cancel");
-        } else {
-            isSearching = false;
-            console.log("isSearching is:", isSearching);
-            console.log('Input is empty');
-            // Handle empty input case
-            console.log("input changed");
-            updateSearchCancelIcon("search");
-        }
-    });
-
-    searchButton.addEventListener('click', function() {
-        if (isSearching) {
-            updateSearchCancelIcon("search");
-            showSections(homeElements);
-            hideSections(searchElements);
-            changeLogo(logo, subLogo, "large");
-        }
-
-    });
-
-    searchIcon.addEventListener('click', function(e) {  // Added
-        e.stopPropagation(); // Prevent the click from propagating to the parent element**  // Added
-
-        // Handle the click on the clear icon**  // Added
-
-        searchButton.value = ''; // Clear the input text**  // Added
-        updateSearchCancelIcon("search");  // Added
-        showSections(homeElements);  // Added
-        hideSections(searchElements);  // Added
-        changeLogo(logo, subLogo, "large");  // Added
-    });  // Added
-
-
-    document.addEventListener('click', function(event) {
-        let clickInsideAnyElement = false;
-
-        allSearchElements.forEach(element => {
-            if (element.contains(event.target)) {
-                clickInsideAnyElement = true;
-            }
-        });
-
-        if (!clickInsideAnyElement) {
-            // Clicked outside all specified search elements
-            console.log('Clicked outside the search container');
-            showSections(homeElements);
-            hideSections(searchElements);
-            changeLogo(logo, subLogo, "large");
-            updateSearchCancelIcon("search");
-        }
-    });
-
-
-    // Function to check if the input is active
-    function isInputActive() {
-        return document.activeElement === searchButton;
+    function debounce(func, wait) {
+        let timeout;
+        return function(...args) {
+            const context = this;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(context, args), wait);
+        };
     }
-
-    const updateSearchCancelIcon = (button) => {
-        const search16 = "url('../icons/search_x16.svg')";
-        const search24 = "url('../icons/search_x24.svg')";
-        const cancel16 = "url('../icons/close_x16.svg')";
-        const cancel24 = "url('../icons/close_x24.svg')";
-
-        if (button === "cancel") {
-            console.log("updating search/cancel icon to cancel");
-            document.documentElement.style.setProperty("--search-cancel-icon", cancel24);
-        } else {
-            console.log("updating search/cancel icon to cancel");
-            document.documentElement.style.setProperty("--search-cancel-icon", search24);
-        }
-
-
-
-
-    };
 
     function showSections(elements) {
         elements.forEach(element => {
-            element.classList.remove('hide');
+            // if (element.classList.contains('hide')) {
+                element.classList.remove('hide');
+            // }
         });
     }
 
     function hideSections(elements) {
         elements.forEach(element => {
-            element.classList.add('hide');
+            // if (!element.classList.contains('hide')) {
+                element.classList.add('hide');
+            // }
         });
     }
 
@@ -191,8 +109,84 @@ document.addEventListener('DOMContentLoaded', () => {
             logo.style.lineHeight = '1.5';
             subLogo.style.lineHeight = '1.5';
         }
-
     }
+
+    const updateSearchCancelIcon = (button) => {
+        const search24 = "url('../icons/search_x24.svg')";
+        const cancel24 = "url('../icons/close_x24.svg')";
+
+        if (button === "cancel") {
+            document.documentElement.style.setProperty("--search-cancel-icon", cancel24);
+        } else {
+            document.documentElement.style.setProperty("--search-cancel-icon", search24);
+        }
+    };
+
+    searchButton.addEventListener('focus', debounce(() => {
+            showSections(searchElements);
+            hideSections(homeElements);
+            searchButton.value = '';
+            searchButton.placeholder = 'Start typing...';
+            searchResults.innerHTML = ''; // Clear suggestions if input is empty
+            changeLogo(logo, subLogo, "small");
+            updateSearchCancelIcon("cancel");
+    }, 300));
+
+    searchButton.addEventListener('input', debounce(function() {
+        if (searchButton.value.trim() !== '') {
+            isSearching = true;
+            updateSearchCancelIcon("cancel");
+            showSections(searchElements);
+            hideSections(homeElements);
+            console.log("hiding from click 2")
+            changeLogo(logo, subLogo, "small");
+        } else {
+            isSearching = true;
+            updateSearchCancelIcon("search");
+            showSections(homeElements);
+            hideSections(searchElements);
+            console.log("hiding from click 2")
+            changeLogo(logo, subLogo, "large");
+        }
+    }, 100));
+
+    searchIcon.addEventListener('click', debounce (function(e) {
+        e.stopPropagation(); // Prevent the click from propagating to the parent element**
+
+        // Handle the click on the clear icon
+        searchButton.value = '';
+        searchResults.innerHTML = ''; // Clear suggestions if input is empty
+        searchButton.placeholder = 'Search an artist, member, album or concert';
+        updateSearchCancelIcon("search");
+        showSections(homeElements);
+        hideSections(searchElements);
+        console.log("hiding from searchIcon click")
+        changeLogo(logo, subLogo, "large");
+    }, 300));
+    
+    
+
+
+    document.addEventListener('click', debounce(function(event) {
+        let clickInsideAnyElement = false;
+
+        allSearchElements.forEach(element => {
+            if (element.contains(event.target)) {
+                clickInsideAnyElement = true;
+                // console.log("inside: ", event.target)
+            } else {
+
+            }
+        });
+
+        if (!clickInsideAnyElement) {
+            showSections(homeElements);
+            hideSections(searchElements);
+            console.log("hiding from click outside")
+            changeLogo(logo, subLogo, "large");
+            updateSearchCancelIcon("search");
+        }
+    }, 300));
 });
 
 
@@ -209,7 +203,6 @@ function updateSliderBackground(slider) {
 document.addEventListener('DOMContentLoaded', () => {
     const filterButton = document.getElementById('button-filter');
     const filters = document.querySelectorAll('.filter:not(:first-child)');
-    const filterSubmit = document.getElementById("search-submit-filter");
 
     const show24 = "url('../icons/show_x24.svg')";
     const hide24 = "url('../icons/hide_x24.svg')";
@@ -231,7 +224,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     filterButton.addEventListener('click', () => {
-        filterSubmit.classList.toggle('hide');
         filters.forEach(filter => {
             filter.classList.toggle('hide');
         });
@@ -367,7 +359,7 @@ function updateDoubleSliderBackground(slider1, slider2) {
 
 
 
-        if (window.innerWidth < 400) {
+        if (window.innerWidth < 300) {
             const position = ((sliderValue - sliderMin) / (sliderMax - sliderMin)) * 93;
             label.style.left = `calc(${position}% - 0.4rem)`;
         } else if (window.innerWidth < 500) {

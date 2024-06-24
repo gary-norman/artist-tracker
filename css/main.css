@@ -1077,6 +1077,18 @@ input {
     transition: background-color .4s, transform .4s;
     height: 3.4rem;
     filter: var(--shadow-light-0);
+    &:hover {
+        /*background-color: var(--white-1);*/
+        &::before {
+            background-color: var(--green-1);
+        }
+    }
+    &:active {
+        /*background-color: var(--white-2);*/
+        &::before {
+            background-color: var(--green-2);
+        }
+    }
 }
 
 .slider-button {
@@ -1102,6 +1114,12 @@ input {
 
 input:checked + .slider-button {
     background-color: var(--green-0);
+    &:hover {
+        background-color: var(--green-1);
+    }
+    &:active {
+        background-color: var(--green-2);
+    }
 }
 
 input:focus-visible + .slider-button {
@@ -1113,6 +1131,13 @@ input:checked + .slider-button:before {
     -ms-transform: translateX(26px);
     transform: translateX(26px);
     background-color: var(--white-0);
+    &:hover {
+        background-color: var(--white-1);
+    }
+    &:active {
+        background-color: var(--white-2);
+    }
+
 }
 
 .slider-button.round {
