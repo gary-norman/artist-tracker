@@ -101,7 +101,7 @@ body {
 }
 
 *, *::before, *::after {
-    outline: 1px solid dimgrey;
+    /*outline: 1px solid dimgrey;*/
 }
 
 /* text */
@@ -180,6 +180,12 @@ a {
         text-wrap: nowrap;
     }
 
+}
+
+.flexrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .justify {
@@ -307,7 +313,7 @@ a {
     font-size: 1.2rem;
 }
 
-. container{
+.container {
     width: 100%;
     padding: 2.4rem ;
     background: var(--grey-3);
@@ -320,11 +326,10 @@ a {
 
     &#filter-checkbox-locations {
         max-height: 20rem;
-        padding: 0.2rem;
         display: flex;
         flex-direction: column;
         overflow-y: scroll;
-        padding-right: 0.8rem;
+        padding: 0.2rem 0.8rem 0.2rem 0.2rem;
         width: 100%;
         gap: 0;
     }
@@ -650,7 +655,7 @@ input {
         max-width: 6rem;
         min-height: 6rem;
         max-height: 6rem;
-        background: center / contain no-repeat;
+        background: center / cover no-repeat;
         /*overflow: hidden;*/
     }
 
@@ -1164,6 +1169,12 @@ input[type='range']::-webkit-slider-thumb {
     background: var(--green-1);
     filter: var(--shadow-dark-0);
     z-index: 2;
+}
+
+.member-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .double-slider-container{

@@ -39,6 +39,7 @@ func FetchAllArtistsImages(artists []Artist) {
 
 // WikiImageFetcher get individual member's image
 func WikiImageFetcher(artist *Artist) {
+	notFound := "/icons/artist_placeholder.svg"
 	fmt.Printf("Getting member images for %v\n", artist.Name)
 	artist.Members = make(map[string]string)
 	searchCounter := 1
@@ -93,7 +94,7 @@ func WikiImageFetcher(artist *Artist) {
 					artist.Members[member] = page.WikiThumbnail.Source
 					fmt.Printf("%v - %v: success!\n", searchCounter, member)
 				} else {
-					artist.Members[member] = "/icons/artist_placeholder.png"
+					artist.Members[member] = notFound
 					fmt.Printf("%v - %v: no member image found\n", searchCounter, member)
 				}
 				searchCounter += 1
@@ -104,7 +105,7 @@ func WikiImageFetcher(artist *Artist) {
 				if page.WikiThumbnail.Source != "" {
 					artist.MemberStruct = append(artist.MemberStruct, Member{member, page.WikiThumbnail.Source})
 				} else {
-					artist.MemberStruct = append(artist.MemberStruct, Member{member, "/icons/artist_placeholder.png"})
+					artist.MemberStruct = append(artist.MemberStruct, Member{member, notFound})
 				}
 			}
 		}()

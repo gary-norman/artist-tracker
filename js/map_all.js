@@ -64,7 +64,8 @@ Promise.all(geojsonFiles.map(file => fetch(file)
                 .setPopup(
                     new mapboxgl.Popup({ offset: 20 })
                         .setHTML(
-                            `<p class="p--bold">${feature.properties.title}</p>
+                            `<div class="p--bold flexrow"><a href="/artist?name=${feature.properties.artist}">${feature.properties.artist}</a>
+                             <b>live in ${feature.properties.eventAddress}</b></div>
                              <p class="small">${formatDate(parseDate(feature.properties.date))}</p>
                              <p class="small">${feature.properties.eventAddress}</p>`
                         )
