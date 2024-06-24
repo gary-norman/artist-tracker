@@ -12,11 +12,6 @@ import (
 	"strings"
 )
 
-const (
-	username    = "loreworld"
-	accessToken = "sk.eyJ1IjoibG9yZXdvcmxkIiwiYSI6ImNsd3FtMmVnZTAzbzMybHM3djg5eGI0dXoifQ.ApBPbrjmry0mcYTOJtvXsQ"
-)
-
 type Dataset struct {
 	Name        string `json:"name"`
 	Description string `json:"description"`

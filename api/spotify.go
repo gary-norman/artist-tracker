@@ -14,7 +14,6 @@ import (
 )
 
 // var accessToken = ExtractAccessToken()
-var authToken = "BQD72yS-ec-KHOIOkuI5Yk8wWjxxEkN5rqfX_3myERzfQs1aY7FPkZajomH6nFJeSCeQTx1sEqzuzV4A5hxu5UsfdHs28x49X_5Y9erd0N2fKxS4ytM"
 
 type SpotifyIdResponse struct {
 	Artists struct {
@@ -95,7 +94,7 @@ func IterateOverArtists() {
 		"Post Malone", "Travis Scott", "J. Cole", "Nickelback", "Mobb Deep", "Guns n Roses", "NWA", "U2", "Arctic Monkeys",
 		"Fall Out Boy", "Gorillaz", "Eagles", "Linkin Park", "Red Hot Chili Peppers", "Eminem", "Green Day", "Metallica",
 		"Coldplay", "Maroon 5", "Twenty One Pilots", "The Rolling Stones", "Muse", "Foo Fighters", "The Chainsmokers"} // Example slice of artist names
-	token := authToken
+	token := spotifyAuthToken
 
 	var artistIDs []SpotifyArtistID
 
@@ -360,7 +359,7 @@ func getSpotifyAlbums(artist, album, authToken string) (SpotifyAlbum, error) {
 	return spotifyAlbum, nil
 }
 
-//	func ProcessSpotifyArtist(wg *sync.WaitGroup, artist *Artist, authToken string) {
+//	func ProcessSpotifyArtist(wg *sync.WaitGroup, artist *Artist, spotifyAuthToken string) {
 //		defer wg.Done()
 func ProcessSpotifyArtist(artist *Artist, authToken string) {
 	//defer wg.Done()

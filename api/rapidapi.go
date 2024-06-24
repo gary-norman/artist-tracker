@@ -125,7 +125,6 @@ func getFirstLastTourDates(artists []Artist, name string) (string, string) {
 }
 
 func GetTourInfo(artists []Artist, name string, i int) {
-	apiKey := "dccdb0a36amsh783e1cc91e71909p1fadc0jsn9c03dce7a6cd"
 	first, last := getFirstLastTourDates(artists, name)
 	//name = strings.Replace(name, " ", "%20", -1)
 	encodedArtist := url.QueryEscape(name)

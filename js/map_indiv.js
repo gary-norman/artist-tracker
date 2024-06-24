@@ -56,8 +56,14 @@ async function loadGeoJSONForArtist() {
         return;
     }
 
-    const fileNB = artistID - 1; 
-    const geoJSONPath = `/db/mapbox_std/${fileNB}.geojson`;
+    let geoJSONPath
+    const fileNB = artistID - 1;
+    const filePlus = `/db/mapbox/${fileNB}.geojson`;
+    if(filePlus) {
+        geoJSONPath = filePlus
+    } else {
+        geoJSONPath = `/db/mapbox_std/${fileNB}.geojson`;
+    }
 
     try {
         const response = await fetch(geoJSONPath);

@@ -100,7 +100,7 @@ func UpdateArtistInfo(artists []Artist) {
 //
 //// Spotify API token
 //pbat, _ := pterm.DefaultProgressbar.WithTotal(100).WithWriter(multi.NewWriter()).Start("Fetching Spotify auth token")
-//authToken := ExtractAccessToken("db/spotify_access_token.sh")
+//spotifyAuthToken := ExtractAccessToken("db/spotify_access_token.sh")
 //pterm.Success.Println("Fetching Spotify auth token")
 //pbat.Increment()
 //
@@ -116,7 +116,7 @@ func UpdateArtistInfo(artists []Artist) {
 //defer wg.Done()
 //
 //pbai.UpdateTitle("Fetching Spotify image for " + spotifyArtist.Artist)
-//updatedArtists, err := UpdateArtistImages([]Artist{*artist}, []SpotifyArtistID{spotifyArtist}, authToken)
+//updatedArtists, err := UpdateArtistImages([]Artist{*artist}, []SpotifyArtistID{spotifyArtist}, spotifyAuthToken)
 //if err != nil {
 //log.Fatalf("Error updating artist images: %v", err)
 //}
@@ -141,7 +141,7 @@ func UpdateArtistInfo(artists []Artist) {
 //for i := range artists {
 //pbalb.UpdateTitle("Fetching album details for " + artists[i].Name)
 //wg.Add(1)
-////go api.ProcessSpotifyArtist(&artists[i], authToken, &wg)
+////go api.ProcessSpotifyArtist(&artists[i], spotifyAuthToken, &wg)
 //artistID, err := GetArtistIDWithoutKey(artists[i].Name)
 //if err != nil {
 //fmt.Println("Error:", err)
@@ -152,7 +152,7 @@ func UpdateArtistInfo(artists []Artist) {
 //} else {
 //fmt.Printf("Artist %s not found\n", artists[i].Name)
 //}
-//ProcessSpotifyArtist(&artists[i], authToken)
+//ProcessSpotifyArtist(&artists[i], spotifyAuthToken)
 ////api.ProcessAudioDbArtist(&artists[i], "2")
 //pterm.Success.Println("Fetching album details for " + artists[i].Name)
 //pbalb.Increment()
