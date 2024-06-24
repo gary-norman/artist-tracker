@@ -22,7 +22,7 @@
         </section>
         <section class="search-container">
             <form class="search-container" action="/search/" method="get">
-                <div class="search-input whatever" >
+                <div class="search-input" >
                     <label for="search-input"></label>
                     <input type="text" name="search-input" id="search-input" placeholder="Search an artist, member, album or concert" required autocomplete="off">
                     <span id="search-icon"></span>
@@ -321,11 +321,11 @@
                 {{ end }}
             </div>
         </section>
-        <section id="home-concerts" class="container">
-            <div class="container scroll col col1">
+        <section id="home-concerts" class="container col col1">
+            <div class="row">
                 <h2>Concerts</h2>
                 <div id="map" style="width: 100%; min-height: 500px;"></div>
-                <div class="col col3">
+                <div class="col col1 scroll">
                     {{ range .HomeArtists }}
                     {{ $artist := . }}
                     {{ range $location, $dates := $artist.DatesLocations }}
@@ -334,25 +334,58 @@
                     {{ $dateParts := formatDate $date }}
                     <a href="/artist?name={{ $artist.Name }}">
                         <div class="content">
-                                <div class="pic date">
-                                    <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
-                                    <div>{{ $dateParts.Year }}</div>
+                            <div class="pic date">
+                                <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
+                                <div>{{ $dateParts.Year }}</div>
+                            </div>
+                            <div class="content-text go-down-home">
+                                <div class="p--bold cut concert">{{ $artist.Name }}</div>
+                                <div class="concert">
+                                    <div class="small light cut">{{ $location }}</div>
                                 </div>
-                                <div class="content-text go-down-home">
-                                    <div class="p--bold cut concert">{{ $artist.Name }}</div>
-                                    <div class="concert">
-                                        <div class="small light cut">{{ $location }}</div>
-                                    </div>
-                                </div>
+                            </div>
                         </div>
                     </a>
-                    
+
                     {{ end }}
                     {{ end }}
                     {{ end }}
                 </div>
             </div>
         </section>
+
+        <!--        <section id="home-concerts" class="container">-->
+<!--            <div class="container scroll col col1">-->
+<!--                <h2>Concerts</h2>-->
+<!--                <div id="map" style="width: 100%; min-height: 500px;"></div>-->
+<!--                <div class="col col3">-->
+<!--                    {{ range .HomeArtists }}-->
+<!--                    {{ $artist := . }}-->
+<!--                    {{ range $location, $dates := $artist.DatesLocations }}-->
+<!--                    {{ $randomDates := randomiseDates $dates }}-->
+<!--                    {{ range $date := $randomDates }}-->
+<!--                    {{ $dateParts := formatDate $date }}-->
+<!--                    <a href="/artist?name={{ $artist.Name }}">-->
+<!--                        <div class="content">-->
+<!--                                <div class="pic date">-->
+<!--                                    <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>-->
+<!--                                    <div>{{ $dateParts.Year }}</div>-->
+<!--                                </div>-->
+<!--                                <div class="content-text go-down-home">-->
+<!--                                    <div class="p&#45;&#45;bold cut concert">{{ $artist.Name }}</div>-->
+<!--                                    <div class="concert">-->
+<!--                                        <div class="small light cut">{{ $location }}</div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                        </div>-->
+<!--                    </a>-->
+
+<!--                    {{ end }}-->
+<!--                    {{ end }}-->
+<!--                    {{ end }}-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
     </div>
 </main>
 <script type="text/javascript" src="../js/default.js"></script>
