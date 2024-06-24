@@ -12,15 +12,30 @@ var Tpl *template.Template
 
 func init() {
 	Tpl = template.Must(template.New("").Funcs(template.FuncMap{
-		"random":         RandomInt,
-		"increment":      Increment,
-		"decrement":      Decrement,
-		"check":          CheckArtistContainsName,
-		"same":           CheckSameName,
-		"formatDate":     ParseDate,
-		"sortDates":      SortDates,
-		"randomiseDates": RandomizeDates,
+		"random":               RandomInt,
+		"increment":            Increment,
+		"decrement":            Decrement,
+		"check":                CheckArtistContainsName,
+		"same":                 CheckSameName,
+		"formatDate":           ParseDate,
+		"sortDates":            SortDates,
+		"randomiseDates":       RandomizeDates,
+		"randomiseFanartImage": RandomizeFanart,
 	}).ParseGlob("templates/*.html"))
+}
+
+func RandomizeFanart(fallback string, fanarts ...string) string {
+	availableFanarts := []string{}
+	for _, fanart := range fanarts {
+		if fanart != "" {
+			availableFanarts = append(availableFanarts, fanart)
+		}
+	}
+	if len(availableFanarts) == 0 {
+		return fallback // Return empty if there are no fanarts
+	}
+	return availableFanarts[rand.Intn(len(availableFanarts))] // Return a random fanart
+
 }
 
 // Function to check if member name is inside artist name for go templates
