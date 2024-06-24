@@ -97,7 +97,7 @@ body {
 }
 
 .mapboxgl-popup-close-button {
-    color: #841ae7;
+    color: var(--purple-purp);
 }
 
 *, *::before, *::after {
