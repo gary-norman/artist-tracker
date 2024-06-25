@@ -94,7 +94,7 @@ func IterateOverArtists() {
 		"Post Malone", "Travis Scott", "J. Cole", "Nickelback", "Mobb Deep", "Guns n Roses", "NWA", "U2", "Arctic Monkeys",
 		"Fall Out Boy", "Gorillaz", "Eagles", "Linkin Park", "Red Hot Chili Peppers", "Eminem", "Green Day", "Metallica",
 		"Coldplay", "Maroon 5", "Twenty One Pilots", "The Rolling Stones", "Muse", "Foo Fighters", "The Chainsmokers"} // Example slice of artist names
-	token := spotifyAuthToken
+	token := os.Getenv("SPOTIFY_AUTH_TOKEN")
 
 	var artistIDs []SpotifyArtistID
 

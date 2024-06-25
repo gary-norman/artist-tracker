@@ -96,6 +96,10 @@ type DateParts struct {
 	Year  string
 }
 
+type Config struct {
+	ClientSecretPath string `json:"clientSecret_file_path"`
+}
+
 // Create a multi printer instance from the default one
 var multi = pterm.DefaultMultiPrinter
 

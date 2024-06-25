@@ -45,7 +45,7 @@ func MapboxReverseLookup(index int, artist Artist) {
 		eventNoStr := fmt.Sprintf("%04d", eventNo)
 		// use mapbox api to get Geometry
 		encodedLocation := url.QueryEscape(location)
-		requestURL := fmt.Sprintf("https://api.mapbox.com/search/geocode/v6/forward?q=%s&access_token=%s", encodedLocation, accessToken)
+		requestURL := fmt.Sprintf("https://api.mapbox.com/search/geocode/v6/forward?q=%s&access_token=%s", encodedLocation, os.Getenv("MAPBOX_ACCESS_TOKEN"))
 
 		req, err := http.NewRequest("GET", requestURL, nil)
 		if err != nil {

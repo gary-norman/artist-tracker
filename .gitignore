@@ -3,3 +3,4 @@ svg/Vinyl_record.svg
 svg/.DS_Store
 .DS_Store
 /api/keys.go
+env/.env

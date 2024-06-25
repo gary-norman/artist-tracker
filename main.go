@@ -11,6 +11,10 @@ import (
 )
 
 func main() {
+
+	// setup config file to parse the key and token
+	api.ConfigSetup()
+
 	err := pterm.DefaultBigText.WithLetters(
 		putils.LettersFromStringWithStyle("Artist", pterm.FgCyan.ToStyle()),
 		putils.LettersFromStringWithRGB("-", pterm.NewRGB(255, 215, 0)),

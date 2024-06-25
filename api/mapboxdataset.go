@@ -4,12 +4,13 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/google/uuid"
 	"io"
 	"net/http"
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/google/uuid"
 )
 
 type Dataset struct {
@@ -69,7 +70,7 @@ func MapboxDataset(index int, artist string) {
 }
 
 func createDataset(name, description string) (string, error) {
-	url := fmt.Sprintf("https://api.mapbox.com/datasets/v1/%s?access_token=%s", username, accessToken)
+	url := fmt.Sprintf("https://api.mapbox.com/datasets/v1/%s?access_token=%s", os.Getenv("MAPBOX_USERNAME"), os.Getenv("MAPBOX_ACCESS_TOKEN"))
 
 	dataset := Dataset{Name: name, Description: description}
 	data, err := json.Marshal(dataset)
@@ -114,7 +115,7 @@ func readFeaturesFromFile(filePath string) (*FeatureCollection, error) {
 }
 
 func addFeature(datasetID, featureID string, feature Feature) error {
-	url := fmt.Sprintf("https://api.mapbox.com/datasets/v1/%s/%s/features/%s?access_token=%s", username, datasetID, featureID, accessToken)
+	url := fmt.Sprintf("https://api.mapbox.com/datasets/v1/%s/%s/features/%s?access_token=%s", os.Getenv("MAPBOX_USERNAME"), datasetID, featureID, os.Getenv("MAPBOX_ACCESS_TOKEN"))
 
 	data, err := json.Marshal(feature)
 	if err != nil {

@@ -139,7 +139,7 @@ func GetTourInfo(artists []Artist, name string, i int) {
 		//return TourDetails{}, err
 	}
 
-	req.Header.Add("x-rapidapi-key", apiKey)
+	req.Header.Add("x-rapidapi-key", os.Getenv("RAPIDAPI_KEY"))
 	req.Header.Add("x-rapidapi-host", "concerts-artists-events-tracker.p.rapidapi.com")
 	req.Header.Add("Accept", "application/json")
 
