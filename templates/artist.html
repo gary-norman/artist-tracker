@@ -119,7 +119,7 @@
                     {{ $randomDates := randomiseDates $dates }}
                     {{ range $date := $randomDates }}
                     {{ $dateParts := formatDate $date }}
-                    <a class="content artistPageTourdate">
+                    <a class="content artistPageTourdate" id="{{ $ID }}">
                             <div class="pic date">
                                 <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
                                 <div>{{ $dateParts.Year }}</div>

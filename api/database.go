@@ -37,6 +37,7 @@ type Artist struct {
 	FirstAlbum   string            `json:"firstAlbum"`
 	TadbAlbum
 	TheAudioDbArtist
+	TourDateID     string              `json:"ID"`
 	Locations      string              `json:"locations"`
 	ConcertDates   string              `json:"concertDates"`
 	Relations      string              `json:"relations"`
