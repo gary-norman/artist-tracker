@@ -6,7 +6,7 @@ const map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/loreworld/clx6fy3dp01w001pnegho7ud8', // map style
     center: [-98.5795, 39.8283], // starting position [lng, lat]
-    zoom: 3 // starting zoom
+    zoom: 1 // starting zoom
 });
 
 map.on('style.load', () => {
