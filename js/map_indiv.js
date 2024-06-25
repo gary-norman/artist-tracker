@@ -100,16 +100,27 @@ async function loadGeoJSONForArtist() {
     }
 }
 
-// document.querySelectorAll('[id^="location"]')
-    document.getElementById('tempclick').addEventListener('click', () => {
-    // Fly to a random location
-    map.flyTo({
+let mapClick = document.querySelectorAll(".artistPageTourdate");
+mapClick.forEach(tourdate => {
+    tourdate.addEventListener('click', () => map.flyTo({
         center: [-73.99156, 40.74971],
         zoom: 16,
         pitch: 60,
         essential: true // this animation is considered essential with respect to prefers-reduced-motion
-    });
+    }));
 });
+
+// // document.querySelectorAll('[id^="location"]')
+//     document.querySelectorAll('[class="artistPageTourdate"]').addEventListener('click', () => {
+//     // document.getElementById('tempclick').addEventListener('click', () => {
+//     // Fly to a random location
+//     map.flyTo({
+//         center: [-73.99156, 40.74971],
+//         zoom: 16,
+//         pitch: 60,
+//         essential: true // this animation is considered essential with respect to prefers-reduced-motion
+//     });
+// });
     
 
 
