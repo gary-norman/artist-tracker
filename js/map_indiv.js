@@ -6,7 +6,7 @@ const map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/loreworld/clx6fy3dp01w001pnegho7ud8', // map style
     center: [-98.5795, 39.8283], // starting position [lng, lat]
-    zoom: 1 // starting zoom
+    zoom: 3 // starting zoom
 });
 
 map.on('style.load', () => {
@@ -56,11 +56,12 @@ async function loadGeoJSONForArtist() {
         return;
     }
 
+    const extras = [0,2,4,5,6,8,11,13,14,15,16,18,19,20,21,23,26,32,34,35,40,42,48]
+
     let geoJSONPath
     const fileNB = artistID - 1;
-    const filePlus = `/db/mapbox/${fileNB}.geojson`;
-    if(filePlus) {
-        geoJSONPath = filePlus
+    if (extras.includes(fileNB)) {
+        geoJSONPath = `/db/mapbox/${fileNB}.geojson`;
     } else {
         geoJSONPath = `/db/mapbox_std/${fileNB}.geojson`;
     }
@@ -98,7 +99,17 @@ async function loadGeoJSONForArtist() {
         console.error('There has been a problem with your fetch operation:', error);
     }
 }
-        
+
+// document.querySelectorAll('[id^="location"]')
+    document.getElementById('tempclick').addEventListener('click', () => {
+    // Fly to a random location
+    map.flyTo({
+        center: [-73.99156, 40.74971],
+        zoom: 16,
+        pitch: 60,
+        essential: true // this animation is considered essential with respect to prefers-reduced-motion
+    });
+});
     
 
 
