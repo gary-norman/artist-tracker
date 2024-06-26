@@ -1,3 +1,5 @@
+// Ensure to add your Mapbox access token
+mapboxgl.accessToken = 'pk.eyJ1IjoibG9yZXdvcmxkIiwiYSI6ImNsd3FseDNsbDAzZjMyanF2czh3Mmt4eTgifQ.-_bXsAv_SR1bpcmvOSpDuA';
 
 
 // Create the map instance

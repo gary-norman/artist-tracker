@@ -109,14 +109,16 @@ async function loadGeoJSONForArtist() {
         }
 
         // Determine GeoJSON file path based on artist ID
-        let geoJSONPath;
+       /* let geoJSONPath;
         const extras = [0, 2, 4, 5, 6, 8, 11, 13, 14, 15, 16, 18, 19, 20, 21, 23, 26, 32, 34, 35, 40, 42, 48];
         const fileNB = artistID - 1;
         if (extras.includes(fileNB)) {
             geoJSONPath = `/db/mapbox/${fileNB}.geojson`;
         } else {
             geoJSONPath = `/db/mapbox_std/${fileNB}.geojson`;
-        }
+        }*/
+        const fileNB = artistID - 1;
+        const geoJSONPath = `/db/mapbox_std/${fileNB}.geojson`;
 
         // Fetch GeoJSON data
         const response = await fetch(geoJSONPath);
