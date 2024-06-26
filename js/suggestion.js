@@ -60,11 +60,18 @@ document.addEventListener('DOMContentLoaded', function () {
             const categoryContainer = categories[category];
             categoryContainer.className = 'col col1';
 
+            const outerContainer = document.createElement('div');
+            outerContainer.id = 'search-results'
+            outerContainer.className = 'container';
+
+            const scrollContainer = document.createElement('div');
+
+
+
             const resultContainer = document.createElement('div');
-            resultContainer.className = 'result-container';
-            resultContainer.style.display = 'grid';
-            resultContainer.style.gridTemplateColumns = 'repeat(3, minmax(0, 1fr))';
-            resultContainer.style.gap = '1.2rem';
+            categoryContainer.appendChild(resultContainer);
+            resultContainer.className = 'container scroll';
+
 
             categoryContainer.appendChild(resultContainer);
             categoryContainer.resultContainer = resultContainer;
