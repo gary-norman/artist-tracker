@@ -752,6 +752,7 @@ input {
             align-items: center;
             text-align: center;
             width: clamp(10rem, 14rem, 16rem);
+            height: 100%;
         }
         &.go-down-home:has(.concert) {
             text-align: left;
