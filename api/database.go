@@ -37,7 +37,6 @@ type Artist struct {
 	FirstAlbum   string            `json:"firstAlbum"`
 	TadbAlbum
 	TheAudioDbArtist
-	TourDateID     string              `json:"ID"`
 	Locations      string              `json:"locations"`
 	ConcertDates   string              `json:"concertDates"`
 	Relations      string              `json:"relations"`
@@ -203,10 +202,60 @@ func FetchDatesLocations(artist *Artist, wg *sync.WaitGroup) {
 		log.Printf("Unable to fetch relations data for artist %s due to %s", artist.Name, err)
 		return
 	}
+
 	artist.DatesLocations = make(map[string][]string)
 	for location, dates := range dateloc.DatesLocations {
+
 		formattedLocation := formatLocation(location)
 		artist.DatesLocations[formattedLocation] = dates
+
+		// Splitting formatted location into city and country
+		locationParts := strings.SplitN(formattedLocation, ",", 2)
+
+		var city, country string
+		if len(locationParts) > 0 {
+			city = strings.TrimSpace(locationParts[0])
+		}
+		if len(locationParts) > 1 {
+			country = strings.TrimSpace(locationParts[1])
+		}
+
+		if len(dates) > 0 {
+			for _, date := range dates {
+				concertData := ConcertData{
+					ConcertId: date,
+					Location: Location{
+						Address: Address{
+							AddressLocality: city,
+							AddressCountry:  country,
+						},
+						//Coordinates: []float64{0, 0}, // Replace with actual coordinates if available
+					},
+					StartDate:   date,
+					EndDate:     date,
+					Description: "Concert at " + formattedLocation,
+					Image:       "", // Replace with actual image URL if available
+				}
+				artist.TourDetails.Data = append(artist.TourDetails.Data, concertData)
+			}
+		} else {
+			// If no dates are available, add a placeholder
+			concertData := ConcertData{
+				ConcertId: "0",
+				Location: Location{
+					Address: Address{
+						AddressLocality: city,
+						AddressCountry:  country,
+					},
+					//Coordinates: []float64{0, 0}, // Replace with actual coordinates if available
+				},
+				StartDate:   "N/A",
+				EndDate:     "N/A",
+				Description: "No concerts available",
+				Image:       "", // Replace with actual image URL if available
+			}
+			artist.TourDetails.Data = append(artist.TourDetails.Data, concertData)
+		}
 	}
 }
 

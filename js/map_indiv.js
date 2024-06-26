@@ -17,7 +17,7 @@ map.on('style.load', () => {
         "high-color": "#07173e",
         "space-color": "#000000",
         "star-intensity": 0.35
-    }); //
+    });
 });
 
 function parseDate(dateStr) {
@@ -40,14 +40,13 @@ function expandDates(dateString) {
     return tags;
 }
 
-
-async function loadGeoJSONForArtist() {
+/* old one
+/* async function loadGeoJSONForArtist() {
     const artistName = getArtistNameFromURL();
     if (!artistName) {
         console.error('No artist name found in URL.');
         return;
     }
-
     
     // Fetch artist ID based on artist name
     const artistID = await fetchArtistID(artistName);
@@ -55,9 +54,7 @@ async function loadGeoJSONForArtist() {
         console.error('No artist ID found for artist name:', artistName);
         return;
     }
-
     const extras = [0,2,4,5,6,8,11,13,14,15,16,18,19,20,21,23,26,32,34,35,40,42,48]
-
     let geoJSONPath
     const fileNB = artistID - 1;
     if (extras.includes(fileNB)) {
@@ -65,22 +62,18 @@ async function loadGeoJSONForArtist() {
     } else {
         geoJSONPath = `/db/mapbox_std/${fileNB}.geojson`;
     }
-
     try {
         const response = await fetch(geoJSONPath);
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
         }
-
         const geojson = await response.json();
         console.log('GeoJSON Data:', geojson);
-
         // add markers to map
         for (const feature of geojson.features) {
             // create an HTML element for each feature
             const el = document.createElement('div');
             el.className = 'marker';
-
             // make a marker for each feature and add it to the map
             new mapboxgl.Marker(el)
                 .setLngLat(feature.geometry.coordinates)
@@ -94,13 +87,119 @@ async function loadGeoJSONForArtist() {
                 )
                 .addTo(map);
         }
+    } catch (error) {
+        console.error('There has been a problem with your fetch operation:', error);
+    }
+} */
+
+// Function to load GeoJSON data for the artist based on artist name in URL
+async function loadGeoJSONForArtist() {
+    const artistName = getArtistNameFromURL();
+    if (!artistName) {
+        console.error('No artist name found in URL.');
+        return;
+    }
+
+    try {
+        // Fetch artist ID based on artist name
+        const artistID = await fetchArtistID(artistName);
+        if (!artistID) {
+            console.error('No artist ID found for artist name:', artistName);
+            return;
+        }
+
+        // Determine GeoJSON file path based on artist ID
+        let geoJSONPath;
+        const extras = [0, 2, 4, 5, 6, 8, 11, 13, 14, 15, 16, 18, 19, 20, 21, 23, 26, 32, 34, 35, 40, 42, 48];
+        const fileNB = artistID - 1;
+        if (extras.includes(fileNB)) {
+            geoJSONPath = `/db/mapbox/${fileNB}.geojson`;
+        } else {
+            geoJSONPath = `/db/mapbox_std/${fileNB}.geojson`;
+        }
+
+        // Fetch GeoJSON data
+        const response = await fetch(geoJSONPath);
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        const geojson = await response.json();
+        
+        console.log('GeoJSON Data:', geojson);
+
+        // Add markers to map for each feature in GeoJSON
+        geojson.features.forEach((feature, index) => {
+            const el = document.createElement('div');
+            el.className = 'marker';
+
+            // Create Mapbox Marker for each feature
+            new mapboxgl.Marker(el)
+                .setLngLat(feature.geometry.coordinates)
+                .setPopup(
+                    new mapboxgl.Popup({ offset: 20 })
+                        .setHTML(
+                            `<p class="p--bold">${feature.properties.title}</p>
+                             <p class="small justify">${expandDates(feature.properties.date)}</p>
+                             <p class="small">${feature.properties.eventAddress}</p>`
+                        )
+                )
+                .addTo(map);
+
+            // Store the index as a data attribute on the marker element for click events
+            el.dataset.index = index;
+        });
+
+        // Select all tour date elements
+        const mapClick = document.querySelectorAll(".artistPageTourdate");
+
+        // Add click event listener to each tour date element
+        mapClick.forEach(tourdate => {
+            tourdate.addEventListener('click', () => {
+                // Get the concert ID (date string) from the clicked tourdate element
+                const concertId = tourdate.dataset.index;
+                
+                // debug print
+                console.log("Concert ID:", concertId);
+
+                // Ensure geojson is defined and features exist
+                if (geojson && geojson.features) {
+                    // Find the concert data from `geojson` based on concertId
+                    const concert = geojson.features.find(feature => feature.properties.date === concertId);
+
+                    if (concert) {
+                        
+                        // debug print
+                        console.log("got concert");
+                        console.log("Feature Date:", concert.properties.date);
+                        
+                        const coordinates = concert.geometry.coordinates;
+                        
+                        // debug print
+                        console.log("Coordinates:", coordinates);
+
+                        // Fly to the coordinates of the feature with the fetched concert ID
+                        map.flyTo({
+                            center: coordinates,
+                            zoom: 16,
+                            pitch: 60,
+                            essential: true // animation considered essential for accessibility
+                        });
+                    } else {
+                        console.log(`Concert data not found for concert ID: ${concertId}`);
+                    }
+                } else {
+                    console.log("GeoJSON data not loaded or features are missing.");
+                }
+            });
+        });
 
     } catch (error) {
         console.error('There has been a problem with your fetch operation:', error);
     }
 }
 
-let mapClick = document.querySelectorAll(".artistPageTourdate");
+/* gary old one
+/* let mapClick = document.querySelectorAll(".artistPageTourdate");
 mapClick.forEach(tourdate => {
     tourdate.addEventListener('click', () => map.flyTo({
         center: [-73.99156, 40.74971],
@@ -108,7 +207,7 @@ mapClick.forEach(tourdate => {
         pitch: 60,
         essential: true // this animation is considered essential with respect to prefers-reduced-motion
     }));
-});
+}); */
 
 // // document.querySelectorAll('[id^="location"]')
 //     document.querySelectorAll('[class="artistPageTourdate"]').addEventListener('click', () => {
