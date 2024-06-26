@@ -202,7 +202,6 @@ func FetchDatesLocations(artist *Artist, wg *sync.WaitGroup) {
 		log.Printf("Unable to fetch relations data for artist %s due to %s", artist.Name, err)
 		return
 	}
-	concertID := 0
 
 	artist.DatesLocations = make(map[string][]string)
 	for location, dates := range dateloc.DatesLocations {
@@ -224,7 +223,7 @@ func FetchDatesLocations(artist *Artist, wg *sync.WaitGroup) {
 		if len(dates) > 0 {
 			for _, date := range dates {
 				concertData := ConcertData{
-					ConcertId: concertID,
+					ConcertId: date,
 					Location: Location{
 						Address: Address{
 							AddressLocality: city,
@@ -238,12 +237,11 @@ func FetchDatesLocations(artist *Artist, wg *sync.WaitGroup) {
 					Image:       "", // Replace with actual image URL if available
 				}
 				artist.TourDetails.Data = append(artist.TourDetails.Data, concertData)
-				concertID++
 			}
 		} else {
 			// If no dates are available, add a placeholder
 			concertData := ConcertData{
-				ConcertId: 0,
+				ConcertId: "0",
 				Location: Location{
 					Address: Address{
 						AddressLocality: city,

@@ -65,7 +65,7 @@ type Location struct {
 
 // ConcertData represents details of a single concert.
 type ConcertData struct {
-	ConcertId   int      `json:"concert_id"`
+	ConcertId   string   `json:"concert_id"`
 	Description string   `json:"description"`
 	EndDate     string   `json:"endDate"`
 	Image       string   `json:"image"`

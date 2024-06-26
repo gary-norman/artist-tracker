@@ -125,11 +125,6 @@ async function loadGeoJSONForArtist() {
         }
         const geojson = await response.json();
         
-        // Add an index property to each feature, because geojson file dont have that element
-        geojson.features.forEach((feature, index) => {
-        feature.properties.index = index;
-        });
-
         console.log('GeoJSON Data:', geojson);
 
         // Add markers to map for each feature in GeoJSON
@@ -160,23 +155,26 @@ async function loadGeoJSONForArtist() {
         // Add click event listener to each tour date element
         mapClick.forEach(tourdate => {
             tourdate.addEventListener('click', () => {
-                // Get the concert ID from the clicked tourdate element
-                const concertId = parseInt(tourdate.dataset.index);
+                // Get the concert ID (date string) from the clicked tourdate element
+                const concertId = tourdate.dataset.index;
                 
+                // debug print
                 console.log("Concert ID:", concertId);
 
                 // Ensure geojson is defined and features exist
                 if (geojson && geojson.features) {
                     // Find the concert data from `geojson` based on concertId
-                    const concert = geojson.features.find(feature => parseInt(feature.properties.index) === concertId);
+                    const concert = geojson.features.find(feature => feature.properties.date === concertId);
 
                     if (concert) {
-                        console.log("Got concert:", concert);
-
-                        // Extract coordinates from the concert data
+                        
+                        // debug print
+                        console.log("got concert");
+                        console.log("Feature Date:", concert.properties.date);
+                        
                         const coordinates = concert.geometry.coordinates;
-
-                        // Log the coordinates to verify they are correct
+                        
+                        // debug print
                         console.log("Coordinates:", coordinates);
 
                         // Fly to the coordinates of the feature with the fetched concert ID

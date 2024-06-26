@@ -41,8 +41,8 @@ func PrintArtistDetails(artist *Artist) {
 
 	// TourDetails (Concerts)
 	fmt.Println(Bold + Cyan + "------ Concert Details ------" + Reset)
-	for int, concert := range artist.TourDetails.Data {
-		fmt.Printf(Bold+Cyan+"Concert ID: "+Reset+Blue+"%v\n"+Reset, int)
+	for _, concert := range artist.TourDetails.Data {
+		fmt.Printf(Bold+Cyan+"Concert ID: "+Reset+Blue+"%v\n"+Reset, concert.ConcertId)
 		//fmt.Printf(Bold+Cyan+"Description: "+Reset+Blue+"%v\n"+Reset, concert.Description)
 		fmt.Printf(Bold+Cyan+"Start Date: "+Reset+Blue+"%v\n"+Reset, concert.StartDate)
 		//fmt.Printf(Bold+Cyan+"End Date: "+Reset+Blue+"%v\n"+Reset, concert.EndDate)
