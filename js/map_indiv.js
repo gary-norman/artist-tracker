@@ -1,10 +1,19 @@
 // Ensure to add your Mapbox access token
 mapboxgl.accessToken = 'pk.eyJ1IjoibG9yZXdvcmxkIiwiYSI6ImNsd3FseDNsbDAzZjMyanF2czh3Mmt4eTgifQ.-_bXsAv_SR1bpcmvOSpDuA';
-
+let mapProject = 'globe'
+// toggle map projection type
+document.getElementById('mapProject').addEventListener('click', () => {
+    if (mapProject === 'globe' ) {
+        mapProject = 'mercator'
+    } else {
+        mapProject = 'globe'
+    }
+})
 // Create the map instance
 const map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/loreworld/clx6fy3dp01w001pnegho7ud8', // map style
+    projection: mapProject,
     center: [-98.5795, 39.8283], // starting position [lng, lat]
     zoom: 1 // starting zoom
 });
@@ -40,57 +49,6 @@ function expandDates(dateString) {
     return tags;
 }
 
-/* old one
-/* async function loadGeoJSONForArtist() {
-    const artistName = getArtistNameFromURL();
-    if (!artistName) {
-        console.error('No artist name found in URL.');
-        return;
-    }
-    
-    // Fetch artist ID based on artist name
-    const artistID = await fetchArtistID(artistName);
-    if (!artistID) {
-        console.error('No artist ID found for artist name:', artistName);
-        return;
-    }
-    const extras = [0,2,4,5,6,8,11,13,14,15,16,18,19,20,21,23,26,32,34,35,40,42,48]
-    let geoJSONPath
-    const fileNB = artistID - 1;
-    if (extras.includes(fileNB)) {
-        geoJSONPath = `/db/mapbox/${fileNB}.geojson`;
-    } else {
-        geoJSONPath = `/db/mapbox_std/${fileNB}.geojson`;
-    }
-    try {
-        const response = await fetch(geoJSONPath);
-        if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-        }
-        const geojson = await response.json();
-        console.log('GeoJSON Data:', geojson);
-        // add markers to map
-        for (const feature of geojson.features) {
-            // create an HTML element for each feature
-            const el = document.createElement('div');
-            el.className = 'marker';
-            // make a marker for each feature and add it to the map
-            new mapboxgl.Marker(el)
-                .setLngLat(feature.geometry.coordinates)
-                .setPopup(
-                    new mapboxgl.Popup({ offset: 20 }) // add popups
-                        .setHTML(
-                            `<p class="p--bold">${feature.properties.title}</p>
-                             <p class="small justify">${expandDates(feature.properties.date)}</p>
-                             <p class="small">${feature.properties.eventAddress}</p>`
-                        )
-                )
-                .addTo(map);
-        }
-    } catch (error) {
-        console.error('There has been a problem with your fetch operation:', error);
-    }
-} */
 
 // Function to load GeoJSON data for the artist based on artist name in URL
 async function loadGeoJSONForArtist() {
@@ -117,6 +75,7 @@ async function loadGeoJSONForArtist() {
         } else {
             geoJSONPath = `/db/mapbox_std/${fileNB}.geojson`;
         }*/
+
         const fileNB = artistID - 1;
         const geoJSONPath = `/db/mapbox_std/${fileNB}.geojson`;
 
@@ -151,9 +110,18 @@ async function loadGeoJSONForArtist() {
             el.dataset.index = index;
         });
 
+        // reset map position
+        document.getElementById('mapboxReset').addEventListener('click', () => {
+            map.flyTo({
+                center: [-98.5795, 39.8283],
+                zoom: 1,
+                pitch: 0,
+                essential: true // animation considered essential for accessibility
+            });
+        })
+
         // Select all tour date elements
         const mapClick = document.querySelectorAll(".artistPageTourdate");
-
         // Add click event listener to each tour date element
         mapClick.forEach(tourdate => {
             tourdate.addEventListener('click', () => {
