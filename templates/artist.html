@@ -115,24 +115,26 @@
                 <div class="col col1 scroll">
 
                     {{ $artist := . }}
-                    {{ range $location, $dates := $artist.DatesLocations }}
-                    {{ $randomDates := randomiseDates $dates }}
-                    {{ range $date := $randomDates }}
-                    {{ $dateParts := formatDate $date }}
-                    <a class="content artistPageTourdate">
+                    {{ range $index, $concert := $artist.TourDetails.Data }}
+                        {{ $location := printf "%s, %s" $concert.Location.Address.AddressLocality $concert.Location.Address.AddressCountry }}
+                        {{ $dateParts := formatDate $concert.StartDate }}
+                      <!--     Temporary debug print 
+                        <div>Concert ID: {{ $concert.ConcertId }}</div> -->
+                        <a class="content artistPageTourdate" data-index="{{ $concert.ConcertId }}">
                             <div class="pic date">
                                 <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
                                 <div>{{ $dateParts.Year }}</div>
                             </div>
                             <div class="content-text go-down-home">
-                                <div class="p--bold cut concert">{{ $artist.Name }}</div>
+                                <div class="p--bold cut concert">{{ $concert.Location.Address.AddressLocality }}</div>
                                 <div class="concert">
-                                    <div class="small light cut">{{ $location }}</div>
+                                    <div class="small light cut">{{ $concert.Location.Address.AddressCountry }}</div>
                                 </div>
                             </div>
-                    </a>
-                    {{ end }}
-                    {{ end }}
+                        </a>
+                    {{ end }} 
+
+                   
 
                 </div>
                 <div id="map" style="border-radius:  var(--radius-md); width: 60%; min-height: 500px; "></div>
