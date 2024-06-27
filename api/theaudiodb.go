@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"strconv"
 	"sync"
 )
 
@@ -195,6 +196,27 @@ func GetAudioDbAlbumInfo(artist string, artistID string, wg *sync.WaitGroup) (Ta
 		MusicBrainzAlbumID: newalbum.MusicBrainzID,
 	}
 	return theAudioDbAlbum, nil
+}
+
+func FindFirstAlbum(artist *Artist) {
+	fmt.Printf("Find first album: %v\n", artist)
+	year := 2050
+	var lowIndex int
+	fmt.Printf("Finding first album for: %v\n", artist)
+	for index, album := range artist.TadbAlbums {
+		fmt.Printf("album: %v\n", album)
+		// if album.year < year {lowIndex = index, year = album.year
+		albumYear, err := strconv.Atoi(album.YearReleased)
+		if err != nil {
+			_ = fmt.Errorf("could not parse album year as int")
+		}
+		fmt.Printf("albumYear: %v, year: %v\n", albumYear, year)
+		if albumYear < year {
+			lowIndex = index
+			year = albumYear
+		}
+		artist.FirstAlbumStruct = artist.TadbAlbums[lowIndex]
+	}
 }
 
 func ProcessAudioDbAlbum(artist *Artist, artistName string, artistID string, err error, wg *sync.WaitGroup) {
