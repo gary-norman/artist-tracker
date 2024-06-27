@@ -49,37 +49,14 @@ function expandDates(dateString) {
     return tags;
 }
 
-<<<<<<< HEAD
-/* old one
-/* async function loadGeoJSONForArtist() {
-=======
 
 // Function to load GeoJSON data for the artist based on artist name in URL
 async function loadGeoJSONForArtist() {
->>>>>>> master
     const artistName = getArtistNameFromURL();
     if (!artistName) {
         console.error('No artist name found in URL.');
         return;
     }
-<<<<<<< HEAD
-    
-    // Fetch artist ID based on artist name
-    const artistID = await fetchArtistID(artistName);
-    if (!artistID) {
-        console.error('No artist ID found for artist name:', artistName);
-        return;
-    }
-    const extras = [0,2,4,5,6,8,11,13,14,15,16,18,19,20,21,23,26,32,34,35,40,42,48]
-    let geoJSONPath
-    const fileNB = artistID - 1;
-    if (extras.includes(fileNB)) {
-        geoJSONPath = `/db/mapbox/${fileNB}.geojson`;
-    } else {
-        geoJSONPath = `/db/mapbox_std/${fileNB}.geojson`;
-    }
-    try {
-=======
 
     try {
         // Fetch artist ID based on artist name
@@ -103,75 +80,6 @@ async function loadGeoJSONForArtist() {
         const geoJSONPath = `/db/mapbox_std/${fileNB}.geojson`;
 
         // Fetch GeoJSON data
->>>>>>> master
-        const response = await fetch(geoJSONPath);
-        if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-        }
-        const geojson = await response.json();
-        
-        console.log('GeoJSON Data:', geojson);
-<<<<<<< HEAD
-        // add markers to map
-        for (const feature of geojson.features) {
-            // create an HTML element for each feature
-            const el = document.createElement('div');
-            el.className = 'marker';
-            // make a marker for each feature and add it to the map
-=======
-
-        // Add markers to map for each feature in GeoJSON
-        geojson.features.forEach((feature, index) => {
-            const el = document.createElement('div');
-            el.className = 'marker';
-
-            // Create Mapbox Marker for each feature
->>>>>>> master
-            new mapboxgl.Marker(el)
-                .setLngLat(feature.geometry.coordinates)
-                .setPopup(
-                    new mapboxgl.Popup({ offset: 20 })
-                        .setHTML(
-                            `<p class="p--bold">${feature.properties.title}</p>
-                             <p class="small justify">${expandDates(feature.properties.date)}</p>
-                             <p class="small">${feature.properties.eventAddress}</p>`
-                        )
-                )
-                .addTo(map);
-<<<<<<< HEAD
-        }
-    } catch (error) {
-        console.error('There has been a problem with your fetch operation:', error);
-    }
-} */
-
-// Function to load GeoJSON data for the artist based on artist name in URL
-async function loadGeoJSONForArtist() {
-    const artistName = getArtistNameFromURL();
-    if (!artistName) {
-        console.error('No artist name found in URL.');
-        return;
-    }
-
-    try {
-        // Fetch artist ID based on artist name
-        const artistID = await fetchArtistID(artistName);
-        if (!artistID) {
-            console.error('No artist ID found for artist name:', artistName);
-            return;
-        }
-
-        // Determine GeoJSON file path based on artist ID
-        let geoJSONPath;
-        const extras = [0, 2, 4, 5, 6, 8, 11, 13, 14, 15, 16, 18, 19, 20, 21, 23, 26, 32, 34, 35, 40, 42, 48];
-        const fileNB = artistID - 1;
-        if (extras.includes(fileNB)) {
-            geoJSONPath = `/db/mapbox/${fileNB}.geojson`;
-        } else {
-            geoJSONPath = `/db/mapbox_std/${fileNB}.geojson`;
-        }
-
-        // Fetch GeoJSON data
         const response = await fetch(geoJSONPath);
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
@@ -197,18 +105,11 @@ async function loadGeoJSONForArtist() {
                         )
                 )
                 .addTo(map);
-=======
->>>>>>> master
 
             // Store the index as a data attribute on the marker element for click events
             el.dataset.index = index;
         });
 
-<<<<<<< HEAD
-        // Select all tour date elements
-        const mapClick = document.querySelectorAll(".artistPageTourdate");
-
-=======
         // reset map position
         document.getElementById('mapboxReset').addEventListener('click', () => {
             map.flyTo({
@@ -221,7 +122,6 @@ async function loadGeoJSONForArtist() {
 
         // Select all tour date elements
         const mapClick = document.querySelectorAll(".artistPageTourdate");
->>>>>>> master
         // Add click event listener to each tour date element
         mapClick.forEach(tourdate => {
             tourdate.addEventListener('click', () => {
