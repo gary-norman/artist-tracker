@@ -1,3 +1,5 @@
+// Ensure to add your Mapbox access token
+mapboxgl.accessToken = 'pk.eyJ1IjoibG9yZXdvcmxkIiwiYSI6ImNsd3FseDNsbDAzZjMyanF2czh3Mmt4eTgifQ.-_bXsAv_SR1bpcmvOSpDuA';
 
 // Ensure to add your Mapbox access token
 mapboxgl.accessToken = 'pk.eyJ1IjoibG9yZXdvcmxkIiwiYSI6ImNsd3FseDNsbDAzZjMyanF2czh3Mmt4eTgifQ.-_bXsAv_SR1bpcmvOSpDuA';
@@ -7,7 +9,7 @@ const map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/loreworld/clx6fy3dp01w001pnegho7ud8', // map style
     center: [-98.5795, 39.8283], // starting position [lng, lat]
-    zoom: 3 // starting zoom
+    zoom: 1 // starting zoom
 });
 
 map.on('style.load', () => {
@@ -20,6 +22,49 @@ map.on('style.load', () => {
         "star-intensity": 0.35
     }); //
 });
+
+// At low zooms, complete a revolution every two minutes.
+const secondsPerRevolution = 90;
+// Above zoom level 5, do not rotate.
+const maxSpinZoom = 5;
+// Rotate at intermediate speeds between zoom levels 3 and 5.
+const slowSpinZoom = 3;
+
+let userInteracting = false;
+const spinEnabled = true;
+
+function spinGlobe() {
+    const zoom = map.getZoom();
+    if (spinEnabled && !userInteracting && zoom < maxSpinZoom) {
+        let distancePerSecond = 360 / secondsPerRevolution;
+        if (zoom > slowSpinZoom) {
+            // Slow spinning at higher zooms
+            const zoomDif =
+                (maxSpinZoom - zoom) / (maxSpinZoom - slowSpinZoom);
+            distancePerSecond *= zoomDif;
+        }
+        const center = map.getCenter();
+        center.lng -= distancePerSecond;
+        // Smoothly animate the map over one second.
+        // When this animation is complete, it calls a 'moveend' event.
+        map.easeTo({ center, duration: 1000, easing: (n) => n });
+    }
+}
+
+// Pause spinning on interaction
+map.on('mousedown', () => {
+    userInteracting = true;
+});
+map.on('dragstart', () => {
+    userInteracting = true;
+});
+
+// When animation is complete, start spinning if there is no ongoing interaction
+map.on('moveend', () => {
+    spinGlobe();
+});
+
+spinGlobe();
 
 function parseDate(dateStr) {
     const [day, month, year] = dateStr.split('-');

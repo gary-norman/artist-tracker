@@ -126,9 +126,14 @@ document.addEventListener('DOMContentLoaded', () => {
     searchButton.addEventListener('focus', debounce(() => {
             showSections(searchElements);
             hideSections(homeElements);
-            searchButton.value = '';
             searchButton.placeholder = 'Start typing...';
-            searchResults.innerHTML = ''; // Clear suggestions if input is empty
+
+            // Clear suggestions if input is empty
+            if (searchButton.value === '') {
+                searchResults.innerHTML = '';
+            } else {
+                // searchResults.innerHTML = searchButton.value;   //make suggestions populate as for already entered text
+            }
             changeLogo(logo, subLogo, "small");
             updateSearchCancelIcon("cancel");
     }, 300));

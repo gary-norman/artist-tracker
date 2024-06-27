@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results');
+    const populateResults = document.getElementById('populate-results');
 
-    if (searchInput && searchResults) {
+    if (searchInput && populateResults) {
         let latestRequestTimestamp = 0;
 
         async function fetchSuggestions(query) {
@@ -40,13 +41,13 @@ document.addEventListener('DOMContentLoaded', function () {
             if (query) {
                 debouncedFetchSuggestions(query);
             } else {
-                searchResults.innerHTML = ''; // Clear suggestions if input is empty
+                populateResults.innerHTML = ''; // Clear suggestions if input is empty
             }
         });
     }
 
     function showSuggestions(suggestionsData) {
-        searchResults.innerHTML = '';
+        populateResults.innerHTML = '';
         console.log("received suggestionsData:=", suggestionsData);
 
         const categories = {
@@ -60,21 +61,39 @@ document.addEventListener('DOMContentLoaded', function () {
             const categoryContainer = categories[category];
             categoryContainer.className = 'col col1';
 
-            const resultContainer = document.createElement('div');
-            resultContainer.className = 'result-container';
-            resultContainer.style.display = 'grid';
-            resultContainer.style.gridTemplateColumns = 'repeat(3, minmax(0, 1fr))';
-            resultContainer.style.gap = '1.2rem';
+            const outerContainer = document.createElement('div');
+            outerContainer.id = 'search-results'
+            outerContainer.className = 'container';
 
-            categoryContainer.appendChild(resultContainer);
-            categoryContainer.resultContainer = resultContainer;
+            const scrollContainer = document.createElement('div');
+            scrollContainer.className = 'container scroll';
+            scrollContainer.id = 'populate-results'
+            outerContainer.appendChild(scrollContainer);
+
+
+
+            const resultContainerTwo = document.createElement('div');
+            resultContainerTwo.className = 'col col2';
+
+            const resultContainerThree = document.createElement('div');
+            resultContainerThree.className = 'col col3';
+
+            if (category === 'Artist' || category === 'Member' || category === 'Concert') {
+
+                categoryContainer.appendChild(resultContainerThree);
+                categoryContainer.resultContainer = resultContainerThree;
+            } else {
+                categoryContainer.appendChild(resultContainerTwo);
+                categoryContainer.resultContainer = resultContainerTwo;
+            }
             categoryContainer.resultsCount = 0;
+
         }
 
         if (!suggestionsData || suggestionsData.length === 0) {
             const noResultsMessage = document.createElement('div');
             noResultsMessage.textContent = 'No results found.';
-            searchResults.appendChild(noResultsMessage);
+            populateResults.appendChild(noResultsMessage);
             return;
         } else {
             const resultsHeader = document.querySelector('.filters .small.light.center');
@@ -190,11 +209,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         for (const category in categories) {
             const categoryContainer = categories[category];
+
             if (categoryContainer.resultsCount > 0) {
                 const header = document.createElement('h2');
                 header.textContent = category + 's';
                 categoryContainer.insertBefore(header, categoryContainer.firstChild);
-                searchResults.appendChild(categoryContainer);
+                populateResults.appendChild(categoryContainer);
+                searchResults.appendChild(populateResults)
             }
         }
     }
