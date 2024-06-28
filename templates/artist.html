@@ -100,13 +100,16 @@
 
                 <h2>Albums</h2>
                 <div class="row scroll">
+                    {{ $artist := . }}
+                    {{ range .AllAlbums.Album }}
                     <div class="content">
-                        <img class="pic album" src="{{.FirstAlbumStruct.AlbumThumb}}" alt="Image of {{.Name}}'s first album ({{.FirstAlbumStruct.Album}})"/>
+                        <img class="pic album" src="{{.AlbumThumb}}" alt="Image of {{$artist.Name}}'s first album ({{.Album}})"/>
                         <div class="content-text go-down-home">
-                            <div class="p--bold cut" >{{.FirstAlbumStruct.Album}}</div>
-                            <div class="small light cut">{{.Name}}</div>
+                            <div class="p--bold cut" >{{.Album}}</div>
+                            <div class="small light cut">{{$artist.Name}}</div>
                         </div>
                     </div>
+                    {{ end }}
                 </div>
         </section>
         <section id="home-concerts" class="container col col1">
