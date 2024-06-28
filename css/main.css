@@ -713,7 +713,7 @@ input {
 
     & .album {
         border-radius: var(--radius-sm);
-        background: darkslateblue;
+        background: rgba(1 1 1 / 0);
     }
 
     & .user {
