@@ -83,9 +83,9 @@
                         <div class="col col2">
                             <div class="content">
                                 <div class="content">
-                                    <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
+                                    <img class="pic album" src="{{.FirstAlbumStruct.AlbumThumb}}" alt="Image of {{.Name}}'s first album ({{.FirstAlbumStruct.Album}})"/>
                                     <div class="content-text go-down">
-                                        <div class="p--bold cut" >{{.TadbAlbum.Album}}</div>
+                                        <div class="p--bold cut" >{{.FirstAlbumStruct.Album}}</div>
                                         <p class="create">created on {{ .FirstAlbum }}</p>
                                     </div>
                                 </div>
@@ -101,9 +101,9 @@
                 <h2>Albums</h2>
                 <div class="row scroll">
                     <div class="content">
-                        <img class="pic album" src="{{.TadbAlbum.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
+                        <img class="pic album" src="{{.FirstAlbumStruct.AlbumThumb}}" alt="Image of {{.Name}}'s first album ({{.FirstAlbumStruct.Album}})"/>
                         <div class="content-text go-down-home">
-                            <div class="p--bold cut" >{{.TadbAlbum.Album}}</div>
+                            <div class="p--bold cut" >{{.FirstAlbumStruct.Album}}</div>
                             <div class="small light cut">{{.Name}}</div>
                         </div>
                     </div>
