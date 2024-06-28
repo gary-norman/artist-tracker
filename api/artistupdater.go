@@ -59,7 +59,7 @@ func UpdateArtistInfo(artists []Artist) {
 	for i := range artists {
 		spinnerInfo.UpdateText("Fetching TADB album info for " + artists[i].Name)
 		go ProcessAudioDbAlbum(&artists[i], artists[i].Name, tadbArtist[i].Id, err, &wg)
-		//FindFirstAlbum(&artists[i])
+
 		//if artists[i].IdAlbum != " " {
 		//	spinnerInfo.Success("Fetched TADB album for " + artists[i].Name + " in " + strconv.FormatInt(timetaken, 10) + "µs")
 		//} else {

@@ -18,9 +18,9 @@ func (a Artist) String() string {
 		"MusicBrainzAlbumID: %s\nTheAudioDbArtist:\n  IdArtist: %s\n  Label: %s\n  Genre: %s\n  Website: %s\n"+
 		"  BiographyEn: %s\n  ArtistThumb: %s\n  ArtistLogo: %s\n  ArtistCutout: %s\n  ArtistClearart: %s\n"+
 		"  ArtistWidethumb: %s\n  ArtistFanart: %s\n  ArtistFanart2: %s\n  ArtistFanart3: %s\n  ArtistFanart4: %s\n"+
-		"  ArtistBanner: %s\n  MusicBrainzID: %s\n",
-		a.Id, a.Image, a.Name, a.MemberList, a.CreationDate, a.FirstAlbum, a.IdAlbum, a.Album, a.YearReleased, a.AlbumThumb,
-		a.DescriptionEN, a.MusicBrainzAlbumID, a.IdArtist, a.Label, a.Genre,
+		"  ArtistBanner: %s\n  MusicBrainzAlbumID: %s\n",
+		a.Id, a.Image, a.Name, a.MemberList, a.CreationDate, a.FirstAlbum, a.FirstAlbumStruct.IdAlbum, a.FirstAlbumStruct.Album, a.FirstAlbumStruct.YearReleased, a.FirstAlbumStruct.AlbumThumb,
+		a.FirstAlbumStruct.DescriptionEN, a.FirstAlbumStruct.MusicBrainzAlbumID, a.IdArtist, a.Label, a.Genre,
 		a.Website, a.BiographyEn, a.ArtistThumb, a.ArtistLogo, a.ArtistCutout, a.ArtistClearart, a.ArtistWidethumb,
 		a.ArtistFanart, a.ArtistFanart2, a.ArtistFanart3, a.ArtistFanart4, a.ArtistBanner, a.MusicBrainzID)
 
@@ -137,16 +137,16 @@ func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tp
 		}
 
 		// Check TadbAlbum name
-		if artist.TadbAlbum.Album != "" && strings.Contains(strings.ToLower(artist.TadbAlbum.Album), searchQuery) {
-			suggestions = append(suggestions, Suggestion{"Album", artist.TadbAlbum.Album, &artist})
+		if artist.FirstAlbumStruct.Album != "" && strings.Contains(strings.ToLower(artist.FirstAlbumStruct.Album), searchQuery) {
+			suggestions = append(suggestions, Suggestion{"Album", artist.FirstAlbumStruct.Album, &artist})
 			// debug print
 			/* 	fmt.Println("Filtered category -- album")
 			fmt.Printf("Match item -- %v \n", artist.TadbAlbum.Album) */
 		}
 
 		// Check TadbAlbum year released (exact match)
-		if artist.TadbAlbum.YearReleased != "" && strings.EqualFold(artist.TadbAlbum.YearReleased, searchQuery) {
-			suggestions = append(suggestions, Suggestion{"Album Year Released", artist.TadbAlbum.YearReleased, &artist})
+		if artist.FirstAlbumStruct.YearReleased != "" && strings.EqualFold(artist.FirstAlbumStruct.YearReleased, searchQuery) {
+			suggestions = append(suggestions, Suggestion{"Album Year Released", artist.FirstAlbumStruct.YearReleased, &artist})
 			// debug print
 			/* 	fmt.Println("Filtered category -- album year released")
 			fmt.Printf("Match item -- %v \n", artist.TadbAlbum.YearReleased) */
