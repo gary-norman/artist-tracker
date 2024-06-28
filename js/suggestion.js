@@ -117,23 +117,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 const dateDiv = document.createElement('div');
                 dateDiv.className = 'pic date';
 
-                const monthYearDiv = document.createElement('div');
-                monthYearDiv.className = 'month-year';
+                const dayMonthDiv = document.createElement('div');
 
-                const monthDiv = document.createElement('div');
-                monthDiv.textContent = suggestion.matchitem.dates.Month;
+
+                dayMonthDiv.textContent = suggestion.matchitem.dates.Day + ' ' + suggestion.matchitem.dates.Month;
 
                 const yearDiv = document.createElement('div');
                 yearDiv.textContent = suggestion.matchitem.dates.Year;
 
-                monthYearDiv.appendChild(monthDiv);
-                monthYearDiv.appendChild(yearDiv);
-
-                const dayDiv = document.createElement('div');
-                dayDiv.textContent = suggestion.matchitem.dates.Day;
-
-                dateDiv.appendChild(dayDiv);
-                dateDiv.appendChild(monthYearDiv);
+                dateDiv.appendChild(dayMonthDiv);
+                dateDiv.appendChild(yearDiv);
 
                 contentText = document.createElement('div');
                 contentText.className = 'content-text go-down-home';
