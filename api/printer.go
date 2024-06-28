@@ -27,11 +27,11 @@ func PrintArtistDetails(artist *Artist) {
 
 	// TadbAlbum details
 	fmt.Println(Bold + Cyan + "------Album Details------" + Reset)
-	fmt.Printf(Bold+Cyan+"Album Name: "+Reset+Blue+"%v\n"+Reset, artist.TadbAlbum.Album)
-	fmt.Printf(Bold+Cyan+"Album Image Link: "+Reset+Blue+"%v\n"+Reset, artist.TadbAlbum.AlbumThumb)
-	fmt.Printf(Bold+Cyan+"Album Year Released: "+Reset+Blue+"%v\n"+Reset, artist.TadbAlbum.YearReleased)
-	fmt.Printf(Bold+Cyan+"Album Description: "+Reset+Blue+"%v\n"+Reset, artist.TadbAlbum.DescriptionEN)
-	fmt.Printf(Bold+Cyan+"MusicBrainz Album ID: "+Reset+Blue+"%v\n"+Reset, artist.TadbAlbum.MusicBrainzAlbumID)
+	fmt.Printf(Bold+Cyan+"Album Name: "+Reset+Blue+"%v\n"+Reset, artist.FirstAlbumStruct.Album)
+	fmt.Printf(Bold+Cyan+"Album Image Link: "+Reset+Blue+"%v\n"+Reset, artist.FirstAlbumStruct.AlbumThumb)
+	fmt.Printf(Bold+Cyan+"Album Year Released: "+Reset+Blue+"%v\n"+Reset, artist.FirstAlbumStruct.YearReleased)
+	fmt.Printf(Bold+Cyan+"Album Description: "+Reset+Blue+"%v\n"+Reset, artist.FirstAlbumStruct.DescriptionEN)
+	fmt.Printf(Bold+Cyan+"MusicBrainz Album ID: "+Reset+Blue+"%v\n"+Reset, artist.FirstAlbumStruct.MusicBrainzAlbumID)
 
 	// Dates and Locations
 	fmt.Println(Bold + Cyan + "------Concert Dates and Locations------" + Reset)

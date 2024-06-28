@@ -33,16 +33,16 @@ type TheAudioDbArtistResponse struct {
 	} `json:"artists"`
 }
 
-type TheAudioDbAlbumResponse struct {
+type TadbAlbums struct {
 	Album []struct {
-		IdAlbum       string `json:"idAlbum"`
-		Album         string `json:"strAlbum"`
-		YearReleased  string `json:"intYearReleased"`
-		Genre         string `json:"strGenre"`
-		Label         string `json:"strLabel"`
-		AlbumThumb    string `json:"strAlbumThumb"`
-		DescriptionEN string `json:"strDescriptionEN"`
-		MusicBrainzID string `json:"strMusicBrainzID"`
+		IdAlbum            string `json:"idAlbum"`
+		Album              string `json:"strAlbum"`
+		YearReleased       string `json:"intYearReleased"`
+		Genre              string `json:"strGenre"`
+		Label              string `json:"strLabel"`
+		AlbumThumb         string `json:"strAlbumThumb"`
+		DescriptionEN      string `json:"strDescriptionEN"`
+		MusicBrainzAlbumID string `json:"strMusicBrainzID"`
 	} `json:"album"`
 }
 
@@ -150,20 +150,22 @@ func ProcessAudioDbArtist(artist *Artist, artistName string, artistID string, er
 	artist.TheAudioDbArtist, _ = GetAudioDbArtistInfo(artistName, artistID, wg)
 }
 
-func GetAudioDbAlbumInfo(artist string, artistID string, wg *sync.WaitGroup) (TadbAlbum, error) {
+func GetAudioDbAlbumInfo(artist string, artistID string, wg *sync.WaitGroup) (TadbAlbums, error) {
 	defer wg.Done()
 	encodedArtist := url.QueryEscape(artistID)
 	queryURL := fmt.Sprintf("https://www.theaudiodb.com/api/v1/json/2/album.php?i=%s", encodedArtist)
 
 	req, err := http.NewRequest("GET", queryURL, nil)
 	if err != nil {
-		return TadbAlbum{}, err
+		log.Fatalf("http request error: %v\n", err)
+		return TadbAlbums{}, err
 	}
 
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		return TadbAlbum{}, err
+		log.Fatalf("http response error: %v\n", err)
+		return TadbAlbums{}, err
 	}
 	defer func(Body io.ReadCloser) {
 		err = Body.Close()
@@ -174,51 +176,61 @@ func GetAudioDbAlbumInfo(artist string, artistID string, wg *sync.WaitGroup) (Ta
 
 	if resp.StatusCode != http.StatusOK {
 		body, _ := io.ReadAll(resp.Body)
-		return TadbAlbum{}, fmt.Errorf("error response from TheAudioDB API: %s", body)
+		return TadbAlbums{}, fmt.Errorf("error response from TheAudioDB API: %s", body)
 	}
 
-	var response TheAudioDbAlbumResponse
+	var response TadbAlbums
 	err = json.NewDecoder(resp.Body).Decode(&response)
 	if err != nil {
-		return TadbAlbum{}, fmt.Errorf("error unmarshaling response: %w", err)
+		return TadbAlbums{}, fmt.Errorf("error unmarshaling response: %w", err)
 	}
 	if len(response.Album[0].IdAlbum) == 0 {
-		return TadbAlbum{}, fmt.Errorf("no audiodb album info found for %s", artist)
+		return TadbAlbums{}, fmt.Errorf("no audiodb album info found for %s", artist)
 	}
 
-	newalbum := response.Album[0]
+	/*newalbum := response.Album[0]
 	theAudioDbAlbum := TadbAlbum{
 		IdAlbum:            newalbum.IdAlbum,
 		Album:              newalbum.Album,
 		YearReleased:       newalbum.YearReleased,
 		AlbumThumb:         newalbum.AlbumThumb,
 		DescriptionEN:      newalbum.DescriptionEN,
-		MusicBrainzAlbumID: newalbum.MusicBrainzID,
-	}
-	return theAudioDbAlbum, nil
+		MusicBrainzAlbumID: newalbum.MusicBrainzAlbumID,
+	}*/
+	return response, nil
+}
+
+func ProcessAudioDbAlbum(artist *Artist, artistName string, artistID string, err error, wg *sync.WaitGroup) {
+	artist.AllAlbums, _ = GetAudioDbAlbumInfo(artistName, artistID, wg)
 }
 
 func FindFirstAlbum(artist *Artist) {
-	fmt.Printf("Find first album: %v\n", artist)
 	year := 2050
 	var lowIndex int
-	fmt.Printf("Finding first album for: %v\n", artist)
-	for index, album := range artist.TadbAlbums {
-		fmt.Printf("album: %v\n", album)
+	fmt.Printf("Finding first album for: %v\n", artist.Name)
+	for index, album := range artist.AllAlbums.Album {
+		//fmt.Printf("album (%v): %v\n", index, album)
 		// if album.year < year {lowIndex = index, year = album.year
 		albumYear, err := strconv.Atoi(album.YearReleased)
 		if err != nil {
 			_ = fmt.Errorf("could not parse album year as int")
+			fmt.Printf("error parsing album year: %v\n", err)
 		}
 		fmt.Printf("albumYear: %v, year: %v\n", albumYear, year)
-		if albumYear < year {
-			lowIndex = index
-			year = albumYear
+		if albumYear != 0 {
+			if albumYear < year {
+				lowIndex = index
+				year = albumYear
+			}
 		}
-		artist.FirstAlbumStruct = artist.TadbAlbums[lowIndex]
+		artist.FirstAlbumStruct = TadbAlbum{
+			IdAlbum:            artist.AllAlbums.Album[lowIndex].IdAlbum,
+			Album:              artist.AllAlbums.Album[lowIndex].Album,
+			YearReleased:       artist.AllAlbums.Album[lowIndex].YearReleased,
+			AlbumThumb:         artist.AllAlbums.Album[lowIndex].AlbumThumb,
+			DescriptionEN:      artist.AllAlbums.Album[lowIndex].DescriptionEN,
+			MusicBrainzAlbumID: artist.AllAlbums.Album[lowIndex].MusicBrainzAlbumID,
+		}
+		//fmt.Printf("First album of %v: %v\n", artist.Name, artist.AllAlbums.Album[lowIndex].Album)
 	}
-}
-
-func ProcessAudioDbAlbum(artist *Artist, artistName string, artistID string, err error, wg *sync.WaitGroup) {
-	artist.TadbAlbum, _ = GetAudioDbAlbumInfo(artistName, artistID, wg)
 }

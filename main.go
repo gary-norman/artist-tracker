@@ -91,6 +91,10 @@ func main() {
 	update := time.Now()
 	// call the functions to populate extra information from TADB
 	api.UpdateArtistInfo(Artists)
+	for i := range Artists {
+		api.FindFirstAlbum(&Artists[i])
+	}
+	fmt.Printf("First album for %v: %v\n", Artists[48].Name, Artists[48].FirstAlbumStruct.Album)
 	t = time.Now()
 	timetaken = t.Sub(update).Milliseconds()
 	spinnerInfo.Success("Updated artist information in " + strconv.FormatInt(timetaken, 10) + "ms\n")
