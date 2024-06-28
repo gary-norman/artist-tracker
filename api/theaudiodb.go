@@ -187,16 +187,6 @@ func GetAudioDbAlbumInfo(artist string, artistID string, wg *sync.WaitGroup) (Ta
 	if len(response.Album[0].IdAlbum) == 0 {
 		return TadbAlbums{}, fmt.Errorf("no audiodb album info found for %s", artist)
 	}
-
-	/*newalbum := response.Album[0]
-	theAudioDbAlbum := TadbAlbum{
-		IdAlbum:            newalbum.IdAlbum,
-		Album:              newalbum.Album,
-		YearReleased:       newalbum.YearReleased,
-		AlbumThumb:         newalbum.AlbumThumb,
-		DescriptionEN:      newalbum.DescriptionEN,
-		MusicBrainzAlbumID: newalbum.MusicBrainzAlbumID,
-	}*/
 	return response, nil
 }
 
@@ -209,6 +199,12 @@ func FindFirstAlbum(artist *Artist) {
 	var lowIndex int
 	fmt.Printf("Finding first album for: %v\n", artist.Name)
 	for index, album := range artist.AllAlbums.Album {
+		fmt.Printf("image for %v: %v\n", artist.Name, album.AlbumThumb)
+		if album.AlbumThumb == "" {
+			album.AlbumThumb = "/icons/blank_cd_icon.png"
+			fmt.Printf("replaced blank image for %v: %v\n", artist.Name, album.Album)
+		}
+		fmt.Printf("image (2) for %v: %v\n", artist.Name, album.AlbumThumb)
 		//fmt.Printf("album (%v): %v\n", index, album)
 		// if album.year < year {lowIndex = index, year = album.year
 		albumYear, err := strconv.Atoi(album.YearReleased)
@@ -231,6 +227,6 @@ func FindFirstAlbum(artist *Artist) {
 			DescriptionEN:      artist.AllAlbums.Album[lowIndex].DescriptionEN,
 			MusicBrainzAlbumID: artist.AllAlbums.Album[lowIndex].MusicBrainzAlbumID,
 		}
-		//fmt.Printf("First album of %v: %v\n", artist.Name, artist.AllAlbums.Album[lowIndex].Album)
+		//fmt.Printf("First album of %v: %v\n", artist.Name, artist.AllAlbums.Album[lowIndex].AlbumThumb)
 	}
 }

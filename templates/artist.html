@@ -83,7 +83,7 @@
                         <div class="col col2">
                             <div class="content">
                                 <div class="content">
-                                    <img class="pic album" src="{{.FirstAlbumStruct.AlbumThumb}}" alt="Image of {{.Name}}'s first album ({{.FirstAlbumStruct.Album}})"/>
+                                    <img class="pic album" src="{{.FirstAlbumStruct.AlbumThumb}}" alt="Album cover of ({{.FirstAlbumStruct.Album}})"/>
                                     <div class="content-text go-down">
                                         <div class="p--bold cut" >{{.FirstAlbumStruct.Album}}</div>
                                         <p class="create">created on {{ .FirstAlbum }}</p>
@@ -103,7 +103,7 @@
                     {{ $artist := . }}
                     {{ range .AllAlbums.Album }}
                     <div class="content">
-                        <img class="pic album" src="{{.AlbumThumb}}" alt="Image of {{$artist.Name}}'s first album ({{.Album}})"/>
+                        <img class="pic album" src="{{.AlbumThumb}}" alt="Album cover of ({{.Album}})"/>
                         <div class="content-text go-down-home">
                             <div class="p--bold cut" >{{.Album}}</div>
                             <div class="small light cut">{{.YearReleased}}</div>
