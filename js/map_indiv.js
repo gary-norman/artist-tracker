@@ -134,7 +134,7 @@ async function loadGeoJSONForArtist() {
                 // Ensure geojson is defined and features exist
                 if (geojson && geojson.features) {
                     // Find the concert data from `geojson` based on concertId
-                    const concert = geojson.features.find(feature => feature.properties.date === concertId);
+                    const concert = geojson.features.find(feature => feature.properties.date.includes(concertId));
 
                     if (concert) {
                         
