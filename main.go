@@ -111,6 +111,6 @@ func main() {
 	//artistsResult, _ := api.SearchArtist(Artists, "Led Zeppelin")
 	//api.PrintArtistDetails(artistsResult)
 	//api.WikiImageFetcher(&Artists[0])
-	fmt.Printf("Artist: %v\n", Artists[i])
+	fmt.Printf("Artist: %v\n", Artists[i].AllAlbums.Album)
 	api.HandleRequests(Artists, api.GetTemplate())
 }

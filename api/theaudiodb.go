@@ -40,6 +40,7 @@ type TadbAlbums struct {
 		YearReleased       string `json:"intYearReleased"`
 		Genre              string `json:"strGenre"`
 		Label              string `json:"strLabel"`
+		IdLabel            string `json:"idLabel"`
 		AlbumThumb         string `json:"strAlbumThumb"`
 		DescriptionEN      string `json:"strDescriptionEN"`
 		MusicBrainzAlbumID string `json:"strMusicBrainzID"`
@@ -201,7 +202,7 @@ func FindFirstAlbum(artist *Artist) {
 	for index, album := range artist.AllAlbums.Album {
 		fmt.Printf("image for %v: %v\n", artist.Name, album.AlbumThumb)
 		if album.AlbumThumb == "" {
-			album.AlbumThumb = "/icons/blank_cd_icon.png"
+			album.AlbumThumb = "./icons/blank_cd_icon.png"
 			fmt.Printf("replaced blank image for %v: %v\n", artist.Name, album.Album)
 		}
 		fmt.Printf("image (2) for %v: %v\n", artist.Name, album.AlbumThumb)
