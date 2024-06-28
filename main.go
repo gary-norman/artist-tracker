@@ -94,22 +94,27 @@ func main() {
 	for i := range Artists {
 		api.FindFirstAlbum(&Artists[i])
 	}
-	fmt.Printf("First album for %v: %v\n", Artists[48].Name, Artists[48].FirstAlbumStruct.Album)
 	t = time.Now()
 	timetaken = t.Sub(update).Milliseconds()
 	spinnerInfo.Success("Updated artist information in " + strconv.FormatInt(timetaken, 10) + "ms\n")
 	api.CorrectMisnamedMembers(Artists)
 	timetaken = t.Sub(start).Milliseconds()
-	i := 0
+	i := 51
 	pterm.Info.Println("All tasks completed successfully in " + pterm.Green(strconv.FormatInt(timetaken, 10)+"ms"))
-	pterm.Println(pterm.Cyan(Artists[i]))
-	pterm.Println(pterm.Cyan("TourDetails {"))
-	pterm.Println(pterm.Cyan(Artists[i].TourDetails))
-	pterm.Println(pterm.Cyan("}"))
+	//pterm.Println(pterm.Cyan(Artists[i]))
+	//pterm.Println(pterm.Cyan("TourDetails {"))
+	//pterm.Println(pterm.Cyan(Artists[i].TourDetails))
+	//pterm.Println(pterm.Cyan("}"))
 
 	// debug print, to see better all the information of an artist
 	//artistsResult, _ := api.SearchArtist(Artists, "Led Zeppelin")
 	//api.PrintArtistDetails(artistsResult)
 	//api.WikiImageFetcher(&Artists[0])
+	albums := Artists[i].AllAlbums.Album
+	fmt.Printf("Artist: %v\n", Artists[i].Name)
+	for _, album := range albums {
+		fmt.Printf("Album: %v, Thumb: %v\n", album.Album, album.AlbumThumb)
+	}
+	fmt.Printf("First album for %v: %v\n", Artists[i].Name, Artists[i].FirstAlbumStruct.Album)
 	api.HandleRequests(Artists, api.GetTemplate())
 }

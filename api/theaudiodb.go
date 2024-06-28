@@ -40,6 +40,7 @@ type TadbAlbums struct {
 		YearReleased       string `json:"intYearReleased"`
 		Genre              string `json:"strGenre"`
 		Label              string `json:"strLabel"`
+		IdLabel            string `json:"idLabel"`
 		AlbumThumb         string `json:"strAlbumThumb"`
 		DescriptionEN      string `json:"strDescriptionEN"`
 		MusicBrainzAlbumID string `json:"strMusicBrainzID"`
@@ -187,16 +188,12 @@ func GetAudioDbAlbumInfo(artist string, artistID string, wg *sync.WaitGroup) (Ta
 	if len(response.Album[0].IdAlbum) == 0 {
 		return TadbAlbums{}, fmt.Errorf("no audiodb album info found for %s", artist)
 	}
-
-	/*newalbum := response.Album[0]
-	theAudioDbAlbum := TadbAlbum{
-		IdAlbum:            newalbum.IdAlbum,
-		Album:              newalbum.Album,
-		YearReleased:       newalbum.YearReleased,
-		AlbumThumb:         newalbum.AlbumThumb,
-		DescriptionEN:      newalbum.DescriptionEN,
-		MusicBrainzAlbumID: newalbum.MusicBrainzAlbumID,
-	}*/
+	for i := range response.Album {
+		if response.Album[i].AlbumThumb == "" {
+			response.Album[i].AlbumThumb = "./icons/blank_cd_icon.png"
+			fmt.Printf("replaced blank image for %v: %v\n", artist, response.Album[i].Album)
+		}
+	}
 	return response, nil
 }
 
@@ -207,16 +204,12 @@ func ProcessAudioDbAlbum(artist *Artist, artistName string, artistID string, err
 func FindFirstAlbum(artist *Artist) {
 	year := 2050
 	var lowIndex int
-	fmt.Printf("Finding first album for: %v\n", artist.Name)
 	for index, album := range artist.AllAlbums.Album {
-		//fmt.Printf("album (%v): %v\n", index, album)
-		// if album.year < year {lowIndex = index, year = album.year
 		albumYear, err := strconv.Atoi(album.YearReleased)
 		if err != nil {
 			_ = fmt.Errorf("could not parse album year as int")
 			fmt.Printf("error parsing album year: %v\n", err)
 		}
-		fmt.Printf("albumYear: %v, year: %v\n", albumYear, year)
 		if albumYear != 0 {
 			if albumYear < year {
 				lowIndex = index
@@ -231,6 +224,6 @@ func FindFirstAlbum(artist *Artist) {
 			DescriptionEN:      artist.AllAlbums.Album[lowIndex].DescriptionEN,
 			MusicBrainzAlbumID: artist.AllAlbums.Album[lowIndex].MusicBrainzAlbumID,
 		}
-		//fmt.Printf("First album of %v: %v\n", artist.Name, artist.AllAlbums.Album[lowIndex].Album)
+		//fmt.Printf("First album of %v: %v\n", artist.Name, artist.AllAlbums.Album[lowIndex].AlbumThumb)
 	}
 }
