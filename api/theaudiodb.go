@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"sort"
 	"strconv"
 	"sync"
 )
@@ -199,6 +200,17 @@ func GetAudioDbAlbumInfo(artist string, artistID string, wg *sync.WaitGroup) (Ta
 
 func ProcessAudioDbAlbum(artist *Artist, artistName string, artistID string, err error, wg *sync.WaitGroup) {
 	artist.AllAlbums, _ = GetAudioDbAlbumInfo(artistName, artistID, wg)
+	artist.AllAlbums.SortByYearReleased()
+}
+
+// SortByYearReleased sorts albums by YearReleased
+func (t *TadbAlbums) SortByYearReleased() {
+	sort.Slice(t.Album, func(i, j int) bool {
+		// Convert YearReleased to int for accurate comparison
+		year1, _ := strconv.Atoi(t.Album[i].YearReleased)
+		year2, _ := strconv.Atoi(t.Album[j].YearReleased)
+		return year1 < year2
+	})
 }
 
 func FindFirstAlbum(artist *Artist) {
