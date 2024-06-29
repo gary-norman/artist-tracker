@@ -78,15 +78,17 @@
 
         </div>
             <div class="container">
-                <div id="search-results"  class="container scroll" style="overflow-y: hidden">
+                <div id=""  class="container scroll" style="overflow-y: hidden">
                         <h2>First Album</h2>
                         <div class="col col2">
-                            <div class="content">
+                            <div id="first-album" class="content">
                                 <div class="content">
                                     <img class="pic album" src="{{.FirstAlbumStruct.AlbumThumb}}" alt="Album cover of ({{.FirstAlbumStruct.Album}})"/>
                                     <div class="content-text go-down">
                                         <div class="p--bold cut" >{{.FirstAlbumStruct.Album}}</div>
-                                        <p class="create">created on {{ .FirstAlbum }}</p>
+                                        <p id="albumInfo" data-album="{{ .FirstAlbum }}" style="display: none"></p>
+                                        <p id="actualAlbumInfo" data-album="{{.FirstAlbumStruct.YearReleased}}" style="display: none"></p>
+                                        <p id="createSwitch" class="create">{{.FirstAlbumStruct.YearReleased}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -152,5 +154,6 @@
 </main>
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
 <script src="/js/map_indiv.js"></script>
+<script src="/js/artist.js"></script>
 </body>
 </html>
