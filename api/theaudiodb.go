@@ -192,7 +192,7 @@ func GetAudioDbAlbumInfo(artist string, artistID string, wg *sync.WaitGroup) (Ta
 	for i := range response.Album {
 		if response.Album[i].AlbumThumb == "" {
 			response.Album[i].AlbumThumb = "./icons/blank_cd_icon.png"
-			fmt.Printf("replaced blank image for %v: %v\n", artist, response.Album[i].Album)
+			//fmt.Printf("replaced blank image for %v: %v\n", artist, response.Album[i].Album)
 		}
 	}
 	return response, nil
