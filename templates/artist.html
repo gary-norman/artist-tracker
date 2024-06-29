@@ -88,10 +88,11 @@
                                         <div class="p--bold cut" >{{.FirstAlbumStruct.Album}}</div>
                                         <p id="albumInfo" data-album="{{ .FirstAlbum }}" style="display: none"></p>
                                         <p id="actualAlbumInfo" data-album="{{.FirstAlbumStruct.YearReleased}}" style="display: none"></p>
-                                        <p id="createSwitch" class="create">{{.FirstAlbumStruct.YearReleased}}</p>
+                                        <p id="createSwitch" class="create">{{.SpotifyAlbum.ReleaseDate}}</p>
                                     </div>
                                 </div>
                             </div>
+                            <div id="embed-iframe"></div>
                         </div>
                 </div>
             </div>
@@ -155,5 +156,16 @@
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
 <script src="/js/map_indiv.js"></script>
 <script src="/js/artist.js"></script>
+<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+<script type="text/javascript">
+    window.onSpotifyIframeApiReady = (IFrameAPI) => {
+        const element = document.getElementById('embed-iframe');
+        const options = {
+            uri: 'spotify:album:{{.SpotifyAlbum.Id}}'
+        };
+        const callback = (EmbedController) => {};
+        IFrameAPI.createController(element, options, callback);
+    };
+</script>
 </body>
 </html>

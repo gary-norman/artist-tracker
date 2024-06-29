@@ -37,6 +37,7 @@ type Artist struct {
 	FirstAlbum       string            `json:"firstAlbum"`
 	FirstAlbumStruct TadbAlbum
 	AllAlbums        TadbAlbums `json:"allAlbums"`
+	SpotifyAlbum
 	TheAudioDbArtist
 	Locations      string              `json:"locations"`
 	ConcertDates   string              `json:"concertDates"`
@@ -66,6 +67,7 @@ type TadbAlbum struct {
 
 type SpotifyAlbum struct {
 	Name        string `json:"name"`
+	Id          string `json:"id"`
 	ReleaseDate string `json:"releaseDate"`
 	TotalTracks int    `json:"total_tracks"`
 	ExternalUrl string `json:"spotify"`
