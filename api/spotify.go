@@ -9,6 +9,7 @@ import (
 	"net/url"
 	"os"
 	"os/exec"
+	"strings"
 	"sync"
 	"time"
 )
@@ -38,6 +39,7 @@ type SpotifyAlbumResponse struct {
 			ExternalUrls struct {
 				Spotify string `json:"spotify"`
 			} `json:"external_urls"`
+			Id     string `json:"id"`
 			Images []struct {
 				Url string `json:"url"`
 			} `json:"images"`
@@ -64,24 +66,36 @@ type TokenResponse struct {
 func ExtractAccessToken(file string) string {
 	// Execute the shell script and capture the output
 	cmd := exec.Command("sh", "-c", file)
-	output, err := cmd.Output()
+	output, err := cmd.CombinedOutput()
 	if err != nil {
-		log.Fatalf("Failed to run script: %v", err)
+		log.Fatalf("Failed to run script: %v. Output: %s", err, output)
+	}
+
+	// Convert output to string
+	outputStr := string(output)
+
+	// Filter out lines that don't look like JSON
+	var jsonStr string
+	lines := strings.Split(outputStr, "\n")
+	for _, line := range lines {
+		if strings.HasPrefix(line, "{") && strings.HasSuffix(line, "}") {
+			jsonStr = line
+			break
+		}
 	}
 
 	// Trim the trailing '%' if present
-	outputStr := string(output)
-	if outputStr[len(outputStr)-1] == '%' {
-		outputStr = outputStr[:len(outputStr)-1]
+	if jsonStr != "" && jsonStr[len(jsonStr)-1] == '%' {
+		jsonStr = jsonStr[:len(jsonStr)-1]
 	}
+	fmt.Printf("Filtered JSON string:\n%s\n", jsonStr)
 
 	// Parse the JSON output
 	var tokenResponse TokenResponse
-	err = json.Unmarshal([]byte(outputStr), &tokenResponse)
+	err = json.Unmarshal([]byte(jsonStr), &tokenResponse)
 	if err != nil {
 		log.Fatalf("Failed to parse JSON: %v", err)
 	}
-
 	// Extract the access token
 	return tokenResponse.AccessToken
 }
@@ -302,7 +316,7 @@ func UpdateArtistImages(artists []Artist, spotifyArtistIDs []SpotifyArtistID, au
 	return updatedArtists, nil
 }
 
-func getSpotifyAlbums(artist, album, authToken string) (SpotifyAlbum, error) {
+func GetSpotifyAlbums(artist, album, authToken string) (SpotifyAlbum, error) {
 	encodedArtist := url.QueryEscape(artist)
 	encodedAlbum := url.QueryEscape(album)
 	spotifyURL := fmt.Sprintf("https://api.spotify.com/v1/search?q=artist:%s,+album:%s&type=album&market=GB", encodedArtist, encodedAlbum)
@@ -350,6 +364,7 @@ func getSpotifyAlbums(artist, album, authToken string) (SpotifyAlbum, error) {
 	firstAlbum := response.Albums.Items[0]
 	spotifyAlbum := SpotifyAlbum{
 		Name:        firstAlbum.Name,
+		Id:          firstAlbum.Id,
 		ReleaseDate: firstAlbum.ReleaseDate,
 		TotalTracks: firstAlbum.TotalTracks,
 		ExternalUrl: firstAlbum.ExternalUrls.Spotify,
@@ -376,7 +391,7 @@ func ProcessSpotifyArtist(artist *Artist, authToken string) {
 	fmt.Println(artistID)
 	release := GetReleasesByArtistID(artistID)
 	fmt.Println(release)
-	spotifyAlbum, err := getSpotifyAlbums(artist.Name, release, authToken)
+	spotifyAlbum, err := GetSpotifyAlbums(artist.Name, release, authToken)
 	fmt.Printf("Spotify Album: %v\n", spotifyAlbum)
 	if err != nil {
 		fmt.Printf("Error fetching %s for artist %s: %v\n", release, artist.Name, err)

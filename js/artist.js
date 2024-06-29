@@ -7,3 +7,4 @@ firstalbum.addEventListener('mouseout', ()=> {
     document.getElementById('createSwitch').innerText = document.getElementById
     ("actualAlbumInfo").getAttribute("data-album");
 })
+
