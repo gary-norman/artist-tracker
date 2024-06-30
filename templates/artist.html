@@ -81,18 +81,23 @@
                 <div id=""  class="container scroll" style="overflow-y: hidden">
                         <h2>First Album</h2>
                         <div class="col col2">
-                            <div id="first-album" class="content">
-                                <div class="content">
-                                    <img class="pic album" src="{{.FirstAlbumStruct.AlbumThumb}}" alt="Album cover of ({{.FirstAlbumStruct.Album}})"/>
-                                    <div class="content-text go-down">
-                                        <div class="p--bold cut" >{{.FirstAlbumStruct.Album}}</div>
-                                        <p id="albumInfo" data-album="{{ .FirstAlbum }}" style="display: none"></p>
-                                        <p id="actualAlbumInfo" data-album="{{.FirstAlbumStruct.YearReleased}}" style="display: none"></p>
-                                        <p id="createSwitch" class="create">{{.SpotifyAlbum.ReleaseDate}}</p>
+                            <div class="go-down">
+                                <div id="first-album" class="content">
+                                    <div class="content">
+                                        <img class="pic album" src="{{.FirstAlbumStruct.AlbumThumb}}"
+                                             alt="Album cover of ({{.FirstAlbumStruct.Album}})"/>
+                                        <div class="content-text go-down">
+                                            <div class="p--bold cut">{{.FirstAlbumStruct.Album}}</div>
+                                            <p id="albumInfo" data-album="{{ .FirstAlbum }}" style="display: none"></p>
+                                            <p id="actualAlbumInfo" data-album="{{.FirstAlbumStruct.YearReleased}}"
+                                               style="display: none"></p>
+                                            <p id="createSwitch" class="create">{{.SpotifyAlbum.ReleaseDate}}</p>
+                                        </div>
                                     </div>
                                 </div>
+                                <p class="scroll content small justify">{{.FirstAlbumStruct.DescriptionEN}}</p>
                             </div>
-                            <div id="embed-iframe"></div>
+                            <div id="embed-iframe" class="spotify-player"></div>
                         </div>
                 </div>
             </div>
