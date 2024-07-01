@@ -1,7 +1,6 @@
 package api
 
 import (
-	"fmt"
 	"github.com/pterm/pterm"
 	"strconv"
 	"sync"
@@ -80,7 +79,6 @@ func UpdateArtistInfo(artists []Artist) {
 	start = time.Now()
 	spinnerInfo, _ = pterm.DefaultSpinner.Start("Updating incorrect artist info")
 	response, state := UpdateArtistName(artists, oldName, newName)
-	fmt.Printf("Response: %v, State: %v\n", response, state)
 	t = time.Now()
 	timetaken = t.Sub(start).Microseconds()
 	if state == true {

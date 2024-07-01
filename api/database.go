@@ -138,14 +138,15 @@ func UpdateArtistName(artists []Artist, oldName string, newName string) (string,
 		if artists[i].Name == oldName {
 			artists[i].Name = newName
 			response, state = "successfully  updated "+oldName+" to "+newName, true
-		} else {
+		} /*else {
 			response, state = "artist: "+oldName+" not found", false
-		}
+		}*/
 	}
 	return response, state
 }
 
-// CorrectMisnamedMembers updates ACDC members
+// CorrectMisnamedMembers TODO replicate UpdateArtistName function
+// CorrectMisnamedMembers updates misnamed members
 func CorrectMisnamedMembers(artists []Artist) {
 	artists[8].MemberList[1] = "Larry Van Kriedt" // Replace Chris Slade to align with original lineup
 	artists[8].MemberList[3] = "Dave Evans"       // Replace Axl Rose, as incorrect
