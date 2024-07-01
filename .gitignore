@@ -4,3 +4,4 @@ svg/.DS_Store
 .DS_Store
 /api/keys.go
 env/.env
+env/spotify_access_token.sh
