@@ -122,13 +122,17 @@ body {
         &:hover {
             background: none;
         }
+        &.scroll {
+            max-height: 20rem;
+            overflow-y: auto;
+        }
     }
 }
 
 .mapboxgl-popup-close-button {
     color: var(--white-0);
     font-size: 2.4rem;
-    border-radius: ;
+    border-radius: 1.2rem;
 }
 
 *, *::before, *::after {

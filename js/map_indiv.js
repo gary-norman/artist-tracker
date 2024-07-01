@@ -49,6 +49,23 @@ function expandDates(dateString) {
     return tags;
 }
 
+// function populateDates(dates) {
+//     let html = '';
+//     newDates = expandDates(dates);
+//     console.log("dates are:", newDates)
+//     console.log("dates[0]:", dates[0])
+//     console.log("dates[1]:", dates[1])
+//
+//     if (dates.length < 2) {
+//         html = `<p class="pic date ">${formatDate(dates[0])}</p>`;
+//         return html
+//     }
+//
+//     dates.forEach(date => {
+//         html += `<p class="pic date ">${formatDate(date)}</p>`;
+//     });
+//     return html;
+// }
 
 // Function to load GeoJSON data for the artist based on artist name in URL
 async function loadGeoJSONForArtist() {
@@ -100,8 +117,9 @@ async function loadGeoJSONForArtist() {
                     new mapboxgl.Popup({ offset: 20 })
                         .setHTML(
                             `<p class="p--bold">${feature.properties.title}</p>
-                             <div class="content go-across-md">
-                                 <p class="pic date">${expandDates(feature.properties.date)}</p>
+                             <div class="content go-across-md scroll">
+                                 <p class="pic date ">${expandDates(feature.properties.date)}</p>
+                                 
                                  <p class="small">${feature.properties.eventAddress}</p>
                              </div>
                              `
