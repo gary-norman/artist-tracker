@@ -11,6 +11,9 @@ import (
 )
 
 func main() {
+	// Define the date layouts
+	const layoutUK = "02-01-2006"
+	const layoutUS = "2006-01-02"
 
 	// setup config file to parse the key and token
 	api.ConfigSetup()
