@@ -100,8 +100,11 @@ async function loadGeoJSONForArtist() {
                     new mapboxgl.Popup({ offset: 20 })
                         .setHTML(
                             `<p class="p--bold">${feature.properties.title}</p>
-                             <p class="small justify">${expandDates(feature.properties.date)}</p>
-                             <p class="small">${feature.properties.eventAddress}</p>`
+                             <div class="content go-across-md">
+                                 <p class="pic date">${expandDates(feature.properties.date)}</p>
+                                 <p class="small">${feature.properties.eventAddress}</p>
+                             </div>
+                             `
                         )
                 )
                 .addTo(map);

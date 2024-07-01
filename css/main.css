@@ -97,24 +97,38 @@ body {
         border: none;
         outline: none;
     }
-    /*& > * {*/
-    /*    & > * {*/
-    /*        &:focus-visible {*/
-    /*            border: none;*/
-    /*            outline: none;*/
-    /*        }*/
-    /*    }*/
-    /*    }*/
+}
+
+.mapboxgl-popup-tip {
+    border-top-color: var(--grey-1) !important;
+}
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
+    border-bottom-color: var(--grey-1) !important;
 }
 
 .mapboxgl-popup-content {
-    color: var(--grey-2);
-    border-radius: 1rem !important;
-    padding: .5rem 1rem 1rem !important;
+    color: var(--white-1);
+    border-radius: 0.8rem !important;
+    padding: 1.6rem 1.2rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.2rem !important;
+    background-color: var(--grey-1) !important;
+    & > * {
+        margin: 0;
+    }
+    & .content {
+        padding: 0;
+        &:hover {
+            background: none;
+        }
+    }
 }
 
 .mapboxgl-popup-close-button {
-    color: var(--purple-pink);
+    color: var(--white-0);
+    font-size: 2.4rem;
+    border-radius: ;
 }
 
 *, *::before, *::after {
@@ -157,8 +171,8 @@ h3 {
 p {
     font-family: "Inter", sans-serif;
     font-size: 1.6rem;
-    /*border: 0.1rem solid red;*/
-    /*display: inline;*/
+    margin-block-end: 0;
+    margin-block-start: 0;
 }
 
 .p--bold {
@@ -167,8 +181,8 @@ p {
     font-style: normal;
     font-weight:  var(--font-weight-500);
     line-height: normal;
-
     display: block;
+
     /*align-self: center;*/
 }
 
@@ -693,6 +707,7 @@ input {
         display: flex;
         justify-content: center;
         align-items: center;
+        text-align: center;
         min-width: 6rem;
         max-width: 6rem;
         min-height: 6rem;
