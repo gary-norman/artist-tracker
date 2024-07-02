@@ -2,9 +2,7 @@ package api
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
-	"math/rand"
 	"net/http"
 	"strings"
 	"sync"
@@ -262,22 +260,3 @@ func FetchDatesLocations(artist *Artist, wg *sync.WaitGroup) {
 		}
 	}
 }
-
-func randInt(max int) int {
-	pbrnd, _ := pterm.DefaultProgressbar.WithTotal(100).WithWriter(multi.NewWriter()).Start("Generating random numbers for suggested artists/albums")
-	randomNumber := rand.Intn(max)
-	for _, number := range randomNumbers {
-		pbrnd.UpdateTitle("Generating random number: " + string(rune(number)))
-		if number != randomNumber {
-			randomNumbers = append(randomNumbers, randomNumber)
-		}
-	}
-	pterm.Success.Println("Generating random number: ")
-	fmt.Println(randomNumber)
-	pbrnd.Increment()
-	//fmt.Println("random number is: ", randomNumber)
-	//fmt.Println("***************************************************************************************")
-	return randomNumber
-}
-
-var randomNumbers []int
