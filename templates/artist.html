@@ -104,15 +104,15 @@
 
         </section>
 
-        <section id="home-albums" class="container col col1">
+        <section id="artist-albums" class="container col col1">
 
                 <h2>Albums</h2>
-                <div class="row row2 scroll">
+                <div class="col col2 scroll">
                     {{ $artist := . }}
                     {{ range .AllAlbums.Album }}
                     <div class="content">
                         <img class="pic album" src="{{.AlbumThumb}}" alt="Album cover of ({{.Album}})"/>
-                        <div class="content-text go-down-home">
+                        <div class="content-text go-down">
                             <div class="p--bold cut" >{{.Album}}</div>
                             <div class="small light cut">{{.YearReleased}}</div>
                         </div>
