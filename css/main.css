@@ -104,12 +104,45 @@ iframe {
 
 .mapboxgl-popup-tip {
     z-index: 9999;
+    scale: 1.1;
 }
 
-.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip, .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip, .mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
     border-top-color: var(--grey-1) !important;
 }
-.mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
+.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+    align-self: auto !important;
+    position: relative;
+    left: 22.8rem !important;
+    top: 0.5rem !important;
+    scale: 1.5 !important;
+}
+
+.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip {
+    align-self: auto !important;
+    position: relative;
+    right: -0.2rem  !important;
+    top: 0.5rem !important;
+    scale: 1.5 !important;
+}
+
+.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
+    align-self: auto !important;
+    position: relative;
+    left: 22.8rem !important;
+    bottom: 0.5rem !important;
+    scale: 1.5 !important;
+}
+
+.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip {
+    align-self: auto !important;
+    position: relative;
+    right: -0.2rem !important;
+    bottom: 0.5rem !important;
+    scale: 1.5 !important;
+}
+
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip, .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip, .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip{
     border-bottom-color: var(--grey-1) !important;
 }
 
