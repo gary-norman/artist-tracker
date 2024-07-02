@@ -78,8 +78,11 @@ body {
     font-family: "Inter", sans-serif;
     font-size: 1.6rem;
     color: var(--white-0);
+}
 
-
+/* spotify player */
+iframe {
+    color-scheme: normal
 }
 
 /*Mapbox styling*/
