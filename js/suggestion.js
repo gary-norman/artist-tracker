@@ -39,9 +39,11 @@ document.addEventListener('DOMContentLoaded', function () {
         searchInput.addEventListener('input', function (e) {
             const query = e.target.value.trim();
             if (query) {
+                searchResults.classList.remove('hide');
                 debouncedFetchSuggestions(query);
             } else {
                 populateResults.innerHTML = ''; // Clear suggestions if input is empty
+                searchResults.classList.add('hide');
             }
         });
     }
@@ -49,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function showSuggestions(suggestionsData) {
         populateResults.innerHTML = '';
         console.log("received suggestionsData:=", suggestionsData);
+
 
         const categories = {
             Artist: document.createElement('div'),
@@ -62,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
             categoryContainer.className = 'col col1';
 
             const outerContainer = document.createElement('div');
-            outerContainer.id = 'search-results'
+            outerContainer.id = 'search-results-v2';
             outerContainer.className = 'container';
 
             const scrollContainer = document.createElement('div');
@@ -87,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 categoryContainer.resultContainer = resultContainerTwo;
             }
             categoryContainer.resultsCount = 0;
-
+            searchResults.classList.add('hide');
         }
 
         if (!suggestionsData || suggestionsData.length === 0) {
@@ -208,7 +211,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 header.textContent = category + 's';
                 categoryContainer.insertBefore(header, categoryContainer.firstChild);
                 populateResults.appendChild(categoryContainer);
+                searchResults.classList.remove('hide');
                 searchResults.appendChild(populateResults)
+            } else {
+                searchResults.classList.add('hide');
             }
         }
     }

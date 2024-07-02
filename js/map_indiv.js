@@ -34,6 +34,11 @@ function parseDate(dateStr) {
     return new Date(`${year}-${month}-${day}`);
 }
 
+function parseDates(dateString) {
+    // Split the input string by commas and trim any extra whitespace from each date and return the array
+    return dateString.split(',').map(date => date.trim());
+}
+
 function formatDate(date) {
     const options = { day: '2-digit', month: 'short', year: 'numeric' };
     return date.toLocaleDateString('en-GB', options);
@@ -49,6 +54,12 @@ function expandDates(dateString) {
     return tags;
 }
 
+// Function to generate HTML for all dates
+function generateDatesHTML(dates) {
+    return dates.map(singleDate => `
+    <p class="pic date">${singleDate}</p>
+  `).join('');
+}
 
 // Function to load GeoJSON data for the artist based on artist name in URL
 async function loadGeoJSONForArtist() {
@@ -88,21 +99,31 @@ async function loadGeoJSONForArtist() {
         
         console.log('GeoJSON Data:', geojson);
 
-        // Add markers to map for each feature in GeoJSON
+        // Assuming `geojson` is your GeoJSON data object
         geojson.features.forEach((feature, index) => {
             const el = document.createElement('div');
             el.className = 'marker';
+
+            // Generate the HTML for the dates
+            const datesHTML = generateDatesHTML(parseDates(expandDates(feature.properties.date)));
+
+            // Conditionally include the address if there is more than one date
+            const addressHTML = parseDates(expandDates(feature.properties.date)).length < 2
+                ? `<p class="small">${feature.properties.eventAddress}</p>`
+                : '';
 
             // Create Mapbox Marker for each feature
             new mapboxgl.Marker(el)
                 .setLngLat(feature.geometry.coordinates)
                 .setPopup(
                     new mapboxgl.Popup({ offset: 20 })
-                        .setHTML(
-                            `<p class="p--bold">${feature.properties.title}</p>
-                             <p class="small justify">${expandDates(feature.properties.date)}</p>
-                             <p class="small">${feature.properties.eventAddress}</p>`
-                        )
+                        .setHTML(`
+          <p class="p--bold">${feature.properties.title}</p>
+          <div class="content go-across-md scroll">
+            ${datesHTML}
+            ${addressHTML}
+          </div>
+        `)
                 )
                 .addTo(map);
 

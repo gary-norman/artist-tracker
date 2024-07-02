@@ -100,28 +100,69 @@ iframe {
         border: none;
         outline: none;
     }
-    /*& > * {*/
-    /*    & > * {*/
-    /*        &:focus-visible {*/
-    /*            border: none;*/
-    /*            outline: none;*/
-    /*        }*/
-    /*    }*/
-    /*    }*/
+}
+
+.mapboxgl-popup-tip {
+    border-top-color: var(--grey-1) !important;
+}
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
+    border-bottom-color: var(--grey-1) !important;
 }
 
 .mapboxgl-popup-content {
-    color: var(--grey-2);
-    border-radius: 1rem !important;
-    padding: .5rem 1rem 1rem !important;
+    color: var(--white-1);
+    border-radius: 0.8rem !important;
+    padding: 1.6rem 1.2rem !important;
+    padding-bottom: 0.4rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.2rem !important;
+    background-color: var(--grey-1) !important;
+    & > * {
+        margin: 0;
+    }
+    & .content {
+        padding: 0 !important;
+        border-radius: var(--radius-sm) !important;
+        width: 100% !important;
+        align-items: center !important;
+        gap: 1.2rem !important;
+        position: relative;
+        max-height: 9.2rem;
+        & .small {
+            top: calc(50% - 0.76rem);
+            left: 7.6rem;
+        }
+        & .date {
+            scroll-snap-align: start;
+        }
+        &:hover {
+            background: none;
+        }
+        &.scroll {
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 0.8rem !important;
+            &::-webkit-scrollbar-track {
+                background: var(--grey-1);
+            }
+            /* Adjust scrollbar dimensions */
+            &::-webkit-scrollbar {
+                width: 0.8rem;
+                height: 0.8rem;
+            }
+        }
+}
 }
 
 .mapboxgl-popup-close-button {
-    color: var(--purple-pink);
+color: var(--white-0);
+font-size: 2.4rem;
+border-radius: 1.2rem;
 }
 
 *, *::before, *::after {
-    /*outline: 1px solid dimgrey;*/
+/*outline: 1px solid dimgrey;*/
 }
 
 /* text */
@@ -160,13 +201,8 @@ h3 {
 p {
     font-family: "Inter", sans-serif;
     font-size: 1.6rem;
-    /*border: 0.1rem solid red;*/
-    /*display: inline;*/
-
-    &#createSwitch {
-        margin-block-end: 0;
-        margin-block-start: 0;
-    }
+    margin-block-end: 0;
+    margin-block-start: 0;
 }
 
 .p--bold {
@@ -175,7 +211,6 @@ p {
     font-style: normal;
     font-weight:  var(--font-weight-500);
     line-height: normal;
-
     display: block;
     /*align-self: center;*/
 }
@@ -710,6 +745,7 @@ input {
         display: flex;
         justify-content: center;
         align-items: center;
+        text-align: center;
         min-width: 6rem;
         max-width: 6rem;
         min-height: 6rem;
