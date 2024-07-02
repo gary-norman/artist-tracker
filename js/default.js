@@ -194,8 +194,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 300));
 });
 
-
-
 function updateSliderBackground(slider) {
     const value = slider.value;
     const min = slider.min;
