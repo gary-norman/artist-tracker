@@ -1,8 +1,12 @@
+import { formatDateToUK } from './calendar.js';
+
 const date = new Date();
+/* changed to call function to convert
 let day = date.getDate();
 let month = date.getMonth() + 1;
 let year = date.getFullYear();
-let currentDate = `${day}-${month}-${year}`;
+let currentDate = `${day}-${month}-${year}`; */
+let currentDate = formatDateToUK(date);
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -43,12 +47,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Select all input elements that match the criteria
     const filterInputs = document.querySelectorAll('input[id^="filter-"]');
     // find all the end date elements
-    const endDates = document.querySelectorAll('[id$="end-date"]');
-    const artistEndDate = document.querySelector('[id="artist-end-date"]');
-    const albumEndDate = document.querySelector('[id="album-end-date"]');
-    // set the end date of filters to today's date
-    albumEndDate.innerHTML = currentDate
-    artistEndDate.innerHTML = currentDate
+    const artistEndDateInput = document.getElementById('artist-end-date');
+    const albumEndDateInput = document.getElementById('album-end-date');
+    // set the end date of filters to today's date, and put sinde  placeholder
+    artistEndDateInput.placeholder = currentDate;
+    albumEndDateInput.placeholder = currentDate;
 
     // Add event listeners to each input element
     filterInputs.forEach(input => {
@@ -243,25 +246,27 @@ document.addEventListener('DOMContentLoaded', () => {
     updateShowHideIcon();
 });
 
+
+// Rin commentout
 // Initialize the background on page load
-document.addEventListener('DOMContentLoaded', () => {
+/* document.addEventListener('DOMContentLoaded', () => {
     const slider = document.getElementById('album-date-range');
     updateSliderBackground(slider);
 
     slider.addEventListener('input', () => {
         updateSliderBackground(slider);
     });
-});
+}); 
 
 // Initialize the background on page load
-document.addEventListener('DOMContentLoaded', () => {
+ document.addEventListener('DOMContentLoaded', () => {
     const slider = document.getElementById('artist-date-range');
     updateSliderBackground(slider);
 
     slider.addEventListener('input', () => {
         updateSliderBackground(slider);
     });
-});
+}); */
 
 function updateDoubleSliderBackground(slider1, slider2) {
     const value1 = slider1.value;

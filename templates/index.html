@@ -9,6 +9,7 @@
     <link href='https://fonts.googleapis.com/css?family=Jockey One' rel='stylesheet'>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/andy_bell-css_reset.css">
+    <link rel="stylesheet" href="../css/calendar.css">
     <link rel="icon" href="../icons/favicon-record.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css' rel='stylesheet' />
@@ -37,7 +38,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="floating-sm col filter hide">
+                    <div class="floating-sm col filter hide" id="artist-creation-date-filter">
                         <label for="filter-artist-creation" class="space">
                             <label for="filter-artist-creation">Artist creation date</label>
                             <label class="switch">
@@ -46,26 +47,30 @@
                             </label>
                         </label>
                         <div class="filter-open space labels hide">
-                            <label for="artist-start-date" class="filter-label-md small light">
-                                Start Date
-                            </label>
-                            <label for="artist-end-date" class="filter-label-md small light">
-                                End Date
-                            </label>
+                            <!-- for start date -->
+                            <div class="date-picker">
+                                <div class="date-picker-input">
+                                    <label for="artist-start-date" class="filter-label-md small light"> Start Date</label>
+                                    <input class="button button-2 small" type="text" id="artist-start-date" placeholder="Pick a date" readonly />
+                                </div>
+                                <div class="date-picker-calendar-container" id="startDateContainer"></div>
+                            </div>
+                            
+                             <!-- for end date -->
+                            <div class="date-picker">
+                                <div class="date-picker-input">
+                                    <label for="artist-end-date" class="filter-label-md small light"> End Date</label>
+                                    <input class="button button-2 small" type="text" id="artist-end-date" placeholder=" " readonly />
+                                </div>
+                                <div class="date-picker-calendar-container" id="endDateContainer"></div>
+                            </div>
                         </div>
-                        <div class="filter-open space">
-                            <label class="button button-2 small" id="artist-start-date">
-                                Pick a date
-                            </label>
-                            <label for="artist-date-range" class="filter-label-md small" id="artist-end-date">
-                                11 / 01 / 1990
-                            </label>
-                        </div>
-                        <div class="filter-open single-slide-container">
+                        
+                       <!--  <div class="filter-open single-slide-container">
                             <input id="artist-date-range" type="range" min="1" max="100" value="0" class="slider" >
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="floating-sm col filter hide">
+                    <div class="floating-sm col filter hide" id="album-creation-date-filter">
                         <label for="filter-album-creation" class="space ">
                             <label for="filter-album-creation">Album creation date</label>
                             <label class="switch">
@@ -73,26 +78,32 @@
                                 <span class="slider-button round"></span>
                             </label>
                         </label>
-                        <div class="filter-open space labels">
-                            <label for="album-start-date" class="filter-label-md small light">
-                                Start Date
-                            </label>
-                            <label for="album-end-date" class="filter-label-md small light">
-                                End Date
-                            </label>
+                        <div class="filter-open space labels hide">
+                            <!-- for start date -->
+                            <div class="date-picker">
+                                <div class="date-picker-input">
+                                    <label for="album-start-date" class="filter-label-md small light"> Start Date</label>
+                                    <input class="button button-2 small" type="text" id="album-start-date" placeholder="Pick a date" readonly />
+                                </div>
+                                <div class="date-picker-calendar-container" id="albumStartDateContainer"></div>
+                            </div>
+                            
+                             <!-- for end date -->
+                            <div class="date-picker">
+                                <div class="date-picker-input">
+                                    <label for="album-end-date" class="filter-label-md small light"> End Date</label>
+                                    <input class="button button-2 small" type="text" id="album-end-date" placeholder="" readonly />
+                                </div>
+                                <div class="date-picker-calendar-container" id="albumEndDateContainer"></div>
+                            </div>
                         </div>
-                        <div class="filter-open space">
-                            <label class="button button-2 small" id="album-start-date">
-                                Pick a date
-                            </label>
-                            <label for="album-date-range" class="filter-label-md small" id="album-end-date">
-                            </label>
-                        </div>
-                        <div class="filter-open single-slide-container">
+                        
+                     <!--    <div class="filter-open single-slide-container">
                             <input id="album-date-range" type="range" min="1" max="100" value="0" class="slider" >
-                        </div>
+                        </div> -->
+                        
                     </div>
-                    <div class="floating-sm col filter hide">
+                    <div class="floating-sm col filter hide" id="members-filter">
                         <label for="filter-members-number" class="space">
                             <label for="filter-members-number">Number of members</label>
                             <label class="switch">
@@ -111,7 +122,7 @@
                             <input class="max" id="members-max-range" name="range_1" type="range" min="1" max="10" value="2" />
                         </div>
                     </div>
-                    <div class="floating-sm col filter hide">
+                    <div class="floating-sm col filter hide" id="concert-location-filter">
                         <label for="filter-concert-location" class="space">
                             <label for="filter-concert-location">Concert location</label>
                             <label class="switch">
@@ -386,7 +397,9 @@
 <!--        </section>-->
     </div>
 </main>
-<script type="text/javascript" src="../js/default.js"></script>
+<script type="module" type="text/javascript" src="../js/default.js"></script>
+<!--for search-calender element-->
+<script type="module" src="../js/calendar.js"></script>
 <!--for search-bar-suggestions-->
 <script type="module" src="../js/suggestion.js"></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>

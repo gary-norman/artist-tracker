@@ -301,7 +301,9 @@ a {
     max-width: 108rem;
     padding: 4rem;
     transition: padding 500ms;
-    overflow: hidden;
+    /* overflow: hidden; */
+    /* Rin changed because caledar pop up but keep got cutting off */
+    overflow: visible;
     padding-top: 0;
     @media (max-width: 800px) {
         padding: 1.2rem;
