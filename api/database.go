@@ -39,10 +39,11 @@ type Artist struct {
 	AllAlbums        TadbAlbums `json:"allAlbums"`
 	SpotifyAlbum
 	TheAudioDbArtist
-	Locations      string              `json:"locations"`
-	ConcertDates   string              `json:"concertDates"`
-	Relations      string              `json:"relations"`
-	DatesLocations map[string][]string `json:"datesLocations"`
+	Locations       string              `json:"locations"`
+	ConcertDates    string              `json:"concertDates"`
+	Relations       string              `json:"relations"`
+	DatesLocations  map[string][]string `json:"datesLocations"`
+	AverageLocation string              `json:"averageLocation"`
 	TourDetails
 	RandIntFunc func(int) int `json:"-"`
 }

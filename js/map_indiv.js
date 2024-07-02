@@ -92,14 +92,14 @@ async function loadGeoJSONForArtist() {
         geojson.features.forEach((feature, index) => {
             const el = document.createElement('div');
             el.className = 'marker';
-
+            const title = feature.properties.title.replace(" at ", " in ")
             // Create Mapbox Marker for each feature
             new mapboxgl.Marker(el)
                 .setLngLat(feature.geometry.coordinates)
                 .setPopup(
                     new mapboxgl.Popup({ offset: 20 })
                         .setHTML(
-                            `<p class="p--bold">${feature.properties.title}</p>
+                            `<p class="p--bold">${title}</p>
                              <p class="small justify">${expandDates(feature.properties.date)}</p>
                              <p class="small">${feature.properties.eventAddress}</p>`
                         )
