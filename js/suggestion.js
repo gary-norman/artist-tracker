@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const img = document.createElement('img');
                 if (suggestion.category === 'Album') {
                     img.className = 'pic album';
-                    img.src = suggestion.artist.strAlbumThumb ? suggestion.artist.strAlbumThumb : 'default-album-image-url.jpg';
+                    img.src = suggestion.artist.FirstAlbumStruct.strAlbumThumb ? suggestion.artist.FirstAlbumStruct.strAlbumThumb : 'default-album-image-url.jpg';
                     img.alt = 'Album cover of ' + (suggestion.matchitem || 'Unknown Album');
                 } else {
                     img.className = 'pic user';
