@@ -305,7 +305,7 @@ a {
     transition: padding 500ms;
     padding: 0 4rem 4rem;
     /* overflow: hidden; */
-    /* Rin changed because caledar pop up but keep got cutting off */
+    /* Rin changed because calendar pop up getting cut off */
     overflow: visible;
     @media (max-width: 800px) {
         padding: 1.2rem;
