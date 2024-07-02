@@ -103,10 +103,22 @@ iframe {
 }
 
 .mapboxgl-popup-tip {
+    z-index: 9999;
+}
+
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
     border-top-color: var(--grey-1) !important;
 }
 .mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
     border-bottom-color: var(--grey-1) !important;
+}
+
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+    border-right-color: var(--grey-1) !important;
+}
+
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+    border-left-color: var(--grey-1) !important;
 }
 
 .mapboxgl-popup-content {
@@ -118,6 +130,7 @@ iframe {
     flex-direction: column !important;
     gap: 1.2rem !important;
     background-color: var(--grey-1) !important;
+    max-width: 24rem;
     & > * {
         margin: 0;
     }
