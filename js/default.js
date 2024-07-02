@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
             updateSearchCancelIcon("cancel");
             showSections(searchElements);
             hideSections(homeElements);
-            console.log("hiding from click 2")
+            console.log("hiding home elements; showing search elements")
             changeLogo(logo, subLogo, "small");
         } else {
             isSearching = true;
