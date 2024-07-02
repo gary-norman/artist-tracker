@@ -58,5 +58,13 @@ func main() {
 	// debug print, to see better all the information of an artist
 	//artistsResult, _ := api.SearchArtist(Artists, "Led Zeppelin")
 	//api.PrintArtistDetails(artistsResult)
+
+	// test DateConvert
+	/*fmt.Printf("UK > US: %v\n", api.DateConvert("11-09-2001", layoutUK, layoutUS))
+	fmt.Printf("US > UK: %v\n", api.DateConvert("2001-09-11", layoutUS, layoutUK))
+
+	fmt.Printf("Queen first event date: %v\nQueen first event date (converted): %v\n",
+		Artists[0].FirstAlbum, api.DateConvert(Artists[0].FirstAlbum, layoutUK, layoutUS))*/
+
 	api.HandleRequests(Artists, api.GetTemplate())
 }
