@@ -88,7 +88,6 @@ func ExtractAccessToken(file string) string {
 	if jsonStr != "" && jsonStr[len(jsonStr)-1] == '%' {
 		jsonStr = jsonStr[:len(jsonStr)-1]
 	}
-	fmt.Printf("Filtered JSON string:\n%s\n", jsonStr)
 
 	// Parse the JSON output
 	var tokenResponse TokenResponse
