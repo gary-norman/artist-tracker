@@ -42,6 +42,7 @@
   left: 0;
   background: var(--grey-4);
   border: none;
+  border-radius: 0.4rem;
   filter: var(--shadow-dark-0);
   padding: 1rem;
   z-index: 2000;

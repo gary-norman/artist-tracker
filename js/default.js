@@ -1,11 +1,6 @@
 import { formatDateToUK } from './calendar.js';
 
 const date = new Date();
-/* changed to call function to convert
-let day = date.getDate();
-let month = date.getMonth() + 1;
-let year = date.getFullYear();
-let currentDate = `${day}-${month}-${year}`; */
 let currentDate = formatDateToUK(date);
 
 

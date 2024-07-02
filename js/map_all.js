@@ -1,9 +1,6 @@
 // Ensure to add your Mapbox access token
 mapboxgl.accessToken = 'pk.eyJ1IjoibG9yZXdvcmxkIiwiYSI6ImNsd3FseDNsbDAzZjMyanF2czh3Mmt4eTgifQ.-_bXsAv_SR1bpcmvOSpDuA';
 
-// Ensure to add your Mapbox access token
-mapboxgl.accessToken = 'pk.eyJ1IjoibG9yZXdvcmxkIiwiYSI6ImNsd3FseDNsbDAzZjMyanF2czh3Mmt4eTgifQ.-_bXsAv_SR1bpcmvOSpDuA';
-
 // Create the map instance
 const map = new mapboxgl.Map({
     container: 'map', // container ID
