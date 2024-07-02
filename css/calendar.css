@@ -35,11 +35,17 @@
   color:var(--grey-0); 
 }
 
+[id$="CalendarStart"], [id$="CalendarAlbumStart"] {
+  left: 0;
+}
+[id$="CalendarEnd"], [id$="CalendarAlbumEnd"] {
+  left: -10rem;
+}
+
 .date-picker-calendar {
   display: inline-block;
   position: absolute;
-  top: 100%; /* Position below the input */
-  left: 0;
+  top: 6.2rem;
   background: var(--grey-4);
   border: none;
   border-radius: 0.4rem;

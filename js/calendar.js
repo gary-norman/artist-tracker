@@ -288,11 +288,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
             </div>
         `;
-          // Ensure calendar is hidden initially
-        const dayCalendar = container.querySelector(`#dayCalendar${type.charAt(0).toUpperCase() + type.slice(1)}`);
-        const monthCalendar = container.querySelector(`#monthCalendar${type.charAt(0).toUpperCase() + type.slice(1)}`);
-        const yearCalendar = container.querySelector(`#yearCalendar${type.charAt(0).toUpperCase() + type.slice(1)}`);
-        
     }
     
     // Function to initialize calendar components
