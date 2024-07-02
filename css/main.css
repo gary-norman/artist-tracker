@@ -110,6 +110,7 @@ body {
     color: var(--white-1);
     border-radius: 0.8rem !important;
     padding: 1.6rem 1.2rem !important;
+    padding-bottom: 0.4rem !important;
     display: flex !important;
     flex-direction: column !important;
     gap: 1.2rem !important;
@@ -126,7 +127,6 @@ body {
         position: relative;
         max-height: 9.2rem;
         & .small {
-            position: sticky;
             top: calc(50% - 0.76rem);
             left: 7.6rem;
         }
@@ -137,9 +137,17 @@ body {
             background: none;
         }
         &.scroll {
-            max-height: 20rem;
-            overflow-y: auto;
-            scroll-snap-type: y mandatory;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 0.8rem !important;
+            &::-webkit-scrollbar-track {
+                background: var(--grey-1);
+            }
+            /* Adjust scrollbar dimensions */
+            &::-webkit-scrollbar {
+                width: 0.8rem;
+                height: 0.8rem;
+            }
         }
 }
 }

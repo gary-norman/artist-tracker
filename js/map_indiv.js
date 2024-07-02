@@ -107,6 +107,11 @@ async function loadGeoJSONForArtist() {
             // Generate the HTML for the dates
             const datesHTML = generateDatesHTML(parseDates(expandDates(feature.properties.date)));
 
+            // Conditionally include the address if there is more than one date
+            const addressHTML = parseDates(expandDates(feature.properties.date)).length < 2
+                ? `<p class="small">${feature.properties.eventAddress}</p>`
+                : '';
+
             // Create Mapbox Marker for each feature
             new mapboxgl.Marker(el)
                 .setLngLat(feature.geometry.coordinates)
@@ -116,7 +121,7 @@ async function loadGeoJSONForArtist() {
           <p class="p--bold">${feature.properties.title}</p>
           <div class="content go-across-md scroll">
             ${datesHTML}
-            <p class="small">${feature.properties.eventAddress}</p>
+            ${addressHTML}
           </div>
         `)
                 )
