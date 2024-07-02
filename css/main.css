@@ -118,25 +118,40 @@ body {
         margin: 0;
     }
     & .content {
-        padding: 0;
+        padding: 0 !important;
+        border-radius: var(--radius-sm) !important;
+        width: 100% !important;
+        align-items: center !important;
+        gap: 1.2rem !important;
+        position: relative;
+        max-height: 9.2rem;
+        & .small {
+            position: sticky;
+            top: calc(50% - 0.76rem);
+            left: 7.6rem;
+        }
+        & .date {
+            scroll-snap-align: start;
+        }
         &:hover {
             background: none;
         }
         &.scroll {
             max-height: 20rem;
             overflow-y: auto;
+            scroll-snap-type: y mandatory;
         }
-    }
+}
 }
 
 .mapboxgl-popup-close-button {
-    color: var(--white-0);
-    font-size: 2.4rem;
-    border-radius: 1.2rem;
+color: var(--white-0);
+font-size: 2.4rem;
+border-radius: 1.2rem;
 }
 
 *, *::before, *::after {
-    /*outline: 1px solid dimgrey;*/
+/*outline: 1px solid dimgrey;*/
 }
 
 /* text */

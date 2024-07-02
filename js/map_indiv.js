@@ -34,6 +34,11 @@ function parseDate(dateStr) {
     return new Date(`${year}-${month}-${day}`);
 }
 
+function parseDates(dateString) {
+    // Split the input string by commas and trim any extra whitespace from each date and return the array
+    return dateString.split(',').map(date => date.trim());
+}
+
 function formatDate(date) {
     const options = { day: '2-digit', month: 'short', year: 'numeric' };
     return date.toLocaleDateString('en-GB', options);
@@ -49,23 +54,12 @@ function expandDates(dateString) {
     return tags;
 }
 
-// function populateDates(dates) {
-//     let html = '';
-//     newDates = expandDates(dates);
-//     console.log("dates are:", newDates)
-//     console.log("dates[0]:", dates[0])
-//     console.log("dates[1]:", dates[1])
-//
-//     if (dates.length < 2) {
-//         html = `<p class="pic date ">${formatDate(dates[0])}</p>`;
-//         return html
-//     }
-//
-//     dates.forEach(date => {
-//         html += `<p class="pic date ">${formatDate(date)}</p>`;
-//     });
-//     return html;
-// }
+// Function to generate HTML for all dates
+function generateDatesHTML(dates) {
+    return dates.map(singleDate => `
+    <p class="pic date">${singleDate}</p>
+  `).join('');
+}
 
 // Function to load GeoJSON data for the artist based on artist name in URL
 async function loadGeoJSONForArtist() {
@@ -105,25 +99,26 @@ async function loadGeoJSONForArtist() {
         
         console.log('GeoJSON Data:', geojson);
 
-        // Add markers to map for each feature in GeoJSON
+        // Assuming `geojson` is your GeoJSON data object
         geojson.features.forEach((feature, index) => {
             const el = document.createElement('div');
             el.className = 'marker';
+
+            // Generate the HTML for the dates
+            const datesHTML = generateDatesHTML(parseDates(expandDates(feature.properties.date)));
 
             // Create Mapbox Marker for each feature
             new mapboxgl.Marker(el)
                 .setLngLat(feature.geometry.coordinates)
                 .setPopup(
                     new mapboxgl.Popup({ offset: 20 })
-                        .setHTML(
-                            `<p class="p--bold">${feature.properties.title}</p>
-                             <div class="content go-across-md scroll">
-                                 <p class="pic date ">${expandDates(feature.properties.date)}</p>
-                                 
-                                 <p class="small">${feature.properties.eventAddress}</p>
-                             </div>
-                             `
-                        )
+                        .setHTML(`
+          <p class="p--bold">${feature.properties.title}</p>
+          <div class="content go-across-md scroll">
+            ${datesHTML}
+            <p class="small">${feature.properties.eventAddress}</p>
+          </div>
+        `)
                 )
                 .addTo(map);
 
