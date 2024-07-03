@@ -82,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function () {
             resultContainerThree.className = 'col col3';
 
             if (category === 'Artist' || category === 'Member' || category === 'Concert') {
-
                 categoryContainer.appendChild(resultContainerThree);
                 categoryContainer.resultContainer = resultContainerThree;
             } else {
@@ -163,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     img.className = 'pic album';
                     img.src = suggestion.artist.FirstAlbumStruct.strAlbumThumb ? suggestion.artist.FirstAlbumStruct.strAlbumThumb : 'default-album-image-url.jpg';
                     img.alt = 'Album cover of ' + (suggestion.matchitem || 'Unknown Album');
-                } else {
+                } else if (suggestion.category === 'Album'){
                     img.className = 'pic user';
                     img.src = suggestion.artist && suggestion.artist.strArtistThumb ? suggestion.artist.strArtistThumb : 'default-image-url.jpg';
                     img.alt = 'Profile image of ' + (suggestion.artist && suggestion.artist.name ? suggestion.artist.name : 'Unknown Artist');
