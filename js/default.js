@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("hiding from click 2")
             changeLogo(logo, subLogo, "large");
         }
-    }, 100));
+    }, 1));
 
     searchIcon.addEventListener('click', debounce (function(e) {
         e.stopPropagation(); // Prevent the click from propagating to the parent element**

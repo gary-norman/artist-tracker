@@ -40,7 +40,7 @@ func FetchAllArtistsImages(artists []Artist) {
 // WikiImageFetcher get individual member's image
 func WikiImageFetcher(artist *Artist) {
 	notFound := "/icons/artist_placeholder.svg"
-	fmt.Printf("Getting member images for %v\n", artist.Name)
+	//fmt.Printf("Getting member images for %v\n", artist.Name)
 	artist.Members = make(map[string]string)
 	searchCounter := 1
 	for _, member := range artist.MemberList {
@@ -92,10 +92,10 @@ func WikiImageFetcher(artist *Artist) {
 			for _, page := range result.WikiQuery.Pages {
 				if page.WikiThumbnail.Source != "" {
 					artist.Members[member] = page.WikiThumbnail.Source
-					fmt.Printf("%v - %v: success!\n", searchCounter, member)
+					//fmt.Printf("%v - %v: success!\n", searchCounter, member)
 				} else {
 					artist.Members[member] = notFound
-					fmt.Printf("%v - %v: no member image found\n", searchCounter, member)
+					//fmt.Printf("%v - %v: no member image found\n", searchCounter, member)
 				}
 				searchCounter += 1
 			}
