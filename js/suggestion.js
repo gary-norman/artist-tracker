@@ -163,7 +163,15 @@ document.addEventListener('DOMContentLoaded', function () {
                     img.className = 'pic album';
                     img.src = suggestion.artist.FirstAlbumStruct.strAlbumThumb ? suggestion.artist.FirstAlbumStruct.strAlbumThumb : 'default-album-image-url.jpg';
                     img.alt = 'Album cover of ' + (suggestion.matchitem || 'Unknown Album');
-                } else {
+                } else if (suggestion.category ==='Member') {
+                    img.className = 'pic user';
+                    for (const [memberName,memberPic] of Object.entries(suggestion.artist.memberPics)){
+                        if ( memberName === suggestion.matchitem){
+                            img.src = suggestion.artist && memberPic ? memberPic : 'default-image-url.jpg';
+                            img.alt = 'Profile image of ' + (suggestion.artist && memberName ? memberName : 'Unknown Artist');
+                        }
+                    }
+                }else {
                     img.className = 'pic user';
                     img.src = suggestion.artist && suggestion.artist.strArtistThumb ? suggestion.artist.strArtistThumb : 'default-image-url.jpg';
                     img.alt = 'Profile image of ' + (suggestion.artist && suggestion.artist.name ? suggestion.artist.name : 'Unknown Artist');
