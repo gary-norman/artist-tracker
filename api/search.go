@@ -128,10 +128,12 @@ func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tp
 
 		// Check artist members
 		for _, member := range artist.MemberList {
-			if strings.Contains(strings.ToLower(member), searchQuery) {
+			if strings.Contains(strings.ToLower(member), searchQuery) || strings.Contains(strings.ToLower(artist.Name), searchQuery) {
+				// fetch picture's for members
+				WikiImageFetcher(&artist)
 				suggestions = append(suggestions, Suggestion{"Member", member, &artist})
 				// debug print
-				/* fmt.Println("Filtered category -- member")
+				/* 	fmt.Println("Filtered category -- member")
 				fmt.Printf("Match item -- %v \n", member) */
 			}
 		}
@@ -242,7 +244,7 @@ func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tp
 	}
 
 	// Print all suggestions details
-	PrintSuggestionsDetails(suggestions)
+	// PrintSuggestionsDetails(suggestions)
 
 	// Marshal suggestions to JSON
 	jsonData, err := json.Marshal(suggestions)

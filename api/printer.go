@@ -22,6 +22,11 @@ func PrintArtistDetails(artist *Artist) {
 	fmt.Printf(Bold+Cyan+"ID: "+Reset+Blue+"%v\n"+Reset, artist.Id)
 	fmt.Printf(Bold+Cyan+"Image: "+Reset+Blue+"%v\n"+Reset, artist.Image)
 	fmt.Printf(Bold+Cyan+"MemberList: "+Reset+Blue+"%v\n"+Reset, strings.Join(artist.MemberList, ", "))
+	// Member's pictures
+	fmt.Println(Bold + Cyan + "------Concert Dates and Locations------" + Reset)
+	for member, picLink := range artist.Members {
+		fmt.Printf(Bold+Cyan+"member: "+Reset+Blue+"%v, "+Bold+Cyan+"Picture Link: "+Reset+Blue+"%v\n"+Reset, member, picLink)
+	}
 	fmt.Printf(Bold+Cyan+"Creation Date: "+Reset+Blue+"%v\n"+Reset, artist.CreationDate)
 	fmt.Printf(Bold+Cyan+"First Album: "+Reset+Blue+"%v\n"+Reset, artist.FirstAlbum)
 
