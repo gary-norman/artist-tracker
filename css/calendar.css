@@ -111,14 +111,17 @@
 
 
 .day,
+.disableDay,
 .month,
-.year {
+.year,
+.disableYear {
   color: var(--white-1);
   text-align: center;
   padding: 4px;
 }
 
-.day.weekend {
+.days.weekend,
+.disableDay.weekend {
   color: var(--green-0);
 }
 
@@ -127,6 +130,15 @@
 .year:hover {
   background: var(--grey-0);
   border-radius: 3px;
+  cursor: pointer;
+}
+
+.disableDay,
+.disableDay.weekend,
+.disableMonth,
+.disableYear {
+  pointer-events: none; 
+  color:rgb from var(--white-1) r g b / .2;
 }
 
 .calendar-month:hover,

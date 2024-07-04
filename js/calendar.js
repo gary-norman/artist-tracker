@@ -32,7 +32,15 @@ document.addEventListener('DOMContentLoaded', function () {
     let selectedDate = new Date();
     let currentMonth = selectedDate.getMonth();
     let currentYear = selectedDate.getFullYear();
-    let startYear = Math.floor(currentYear / 28) * 28; 
+    //let startYear = Math.floor(currentYear / 28) * 28; 
+    let startYear = currentYear -28; 
+    let isYearDisabled = false;
+    let isMonthDisabled = false;
+    let isDayDisabled = false;
+    let disableDate = null;
+    let disableYear
+    let disableMonth 
+    let disableDay 
 
     const minYear = 1900; // Minimum year in the year selection
     const maxYear = new Date().getFullYear(); // Maximum year is the current year
@@ -94,14 +102,49 @@ document.addEventListener('DOMContentLoaded', function () {
             albumFilter, membersFilter, concertsFilter, submitFilter, resultContainer
         ];
         toggleElementVisibility(hideElements,false);
+        
+        // set status
         isStartCalendarOpen = true;
         isEndCalendarOpen = false
+        let currentDay
+        isDayDisabled = false;
         
-        // check first if user select a date
+        // check if startDate got input
+        const startDateValue = startDateInput.value ? parseUKDate(startDateInput.value) : new Date();
+        // check first if user select a date, if selected then convert the UKformat back to normal
         const endDateValue = endDateInput.value ? parseUKDate(endDateInput.value) : new Date();
-        currentYear = endDateValue.getFullYear();
-        currentMonth = endDateValue.getMonth();
-        const currentDay = endDateValue.getDate();
+       
+        // if user input inside startDate then take that one
+        if (startDateInput.value){
+            currentYear = startDateValue.getFullYear();
+            currentMonth = startDateValue.getMonth();
+            currentDay = startDateValue.getDate();
+        } else if (endDateInput.value){
+            currentYear = endDateValue.getFullYear();
+            currentMonth = endDateValue.getMonth();
+            currentDay = endDateValue.getDate();
+        }
+
+        // If user has selected an end date, use that date
+        if (endDateInput.value) {
+            disableDate = endDateValue;
+           
+        } else{
+            disableDate = new Date();
+           
+        }
+        disableYear = disableDate.getFullYear();
+        disableMonth = disableDate.getMonth();
+        disableDay = disableDate.getDate();
+       
+        //debug print
+        console.log("disable date is--------->",disableDate);
+        console.log("disable Year is--------->",disableYear);
+        console.log("disable Month is--------->",disableMonth);
+        console.log("disable Day is--------->",disableDay);
+        console.log("current Year is--------->",currentYear);
+        console.log("current Month is--------->",currentMonth);
+        console.log("current Day is--------->",currentDay);
         
         // Check if the start date is the first day of the month
         if (currentDay === 1) {
@@ -111,10 +154,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentYear--;
             }
         }
-        
-        // debug print
-        console.log("year now is:",currentYear)
-        console.log("month now after formatting is:",currentMonth)
         
         renderDayCalendar(currentMonth, currentYear, "start");
     });
@@ -142,11 +181,35 @@ document.addEventListener('DOMContentLoaded', function () {
         
         // check first if user select a date, if selected then convert the UKformat back to normal
         const startDateValue = startDateInput.value ? parseUKDate(startDateInput.value) : new Date();
-        currentYear = startDateValue.getFullYear();
-        currentMonth = startDateValue.getMonth();
-        const currentDay = startDateValue.getDate();
+        const endDateValue = endDateInput.value ? parseUKDate(endDateInput.value) : new Date();
+        currentYear = endDateValue.getFullYear();
+        currentMonth = endDateValue.getMonth();
+        const currentDay = endDateValue.getDate();
+        isDayDisabled = false;
         
-        console.log("current Day:",currentDay)
+        console.log("start date value is ====>>>>",startDateValue)
+        
+        // Set disableDate to the current date by default
+        // if user input anything
+        if (startDateInput.value){
+            console.log("yes has value!!!!!!!!!!!!!!!!!!!!??????????????")
+            disableDate = new Date();
+            disableDate = startDateValue;
+            disableYear = disableDate.getFullYear();
+            disableMonth = disableDate.getMonth();
+            disableDay = disableDate.getDate();
+        } else{
+            disableDate = null;
+        }
+       
+        //debug print
+        console.log("disable date is--------->",disableDate);
+        console.log("disable Year is--------->",disableYear);
+        console.log("disable Month is--------->",disableMonth);
+        console.log("disable Day is--------->",disableDay);
+        console.log("current Year is--------->",currentYear);
+        console.log("current Month is--------->",currentMonth);
+        console.log("current Day is--------->",currentDay);
         
         // Check if the selected start date is the last day of the month
         const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
@@ -171,41 +234,92 @@ document.addEventListener('DOMContentLoaded', function () {
     albumStartDateInput.addEventListener('click', function () {
         
         dayCalendarAlbumStart.classList.toggle('hidden', false);
-        // toggle other calendar all hidden , make sure if one calendar was opened, then hidden it
+        
+        // toggle other calendars all hidden 
         hideElements = [
             monthCalendarAlbumStart, yearCalendarAlbumStart,
             dayCalendarAlbumEnd, monthCalendarAlbumEnd, yearCalendarAlbumEnd
         ];
         toggleElementVisibility(hideElements,false);
+        
         // Hide other filters
         hideElements = [
             artistFilter,membersFilter, concertsFilter, submitFilter, resultContainer
         ];
         toggleElementVisibility(hideElements,false);
   
+        // set status
         isAlbumStartCalendarOpen = true;
         isAlbumEndCalendarOpen = false
+        let currentDay
+        isDayDisabled = false;
+        // in order to store currentDate for album
+        let albumDate = new Date();
+        let currentAlbumDay = albumDate.getDate();
+        let currentAlbumMonth = albumDate.getMonth();
+        let currentAlbumYear = albumDate.getFullYear();
+        
+        // check if startDate got input
+        const albumStartDateValue = albumStartDateInput.value ? parseUKDate(albumStartDateInput.value) : new Date();
         
         // check first if user select a date, if selected then convert the UKformat back to normal
         const albumEndDateValue = albumEndDateInput.value ? parseUKDate(albumEndDateInput.value) : new Date();
-        currentYear = albumEndDateValue.getFullYear();
+        
+        // if user input inside startDate then take that one
+        if (albumStartDateInput.value){
+            currentAlbumYear = albumStartDateValue.getFullYear();
+            currentAlbumMonth = albumStartDateValue.getMonth();
+            currentAlbumDay = albumStartDateValue.getDate();
+            // asign currentDate back as global
+            currentYear = currentAlbumYear;
+            currentMonth = currentAlbumMonth;
+        } else if (albumEndDateValue){
+            currentAlbumYear = albumEndDateValue.getFullYear();
+            currentAlbumMonth = albumEndDateValue.getMonth();
+            currentAlbumDay = albumEndDateValue.getDate();
+            currentYear = currentAlbumYear;
+            currentMonth = currentAlbumMonth;
+        }
+      
+        
+      /*   currentYear = albumEndDateValue.getFullYear();
         currentMonth = albumEndDateValue.getMonth();
-        let currentDay = albumEndDateValue.getDate();
+        let currentDay = albumEndDateValue.getDate(); */
+         
+         // If user has selected an end date, use that date
+         if (albumEndDateInput.value) {
+             disableDate = albumEndDateValue;
+            
+         } else {
+            disableDate = new Date();
+         }
+         disableYear = disableDate.getFullYear();
+         disableMonth = disableDate.getMonth();
+         disableDay = disableDate.getDate();
+      
+         //debug print
+         console.log("disable date is--------->",disableDate);
+         console.log("disable Year is--------->",disableYear);
+         console.log("disable Month is--------->",disableMonth);
+         console.log("disable Day is--------->",disableDay);
+         console.log("current Year is--------->",currentYear);
+         console.log("current Month is--------->",currentMonth);
+         console.log("current Day is--------->",currentDay);
         
         // Check if the start date is the first day of the month
-        if (currentDay === 1) {
-            currentMonth--;
-            if (currentMonth < 0) { 
-                currentMonth = 11; // Dec
-                currentYear--;
-            }
+    if (currentAlbumDay === 1) {
+        currentAlbumMonth--;
+        if (currentAlbumMonth < 0) { 
+            currentAlbumMonth = 11; // Dec
+            currentAlbumYear--;
         }
+    }
 
-        // debug print
-/*         console.log("year now is:",currentYear)
-        console.log("month now after formatting is:",currentMonth) */
+    // Debug print
+/*     console.log("year now is:", currentAlbumYear);
+    console.log("month now after formatting is:", currentAlbumMonth); */
          
-        renderDayCalendar(currentMonth, currentYear, "albumStart");
+        renderDayCalendar(currentAlbumMonth, currentAlbumYear, "albumStart");
     });
 
     // Toggle calendar visibility for end date
@@ -229,9 +343,27 @@ document.addEventListener('DOMContentLoaded', function () {
         
         // check first if user select a date
         const albumStartDateValue = albumStartDateInput.value ? parseUKDate(albumStartDateInput.value) : new Date();
-        currentYear = albumStartDateValue.getFullYear();
-        currentMonth = albumStartDateValue.getMonth();
-        const currentDay =  albumStartDateValue.getDate();
+        const albumEndDateValue = albumEndDateInput.value ? parseUKDate(albumEndDateInput.value) : new Date();
+        currentYear = albumEndDateValue.getFullYear();
+        currentMonth = albumEndDateValue.getMonth();
+        const currentDay =  albumEndDateValue.getDate();
+        // if user input anything
+        if (albumStartDateInput.value){
+            disableDate = new Date();
+            disableDate = albumStartDateValue;
+            disableYear = disableDate.getFullYear();
+            disableMonth = disableDate.getMonth();
+            disableDay = disableDate.getDate();
+        }else{
+            disableDate = null;
+        }
+      
+        isDayDisabled = false;
+        //debug print
+        console.log("disable date is--------->",disableDate);
+        console.log("disable Year is--------->",disableYear);
+        console.log("disable Month is--------->",disableMonth);
+        console.log("disable Day is--------->",disableDay);
         
         // Check if the selected start date is the last day of the month
         const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
@@ -329,14 +461,27 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentYear--;
                 if (currentYear < minYear) {
                     currentYear = minYear;
-                }
+                } else if (currentYear === disableYear){
+                   if (type ==='end'|| type ==='albumEnd'){
+                        if (currentMonth < disableMonth){
+                            currentMonth = disableMonth ;
+                        }
+                    }
+                }                    
                 renderDayCalendar(currentMonth, currentYear, type);
             });
             forwardYearButton.addEventListener('click', function() {
                 currentYear++;
                 if (currentYear > maxYear) {
                     currentYear = maxYear;
-                }
+                } else if (currentYear === disableYear){
+                    if (type ==='start'|| type ==='albumStart'){
+                        if (currentMonth > disableMonth){
+                            currentMonth = disableMonth ;
+                        }
+                    }
+                
+                }          
                 renderDayCalendar(currentMonth, currentYear, type);
             });
             backMonthButton.addEventListener('click', function() {
@@ -362,11 +507,18 @@ document.addEventListener('DOMContentLoaded', function () {
             });
             forwardButton.addEventListener('click', function() {
                 currentYear++;
+                if (currentYear > maxYear) {
+                    currentYear = maxYear;
+                }
                 renderMonthCalendar(currentYear, type);
             });
         } else if (viewType === 'year') {
             backButton.addEventListener('click', function() {
-                currentYear -= 28;
+                if (currentYear === disableYear+1) {
+                    currentYear = disableYear;
+                } else{
+                    currentYear -= 28;
+                }
                 renderYearCalendar(currentYear, type);
             });
             forwardButton.addEventListener('click', function() {
@@ -384,25 +536,96 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Render Day Calendar
     function renderDayCalendar(month, year, type) {
+        
+        // reset every time when start
+        isDayDisabled = false;
+        isYearDisabled = false;
+        isMonthDisabled = false;
       
         // debug print
- /*        console.log("renderDayCalendar type is:",type)
-        console.log("month got parse to renderDayCalendar:",month)
-        console.log("year got parse to renderDayCalendar:",year) */
+        console.log("----> ** renderDayCalendar type is:",type)
+        console.log("----> ** month got parsed:",month)
+        console.log("----> ** year got parsed:",year) 
+        console.log("----> ** disable Year is:",disableYear);
+        console.log("----> ** disable month is:",disableMonth);
+        console.log("----> ** disable day is:",disableDay);
+        console.log("----> ** current Year is:",currentYear);
+        console.log("----> ** current month is:",currentMonth); 
         
         const containerId = `dayCalendar${type.charAt(0).toUpperCase() + type.slice(1)}`;
         const container = document.getElementById(containerId);
         
-        // debug print
-        console.log("container is:",container)
-
         const yearDisplayDay = container.querySelector('.calendar-year');
         const monthDisplayDay = container.querySelector('.calendar-month');
         const daysContainer = container.querySelector('.cal-days');
         const datesContainer = container.querySelector('.calendar-main');
+        
+         // Check conditions to disable year or month
+        if ((type === 'start' || type === 'albumStart') && (year >= disableYear ) ||
+            (type === 'end' || type === 'albumEnd') && (year <= disableYear )) {
+                isYearDisabled = true;
+        }
+        console.log("************* is year disable? **********",isYearDisabled)
+        
+         // If the year is disabled, add appropriate class and disable interaction
+        const backYearButton = container.querySelector('.cal-btn.back-year');
+        const forwardYearButton = container.querySelector('.cal-btn.front-year');
 
-        yearDisplayDay.textContent = `${year}`;
-        monthDisplayDay.textContent = `${months[month]}`;
+       // If the year is disabled, add appropriate class and disable interaction
+        if (isYearDisabled) {
+            // Disable interaction with year navigation buttons
+            if (type ==='start' || type === 'albumStart'){
+                if (year >= disableYear){
+                    backYearButton.disabled = false;
+                    forwardYearButton.disabled = true;
+                } else{
+                    forwardYearButton.disabled = true;
+                    backYearButton.disabled = false;
+                }
+            } else if (type ==='end' || type ==='albumEnd'){
+                if ( year <= disableYear){
+                    backYearButton.disabled = true;
+                    forwardYearButton.disabled = false;
+                } else{
+                    isYearDisabled = false;
+                    backYearButton.disabled = false;
+                    forwardYearButton.disabled = false;
+                }
+            }
+        } else {
+            backYearButton.disabled = false;
+            forwardYearButton.disabled = false;
+        } 
+
+       yearDisplayDay.textContent = `${year}`;
+       monthDisplayDay.textContent = `${months[month]}`;
+        
+       // month checking only if the year is same as disabledYear
+        if (year === disableYear) {
+            if ((type === 'start' || type === 'albumStart') && (month >= disableMonth) ||
+                (type === 'end' || type === 'albumEnd') && (month <= disableMonth)) {
+                isMonthDisabled = true;
+            }
+        }
+        
+        console.log("************* is month disable? **********",isMonthDisabled)
+        
+        const backMonthButton = container.querySelector('.cal-btn.back-month');
+        const forwardMonthButton = container.querySelector('.cal-btn.front-month');
+        
+            // If the month is disabled, add appropriate class and disable interaction
+        if (isMonthDisabled) {
+            if (type ==='start' || type === 'albumStart'){
+                backMonthButton.disabled = false;
+                forwardMonthButton.disabled = true;
+            } else if (type ==='end'|| type === 'albumEnd'){
+                backMonthButton.disabled = true;
+                forwardMonthButton.disabled = false;
+            }
+        } else {
+            backMonthButton.disabled = false;
+            forwardMonthButton.disabled = false;
+        } 
 
         // Calculate the first day of the month
         const firstDay = new Date(year, month, 1).getDay();
@@ -427,16 +650,39 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Render days of the month
         for (let date = 1; date <= lastDate; date++) {
+            
+          // Reset isDayDisabled for each date
+            isDayDisabled = false;
+            let checkDay = new Date(year, month, date);
+            
+            // debug print
+             console.log("--> starting adding date inside calendar");
+             console.log("--> parsing date :",date);
+             console.log("--> disable date :",disableDay);
+          /*    console.log("--> check date :",checkDay);
+             console.log("--> disable date:", disableDate);  */
+            
             const dateElement = document.createElement('div');
-            dateElement.textContent = date;
-            dateElement.classList.add('day'); // Only add 'day' class
+            if ((type === 'start' || type === 'albumStart') && checkDay >= disableDate ||
+                (type === 'end' || type === 'albumEnd') && checkDay < disableDate ||
+                checkDay > new Date()) {
+                isDayDisabled = true;
+            }
+            console.log("************* is date disable? **********",isDayDisabled)
+            
+            if (isDayDisabled) {
+                dateElement.textContent = date;
+                dateElement.classList.add('disableDay');
+            } else {
+                dateElement.textContent = date;
+                dateElement.classList.add('day'); // Only add 'day' class
+            }
 
             // Add class for Saturdays and Sundays
             const dayOfWeek = new Date(year, month, date).getDay();
             if (dayOfWeek === 6 || dayOfWeek === 0) {
                 dateElement.classList.add('weekend');
             }
-
             dateElement.addEventListener('click', function () {
                 // hide all calendar
                 hideElements = [
@@ -479,7 +725,7 @@ document.addEventListener('DOMContentLoaded', function () {
         
          // Toggle calendar visibility (year view)
         yearDisplayDay.addEventListener('click', function () {
-            if(type ==="start" || type ==="albumStart"){
+            if (type ==="start" || type ==="albumStart"){
                 hideElements = [
                     dayCalendarStart, monthCalendarStart, 
                     dayCalendarAlbumStart, monthCalendarAlbumStart,
@@ -500,8 +746,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 toggleElementVisibility(hideElements,false);
                 showElements = [yearCalendarEnd,yearCalendarAlbumEnd];
                 toggleElementVisibility(showElements,true);
-         
-                startYear = year + 1; 
+              /*   console.log("************************")
+                console.log("year is:",year);
+                console.log("start year is:",startYear);
+                console.log("max year is:",maxYear);
+                console.log("************************") */
+                if (year === maxYear) {
+                    startYear === year;
+                } else {
+                    startYear = year + 1; 
+                }
             }
             renderYearCalendar(startYear,type);
         });
@@ -509,25 +763,74 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Render Month Calendar
     function renderMonthCalendar(year, type) {
+          // reset
+          isYearDisabled = false;
+          
          // debug print
-        // console.log("renderMonthCalendar type is:",type)
-         
+         console.log("----> ** renderMonthCalendar type is:",type)
+         console.log("----> ** year got parsed:",year) 
+         console.log("----> ** disable Year is:",disableYear);
+         console.log("----> ** disable month is:",disableMonth);
+         console.log("----> ** disable day is:",disableDay);
+        
+         console.log("----> ** current Year is:",currentYear);
+         console.log("----> ** current month is:",currentMonth); 
+        
         const containerId = `monthCalendar${type.charAt(0).toUpperCase() + type.slice(1)}`;
         const container = document.getElementById(containerId);
 
         const yearDisplayMonth = container.querySelector('.calendar-year');
         const monthsContainer = container.querySelector('.cal-months');
+        
+      
+         // Check conditions to disable year or month
+         if ((type === 'start' || type === 'albumStart') && (year >= disableYear ) ||
+             (type === 'end' || type === 'albumEnd') && (year <= disableYear )) {
+             isYearDisabled = true;
+        }
+        
+        const backButton = container.querySelector('.cal-btn.back');
+        const forwardButton = container.querySelector('.cal-btn.front');
+            
+        if (isYearDisabled){
+            if  (type ==="start" || type ==="albumStart"){
+                backButton.disabled = false;
+                forwardButton.disabled = true;
+            } else if (type === "end" || type ==="albumEnd") {
+                backButton.disabled = true;
+                forwardButton.disabled = false;
+          }
+        } else {
+            backButton.disabled = false;
+            forwardButton.disabled = false;
+        }
 
         yearDisplayMonth.textContent = `${year}`;
 
         monthsContainer.innerHTML = months.map((month, index) => {
-            return `<div class="month" data-month="${index}">${month}</div>`;
+            
+                // Reset isMonthDisabled for each month
+                isMonthDisabled = false;
+            
+            if (year === disableYear){
+                if ((type === 'start' || type === 'albumStart') && (index > disableMonth) ||
+                    (type === 'end' || type === 'albumEnd') && (index < disableMonth)) {
+                        isMonthDisabled = true;
+                }
+            }
+            
+            // Add disableMonth class if month is disabled
+            const monthClass = isMonthDisabled ? 'month disableMonth' : 'month';
+
+            return `<div class="${monthClass}" data-month="${index}">${month}</div>`;
         }).join('');
 
         // Add click event listeners to months
         monthsContainer.querySelectorAll('.month').forEach(monthElement => {
             monthElement.addEventListener('click', function () {
                 const selectedMonth = parseInt(monthElement.dataset.month);
+                // set currentMonth after click
+                currentMonth = selectedMonth;
                 renderDayCalendar(selectedMonth, year, type);
                 document.getElementById(`dayCalendar${type.charAt(0).toUpperCase() + type.slice(1)}`).classList.toggle('hidden', false);
                 document.getElementById(`monthCalendar${type.charAt(0).toUpperCase() + type.slice(1)}`).classList.toggle('hidden', true);
@@ -547,7 +850,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 toggleElementVisibility(showElements,true)
                 
             } else if (type === "end"  || type==="albumEnd") {
-                date
                 hideElements = [
                     dayCalendarEnd, monthCalendarEnd,
                     dayCalendarAlbumEnd, monthCalendarAlbumEnd
@@ -563,20 +865,61 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Render Year Calendar
     function renderYearCalendar(startYear, type) {
-        // debug print
-        console.log("renderYearCalendar type is:",type)
         
+       // reset every time when start
+         let isYearDisabled = false;
+         
+        // debug print
+         console.log("----> ** renderYearCalendar type is:",type)
+         console.log("----> ** startyear got parsed:",startYear) 
+         console.log("----> ** disable Year is:",disableYear);
+         console.log("----> ** disable month is:",disableMonth);
+         console.log("----> ** disable day is:",disableDay);
+         console.log("----> ** current Year is:",currentYear);
+         console.log("----> ** current month is:",currentMonth); 
+         
         const containerId = `yearCalendar${type.charAt(0).toUpperCase() + type.slice(1)}`;
         const container = document.getElementById(containerId);
 
         const yearsContainer = container.querySelector('.cal-years');
         const endYear = Math.min(startYear + 27, maxYear); // Show a range of 28 years (4 rows x 7 columns)
-
+       
+         // Check conditions to disable year or month
+         if ((type === 'start' || type === 'albumStart') && (startYear >= disableYear ) ||
+             (type === 'end' || type === 'albumEnd') && (startYear <= disableYear )) {
+             isYearDisabled = true;
+        }
+        console.log("************* is year disable? **********",isYearDisabled)
+        
+        const backButton = container.querySelector('.cal-btn.back');
+        const forwardButton = container.querySelector('.cal-btn.front');
+            
+         if (isYearDisabled){
+            if  (type ==="start" || type ==="albumStart"){
+                backButton.disabled = false;
+                forwardButton.disabled = true;
+            } else if (type === "end" || type ==="albumEnd") {
+                backButton.disabled = true;
+                forwardButton.disabled = false;
+          }
+        } else {
+            backButton.disabled = false;
+            forwardButton.disabled = false;
+        }  
+        
         yearsContainer.innerHTML = '';
         for (let year = startYear; year <= endYear; year++) {
             const yearElement = document.createElement('div');
             yearElement.textContent = year;
             yearElement.classList.add('year');
+            
+            // Add the disableYear class if the year should be disabled
+            if ((type === 'start' || type === 'albumStart') && year > disableYear) {
+                yearElement.classList.add('disableYear');
+            } else if ((type === 'end' || type === 'albumEnd') && year < disableYear) {
+                yearElement.classList.add('disableYear');
+            }
+        
             yearElement.addEventListener('click', function () {
                  currentYear = year;
                 renderMonthCalendar(year, type);
@@ -628,9 +971,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function selectDate(year, month, date, type) {
-        // Debug print 
-    /*     console.log("**********************")
-        console.log("select date for type:", type) */
         
         const selectedDate = new Date(year,month,date);
         // Debug print  
@@ -644,12 +984,6 @@ document.addEventListener('DOMContentLoaded', function () {
     
         switch (type) {
             case 'start':
-                const endDateValue = parseUKDate(endDateInput.value);
-    
-                if (endDateValue && selectedDate > endDateValue) {
-                    alert("Start date cannot be later than end date.");
-                    return; 
-                }
     
                 startDateInput.value = formatDateToUK(selectedDate);
                 dayCalendarStart.classList.toggle('hidden', true);
@@ -661,14 +995,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 break;
     
             case 'end': 
-                const startDateValue = parseUKDate(startDateInput.value);
-                
-                console.log("start date value:",startDateValue)
-    
-                if (startDateValue && selectedDate < startDateValue) {
-                    alert("End date cannot be earlier than start date.");
-                    return; 
-                }
+             
                 endDateInput.value = formatDateToUK(selectedDate);
                 dayCalendarEnd.classList.toggle('hidden', true);
                 isEndCalendarOpen = false;
@@ -682,13 +1009,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 break;
     
             case 'albumStart':
-                const albumEndDateValue = parseUKDate(albumEndDateInput.value);
-    
-                if (albumEndDateValue && selectedDate > albumEndDateValue) {
-                    alert("Album start date cannot be later than album end date.");
-                    return; 
-                }
-    
+            
                 albumStartDateInput.value = formatDateToUK(selectedDate);
                 dayCalendarAlbumStart.classList.toggle('hidden', true);
                 isAlbumStartCalendarOpen = false;
@@ -696,12 +1017,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 break;
     
             case 'albumEnd':
-                const albumStartDateValue = parseUKDate(albumStartDateInput.value);
-                
-                if (albumStartDateValue && selectedDate < albumStartDateValue) {
-                    alert("Album end date cannot be earlier than album start date.");
-                    return; 
-                }
     
                 albumEndDateInput.value = formatDateToUK(selectedDate);
                 dayCalendarAlbumEnd.classList.toggle('hidden', true);
