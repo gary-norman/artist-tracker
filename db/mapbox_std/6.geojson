@@ -1,58 +1,59 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    -109.98127,
+    34.3662
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "joyner lucas_event_0001",
-        "artist": "Joyner Lucas",
-        "title": "Joyner Lucas live at Arizona, USA",
-        "description": "",
-        "date": "08-10-2019",
-        "eventAddress": "Arizona, USA"
-      },
       "geometry": {
         "coordinates": [
           -111.422127989113,
           34.2202611707236
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "joyner lucas_event_0001",
+        "title": "Joyner Lucas live at Arizona, USA",
+        "description": "",
+        "date": "08-10-2019",
+        "eventAddress": "Arizona, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "joyner lucas_event_0002",
-        "artist": "Joyner Lucas",
-        "title": "Joyner Lucas live at California, USA",
-        "description": "",
-        "date": "19-10-2019, 18-10-2019, 17-10-2019, 15-10-2019, 12-10-2019, 11-10-2019",
-        "eventAddress": "California, USA"
-      },
       "geometry": {
         "coordinates": [
           -119.699375153073,
           37.0743595873945
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "joyner lucas_event_0002",
+        "title": "Joyner Lucas live at California, USA",
+        "description": "",
+        "date": "19-10-2019, 18-10-2019, 17-10-2019, 15-10-2019, 12-10-2019, 11-10-2019",
+        "eventAddress": "California, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "joyner lucas_event_0003",
-        "artist": "Joyner Lucas",
-        "title": "Joyner Lucas live at Texas, USA",
-        "description": "",
-        "date": "06-10-2019",
-        "eventAddress": "Texas, USA"
-      },
       "geometry": {
         "coordinates": [
           -98.8223185136653,
           31.8039734986915
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "joyner lucas_event_0003",
+        "title": "Joyner Lucas live at Texas, USA",
+        "description": "",
+        "date": "06-10-2019",
+        "eventAddress": "Texas, USA"
       }
     }
   ]

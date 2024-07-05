@@ -19,8 +19,9 @@ type Dataset struct {
 }
 
 type FeatureCollection struct {
-	Type     string    `json:"type"`
-	Features []Feature `json:"features"`
+	Type      string    `json:"type"`
+	AveCoords []float64 `json:"aveCoords"`
+	Features  []Feature `json:"features"`
 }
 
 type Feature struct {

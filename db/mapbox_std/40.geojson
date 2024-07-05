@@ -1,94 +1,93 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    -23.42642,
+    48.69494
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "linkin park_event_0001",
-        "artist": "Linkin Park",
-        "title": "Linkin Park live at Rotselaar, Belgium",
-        "description": "",
-        "date": "02-07-2017",
-        "eventAddress": "Rotselaar, Belgium"
-      },
       "geometry": {
         "coordinates": [
           4.7094054,
           50.9514713
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "linkin park_event_0001",
+        "title": "Linkin Park live at Rotselaar, Belgium",
+        "description": "",
+        "date": "02-07-2017",
+        "eventAddress": "Rotselaar, Belgium"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "linkin park_event_0002",
-        "artist": "Linkin Park",
-        "title": "Linkin Park live at Birmingham, UK",
-        "description": "",
-        "date": "06-07-2017",
-        "eventAddress": "Birmingham, UK"
-      },
       "geometry": {
         "coordinates": [
           -1.9026910999999993,
           52.479699199999985
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "linkin park_event_0002",
+        "title": "Linkin Park live at Birmingham, UK",
+        "description": "",
+        "date": "06-07-2017",
+        "eventAddress": "Birmingham, UK"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "linkin park_event_0003",
-        "artist": "Linkin Park",
-        "title": "Linkin Park live at Brixton, UK",
-        "description": "",
-        "date": "04-07-2017",
-        "eventAddress": "Brixton, UK"
-      },
       "geometry": {
         "coordinates": [
           -0.111788,
           51.461873
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "linkin park_event_0003",
+        "title": "Linkin Park live at Brixton, UK",
+        "description": "",
+        "date": "04-07-2017",
+        "eventAddress": "Brixton, UK"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "linkin park_event_0004",
-        "artist": "Linkin Park",
-        "title": "Linkin Park live at California, USA",
-        "description": "",
-        "date": "27-10-2017",
-        "eventAddress": "California, USA"
-      },
       "geometry": {
         "coordinates": [
           -119.699375153073,
           37.0743595873945
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "linkin park_event_0004",
+        "title": "Linkin Park live at California, USA",
+        "description": "",
+        "date": "27-10-2017",
+        "eventAddress": "California, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "linkin park_event_0005",
-        "artist": "Linkin Park",
-        "title": "Linkin Park live at London, UK",
-        "description": "",
-        "date": "03-07-2017",
-        "eventAddress": "London, UK"
-      },
       "geometry": {
         "coordinates": [
           -0.127647,
           51.5073
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "linkin park_event_0005",
+        "title": "Linkin Park live at London, UK",
+        "description": "",
+        "date": "03-07-2017",
+        "eventAddress": "London, UK"
       }
     }
   ]

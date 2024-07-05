@@ -1,58 +1,59 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    -32.63977,
+    35.41914
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "rihanna_event_0001",
-        "artist": "Rihanna",
-        "title": "Rihanna live at Abu Dhabi, United Arab Emirates",
-        "description": "",
-        "date": "27-11-2016",
-        "eventAddress": "Abu Dhabi, United Arab Emirates"
-      },
       "geometry": {
         "coordinates": [
           54.377438,
           24.453523
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "rihanna_event_0001",
+        "title": "Rihanna live at Abu Dhabi, United Arab Emirates",
+        "description": "",
+        "date": "27-11-2016",
+        "eventAddress": "Abu Dhabi, United Arab Emirates"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "rihanna_event_0002",
-        "artist": "Rihanna",
-        "title": "Rihanna live at New York, USA",
-        "description": "",
-        "date": "24-09-2016",
-        "eventAddress": "New York, USA"
-      },
       "geometry": {
         "coordinates": [
           -74.0059945,
           40.7127492
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "rihanna_event_0002",
+        "title": "Rihanna live at New York, USA",
+        "description": "",
+        "date": "24-09-2016",
+        "eventAddress": "New York, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "rihanna_event_0003",
-        "artist": "Rihanna",
-        "title": "Rihanna live at Pennsylvania, USA",
-        "description": "",
-        "date": "03-09-2016, 04-09-2016",
-        "eventAddress": "Pennsylvania, USA"
-      },
       "geometry": {
         "coordinates": [
           -78.2907462468837,
           41.0911397651497
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "rihanna_event_0003",
+        "title": "Rihanna live at Pennsylvania, USA",
+        "description": "",
+        "date": "03-09-2016, 04-09-2016",
+        "eventAddress": "Pennsylvania, USA"
       }
     }
   ]

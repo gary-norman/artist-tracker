@@ -1,166 +1,161 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    -15.52444,
+    39.23952
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "juice wrld_event_0001",
-        "artist": "Juice Wrld",
-        "title": "Juice Wrld live at Copenhagen, Denmark",
-        "description": "",
-        "date": "01-05-2019",
-        "eventAddress": "Copenhagen, Denmark"
-      },
       "geometry": {
         "coordinates": [
           12.5697339,
           55.6753132
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "juice wrld_event_0001",
+        "title": "Juice Wrld live at Copenhagen, Denmark",
+        "description": "",
+        "date": "01-05-2019",
+        "eventAddress": "Copenhagen, Denmark"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "juice wrld_event_0002",
-        "artist": "Juice Wrld",
-        "title": "Juice Wrld live at Birmingham, UK",
-        "description": "",
-        "date": "14-05-2019",
-        "eventAddress": "Birmingham, UK"
-      },
       "geometry": {
         "coordinates": [
           -1.9026910999999993,
           52.479699199999985
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "juice wrld_event_0002",
+        "title": "Juice Wrld live at Birmingham, UK",
+        "description": "",
+        "date": "14-05-2019",
+        "eventAddress": "Birmingham, UK"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "juice wrld_event_0003",
-        "artist": "Juice Wrld",
-        "title": "Juice Wrld live at Missouri, USA",
-        "description": "",
-        "date": "18-01-2019",
-        "eventAddress": "Missouri, USA"
-      },
       "geometry": {
         "coordinates": [
           -92.585914899503,
           38.19080239858
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "juice wrld_event_0003",
+        "title": "Juice Wrld live at Missouri, USA",
+        "description": "",
+        "date": "18-01-2019",
+        "eventAddress": "Missouri, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "juice wrld_event_0004",
-        "artist": "Juice Wrld",
-        "title": "Juice Wrld live at Washington, USA",
-        "description": "",
-        "date": "08-12-2018",
-        "eventAddress": "Washington, USA"
-      },
       "geometry": {
         "coordinates": [
           -120.094292506456,
           48.0250054263449
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "juice wrld_event_0004",
+        "title": "Juice Wrld live at Washington, USA",
+        "description": "",
+        "date": "08-12-2018",
+        "eventAddress": "Washington, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "juice wrld_event_0005",
-        "artist": "Juice Wrld",
-        "title": "Juice Wrld live at Amsterdam, Netherlands",
-        "description": "",
-        "date": "25-03-2019",
-        "eventAddress": "Amsterdam, Netherlands"
-      },
       "geometry": {
         "coordinates": [
           4.9,
           52.378
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "juice wrld_event_0005",
+        "title": "Juice Wrld live at Amsterdam, Netherlands",
+        "description": "",
+        "date": "25-03-2019",
+        "eventAddress": "Amsterdam, Netherlands"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "juice wrld_event_0006",
-        "artist": "Juice Wrld",
-        "title": "Juice Wrld live at Chicago, USA",
-        "description": "",
-        "date": "30-05-2019",
-        "eventAddress": "Chicago, USA"
-      },
       "geometry": {
         "coordinates": [
           -87.63236,
           41.881954
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "juice wrld_event_0006",
+        "title": "Juice Wrld live at Chicago, USA",
+        "description": "",
+        "date": "30-05-2019",
+        "eventAddress": "Chicago, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "juice wrld_event_0007",
-        "artist": "Juice Wrld",
-        "title": "Juice Wrld live at Manchester, UK",
-        "description": "",
-        "date": "18-03-2019",
-        "eventAddress": "Manchester, UK"
-      },
       "geometry": {
         "coordinates": [
           -2.2451148,
           53.47948920000002
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "juice wrld_event_0007",
+        "title": "Juice Wrld live at Manchester, UK",
+        "description": "",
+        "date": "18-03-2019",
+        "eventAddress": "Manchester, UK"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "juice wrld_event_0008",
-        "artist": "Juice Wrld",
-        "title": "Juice Wrld live at West Melbourne, Australia",
-        "description": "",
-        "date": "29-11-2019",
-        "eventAddress": "West Melbourne, Australia"
-      },
       "geometry": {
         "coordinates": [
           144.922328,
           -37.808048
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "juice wrld_event_0008",
+        "title": "Juice Wrld live at West Melbourne, Australia",
+        "description": "",
+        "date": "29-11-2019",
+        "eventAddress": "West Melbourne, Australia"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "juice wrld_event_0009",
-        "artist": "Juice Wrld",
-        "title": "Juice Wrld live at Paris, France",
-        "description": "",
-        "date": "07-03-2019",
-        "eventAddress": "Paris, France"
-      },
       "geometry": {
         "coordinates": [
           2.3483915,
           48.8534951
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "juice wrld_event_0009",
+        "title": "Juice Wrld live at Paris, France",
+        "description": "",
+        "date": "07-03-2019",
+        "eventAddress": "Paris, France"
       }
     }
   ]

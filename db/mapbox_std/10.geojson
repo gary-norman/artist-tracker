@@ -1,94 +1,93 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    -35.75366,
+    33.5861
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "katy perry_event_0001",
-        "artist": "Katy Perry",
-        "title": "Katy Perry live at California, USA",
-        "description": "",
-        "date": "06-12-2019",
-        "eventAddress": "California, USA"
-      },
       "geometry": {
         "coordinates": [
           -119.699375153073,
           37.0743595873945
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "katy perry_event_0001",
+        "title": "Katy Perry live at California, USA",
+        "description": "",
+        "date": "06-12-2019",
+        "eventAddress": "California, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "katy perry_event_0002",
-        "artist": "Katy Perry",
-        "title": "Katy Perry live at Doha, Qatar",
-        "description": "",
-        "date": "15-12-2019",
-        "eventAddress": "Doha, Qatar"
-      },
       "geometry": {
         "coordinates": [
           51.5264162,
           25.2856329
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "katy perry_event_0002",
+        "title": "Katy Perry live at Doha, Qatar",
+        "description": "",
+        "date": "15-12-2019",
+        "eventAddress": "Doha, Qatar"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "katy perry_event_0003",
-        "artist": "Katy Perry",
-        "title": "Katy Perry live at Illinois, USA",
-        "description": "",
-        "date": "07-12-2019",
-        "eventAddress": "Illinois, USA"
-      },
       "geometry": {
         "coordinates": [
           -89.2749461071049,
           40.1492928594374
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "katy perry_event_0003",
+        "title": "Katy Perry live at Illinois, USA",
+        "description": "",
+        "date": "07-12-2019",
+        "eventAddress": "Illinois, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "katy perry_event_0004",
-        "artist": "Katy Perry",
-        "title": "Katy Perry live at Minnesota, USA",
-        "description": "",
-        "date": "09-12-2019",
-        "eventAddress": "Minnesota, USA"
-      },
       "geometry": {
         "coordinates": [
           -94.1991167709013,
           46.3434063154299
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "katy perry_event_0004",
+        "title": "Katy Perry live at Minnesota, USA",
+        "description": "",
+        "date": "09-12-2019",
+        "eventAddress": "Minnesota, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "katy perry_event_0005",
-        "artist": "Katy Perry",
-        "title": "Katy Perry live at Mumbai, India",
-        "description": "",
-        "date": "16-11-2019",
-        "eventAddress": "Mumbai, India"
-      },
       "geometry": {
         "coordinates": [
           72.878723,
           19.077793
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "katy perry_event_0005",
+        "title": "Katy Perry live at Mumbai, India",
+        "description": "",
+        "date": "16-11-2019",
+        "eventAddress": "Mumbai, India"
       }
     }
   ]

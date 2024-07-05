@@ -1,94 +1,93 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    128.24397,
+    -24.09636
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "eminem_event_0001",
-        "artist": "Eminem",
-        "title": "Eminem live at Melbourne, Australia",
-        "description": "",
-        "date": "24-02-2019",
-        "eventAddress": "Melbourne, Australia"
-      },
       "geometry": {
         "coordinates": [
           144.96457,
           -37.813984
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "eminem_event_0001",
+        "title": "Eminem live at Melbourne, Australia",
+        "description": "",
+        "date": "24-02-2019",
+        "eventAddress": "Melbourne, Australia"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "eminem_event_0002",
-        "artist": "Eminem",
-        "title": "Eminem live at Sydney, Australia",
-        "description": "",
-        "date": "22-02-2019",
-        "eventAddress": "Sydney, Australia"
-      },
       "geometry": {
         "coordinates": [
           151.20699,
           -33.87078
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "eminem_event_0002",
+        "title": "Eminem live at Sydney, Australia",
+        "description": "",
+        "date": "22-02-2019",
+        "eventAddress": "Sydney, Australia"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "eminem_event_0003",
-        "artist": "Eminem",
-        "title": "Eminem live at Wellington, New Zealand",
-        "description": "",
-        "date": "02-03-2019",
-        "eventAddress": "Wellington, New Zealand"
-      },
       "geometry": {
         "coordinates": [
           174.77522,
           -41.29132
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "eminem_event_0003",
+        "title": "Eminem live at Wellington, New Zealand",
+        "description": "",
+        "date": "02-03-2019",
+        "eventAddress": "Wellington, New Zealand"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "eminem_event_0004",
-        "artist": "Eminem",
-        "title": "Eminem live at Abu Dhabi, United Arab Emirates",
-        "description": "",
-        "date": "25-10-2019",
-        "eventAddress": "Abu Dhabi, United Arab Emirates"
-      },
       "geometry": {
         "coordinates": [
           54.377438,
           24.453523
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "eminem_event_0004",
+        "title": "Eminem live at Abu Dhabi, United Arab Emirates",
+        "description": "",
+        "date": "25-10-2019",
+        "eventAddress": "Abu Dhabi, United Arab Emirates"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "eminem_event_0005",
-        "artist": "Eminem",
-        "title": "Eminem live at Burswood, Australia",
-        "description": "",
-        "date": "27-02-2019",
-        "eventAddress": "Burswood, Australia"
-      },
       "geometry": {
         "coordinates": [
           115.895607,
           -31.959235
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "eminem_event_0005",
+        "title": "Eminem live at Burswood, Australia",
+        "description": "",
+        "date": "27-02-2019",
+        "eventAddress": "Burswood, Australia"
       }
     }
   ]

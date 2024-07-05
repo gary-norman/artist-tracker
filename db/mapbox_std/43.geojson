@@ -1,148 +1,144 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    56.71525,
+    29.88404
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "green day_event_0001",
-        "artist": "Green Day",
-        "title": "Green Day live at Seoul, South Korea",
-        "description": "",
-        "date": "22-03-2020",
-        "eventAddress": "Seoul, South Korea"
-      },
       "geometry": {
         "coordinates": [
           126.9782914,
           37.5666791
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "green day_event_0001",
+        "title": "Green Day live at Seoul, South Korea",
+        "description": "",
+        "date": "22-03-2020",
+        "eventAddress": "Seoul, South Korea"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "green day_event_0002",
-        "artist": "Green Day",
-        "title": "Green Day live at Seville, Spain",
-        "description": "",
-        "date": "03-11-2019",
-        "eventAddress": "Seville, Spain"
-      },
       "geometry": {
         "coordinates": [
           -5.99456,
           37.389465
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "green day_event_0002",
+        "title": "Green Day live at Seville, Spain",
+        "description": "",
+        "date": "03-11-2019",
+        "eventAddress": "Seville, Spain"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "green day_event_0003",
-        "artist": "Green Day",
-        "title": "Green Day live at Taipei, Taiwan",
-        "description": "",
-        "date": "17-03-2020",
-        "eventAddress": "Taipei, Taiwan"
-      },
       "geometry": {
         "coordinates": [
           121.543938,
           25.044979
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "green day_event_0003",
+        "title": "Green Day live at Taipei, Taiwan",
+        "description": "",
+        "date": "17-03-2020",
+        "eventAddress": "Taipei, Taiwan"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "green day_event_0004",
-        "artist": "Green Day",
-        "title": "Green Day live at Bangkok, Thailand",
-        "description": "",
-        "date": "11-03-2020",
-        "eventAddress": "Bangkok, Thailand"
-      },
       "geometry": {
         "coordinates": [
           100.4935089,
           13.7524938
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "green day_event_0004",
+        "title": "Green Day live at Bangkok, Thailand",
+        "description": "",
+        "date": "11-03-2020",
+        "eventAddress": "Bangkok, Thailand"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "green day_event_0005",
-        "artist": "Green Day",
-        "title": "Green Day live at Hong Kong, China",
-        "description": "",
-        "date": "20-03-2020",
-        "eventAddress": "Hong Kong, China"
-      },
       "geometry": {
         "coordinates": [
           111.667227,
           36.250509
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "green day_event_0005",
+        "title": "Green Day live at Hong Kong, China",
+        "description": "",
+        "date": "20-03-2020",
+        "eventAddress": "Hong Kong, China"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "green day_event_0006",
-        "artist": "Green Day",
-        "title": "Green Day live at Los Angeles, USA",
-        "description": "",
-        "date": "24-11-2019",
-        "eventAddress": "Los Angeles, USA"
-      },
       "geometry": {
         "coordinates": [
           -118.24168,
           34.054077
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "green day_event_0006",
+        "title": "Green Day live at Los Angeles, USA",
+        "description": "",
+        "date": "24-11-2019",
+        "eventAddress": "Los Angeles, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "green day_event_0007",
-        "artist": "Green Day",
-        "title": "Green Day live at Madrid, Spain",
-        "description": "",
-        "date": "30-10-2019",
-        "eventAddress": "Madrid, Spain"
-      },
       "geometry": {
         "coordinates": [
           -3.702979,
           40.419224
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "green day_event_0007",
+        "title": "Green Day live at Madrid, Spain",
+        "description": "",
+        "date": "30-10-2019",
+        "eventAddress": "Madrid, Spain"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "green day_event_0008",
-        "artist": "Green Day",
-        "title": "Green Day live at Manila, Philippines",
-        "description": "",
-        "date": "14-03-2020",
-        "eventAddress": "Manila, Philippines"
-      },
       "geometry": {
         "coordinates": [
           120.9782618,
           14.5948914
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "green day_event_0008",
+        "title": "Green Day live at Manila, Philippines",
+        "description": "",
+        "date": "14-03-2020",
+        "eventAddress": "Manila, Philippines"
       }
     }
   ]

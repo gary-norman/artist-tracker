@@ -1,76 +1,76 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    -14.81691,
+    50.39381
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "acdc_event_0001",
-        "artist": "ACDC",
-        "title": "ACDC live at Aarhus, Denmark",
-        "description": "",
-        "date": "12-06-2016",
-        "eventAddress": "Aarhus, Denmark"
-      },
       "geometry": {
         "coordinates": [
           10.209716,
           56.156857
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "acdc_event_0001",
+        "title": "ACDC live at Aarhus, Denmark",
+        "description": "",
+        "date": "12-06-2016",
+        "eventAddress": "Aarhus, Denmark"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "acdc_event_0002",
-        "artist": "ACDC",
-        "title": "ACDC live at Dusseldorf, Germany",
-        "description": "",
-        "date": "15-06-2016",
-        "eventAddress": "Dusseldorf, Germany"
-      },
       "geometry": {
         "coordinates": [
           6.773766,
           51.22615
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "acdc_event_0002",
+        "title": "ACDC live at Dusseldorf, Germany",
+        "description": "",
+        "date": "15-06-2016",
+        "eventAddress": "Dusseldorf, Germany"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "acdc_event_0003",
-        "artist": "ACDC",
-        "title": "ACDC live at Manchester, UK",
-        "description": "",
-        "date": "09-06-2016",
-        "eventAddress": "Manchester, UK"
-      },
       "geometry": {
         "coordinates": [
           -2.2451148,
           53.47948920000002
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "acdc_event_0003",
+        "title": "ACDC live at Manchester, UK",
+        "description": "",
+        "date": "09-06-2016",
+        "eventAddress": "Manchester, UK"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "acdc_event_0004",
-        "artist": "ACDC",
-        "title": "ACDC live at New York, USA",
-        "description": "",
-        "date": "14-09-2016, 11-09-2016",
-        "eventAddress": "New York, USA"
-      },
       "geometry": {
         "coordinates": [
           -74.0059945,
           40.7127492
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "acdc_event_0004",
+        "title": "ACDC live at New York, USA",
+        "description": "",
+        "date": "14-09-2016, 11-09-2016",
+        "eventAddress": "New York, USA"
       }
     }
   ]

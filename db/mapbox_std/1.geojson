@@ -1,58 +1,59 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    -23.36136,
+    -6.42739
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "soja_event_0001",
-        "artist": "SOJA",
-        "title": "SOJA live at Noumea, New Caledonia",
-        "description": "",
-        "date": "15-11-2019",
-        "eventAddress": "Noumea, New Caledonia"
-      },
       "geometry": {
         "coordinates": [
           166.439931,
           -22.275595
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "soja_event_0001",
+        "title": "SOJA live at Noumea, New Caledonia",
+        "description": "",
+        "date": "15-11-2019",
+        "eventAddress": "Noumea, New Caledonia"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "soja_event_0002",
-        "artist": "SOJA",
-        "title": "SOJA live at Papeete, French Polynesia",
-        "description": "",
-        "date": "16-11-2019",
-        "eventAddress": "Papeete, French Polynesia"
-      },
       "geometry": {
         "coordinates": [
           -149.453446,
           -17.63576
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "soja_event_0002",
+        "title": "SOJA live at Papeete, French Polynesia",
+        "description": "",
+        "date": "16-11-2019",
+        "eventAddress": "Papeete, French Polynesia"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "soja_event_0003",
-        "artist": "SOJA",
-        "title": "SOJA live at Playa Del Carmen, Mexico",
-        "description": "",
-        "date": "05-12-2019, 06-12-2019, 07-12-2019, 08-12-2019, 09-12-2019",
-        "eventAddress": "Playa Del Carmen, Mexico"
-      },
       "geometry": {
         "coordinates": [
           -87.07056,
           20.62918
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "soja_event_0003",
+        "title": "SOJA live at Playa Del Carmen, Mexico",
+        "description": "",
+        "date": "05-12-2019, 06-12-2019, 07-12-2019, 08-12-2019, 09-12-2019",
+        "eventAddress": "Playa Del Carmen, Mexico"
       }
     }
   ]

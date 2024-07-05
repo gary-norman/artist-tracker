@@ -1,130 +1,127 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    -40.9445,
+    7.50752
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "maroon 5_event_0001",
-        "artist": "Maroon 5",
-        "title": "Maroon 5 live at Florida, USA",
-        "description": "",
-        "date": "01-02-2020",
-        "eventAddress": "Florida, USA"
-      },
       "geometry": {
         "coordinates": [
           -82.033629763236,
           28.9444647055242
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "maroon 5_event_0001",
+        "title": "Maroon 5 live at Florida, USA",
+        "description": "",
+        "date": "01-02-2020",
+        "eventAddress": "Florida, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "maroon 5_event_0002",
-        "artist": "Maroon 5",
-        "title": "Maroon 5 live at Mexico City, Mexico",
-        "description": "",
-        "date": "23-02-2020",
-        "eventAddress": "Mexico City, Mexico"
-      },
       "geometry": {
         "coordinates": [
           -99.1331785,
           19.4326296
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "maroon 5_event_0002",
+        "title": "Maroon 5 live at Mexico City, Mexico",
+        "description": "",
+        "date": "23-02-2020",
+        "eventAddress": "Mexico City, Mexico"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "maroon 5_event_0003",
-        "artist": "Maroon 5",
-        "title": "Maroon 5 live at Santiago, Chile",
-        "description": "",
-        "date": "28-02-2020",
-        "eventAddress": "Santiago, Chile"
-      },
       "geometry": {
         "coordinates": [
           -70.64937,
           -33.440643
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "maroon 5_event_0003",
+        "title": "Maroon 5 live at Santiago, Chile",
+        "description": "",
+        "date": "28-02-2020",
+        "eventAddress": "Santiago, Chile"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "maroon 5_event_0004",
-        "artist": "Maroon 5",
-        "title": "Maroon 5 live at Sao Paulo, Brazil",
-        "description": "",
-        "date": "01-03-2020",
-        "eventAddress": "Sao Paulo, Brazil"
-      },
       "geometry": {
         "coordinates": [
           -46.638775,
           -23.548157
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "maroon 5_event_0004",
+        "title": "Maroon 5 live at Sao Paulo, Brazil",
+        "description": "",
+        "date": "01-03-2020",
+        "eventAddress": "Sao Paulo, Brazil"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "maroon 5_event_0005",
-        "artist": "Maroon 5",
-        "title": "Maroon 5 live at Willemstad, Netherlands Antilles",
-        "description": "",
-        "date": "29-08-2019",
-        "eventAddress": "Willemstad, Netherlands Antilles"
-      },
       "geometry": {
         "coordinates": [
           4.4403,
           51.694035
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "maroon 5_event_0005",
+        "title": "Maroon 5 live at Willemstad, Netherlands Antilles",
+        "description": "",
+        "date": "29-08-2019",
+        "eventAddress": "Willemstad, Netherlands Antilles"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "maroon 5_event_0006",
-        "artist": "Maroon 5",
-        "title": "Maroon 5 live at Brasilia, Brazil",
-        "description": "",
-        "date": "03-03-2020",
-        "eventAddress": "Brasilia, Brazil"
-      },
       "geometry": {
         "coordinates": [
           -47.890812,
           -15.795598
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "maroon 5_event_0006",
+        "title": "Maroon 5 live at Brasilia, Brazil",
+        "description": "",
+        "date": "03-03-2020",
+        "eventAddress": "Brasilia, Brazil"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "maroon 5_event_0007",
-        "artist": "Maroon 5",
-        "title": "Maroon 5 live at Dubai, United Arab Emirates",
-        "description": "",
-        "date": "14-06-2019",
-        "eventAddress": "Dubai, United Arab Emirates"
-      },
       "geometry": {
         "coordinates": [
           55.293941,
           25.265941
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "maroon 5_event_0007",
+        "title": "Maroon 5 live at Dubai, United Arab Emirates",
+        "description": "",
+        "date": "14-06-2019",
+        "eventAddress": "Dubai, United Arab Emirates"
       }
     }
   ]

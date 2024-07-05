@@ -1,148 +1,144 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    98.212,
+    1.62911
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "scorpions_event_0001",
-        "artist": "Scorpions",
-        "title": "Scorpions live at Queensland, Australia",
-        "description": "",
-        "date": "24-02-2020",
-        "eventAddress": "Queensland, Australia"
-      },
       "geometry": {
         "coordinates": [
           144.550390100876,
           -22.572791380262
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "scorpions_event_0001",
+        "title": "Scorpions live at Queensland, Australia",
+        "description": "",
+        "date": "24-02-2020",
+        "eventAddress": "Queensland, Australia"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "scorpions_event_0002",
-        "artist": "Scorpions",
-        "title": "Scorpions live at Victoria, Australia",
-        "description": "",
-        "date": "19-02-2020",
-        "eventAddress": "Victoria, Australia"
-      },
       "geometry": {
         "coordinates": [
           145.288812139665,
           -37.1323374266933
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "scorpions_event_0002",
+        "title": "Scorpions live at Victoria, Australia",
+        "description": "",
+        "date": "19-02-2020",
+        "eventAddress": "Victoria, Australia"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "scorpions_event_0003",
-        "artist": "Scorpions",
-        "title": "Scorpions live at Yogyakarta, Indonesia",
-        "description": "",
-        "date": "01-03-2019",
-        "eventAddress": "Yogyakarta, Indonesia"
-      },
       "geometry": {
         "coordinates": [
           110.36807,
           -7.790416
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "scorpions_event_0003",
+        "title": "Scorpions live at Yogyakarta, Indonesia",
+        "description": "",
+        "date": "01-03-2019",
+        "eventAddress": "Yogyakarta, Indonesia"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "scorpions_event_0004",
-        "artist": "Scorpions",
-        "title": "Scorpions live at Auckland, New Zealand",
-        "description": "",
-        "date": "27-02-2020",
-        "eventAddress": "Auckland, New Zealand"
-      },
       "geometry": {
         "coordinates": [
           174.76591,
           -36.846996
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "scorpions_event_0004",
+        "title": "Scorpions live at Auckland, New Zealand",
+        "description": "",
+        "date": "27-02-2020",
+        "eventAddress": "Auckland, New Zealand"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "scorpions_event_0005",
-        "artist": "Scorpions",
-        "title": "Scorpions live at Bratislava, Slovakia",
-        "description": "",
-        "date": "20-11-2019",
-        "eventAddress": "Bratislava, Slovakia"
-      },
       "geometry": {
         "coordinates": [
           17.105913,
           48.143898
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "scorpions_event_0005",
+        "title": "Scorpions live at Bratislava, Slovakia",
+        "description": "",
+        "date": "20-11-2019",
+        "eventAddress": "Bratislava, Slovakia"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "scorpions_event_0006",
-        "artist": "Scorpions",
-        "title": "Scorpions live at Budapest, Hungary",
-        "description": "",
-        "date": "18-11-2019",
-        "eventAddress": "Budapest, Hungary"
-      },
       "geometry": {
         "coordinates": [
           19.0403594,
           47.4979937
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "scorpions_event_0006",
+        "title": "Scorpions live at Budapest, Hungary",
+        "description": "",
+        "date": "18-11-2019",
+        "eventAddress": "Budapest, Hungary"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "scorpions_event_0007",
-        "artist": "Scorpions",
-        "title": "Scorpions live at Minsk, Belarus",
-        "description": "",
-        "date": "15-11-2019",
-        "eventAddress": "Minsk, Belarus"
-      },
       "geometry": {
         "coordinates": [
           27.5618225,
           53.9024716
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "scorpions_event_0007",
+        "title": "Scorpions live at Minsk, Belarus",
+        "description": "",
+        "date": "15-11-2019",
+        "eventAddress": "Minsk, Belarus"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "scorpions_event_0008",
-        "artist": "Scorpions",
-        "title": "Scorpions live at New South Wales, Australia",
-        "description": "",
-        "date": "22-02-2020",
-        "eventAddress": "New South Wales, Australia"
-      },
       "geometry": {
         "coordinates": [
           147.014694071448,
           -32.168971672412
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "scorpions_event_0008",
+        "title": "Scorpions live at New South Wales, Australia",
+        "description": "",
+        "date": "22-02-2020",
+        "eventAddress": "New South Wales, Australia"
       }
     }
   ]

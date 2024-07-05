@@ -1,130 +1,127 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    -27.61313,
+    29.38719
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "kendrick lamar_event_0001",
-        "artist": "Kendrick Lamar",
-        "title": "Kendrick Lamar live at Werchter, Belgium",
-        "description": "",
-        "date": "04-07-2020",
-        "eventAddress": "Werchter, Belgium"
-      },
       "geometry": {
         "coordinates": [
           4.692803,
           50.97131
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "kendrick lamar_event_0001",
+        "title": "Kendrick Lamar live at Werchter, Belgium",
+        "description": "",
+        "date": "04-07-2020",
+        "eventAddress": "Werchter, Belgium"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "kendrick lamar_event_0002",
-        "artist": "Kendrick Lamar",
-        "title": "Kendrick Lamar live at Bilbao, Spain",
-        "description": "",
-        "date": "09-07-2020, 10-07-2020, 11-07-2020",
-        "eventAddress": "Bilbao, Spain"
-      },
       "geometry": {
         "coordinates": [
           -2.931943,
           43.263355
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "kendrick lamar_event_0002",
+        "title": "Kendrick Lamar live at Bilbao, Spain",
+        "description": "",
+        "date": "09-07-2020, 10-07-2020, 11-07-2020",
+        "eventAddress": "Bilbao, Spain"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "kendrick lamar_event_0003",
-        "artist": "Kendrick Lamar",
-        "title": "Kendrick Lamar live at Bogota, Colombia",
-        "description": "",
-        "date": "05-04-2019, 06-04-2019, 07-04-2019",
-        "eventAddress": "Bogota, Colombia"
-      },
       "geometry": {
         "coordinates": [
           -74.0836453,
           4.6534649
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "kendrick lamar_event_0003",
+        "title": "Kendrick Lamar live at Bogota, Colombia",
+        "description": "",
+        "date": "05-04-2019, 06-04-2019, 07-04-2019",
+        "eventAddress": "Bogota, Colombia"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "kendrick lamar_event_0004",
-        "artist": "Kendrick Lamar",
-        "title": "Kendrick Lamar live at Georgia, USA",
-        "description": "",
-        "date": "08-06-2019",
-        "eventAddress": "Georgia, USA"
-      },
       "geometry": {
         "coordinates": [
           -83.2572560296474,
           32.3305706594431
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "kendrick lamar_event_0004",
+        "title": "Kendrick Lamar live at Georgia, USA",
+        "description": "",
+        "date": "08-06-2019",
+        "eventAddress": "Georgia, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "kendrick lamar_event_0005",
-        "artist": "Kendrick Lamar",
-        "title": "Kendrick Lamar live at Lisbon, Portugal",
-        "description": "",
-        "date": "09-07-2020, 10-07-2020, 11-07-2020",
-        "eventAddress": "Lisbon, Portugal"
-      },
       "geometry": {
         "coordinates": [
           -9.144851,
           38.715424
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "kendrick lamar_event_0005",
+        "title": "Kendrick Lamar live at Lisbon, Portugal",
+        "description": "",
+        "date": "09-07-2020, 10-07-2020, 11-07-2020",
+        "eventAddress": "Lisbon, Portugal"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "kendrick lamar_event_0006",
-        "artist": "Kendrick Lamar",
-        "title": "Kendrick Lamar live at Sao Paulo, Brazil",
-        "description": "",
-        "date": "05-04-2019, 06-04-2019, 07-04-2019",
-        "eventAddress": "Sao Paulo, Brazil"
-      },
       "geometry": {
         "coordinates": [
           -46.638775,
           -23.548157
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "kendrick lamar_event_0006",
+        "title": "Kendrick Lamar live at Sao Paulo, Brazil",
+        "description": "",
+        "date": "05-04-2019, 06-04-2019, 07-04-2019",
+        "eventAddress": "Sao Paulo, Brazil"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "kendrick lamar_event_0007",
-        "artist": "Kendrick Lamar",
-        "title": "Kendrick Lamar live at Stockholm, Sweden",
-        "description": "",
-        "date": "26-06-2020, 27-06-2020, 28-06-2020",
-        "eventAddress": "Stockholm, Sweden"
-      },
       "geometry": {
         "coordinates": [
           18.071766,
           59.324333
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "kendrick lamar_event_0007",
+        "title": "Kendrick Lamar live at Stockholm, Sweden",
+        "description": "",
+        "date": "26-06-2020, 27-06-2020, 28-06-2020",
+        "eventAddress": "Stockholm, Sweden"
       }
     }
   ]

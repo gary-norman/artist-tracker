@@ -1,58 +1,59 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    -26.15439,
+    47.50447
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "genesis_event_0001",
-        "artist": "Genesis",
-        "title": "Genesis live at Illinois, USA",
-        "description": "",
-        "date": "06-09-2012",
-        "eventAddress": "Illinois, USA"
-      },
       "geometry": {
         "coordinates": [
           -89.2749461071049,
           40.1492928594374
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "genesis_event_0001",
+        "title": "Genesis live at Illinois, USA",
+        "description": "",
+        "date": "06-09-2012",
+        "eventAddress": "Illinois, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "genesis_event_0002",
-        "artist": "Genesis",
-        "title": "Genesis live at Merkers, Germany",
-        "description": "",
-        "date": "29-06-2012, 30-06-2012",
-        "eventAddress": "Merkers, Germany"
-      },
       "geometry": {
         "coordinates": [
           10.116707,
           50.823597
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "genesis_event_0002",
+        "title": "Genesis live at Merkers, Germany",
+        "description": "",
+        "date": "29-06-2012, 30-06-2012",
+        "eventAddress": "Merkers, Germany"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "genesis_event_0003",
-        "artist": "Genesis",
-        "title": "Genesis live at Westcliff On Sea, UK",
-        "description": "",
-        "date": "07-10-2012",
-        "eventAddress": "Westcliff On Sea, UK"
-      },
       "geometry": {
         "coordinates": [
           0.695068,
           51.540516
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "genesis_event_0003",
+        "title": "Genesis live at Westcliff On Sea, UK",
+        "description": "",
+        "date": "07-10-2012",
+        "eventAddress": "Westcliff On Sea, UK"
       }
     }
   ]

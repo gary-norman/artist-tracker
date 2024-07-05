@@ -1,40 +1,42 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    -39.0466,
+    -15.48519
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "mamonas assassinas_event_0001",
-        "artist": "Mamonas Assassinas",
-        "title": "Mamonas Assassinas live at Recife, Brazil",
-        "description": "",
-        "date": "28-12-1995",
-        "eventAddress": "Recife, Brazil"
-      },
       "geometry": {
         "coordinates": [
           -34.883263,
           -8.060838
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "mamonas assassinas_event_0001",
+        "title": "Mamonas Assassinas live at Recife, Brazil",
+        "description": "",
+        "date": "28-12-1995",
+        "eventAddress": "Recife, Brazil"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "mamonas assassinas_event_0002",
-        "artist": "Mamonas Assassinas",
-        "title": "Mamonas Assassinas live at Rio De Janeiro, Brazil",
-        "description": "",
-        "date": "10-02-1996",
-        "eventAddress": "Rio De Janeiro, Brazil"
-      },
       "geometry": {
         "coordinates": [
           -43.209934,
           -22.909534
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "mamonas assassinas_event_0002",
+        "title": "Mamonas Assassinas live at Rio De Janeiro, Brazil",
+        "description": "",
+        "date": "10-02-1996",
+        "eventAddress": "Rio De Janeiro, Brazil"
       }
     }
   ]

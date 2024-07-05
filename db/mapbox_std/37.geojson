@@ -1,112 +1,110 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    4.21893,
+    51.47828
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "fall out boy_event_0001",
-        "artist": "Fall Out Boy",
-        "title": "Fall Out Boy live at Antwerp, Belgium",
-        "description": "",
-        "date": "19-06-2020",
-        "eventAddress": "Antwerp, Belgium"
-      },
       "geometry": {
         "coordinates": [
           4.3997081,
           51.2211097
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "fall out boy_event_0001",
+        "title": "Fall Out Boy live at Antwerp, Belgium",
+        "description": "",
+        "date": "19-06-2020",
+        "eventAddress": "Antwerp, Belgium"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "fall out boy_event_0002",
-        "artist": "Fall Out Boy",
-        "title": "Fall Out Boy live at Glasgow, UK",
-        "description": "",
-        "date": "24-06-2020",
-        "eventAddress": "Glasgow, UK"
-      },
       "geometry": {
         "coordinates": [
           -4.2488787,
           55.860982499999984
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "fall out boy_event_0002",
+        "title": "Fall Out Boy live at Glasgow, UK",
+        "description": "",
+        "date": "24-06-2020",
+        "eventAddress": "Glasgow, UK"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "fall out boy_event_0003",
-        "artist": "Fall Out Boy",
-        "title": "Fall Out Boy live at Groningen, Netherlands",
-        "description": "",
-        "date": "14-06-2020",
-        "eventAddress": "Groningen, Netherlands"
-      },
       "geometry": {
         "coordinates": [
           6.569525,
           53.218414
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "fall out boy_event_0003",
+        "title": "Fall Out Boy live at Groningen, Netherlands",
+        "description": "",
+        "date": "14-06-2020",
+        "eventAddress": "Groningen, Netherlands"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "fall out boy_event_0004",
-        "artist": "Fall Out Boy",
-        "title": "Fall Out Boy live at London, UK",
-        "description": "",
-        "date": "26-06-2020",
-        "eventAddress": "London, UK"
-      },
       "geometry": {
         "coordinates": [
           -0.127647,
           51.5073
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "fall out boy_event_0004",
+        "title": "Fall Out Boy live at London, UK",
+        "description": "",
+        "date": "26-06-2020",
+        "eventAddress": "London, UK"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "fall out boy_event_0005",
-        "artist": "Fall Out Boy",
-        "title": "Fall Out Boy live at Paris, France",
-        "description": "",
-        "date": "13-06-2020",
-        "eventAddress": "Paris, France"
-      },
       "geometry": {
         "coordinates": [
           2.3483915,
           48.8534951
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "fall out boy_event_0005",
+        "title": "Fall Out Boy live at Paris, France",
+        "description": "",
+        "date": "13-06-2020",
+        "eventAddress": "Paris, France"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "fall out boy_event_0006",
-        "artist": "Fall Out Boy",
-        "title": "Fall Out Boy live at Vienna, Austria",
-        "description": "",
-        "date": "21-06-2020",
-        "eventAddress": "Vienna, Austria"
-      },
       "geometry": {
         "coordinates": [
           16.3725042,
           48.2083537
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "fall out boy_event_0006",
+        "title": "Fall Out Boy live at Vienna, Austria",
+        "description": "",
+        "date": "21-06-2020",
+        "eventAddress": "Vienna, Austria"
       }
     }
   ]

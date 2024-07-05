@@ -1,148 +1,144 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    -85.44822,
+    41.72937
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "j. cole_event_0001",
-        "artist": "J. Cole",
-        "title": "J. Cole live at Brooklyn, USA",
-        "description": "",
-        "date": "04-06-2019",
-        "eventAddress": "Brooklyn, USA"
-      },
       "geometry": {
         "coordinates": [
           -73.9497,
           40.6526
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "j. cole_event_0001",
+        "title": "J. Cole live at Brooklyn, USA",
+        "description": "",
+        "date": "04-06-2019",
+        "eventAddress": "Brooklyn, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "j. cole_event_0002",
-        "artist": "J. Cole",
-        "title": "J. Cole live at Las Vegas, USA",
-        "description": "",
-        "date": "01-11-2019, 02-11-2019, 03-11-2019",
-        "eventAddress": "Las Vegas, USA"
-      },
       "geometry": {
         "coordinates": [
           -115.14062,
           36.169212
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "j. cole_event_0002",
+        "title": "J. Cole live at Las Vegas, USA",
+        "description": "",
+        "date": "01-11-2019, 02-11-2019, 03-11-2019",
+        "eventAddress": "Las Vegas, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "j. cole_event_0003",
-        "artist": "J. Cole",
-        "title": "J. Cole live at Montreal, Canada",
-        "description": "",
-        "date": "05-10-2018",
-        "eventAddress": "Montreal, Canada"
-      },
       "geometry": {
         "coordinates": [
           -73.57338,
           45.50025
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "j. cole_event_0003",
+        "title": "J. Cole live at Montreal, Canada",
+        "description": "",
+        "date": "05-10-2018",
+        "eventAddress": "Montreal, Canada"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "j. cole_event_0004",
-        "artist": "J. Cole",
-        "title": "J. Cole live at New York, USA",
-        "description": "",
-        "date": "01-10-2018",
-        "eventAddress": "New York, USA"
-      },
       "geometry": {
         "coordinates": [
           -74.0059945,
           40.7127492
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "j. cole_event_0004",
+        "title": "J. Cole live at New York, USA",
+        "description": "",
+        "date": "01-10-2018",
+        "eventAddress": "New York, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "j. cole_event_0005",
-        "artist": "J. Cole",
-        "title": "J. Cole live at Philadelphia, USA",
-        "description": "",
-        "date": "06-10-2018",
-        "eventAddress": "Philadelphia, USA"
-      },
       "geometry": {
         "coordinates": [
           -75.16401,
           39.950886
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "j. cole_event_0005",
+        "title": "J. Cole live at Philadelphia, USA",
+        "description": "",
+        "date": "06-10-2018",
+        "eventAddress": "Philadelphia, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "j. cole_event_0006",
-        "artist": "J. Cole",
-        "title": "J. Cole live at Toronto, USA",
-        "description": "",
-        "date": "04-10-2018",
-        "eventAddress": "Toronto, USA"
-      },
       "geometry": {
         "coordinates": [
           -80.60095,
           40.465397
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "j. cole_event_0006",
+        "title": "J. Cole live at Toronto, USA",
+        "description": "",
+        "date": "04-10-2018",
+        "eventAddress": "Toronto, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "j. cole_event_0007",
-        "artist": "J. Cole",
-        "title": "J. Cole live at Washington, USA",
-        "description": "",
-        "date": "08-10-2018",
-        "eventAddress": "Washington, USA"
-      },
       "geometry": {
         "coordinates": [
           -120.094292506456,
           48.0250054263449
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "j. cole_event_0007",
+        "title": "J. Cole live at Washington, USA",
+        "description": "",
+        "date": "08-10-2018",
+        "eventAddress": "Washington, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "j. cole_event_0008",
-        "artist": "J. Cole",
-        "title": "J. Cole live at Boston, USA",
-        "description": "",
-        "date": "10-10-2018",
-        "eventAddress": "Boston, USA"
-      },
       "geometry": {
         "coordinates": [
           -71.0568,
           42.35888
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "j. cole_event_0008",
+        "title": "J. Cole live at Boston, USA",
+        "description": "",
+        "date": "10-10-2018",
+        "eventAddress": "Boston, USA"
       }
     }
   ]

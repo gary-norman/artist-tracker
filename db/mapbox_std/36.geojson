@@ -1,112 +1,110 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    -61.68739,
+    -20.29336
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "arctic monkeys_event_0001",
-        "artist": "Arctic Monkeys",
-        "title": "Arctic Monkeys live at Santiago, Chile",
-        "description": "",
-        "date": "29-03-2019",
-        "eventAddress": "Santiago, Chile"
-      },
       "geometry": {
         "coordinates": [
           -70.64937,
           -33.440643
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "arctic monkeys_event_0001",
+        "title": "Arctic Monkeys live at Santiago, Chile",
+        "description": "",
+        "date": "29-03-2019",
+        "eventAddress": "Santiago, Chile"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "arctic monkeys_event_0002",
-        "artist": "Arctic Monkeys",
-        "title": "Arctic Monkeys live at Sao Paulo, Brazil",
-        "description": "",
-        "date": "03-04-2019",
-        "eventAddress": "Sao Paulo, Brazil"
-      },
       "geometry": {
         "coordinates": [
           -46.638775,
           -23.548157
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "arctic monkeys_event_0002",
+        "title": "Arctic Monkeys live at Sao Paulo, Brazil",
+        "description": "",
+        "date": "03-04-2019",
+        "eventAddress": "Sao Paulo, Brazil"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "arctic monkeys_event_0003",
-        "artist": "Arctic Monkeys",
-        "title": "Arctic Monkeys live at Bogota, Colombia",
-        "description": "",
-        "date": "07-04-2019",
-        "eventAddress": "Bogota, Colombia"
-      },
       "geometry": {
         "coordinates": [
           -74.0836453,
           4.6534649
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "arctic monkeys_event_0003",
+        "title": "Arctic Monkeys live at Bogota, Colombia",
+        "description": "",
+        "date": "07-04-2019",
+        "eventAddress": "Bogota, Colombia"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "arctic monkeys_event_0004",
-        "artist": "Arctic Monkeys",
-        "title": "Arctic Monkeys live at Lima, Peru",
-        "description": "",
-        "date": "26-03-2019",
-        "eventAddress": "Lima, Peru"
-      },
       "geometry": {
         "coordinates": [
           -77.03205,
           -12.047044
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "arctic monkeys_event_0004",
+        "title": "Arctic Monkeys live at Lima, Peru",
+        "description": "",
+        "date": "26-03-2019",
+        "eventAddress": "Lima, Peru"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "arctic monkeys_event_0005",
-        "artist": "Arctic Monkeys",
-        "title": "Arctic Monkeys live at Rio De Janeiro, Brazil",
-        "description": "",
-        "date": "03-04-2019",
-        "eventAddress": "Rio De Janeiro, Brazil"
-      },
       "geometry": {
         "coordinates": [
           -43.209934,
           -22.909534
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "arctic monkeys_event_0005",
+        "title": "Arctic Monkeys live at Rio De Janeiro, Brazil",
+        "description": "",
+        "date": "03-04-2019",
+        "eventAddress": "Rio De Janeiro, Brazil"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "arctic monkeys_event_0006",
-        "artist": "Arctic Monkeys",
-        "title": "Arctic Monkeys live at San Isidro, Argentina",
-        "description": "",
-        "date": "29-03-2019",
-        "eventAddress": "San Isidro, Argentina"
-      },
       "geometry": {
         "coordinates": [
           -58.510563,
           -34.46826
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "arctic monkeys_event_0006",
+        "title": "Arctic Monkeys live at San Isidro, Argentina",
+        "description": "",
+        "date": "29-03-2019",
+        "eventAddress": "San Isidro, Argentina"
       }
     }
   ]

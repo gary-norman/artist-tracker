@@ -1,3 +1,6 @@
+let aveLoc = []
+document.addEventListener('DOMContentLoaded', loadGeoJSONForArtist);
+
 // Ensure to add your Mapbox access token
 mapboxgl.accessToken = 'pk.eyJ1IjoibG9yZXdvcmxkIiwiYSI6ImNsd3FseDNsbDAzZjMyanF2czh3Mmt4eTgifQ.-_bXsAv_SR1bpcmvOSpDuA';
 let mapProject = 'globe'
@@ -9,25 +12,7 @@ document.getElementById('mapProject').addEventListener('click', () => {
         mapProject = 'globe'
     }
 })
-// Create the map instance
-const map = new mapboxgl.Map({
-    container: 'map', // container ID
-    style: 'mapbox://styles/loreworld/clx6fy3dp01w001pnegho7ud8', // map style
-    projection: mapProject,
-    center: [-98.5795, 39.8283], // starting position [lng, lat]
-    zoom: 1 // starting zoom
-});
 
-map.on('style.load', () => {
-    map.setFog({
-        "range": [0.8, 9],
-        "color": "#471e50",
-        "horizon-blend": .2,
-        "high-color": "#07173e",
-        "space-color": "#000000",
-        "star-intensity": 0.35
-    });
-});
 
 function parseDate(dateStr) {
     const [day, month, year] = dateStr.split('-');
@@ -96,8 +81,30 @@ async function loadGeoJSONForArtist() {
             throw new Error('Network response was not ok ' + response.statusText);
         }
         const geojson = await response.json();
-        
+        aveLoc = geojson.aveCoords
         console.log('GeoJSON Data:', geojson);
+        console.log('Average location:', aveLoc)
+
+        // Create the map instance
+        const map = new mapboxgl.Map({
+            container: 'map', // container ID
+            style: 'mapbox://styles/loreworld/clx6fy3dp01w001pnegho7ud8', // map style
+            projection: mapProject,
+            // center: [-98.5795, 39.8283], // starting position [lng, lat]
+            center: aveLoc, // starting position [lng, lat]
+            zoom: 1 // starting zoom
+        });
+
+        map.on('style.load', () => {
+            map.setFog({
+                "range": [0.8, 9],
+                "color": "#471e50",
+                "horizon-blend": .2,
+                "high-color": "#07173e",
+                "space-color": "#000000",
+                "star-intensity": 0.35
+            });
+        });
 
         // Assuming `geojson` is your GeoJSON data object
         geojson.features.forEach((feature, index) => {
@@ -210,5 +217,3 @@ async function fetchArtistID(artistName) {
         throw error;
     }
 }
-
-document.addEventListener('DOMContentLoaded', loadGeoJSONForArtist);

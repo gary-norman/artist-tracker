@@ -1,112 +1,110 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    -74.82498,
+    41.71128
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "nwa_event_0001",
-        "artist": "NWA",
-        "title": "NWA live at Anaheim, USA",
-        "description": "",
-        "date": "24-03-1989",
-        "eventAddress": "Anaheim, USA"
-      },
       "geometry": {
         "coordinates": [
           -117.91319,
           33.833336
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "nwa_event_0001",
+        "title": "NWA live at Anaheim, USA",
+        "description": "",
+        "date": "24-03-1989",
+        "eventAddress": "Anaheim, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "nwa_event_0002",
-        "artist": "NWA",
-        "title": "NWA live at Birmingham, UK",
-        "description": "",
-        "date": "25-06-1989",
-        "eventAddress": "Birmingham, UK"
-      },
       "geometry": {
         "coordinates": [
           -1.9026910999999993,
           52.479699199999985
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "nwa_event_0002",
+        "title": "NWA live at Birmingham, UK",
+        "description": "",
+        "date": "25-06-1989",
+        "eventAddress": "Birmingham, UK"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "nwa_event_0003",
-        "artist": "NWA",
-        "title": "NWA live at Brooklyn, USA",
-        "description": "",
-        "date": "03-09-2016",
-        "eventAddress": "Brooklyn, USA"
-      },
       "geometry": {
         "coordinates": [
           -73.9497,
           40.6526
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "nwa_event_0003",
+        "title": "NWA live at Brooklyn, USA",
+        "description": "",
+        "date": "03-09-2016",
+        "eventAddress": "Brooklyn, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "nwa_event_0004",
-        "artist": "NWA",
-        "title": "NWA live at Chicago, USA",
-        "description": "",
-        "date": "12-01-1989",
-        "eventAddress": "Chicago, USA"
-      },
       "geometry": {
         "coordinates": [
           -87.63236,
           41.881954
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "nwa_event_0004",
+        "title": "NWA live at Chicago, USA",
+        "description": "",
+        "date": "12-01-1989",
+        "eventAddress": "Chicago, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "nwa_event_0005",
-        "artist": "NWA",
-        "title": "NWA live at Cincinnati, USA",
-        "description": "",
-        "date": "18-06-1989",
-        "eventAddress": "Cincinnati, USA"
-      },
       "geometry": {
         "coordinates": [
           -84.51362,
           39.10369
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "nwa_event_0005",
+        "title": "NWA live at Cincinnati, USA",
+        "description": "",
+        "date": "18-06-1989",
+        "eventAddress": "Cincinnati, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "nwa_event_0006",
-        "artist": "NWA",
-        "title": "NWA live at Windsor, Canada",
-        "description": "",
-        "date": "03-09-2015",
-        "eventAddress": "Windsor, Canada"
-      },
       "geometry": {
         "coordinates": [
           -83.03833,
           42.316418
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "nwa_event_0006",
+        "title": "NWA live at Windsor, Canada",
+        "description": "",
+        "date": "03-09-2015",
+        "eventAddress": "Windsor, Canada"
       }
     }
   ]

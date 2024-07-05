@@ -1,58 +1,59 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    -47.79006,
+    45.87278
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "led zeppelin_event_0001",
-        "artist": "Led Zeppelin",
-        "title": "Led Zeppelin live at New York, USA",
-        "description": "",
-        "date": "12-01-1995",
-        "eventAddress": "New York, USA"
-      },
       "geometry": {
         "coordinates": [
           -74.0059945,
           40.7127492
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "led zeppelin_event_0001",
+        "title": "Led Zeppelin live at New York, USA",
+        "description": "",
+        "date": "12-01-1995",
+        "eventAddress": "New York, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "led zeppelin_event_0002",
-        "artist": "Led Zeppelin",
-        "title": "Led Zeppelin live at London, UK",
-        "description": "",
-        "date": "10-12-2007, 15-03-2003",
-        "eventAddress": "London, UK"
-      },
       "geometry": {
         "coordinates": [
           -0.127647,
           51.5073
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "led zeppelin_event_0002",
+        "title": "Led Zeppelin live at London, UK",
+        "description": "",
+        "date": "10-12-2007, 15-03-2003",
+        "eventAddress": "London, UK"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "led zeppelin_event_0003",
-        "artist": "Led Zeppelin",
-        "title": "Led Zeppelin live at Maine, USA",
-        "description": "",
-        "date": "17-04-1994",
-        "eventAddress": "Maine, USA"
-      },
       "geometry": {
         "coordinates": [
           -69.2365510393463,
           45.3982848479073
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "led zeppelin_event_0003",
+        "title": "Led Zeppelin live at Maine, USA",
+        "description": "",
+        "date": "17-04-1994",
+        "eventAddress": "Maine, USA"
       }
     }
   ]

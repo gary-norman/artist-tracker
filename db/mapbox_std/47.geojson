@@ -1,148 +1,144 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    -45.64452,
+    43.79141
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "twenty one pilots_event_0001",
-        "artist": "Twenty One Pilots",
-        "title": "Twenty One Pilots live at Arras, France",
-        "description": "",
-        "date": "03-07-2020",
-        "eventAddress": "Arras, France"
-      },
       "geometry": {
         "coordinates": [
           2.778784,
           50.290787
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "twenty one pilots_event_0001",
+        "title": "Twenty One Pilots live at Arras, France",
+        "description": "",
+        "date": "03-07-2020",
+        "eventAddress": "Arras, France"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "twenty one pilots_event_0002",
-        "artist": "Twenty One Pilots",
-        "title": "Twenty One Pilots live at California, USA",
-        "description": "",
-        "date": "08-12-2019",
-        "eventAddress": "California, USA"
-      },
       "geometry": {
         "coordinates": [
           -119.699375153073,
           37.0743595873945
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "twenty one pilots_event_0002",
+        "title": "Twenty One Pilots live at California, USA",
+        "description": "",
+        "date": "08-12-2019",
+        "eventAddress": "California, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "twenty one pilots_event_0003",
-        "artist": "Twenty One Pilots",
-        "title": "Twenty One Pilots live at Gdynia, Poland",
-        "description": "",
-        "date": "01-07-2020",
-        "eventAddress": "Gdynia, Poland"
-      },
       "geometry": {
         "coordinates": [
           18.53892,
           54.51768
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "twenty one pilots_event_0003",
+        "title": "Twenty One Pilots live at Gdynia, Poland",
+        "description": "",
+        "date": "01-07-2020",
+        "eventAddress": "Gdynia, Poland"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "twenty one pilots_event_0004",
-        "artist": "Twenty One Pilots",
-        "title": "Twenty One Pilots live at Illinois, USA",
-        "description": "",
-        "date": "13-12-2019",
-        "eventAddress": "Illinois, USA"
-      },
       "geometry": {
         "coordinates": [
           -89.2749461071049,
           40.1492928594374
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "twenty one pilots_event_0004",
+        "title": "Twenty One Pilots live at Illinois, USA",
+        "description": "",
+        "date": "13-12-2019",
+        "eventAddress": "Illinois, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "twenty one pilots_event_0005",
-        "artist": "Twenty One Pilots",
-        "title": "Twenty One Pilots live at Oklahoma, USA",
-        "description": "",
-        "date": "09-11-2019",
-        "eventAddress": "Oklahoma, USA"
-      },
       "geometry": {
         "coordinates": [
           -97.5389608460746,
           35.9015874097089
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "twenty one pilots_event_0005",
+        "title": "Twenty One Pilots live at Oklahoma, USA",
+        "description": "",
+        "date": "09-11-2019",
+        "eventAddress": "Oklahoma, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "twenty one pilots_event_0006",
-        "artist": "Twenty One Pilots",
-        "title": "Twenty One Pilots live at Scheessel, Germany",
-        "description": "",
-        "date": "19-06-2020",
-        "eventAddress": "Scheessel, Germany"
-      },
       "geometry": {
         "coordinates": [
           9.485171,
           53.168766
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "twenty one pilots_event_0006",
+        "title": "Twenty One Pilots live at Scheessel, Germany",
+        "description": "",
+        "date": "19-06-2020",
+        "eventAddress": "Scheessel, Germany"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "twenty one pilots_event_0007",
-        "artist": "Twenty One Pilots",
-        "title": "Twenty One Pilots live at St Gallen, Switzerland",
-        "description": "",
-        "date": "25-06-2020",
-        "eventAddress": "St Gallen, Switzerland"
-      },
       "geometry": {
         "coordinates": [
           9.376546,
           47.42486
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "twenty one pilots_event_0007",
+        "title": "Twenty One Pilots live at St Gallen, Switzerland",
+        "description": "",
+        "date": "25-06-2020",
+        "eventAddress": "St Gallen, Switzerland"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "twenty one pilots_event_0008",
-        "artist": "Twenty One Pilots",
-        "title": "Twenty One Pilots live at Texas, USA",
-        "description": "",
-        "date": "08-11-2019",
-        "eventAddress": "Texas, USA"
-      },
       "geometry": {
         "coordinates": [
           -98.8223185136653,
           31.8039734986915
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "twenty one pilots_event_0008",
+        "title": "Twenty One Pilots live at Texas, USA",
+        "description": "",
+        "date": "08-11-2019",
+        "eventAddress": "Texas, USA"
       }
     }
   ]

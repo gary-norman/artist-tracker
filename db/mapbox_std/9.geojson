@@ -1,94 +1,93 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    11.48028,
+    53.72028
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "pearl jam_event_0001",
-        "artist": "Pearl Jam",
-        "title": "Pearl Jam live at Stockholm, Sweden",
-        "description": "",
-        "date": "26-06-2020, 27-06-2020, 28-06-2020",
-        "eventAddress": "Stockholm, Sweden"
-      },
       "geometry": {
         "coordinates": [
           18.071766,
           59.324333
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "pearl jam_event_0001",
+        "title": "Pearl Jam live at Stockholm, Sweden",
+        "description": "",
+        "date": "26-06-2020, 27-06-2020, 28-06-2020",
+        "eventAddress": "Stockholm, Sweden"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "pearl jam_event_0002",
-        "artist": "Pearl Jam",
-        "title": "Pearl Jam live at Werchter, Belgium",
-        "description": "",
-        "date": "02-07-2020",
-        "eventAddress": "Werchter, Belgium"
-      },
       "geometry": {
         "coordinates": [
           4.692803,
           50.97131
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "pearl jam_event_0002",
+        "title": "Pearl Jam live at Werchter, Belgium",
+        "description": "",
+        "date": "02-07-2020",
+        "eventAddress": "Werchter, Belgium"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "pearl jam_event_0003",
-        "artist": "Pearl Jam",
-        "title": "Pearl Jam live at Berlin, Germany",
-        "description": "",
-        "date": "25-06-2020",
-        "eventAddress": "Berlin, Germany"
-      },
       "geometry": {
         "coordinates": [
           13.3888599,
           52.5170365
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "pearl jam_event_0003",
+        "title": "Pearl Jam live at Berlin, Germany",
+        "description": "",
+        "date": "25-06-2020",
+        "eventAddress": "Berlin, Germany"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "pearl jam_event_0004",
-        "artist": "Pearl Jam",
-        "title": "Pearl Jam live at Copenhagen, Denmark",
-        "description": "",
-        "date": "29-06-2020",
-        "eventAddress": "Copenhagen, Denmark"
-      },
       "geometry": {
         "coordinates": [
           12.5697339,
           55.6753132
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "pearl jam_event_0004",
+        "title": "Pearl Jam live at Copenhagen, Denmark",
+        "description": "",
+        "date": "29-06-2020",
+        "eventAddress": "Copenhagen, Denmark"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "pearl jam_event_0005",
-        "artist": "Pearl Jam",
-        "title": "Pearl Jam live at Frankfurt, Germany",
-        "description": "",
-        "date": "23-06-2020",
-        "eventAddress": "Frankfurt, Germany"
-      },
       "geometry": {
         "coordinates": [
           8.678239,
           50.113396
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "pearl jam_event_0005",
+        "title": "Pearl Jam live at Frankfurt, Germany",
+        "description": "",
+        "date": "23-06-2020",
+        "eventAddress": "Frankfurt, Germany"
       }
     }
   ]

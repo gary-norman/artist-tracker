@@ -1,58 +1,59 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    -106.51848,
+    36.49202
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "xxxtentacion_event_0001",
-        "artist": "XXXTentacion",
-        "title": "XXXTentacion live at California, USA",
-        "description": "",
-        "date": "16-12-2017, 17-12-2017, 21-10-2017, 22-10-2017, 13-08-2017, 12-08-2017",
-        "eventAddress": "California, USA"
-      },
       "geometry": {
         "coordinates": [
           -119.699375153073,
           37.0743595873945
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "xxxtentacion_event_0001",
+        "title": "XXXTentacion live at California, USA",
+        "description": "",
+        "date": "16-12-2017, 17-12-2017, 21-10-2017, 22-10-2017, 13-08-2017, 12-08-2017",
+        "eventAddress": "California, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "xxxtentacion_event_0002",
-        "artist": "XXXTentacion",
-        "title": "XXXTentacion live at Georgia, USA",
-        "description": "",
-        "date": "01-08-2017",
-        "eventAddress": "Georgia, USA"
-      },
       "geometry": {
         "coordinates": [
           -83.2572560296474,
           32.3305706594431
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "xxxtentacion_event_0002",
+        "title": "XXXTentacion live at Georgia, USA",
+        "description": "",
+        "date": "01-08-2017",
+        "eventAddress": "Georgia, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "xxxtentacion_event_0003",
-        "artist": "XXXTentacion",
-        "title": "XXXTentacion live at Nevada, USA",
-        "description": "",
-        "date": "04-08-2017",
-        "eventAddress": "Nevada, USA"
-      },
       "geometry": {
         "coordinates": [
           -116.598821819119,
           40.071120297646
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "xxxtentacion_event_0003",
+        "title": "XXXTentacion live at Nevada, USA",
+        "description": "",
+        "date": "04-08-2017",
+        "eventAddress": "Nevada, USA"
       }
     }
   ]

@@ -1,94 +1,93 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    -90.2167,
+    35.52152
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "gorillaz_event_0001",
-        "artist": "Gorillaz",
-        "title": "Gorillaz live at Pico Rivera, USA",
-        "description": "",
-        "date": "20-10-2018",
-        "eventAddress": "Pico Rivera, USA"
-      },
       "geometry": {
         "coordinates": [
           -118.09717,
           33.98325
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "gorillaz_event_0001",
+        "title": "Gorillaz live at Pico Rivera, USA",
+        "description": "",
+        "date": "20-10-2018",
+        "eventAddress": "Pico Rivera, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "gorillaz_event_0002",
-        "artist": "Gorillaz",
-        "title": "Gorillaz live at Boston, USA",
-        "description": "",
-        "date": "13-10-2018",
-        "eventAddress": "Boston, USA"
-      },
       "geometry": {
         "coordinates": [
           -71.0568,
           42.35888
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "gorillaz_event_0002",
+        "title": "Gorillaz live at Boston, USA",
+        "description": "",
+        "date": "13-10-2018",
+        "eventAddress": "Boston, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "gorillaz_event_0003",
-        "artist": "Gorillaz",
-        "title": "Gorillaz live at Chicago, USA",
-        "description": "",
-        "date": "16-10-2018",
-        "eventAddress": "Chicago, USA"
-      },
       "geometry": {
         "coordinates": [
           -87.63236,
           41.881954
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "gorillaz_event_0003",
+        "title": "Gorillaz live at Chicago, USA",
+        "description": "",
+        "date": "16-10-2018",
+        "eventAddress": "Chicago, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "gorillaz_event_0004",
-        "artist": "Gorillaz",
-        "title": "Gorillaz live at Mexico City, Mexico",
-        "description": "",
-        "date": "24-10-2018",
-        "eventAddress": "Mexico City, Mexico"
-      },
       "geometry": {
         "coordinates": [
           -99.1331785,
           19.4326296
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "gorillaz_event_0004",
+        "title": "Gorillaz live at Mexico City, Mexico",
+        "description": "",
+        "date": "24-10-2018",
+        "eventAddress": "Mexico City, Mexico"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "gorillaz_event_0005",
-        "artist": "Gorillaz",
-        "title": "Gorillaz live at Philadelphia, USA",
-        "description": "",
-        "date": "11-10-2018",
-        "eventAddress": "Philadelphia, USA"
-      },
       "geometry": {
         "coordinates": [
           -75.16401,
           39.950886
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "gorillaz_event_0005",
+        "title": "Gorillaz live at Philadelphia, USA",
+        "description": "",
+        "date": "11-10-2018",
+        "eventAddress": "Philadelphia, USA"
       }
     }
   ]

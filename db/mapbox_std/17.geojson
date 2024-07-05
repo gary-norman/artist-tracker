@@ -1,148 +1,144 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    8.65266,
+    48.34391
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "deep purple_event_0001",
-        "artist": "Deep Purple",
-        "title": "Deep Purple live at Boulogne Billancourt, France",
-        "description": "",
-        "date": "30-06-2020",
-        "eventAddress": "Boulogne Billancourt, France"
-      },
       "geometry": {
         "coordinates": [
           2.241284,
           48.83501
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "deep purple_event_0001",
+        "title": "Deep Purple live at Boulogne Billancourt, France",
+        "description": "",
+        "date": "30-06-2020",
+        "eventAddress": "Boulogne Billancourt, France"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "deep purple_event_0002",
-        "artist": "Deep Purple",
-        "title": "Deep Purple live at Freyming Merlebach, France",
-        "description": "",
-        "date": "09-12-2019",
-        "eventAddress": "Freyming Merlebach, France"
-      },
       "geometry": {
         "coordinates": [
           6.818128,
           49.14669
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "deep purple_event_0002",
+        "title": "Deep Purple live at Freyming Merlebach, France",
+        "description": "",
+        "date": "09-12-2019",
+        "eventAddress": "Freyming Merlebach, France"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "deep purple_event_0003",
-        "artist": "Deep Purple",
-        "title": "Deep Purple live at Hamburg, Germany",
-        "description": "",
-        "date": "24-06-2020",
-        "eventAddress": "Hamburg, Germany"
-      },
       "geometry": {
         "coordinates": [
           10.000654,
           53.550341
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "deep purple_event_0003",
+        "title": "Deep Purple live at Hamburg, Germany",
+        "description": "",
+        "date": "24-06-2020",
+        "eventAddress": "Hamburg, Germany"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "deep purple_event_0004",
-        "artist": "Deep Purple",
-        "title": "Deep Purple live at Klagenfurt, Austria",
-        "description": "",
-        "date": "01-12-2019",
-        "eventAddress": "Klagenfurt, Austria"
-      },
       "geometry": {
         "coordinates": [
           14.306923,
           46.62522
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "deep purple_event_0004",
+        "title": "Deep Purple live at Klagenfurt, Austria",
+        "description": "",
+        "date": "01-12-2019",
+        "eventAddress": "Klagenfurt, Austria"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "deep purple_event_0005",
-        "artist": "Deep Purple",
-        "title": "Deep Purple live at Nimes, France",
-        "description": "",
-        "date": "01-07-2020",
-        "eventAddress": "Nimes, France"
-      },
       "geometry": {
         "coordinates": [
           4.3595932,
           43.8348712
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "deep purple_event_0005",
+        "title": "Deep Purple live at Nimes, France",
+        "description": "",
+        "date": "01-07-2020",
+        "eventAddress": "Nimes, France"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "deep purple_event_0006",
-        "artist": "Deep Purple",
-        "title": "Deep Purple live at Ostrava, Czechia",
-        "description": "",
-        "date": "04-12-2019",
-        "eventAddress": "Ostrava, Czechia"
-      },
       "geometry": {
         "coordinates": [
           18.289057,
           49.835354
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "deep purple_event_0006",
+        "title": "Deep Purple live at Ostrava, Czechia",
+        "description": "",
+        "date": "04-12-2019",
+        "eventAddress": "Ostrava, Czechia"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "deep purple_event_0007",
-        "artist": "Deep Purple",
-        "title": "Deep Purple live at Pagney Derriere Barine, France",
-        "description": "",
-        "date": "25-01-2020",
-        "eventAddress": "Pagney Derriere Barine, France"
-      },
       "geometry": {
         "coordinates": [
           5.84608,
           48.692883
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "deep purple_event_0007",
+        "title": "Deep Purple live at Pagney Derriere Barine, France",
+        "description": "",
+        "date": "25-01-2020",
+        "eventAddress": "Pagney Derriere Barine, France"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "deep purple_event_0008",
-        "artist": "Deep Purple",
-        "title": "Deep Purple live at Sion, Switzerland",
-        "description": "",
-        "date": "08-07-2020, 09-07-2020",
-        "eventAddress": "Sion, Switzerland"
-      },
       "geometry": {
         "coordinates": [
           7.35953,
           46.230938
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "deep purple_event_0008",
+        "title": "Deep Purple live at Sion, Switzerland",
+        "description": "",
+        "date": "08-07-2020, 09-07-2020",
+        "eventAddress": "Sion, Switzerland"
       }
     }
   ]

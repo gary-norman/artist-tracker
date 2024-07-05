@@ -1,58 +1,59 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    -80.7747,
+    32.80659
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "bee gees_event_0001",
-        "artist": "Bee Gees",
-        "title": "Bee Gees live at North Carolina, USA",
-        "description": "",
-        "date": "02-10-1979",
-        "eventAddress": "North Carolina, USA"
-      },
       "geometry": {
         "coordinates": [
           -79.3896838690365,
           35.5568849207634
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "bee gees_event_0001",
+        "title": "Bee Gees live at North Carolina, USA",
+        "description": "",
+        "date": "02-10-1979",
+        "eventAddress": "North Carolina, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "bee gees_event_0002",
-        "artist": "Bee Gees",
-        "title": "Bee Gees live at South Carolina, USA",
-        "description": "",
-        "date": "03-10-1979",
-        "eventAddress": "South Carolina, USA"
-      },
       "geometry": {
         "coordinates": [
           -80.9007732114739,
           33.9184118141794
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "bee gees_event_0002",
+        "title": "Bee Gees live at South Carolina, USA",
+        "description": "",
+        "date": "03-10-1979",
+        "eventAddress": "South Carolina, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "bee gees_event_0003",
-        "artist": "Bee Gees",
-        "title": "Bee Gees live at Florida, USA",
-        "description": "",
-        "date": "05-10-1979, 04-10-1979",
-        "eventAddress": "Florida, USA"
-      },
       "geometry": {
         "coordinates": [
           -82.033629763236,
           28.9444647055242
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "bee gees_event_0003",
+        "title": "Bee Gees live at Florida, USA",
+        "description": "",
+        "date": "05-10-1979, 04-10-1979",
+        "eventAddress": "Florida, USA"
       }
     }
   ]

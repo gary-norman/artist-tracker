@@ -1,148 +1,144 @@
 {
   "type": "FeatureCollection",
+  "aveCoords": [
+    59.56001,
+    15.61208
+  ],
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "ID": "queen_event_0001",
-        "artist": "Queen",
-        "title": "Queen live at Osaka, Japan",
-        "description": "",
-        "date": "28-01-2020",
-        "eventAddress": "Osaka, Japan"
-      },
       "geometry": {
         "coordinates": [
           135.500961,
           34.692528
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "queen_event_0001",
+        "title": "Queen live at Osaka, Japan",
+        "description": "",
+        "date": "28-01-2020",
+        "eventAddress": "Osaka, Japan"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "queen_event_0002",
-        "artist": "Queen",
-        "title": "Queen live at Penrose, New Zealand",
-        "description": "",
-        "date": "07-02-2020",
-        "eventAddress": "Penrose, New Zealand"
-      },
       "geometry": {
         "coordinates": [
           174.814652,
           -36.911905
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "queen_event_0002",
+        "title": "Queen live at Penrose, New Zealand",
+        "description": "",
+        "date": "07-02-2020",
+        "eventAddress": "Penrose, New Zealand"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "queen_event_0003",
-        "artist": "Queen",
-        "title": "Queen live at Saitama, Japan",
-        "description": "",
-        "date": "26-01-2020",
-        "eventAddress": "Saitama, Japan"
-      },
       "geometry": {
         "coordinates": [
           139.646823,
           35.86089
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "queen_event_0003",
+        "title": "Queen live at Saitama, Japan",
+        "description": "",
+        "date": "26-01-2020",
+        "eventAddress": "Saitama, Japan"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "queen_event_0004",
-        "artist": "Queen",
-        "title": "Queen live at Dunedin, New Zealand",
-        "description": "",
-        "date": "10-02-2020",
-        "eventAddress": "Dunedin, New Zealand"
-      },
       "geometry": {
         "coordinates": [
           170.50383,
           -45.87373
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "queen_event_0004",
+        "title": "Queen live at Dunedin, New Zealand",
+        "description": "",
+        "date": "10-02-2020",
+        "eventAddress": "Dunedin, New Zealand"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "queen_event_0005",
-        "artist": "Queen",
-        "title": "Queen live at Georgia, USA",
-        "description": "",
-        "date": "22-08-2019",
-        "eventAddress": "Georgia, USA"
-      },
       "geometry": {
         "coordinates": [
           -83.2572560296474,
           32.3305706594431
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "queen_event_0005",
+        "title": "Queen live at Georgia, USA",
+        "description": "",
+        "date": "22-08-2019",
+        "eventAddress": "Georgia, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "queen_event_0006",
-        "artist": "Queen",
-        "title": "Queen live at Los Angeles, USA",
-        "description": "",
-        "date": "20-08-2019",
-        "eventAddress": "Los Angeles, USA"
-      },
       "geometry": {
         "coordinates": [
           -118.24168,
           34.054077
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "queen_event_0006",
+        "title": "Queen live at Los Angeles, USA",
+        "description": "",
+        "date": "20-08-2019",
+        "eventAddress": "Los Angeles, USA"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "queen_event_0007",
-        "artist": "Queen",
-        "title": "Queen live at Nagoya, Japan",
-        "description": "",
-        "date": "30-01-2019",
-        "eventAddress": "Nagoya, Japan"
-      },
       "geometry": {
         "coordinates": [
           136.902403,
           35.187295
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "queen_event_0007",
+        "title": "Queen live at Nagoya, Japan",
+        "description": "",
+        "date": "30-01-2019",
+        "eventAddress": "Nagoya, Japan"
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "ID": "queen_event_0008",
-        "artist": "Queen",
-        "title": "Queen live at North Carolina, USA",
-        "description": "",
-        "date": "23-08-2019",
-        "eventAddress": "North Carolina, USA"
-      },
       "geometry": {
         "coordinates": [
           -79.3896838690365,
           35.5568849207634
         ],
         "type": "Point"
+      },
+      "properties": {
+        "ID": "queen_event_0008",
+        "title": "Queen live at North Carolina, USA",
+        "description": "",
+        "date": "23-08-2019",
+        "eventAddress": "North Carolina, USA"
       }
     }
   ]
