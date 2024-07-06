@@ -207,6 +207,24 @@ font-size: 2.4rem;
 border-radius: 1.2rem;
 }
 
+#mapProject {
+}
+.globe, .map, #mapboxReset {
+    height: 2.4rem;
+    width: 2.4rem;
+    cursor: pointer;
+}
+.globe {
+    background: url("../icons/globe.svg") no-repeat;
+}
+.map {
+    background: url("../icons/map.svg") no-repeat;
+}
+#mapboxReset {
+    background: url("../icons/reset.svg") no-repeat;
+    cursor: pointer;
+}
+
 *, *::before, *::after {
 /*outline: 1px solid dimgrey;*/
 }

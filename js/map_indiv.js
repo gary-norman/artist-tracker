@@ -1,4 +1,3 @@
-let aveLoc = []
 document.addEventListener('DOMContentLoaded', loadGeoJSONForArtist);
 
 // Ensure to add your Mapbox access token
@@ -11,6 +10,8 @@ document.getElementById('mapProject').addEventListener('click', () => {
     } else {
         mapProject = 'globe'
     }
+    console.log('mapProject:' + mapProject);
+    loadGeoJSONForArtist().then(r => {});
 })
 
 
@@ -81,7 +82,7 @@ async function loadGeoJSONForArtist() {
             throw new Error('Network response was not ok ' + response.statusText);
         }
         const geojson = await response.json();
-        aveLoc = geojson.aveCoords
+        const aveLoc = geojson.aveCoords
         console.log('GeoJSON Data:', geojson);
         console.log('Average location:', aveLoc)
 
@@ -142,7 +143,7 @@ async function loadGeoJSONForArtist() {
         // reset map position
         document.getElementById('mapboxReset').addEventListener('click', () => {
             map.flyTo({
-                center: [-98.5795, 39.8283],
+                center: aveLoc,
                 zoom: 1,
                 pitch: 0,
                 essential: true // animation considered essential for accessibility
