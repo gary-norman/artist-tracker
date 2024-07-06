@@ -209,20 +209,34 @@ border-radius: 1.2rem;
 
 #mapProject {
 }
-.globe, .map, #mapboxReset {
+.globe, .kaart, #kaartReset {
     height: 2.4rem;
     width: 2.4rem;
-    cursor: pointer;
 }
 .globe {
     background: url("../icons/globe.svg") no-repeat;
-}
-.map {
-    background: url("../icons/map.svg") no-repeat;
-}
-#mapboxReset {
-    background: url("../icons/reset.svg") no-repeat;
     cursor: pointer;
+
+    &:hover {
+        background: url("../icons/globe_light.svg") no-repeat;
+    }
+}
+.kaart {
+    background: url("../icons/map.svg") no-repeat;
+    cursor: pointer;
+
+    &:hover {
+        background: url("../icons/map_light.svg") no-repeat;
+    }
+}
+#kaartReset {
+    background: url("../icons/reset.svg") no-repeat;
+    padding: 1.2rem;
+    cursor: pointer;
+
+    &:hover {
+        background: url("../icons/reset_light.svg") no-repeat;
+    }
 }
 
 *, *::before, *::after {
