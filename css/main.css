@@ -279,6 +279,7 @@ h3 {
 p {
     font-family: "Inter", sans-serif;
     font-size: 1.6rem;
+    font-weight: 200;
     margin-block-end: 0;
     margin-block-start: 0;
 }
@@ -892,6 +893,7 @@ input {
         width: 100%;
         &.go-down-home {
             display: flex;
+            gap: 0.8rem;
             flex-direction: column;
             overflow: visible;
             align-items: center;
