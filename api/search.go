@@ -136,6 +136,7 @@ func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tp
 				/* 	fmt.Println("Filtered category -- member")
 				fmt.Printf("Match item -- %v \n", member) */
 			}
+
 		}
 
 		// Check TadbAlbum name

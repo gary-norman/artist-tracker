@@ -172,26 +172,26 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
 
-    document.addEventListener('click', debounce(function(event) {
-        let clickInsideAnyElement = false;
-
-        allSearchElements.forEach(element => {
-            if (element.contains(event.target)) {
-                clickInsideAnyElement = true;
-                // console.log("inside: ", event.target)
-            } else {
-
-            }
-        });
-
-        if (!clickInsideAnyElement) {
-            showSections(homeElements);
-            hideSections(searchElements);
-            console.log("hiding from click outside")
-            changeLogo(logo, subLogo, "large");
-            updateSearchCancelIcon("search");
-        }
-    }, 300));
+    // document.addEventListener('click', debounce(function(event) {
+    //     let clickInsideAnyElement = false;
+    //
+    //     allSearchElements.forEach(element => {
+    //         if (element.contains(event.target)) {
+    //             clickInsideAnyElement = true;
+    //             // console.log("inside: ", event.target)
+    //         } else {
+    //
+    //         }
+    //     });
+    //
+    //     if (!clickInsideAnyElement) {
+    //         showSections(homeElements);
+    //         hideSections(searchElements);
+    //         console.log("hiding from click outside")
+    //         changeLogo(logo, subLogo, "large");
+    //         updateSearchCancelIcon("search");
+    //     }
+    // }, 300));
 });
 
 function updateSliderBackground(slider) {

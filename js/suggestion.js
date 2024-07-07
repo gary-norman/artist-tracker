@@ -82,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function () {
             resultContainerThree.className = 'col col3';
 
             if (category === 'Artist' || category === 'Member' || category === 'Concert') {
-
                 categoryContainer.appendChild(resultContainerThree);
                 categoryContainer.resultContainer = resultContainerThree;
             } else {
@@ -221,8 +220,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 populateResults.appendChild(categoryContainer);
                 searchResults.classList.remove('hide');
                 searchResults.appendChild(populateResults)
-            } else {
-                searchResults.classList.add('hide');
             }
         }
     }

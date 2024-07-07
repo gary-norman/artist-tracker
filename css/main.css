@@ -163,7 +163,7 @@ iframe {
     flex-direction: column !important;
     gap: 1.2rem !important;
     background-color: var(--grey-1) !important;
-    max-width: 24rem;
+    max-width: 24rem;g
     & > * {
         margin: 0;
     }
@@ -482,7 +482,7 @@ a {
         gap: 0;
     }
 
-    &#search-results > .scroll {
+    &#search-results > .scroll, &#artist-albums > .scroll{
         max-height: 60rem;
         overflow-x: hidden;
         display: flex;
@@ -491,17 +491,16 @@ a {
         width: 100%;
     }
 
-    &#home-concerts {
+    &#home-concerts, &#artist-albums, &#artist-concerts {
         max-height: 60rem;
 
         & > * {
-            &.go-across-lg {
+            &.go-across-lg, & .go-across-md {
                 align-items: flex-start;
             }
 
             & .scroll {
-                width: 40%;
-                max-height: 50rem;
+                max-height: 30rem;
                 overflow-y: auto;
                 padding-right: 1.2rem;
                 align-items: flex-start;
@@ -514,14 +513,29 @@ a {
         }
     }
 
+    &#artist-albums {
+        .container {
+            padding-right: 0.4rem;
+        }
+    }
 
-    #home-artists, #home-albums, #home-concerts, #search-results {
+    &#artist-concerts, &#home-concerts {
+        & > * {
+            & .scroll {
+                max-height: 50rem;
+                width: 40%;
+            }
+        }
+    }
+
+
+    #home-artists, #home-albums, #home-concerts, #search-results, #artist-albums, #artist-concerts {
         transition: opacity 3s;
     }
 
 
 
-    &#home-albums, &#home-artists{
+    &#home-albums, &#home-artists, #artist-albums{
         overflow-y: hidden;
         padding-top: 2.4rem;
         padding-left: 0.4rem;
