@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     img.className = 'pic album';
                     img.src = suggestion.artist.FirstAlbumStruct.strAlbumThumb ? suggestion.artist.FirstAlbumStruct.strAlbumThumb : 'default-album-image-url.jpg';
                     img.alt = 'Album cover of ' + (suggestion.matchitem || 'Unknown Album');
-                } else if (suggestion.category === 'Album'){
+                } else {
                     img.className = 'pic user';
                     img.src = suggestion.artist && suggestion.artist.strArtistThumb ? suggestion.artist.strArtistThumb : 'default-image-url.jpg';
                     img.alt = 'Profile image of ' + (suggestion.artist && suggestion.artist.name ? suggestion.artist.name : 'Unknown Artist');
@@ -212,8 +212,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 populateResults.appendChild(categoryContainer);
                 searchResults.classList.remove('hide');
                 searchResults.appendChild(populateResults)
-            } else {
-                searchResults.classList.add('hide');
             }
         }
     }
