@@ -66,7 +66,9 @@ func ArtistPage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *t
 		ErrorHandler(w, r, http.StatusNotFound)
 		return
 	}
-	WikiImageFetcher(artist)
+
+	//WikiImageFetcher(artist)
+
 	token := ExtractAccessToken("./env/spotify_access_token.sh")
 	artist.SpotifyAlbum, err = GetSpotifyAlbums(artist.Name, artist.FirstAlbumStruct.Album, token)
 	if err != nil {

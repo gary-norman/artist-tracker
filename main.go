@@ -48,6 +48,7 @@ func main() {
 	timetaken = t.Sub(update).Milliseconds()
 	spinnerInfo.Success("Updated artist information in " + strconv.FormatInt(timetaken, 10) + "ms\n")
 	api.CorrectMisnamedMembers(Artists)
+	api.FetchAllArtistsImages(Artists)
 	timetaken = t.Sub(start).Milliseconds()
 	pterm.Info.Println("All tasks completed successfully in " + pterm.Green(strconv.FormatInt(timetaken, 10)+"ms"))
 	//pterm.Println(pterm.Cyan(Artists[i]))
@@ -56,8 +57,8 @@ func main() {
 	//pterm.Println(pterm.Cyan("}"))
 
 	// debug print, to see better all the information of an artist
-	//artistsResult, _ := api.SearchArtist(Artists, "Led Zeppelin")
-	//api.PrintArtistDetails(artistsResult)
+	/* 	artistsResult, _ := api.SearchArtist(Artists, "Queen")
+	   	api.PrintArtistDetails(artistsResult) */
 
 	// test DateConvert
 	/*fmt.Printf("UK > US: %v\n", api.DateConvert("11-09-2001", layoutUK, layoutUS))

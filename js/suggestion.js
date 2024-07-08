@@ -52,7 +52,17 @@ document.addEventListener('DOMContentLoaded', function () {
         populateResults.innerHTML = '';
         console.log("received suggestionsData:=", suggestionsData);
 
-
+        const resultsHeader = document.querySelector('.filters .small.light.center');
+        if (!suggestionsData || suggestionsData.length === 0) {
+            resultsHeader.textContent = `Showing 0 results`;
+            populateResults.innerHTML = 'No results found.';
+            searchResults.appendChild(populateResults);
+            searchResults.classList.remove('hide'); 
+            return;
+        } else if (resultsHeader) {
+            resultsHeader.textContent = `Showing ${suggestionsData.length} results`;
+        }
+        
         const categories = {
             Artist: document.createElement('div'),
             Member: document.createElement('div'),
@@ -73,8 +83,6 @@ document.addEventListener('DOMContentLoaded', function () {
             scrollContainer.id = 'populate-results'
             outerContainer.appendChild(scrollContainer);
 
-
-
             const resultContainerTwo = document.createElement('div');
             resultContainerTwo.className = 'col col2';
 
@@ -90,18 +98,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             categoryContainer.resultsCount = 0;
             searchResults.classList.add('hide');
-        }
-
-        if (!suggestionsData || suggestionsData.length === 0) {
-            const noResultsMessage = document.createElement('div');
-            noResultsMessage.textContent = 'No results found.';
-            populateResults.appendChild(noResultsMessage);
-            return;
-        } else {
-            const resultsHeader = document.querySelector('.filters .small.light.center');
-            if (resultsHeader) {
-                resultsHeader.textContent = `Showing ${suggestionsData.length} results`;
-            }
         }
 
         suggestionsData.forEach(function (suggestion) {
@@ -166,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     img.className = 'pic user';
                     for (const [memberName,memberPic] of Object.entries(suggestion.artist.memberPics)){
                         if ( memberName === suggestion.matchitem){
-                            img.src = suggestion.artist && memberPic ? memberPic : 'default-image-url.jpg';
+                            img.src = suggestion.artist && memberPic ? memberPic : '/icons/artist_placeholder.svg';
                             img.alt = 'Profile image of ' + (suggestion.artist && memberName ? memberName : 'Unknown Artist');
                         }
                     }
