@@ -128,8 +128,8 @@
                 </div>
                 <div id="kaartReset"></div>
             </div>
-            <div class="go-across-md" style="max-height: 100%;">
-                <div class="col col1 scroll">
+            <div class="col col2 col40-60" >
+                <div class="col col1 scroll concerts-list">
 
                     {{ $artist := . }}
                     {{ range $index, $concert := $artist.TourDetails.Data }}
@@ -154,7 +154,7 @@
                    
 
                 </div>
-                <div id="map" style="border-radius:  var(--radius-md); width: 60%; min-height: 500px; "></div>
+                <div id="map" class="concerts-map" ></div>
             </div>
 
         </section>

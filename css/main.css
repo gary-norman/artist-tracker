@@ -89,6 +89,15 @@ iframe {
 
 /*Mapbox styling*/
 
+#map {
+    border-radius:  var(--radius-md);
+    width: 100%;
+    /*aspect-ratio: 1/1;*/
+    max-width: 56rem;
+    min-height: 42rem;
+    max-height: 50rem;
+}
+
 .marker {
     background-image: url("/icons/marker-3d.svg");
     background-size: cover;
@@ -281,7 +290,7 @@ h3 {
 p {
     font-family: "Inter", sans-serif;
     font-size: 1.6rem;
-    font-weight: 200;
+    font-weight: 300;
     margin-block-end: 0;
     margin-block-start: 0;
 }
@@ -526,7 +535,8 @@ a {
         & > * {
             & .scroll {
                 max-height: 50rem;
-                width: 40%;
+                /*width: 40%;*/
+                gap: 0;
             }
         }
     }
@@ -727,6 +737,27 @@ a {
     }
 }
 
+.col40-60 {
+
+    grid-template-columns: 40% 60%;
+    grid-template-areas: "a b";
+    @media (max-width:700px) {
+        grid-template-columns: 100%;
+        grid-template-rows: 1fr 1fr;
+        width: 100%;
+        grid-template-areas: "b a";
+    }
+}
+
+.concerts-list {
+    grid-area: a;
+}
+.concerts-map {
+     grid-area: b;
+ }
+
+
+
 /* interactive elements */
 input {
 
@@ -824,7 +855,7 @@ input {
 
 .content {
     display: flex;
-    /*width: 100%;*/
+    width: 100%;
     align-items: center;
     padding: 0.8rem;
     gap: 1.2rem;
@@ -944,6 +975,13 @@ input {
     gap: 2.4rem;
 }
 
+.concerts-across {
+    @media (max-width:700px){
+        flex-direction: column;
+    }
+
+}
+
 .divider-dot {
     width: 0.4rem;
     height: 0.4rem;
@@ -1027,7 +1065,7 @@ input {
 
 
 .hide {
-    display: none;
+    display: none !important;
     opacity: 0;
     translate: 0 -1.2rem;
     max-height: 2rem;
@@ -1550,4 +1588,19 @@ input[type='range']::-webkit-slider-thumb {
 .spotify-player {
     border-radius: 1.2rem;
     border: 0;
+}
+
+/* ---  animations  --- */
+@keyframes fade-out-in {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
