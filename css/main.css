@@ -781,24 +781,24 @@ a {
                 "b"
                 "a";
     }
+
 }
 
 .concerts-list {
     grid-area: a;
+
 }
 .concerts-map {
     display: flex;
     grid-area: b;
     justify-content: start;
     width: 100%;
+    position: relative;
     @media (max-width: 800px) {
         justify-content: center;
         height: fit-content;
     }
-
  }
-
-
 
 /* interactive elements */
 input {
