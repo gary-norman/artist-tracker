@@ -5,19 +5,18 @@ let currentDate = formatDateToUK(date);
 
 
 document.addEventListener('DOMContentLoaded', function () {
+    // set a variable for when at least 1 filter is open for the apply filters utton to show
+    let isFilterOpen = false
+    const filterSubmit = document.getElementById("search-submit-filter");
+
     // Function to toggle the visibility of filter-open containers
     function toggleFilterContainers() {
         // Select all input elements that match the criteria
         const filterInputs = document.querySelectorAll('input[id^="filter-"]');
-        const filterSubmit = document.getElementById("search-submit-filter");
 
-        if (!(filterSubmit.classList.contains('hide'))) {
-            filterSubmit.classList.add('hide');
-        } else {
-            filterSubmit.classList.remove('hide');
-        }
         // Loop through each input element
         filterInputs.forEach(input => {
+
             // Traverse up the DOM to find the parent with the class 'filter'
             let parent = input.closest('.filter');
             if (parent) {
@@ -26,15 +25,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
                 // Toggle the 'hide' class on each element based on checkbox state
-                filterOpenElements.forEach(element => {
+                filterOpenElements.forEach(filter => {
                     if (input.checked) {
+                        isFilterOpen = true
                         parent.classList.add('open');
-                        element.classList.remove('hide');
+                        filter.classList.remove('hide');
                     } else {
                         parent.classList.remove('open');
-                        element.classList.add('hide');
+                        filter.classList.add('hide');
                     }
                 });
+                if (isFilterOpen === false) {
+                    filterSubmit.classList.add('hide');
+                } else {
+                    filterSubmit.classList.remove('hide');
+                }
             }
         });
     }
@@ -51,8 +56,19 @@ document.addEventListener('DOMContentLoaded', function () {
     // Add event listeners to each input element
     filterInputs.forEach(input => {
         input.addEventListener('change', toggleFilterContainers);
+        if (input.checked) {
+            isFilterOpen = true
+            filterSubmit.classList.remove('hide');
+        } else {
+            if ( isFilterOpen === false) {
+                filterSubmit.classList.add('hide');
+            }
+
+
+
+        }
         const filters = document.getElementById("search-filters");
-        filters.classList.add('open');
+        // filters.classList.add('open');
     });
 
     // Initial check to set the correct visibility state
