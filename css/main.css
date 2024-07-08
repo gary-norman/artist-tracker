@@ -812,6 +812,11 @@ a {
     }
  }
 
+@media (max-width: 800px) {
+    .concerts-map-trans:after {
+        width: 100%;
+    }
+}
 
 
 /* interactive elements */
