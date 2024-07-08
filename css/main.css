@@ -92,10 +92,15 @@ iframe {
 #map {
     border-radius:  var(--radius-md);
     width: 100%;
+    position: relative;
     /*aspect-ratio: 1/1;*/
     max-width: 56rem;
     min-height: 42rem;
     max-height: 50rem;
+
+    &::after {
+
+    }
 }
 
 .marker {

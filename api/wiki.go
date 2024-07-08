@@ -3,10 +3,13 @@ package api
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/pterm/pterm"
 	"io"
-	"log"
 	"net/http"
 	"net/url"
+	"strconv"
+	"sync"
+	"time"
 )
 
 type WikiQuery struct {
@@ -33,16 +36,22 @@ type WikiResponse struct {
 }
 
 func FetchAllArtistsImages(artists []Artist) {
+	var wg sync.WaitGroup
+	spinnerInfo, _ := pterm.DefaultSpinner.Start("Fetching member Wiki info")
+	start := time.Now()
 	for i := range artists {
-		err := WikiImageFetcher(&artists[i])
-		if err != nil {
-			log.Fatal(err)
-		}
+		spinnerInfo.UpdateText("Fetching member Wiki info for " + artists[i].Name)
+		wg.Add(3)
+		go WikiImageFetcher(&artists[i], &wg)
 	}
+	t := time.Now()
+	timetaken := t.Sub(start).Microseconds()
+	spinnerInfo.Success("Fetched member Wiki info in " + strconv.FormatInt(timetaken, 10) + "µs")
 }
 
 // WikiImageFetcher get individual member's image
-func WikiImageFetcher(artist *Artist) error {
+func WikiImageFetcher(artist *Artist, wg *sync.WaitGroup) {
+	defer wg.Done()
 	notFound := "/icons/artist_placeholder.svg"
 	//fmt.Printf("Getting member images for %v\n", artist.Name)
 	artist.Members = make(map[string]string)
@@ -64,7 +73,6 @@ func WikiImageFetcher(artist *Artist) error {
 			resp, err := http.Get(queryURL)
 			if err != nil {
 				fmt.Println("Error:", err)
-				return err
 			}
 			defer func(Body io.ReadCloser) {
 				err = Body.Close()
@@ -83,13 +91,11 @@ func WikiImageFetcher(artist *Artist) error {
 			body, err := io.ReadAll(resp.Body)
 			if err != nil {
 				fmt.Println("Error:", err)
-				return err
 			}
 			var result WikiResponse
 			if err = json.Unmarshal(body, &result); err != nil {
 				fmt.Println("Error unmarshalling JSON:", err)
 				fmt.Println("Error:", err)
-				return err
 			}
 
 			// Add the image URL to the map
@@ -115,12 +121,12 @@ func WikiImageFetcher(artist *Artist) error {
 			return nil
 		}()
 		if err != nil {
-			return err
+			fmt.Printf("error fetching Wiki data: %v\n", err)
 		}
 	}
 	/* 	fmt.Println("*****************")
 	   	for member, picLink := range artist.Members {
 	   		fmt.Printf(Bold+Cyan+"member: "+Reset+Blue+"%v, "+Bold+Cyan+"Picture Link: "+Reset+Blue+"%v\n"+Reset, member, picLink)
 	   	}*/
-	return nil
+
 }
