@@ -175,6 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 contentText = document.createElement('div');
                 contentText.className = 'content-text go-down';
 
+                //TODO suggestion populates search term inside bold-cut
                 let boldCut = document.createElement('div');
                 boldCut.className = 'p--bold cut';
                 boldCut.textContent = suggestion.matchitem || '';

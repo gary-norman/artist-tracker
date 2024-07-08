@@ -5,7 +5,7 @@ let currentDate = formatDateToUK(date);
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    // set a variable for when at least 1 filter is open for the apply filters utton to show
+    // set a variable for when at least 1 filter is open for the apply filters button to show
     let isFilterOpen = false
     const filterSubmit = document.getElementById("search-submit-filter");
 

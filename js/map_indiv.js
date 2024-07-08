@@ -1,18 +1,25 @@
 document.addEventListener('DOMContentLoaded', loadGeoJSONForArtist);
+mapBlack = document.getElementById("map-container")
 
 // Ensure to add your Mapbox access token
 mapboxgl.accessToken = 'pk.eyJ1IjoibG9yZXdvcmxkIiwiYSI6ImNsd3FseDNsbDAzZjMyanF2czh3Mmt4eTgifQ.-_bXsAv_SR1bpcmvOSpDuA';
 let mapProject = 'globe'
 // toggle map projection type
-document.getElementById('mapProject').addEventListener('click', () => {
+document.getElementById('mapProject').addEventListener('click', async() => {
     if (mapProject === 'globe' ) {
         mapProject = 'mercator'
     } else {
         mapProject = 'globe'
     }
     console.log('mapProject:' + mapProject);
+    mapBlack.classList.add("concerts-map-trans");
     loadGeoJSONForArtist().then(r => {});
+    await wait(1000)
+    mapBlack.classList.remove("concerts-map-trans");
 })
+
+// this function returns a promise that resolves after n milliseconds
+const wait = (n) => new Promise((resolve) => setTimeout(resolve, n));
 
 
 function parseDate(dateStr) {
