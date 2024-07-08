@@ -82,7 +82,9 @@ body {
 
 /* spotify player */
 iframe {
-    color-scheme: normal
+    color-scheme: normal;
+    height: 10.5rem;
+    padding: 1.2rem 0 0 0;
 }
 
 /*Mapbox styling*/
