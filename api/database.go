@@ -25,11 +25,11 @@ type Suggestion struct {
 }
 
 type Artist struct {
-	Id               int               `json:"id"`
-	Image            string            `json:"image"`
-	Name             string            `json:"name"`
-	MemberList       []string          `json:"members"`
-	MemberStruct     []Member          `json:"memberStruct"`
+	Id         int      `json:"id"`
+	Image      string   `json:"image"`
+	Name       string   `json:"name"`
+	MemberList []string `json:"members"`
+	// MemberStruct     []Member          `json:"memberStruct"`
 	Members          map[string]string `json:"memberPics"`
 	CreationDate     int               `json:"creationDate"`
 	FirstAlbum       string            `json:"firstAlbum"`
