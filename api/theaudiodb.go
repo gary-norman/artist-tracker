@@ -201,16 +201,33 @@ func GetAudioDbAlbumInfo(artist string, artistID string, wg *sync.WaitGroup) (Ta
 func ProcessAudioDbAlbum(artist *Artist, artistName string, artistID string, err error, wg *sync.WaitGroup) {
 	artist.AllAlbums, _ = GetAudioDbAlbumInfo(artistName, artistID, wg)
 	artist.AllAlbums.SortByYearReleased()
+	artist.AllAlbums.SetDisplayYears()
 }
 
 // SortByYearReleased sorts albums by YearReleased
 func (t *TadbAlbums) SortByYearReleased() {
 	sort.Slice(t.Album, func(i, j int) bool {
 		// Convert YearReleased to int for accurate comparison
-		year1, _ := strconv.Atoi(t.Album[i].YearReleased)
-		year2, _ := strconv.Atoi(t.Album[j].YearReleased)
+		year1, err1 := strconv.Atoi(t.Album[i].YearReleased)
+		year2, err2 := strconv.Atoi(t.Album[j].YearReleased)
+		if err1 != nil || year1 == 0 {
+			return false
+		}
+		if err2 != nil || year2 == 0 {
+			return true
+		}
 		return year1 < year2
 	})
+}
+
+// SetDisplayYears sets the display year for each album, using a placeholder if YearReleased is 0
+func (t *TadbAlbums) SetDisplayYears() {
+	for i := range t.Album {
+		year, err := strconv.Atoi(t.Album[i].YearReleased)
+		if err != nil || year == 0 {
+			t.Album[i].YearReleased = "Unknown"
+		}
+	}
 }
 
 func FindFirstAlbum(artist *Artist) {
@@ -236,6 +253,7 @@ func FindFirstAlbum(artist *Artist) {
 			DescriptionEN:      artist.AllAlbums.Album[lowIndex].DescriptionEN,
 			MusicBrainzAlbumID: artist.AllAlbums.Album[lowIndex].MusicBrainzAlbumID,
 		}
-		//fmt.Printf("First album of %v: %v\n", artist.Name, artist.AllAlbums.Album[lowIndex].AlbumThumb)
 	}
+	fmt.Printf("First album of %v: %v\n", artist.Name, artist.AllAlbums.Album[lowIndex].AlbumThumb)
+	fmt.Printf("First album of %v: %v\n", artist.Name, artist.AllAlbums.Album[lowIndex].Album)
 }
