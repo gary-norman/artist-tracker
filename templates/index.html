@@ -283,7 +283,6 @@
                     </div>
                 </div>
             </form>
-
         </section>
         <section id="home-artists" class="container col col1">
             <h2>Discover Artists and Members</h2>
@@ -332,36 +331,6 @@
                 {{ end }}
             </div>
         </section>
-<!--        <section id="home-concerts" class="container col col1">-->
-<!--                <h2>Concerts</h2>-->
-<!--                <div class="go-across-md" >-->
-<!--                    <div class="col col1 scroll">-->
-<!--                        {{ range .HomeArtists }}-->
-<!--                        {{ $artist := . }}-->
-<!--                        {{ range $location, $dates := $artist.DatesLocations }}-->
-<!--                        {{ $randomDates := randomiseDates $dates }}-->
-<!--                        {{ range $date := $randomDates }}-->
-<!--                        {{ $dateParts := formatDate $date }}-->
-<!--                        <a class="content" href="/artist?name={{ $artist.Name }}">-->
-<!--                                <div class="pic date">-->
-<!--                                    <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>-->
-<!--                                    <div>{{ $dateParts.Year }}</div>-->
-<!--                                </div>-->
-<!--                                <div class="content-text go-down-home">-->
-<!--                                    <div class="p&#45;&#45;bold cut concert">{{ $artist.Name }}</div>-->
-<!--                                    <div class="concert">-->
-<!--                                        <div class="small light cut">{{ $location }}</div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                        </a>-->
-<!--                        {{ end }}-->
-<!--                        {{ end }}-->
-<!--                        {{ end }}-->
-<!--                    </div>-->
-<!--                    <div id="map" style="border-radius:  var(&#45;&#45;radius-md); width: 60%; min-height: 500px; "></div>-->
-<!--                </div>-->
-
-<!--        </section>-->
         <section id="home-concerts" class="container col col1">
             <div class="go-across-md">
                 <h2>Concerts</h2>
@@ -403,40 +372,6 @@
             </div>
 
         </section>
-
-
-        <!--        <section id="home-concerts" class="container">-->
-<!--            <div class="container scroll col col1">-->
-<!--                <h2>Concerts</h2>-->
-<!--                <div id="map" style="width: 100%; min-height: 500px;"></div>-->
-<!--                <div class="col col3">-->
-<!--                    {{ range .HomeArtists }}-->
-<!--                    {{ $artist := . }}-->
-<!--                    {{ range $location, $dates := $artist.DatesLocations }}-->
-<!--                    {{ $randomDates := randomiseDates $dates }}-->
-<!--                    {{ range $date := $randomDates }}-->
-<!--                    {{ $dateParts := formatDate $date }}-->
-<!--                    <a href="/artist?name={{ $artist.Name }}">-->
-<!--                        <div class="content">-->
-<!--                                <div class="pic date">-->
-<!--                                    <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>-->
-<!--                                    <div>{{ $dateParts.Year }}</div>-->
-<!--                                </div>-->
-<!--                                <div class="content-text go-down-home">-->
-<!--                                    <div class="p&#45;&#45;bold cut concert">{{ $artist.Name }}</div>-->
-<!--                                    <div class="concert">-->
-<!--                                        <div class="small light cut">{{ $location }}</div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                        </div>-->
-<!--                    </a>-->
-
-<!--                    {{ end }}-->
-<!--                    {{ end }}-->
-<!--                    {{ end }}-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </section>-->
     </div>
 </main>
 <script type="module" type="text/javascript" src="../js/default.js"></script>
