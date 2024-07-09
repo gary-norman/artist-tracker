@@ -332,36 +332,78 @@
                 {{ end }}
             </div>
         </section>
+<!--        <section id="home-concerts" class="container col col1">-->
+<!--                <h2>Concerts</h2>-->
+<!--                <div class="go-across-md" >-->
+<!--                    <div class="col col1 scroll">-->
+<!--                        {{ range .HomeArtists }}-->
+<!--                        {{ $artist := . }}-->
+<!--                        {{ range $location, $dates := $artist.DatesLocations }}-->
+<!--                        {{ $randomDates := randomiseDates $dates }}-->
+<!--                        {{ range $date := $randomDates }}-->
+<!--                        {{ $dateParts := formatDate $date }}-->
+<!--                        <a class="content" href="/artist?name={{ $artist.Name }}">-->
+<!--                                <div class="pic date">-->
+<!--                                    <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>-->
+<!--                                    <div>{{ $dateParts.Year }}</div>-->
+<!--                                </div>-->
+<!--                                <div class="content-text go-down-home">-->
+<!--                                    <div class="p&#45;&#45;bold cut concert">{{ $artist.Name }}</div>-->
+<!--                                    <div class="concert">-->
+<!--                                        <div class="small light cut">{{ $location }}</div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                        </a>-->
+<!--                        {{ end }}-->
+<!--                        {{ end }}-->
+<!--                        {{ end }}-->
+<!--                    </div>-->
+<!--                    <div id="map" style="border-radius:  var(&#45;&#45;radius-md); width: 60%; min-height: 500px; "></div>-->
+<!--                </div>-->
+
+<!--        </section>-->
         <section id="home-concerts" class="container col col1">
+            <div class="go-across-md">
                 <h2>Concerts</h2>
-                <div class="go-across-md" >
-                    <div class="col col1 scroll">
-                        {{ range .HomeArtists }}
+                <div id="mapProject" class="go-across-sm">
+                    <div class="globe"></div>
+                    <div>toggle</div>
+                    <div class="kaart"></div>
+                </div>
+                <div id="kaartReset"></div>
+            </div>
+            <div class="col col2 col40-60" >
+                <div class="col col1 scroll concerts-list">
+                    {{ range .HomeArtists }}
                         {{ $artist := . }}
                         {{ range $location, $dates := $artist.DatesLocations }}
-                        {{ $randomDates := randomiseDates $dates }}
-                        {{ range $date := $randomDates }}
-                        {{ $dateParts := formatDate $date }}
-                        <a class="content" href="/artist?name={{ $artist.Name }}">
-                                <div class="pic date">
-                                    <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
-                                    <div>{{ $dateParts.Year }}</div>
-                                </div>
-                                <div class="content-text go-down-home">
-                                    <div class="p--bold cut concert">{{ $artist.Name }}</div>
-                                    <div class="concert">
-                                        <div class="small light cut">{{ $location }}</div>
+                            {{ $randomDates := randomiseDates $dates }}
+                            {{ range $date := $randomDates }}
+                            {{ $dateParts := formatDate $date }}
+                            <a class="content" href="/artist?name={{ $artist.Name }}">
+                                    <div class="pic date">
+                                        <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
+                                        <div>{{ $dateParts.Year }}</div>
                                     </div>
-                                </div>
-                        </a>
+                                    <div class="content-text go-down-home">
+                                        <div class="p--bold cut concert">{{ $artist.Name }}</div>
+                                        <div class="concert">
+                                            <div class="small light cut">{{ $location }}</div>
+                                        </div>
+                                    </div>
+                            </a>
+                            {{ end }}
                         {{ end }}
-                        {{ end }}
-                        {{ end }}
-                    </div>
-                    <div id="map" style="border-radius:  var(--radius-md); width: 60%; min-height: 500px; "></div>
+                    {{ end }}
+
+
+
                 </div>
+                <div id="map-container" class="concerts-map"><div id="map" ></div></div>
+            </div>
 
         </section>
+
 
         <!--        <section id="home-concerts" class="container">-->
 <!--            <div class="container scroll col col1">-->

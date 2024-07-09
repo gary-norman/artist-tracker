@@ -1002,7 +1002,7 @@ input {
         width: 100%;
         &.go-down-home {
             display: flex;
-            gap: 0.8rem;
+            gap: 0.4rem;
             flex-direction: column;
             overflow: visible;
             align-items: center;
