@@ -102,8 +102,6 @@ iframe {
         aspect-ratio: 1/1;
         align-self: center;
     }
-
-
 }
 
 .marker {
@@ -446,7 +444,14 @@ a {
     /* Rin changed because calendar pop up getting cut off */
     overflow: visible;
     &.artistwrapper {
-        padding: 4rem 1.2rem 4rem 1.2rem;
+        padding: 4rem;
+        @media (max-width: 800px) {
+            padding: 4rem 1.2rem 4rem 1.2rem;
+
+        }
+        @media (max-width: 550px) {
+            padding: 4rem 0.8rem 4rem 0.8rem;
+        }
     }
     @media (max-width: 800px) {
         padding: 1.2rem;
@@ -565,13 +570,22 @@ a {
 
     &#home-albums, &#home-artists, #artist-albums{
         overflow-y: hidden;
-        padding-top: 2.4rem;
-        padding-left: 0.4rem;
-        padding-right: 0.4rem;
-        padding-bottom: 0.4rem;
+        padding: 2.4rem 0.4rem 0.4rem 0.4rem;
+        @media (max-width: 800px) {
+            padding: 1.6rem 0.4rem 0.4rem 0.4rem;
+        }
+        @media (max-width: 550px) {
+            padding: 1.2rem 0.4rem 0.4rem 0.4rem;
+        }
 
         & > * {
             padding: 0 2rem;
+            @media (max-width: 800px) {
+                padding: 0 1.2rem;
+            }
+            @media (max-width: 550px) {
+                padding: 0 0.8rem;
+            }
         }
     }
 

@@ -4,76 +4,162 @@ const date = new Date();
 let currentDate = formatDateToUK(date);
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    // set a variable for when at least 1 filter is open for the apply filters button to show
-    let isFilterOpen = false
-    const filterSubmit = document.getElementById("search-submit-filter");
+// document.addEventListener('DOMContentLoaded', function () {
+//     // set a variable for when at least 1 filter is open for the apply filters utton to show
+//     let isFilterOpen = false;
+//     let openFilters = 0;
+//
+//     // Function to toggle the visibility of filter-open containers
+//     function toggleFilterContainers() {
+//         openFilters = 0;
+//         // Select all input elements that match the criteria
+//         const filterInputs = document.querySelectorAll('input[id^="filter-"]');
+//
+//         // Loop through each input element
+//         filterInputs.forEach(input => {
+//
+//             // Traverse up the DOM to find the parent with the class 'filter'
+//             let parent = input.closest('.filter');
+//             if (parent) {
+//                 // Find all elements within the parent that have a class starting with 'filter-open'
+//                 const filterOpenElements = parent.querySelectorAll('[class^="filter-open"]');
+//
+//
+//                 // Toggle the 'hide' class on each element based on checkbox state
+//                 filterOpenElements.forEach(filter => {
+//                     if (input.checked) {
+//                         openFilters++;
+//                         console.log("openFilters++ -> ", openFilters)
+//                         parent.classList.add('open');
+//                         filter.classList.remove('hide');
+//                     } else {
+//                         // console.log("openFilters-- -> ", openFilters)
+//                         parent.classList.remove('open');
+//                         filter.classList.add('hide');
+//                     }
+//                 });
+//
+//             }
+//         });
+//     }
+//
+//     //select a submit button
+//     const filterSubmit = document.getElementById("search-submit-filter");
+//
+//     // Select all input elements that match the criteria
+//     const filterInputs = document.querySelectorAll('input[id^="filter-"]');
+//
+//     // find all the end date elements
+//     const artistEndDateInput = document.getElementById('artist-end-date');
+//     const albumEndDateInput = document.getElementById('album-end-date');
+//     // set the end date of filters to today's date, and put sinde  placeholder
+//     artistEndDateInput.placeholder = currentDate;
+//     albumEndDateInput.placeholder = currentDate;
+//
+//     // Add event listeners to each input element
+//     filterInputs.forEach(input => {
+//         input.addEventListener('change', toggleFilterContainers);
+//
+//         // Initial check to set the correct visibility state
+//         if (input.checked) {
+//             toggleFilterContainers(); // Ensure the initial state is correctly set
+//             isFilterOpen = openFilters > 0;
+//             if (isFilterOpen) {
+//                 filterSubmit.classList.remove('hide');
+//             }
+//         } else {
+//             isFilterOpen = openFilters > 0;
+//             if (!isFilterOpen) {
+//                 filterSubmit.classList.add('hide');
+//             }
+//         }
+//     });
+//
+//     // Initial check to set the correct visibility state
+//     toggleFilterContainers();
+// });
 
-    // Function to toggle the visibility of filter-open containers
+
+document.addEventListener('DOMContentLoaded', function () {
+    const filterSubmit = document.getElementById("search-submit-filter");
+    let openFilters = 0; // Initialize counter outside the function
+
+    // Function to toggle the visibility of filter-open containers and the submit button
     function toggleFilterContainers() {
+        openFilters = 0; // Reset the counter
+
         // Select all input elements that match the criteria
         const filterInputs = document.querySelectorAll('input[id^="filter-"]');
 
         // Loop through each input element
         filterInputs.forEach(input => {
-
-            // Traverse up the DOM to find the parent with the class 'filter'
-            let parent = input.closest('.filter');
-            if (parent) {
-                // Find all elements within the parent that have a class starting with 'filter-open'
-                const filterOpenElements = parent.querySelectorAll('[class^="filter-open"]');
-
-
-                // Toggle the 'hide' class on each element based on checkbox state
-                filterOpenElements.forEach(filter => {
-                    if (input.checked) {
-                        isFilterOpen = true
-                        parent.classList.add('open');
-                        filter.classList.remove('hide');
-                    } else {
-                        parent.classList.remove('open');
-                        filter.classList.add('hide');
-                    }
-                });
-                if (isFilterOpen === false) {
-                    filterSubmit.classList.add('hide');
-                } else {
-                    filterSubmit.classList.remove('hide');
+            // Increment the counter if the filter is checked
+            if (input.checked) {
+                openFilters++;
+                let parent = input.closest('.filter');
+                if (parent) {
+                    const filterOpenElements = parent.querySelectorAll('[class^="filter-open"]');
+                    parent.classList.add('open');
+                    filterOpenElements.forEach(filter => filter.classList.remove('hide'));
+                }
+            } else {
+                // Handle the case where the filter is unchecked
+                let parent = input.closest('.filter');
+                if (parent) {
+                    const filterOpenElements = parent.querySelectorAll('[class^="filter-open"]');
+                    parent.classList.remove('open');
+                    filterOpenElements.forEach(filter => filter.classList.add('hide'));
                 }
             }
         });
+
+        // Show or hide the filter submit button based on the number of open filters
+        if (openFilters > 0) {
+            filterSubmit.classList.remove('hide');
+        } else {
+            filterSubmit.classList.add('hide');
+        }
+
+        console.log("Number of open filters: ", openFilters); // For debugging
     }
 
     // Select all input elements that match the criteria
     const filterInputs = document.querySelectorAll('input[id^="filter-"]');
-    // find all the end date elements
+
+    // Find all the end date elements
     const artistEndDateInput = document.getElementById('artist-end-date');
     const albumEndDateInput = document.getElementById('album-end-date');
-    // set the end date of filters to today's date, and put sinde  placeholder
+
+    // Set the end date of filters to today's date, and put inside placeholder
+    const currentDate = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
     artistEndDateInput.placeholder = currentDate;
     albumEndDateInput.placeholder = currentDate;
 
     // Add event listeners to each input element
     filterInputs.forEach(input => {
         input.addEventListener('change', toggleFilterContainers);
+        // Initialize counter based on current state of inputs
         if (input.checked) {
-            isFilterOpen = true
-            filterSubmit.classList.remove('hide');
-        } else {
-            if ( isFilterOpen === false) {
-                filterSubmit.classList.add('hide');
-            }
-
-
-
+            openFilters++;
         }
-        const filters = document.getElementById("search-filters");
-        // filters.classList.add('open');
     });
+
+    // Initial check to set the correct visibility state for the submit button
+    if (openFilters > 0) {
+        filterSubmit.classList.remove('hide');
+    } else {
+        filterSubmit.classList.add('hide');
+    }
+
+    console.log("Initial number of open filters: ", openFilters); // For debugging
 
     // Initial check to set the correct visibility state
     toggleFilterContainers();
 });
+
+
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const searchButton = document.getElementById("search-input");
