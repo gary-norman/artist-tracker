@@ -31,12 +31,24 @@ func PrintArtistDetails(artist *Artist) {
 	fmt.Printf(Bold+Cyan+"First Album: "+Reset+Blue+"%v\n"+Reset, artist.FirstAlbum)
 
 	// TadbAlbum details
-	fmt.Println(Bold + Cyan + "------Album Details------" + Reset)
-	fmt.Printf(Bold+Cyan+"Album Name: "+Reset+Blue+"%v\n"+Reset, artist.FirstAlbumStruct.Album)
-	fmt.Printf(Bold+Cyan+"Album Image Link: "+Reset+Blue+"%v\n"+Reset, artist.FirstAlbumStruct.AlbumThumb)
-	fmt.Printf(Bold+Cyan+"Album Year Released: "+Reset+Blue+"%v\n"+Reset, artist.FirstAlbumStruct.YearReleased)
-	fmt.Printf(Bold+Cyan+"Album Description: "+Reset+Blue+"%v\n"+Reset, artist.FirstAlbumStruct.DescriptionEN)
-	fmt.Printf(Bold+Cyan+"MusicBrainz Album ID: "+Reset+Blue+"%v\n"+Reset, artist.FirstAlbumStruct.MusicBrainzAlbumID)
+	fmt.Println(Bold + Cyan + "------First Album Details------" + Reset)
+	fmt.Printf(Bold+Cyan+"First Album Name: "+Reset+Blue+"%v\n"+Reset, artist.FirstAlbumStruct.Album)
+	fmt.Printf(Bold+Cyan+"First Album Image Link: "+Reset+Blue+"%v\n"+Reset, artist.FirstAlbumStruct.AlbumThumb)
+	fmt.Printf(Bold+Cyan+"First Album Year Released: "+Reset+Blue+"%v\n"+Reset, artist.FirstAlbumStruct.YearReleased)
+	fmt.Printf(Bold+Cyan+"Fisrt Album Description: "+Reset+Blue+"%v\n"+Reset, artist.FirstAlbumStruct.DescriptionEN)
+	fmt.Printf(Bold+Cyan+"First MusicBrainz Album ID: "+Reset+Blue+"%v\n"+Reset, artist.FirstAlbumStruct.MusicBrainzAlbumID)
+
+	// TadbAlbum details
+	fmt.Println(Bold + Cyan + "------All Album Details------" + Reset)
+	for i := range artist.AllAlbums.Album {
+		fmt.Printf(Bold+Cyan+"Album Name: "+Reset+Blue+"%v\n"+Reset, artist.AllAlbums.Album[i].Album)
+		fmt.Printf(Bold+Cyan+"Album Image Link: "+Reset+Blue+"%v\n"+Reset, artist.AllAlbums.Album[i].AlbumThumb)
+		fmt.Printf(Bold+Cyan+"Album Year Released: "+Reset+Blue+"%v\n"+Reset, artist.AllAlbums.Album[i].YearReleased)
+		fmt.Printf(Bold+Cyan+"Album Genre: "+Reset+Blue+"%v\n"+Reset, artist.AllAlbums.Album[i].Genre)
+		fmt.Printf(Bold+Cyan+"Album Description: "+Reset+Blue+"%v\n"+Reset, artist.AllAlbums.Album[i].DescriptionEN)
+		fmt.Printf(Bold+Cyan+"MusicBrainz Album ID: "+Reset+Blue+"%v\n"+Reset, artist.AllAlbums.Album[i].MusicBrainzAlbumID)
+	}
+	fmt.Printf(Bold+Cyan+" --- %v albums in total:---\n\n"+Reset, len(artist.AllAlbums.Album))
 
 	// Dates and Locations
 	fmt.Println(Bold + Cyan + "------Concert Dates and Locations------" + Reset)

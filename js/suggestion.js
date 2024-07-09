@@ -156,8 +156,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 const img = document.createElement('img');
                 if (suggestion.category === 'Album') {
                     img.className = 'pic album';
-                    img.src = suggestion.artist.FirstAlbumStruct.strAlbumThumb ? suggestion.artist.FirstAlbumStruct.strAlbumThumb : 'default-album-image-url.jpg';
-                    img.alt = 'Album cover of ' + (suggestion.matchitem || 'Unknown Album');
+                    img.src = suggestion.matchitem.imgLink ?  suggestion.matchitem.imgLink : '/icons/blank_cd_icon.png';
+                    img.alt = 'Album cover of ' + (suggestion.matchitem.AlbumName || 'Unknown Album');
                 } else if (suggestion.category ==='Member') {
                     img.className = 'pic user';
                     for (const [memberName,memberPic] of Object.entries(suggestion.artist.memberPics)){
@@ -178,9 +178,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 //TODO suggestion populates search term inside bold-cut
                 let boldCut = document.createElement('div');
                 boldCut.className = 'p--bold cut';
-                boldCut.textContent = suggestion.matchitem || '';
-
-
+                if (suggestion.category === 'Album') {
+                    boldCut.textContent = suggestion.matchitem.AlbumName || '';
+                } else{
+                    boldCut.textContent = suggestion.matchitem || '';
+                }
 
                 if (suggestion.category === 'Artist' && suggestion.matchitem && suggestion.matchitem.toLowerCase() === suggestion.artist.name.toLowerCase()) {
                     contentText.appendChild(boldCut);
