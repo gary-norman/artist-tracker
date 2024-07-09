@@ -357,7 +357,7 @@ func GetSpotifyAlbums(artist, album, authToken string) (SpotifyAlbum, error) {
 	}
 
 	if len(response.Albums.Items) == 0 {
-		return SpotifyAlbum{}, fmt.Errorf("no albums found for artist %s in album %s", artist, album)
+		return SpotifyAlbum{}, fmt.Errorf("'%s' not found for artist: %s", album, artist)
 	}
 
 	firstAlbum := response.Albums.Items[0]
