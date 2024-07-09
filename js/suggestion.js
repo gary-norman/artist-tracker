@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function showSuggestions(suggestionsData) {
         populateResults.innerHTML = '';
-        console.log("received suggestionsData:=", suggestionsData);
+        // console.log("received suggestionsData:=", suggestionsData);
 
         const resultsHeader = document.querySelector('.filters .small.light.center');
         if (!suggestionsData || suggestionsData.length === 0) {
