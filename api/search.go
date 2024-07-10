@@ -96,6 +96,28 @@ func SearchAlbum(artist *Artist, albumName string) TadbAlbumFull {
 	return albumStruct
 }
 
+// SearchAlbum searches for an album within an artist struct and returns the album details
+func SearchAlbum2(artist *Artist, albumName string) TadbAlbums {
+	var albumStruct TadbAlbums
+	for _, album := range artist.AllAlbums.Album {
+		if strings.EqualFold(album.Album, albumName) {
+			result := &album
+			albumStruct = TadbAlbums{
+				IdAlbum:            result.IdAlbum,
+				Album:              result.Album,
+				YearReleased:       result.YearReleased,
+				Genre:              result.Genre,
+				Label:              result.Label,
+				IdLabel:            result.IdLabel,
+				AlbumThumb:         result.AlbumThumb,
+				DescriptionEN:      result.DescriptionEN,
+				MusicBrainzAlbumID: result.MusicBrainzAlbumID,
+			}
+		}
+	}
+	return albumStruct
+}
+
 /*
 func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *template.Template) {
 	searchQuery := strings.ToLower(strings.TrimSpace(r.URL.Query().Get("query"))) // Lowercase and trim whitespace

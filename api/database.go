@@ -16,6 +16,7 @@ import (
 type PageData struct {
 	HomeArtists      []Artist
 	SuggestedArtists []Suggestion
+	CurrentAlbum     TadbAlbums
 }
 
 type Suggestion struct {

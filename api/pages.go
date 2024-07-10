@@ -108,7 +108,7 @@ func AlbumPage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *te
 		return
 	}
 	// Extract album name from the URL query or request body
-	albumName := r.URL.Query().Get("album")
+	albumName := r.URL.Query().Get("albumName")
 	if len(albumName) < 1 {
 		fmt.Printf("albumName for %v is empty\n", albumName)
 		ErrorHandler(w, r, http.StatusBadRequest)
@@ -127,9 +127,11 @@ func AlbumPage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *te
 		fmt.Printf("error getting Spotify album: %v", err)
 	}
 
-	artist.CurrentAlbum = SearchAlbum(artist, albumName)
+	pageData := PageData{
+		CurrentAlbum: SearchAlbum2(artist, albumName),
+	}
 
-	err = t.Execute(w, &artist)
+	err = t.Execute(w, &pageData)
 	if err != nil {
 		var e Error
 		switch {
