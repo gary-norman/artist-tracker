@@ -443,9 +443,9 @@ a {
     /* overflow: hidden; */
     /* Rin changed because calendar pop up getting cut off */
     overflow: visible;
-    &.artistwrapper {
+    &.artist-wrapper {
         padding: 4rem;
-
+        position: relative;
 
         @media (max-width: 800px) {
             padding: 4rem 1.2rem 4rem 1.2rem;
@@ -735,6 +735,7 @@ a {
     align-items: stretch;
 
     & .content {
+        height: 100%;
         & .small {
             justify-content: center;
         }
