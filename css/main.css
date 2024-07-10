@@ -445,7 +445,7 @@ a {
     overflow: visible;
     &.artist-wrapper {
         padding: 4rem;
-        position: relative;
+        position: relative;g
 
         @media (max-width: 800px) {
             padding: 4rem 1.2rem 4rem 1.2rem;
