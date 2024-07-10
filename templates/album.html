@@ -79,18 +79,15 @@
         </div>
             <div class="container">
                 <div id=""  class="container scroll" style="overflow-y: hidden">
-                        <h2>Album</h2>
+                        <h2>{{.CurrentAlbum.Album}}</h2>
                         <div class="col col2">
                             <div class="go-down">
                                 <div id="first-album" class="content">
-                                        <img class="pic album" src="{{.FirstAlbumStruct.AlbumThumb}}"
-                                             alt="Album cover of ({{.FirstAlbumStruct.Album}})"/>
+                                        <img class="pic album" src="{{.CurrentAlbum.AlbumThumb}}"
+                                             alt="Album cover of ({{.CurrentAlbum.Album}})"/>
                                         <div class="content-text go-down">
-                                            <div class="p--bold cut">{{.FirstAlbumStruct.Album}}</div>
-                                            <p id="albumInfo" data-album="{{ .FirstAlbum }}" style="display: none"></p>
-                                            <p id="actualAlbumInfo" data-album="{{.FirstAlbumStruct.YearReleased}}"
-                                               style="display: none"></p>
-                                            <p id="createSwitch" class="create">{{.SpotifyAlbum.ReleaseDate}}</p>
+                                            <div class="p--bold cut">{{.CurrentAlbum.Album}}</div>
+                                            <p id="albumInfo">{{.CurrentAlbum.YearReleased}}</p>
                                         </div>
                                 </div>
                             </div>

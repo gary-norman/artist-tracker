@@ -127,6 +127,8 @@ func AlbumPage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *te
 		fmt.Printf("error getting Spotify album: %v", err)
 	}
 
+	artist.CurrentAlbum = SearchAlbum(artist, albumName)
+
 	err = t.Execute(w, &artist)
 	if err != nil {
 		var e Error
