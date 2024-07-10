@@ -254,6 +254,8 @@ func FindFirstAlbum(artist *Artist) {
 			MusicBrainzAlbumID: artist.AllAlbums.Album[lowIndex].MusicBrainzAlbumID,
 		}
 	}
-	fmt.Printf("First album of %v: %v\n", artist.Name, artist.AllAlbums.Album[lowIndex].AlbumThumb)
-	fmt.Printf("First album of %v: %v\n", artist.Name, artist.AllAlbums.Album[lowIndex].Album)
+	/*
+		 	fmt.Printf("First album of %v: %v\n", artist.Name, artist.AllAlbums.Album[lowIndex].AlbumThumb)
+			fmt.Printf("First album of %v: %v\n", artist.Name, artist.AllAlbums.Album[lowIndex].Album)
+	*/
 }

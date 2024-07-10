@@ -105,7 +105,14 @@ document.addEventListener('DOMContentLoaded', function () {
             let contentText;
             let content;
             const a = document.createElement('a');
-            a.setAttribute('href', `/artist?name=${encodeURIComponent(suggestion.artist.name)}`);
+            
+            // Add the concert part for the Concert category
+            if (suggestion.category === 'Concert') {
+                a.setAttribute('href', `/artist?name=${encodeURIComponent(suggestion.artist.name)}#artist-concerts`);
+            } else {
+                a.setAttribute('href', `/artist?name=${encodeURIComponent(suggestion.artist.name)}`);
+            }
+            
             a.dataset.artistName = suggestion.artist.name;
 
             if (suggestion.category === 'Concert' && suggestion.matchitem && suggestion.matchitem.dates) {
