@@ -126,12 +126,6 @@ func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tp
 				artistSuggestions = append(artistSuggestions, Suggestion{"Artist", artist.Name, &artist})
 			}
 
-			// Check first album date
-			if strings.Contains(artist.FirstAlbum, searchQuery) {
-				artistSuggestions = append(artistSuggestions, Suggestion{"Album", map[string]interface{}{"AlbumName": artist.AllAlbums.Album[0].Album, "imgLink": artist.AllAlbums.Album[0].AlbumThumb}, &artist})
-				isFirstAlbumFound = true
-			}
-
 			// Check artist members
 			for _, member := range artist.MemberList {
 				if strings.Contains(strings.ToLower(member), searchQuery) || strings.Contains(artistNameLower, searchQuery) {
@@ -141,11 +135,28 @@ func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tp
 				}
 			}
 
-			// Check TadbAlbum name
+			// Check first album date
+			if strings.Contains(artist.FirstAlbum, searchQuery) {
+				artistSuggestions = append(artistSuggestions, Suggestion{"Album", map[string]interface{}{"AlbumName": artist.AllAlbums.Album[0].Album, "imgLink": artist.AllAlbums.Album[0].AlbumThumb}, &artist})
+				isFirstAlbumFound = true
+			}
+
+			// Check first album name
 			if artist.FirstAlbumStruct.Album != "" && strings.Contains(strings.ToLower(artist.FirstAlbumStruct.Album), searchQuery) && !isFirstAlbumFound {
 				artistSuggestions = append(artistSuggestions, Suggestion{"Album", map[string]interface{}{"AlbumName": artist.AllAlbums.Album[0].Album, "imgLink": artist.AllAlbums.Album[0].AlbumThumb}, &artist})
 			}
 
+			// check all other albums name
+			for i := range artist.AllAlbums.Album {
+				if artist.AllAlbums.Album[i].Album != "" && strings.Contains(strings.ToLower(artist.AllAlbums.Album[i].Album), searchQuery) && !isFirstAlbumFound && !isAllAlbumAppend {
+					artistSuggestions = append(artistSuggestions, Suggestion{"Album", map[string]interface{}{"AlbumName": artist.AllAlbums.Album[i].Album, "imgLink": artist.AllAlbums.Album[i].AlbumThumb}, &artist})
+				}
+				if artist.AllAlbums.Album[i].YearReleased != "" && strings.Contains((artist.AllAlbums.Album[i].YearReleased), searchQuery) && !isFirstAlbumFound && !isAllAlbumAppend {
+					artistSuggestions = append(artistSuggestions, Suggestion{"Album", map[string]interface{}{"AlbumName": artist.AllAlbums.Album[i].Album, "imgLink": artist.AllAlbums.Album[i].AlbumThumb}, &artist})
+				}
+			}
+
+			// check all other albums name
 			for i := range artist.AllAlbums.Album {
 				if artist.AllAlbums.Album[i].Album != "" && strings.Contains(strings.ToLower(artist.AllAlbums.Album[i].Album), searchQuery) && !isFirstAlbumFound && !isAllAlbumAppend {
 					artistSuggestions = append(artistSuggestions, Suggestion{"Album", map[string]interface{}{"AlbumName": artist.AllAlbums.Album[i].Album, "imgLink": artist.AllAlbums.Album[i].AlbumThumb}, &artist})
