@@ -4,8 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const populateResults = document.getElementById('populate-results');
     
     const locSearchInput = document.getElementById('button-filter-concert-location');
-    const locSearchResults = document.getElementById('loc-search-result')
-    const locationsContainer = document.getElementById('filter-checkbox-locations')
+    const locSearchResults = document.getElementById('loc-search-result');
+    const locationsContainer = document.getElementById('filter-checkbox-locations');
+    const locationInputs = locationsContainer.querySelectorAll('input');
     
     function debounce(fn, delay) {
         let timer;
@@ -47,6 +48,24 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 locationsContainer.innerHTML = ''; 
             }
+        });
+
+        locationInputs.forEach(input => {
+            input.addEventListener('input', function(e) {
+                const pillContainer = document.createElement('div');
+                const pill = document.createElement('div');
+                const pillText = document.createElement('p');
+                const removePill = document.createElement('div');
+
+                pillContainer.className = 'pills';
+                pill.className = 'pill';
+                pillText.className = 'small';
+                pillText.textContent = input.value;
+                removePill.id = 'removePill';
+
+                pillContainer.appendChild(pill);
+                pillContainer.appendChild(removePill);
+            });
         });
     }
 
