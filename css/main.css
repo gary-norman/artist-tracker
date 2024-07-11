@@ -83,7 +83,6 @@ body {
 /* spotify player */
 iframe {
     color-scheme: normal;
-    height: 10.5rem;
     padding: 1.2rem 0 0 0;
 }
 
@@ -282,6 +281,12 @@ h2 {
     }
 }
 
+.albumh2 {
+    font-family: "Jockey One", serif;
+    font-size: 3rem;
+    font-weight: var(--font-weight-400);
+}
+
 h3 {
     font-family: "Inter", sans-serif;
     font-weight: var(--font-weight-500);
@@ -311,6 +316,10 @@ p {
     line-height: normal;
     display: block;
     /*align-self: center;*/
+}
+
+.p--condensed {
+    font-size: 1.2rem;
 }
 
 a {

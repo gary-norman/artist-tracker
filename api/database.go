@@ -34,7 +34,7 @@ type Artist struct {
 	CreationDate     int               `json:"creationDate"`
 	FirstAlbum       string            `json:"firstAlbum"`
 	FirstAlbumStruct TadbAlbum
-	CurrentAlbum     TadbAlbum
+	CurrentAlbum     *TadbAlbum
 	AllAlbums        TadbAlbums `json:"allAlbums"`
 	SpotifyAlbum
 	TheAudioDbArtist
@@ -66,6 +66,8 @@ type TadbAlbum struct {
 	AlbumThumb         string `json:"strAlbumThumb"`
 	AlbumCDart         string `json:"strAlbumCDart"`
 	Album3DCase        string `json:"strAlbum3DCase"`
+	Album3DFlat        string `json:"strAlbum3DFlat"`
+	Album3DFace        string `json:"strAlbum3DFace"`
 	Album3DThumb       string `json:"strAlbum3DThumb"`
 	DescriptionEN      string `json:"strDescriptionEN"`
 	MusicBrainzAlbumID string `json:"strMusicBrainzID"`
