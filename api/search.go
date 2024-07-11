@@ -6,6 +6,7 @@ import (
 	"html/template"
 	"net/http"
 	"regexp"
+	"sort"
 	"strconv"
 	"strings"
 	"sync"
@@ -249,6 +250,10 @@ func locationSuggestHandler(w http.ResponseWriter, r *http.Request, artists []Ar
 	// Check if suggestions are empty and log it
 	if len(suggestions) == 0 {
 		fmt.Println("No suggestions found.")
+	} else {
+		// Sort suggestions alphabetically
+		sort.Strings(suggestions)
+		fmt.Println("All suggestions found:", suggestions)
 	}
 
 	// Marshal suggestions to JSON

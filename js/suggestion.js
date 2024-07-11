@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!locSuggestionsData || locSuggestionsData.length === 0) {
             locationsContainer.innerHTML = '<p style="text-align:center">No results found.</p>';
+            locSearchResults.appendChild(locationsContainer); 
             return;
         }
 
