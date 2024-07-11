@@ -206,6 +206,63 @@ func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tp
 	w.Write(jsonData)
 }
 
+func locationSuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *template.Template) {
+	searchQuery := strings.ToLower(strings.TrimSpace(r.URL.Query().Get("query"))) // Lowercase and trim whitespace
+	var normalizedQuery string
+
+	// debug print
+	fmt.Println()
+	fmt.Println("############################")
+	fmt.Println("Received search query:", searchQuery)
+	fmt.Println("############################")
+	fmt.Println()
+
+	// Normalize the search query
+	if isDate(searchQuery) {
+		normalizedQuery = searchQuery // Keep dates as is
+	} else if isLocationLike(searchQuery) {
+		normalizedQuery = formatLocation(searchQuery)
+	} else {
+		normalizedQuery = searchQuery // Use the search query as is
+	}
+
+	// Map to track unique locations
+	locationMap := make(map[string]bool)
+	var suggestions []string
+
+	for _, artist := range artists {
+
+		// Check locations
+		for location, _ := range artist.DatesLocations {
+			locationLower := strings.ToLower(location)
+
+			// Check for exact match in location
+			if strings.EqualFold(locationLower, normalizedQuery) || strings.Contains(locationLower, searchQuery) {
+				if !locationMap[location] {
+					suggestions = append(suggestions, location)
+					locationMap[location] = true // Mark this location as seen
+				}
+			}
+		}
+	}
+
+	// Check if suggestions are empty and log it
+	if len(suggestions) == 0 {
+		fmt.Println("No suggestions found.")
+	}
+
+	// Marshal suggestions to JSON
+	jsonData, err := json.Marshal(suggestions)
+	if err != nil {
+		fmt.Println("Error marshalling JSON:", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(jsonData)
+}
+
 // isDate function
 func isDate(input string) bool {
 	// Regular expression to match dates in the format of "dd-mm-yyyy" or "yyyy-mm-dd"

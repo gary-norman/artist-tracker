@@ -133,49 +133,14 @@
                         <div class="filter-open col col2">
                             <div class="button button-2" id="button-filter-checkbox">
                                 <div id="button-filter-checkbox-container" class="button-container">
-                                    <p id="button-filter-concert-location" class="small button-2-text">Search location</p>
+                                    <input type="text" id="button-filter-concert-location" class="small button-2-text" placeholder="Type to search location...">
                                 </div>
                             </div>
-                            <div  class="container">
+                            
+                            <div  class="container" id="loc-search-result">
                                 <div id="filter-checkbox-locations" class="scroll container col col1">
-                                    <label for="loc-london-uk" class="checkbox go-across-sm " >
-                                        <input class="checkbox" id="loc-london-uk" name="loc-london-uk" type="checkbox" value="London, UK">
-                                        <label class="checkbox small" for="loc-london-uk">London, UK</label>
-                                    </label>
-                                    <label for="loc-berlin-germany" class="checkbox go-across-sm" >
-                                        <input class="checkbox" id="loc-berlin-germany" name="loc-berlin-germany" type="checkbox" value="Berlin, Germany">
-                                        <label class="checkbox small" for="loc-berlin-germany">Berlin, Germany</label>
-                                    </label>
-                                    <label for="loc-dublin-ireland" class="checkbox go-across-sm" >
-                                        <input class="checkbox" id="loc-dublin-ireland" name="loc-dublin-ireland" type="checkbox" value="Dublin, Ireland">
-                                        <label class="checkbox small" for="loc-dublin-ireland">Dublin, Ireland</label>
-                                    </label>
-                                    <label for="loc-madrid-spain" class="checkbox go-across-sm" >
-                                        <input class="checkbox" id="loc-madrid-spain" name="loc-madrid-spain" type="checkbox" value="Madrid, Spain">
-                                        <label class="checkbox small" for="loc-madrid-spain">Madrid, Spain</label>
-                                    </label>
-                                    <label for="loc-osaka-japan" class="checkbox go-across-sm" >
-                                        <input class="checkbox" id="loc-osaka-japan" name="loc-osaka-japan" type="checkbox" value="Osaka, Japan">
-                                        <label class="checkbox small" for="loc-osaka-japan">Osaka, Japan</label>
-                                    </label>
-                                    <label for="loc-florence-italy" class="checkbox go-across-sm" >
-                                        <input class="checkbox" id="loc-florence-italy" name="loc-florence-italy" type="checkbox" value="Florence, Italy">
-                                        <label class="checkbox small" for="loc-florence-italy">Florence, Italy</label>
-                                    </label>
-                                    <label for="loc-lima-peru" class="checkbox go-across-sm" >
-                                        <input class="checkbox" id="loc-lima-peru" name="loc-lima-peru" type="checkbox" value="Lima, Peru">
-                                        <label class="checkbox small" for="loc-lima-peru">Lima, Peru</label>
-                                    </label>
-                                    <label for="loc-cairo-egypt" class="checkbox go-across-sm" >
-                                        <input class="checkbox" id="loc-cairo-egypt" name="loc-cairo-egypt" type="checkbox" value="Cairo, Egypt">
-                                        <label class="checkbox small" for="loc-cairo-egypt">Cairo, Egypt</label>
-                                    </label>
-                                    <label for="loc-toronto-canada" class="checkbox go-across-sm sm" >
-                                        <input class="checkbox" id="loc-toronto-canada" name="loc-toronto-canada" type="checkbox" value="Toronto, Canada">
-                                        <label class="checkbox small" for="loc-toronto-canada">Toronto, Canada</label>
-                                    </label>
+                                    <!-- location suggestion result will show here -->
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -347,7 +312,7 @@
                             {{ $randomDates := randomiseDates $dates }}
                             {{ range $date := $randomDates }}
                             {{ $dateParts := formatDate $date }}
-                            <a class="content" href="/artist?name={{ $artist.Name }}#artist-concerts">
+                            <a class="content" href="/artist?name={{ $artist.Name }}">
                                     <div class="pic date">
                                         <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
                                         <div>{{ $dateParts.Year }}</div>

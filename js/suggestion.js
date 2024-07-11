@@ -2,7 +2,88 @@ document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results');
     const populateResults = document.getElementById('populate-results');
+    
+    const locSearchInput = document.getElementById('button-filter-concert-location');
+    const locSearchResults = document.getElementById('loc-search-result')
+    const locationsContainer = document.getElementById('filter-checkbox-locations')
+    
+    if (locSearchInput && locSearchResults) {
+        let latestRequestTimestamp = 0;
 
+        async function fetchLocationSuggestions(query) {
+            const response = await fetch(`/locationSuggest?query=${encodeURIComponent(query)}`);
+            if (response.ok) {
+                return await response.json();
+            }
+            throw new Error('Failed to fetch suggestions');
+        }
+
+        function debounce(fn, delay) {
+            let timer;
+            return function (...args) {
+                clearTimeout(timer);
+                timer = setTimeout(() => fn.apply(this, args), delay);
+            };
+        }
+
+        const debouncedFetchLocationSuggestions = debounce(async function (query) {
+            const currentRequestTimestamp = Date.now();
+            latestRequestTimestamp = currentRequestTimestamp;
+
+            try {
+                const suggestionsData = await fetchLocationSuggestions(query);
+                if (latestRequestTimestamp === currentRequestTimestamp) {
+                    showLocationSuggestions(suggestionsData);
+                }
+            } catch (error) {
+                console.error('Error fetching suggestions:', error);
+            }
+        }, 300);
+
+        locSearchInput.addEventListener('input', function (e) {
+            const query = e.target.value.trim();
+            if (query) {
+                debouncedFetchLocationSuggestions(query);
+            } else {
+                locationsContainer.innerHTML = ''; 
+            }
+        });
+    }
+
+    function showLocationSuggestions(locSuggestionsData) {
+        
+        // console.log("received slocSuggestionsData:=", locSuggestionsData);
+            
+        locationsContainer.innerHTML = ''; 
+
+        if (!locSuggestionsData || locSuggestionsData.length === 0) {
+            locationsContainer.innerHTML = '<p style="text-align:center">No results found.</p>';
+            return;
+        }
+
+        locSuggestionsData.forEach(function (location) {
+            const checkboxContainer = document.createElement('div');
+            checkboxContainer.className = 'checkbox go-across-sm';
+            
+            const input = document.createElement('input');
+            input.className = 'checkbox checkbox-loc';
+            input.id = `loc-${location.replace(/[\s, ]+/g, '-').toLowerCase()}`;
+            input.name = 'loc';
+            input.type = 'checkbox';
+            input.value = location;
+
+            const label = document.createElement('label');
+            label.className = 'checkbox small';
+            label.htmlFor = input.id;
+            label.textContent = location;
+
+            checkboxContainer.appendChild(input);
+            checkboxContainer.appendChild(label);
+            locationsContainer.appendChild(checkboxContainer);
+        });
+        locSearchResults.appendChild(locationsContainer);
+    }
+    
     if (searchInput && populateResults) {
         let latestRequestTimestamp = 0;
 
