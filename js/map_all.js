@@ -93,30 +93,116 @@ Promise.all(geojsonFiles.map(file => fetch(file)
         console.error('There has been a problem with your fetch operation:', error);
     })
 ))
-.then(geojsons => {
-    geojsons.forEach(geojson => {
-        console.log('GeoJSON Data:', geojson);
+.then(geojsons.features.forEach((feature, index) => {
+// .then(geojsons => {
+    // geojsons.forEach(geojson => {
+    //     console.log('GeoJSON Data:', geojson);
+    //
+    //     // add markers to map
+    //     for (const feature of geojson.features) {
+    //         const el = document.createElement('div');
+    //         el.className = 'marker';
+    //
+    //         new mapboxgl.Marker(el)
+    //             .setLngLat(feature.geometry.coordinates)
+    //             .setPopup(
+    //                 new mapboxgl.Popup({ offset: 20 })
+    //                     .setHTML(
+    //                         `<div class="p--bold flexrow"><a href="/artist?name=${feature.properties.artist}">${feature.properties.artist}</a>
+    //                          <b>live in ${feature.properties.eventAddress}</b></div>
+    //                          <p class="small">${formatDate(parseDate(feature.properties.date))}</p>
+    //                          <p class="small">${feature.properties.eventAddress}</p>`
+    //                     )
+    //             )
+    //             .addTo(map);
+    //     }
+    // });
+    // Assuming `geojson` is your GeoJSON data object
 
-        // add markers to map
-        for (const feature of geojson.features) {
-            const el = document.createElement('div');
-            el.className = 'marker';
+        const el = document.createElement('div');
+        el.className = 'marker';
 
-            new mapboxgl.Marker(el)
-                .setLngLat(feature.geometry.coordinates)
-                .setPopup(
-                    new mapboxgl.Popup({ offset: 20 })
-                        .setHTML(
-                            `<div class="p--bold flexrow"><a href="/artist?name=${feature.properties.artist}">${feature.properties.artist}</a>
-                             <b>live in ${feature.properties.eventAddress}</b></div>
-                             <p class="small">${formatDate(parseDate(feature.properties.date))}</p>
-                             <p class="small">${feature.properties.eventAddress}</p>`
-                        )
-                )
-                .addTo(map);
-        }
+        // Generate the HTML for the dates
+        const datesHTML = generateDatesHTML(parseDates(expandDates(feature.properties.date)));
+
+        // Conditionally include the address if there is more than one date
+        const addressHTML = parseDates(expandDates(feature.properties.date)).length < 2
+            ? `<p class="small">${feature.properties.eventAddress}</p>`
+            : '';
+
+        const title = feature.properties.title.replace(" at ", " in ")
+        // Create Mapbox Marker for each feature
+        new mapboxgl.Marker(el)
+            .setLngLat(feature.geometry.coordinates)
+            .setPopup(
+                new mapboxgl.Popup({ offset: 20 })
+                    .setHTML(`
+          <p class="p--bold">${title}</p>
+          <div class="content go-across-md scroll">
+            ${datesHTML}
+            ${addressHTML}
+          </div>
+        `)
+            )
+            .addTo(map);
+
+        // Store the index as a data attribute on the marker element for click events
+        el.dataset.index = index;
+
+    // reset map position
+    document.getElementById('kaartReset').addEventListener('click', () => {
+        map.flyTo({
+            center: aveLoc,
+            zoom: 1,
+            pitch: 0,
+            essential: true // animation considered essential for accessibility
+        });
+    })
+
+    // Select all tour date elements
+    const mapClick = document.querySelectorAll(".artistPageTourdate");
+    // Add click event listener to each tour date element
+    mapClick.forEach(tourdate => {
+        tourdate.addEventListener('click', () => {
+            // Get the concert ID (date string) from the clicked tourdate element
+            const concertId = tourdate.dataset.index;
+
+            // debug print
+            console.log("Concert ID:", concertId);
+
+            // Ensure geojson is defined and features exist
+            if (geojson && geojson.features) {
+                // Find the concert data from `geojson` based on concertId
+                const concert = geojson.features.find(feature => feature.properties.date.includes(concertId));
+
+                if (concert) {
+
+                    // debug print
+                    console.log("got concert");
+                    console.log("Feature Date:", concert.properties.date);
+
+                    const coordinates = concert.geometry.coordinates;
+
+                    // debug print
+                    console.log("Coordinates:", coordinates);
+
+                    // Fly to the coordinates of the feature with the fetched concert ID
+                    map.flyTo({
+                        center: coordinates,
+                        zoom: 16,
+                        pitch: 60,
+                        essential: true // animation considered essential for accessibility
+                    });
+                } else {
+                    console.log(`Concert data not found for concert ID: ${concertId}`);
+                }
+            } else {
+                console.log("GeoJSON data not loaded or features are missing.");
+            }
+        });
     });
-})
-.catch(error => {
-    console.error('There has been a problem with your fetch operation:', error);
-});
+    })) catch (error) {
+        }
+            console.error('There has been a problem with your fetch operation:', error);
+        }
+}

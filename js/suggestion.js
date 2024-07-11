@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             contentText.appendChild(boldCut);
                 } else {
                     artistName = document.createElement('div');
-                    artistName.className = 'p--normal';
+                    artistName.className = 'small light cut';
                     artistName.textContent = suggestion.artist && suggestion.artist.name ? suggestion.artist.name : 'Unknown Artist';
                     contentText.appendChild(boldCut);
                     contentText.appendChild(artistName);

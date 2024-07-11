@@ -174,13 +174,12 @@ iframe {
 .mapboxgl-popup-content {
     color: var(--white-1);
     border-radius: 0.8rem !important;
-    padding: 1.6rem 1.2rem !important;
-    padding-bottom: 0.4rem !important;
+    padding: 1.6rem 1.2rem 1.2rem !important;
     display: flex !important;
     flex-direction: column !important;
     gap: 1.2rem !important;
     background-color: var(--grey-1) !important;
-    max-width: 24rem;g
+    max-width: 24rem;
     & > * {
         margin: 0;
     }
@@ -205,7 +204,6 @@ iframe {
         &.scroll {
             overflow-x: auto;
             scroll-snap-type: x mandatory;
-            padding-bottom: 0.8rem !important;
             &::-webkit-scrollbar-track {
                 background: var(--grey-1);
             }
@@ -219,9 +217,15 @@ iframe {
 }
 
 .mapboxgl-popup-close-button {
-color: var(--white-0);
-font-size: 2.4rem;
-border-radius: 1.2rem;
+    color: var(--white-0);
+    width: 1.6rem;
+    height: 1.6rem;
+    font-size: 2.4rem;
+    border-radius: 1.2rem;
+    text-align: center;
+    line-height: 0.8;
+    padding: 0;
+    margin: auto;
 }
 
 #mapProject {
