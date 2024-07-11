@@ -7,6 +7,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const locSearchResults = document.getElementById('loc-search-result')
     const locationsContainer = document.getElementById('filter-checkbox-locations')
     
+    function debounce(fn, delay) {
+        let timer;
+        return function (...args) {
+            clearTimeout(timer);
+            timer = setTimeout(() => fn.apply(this, args), delay);
+        };
+    }
+    
     if (locSearchInput && locSearchResults) {
         let latestRequestTimestamp = 0;
 
@@ -16,14 +24,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 return await response.json();
             }
             throw new Error('Failed to fetch suggestions');
-        }
-
-        function debounce(fn, delay) {
-            let timer;
-            return function (...args) {
-                clearTimeout(timer);
-                timer = setTimeout(() => fn.apply(this, args), delay);
-            };
         }
 
         const debouncedFetchLocationSuggestions = debounce(async function (query) {
@@ -93,14 +93,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 return await response.json();
             }
             throw new Error('Failed to fetch suggestions');
-        }
-
-        function debounce(fn, delay) {
-            let timer;
-            return function (...args) {
-                clearTimeout(timer);
-                timer = setTimeout(() => fn.apply(this, args), delay);
-            };
         }
 
         const debouncedFetchSuggestions = debounce(async function (query) {
