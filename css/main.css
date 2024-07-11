@@ -120,7 +120,7 @@ iframe {
 }
 
 .mapboxgl-popup-tip {
-    z-index: 9999;
+    z-index: 0;
     scale: 1.1;
 }
 
@@ -174,13 +174,12 @@ iframe {
 .mapboxgl-popup-content {
     color: var(--white-1);
     border-radius: 0.8rem !important;
-    padding: 1.6rem 1.2rem !important;
-    padding-bottom: 0.4rem !important;
+    padding: 1.6rem 1.2rem 1.2rem !important;
     display: flex !important;
     flex-direction: column !important;
     gap: 1.2rem !important;
     background-color: var(--grey-1) !important;
-    max-width: 24rem;g
+    max-width: 24rem;
     & > * {
         margin: 0;
     }
@@ -205,7 +204,6 @@ iframe {
         &.scroll {
             overflow-x: auto;
             scroll-snap-type: x mandatory;
-            padding-bottom: 0.8rem !important;
             &::-webkit-scrollbar-track {
                 background: var(--grey-1);
             }
@@ -219,9 +217,19 @@ iframe {
 }
 
 .mapboxgl-popup-close-button {
-color: var(--white-0);
-font-size: 2.4rem;
-border-radius: 1.2rem;
+    color: var(--white-0);
+    width: 1.6rem;
+    height: 1.6rem;
+    font-size: 2.4rem;
+    border-radius: 1.2rem;
+    text-align: center;
+    line-height: 0.8;
+    padding: 0;
+    margin: auto;
+    z-index: 9999;
+    @media (max-width: 800px) {
+        visibility: hidden;
+    }
 }
 
 #mapProject {
@@ -551,6 +559,7 @@ a {
     &#artist-albums {
         .container {
             padding-right: 0.4rem;
+            padding-bottom: 0.8rem;
         }
     }
 
@@ -1238,19 +1247,31 @@ input {
         }
     }
 
-
-
-
-
     @media (max-width:500px){
         padding: 0.8rem 1.2rem ;
     }
+
     &::after {
         width: 2.4rem;
         height: 2.4rem;
         position: absolute;
         right: 1.6rem;
         transition: width 500ms, height 500ms, right 500ms;
+    }
+
+    &#button-filter{
+        min-width: 15rem;
+        max-width: 22rem;
+        transition: max-width, 0.3s;
+
+        @media (max-width: 500px) {
+            max-width: 16rem;
+        }
+    }
+    &#button-filter::after {
+        width: 2.4rem;
+        height: 2.4rem;
+        content: var(--show-hide-icon) !important;
     }
 
 
@@ -1262,6 +1283,13 @@ input {
             @media (max-width:500px){
                 font-size: 1.2rem;
             }
+        }
+        & #button-filter-concert-location {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            padding: 0.8rem 4rem;
+            border-radius: var(--radius-xl);
         }
         &::before {
             position: absolute;
@@ -1284,25 +1312,23 @@ input {
             top: 22%;
             content: url('../icons/map-marker_x16.svg');
         }
-    }
 
+        &:has(#button-filter-concert-location) {
+            width: 100%;
+            height: 100%;
 
-
-    &#button-filter{
-        min-width: 15rem;
-        max-width: 22rem;
-        transition: max-width, 0.3s;
-
-        @media (max-width: 500px) {
-            max-width: 16rem;
         }
-    }
-    &#button-filter::after {
-        width: 2.4rem;
-        height: 2.4rem;
-        content: var(--show-hide-icon) !important;
+
+
+
+
+
+
     }
 
+    &#button-filter-checkbox {
+        padding: 0;
+    }
     &#button-filter-checkbox::after {
        content: url('../icons/search_x16.svg');
         width: 1.6rem;

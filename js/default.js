@@ -3,86 +3,10 @@ import { formatDateToUK } from './calendar.js';
 const date = new Date();
 let currentDate = formatDateToUK(date);
 
-
-// document.addEventListener('DOMContentLoaded', function () {
-//     // set a variable for when at least 1 filter is open for the apply filters utton to show
-//     let isFilterOpen = false;
-//     let openFilters = 0;
-//
-//     // Function to toggle the visibility of filter-open containers
-//     function toggleFilterContainers() {
-//         openFilters = 0;
-//         // Select all input elements that match the criteria
-//         const filterInputs = document.querySelectorAll('input[id^="filter-"]');
-//
-//         // Loop through each input element
-//         filterInputs.forEach(input => {
-//
-//             // Traverse up the DOM to find the parent with the class 'filter'
-//             let parent = input.closest('.filter');
-//             if (parent) {
-//                 // Find all elements within the parent that have a class starting with 'filter-open'
-//                 const filterOpenElements = parent.querySelectorAll('[class^="filter-open"]');
-//
-//
-//                 // Toggle the 'hide' class on each element based on checkbox state
-//                 filterOpenElements.forEach(filter => {
-//                     if (input.checked) {
-//                         openFilters++;
-//                         console.log("openFilters++ -> ", openFilters)
-//                         parent.classList.add('open');
-//                         filter.classList.remove('hide');
-//                     } else {
-//                         // console.log("openFilters-- -> ", openFilters)
-//                         parent.classList.remove('open');
-//                         filter.classList.add('hide');
-//                     }
-//                 });
-//
-//             }
-//         });
-//     }
-//
-//     //select a submit button
-//     const filterSubmit = document.getElementById("search-submit-filter");
-//
-//     // Select all input elements that match the criteria
-//     const filterInputs = document.querySelectorAll('input[id^="filter-"]');
-//
-//     // find all the end date elements
-//     const artistEndDateInput = document.getElementById('artist-end-date');
-//     const albumEndDateInput = document.getElementById('album-end-date');
-//     // set the end date of filters to today's date, and put sinde  placeholder
-//     artistEndDateInput.placeholder = currentDate;
-//     albumEndDateInput.placeholder = currentDate;
-//
-//     // Add event listeners to each input element
-//     filterInputs.forEach(input => {
-//         input.addEventListener('change', toggleFilterContainers);
-//
-//         // Initial check to set the correct visibility state
-//         if (input.checked) {
-//             toggleFilterContainers(); // Ensure the initial state is correctly set
-//             isFilterOpen = openFilters > 0;
-//             if (isFilterOpen) {
-//                 filterSubmit.classList.remove('hide');
-//             }
-//         } else {
-//             isFilterOpen = openFilters > 0;
-//             if (!isFilterOpen) {
-//                 filterSubmit.classList.add('hide');
-//             }
-//         }
-//     });
-//
-//     // Initial check to set the correct visibility state
-//     toggleFilterContainers();
-// });
-
-
 document.addEventListener('DOMContentLoaded', function () {
     const filterSubmit = document.getElementById("search-submit-filter");
     let openFilters = 0; // Initialize counter outside the function
+    let filterNumber = document.getElementById("button-filter-number");
 
     // Function to toggle the visibility of filter-open containers and the submit button
     function toggleFilterContainers() {
@@ -90,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Select all input elements that match the criteria
         const filterInputs = document.querySelectorAll('input[id^="filter-"]');
+
 
         // Loop through each input element
         filterInputs.forEach(input => {
@@ -116,8 +41,10 @@ document.addEventListener('DOMContentLoaded', function () {
         // Show or hide the filter submit button based on the number of open filters
         if (openFilters > 0) {
             filterSubmit.classList.remove('hide');
+            filterNumber.textContent = `Filters (${openFilters})`;
         } else {
             filterSubmit.classList.add('hide');
+            filterNumber.textContent = `Filters (0)`;
         }
 
         console.log("Number of open filters: ", openFilters); // For debugging
