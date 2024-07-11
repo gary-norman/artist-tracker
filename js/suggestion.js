@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const locSearchInput = document.getElementById('button-filter-concert-location');
     const locSearchResults = document.getElementById('loc-search-result')
     const locationsContainer = document.getElementById('filter-checkbox-locations')
-    
+
+
+    locSearchResults.classList.add("hide");
     function debounce(fn, delay) {
         let timer;
         return function (...args) {
@@ -44,8 +46,10 @@ document.addEventListener('DOMContentLoaded', function () {
             const query = e.target.value.trim();
             if (query) {
                 debouncedFetchLocationSuggestions(query);
+                locSearchResults.classList.remove("hide");
             } else {
-                locationsContainer.innerHTML = ''; 
+                locationsContainer.innerHTML = '';
+                locSearchResults.classList.add("hide");
             }
         });
     }
