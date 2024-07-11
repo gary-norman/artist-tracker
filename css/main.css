@@ -120,7 +120,7 @@ iframe {
 }
 
 .mapboxgl-popup-tip {
-    z-index: 9999;
+    z-index: 0;
     scale: 1.1;
 }
 
@@ -226,6 +226,7 @@ iframe {
     line-height: 0.8;
     padding: 0;
     margin: auto;
+    z-index: 9999;
 }
 
 #mapProject {
@@ -449,7 +450,7 @@ a {
     overflow: visible;
     &.artist-wrapper {
         padding: 4rem;
-        position: relative;g
+        position: relative;
 
         @media (max-width: 800px) {
             padding: 4rem 1.2rem 4rem 1.2rem;
@@ -555,6 +556,7 @@ a {
     &#artist-albums {
         .container {
             padding-right: 0.4rem;
+            padding-bottom: 0.8rem;
         }
     }
 
@@ -1257,6 +1259,21 @@ input {
         transition: width 500ms, height 500ms, right 500ms;
     }
 
+    &#button-filter{
+        min-width: 15rem;
+        max-width: 22rem;
+        transition: max-width, 0.3s;
+
+        @media (max-width: 500px) {
+            max-width: 16rem;
+        }
+    }
+    &#button-filter::after {
+        width: 2.4rem;
+        height: 2.4rem;
+        content: var(--show-hide-icon) !important;
+    }
+
 
     & .button-container {
         display: flex;
@@ -1304,20 +1321,7 @@ input {
 
 
 
-    &#button-filter{
-        min-width: 15rem;
-        max-width: 22rem;
-        transition: max-width, 0.3s;
 
-        @media (max-width: 500px) {
-            max-width: 16rem;
-        }
-    }
-    &#button-filter::after {
-        width: 2.4rem;
-        height: 2.4rem;
-        content: var(--show-hide-icon) !important;
-    }
 
 
     }
