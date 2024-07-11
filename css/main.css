@@ -227,6 +227,9 @@ iframe {
     padding: 0;
     margin: auto;
     z-index: 9999;
+    @media (max-width: 800px) {
+        visibility: hidden;
+    }
 }
 
 #mapProject {
@@ -1244,13 +1247,10 @@ input {
         }
     }
 
-
-
-
-
     @media (max-width:500px){
         padding: 0.8rem 1.2rem ;
     }
+
     &::after {
         width: 2.4rem;
         height: 2.4rem;
