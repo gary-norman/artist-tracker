@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
             filterNumber.textContent = `Filters (${openFilters})`;
         } else {
             filterSubmit.classList.add('hide');
+            filterNumber.textContent = `Filters (0)`;
         }
 
         console.log("Number of open filters: ", openFilters); // For debugging
