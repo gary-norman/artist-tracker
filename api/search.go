@@ -75,12 +75,12 @@ func SearchArtist(artists []Artist, name string) (*Artist, error) {
 }
 
 // SearchAlbum searches for an album within an artist struct and returns the album details
-func SearchAlbum(artist *Artist, albumName string) TadbAlbumFull {
-	var albumStruct TadbAlbumFull
+func SearchAlbum(artist *Artist, albumName string) TadbAlbum {
+	var albumStruct TadbAlbum
 	for _, album := range artist.AllAlbums.Album {
 		if strings.EqualFold(album.Album, albumName) {
 			result := &album
-			albumStruct = TadbAlbumFull{
+			albumStruct = TadbAlbum{
 				IdAlbum:            result.IdAlbum,
 				Album:              result.Album,
 				YearReleased:       result.YearReleased,

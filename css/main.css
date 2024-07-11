@@ -758,7 +758,7 @@ a {
 
 .col40-60 {
 
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 2fr 3fr;
     grid-template-areas: "a b";
     @media (max-width:800px) {
         grid-template-columns: 100%;

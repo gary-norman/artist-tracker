@@ -35,17 +35,7 @@ type TheAudioDbArtistResponse struct {
 }
 
 type TadbAlbums struct {
-	Album []struct {
-		IdAlbum            string `json:"idAlbum"`
-		Album              string `json:"strAlbum"`
-		YearReleased       string `json:"intYearReleased"`
-		Genre              string `json:"strGenre"`
-		Label              string `json:"strLabel"`
-		IdLabel            string `json:"idLabel"`
-		AlbumThumb         string `json:"strAlbumThumb"`
-		DescriptionEN      string `json:"strDescriptionEN"`
-		MusicBrainzAlbumID string `json:"strMusicBrainzID"`
-	} `json:"album"`
+	Album []TadbAlbum `json:"album"`
 }
 
 type TadbArtist []struct {
