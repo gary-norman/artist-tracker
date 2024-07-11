@@ -122,6 +122,7 @@ func AlbumPage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *te
 	}
 
 	token := ExtractAccessToken("./env/spotify_access_token.sh")
+	fmt.Printf("Searching spotify for %v\n", albumName)
 	artist.SpotifyAlbum, err = GetSpotifyAlbums(artist.Name, albumName, token)
 	if err != nil {
 		fmt.Printf("error getting Spotify album: %v", err)

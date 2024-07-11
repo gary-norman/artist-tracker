@@ -318,6 +318,7 @@ func UpdateArtistImages(artists []Artist, spotifyArtistIDs []SpotifyArtistID, au
 func GetSpotifyAlbums(artist, album, authToken string) (SpotifyAlbum, error) {
 	encodedArtist := url.QueryEscape(artist)
 	encodedAlbum := url.QueryEscape(album)
+	fmt.Printf("encodedAlbum: %v\n", encodedAlbum)
 	spotifyURL := fmt.Sprintf("https://api.spotify.com/v1/search?q=artist:%s,+album:%s&type=album&market=GB", encodedArtist, encodedAlbum)
 
 	req, err := http.NewRequest("GET", spotifyURL, nil)
