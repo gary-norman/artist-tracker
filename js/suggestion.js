@@ -62,11 +62,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         locSuggestionsData.forEach(function (location) {
-            const checkboxContainer = document.createElement('div');
+            const checkboxContainer = document.createElement('label');
             checkboxContainer.className = 'checkbox go-across-sm';
-            
+
             const input = document.createElement('input');
             input.className = 'checkbox checkbox-loc';
+            input.htmlFor = input.id;
             input.id = `loc-${location.replace(/[\s, ]+/g, '-').toLowerCase()}`;
             input.name = 'loc';
             input.type = 'checkbox';
