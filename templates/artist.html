@@ -107,7 +107,7 @@
                 <div class="col col2 scroll">
                     {{ $artist := . }}
                     {{ range .AllAlbums.Album }}
-                    <a href="/album?name={{$artist.Name }}&album={{.Album}}">
+                    <a href="/album?name={{$artist.Name }}&album={{.Album}}&year={{.YearReleased}}">
                     <div class="content">
                         <img class="pic album" src="{{.AlbumThumb}}" alt="Album cover of ({{.Album}})"/>
                         <div class="content-text go-down">

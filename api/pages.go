@@ -70,7 +70,7 @@ func ArtistPage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *t
 	//WikiImageFetcher(artist)
 
 	token := ExtractAccessToken("./env/spotify_access_token.sh")
-	artist.SpotifyAlbum, err = GetSpotifyAlbums(artist.Name, artist.FirstAlbumStruct.Album, token)
+	artist.SpotifyAlbum, err = GetSpotifyAlbums(artist.Name, artist.FirstAlbumStruct.Album, artist.FirstAlbumStruct.YearReleased, token)
 	if err != nil {
 		fmt.Printf("error getting Spotify album: %v", err)
 	}
@@ -114,6 +114,13 @@ func AlbumPage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *te
 		ErrorHandler(w, r, http.StatusBadRequest)
 		return
 	}
+	// Extract album year from the URL query or request body
+	albumYear := r.URL.Query().Get("year")
+	if len(albumName) < 1 {
+		fmt.Printf("albumYear for %v is empty\n", albumYear)
+		ErrorHandler(w, r, http.StatusBadRequest)
+		return
+	}
 
 	artist, err := SearchArtist(artists, artistName)
 	if err != nil {
@@ -123,7 +130,7 @@ func AlbumPage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *te
 
 	token := ExtractAccessToken("./env/spotify_access_token.sh")
 	fmt.Printf("Searching spotify for %v\n", albumName)
-	artist.SpotifyAlbum, err = GetSpotifyAlbums(artist.Name, albumName, token)
+	artist.SpotifyAlbum, err = GetSpotifyAlbums(artist.Name, albumName, albumYear, token)
 	if err != nil {
 		fmt.Printf("error getting Spotify album: %v", err)
 	}

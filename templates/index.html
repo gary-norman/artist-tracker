@@ -319,7 +319,7 @@
             <div class="row scroll">
                 {{ range $index, $element := .HomeArtists }}
                 {{ if lt $index 20 }}
-                <a href="/album?name={{.Name }}&album={{.FirstAlbumStruct.Album}}">
+                <a href="/album?name={{.Name }}&album={{.FirstAlbumStruct.Album}}&year={{.FirstAlbumStruct.YearReleased}}">
                     <div class="content go-down">
                             <img class="pic album" src="{{.FirstAlbumStruct.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
                             <div class="content-text go-down-home">
