@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Name }} - Artist Tracker</title>
+    <style>
+        .artistwrapper {
+            position: relative;
+        }
+        .artistwrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 300px;
+            background: url('{{randomiseFanartImage .TheAudioDbArtist.ArtistThumb .TheAudioDbArtist.ArtistFanart .TheAudioDbArtist.ArtistFanart2 .TheAudioDbArtist.ArtistFanart3 .TheAudioDbArtist.ArtistFanart4}}') no-repeat 0 0px;
+            background-size: cover;
+            /*background: url("https://www.theaudiodb.com/images/media/artist/fanart/uyuvtx1367246043.jpg") no-repeat 0 -150px;*/
+            --webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+            z-index: -2;
+        }
+
+        .artistwrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 300px;
+            background: url('{{.TheAudioDbArtist.ArtistClearart}}') no-repeat right bottom 16px;
+            /*background: url("https://www.theaudiodb.com/images/media/artist/logo/j7ym8t1704047891.png") no-repeat right bottom 10px;*/
+            background-size: 20%;
+            opacity: 50%;
+            z-index: -1;
+        }
+    </style>
+
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Jockey One' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/andy_bell-css_reset.css">
+    <link rel="icon" href="../icons/favicon-record.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+<main>
+    <div class="wrapper artistwrapper">
+        <section class="search-container">
+            <a href="/" class="linkback"></a>
+            <div class="content" >
+            <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
+            <div class="content-text go-down">
+                <div class="p--bold cut" >
+                    {{ .Name }}
+                </div>
+            </div>
+        </div>
+        <div class="artist-details-small">
+
+            <p class="create">created: {{ .CreationDate }}</p>
+            <p class="p--bold">Band Members</p>
+            <div class="go-across-md">
+            {{ range $memberName, $imgLink := .Members }}
+            <div class="content">
+                <div class="member-item">
+                    <img class="pic user smallpic" style="background: none" src="{{ $imgLink }}" alt="Profile image of {{ $memberName }}"/>
+                    <div class="create">{{ $memberName }}</div>
+                </div>
+            </div>
+            {{ end }}
+            </div>
+
+        </div>
+            <div class="container">
+                <div id="album-details"  class="container scroll">
+                    <div class="go-down"><h2 class="albumh2">{{.CurrentAlbum.Album}} - {{.CurrentAlbum.YearReleased}}</h2>
+                        <p>Label: {{.CurrentAlbum.Label}}</p>
+                        <p>Genre: {{.CurrentAlbum.Genre}}</p></div>
+                    <div class="col col2">
+<!--                        TODO if Album3DFlat == null, Album3DThumb -->
+                        <img src="{{.CurrentAlbum.Album3DFlat}}" alt="">
+                        <div id="embed-iframe" class="spotify-player"></div>
+                    </div>
+                    <p class="p--condensed">{{.CurrentAlbum.DescriptionEN}}</p>
+                </div>
+            </div>
+
+        </section>
+
+
+    </div>
+</main>
+<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+<script type="text/javascript">
+    window.onSpotifyIframeApiReady = (IFrameAPI) => {
+        const element = document.getElementById('embed-iframe');
+        const options = {
+            width: '100%',
+            height: '180',
+            uri: 'spotify:album:{{.SpotifyAlbum.Id}}'
+        };
+        const callback = (EmbedController) => {};
+        IFrameAPI.createController(element, options, callback);
+    };
+</script>
+</body>
+</html>

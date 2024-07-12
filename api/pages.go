@@ -70,10 +70,72 @@ func ArtistPage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *t
 	//WikiImageFetcher(artist)
 
 	token := ExtractAccessToken("./env/spotify_access_token.sh")
-	artist.SpotifyAlbum, err = GetSpotifyAlbums(artist.Name, artist.FirstAlbumStruct.Album, token)
+	artist.SpotifyAlbum, err = GetSpotifyAlbums(artist.Name, artist.FirstAlbumStruct.Album, artist.FirstAlbumStruct.YearReleased, token)
 	if err != nil {
 		fmt.Printf("error getting Spotify album: %v\n", err)
 	}
+
+	err = t.Execute(w, &artist)
+	if err != nil {
+		var e Error
+		switch {
+		case errors.As(err, &e):
+
+			fmt.Println("\nerr is:", err, "\nerrrr is:", err.Error())
+
+			ErrorHandler(w, r, e.Status())
+
+		default:
+			fmt.Println("err is:", err, "errrr is:", err.Error())
+			ErrorHandler(w, r, http.StatusInternalServerError)
+		}
+		return
+	}
+} // AlbumPage serves the artist page and fetches member images
+func AlbumPage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *template.Template) {
+
+	t := tpl.Lookup("album.html")
+	if t == nil {
+		ErrorHandler(w, r, http.StatusInternalServerError)
+		return
+	}
+
+	// Extract artist name from the URL query or request body
+	artistName := r.URL.Query().Get("name")
+	if len(artistName) < 1 {
+		fmt.Printf("artistName for %v is empty\n", artistName)
+		ErrorHandler(w, r, http.StatusBadRequest)
+		return
+	}
+	// Extract album name from the URL query or request body
+	albumName := r.URL.Query().Get("album")
+	if len(albumName) < 1 {
+		fmt.Printf("albumName for %v is empty\n", albumName)
+		ErrorHandler(w, r, http.StatusBadRequest)
+		return
+	}
+	// Extract album year from the URL query or request body
+	albumYear := r.URL.Query().Get("year")
+	if len(albumName) < 1 {
+		fmt.Printf("albumYear for %v is empty\n", albumYear)
+		ErrorHandler(w, r, http.StatusBadRequest)
+		return
+	}
+
+	artist, err := SearchArtist(artists, artistName)
+	if err != nil {
+		ErrorHandler(w, r, http.StatusNotFound)
+		return
+	}
+
+	token := ExtractAccessToken("./env/spotify_access_token.sh")
+	fmt.Printf("Searching spotify for %v\n", albumName)
+	artist.SpotifyAlbum, err = GetSpotifyAlbums(artist.Name, albumName, albumYear, token)
+	if err != nil {
+		fmt.Printf("error getting Spotify album: %v", err)
+	}
+
+	artist.CurrentAlbum = SearchAlbum(artist, albumName)
 
 	err = t.Execute(w, &artist)
 	if err != nil {

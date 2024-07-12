@@ -136,7 +136,7 @@
                                     <input type="text" id="button-filter-concert-location" class="small button-2-text" placeholder="Type to search location...">
                                 </div>
                             </div>
-                            
+
                             <div  class="container" id="loc-search-result">
                                 <div id="filter-checkbox-locations" class="scroll container col col1">
                                     <!-- location suggestion result will show here -->
@@ -281,7 +281,7 @@
             <div class="row scroll">
                 {{ range $index, $element := .HomeArtists }}
                 {{ if lt $index 20 }}
-                <a class="content go-down" href="/album?name={{.Name }}&album={{.FirstAlbumStruct.Album}}">
+                <a class="content go-down" href="/album?name={{.Name }}&album={{.FirstAlbumStruct.Album}}&year={{.FirstAlbumStruct.YearReleased}}">
                     <img class="pic album" src="{{.FirstAlbumStruct.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
                     <div class="content-text go-down-home">
                         <div class="p--bold cut">{{.FirstAlbumStruct.Album}}</div>

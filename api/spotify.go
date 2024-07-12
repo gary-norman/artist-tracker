@@ -315,10 +315,11 @@ func UpdateArtistImages(artists []Artist, spotifyArtistIDs []SpotifyArtistID, au
 	return updatedArtists, nil
 }
 
-func GetSpotifyAlbums(artist, album, authToken string) (SpotifyAlbum, error) {
+func GetSpotifyAlbums(artist, album, year, authToken string) (SpotifyAlbum, error) {
 	encodedArtist := url.QueryEscape(artist)
 	encodedAlbum := url.QueryEscape(album)
-	spotifyURL := fmt.Sprintf("https://api.spotify.com/v1/search?q=artist:%s,+album:%s&type=album&market=GB", encodedArtist, encodedAlbum)
+	fmt.Printf("encodedAlbum: %v\n", encodedAlbum)
+	spotifyURL := fmt.Sprintf("https://api.spotify.com/v1/search?q=artist:%s+album:%s+year:%s&type=album&market=GB", encodedArtist, encodedAlbum, year)
 
 	req, err := http.NewRequest("GET", spotifyURL, nil)
 	if err != nil {
@@ -390,7 +391,7 @@ func ProcessSpotifyArtist(artist *Artist, authToken string) {
 	fmt.Println(artistID)
 	release := GetReleasesByArtistID(artistID)
 	fmt.Println(release)
-	spotifyAlbum, err := GetSpotifyAlbums(artist.Name, release, authToken)
+	spotifyAlbum, err := GetSpotifyAlbums(artist.Name, release, year, authToken)
 	fmt.Printf("Spotify Album: %v\n", spotifyAlbum)
 	if err != nil {
 		fmt.Printf("Error fetching %s for artist %s: %v\n", release, artist.Name, err)

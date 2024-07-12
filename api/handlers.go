@@ -49,6 +49,9 @@ func HandleRequests(artists []Artist, tpl *template.Template) {
 	http.HandleFunc("/artist", func(w http.ResponseWriter, r *http.Request) {
 		ArtistPage(w, r, artists, tpl)
 	})
+	http.HandleFunc("/album", func(w http.ResponseWriter, r *http.Request) {
+		AlbumPage(w, r, artists, tpl)
+	})
 	http.HandleFunc("/artist/id", func(w http.ResponseWriter, r *http.Request) {
 		FetchArtistIDJSON(w, r, artists)
 	})

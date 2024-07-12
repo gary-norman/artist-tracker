@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', loadGeoJSONForArtist);
 mapBlack = document.getElementById("map-container")
 
-// Ensure to add your Mapbox access token
-mapboxgl.accessToken = 'pk.eyJ1IjoibG9yZXdvcmxkIiwiYSI6ImNsd3FseDNsbDAzZjMyanF2czh3Mmt4eTgifQ.-_bXsAv_SR1bpcmvOSpDuA';
+
+// mapboxgl.accessToken = 'pk.eyJ1IjoibG9yZXdvcmxkIiwiYSI6ImNsd3FseDNsbDAzZjMyanF2czh3Mmt4eTgifQ.-_bXsAv_SR1bpcmvOSpDuA';
 let mapProject = 'globe'
 // toggle map projection type
 document.getElementById('mapProject').addEventListener('click', async() => {
