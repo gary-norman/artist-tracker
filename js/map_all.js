@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', loadGeoJSONForAllLocations);
 mapboxgl.accessToken = 'pk.eyJ1IjoibG9yZXdvcmxkIiwiYSI6ImNsd3FseDNsbDAzZjMyanF2czh3Mmt4eTgifQ.-_bXsAv_SR1bpcmvOSpDuA';
 
 // Map container
-const mapBlack = document.getElementById("map-container");
+let mapBlack = document.getElementById("map-container");
 
 let mapProject = 'globe';
 

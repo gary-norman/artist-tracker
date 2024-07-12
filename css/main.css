@@ -982,6 +982,13 @@ input {
         /*overflow: hidden;*/
     }
 
+    & .largepic {
+        min-width: 12rem;
+        max-width: 12rem;
+        min-height: 12rem;
+        max-height: 12rem;
+    }
+
     & .smallpic {
 
         min-width: 3rem;

@@ -53,7 +53,7 @@
             <div id="artist-profile" class="content " >
                 <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
                 <div class="content-text go-down">
-                    <h2 class="cut" >
+                    <h2 class="cut albumh2">
                         {{ .Name }}
                     </h2>
                     <p class="small">created: {{ .CreationDate }}</p>
@@ -81,7 +81,8 @@
                         <div class="col col2">
                             <div class="go-down">
                                 <div id="first-album" class="content">
-                                        <img class="pic album" src="{{.FirstAlbumStruct.AlbumThumb}}"
+
+                                        <img class="pic largepic album" src="{{.FirstAlbumStruct.Album3DThumb}}"
                                              alt="Album cover of ({{.FirstAlbumStruct.Album}})"/>
                                         <div class="content-text go-down">
                                             <div class="p--bold cut">{{.FirstAlbumStruct.Album}}</div>
@@ -167,7 +168,7 @@
         const element = document.getElementById('embed-iframe');
         const options = {
             width: '100%',
-            height: '151',
+            height: '180',
             uri: 'spotify:album:{{.SpotifyAlbum.Id}}'
         };
         const callback = (EmbedController) => {};

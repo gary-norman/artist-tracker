@@ -235,14 +235,7 @@ func FindFirstAlbum(artist *Artist) {
 				year = albumYear
 			}
 		}
-		artist.FirstAlbumStruct = TadbAlbum{
-			IdAlbum:            artist.AllAlbums.Album[lowIndex].IdAlbum,
-			Album:              artist.AllAlbums.Album[lowIndex].Album,
-			YearReleased:       artist.AllAlbums.Album[lowIndex].YearReleased,
-			AlbumThumb:         artist.AllAlbums.Album[lowIndex].AlbumThumb,
-			DescriptionEN:      artist.AllAlbums.Album[lowIndex].DescriptionEN,
-			MusicBrainzAlbumID: artist.AllAlbums.Album[lowIndex].MusicBrainzAlbumID,
-		}
+		artist.FirstAlbumStruct = artist.AllAlbums.Album[lowIndex]
 	}
 	/*
 		 	fmt.Printf("First album of %v: %v\n", artist.Name, artist.AllAlbums.Album[lowIndex].AlbumThumb)
