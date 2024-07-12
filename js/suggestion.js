@@ -1,3 +1,5 @@
+const pillContainer = document.querySelector('.pills')
+
 document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results');
