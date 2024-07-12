@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const locationsContainer = document.getElementById('filter-checkbox-locations');
     const locationInputs = locationsContainer.querySelectorAll('.checkbox');
 
-
     locSearchResults.classList.add("hide");
     function debounce(fn, delay) {
         let timer;
