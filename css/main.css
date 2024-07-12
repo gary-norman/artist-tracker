@@ -28,6 +28,7 @@
     /* purple */
     --purple-purp: rgb(106 88 175);
     --purple-pink: rgb(143 43 133);
+    --purple-dark: rgb(126, 36, 136);
 
     /* shadows */
     /* light */
@@ -1169,12 +1170,45 @@ input {
     /*}*/
 }
 
+#loc-search-result {
+    height: fit-content;
+}
+
+.pills {
+    display: flex;
+    flex-wrap: wrap;
+    text-wrap: nowrap;
+    gap: 1.2rem;
+
+    & .pill {
+        display: flex;
+        gap: 0.8rem;
+        background: var(--black-0);
+        border-radius: var(--radius-xl);
+        /*filter: var(--shadow-light-0);*/
+        padding: 0.4rem 0.8rem;
+        opacity: 0.8;
+
+
+        & #removePill {
+            background: url('../icons/close_x16.svg');
+            width: 1.6rem;
+            height: 1.6rem;
+            cursor: pointer;
+        }
+    }
+}
+
 .filter-open {
     opacity: 1;
     translate: 0 0;
     transition-property: display opacity;
     transition-duration: .4s;
     transition-behavior: allow-discrete;
+
+    & .col:has(.pills){
+        align-content: flex-start;
+    }
 
     @starting-style {
         translate: 0 -1.2rem;

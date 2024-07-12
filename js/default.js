@@ -197,8 +197,8 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("hiding from searchIcon click")
         changeLogo(logo, subLogo, "large");
     }, 300));
-    
-    
+
+
 
 
     // document.addEventListener('click', debounce(function(event) {
@@ -232,9 +232,15 @@ function updateSliderBackground(slider) {
     slider.style.background = `linear-gradient(to right, var(--green-0) ${percentage}%, var(--white-4) ${percentage}%)`;
 }
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const filterButton = document.getElementById('button-filter');
     const filters = document.querySelectorAll('.filter:not(:first-child)');
+    const filterInputs = document.querySelectorAll('input[id^="filter-"]');
+    let openFilters = 0;
+    const filterSubmit = document.getElementById("search-submit-filter");
+    let filterNumber = document.getElementById("button-filter-number");
 
     const show24 = "url('../icons/show_x24.svg')";
     const hide24 = "url('../icons/hide_x24.svg')";
@@ -243,6 +249,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log("Initializing show-hide-icon to hide24");
     document.documentElement.style.setProperty("--show-hide-icon", show24);
+
+    const updateSearchSubmitButtonVisibility = () => {
+        const filterSubmit = document.getElementById("search-submit-filter");
+
+
+        // Check if any filters are visible (not hidden)
+        const anyFilterVisible = Array.from(filters).some(filter => !filter.classList.contains('hide'));
+
+        if (anyFilterVisible) {
+            filterSubmit.classList.remove('hide');
+        } else {
+            filterSubmit.classList.add('hide');
+        }
+    }
 
     const updateShowHideIcon = () => {
         const isHidden = filters[0].classList.contains('hide');
@@ -260,6 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
             filter.classList.toggle('hide');
         });
         updateShowHideIcon();
+        updateSearchSubmitButtonVisibility();
     });
 
     window.addEventListener('resize', updateShowHideIcon);
@@ -267,6 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial update based on the current window size
     updateShowHideIcon();
 });
+
 
 
 // Rin commentout

@@ -4,8 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const populateResults = document.getElementById('populate-results');
     
     const locSearchInput = document.getElementById('button-filter-concert-location');
-    const locSearchResults = document.getElementById('loc-search-result')
-    const locationsContainer = document.getElementById('filter-checkbox-locations')
+    const locSearchResults = document.getElementById('loc-search-result');
+    const locationsContainer = document.getElementById('filter-checkbox-locations');
+    const locationInputs = locationsContainer.querySelectorAll('.checkbox');
 
 
     locSearchResults.classList.add("hide");
@@ -62,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!locSuggestionsData || locSuggestionsData.length === 0) {
             locationsContainer.innerHTML = '<p style="text-align:center">No results found.</p>';
-            locSearchResults.appendChild(locationsContainer); 
+            locSearchResults.appendChild(locationsContainer);
             return;
         }
 
@@ -88,6 +89,33 @@ document.addEventListener('DOMContentLoaded', function () {
             locationsContainer.appendChild(checkboxContainer);
         });
         locSearchResults.appendChild(locationsContainer);
+        const locCheckBoxes = locationsContainer.querySelectorAll('[id^="loc-"]');
+        // for each element that has a class of checkbox
+        locCheckBoxes.forEach(input => {
+            input.addEventListener('input', function() {
+                // const pillContainer = e.document.createElement('div');
+                const pill = document.createElement('div');
+                const pillText = document.createElement('p');
+                const removePill = document.createElement('div');
+
+                // pillContainer.className = 'pills';
+                pill.className = 'pill';
+                pill.id = 'pill_' + input.id
+                pillText.className = 'small';
+                pillText.textContent = input.value;
+                removePill.id = 'removePill';
+
+                const childElement = pillContainer.querySelector(`#${pill.id}`)
+
+                if (!childElement) {
+                    pillContainer.appendChild(pill);
+                    pill.appendChild(pillText)
+                    pill.appendChild(removePill);
+                } else {
+                    childElement.remove();
+                }
+            });
+        });
     }
     
     if (searchInput && populateResults) {
