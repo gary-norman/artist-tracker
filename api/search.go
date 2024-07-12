@@ -3,13 +3,13 @@ package api
 import (
 	"encoding/json"
 	"fmt"
-	"html/template"
 	"net/http"
 	"regexp"
 	"sort"
 	"strconv"
 	"strings"
 	"sync"
+	"time"
 	"unicode"
 )
 
@@ -86,7 +86,7 @@ func SearchAlbum(artist *Artist, albumName string) *TadbAlbum {
 	return albumStruct
 }
 
-func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *template.Template) {
+func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist) {
 	searchQuery := strings.ToLower(strings.TrimSpace(r.URL.Query().Get("query"))) // Lowercase and trim whitespace
 	var normalizedQuery string
 
@@ -114,84 +114,7 @@ func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tp
 		wg.Add(1)
 		go func(artist Artist) {
 			defer wg.Done()
-
-			isFirstAlbumFound := false
-			isAllAlbumAppend := false
-			var artistSuggestions []Suggestion
-			// Pre-process artist data
-			artistNameLower := strings.ToLower(artist.Name)
-			artistGenreLower := strings.ToLower(artist.TheAudioDbArtist.Genre)
-
-			// Check artist name
-			if strings.Contains(artistNameLower, searchQuery) {
-				artistSuggestions = append(artistSuggestions, Suggestion{"Artist", artist.Name, &artist})
-
-				// also append the album for the aritst
-				for i := range artist.AllAlbums.Album {
-					artistSuggestions = append(artistSuggestions, Suggestion{"Album", map[string]interface{}{"AlbumName": artist.AllAlbums.Album[i].Album, "imgLink": artist.AllAlbums.Album[i].AlbumThumb}, &artist})
-					isAllAlbumAppend = true
-				}
-			}
-
-			// Check artist creation date (exact match)
-			if queryYear, err := strconv.Atoi(searchQuery); err == nil && artist.CreationDate == queryYear {
-				artistSuggestions = append(artistSuggestions, Suggestion{"Artist", artist.Name, &artist})
-			}
-
-			// Check artist members
-			for _, member := range artist.MemberList {
-				if strings.Contains(strings.ToLower(member), searchQuery) || strings.Contains(artistNameLower, searchQuery) {
-					// fetch picture's for members
-					//WikiImageFetcher(&artist)
-					artistSuggestions = append(artistSuggestions, Suggestion{"Member", member, &artist})
-				}
-			}
-
-			// Check first album date
-			if strings.Contains(artist.FirstAlbum, searchQuery) {
-				artistSuggestions = append(artistSuggestions, Suggestion{"Album", map[string]interface{}{"AlbumName": artist.AllAlbums.Album[0].Album, "imgLink": artist.AllAlbums.Album[0].AlbumThumb}, &artist})
-				isFirstAlbumFound = true
-			}
-
-			// check all other albums name
-			for i := range artist.AllAlbums.Album {
-
-				if artist.AllAlbums.Album[i].Album != "" && strings.Contains(strings.ToLower(artist.AllAlbums.Album[i].Album), searchQuery) && !isAllAlbumAppend {
-					artistSuggestions = append(artistSuggestions, Suggestion{"Album", map[string]interface{}{"AlbumName": artist.AllAlbums.Album[i].Album, "imgLink": artist.AllAlbums.Album[i].AlbumThumb}, &artist})
-				}
-				if artist.AllAlbums.Album[i].YearReleased != "" && strings.Contains((artist.AllAlbums.Album[i].YearReleased), searchQuery) && !isFirstAlbumFound && !isAllAlbumAppend {
-					artistSuggestions = append(artistSuggestions, Suggestion{"Album", map[string]interface{}{"AlbumName": artist.AllAlbums.Album[i].Album, "imgLink": artist.AllAlbums.Album[i].AlbumThumb}, &artist})
-				}
-			}
-
-			// Check locations and concert dates
-			for location, dates := range artist.DatesLocations {
-				locationLower := strings.ToLower(location)
-
-				// Check for exact match in location
-				if strings.EqualFold(locationLower, normalizedQuery) || strings.Contains(locationLower, searchQuery) {
-					// Format dates
-					for _, date := range dates {
-						if formattedDate, err := ParseDate(date); err == nil {
-							artistSuggestions = append(artistSuggestions, Suggestion{"Concert", map[string]interface{}{"location": location, "dates": formattedDate}, &artist})
-						}
-					}
-				}
-
-				// Check for match in dates
-				for _, date := range dates {
-					if strings.Contains(strings.ToLower(date), searchQuery) {
-						if formattedDate, err := ParseDate(date); err == nil {
-							artistSuggestions = append(artistSuggestions, Suggestion{"Concert", map[string]interface{}{"location": location, "dates": formattedDate}, &artist})
-						}
-					}
-				}
-			}
-
-			// Check artist genre
-			if strings.Contains(artistGenreLower, searchQuery) {
-				artistSuggestions = append(artistSuggestions, Suggestion{"Artist", artist.TheAudioDbArtist.Genre, &artist})
-			}
+			artistSuggestions := getSuggestionArtst(artist, searchQuery, normalizedQuery)
 
 			mu.Lock()
 			suggestions = append(suggestions, artistSuggestions...)
@@ -218,7 +141,88 @@ func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tp
 	w.Write(jsonData)
 }
 
-func locationSuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *template.Template) {
+func getSuggestionArtst(artist Artist, searchQuery, normalizedQuery string) []Suggestion {
+	isFirstAlbumFound := false
+	isAllAlbumAppend := false
+	var artistSuggestions []Suggestion
+	// Pre-process artist data
+	artistNameLower := strings.ToLower(artist.Name)
+	artistGenreLower := strings.ToLower(artist.TheAudioDbArtist.Genre)
+
+	// Check artist name
+	if strings.Contains(artistNameLower, searchQuery) {
+		artistSuggestions = append(artistSuggestions, Suggestion{"Artist", artist.Name, &artist})
+
+		// also append the album for the aritst
+		for i := range artist.AllAlbums.Album {
+			artistSuggestions = append(artistSuggestions, Suggestion{"Album", map[string]interface{}{"AlbumName": artist.AllAlbums.Album[i].Album, "imgLink": artist.AllAlbums.Album[i].AlbumThumb}, &artist})
+			isAllAlbumAppend = true
+		}
+	}
+
+	// Check artist creation date (exact match)
+	if queryYear, err := strconv.Atoi(searchQuery); err == nil && artist.CreationDate == queryYear {
+		artistSuggestions = append(artistSuggestions, Suggestion{"Artist", artist.Name, &artist})
+	}
+
+	// Check artist members
+	for _, member := range artist.MemberList {
+		if strings.Contains(strings.ToLower(member), searchQuery) || strings.Contains(artistNameLower, searchQuery) {
+			// fetch picture's for members
+			//WikiImageFetcher(&artist)
+			artistSuggestions = append(artistSuggestions, Suggestion{"Member", member, &artist})
+		}
+	}
+
+	// Check first album date
+	if strings.Contains(artist.FirstAlbum, searchQuery) {
+		artistSuggestions = append(artistSuggestions, Suggestion{"Album", map[string]interface{}{"AlbumName": artist.AllAlbums.Album[0].Album, "imgLink": artist.AllAlbums.Album[0].AlbumThumb}, &artist})
+		isFirstAlbumFound = true
+	}
+
+	// check all other albums name
+	for i := range artist.AllAlbums.Album {
+
+		if artist.AllAlbums.Album[i].Album != "" && strings.Contains(strings.ToLower(artist.AllAlbums.Album[i].Album), searchQuery) && !isAllAlbumAppend {
+			artistSuggestions = append(artistSuggestions, Suggestion{"Album", map[string]interface{}{"AlbumName": artist.AllAlbums.Album[i].Album, "imgLink": artist.AllAlbums.Album[i].AlbumThumb}, &artist})
+		}
+		if artist.AllAlbums.Album[i].YearReleased != "" && strings.Contains((artist.AllAlbums.Album[i].YearReleased), searchQuery) && !isFirstAlbumFound && !isAllAlbumAppend {
+			artistSuggestions = append(artistSuggestions, Suggestion{"Album", map[string]interface{}{"AlbumName": artist.AllAlbums.Album[i].Album, "imgLink": artist.AllAlbums.Album[i].AlbumThumb}, &artist})
+		}
+	}
+
+	// Check locations and concert dates
+	for location, dates := range artist.DatesLocations {
+		locationLower := strings.ToLower(location)
+
+		// Check for exact match in location
+		if strings.EqualFold(locationLower, normalizedQuery) || strings.Contains(locationLower, searchQuery) {
+			// Format dates
+			for _, date := range dates {
+				if formattedDate, err := ParseDate(date); err == nil {
+					artistSuggestions = append(artistSuggestions, Suggestion{"Concert", map[string]interface{}{"location": location, "dates": formattedDate}, &artist})
+				}
+			}
+		}
+
+		// Check for match in dates
+		for _, date := range dates {
+			if strings.Contains(strings.ToLower(date), searchQuery) {
+				if formattedDate, err := ParseDate(date); err == nil {
+					artistSuggestions = append(artistSuggestions, Suggestion{"Concert", map[string]interface{}{"location": location, "dates": formattedDate}, &artist})
+				}
+			}
+		}
+	}
+
+	// Check artist genre
+	if strings.Contains(artistGenreLower, searchQuery) {
+		artistSuggestions = append(artistSuggestions, Suggestion{"Artist", artist.TheAudioDbArtist.Genre, &artist})
+	}
+	return artistSuggestions
+}
+
+func locationSuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist) {
 	searchQuery := strings.ToLower(strings.TrimSpace(r.URL.Query().Get("query"))) // Lowercase and trim whitespace
 	var normalizedQuery string
 
@@ -300,4 +304,52 @@ func containsDigits(input string) bool {
 		}
 	}
 	return false
+}
+
+func SearchHandler(w http.ResponseWriter, r *http.Request, artists []Artist) {
+	r.ParseForm()
+
+	searchInput := r.URL.Query().Get("search-input")
+	artistStartDate := r.URL.Query().Get("artist-start-date")
+	artistEndDate := r.URL.Query().Get("artist-end-date")
+	albumStartDate := r.URL.Query().Get("album-start-date")
+	albumEndDate := r.URL.Query().Get("album-end-date")
+	membersMin := r.URL.Query().Get("members_min")
+	membersMax := r.URL.Query().Get("members_max")
+	locationSelected := r.URL.Query().Get("loc")
+
+	// if user didn't select endDate,then set as current date
+	today := time.Now().Format("02-01-2006")
+	if artistEndDate == "" {
+		artistEndDate = today
+	}
+	if albumEndDate == "" {
+		albumEndDate = today
+	}
+
+	// debug print
+	fmt.Println("Search Input:", searchInput)
+	fmt.Println("artist start date:", artistStartDate)
+	fmt.Println("artist end date:", artistEndDate)
+	fmt.Println("album start date:", albumStartDate)
+	fmt.Println("album end date:", albumEndDate)
+	fmt.Println("Members Min:", membersMin)
+	fmt.Println("Members Max:", membersMax)
+	fmt.Println("selected locations:", locationSelected)
+
+	/*
+		 	// Filter logic
+
+
+			// Marshal filteredArtists to JSON
+			jsonData, err := json.Marshal(filteredArtists)
+			if err != nil {
+				fmt.Println("Error marshalling JSON:", err)
+				http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+				return
+			}
+
+			w.Header().Set("Content-Type", "application/json")
+			w.Write(jsonData)
+	*/
 }
