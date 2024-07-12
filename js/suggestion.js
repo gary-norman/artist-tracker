@@ -1,3 +1,5 @@
+const pillContainer = document.querySelector(".pills")
+
 document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results');
@@ -6,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const locSearchInput = document.getElementById('button-filter-concert-location');
     const locSearchResults = document.getElementById('loc-search-result');
     const locationsContainer = document.getElementById('filter-checkbox-locations');
-    const locationInputs = locationsContainer.querySelectorAll('input');
+    const locationInputs = locationsContainer.querySelectorAll('.checkbox');
     
     function debounce(fn, delay) {
         let timer;
@@ -49,24 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 locationsContainer.innerHTML = ''; 
             }
         });
-
-        locationInputs.forEach(input => {
-            input.addEventListener('input', function(e) {
-                const pillContainer = document.createElement('div');
-                const pill = document.createElement('div');
-                const pillText = document.createElement('p');
-                const removePill = document.createElement('div');
-
-                pillContainer.className = 'pills';
-                pill.className = 'pill';
-                pillText.className = 'small';
-                pillText.textContent = input.value;
-                removePill.id = 'removePill';
-
-                pillContainer.appendChild(pill);
-                pillContainer.appendChild(removePill);
-            });
-        });
     }
 
     function showLocationSuggestions(locSuggestionsData) {
@@ -101,6 +85,26 @@ document.addEventListener('DOMContentLoaded', function () {
             locationsContainer.appendChild(checkboxContainer);
         });
         locSearchResults.appendChild(locationsContainer);
+        const locCheckBoxes = locationsContainer.querySelectorAll('[id^="loc-"]');
+        // for each element that has a class of checkbox
+        locCheckBoxes.forEach(input => {
+            input.addEventListener('input', function() {
+                // const pillContainer = e.document.createElement('div');
+                const pill = document.createElement('div');
+                const pillText = document.createElement('p');
+                const removePill = document.createElement('div');
+
+                // pillContainer.className = 'pills';
+                pill.className = 'pill';
+                pillText.className = 'small';
+                pillText.textContent = input.value;
+                removePill.id = 'removePill';
+
+                pillContainer.appendChild(pill);
+                pill.appendChild(pillText)
+                pill.appendChild(removePill);
+            });
+        });
     }
     
     if (searchInput && populateResults) {
