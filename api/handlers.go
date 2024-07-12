@@ -53,16 +53,16 @@ func HandleRequests(artists []Artist, tpl *template.Template) {
 		FetchArtistIDJSON(w, r, artists)
 	})
 	http.HandleFunc("/suggest", func(w http.ResponseWriter, r *http.Request) {
-		SuggestHandler(w, r, artists, tpl)
+		SuggestHandler(w, r, artists)
 	})
 
 	http.HandleFunc("/locationSuggest", func(w http.ResponseWriter, r *http.Request) {
-		locationSuggestHandler(w, r, artists, tpl)
+		locationSuggestHandler(w, r, artists)
 	})
 
-	/* http.HandleFunc("/search/", func(w http.ResponseWriter, r *http.Request) {
-		SearchHandler(w, r, artists, tpl)
-	}) */
+	http.HandleFunc("/search/", func(w http.ResponseWriter, r *http.Request) {
+		SearchHandler(w, r, artists)
+	})
 
 	go func() {
 		// Log server listening messages
