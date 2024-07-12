@@ -96,13 +96,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // pillContainer.className = 'pills';
                 pill.className = 'pill';
+                pill.id = 'pill_' + input.id
                 pillText.className = 'small';
                 pillText.textContent = input.value;
                 removePill.id = 'removePill';
 
-                pillContainer.appendChild(pill);
-                pill.appendChild(pillText)
-                pill.appendChild(removePill);
+                const childElement = pillContainer.querySelector(`#${pill.id}`)
+
+                if (!childElement) {
+                    pillContainer.appendChild(pill);
+                    pill.appendChild(pillText)
+                    pill.appendChild(removePill);
+                } else {
+                    childElement.remove();
+                }
             });
         });
     }
