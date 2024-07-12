@@ -388,12 +388,12 @@ document.addEventListener('DOMContentLoaded', function () {
         container.innerHTML = `
             <div class="date-picker-calendar hidden" id="dayCalendar${type.charAt(0).toUpperCase() + type.slice(1)}">
                 <div class="calendar-header">
-                    <button class="cal-btn back-year">&lt;</button>
+                    <button class="cal-btn back-year" type="button">&lt;</button>
                     <span class="calendar-year"></span>
-                    <button class="cal-btn front-year">&gt;</button>
-                    <button class="cal-btn back-month">&lt;</button>
+                    <button class="cal-btn front-year" type="button">&gt;</button>
+                    <button class="cal-btn back-month" type="button">&lt;</button>
                     <span class="calendar-month"></span>
-                    <button class="cal-btn front-month">&gt;</button>
+                    <button class="cal-btn front-month" type="button">&gt;</button>
                 </div>
                 <div class="cal-wrapper">
                     <div class="cal-days p--bold"></div>
@@ -402,9 +402,9 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
             <div class="date-picker-calendar hidden" id="monthCalendar${type.charAt(0).toUpperCase() + type.slice(1)}">
                 <div class="calendar-header">
-                    <button class="cal-btn back">&lt;</button>
-                    <span class="calendar-year"></span>
-                    <button class="cal-btn front">&gt;</button>
+                    <button class="cal-btn back" type="button">&lt;</button>
+                    <span class="calendar-year" ></span>
+                    <button class="cal-btn front" type="button">&gt;</button>
                 </div>
                 <div class="cal-wrapper">
                     <div class="cal-months"></div>
@@ -412,8 +412,8 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
             <div class="date-picker-calendar hidden" id="yearCalendar${type.charAt(0).toUpperCase() + type.slice(1)}">
                 <div class="calendar-header">
-                    <button class="cal-btn back">&lt;</button>
-                    <button class="cal-btn front">&gt;</button>
+                    <button class="cal-btn back" type="button">&lt;</button>
+                    <button class="cal-btn front" type="button">&gt;</button>
                 </div>
                 <div class="cal-wrapper">
                     <div class="cal-years"></div>

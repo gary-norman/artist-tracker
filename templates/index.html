@@ -25,7 +25,7 @@
             <form class="search-container" action="/search/" method="get">
                 <div class="search-input" >
                     <label for="search-input"></label>
-                    <input type="text" name="search-input" id="search-input" placeholder="Search an artist, member, album or concert" required autocomplete="off" onkeydown="return (event.keyCode!==13)";>
+                    <input type="text" name="search-input" id="search-input" placeholder="Search an artist, member, album or concert" autocomplete="off" onkeydown="return (event.keyCode!==13)";>
                     <span id="search-icon"></span>
                 </div>
 <!--                <h3 id="search-recent-text" class="floating-md hide">Recent searches</h3>-->
@@ -42,7 +42,7 @@
                         <label for="filter-artist-creation" class="space">
                             <label for="filter-artist-creation">Artist creation date</label>
                             <label class="switch">
-                                <input id="filter-artist-creation" type="checkbox">
+                                <input id="filter-artist-creation" type="checkbox" name="artist-creation-date">
                                 <span class="slider-button round"></span>
                             </label>
                         </label>
@@ -51,7 +51,7 @@
                             <div class="date-picker">
                                 <div class="date-picker-input">
                                     <label for="artist-start-date" class="filter-label-md small light"> Start Date</label>
-                                    <input class="button button-2 small" type="text" id="artist-start-date" placeholder="Pick a date" readonly />
+                                    <input class="button button-2 small" type="text" id="artist-start-date" name="artist-start-date" placeholder="Pick a date" readonly />
                                 </div>
                                 <div class="date-picker-calendar-container" id="startDateContainer"></div>
                             </div>
@@ -60,7 +60,7 @@
                             <div class="date-picker">
                                 <div class="date-picker-input">
                                     <label for="artist-end-date" class="filter-label-md small light"> End Date</label>
-                                    <input class="button button-2 small" type="text" id="artist-end-date" placeholder=" " readonly />
+                                    <input class="button button-2 small" type="text" id="artist-end-date" name="artist-end-date" placeholder=" " readonly />
                                 </div>
                                 <div class="date-picker-calendar-container" id="endDateContainer"></div>
                             </div>
@@ -83,7 +83,7 @@
                             <div class="date-picker">
                                 <div class="date-picker-input">
                                     <label for="album-start-date" class="filter-label-md small light"> Start Date</label>
-                                    <input class="button button-2 small" type="text" id="album-start-date" placeholder="Pick a date" readonly />
+                                    <input class="button button-2 small" type="text" id="album-start-date" name="album-start-date" placeholder="Pick a date" readonly />
                                 </div>
                                 <div class="date-picker-calendar-container" id="albumStartDateContainer"></div>
                             </div>
@@ -92,7 +92,7 @@
                             <div class="date-picker">
                                 <div class="date-picker-input">
                                     <label for="album-end-date" class="filter-label-md small light"> End Date</label>
-                                    <input class="button button-2 small" type="text" id="album-end-date" placeholder="" readonly />
+                                    <input class="button button-2 small" type="text" id="album-end-date"  name="album-end-date" placeholder="" readonly />
                                 </div>
                                 <div class="date-picker-calendar-container" id="albumEndDateContainer"></div>
                             </div>
@@ -118,8 +118,8 @@
                             <label id="label-members-max" for="members-max-range" class="range_max filter-label-sm small">
                                 2 Members
                             </label>
-                            <input class="min" id="members-min-range" name="range_1" type="range" min="1" max="10" value="1" />
-                            <input class="max" id="members-max-range" name="range_1" type="range" min="1" max="10" value="2" />
+                            <input class="min" id="members-min-range" name="members_min" type="range" min="1" max="10" value="1" />
+                            <input class="max" id="members-max-range" name="members_max" type="range" min="1" max="10" value="2" />
                         </div>
                     </div>
                     <div class="floating-sm col filter hide" id="concert-location-filter">
@@ -152,9 +152,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="button button-1" id="search-submit-filter">
+                    <button type="submit" class="button button-1" id="search-submit-filter">
                         <p class="button-text">Apply filters</p>
-                    </div>
+                    </button>
                 </div>
                 <div class="container hide" id="search-results">
                     <div id="populate-results" class="container scroll">
