@@ -1197,7 +1197,6 @@ input {
         border-radius: var(--radius-xl);
         height: 2.4rem;
         align-items: center;
-        /*filter: var(--shadow-light-0);*/
         padding: 0.4rem 0.8rem;
         opacity: 1;
 
@@ -1207,29 +1206,25 @@ input {
             align-items: center;
         }
         &:hover {
-            padding-right: 0.2rem;
+
             & .removePill {
                 background-color: indianred;
-                width: 2rem;
-                height: 2rem;
             }
 
         }
 
 
         & .removePill {
-            background: url('../icons/close_x16.svg') no-repeat;
+            background: url('../icons/close_x16.svg') no-repeat center;
             background-size: cover;
             width: 1.6rem;
             height: 1.6rem;
             cursor: pointer;
-            /*transition: background-color 200ms, width 200ms, height 200ms;*/
+            transition: background-color 400ms;
             border-radius: var(--radius-xl);
-            align-items: center;
-            align-self: center  ;
-            justify-content: center;
-            &:hover {
 
+            &:hover {
+                transition: background-color 400ms;
             }
         }
     }
