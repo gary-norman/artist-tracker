@@ -22,10 +22,10 @@
             <div class="sub-logo small center">by Gary, Kamil & Rin</div>
         </section>
         <section class="search-container">
-            <form class="search-container" action="/search/" method="get">
+            <form id="form-homepage" class="search-container" action="/search/" method="get">
                 <div class="search-input" >
                     <label for="search-input"></label>
-                    <input type="text" name="search-input" id="search-input" placeholder="Search an artist, member, album or concert" autocomplete="off" onkeydown="return (event.keyCode!==13);">
+                    <input type="text" name="search-input" id="search-input" placeholder="Search an artist, member, album or concert" autocomplete="off">
                     <span id="search-icon"></span>
                 </div>
 <!--                <h3 id="search-recent-text" class="floating-md hide">Recent searches</h3>-->
@@ -134,7 +134,8 @@
                             <div class="col col1">
                                 <div class="button button-2" id="button-filter-checkbox">
                                     <div id="button-filter-checkbox-container" class="button-container">
-                                        <input type="text" id="button-filter-concert-location" class="small button-2-text" placeholder="Type to search location..." onkeydown="return (event.keyCode!==13);">
+                                        <label for="button-filter-concert-location"></label>
+                                        <input type="text" id="button-filter-concert-location" class="small button-2-text" placeholder="Type to search location...">
                                     </div>
                                 </div>
                                 <div class="pills">

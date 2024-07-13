@@ -1,4 +1,11 @@
 import { formatDateToUK } from './calendar.js';
+document.getElementById('form-homepage').addEventListener('keydown', function(event) {
+    // Check if the key pressed is Enter (key code 13)
+    if (event.key === 'Enter' || event.code === 'Enter') {
+        // Prevent the default action (form submission)
+        event.preventDefault();
+    }
+});
 
 const date = new Date();
 let currentDate = formatDateToUK(date);
