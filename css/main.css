@@ -42,8 +42,6 @@
     /* gradients */
     --main-bg-grad: linear-gradient(163deg, var(--grey-0) 42%, var(--grey-1) 90.61%);
     --event-bg-grad: radial-gradient(80.83% 80.83% at 50% 50%, var(--purple-purp) 20%, var(--purple-pink) 100%);
-    --main-grad: linear-gradient(90deg, var(--green-3) 0%, var(--green-0) 100%);
-    --filter-bar: linear-gradient(to right, var(--white-4) 25%, var(--green-0) 20%, var(--white-4) 60%);
 
 
     /* fonts */
@@ -61,9 +59,14 @@
     --radius-md: 0.8rem;
     --radius-sm: 0.4rem;
 
-    /* icons to change with js */
+    /* variables to change with js */
     --show-hide-icon: url('../icons/show_x24.svg');
     --search-cancel-icon: url('../icons/search_x24.svg');
+    --member-tooltip: '';
+
+    --main-grad: linear-gradient(90deg, var(--green-3) 0%, var(--green-0) 100%);
+    --filter-bar: linear-gradient(to right, var(--white-4) 25%, var(--green-0) 20%, var(--white-4) 60%);
+
 }
 
 
@@ -513,6 +516,12 @@ a {
     & p {
         margin: 0.3rem;
     }
+    & .scroll {
+        height: 10rem;
+        overflow: visible;
+        padding-bottom: 0;
+        /*overflow-y: visible;*/
+    }
 }
 
 .container {
@@ -721,16 +730,6 @@ a {
         &:not(:placeholder-shown) ~ #clear-icon {
             display: block; /* Show clear icon when input has text */
         }
-
-        /*&::after {*/
-        /*    content: var(--search-cancel-icon);*/
-        /*    width: 2.4rem;*/
-        /*    height: 2.4rem;*/
-        /*    position: absolute;*/
-        /*    right: 1.6rem;*/
-        /*    cursor: pointer;*/
-        /*    !*pointer-events: auto;*!*/
-        /*}*/
 
         &:hover {
             opacity: 90%;
@@ -981,17 +980,17 @@ input {
         min-height: 6rem;
         max-height: 6rem;
         background: top / cover no-repeat;
-        /*overflow: hidden;*/
+        background: none;
     }
 
-    & .largepic {
+    & .pic--lg {
         min-width: 12rem;
         max-width: 12rem;
         min-height: 12rem;
         max-height: 12rem;
     }
 
-    & .smallpic {
+    & .pic--sm {
 
         min-width: 3rem;
         max-width: 3rem;
@@ -1638,6 +1637,19 @@ input[type='range']::-webkit-slider-thumb {
     flex-direction: column;
     align-items: center;
     width: 10.4rem;
+    position: relative;
+    overflow:visible;
+    &::after {
+        content: '';
+        display: block;
+        top: 0;
+        left: 0;
+        background-color: red;
+        position: absolute;
+        z-index: 9999;
+
+    /*    add js to remove .cut from .member-item .center and change .member-item .center text-wrap: to wrap*/
+    }
     &:hover {
         background: linear-gradient(135deg,
         rgba(255 255 255 / 0.1) 0%,
@@ -1648,6 +1660,8 @@ input[type='range']::-webkit-slider-thumb {
         /*border: 1px outset rgba(255 255 255 / .4);*/
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
+
+
     }
 }
 
