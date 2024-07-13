@@ -1269,6 +1269,10 @@ input {
     }
 }
 
+button {
+    appearance: none;
+    border: none;
+}
 .button {
 
     display: flex;
