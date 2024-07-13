@@ -249,7 +249,7 @@ func locationSuggestHandler(w http.ResponseWriter, r *http.Request, artists []Ar
 	for _, artist := range artists {
 
 		// Check locations
-		for location, _ := range artist.DatesLocations {
+		for location := range artist.DatesLocations {
 			locationLower := strings.ToLower(location)
 
 			// Check for exact match in location
