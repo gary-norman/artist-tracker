@@ -197,6 +197,7 @@ iframe {
         }
         & .date {
             scroll-snap-align: start;
+            padding: 0 0.4rem;
         }
         &:hover {
             background: none;
