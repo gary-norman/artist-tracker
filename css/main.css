@@ -672,7 +672,7 @@ a {
 
         translate: 0 0;
 
-        transition-property: translate opacity;
+        transition-property: translate, opacity;
         transition-duration: .3s;
         transition-behavior: allow-discrete;
 
@@ -1172,6 +1172,16 @@ input {
 
 #loc-search-result {
     height: fit-content;
+
+    transition-property: translate, opacity, max-height;
+    transition-duration: .4s;
+    transition-behavior: allow-discrete;
+
+    @starting-style{
+        max-height: 100%;
+        translate: 0 -1.2rem;
+        opacity: 0;
+    }
 }
 
 .pills {
@@ -1185,16 +1195,42 @@ input {
         gap: 0.8rem;
         background: var(--black-0);
         border-radius: var(--radius-xl);
+        height: 2.4rem;
+        align-items: center;
         /*filter: var(--shadow-light-0);*/
         padding: 0.4rem 0.8rem;
-        opacity: 0.8;
+        opacity: 1;
+
+        & p {
+            text-align: center;
+            align-self: center;
+            align-items: center;
+        }
+        &:hover {
+            padding-right: 0.2rem;
+            & .removePill {
+                background-color: indianred;
+                width: 2rem;
+                height: 2rem;
+            }
+
+        }
 
 
-        & #removePill {
-            background: url('../icons/close_x16.svg');
+        & .removePill {
+            background: url('../icons/close_x16.svg') no-repeat;
+            background-size: cover;
             width: 1.6rem;
             height: 1.6rem;
             cursor: pointer;
+            /*transition: background-color 200ms, width 200ms, height 200ms;*/
+            border-radius: var(--radius-xl);
+            align-items: center;
+            align-self: center  ;
+            justify-content: center;
+            &:hover {
+
+            }
         }
     }
 }
@@ -1202,7 +1238,7 @@ input {
 .filter-open {
     opacity: 1;
     translate: 0 0;
-    transition-property: display opacity;
+    transition-property: display, opacity;
     transition-duration: .4s;
     transition-behavior: allow-discrete;
 
@@ -1221,7 +1257,7 @@ input {
     opacity: 0;
     translate: 0 -1.2rem;
     max-height: 2rem;
-    transition-property: display opacity;
+    transition-property: display, opacity;
     transition-duration: .4s;
     transition-behavior: allow-discrete;
     z-index: 1;
