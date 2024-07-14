@@ -91,7 +91,35 @@ document.addEventListener('DOMContentLoaded', function () {
     toggleFilterContainers();
 });
 
-
+// document.addEventListener('DOMContentLoaded', () => {
+//     const members = document.querySelectorAll('[class^="member-item"]');
+//
+//     if (!members.length) {
+//         console.log("No members present");
+//         return; // Exit if no members are found
+//     } else {
+//         console.log(members.length, " members present");
+//
+//     }
+//     console.log("Members present__", members.length);
+//     console.error("Members present__", members.length);
+//
+//
+//     members.forEach(member => {
+//         member.addEventListener('mouseover', () => toggleMemberCard(member, true));
+//         member.addEventListener('mouseleave', () => toggleMemberCard(member, false));
+//     });
+//
+//     function toggleMemberCard(member, hover) {
+//         if (hover) {
+//             console.log("Mouse firing on member");
+//             member.classList.remove("cut");
+//             member.style.setAttribute('text-wrap','wrap'); // Correct the text-wrap setting
+//         } else {
+//             member.classList.add("cut");
+//             member.style.setAttribute('text-wrap','nowrap');        }
+//     }
+// });
 
 
 

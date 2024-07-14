@@ -53,9 +53,9 @@
             <a href="/artist?name={{ .Name }}" id="artist-profile" class="content " >
                 <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
                 <div class="content-text go-down">
-                    <h2 class="cut albumh2">
+                    <a href="/artist?name={{ .Name }}" class="cut h2-jockey">
                         {{ .Name }}
-                    </h2>
+                    </a>
                     <p class="small">created: {{ .CreationDate }}</p>
                 </div>
             </a>
@@ -67,7 +67,7 @@
                     {{ range $memberName, $imgLink := .Members }}
                     <div class="content member-item">
 
-                        <img class="pic user smallpic" style="background: none" src="{{ $imgLink }}" alt="Profile image of {{ $memberName }}"/>
+                        <img class="pic user pic--sm" style="background: none" src="{{ $imgLink }}" alt="Profile image of {{ $memberName }}"/>
                         <div class="small center cut">{{ $memberName }}</div>
 
                     </div>
@@ -78,7 +78,7 @@
             <div class="container">
                 <div id="album-details"  class="container scroll">
                     <div class="go-down">
-                        <h2 class="albumh2">{{.CurrentAlbum.Album}} - {{.CurrentAlbum.YearReleased}}</h2>
+                        <h2 class="h2-jockey">{{.CurrentAlbum.Album}} - {{.CurrentAlbum.YearReleased}}</h2>
                         {{if .CurrentAlbum.Label}}
                         <p class="p--condensed">Label: {{.CurrentAlbum.Label}}</p>
                         {{ else }}
