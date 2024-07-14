@@ -121,42 +121,6 @@ document.addEventListener('DOMContentLoaded', function () {
 //     }
 // });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const members = document.querySelectorAll('.member-item');
-
-    if (!members.length) {
-        console.log("No members present");
-        return; // Exit if no members are found
-    } else {
-        console.log(members.length, " members present");
-    }
-
-    console.log("Members present__", members.length);
-    console.error("Members present__", members.length);
-
-    members.forEach(member => {
-        member.addEventListener('mouseover', () => toggleMemberCard(member, true));
-        member.addEventListener('mouseleave', () => toggleMemberCard(member, false));
-    });
-
-    function toggleMemberCard(member, hover) {
-        const memberNameElement = member.querySelector('.center');
-        if (!memberNameElement) {
-            console.log("No element");
-            return;
-        }
-
-        if (hover) {
-            console.log("Mouse over member");
-            memberNameElement.classList.remove("cut");
-            memberNameElement.style.whiteSpace = 'normal'; // Allow text to wrap
-        } else {
-            console.log("Mouse leave member");
-            memberNameElement.classList.add("cut");
-            memberNameElement.style.whiteSpace = 'nowrap'; // Prevent text from wrapping
-        }
-    }
-});
 
 
 document.addEventListener('DOMContentLoaded', () => {
