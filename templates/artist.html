@@ -82,8 +82,13 @@
                             <div class="go-down">
                                 {{ $artist := . }}
                                 <a id="first-album" class="content" href="/album?name={{$artist.Name}}&album={{.FirstAlbumStruct.Album}}&year={{.FirstAlbumStruct.YearReleased}}">
-                                        <img class="pic largepic album" src="{{.FirstAlbumStruct.Album3DThumb}}"
+                                    {{if .FirstAlbumStruct.Album3DThumb}}
+                                    <img class="pic largepic album" src="{{.FirstAlbumStruct.Album3DThumb}}"
                                              alt="Album cover of ({{.FirstAlbumStruct.Album}})"/>
+                                    {{ else }}
+                                    <img class="pic largepic album" src="{{.FirstAlbumStruct.AlbumThumb}}"
+                                         alt="Album cover of ({{.FirstAlbumStruct.Album}})"/>
+                                    {{ end }}
                                         <div class="content-text go-down">
                                             <div class="p--bold cut">{{.FirstAlbumStruct.Album}}</div>
                                             <p id="albumInfo" data-album="{{ .FirstAlbum }}" style="display: none"></p>
