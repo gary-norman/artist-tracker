@@ -19,9 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(members.length, " members present");
     }
 
-    console.log("Members present__", members.length);
-    console.error("Members present__", members.length);
-
     members.forEach(member => {
         member.addEventListener('mouseover', () => toggleMemberCard(member, true));
         member.addEventListener('mouseleave', () => toggleMemberCard(member, false));
@@ -30,6 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function toggleMemberCard(member, hover) {
         const memberNameElement = member.querySelector('.center');
         const memberPicElement = member.querySelector('.pic');
+        const parent = member.parentElement;
+        console.log("parent is:", parent)
 
         if (!memberNameElement) {
             console.log("No element");
@@ -37,12 +36,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (hover) {
+            // // Add placeholder to replace absolute member-item missing from the flow
+            // const placeholder = document.createElement('div');
+            // placeholder.classList.add('placeholder');
+            // placeholder.style.width = `${member.offsetWidth}px`;
+            // placeholder.style.height = `${member.offsetHeight}px`;
+            // member.parentElement.insertBefore(placeholder, member);
+
+            // Adjust the member item
             console.log("Mouse over member");
             memberNameElement.classList.remove('cut');
             memberPicElement.classList.remove('pic--sm');
             memberNameElement.style.whiteSpace = 'normal';
             // member.parentElement.classList.remove('scroll');
+
+            console.log("member.parentElement is:", member.parentElement)
         } else {
+            // Remove the placeholder
+            // const placeholder = document.querySelector('.placeholder');
+            // if (placeholder) {
+            //     placeholder.parentElement.removeChild(placeholder);
+            // }
+
+            // Reset the member item
             console.log("Mouse leave member");
             memberNameElement.classList.add('cut');
             memberPicElement.classList.add('pic--sm');

@@ -1085,11 +1085,14 @@ input {
         transition: gap 500ms;
     }
 
+
+
     &.member-item {
         display: flex;
         flex-direction: column;
         align-items: center;
         min-width: 10.4rem !important;
+        max-width: 10.4rem !important;
         position: relative;
         overflow: visible;
         z-index: 1;
@@ -1102,6 +1105,10 @@ input {
         @starting-style{
             transform: scale(1.7);
         }
+
+
+
+
 
         &:hover {
             background: var(--frost-grad);
@@ -1169,8 +1176,27 @@ input {
         overflow-y: visible;
     }
 
-    &:has(.member-item) {
+    &:has( .member-item) {
         max-width: 100%;
+        position: relative;
+
+        &:first-child:hover {
+            position: absolute !important;
+            top: 102rem;
+            left: 20rem;
+            background: blue;
+        }
+        /*&:last-child:hover {*/
+        /*    position: absolute ;*/
+        /*    top: calc(100% - 10rem);*/
+        /*    left: calc(100% - 8.4rem);*/
+
+        /*}*/
+
+        /*& .placeholder {*/
+        /*    outline: lawngreen;*/
+        /*    !*visibility: hidden;*!*/
+        /*}*/
     }
 }
 
