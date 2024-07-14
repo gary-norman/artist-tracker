@@ -425,8 +425,9 @@ a {
 .scroll {
     overflow-x: auto;
     overflow-y: auto;
+    position: relative;
     & > * {
-        height: max-content;
+        height: fit-content;
     }
 
     padding-right: 1rem;
@@ -520,9 +521,11 @@ a {
     & .scroll {
         height: 10rem;
         overflow: visible;
-        padding-bottom: 0;
-        /*overflow-y: visible;*/
+        padding: 0.4rem 0 0 0;
+        /*overflow-y: auto;*/
     }
+
+
 }
 
 .container {
@@ -1050,12 +1053,6 @@ input {
         line-height: 1.2;
         background: var(--concert-grad);
         border-radius: 0.4rem;
-
-        /*@media (max-width: 550px) {*/
-        /*    font-weight: var(--font-weight-300);*/
-        /*    font-size: 1.6rem;*/
-        /*}*/
-
     }
 
     & .content-text {
@@ -1087,6 +1084,64 @@ input {
         gap: 0.8rem;
         transition: gap 500ms;
     }
+
+    &.member-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 10.4rem !important;
+        position: relative;
+        overflow: visible;
+        z-index: 1;
+        transition: transform 0.4s, z-index 0.4s;
+
+        transition-property: transform, transform-origin;
+        transition-duration: .4s;
+        transition-behavior: allow-discrete;
+
+        @starting-style{
+            transform: scale(1.7);
+        }
+
+        &:hover {
+            background: var(--frost-grad);
+            outline: 1px outset rgba(255, 255, 255, 0.4);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            overflow: visible;
+            width: 17rem;
+            z-index: 3000;
+            transform: scale(1.7);
+            transform-origin: center center;
+
+            @starting-style{
+                transform: scale(1);
+            }
+
+            & .center {
+                margin: 0;
+                height: 3rem;
+            }
+            /*&::after {*/
+            /*    content: '';*/
+            /*    display: block;*/
+            /*    top: -10%;*/
+            /*    left: -10%;*/
+            /*    width: 120%;*/
+            /*    height: 120%;*/
+            /*    background: var(--frost-grad);*/
+            /*    position: absolute;*/
+            /*    z-index: 9999;*/
+            /*    overflow: visible;*/
+            /*    backdrop-filter: blur(10px);*/
+            /*    -webkit-backdrop-filter: blur(10px);*/
+
+            /*    !*    add js to remove .cut from .member-item .center and change .member-item .center text-wrap: to wrap*!*/
+            /*}*/
+
+        }
+    }
+
 }
 
 .go-down {
@@ -1111,11 +1166,11 @@ input {
     &.scroll {
         overflow-x: auto;
         padding: 0.4rem 0 0.8rem 0;
+        overflow-y: visible;
     }
 
     &:has(.member-item) {
         max-width: 100%;
-        padding-bottom: 1.6rem;
     }
 }
 
@@ -1664,67 +1719,6 @@ input[type='range']::-webkit-slider-thumb {
     z-index: 2;
 }
 
-.member-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 10.4rem !important;
-    position: relative;
-    overflow: visible;
-    z-index: 2000;
-
-    transition-property: transform, transform-origin;
-    transition-duration: .4s;
-    transition-behavior: allow-discrete;
-
-    @starting-style{
-        transform: scale(1.7);
-    }
-
-
-
-    /*&::after:hover {*/
-    /*    border: 1px solid red;*/
-    /*}*/
-    &:hover {
-        background: var(--frost-grad);
-        outline: 1px outset rgba(255 255 255 / .4);
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-        overflow: visible;
-        position: relative;
-        width: 17rem;
-        z-index: 3000;
-        transform: scale(1.7); /* Slightly scale up the element */
-        transform-origin: center center;
-
-        @starting-style{
-            transform: scale(1);
-        }
-
-        & .center {
-            margin: 0;
-            max-height: 3rem;
-        }
-        /*&::after {*/
-        /*    content: '';*/
-        /*    display: block;*/
-        /*    top: -10%;*/
-        /*    left: -10%;*/
-        /*    width: 120%;*/
-        /*    height: 120%;*/
-        /*    background: var(--frost-grad);*/
-        /*    position: absolute;*/
-        /*    z-index: 9999;*/
-        /*    overflow: visible;*/
-        /*    backdrop-filter: blur(10px);*/
-        /*    -webkit-backdrop-filter: blur(10px);*/
-
-        /*    !*    add js to remove .cut from .member-item .center and change .member-item .center text-wrap: to wrap*!*/
-        /*}*/
-
-    }
-}
 
 .double-slider-container{
     position: relative;

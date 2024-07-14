@@ -41,13 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
             memberNameElement.classList.remove('cut');
             memberPicElement.classList.remove('pic--sm');
             memberNameElement.style.whiteSpace = 'normal';
-            member.parentElement.classList.remove('scroll');
+            // member.parentElement.classList.remove('scroll');
         } else {
             console.log("Mouse leave member");
             memberNameElement.classList.add('cut');
             memberPicElement.classList.add('pic--sm');
             memberNameElement.style.whiteSpace = 'nowrap';
-            member.parentElement.classList.add('scroll');
+            // member.parentElement.classList.add('scroll');
         }
     }
 });
