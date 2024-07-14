@@ -292,9 +292,16 @@ h2 {
     }
 }
 
-.albumh2 {
+.h1-jockey {
     font-family: "Jockey One", serif;
-    font-size: 3rem;
+    font-size: 6.4rem;
+    font-weight: var(--font-weight-400);
+}
+
+
+.h2-jockey {
+    font-family: "Jockey One", serif;
+    font-size: 4.2rem;
     font-weight: var(--font-weight-400);
 }
 
@@ -357,7 +364,7 @@ a {
     text-align: center;
     align-self: center;
     max-width: fit-content;
-    text-wrap: nowrap;
+    /*text-wrap: nowrap;*/
 }
 
 .flexrow {
@@ -519,8 +526,7 @@ a {
         margin: 0.3rem;
     }
     & .scroll {
-        height: 10rem;
-        overflow: visible;
+        overflow-y: visible;
         padding: 0.4rem 0 0 0;
         /*overflow-y: auto;*/
     }
@@ -1091,21 +1097,20 @@ input {
         display: flex;
         flex-direction: column;
         align-items: center;
-        min-width: 10.4rem !important;
-        max-width: 10.4rem !important;
+        width: 8.8rem;
+        min-width: 8.8rem;
+        max-width: 8.8rem;
         position: relative;
         overflow: visible;
         z-index: 1;
         transition: transform 0.4s, z-index 0.4s;
-
         transition-property: transform, transform-origin;
         transition-duration: .4s;
         transition-behavior: allow-discrete;
 
         @starting-style{
-            transform: scale(1.7);
+            transform: scale(1.5);
         }
-
 
 
 
@@ -1116,10 +1121,34 @@ input {
             -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             overflow: visible;
-            width: 17rem;
             z-index: 3000;
-            transform: scale(1.7);
+            transform: scale(1.5);
             transform-origin: center center;
+
+            &:first-of-type {
+                /*!*position: absolute;*!*/
+                /*top: 0;*/
+                /*left: 0.8rem;*/
+                /*!*translate: 0 6rem;*!*/
+            }
+
+            @media (max-width: 850px) {
+                background: unset;
+                outline: unset;
+                -webkit-backdrop-filter: unset;
+                backdrop-filter: unset;
+                overflow: unset;
+                z-index: unset;
+                transform: unset;
+                transform-origin: unset;
+            }
+
+            /*&:last-of-type {*/
+            /*    position: absolute;*/
+            /*    top: 0;*/
+            /*    right: 0;*/
+            /*    transform-origin: right center;*/
+            /*}*/
 
             @starting-style{
                 transform: scale(1);
@@ -1127,7 +1156,7 @@ input {
 
             & .center {
                 margin: 0;
-                height: 3rem;
+                /*height: 3rem;*/
             }
             /*&::after {*/
             /*    content: '';*/
@@ -1179,24 +1208,7 @@ input {
     &:has( .member-item) {
         max-width: 100%;
         position: relative;
-
-        &:first-child:hover {
-            position: absolute !important;
-            top: 102rem;
-            left: 20rem;
-            background: blue;
-        }
-        /*&:last-child:hover {*/
-        /*    position: absolute ;*/
-        /*    top: calc(100% - 10rem);*/
-        /*    left: calc(100% - 8.4rem);*/
-
-        /*}*/
-
-        /*& .placeholder {*/
-        /*    outline: lawngreen;*/
-        /*    !*visibility: hidden;*!*/
-        /*}*/
+        padding-bottom: 0.8rem;
     }
 }
 
@@ -1205,6 +1217,13 @@ input {
     flex-direction: row;
     align-items: center;
     gap: 2.4rem;
+}
+
+.placeholder {
+    outline: lawngreen 1px solid;
+    /*visibility: hidden;*/
+    min-width: 10.4rem;
+    max-height: 7.2rem;
 }
 
 .concerts-across {
@@ -1297,6 +1316,23 @@ input {
     }
 }
 
+.pill {
+    display: flex;
+    gap: 0.8rem;
+    background: var(--black-0);
+    border-radius: var(--radius-xl);
+    height: 2.4rem;
+    align-items: center;
+    padding: 0rem 1.6rem;
+    opacity: 0.6;
+    backdrop-filter: blur();
+    & p {
+        text-align: center;
+        align-self: center;
+        align-items: center;
+    }
+}
+
 .pills {
     display: flex;
     flex-wrap: wrap;
@@ -1304,28 +1340,14 @@ input {
     gap: 0.4rem;
 
     & .pill {
-        display: flex;
-        gap: 0.8rem;
-        background: var(--black-0);
-        border-radius: var(--radius-xl);
-        height: 2.4rem;
-        align-items: center;
         padding: 0.4rem 0.8rem;
         opacity: 1;
 
-        & p {
-            text-align: center;
-            align-self: center;
-            align-items: center;
-        }
         &:hover {
-
             & .removePill {
                 background-color: indianred;
             }
-
         }
-
 
         & .removePill {
             background: url('../icons/close_x16.svg') no-repeat center;
@@ -1625,7 +1647,7 @@ button {
     -webkit-transition: .4s;
     transition: background-color .4s, transform .4s;
     height: 3.4rem;
-    filter: var(--shadow-light-0);
+    filter: var(--shadow-dark-0);
     &:hover {
         /*background-color: var(--white-1);*/
         &::before {
@@ -1810,7 +1832,7 @@ input[type='range']::-webkit-slider-thumb {
         padding: 0;
         margin-top: 1.2rem;
         margin-bottom: 1.6rem;
-        filter: var(--shadow-light-0);
+        filter: var(--shadow-dark-0);
 
         &:hover {
             outline: none;

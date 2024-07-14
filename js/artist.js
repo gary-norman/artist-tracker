@@ -1,3 +1,12 @@
+function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+        const context = this;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), wait);
+    };
+}
+
 const firstalbum = document.getElementById('first-album')
 firstalbum.addEventListener('mouseover', ()=> {
     document.getElementById('createSwitch').innerText = "original api gives: " + document.getElementById
@@ -11,6 +20,12 @@ firstalbum.addEventListener('mouseout', ()=> {
 
 document.addEventListener('DOMContentLoaded', () => {
     const members = document.querySelectorAll('.member-item');
+    const parent = members[0].parentElement;
+    if (!parent) {
+        console.log("parent not present");
+
+    }
+    let isHovering = false;
 
     if (!members.length) {
         console.log("No members present");
@@ -19,15 +34,35 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(members.length, " members present");
     }
 
+
+    window.addEventListener('resize',  debounce( () => {
+
+        if (window.innerWidth < 850) {
+            parent.classList.add('scroll');
+        } else {
+            parent.classList.remove('scroll');
+        }
+    }, 300));
+
+
     members.forEach(member => {
-        member.addEventListener('mouseover', () => toggleMemberCard(member, true));
-        member.addEventListener('mouseleave', () => toggleMemberCard(member, false));
+        if (!isHovering) {
+            member.addEventListener('mouseover',  debounce( () => {
+                toggleMemberCard(member, true);
+            }, 300));
+
+        } else {
+            member.addEventListener('mouseover',  debounce( () => {
+                toggleMemberCard(member, false);
+            }, 300));
+        };
     });
 
     function toggleMemberCard(member, hover) {
         const memberNameElement = member.querySelector('.center');
         const memberPicElement = member.querySelector('.pic');
         const parent = member.parentElement;
+
         console.log("parent is:", parent)
 
         if (!memberNameElement) {
@@ -36,34 +71,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (hover) {
-            // // Add placeholder to replace absolute member-item missing from the flow
-            // const placeholder = document.createElement('div');
-            // placeholder.classList.add('placeholder');
-            // placeholder.style.width = `${member.offsetWidth}px`;
-            // placeholder.style.height = `${member.offsetHeight}px`;
-            // member.parentElement.insertBefore(placeholder, member);
+            isHovering = true;
+
+            // if (member === member.parentNode.firstElementChild) {
+            //     console.log("entering hover first child")
+            //     const placeholder = document.createElement('div');
+            //
+            //     // Add placeholder to replace absolute member-item missing from the flow
+            //     if (!placeholder){
+            //         console.log("inserting a placeholder")
+            //         placeholder.classList.add('placeholder');
+            //         placeholder.style.width = `${member.offsetWidth}px`;
+            //         placeholder.style.height = `${member.offsetHeight}px`;
+            //         parent.insertBefore(placeholder, member.nextSibling);
+            //     }
+            //
+            // }
+
 
             // Adjust the member item
             console.log("Mouse over member");
             memberNameElement.classList.remove('cut');
-            memberPicElement.classList.remove('pic--sm');
+            // memberPicElement.classList.remove('pic--sm');
             memberNameElement.style.whiteSpace = 'normal';
             // member.parentElement.classList.remove('scroll');
 
             console.log("member.parentElement is:", member.parentElement)
         } else {
-            // Remove the placeholder
-            // const placeholder = document.querySelector('.placeholder');
-            // if (placeholder) {
-            //     placeholder.parentElement.removeChild(placeholder);
+            isHovering = false;
+            // if (member === member.parentNode.firstElementChild) {
+            //     console.log("leaving hover first child")
+            //
+            //     // Remove the placeholder(s)
+            //     const placeholders = document.querySelectorAll('.placeholder');
+            //     placeholders.forEach(placeholder => {
+            //         placeholder.remove();
+            //     });
+            //
             // }
+
 
             // Reset the member item
             console.log("Mouse leave member");
             memberNameElement.classList.add('cut');
-            memberPicElement.classList.add('pic--sm');
-            memberNameElement.style.whiteSpace = 'nowrap';
-            // member.parentElement.classList.add('scroll');
         }
     }
 });

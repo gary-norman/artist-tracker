@@ -53,7 +53,7 @@
             <div id="artist-profile" class="content " >
                 <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
                 <div class="content-text go-down">
-                    <a href="/artist?name={{ .Name }}" class="cut albumh2">
+                    <a href="/artist?name={{ .Name }}" class="cut h2-jockey">
                         {{ .Name }}
                     </a>
                     <p class="small">created: {{ .CreationDate }}</p>
@@ -78,7 +78,7 @@
             <div class="container">
                 <div id="album-details"  class="container scroll">
                     <div class="go-down">
-                        <h2 class="albumh2">{{.CurrentAlbum.Album}} - {{.CurrentAlbum.YearReleased}}</h2>
+                        <h2 class="h2-jockey">{{.CurrentAlbum.Album}} - {{.CurrentAlbum.YearReleased}}</h2>
                         <p class="p--condensed">Label: {{.CurrentAlbum.Label}}</p>
                         <p class="p--condensed">Genre: {{.CurrentAlbum.Genre}}</p>
                     </div>
