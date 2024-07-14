@@ -287,7 +287,7 @@
                 {{ range $index, $element := .HomeArtists }}
                 {{ if lt $index 20 }}
                 <a class="content go-down" href="/album?name={{.Name }}&album={{.FirstAlbumStruct.Album}}&year={{.FirstAlbumStruct.YearReleased}}">
-                    <img class="pic album" src="{{.FirstAlbumStruct.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
+                    <img class="pic album" src="{{.FirstAlbumStruct.AlbumThumb}}" alt="Image of {{.Name}}'s first album: {{.FirstAlbumStruct.Album}}"/>
                     <div class="content-text go-down-home">
                         <div class="p--bold cut">{{.FirstAlbumStruct.Album}}</div>
                         <div class="small light cut">{{.Name}}</div>

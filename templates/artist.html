@@ -80,8 +80,8 @@
                         <h2>First Album</h2>
                         <div class="col col2">
                             <div class="go-down">
-                                <div id="first-album" class="content">
-
+                                {{ $artist := . }}
+                                <a id="first-album" class="content" href="/album?name={{$artist.Name}}&album={{.FirstAlbumStruct.Album}}&year={{.FirstAlbumStruct.YearReleased}}">
                                         <img class="pic largepic album" src="{{.FirstAlbumStruct.Album3DThumb}}"
                                              alt="Album cover of ({{.FirstAlbumStruct.Album}})"/>
                                         <div class="content-text go-down">
@@ -91,7 +91,7 @@
                                                style="display: none"></p>
                                             <p id="createSwitch" class="small">{{.SpotifyAlbum.ReleaseDate}}</p>
                                         </div>
-                                </div>
+                                </a>
                             </div>
                             <div id="embed-iframe" class="spotify-player"></div>
                         </div>
