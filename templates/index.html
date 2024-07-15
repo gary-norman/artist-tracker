@@ -22,10 +22,10 @@
             <div class="sub-logo small center">by Gary, Kamil & Rin</div>
         </section>
         <section class="search-container">
-            <form class="search-container" action="/search/" method="get">
+            <form id="form-homepage" class="search-container" action="/search/" method="get">
                 <div class="search-input" >
                     <label for="search-input"></label>
-                    <input type="text" name="search-input" id="search-input" placeholder="Search an artist, member, album or concert" autocomplete="off" onkeydown="return (event.keyCode!==13)";>
+                    <input type="text" name="search-input" id="search-input" placeholder="Search an artist, member, album or concert" autocomplete="off">
                     <span id="search-icon"></span>
                 </div>
 <!--                <h3 id="search-recent-text" class="floating-md hide">Recent searches</h3>-->
@@ -134,14 +134,11 @@
                             <div class="col col1">
                                 <div class="button button-2" id="button-filter-checkbox">
                                     <div id="button-filter-checkbox-container" class="button-container">
+                                        <label for="button-filter-concert-location"></label>
                                         <input type="text" id="button-filter-concert-location" class="small button-2-text" placeholder="Type to search location...">
                                     </div>
                                 </div>
                                 <div class="pills">
-                                    <div class="pill">
-                                        <p class="content-text small">London, UK</p>
-                                        <div id="removePill"></div>
-                                    </div>
                                 </div>
 
                             </div>
@@ -290,7 +287,7 @@
                 {{ range $index, $element := .HomeArtists }}
                 {{ if lt $index 20 }}
                 <a class="content go-down" href="/album?name={{.Name }}&album={{.FirstAlbumStruct.Album}}&year={{.FirstAlbumStruct.YearReleased}}">
-                    <img class="pic album" src="{{.FirstAlbumStruct.AlbumThumb}}" alt="Profile image of {{.Name}}"/>
+                    <img class="pic album" src="{{.FirstAlbumStruct.AlbumThumb}}" alt="Image of {{.Name}}'s first album: {{.FirstAlbumStruct.Album}}"/>
                     <div class="content-text go-down-home">
                         <div class="p--bold cut">{{.FirstAlbumStruct.Album}}</div>
                         <div class="small light cut">{{.Name}}</div>
@@ -301,14 +298,19 @@
             </div>
         </section>
         <section id="home-concerts" class="container col col1">
-            <div class="go-across-md">
+            <div class="space">
                 <h2>Concerts</h2>
-                <div id="mapProject" class="go-across-sm">
-                    <div class="globe"></div>
-                    <div>toggle</div>
-                    <div class="kaart"></div>
+                <div id="map-controls" class="go-across-md">
+                    <div id="mapProject" class="button-2 button go-across-sm">
+                        <div class="globe"></div>
+                        <div>Switch to 2D View</div>
+                        <div class="kaart"></div>
+                    </div>
+                    <div class="button button-2 reset">
+                        <div id="kaartReset"></div>
+                    </div>
                 </div>
-                <div id="kaartReset"></div>
+
             </div>
             <div class="col col2 col40-60" >
                 <div class="col col1 scroll concerts-list">

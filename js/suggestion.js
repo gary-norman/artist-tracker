@@ -1,3 +1,5 @@
+const pillContainer = document.querySelector('.pills')
+
 document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results');
@@ -7,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const locSearchResults = document.getElementById('loc-search-result');
     const locationsContainer = document.getElementById('filter-checkbox-locations');
     const locationInputs = locationsContainer.querySelectorAll('.checkbox');
-
 
     locSearchResults.classList.add("hide");
     function debounce(fn, delay) {
@@ -89,33 +90,111 @@ document.addEventListener('DOMContentLoaded', function () {
             locationsContainer.appendChild(checkboxContainer);
         });
         locSearchResults.appendChild(locationsContainer);
-        const locCheckBoxes = locationsContainer.querySelectorAll('[id^="loc-"]');
+
+        // const locCheckBoxes = locationsContainer.querySelectorAll('[id^="loc-"]');
         // for each element that has a class of checkbox
-        locCheckBoxes.forEach(input => {
-            input.addEventListener('input', function() {
-                // const pillContainer = e.document.createElement('div');
-                const pill = document.createElement('div');
-                const pillText = document.createElement('p');
-                const removePill = document.createElement('div');
+        // locCheckBoxes.forEach(input => {
+        //     input.addEventListener('input', function() {
+        //         // const pillContainer = e.document.createElement('div');
+        //         const pill = document.createElement('div');
+        //         const pillText = document.createElement('p');
+        //         const removePill = document.createElement('div');
+        //
+        //         // pillContainer.className = 'pills';
+        //         pill.className = 'pill';
+        //         pill.id = 'pill_' + input.id
+        //         pillText.className = 'small';
+        //         pillText.textContent = input.value;
+        //         removePill.id = 'removePill_' + input.id ;
+        //
+        //         const childElement = pillContainer.querySelector(`#${pill.id}`)
+        //
+        //         if (!childElement) {
+        //             pillContainer.appendChild(pill);
+        //             pill.appendChild(pillText)
+        //             pill.appendChild(removePill);
+        //         } else {
+        //             childElement.remove();
+        //         }
+        //     });
+        // });
 
-                // pillContainer.className = 'pills';
-                pill.className = 'pill';
-                pill.id = 'pill_' + input.id
-                pillText.className = 'small';
-                pillText.textContent = input.value;
-                removePill.id = 'removePill';
+        // const pills = locationsContainer.querySelectorAll('[id^="pill_"]');
 
-                const childElement = pillContainer.querySelector(`#${pill.id}`)
+        // Assuming locationsContainer is defined
+        const locCheckBoxes = locationsContainer.querySelectorAll('[id^="loc-"]');
 
-                if (!childElement) {
-                    pillContainer.appendChild(pill);
-                    pill.appendChild(pillText)
-                    pill.appendChild(removePill);
-                } else {
-                    childElement.remove();
-                }
+// Function to handle the creation of pills based on checkbox input
+        function handleCheckboxInput() {
+            const pillContainer = document.querySelector('.pills'); // Ensure pillContainer is defined in your HTML
+
+            locCheckBoxes.forEach(input => {
+                input.addEventListener('input', function() {
+                    const pill = document.createElement('div');
+                    const pillText = document.createElement('p');
+                    const removePill = document.createElement('div');
+
+                    pill.className = 'pill';
+                    pill.id = 'pill_' + input.id;
+                    pillText.className = 'small';
+                    pillText.textContent = input.value;
+                    removePill.className = 'removePill';
+                    removePill.id = 'removePill_' + input.id;
+
+                    const childElement = pillContainer.querySelector(`#${pill.id}`);
+
+                    if (!childElement) {
+                        pillContainer.appendChild(pill);
+                        pill.appendChild(pillText);
+                        pill.appendChild(removePill);
+
+                        // Add click listener to the removePill button
+                        removePill.addEventListener('click', function() {
+                            pill.remove(); // Remove the pill from the container
+                            input.checked = false; // Uncheck the corresponding checkbox
+                        });
+                    } else {
+                        childElement.remove();
+                    }
+                });
             });
-        });
+        }
+
+// Call the function to set up initial event listeners
+        handleCheckboxInput();
+
+// Function to manually add a pill (if needed for suggestion data)
+        function addPill(id, value) {
+            const pillContainer = document.querySelector('.pills');
+            const pill = document.createElement('div');
+            const pillText = document.createElement('p');
+            const removePill = document.createElement('div');
+
+            pill.className = 'pill';
+            pill.id = 'pill_' + id;
+            pillText.className = 'small';
+            pillText.textContent = value;
+            removePill.id = 'removePill_' + id;
+            removePill.textContent = 'x';
+
+            const childElement = pillContainer.querySelector(`#${pill.id}`);
+
+            if (!childElement) {
+                pillContainer.appendChild(pill);
+                pill.appendChild(pillText);
+                pill.appendChild(removePill);
+
+                // Add click listener to the removePill button
+                removePill.addEventListener('click', function() {
+                    pill.remove(); // Remove the pill from the container
+                    const checkbox = document.getElementById(id);
+                    if (checkbox) {
+                        checkbox.checked = false; // Uncheck the corresponding checkbox if it exists
+                    }
+                });
+            }
+        }
+
     }
     
     if (searchInput && populateResults) {
