@@ -114,7 +114,7 @@ func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist) {
 		wg.Add(1)
 		go func(artist Artist) {
 			defer wg.Done()
-			artistSuggestions := getSuggestionArtst(artist, searchQuery, normalizedQuery)
+			artistSuggestions := getSuggestionArtist(artist, searchQuery, normalizedQuery)
 
 			mu.Lock()
 			suggestions = append(suggestions, artistSuggestions...)
@@ -141,7 +141,7 @@ func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist) {
 	w.Write(jsonData)
 }
 
-func getSuggestionArtst(artist Artist, searchQuery, normalizedQuery string) []Suggestion {
+func getSuggestionArtist(artist Artist, searchQuery, normalizedQuery string) []Suggestion {
 	isFirstAlbumFound := false
 	isAllAlbumAppend := false
 	var artistSuggestions []Suggestion
@@ -268,7 +268,7 @@ func locationSuggestHandler(w http.ResponseWriter, r *http.Request, artists []Ar
 	} else {
 		// Sort suggestions alphabetically
 		sort.Strings(suggestions)
-		fmt.Println("All suggestions found:", suggestions)
+		fmt.Println("All location suggestions found:", suggestions)
 	}
 
 	// Marshal suggestions to JSON
@@ -316,7 +316,7 @@ func SearchHandler(w http.ResponseWriter, r *http.Request, artists []Artist) {
 	albumEndDate := r.URL.Query().Get("album-end-date")
 	membersMin := r.URL.Query().Get("members_min")
 	membersMax := r.URL.Query().Get("members_max")
-	locationSelected := r.URL.Query().Get("loc")
+	locationsSelected := r.URL.Query()["loc"]
 
 	// if user didn't select endDate,then set as current date
 	today := time.Now().Format("02-01-2006")
@@ -335,7 +335,7 @@ func SearchHandler(w http.ResponseWriter, r *http.Request, artists []Artist) {
 	fmt.Println("album end date:", albumEndDate)
 	fmt.Println("Members Min:", membersMin)
 	fmt.Println("Members Max:", membersMax)
-	fmt.Println("selected locations:", locationSelected)
+	fmt.Println("all selected locations:", locationsSelected)
 
 	/*
 		 	// Filter logic
