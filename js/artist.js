@@ -6,16 +6,17 @@ function debounce(func, wait) {
         timeout = setTimeout(() => func.apply(context, args), wait);
     };
 }
-
-const firstalbum = document.getElementById('first-album')
-firstalbum.addEventListener('mouseover', ()=> {
-    document.getElementById('createSwitch').innerText = "original api gives: " + document.getElementById
-    ("albumInfo").getAttribute("data-album");
-})
-firstalbum.addEventListener('mouseout', ()=> {
-    document.getElementById('createSwitch').innerText = document.getElementById
-    ("actualAlbumInfo").getAttribute("data-album");
-})
+document.addEventListener('DOMContentLoaded', () => {
+    const firstAlbum = document.getElementById('first-album')
+    firstAlbum.addEventListener('mouseover', () => {
+        document.getElementById('createSwitch').innerText = "original api gives: " + document.getElementById
+        ("albumInfo").getAttribute("data-album");
+    })
+    firstAlbum.addEventListener('mouseout', () => {
+        document.getElementById('createSwitch').innerText = document.getElementById
+        ("actualAlbumInfo").getAttribute("data-album");
+    })
+});
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -44,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 300));
 
-
     members.forEach(member => {
         if (!isHovering) {
             member.addEventListener('mouseover',  debounce( () => {
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
             member.addEventListener('mouseover',  debounce( () => {
                 toggleMemberCard(member, false);
             }, 300));
-        };
+        }
     });
 
     function toggleMemberCard(member, hover) {
@@ -73,43 +73,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (hover) {
             isHovering = true;
 
-            // if (member === member.parentNode.firstElementChild) {
-            //     console.log("entering hover first child")
-            //     const placeholder = document.createElement('div');
-            //
-            //     // Add placeholder to replace absolute member-item missing from the flow
-            //     if (!placeholder){
-            //         console.log("inserting a placeholder")
-            //         placeholder.classList.add('placeholder');
-            //         placeholder.style.width = `${member.offsetWidth}px`;
-            //         placeholder.style.height = `${member.offsetHeight}px`;
-            //         parent.insertBefore(placeholder, member.nextSibling);
-            //     }
-            //
-            // }
-
-
             // Adjust the member item
             console.log("Mouse over member");
             memberNameElement.classList.remove('cut');
             // memberPicElement.classList.remove('pic--sm');
-            memberNameElement.style.whiteSpace = 'normal';
+            // memberNameElement.style.whiteSpace = 'normal';
             // member.parentElement.classList.remove('scroll');
 
             console.log("member.parentElement is:", member.parentElement)
         } else {
             isHovering = false;
-            // if (member === member.parentNode.firstElementChild) {
-            //     console.log("leaving hover first child")
-            //
-            //     // Remove the placeholder(s)
-            //     const placeholders = document.querySelectorAll('.placeholder');
-            //     placeholders.forEach(placeholder => {
-            //         placeholder.remove();
-            //     });
-            //
-            // }
-
 
             // Reset the member item
             console.log("Mouse leave member");

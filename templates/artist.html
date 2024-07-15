@@ -48,35 +48,30 @@
 <body>
 <main>
     <div class="wrapper artist-wrapper">
-        <section class="search-container">
+        <section class="artist-container">
             <a href="/" class="linkback"></a>
-            <div id="artist-profile" class="content " >
-                <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
-                <div class="content-text go-down center">
-                    <h2 class="cut h2-jockey">
+            <div id="artist-profile" class="content go-across-lg" >
+                <img class="pic user pic--lg" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
+                <div class="content-text space">
+                    <h2 class="cut h2-jockey band-name">
                         {{ .Name }}
                     </h2>
-                    <p class="pill small">created: {{ .CreationDate }}</p>
+                    <p class="pill center">Created in {{ .CreationDate }}</p>
                 </div>
             </div>
-        <div class="artist-details-small">
-
-
-            <p class="p--bold">Band Members</p>
-            <div class="go-across-md ">
-            {{ range $memberName, $imgLink := .Members }}
-            <div class="content member-item">
-
-                    <img class="pic user pic--sm" src="{{ $imgLink }}" alt="Profile image of {{ $memberName }}"/>
-                    <div class="small center">{{ $memberName }}</div>
-
+            <div class="artist-details-small">
+                <p class="p--bold">Band Members</p>
+                <div class="go-across-md ">
+                {{ range $memberName, $imgLink := .Members }}
+                    <div class="content member-item">
+                        <img class="pic user pic--sm" src="{{ $imgLink }}" alt="Profile image of {{ $memberName }}"/>
+                        <div class="small center">{{ $memberName }}</div>
+                    </div>
+                {{ end }}
+                </div>
             </div>
-            {{ end }}
-            </div>
-
-        </div>
             <div class="container">
-                <div id=""  class="container scroll" style="overflow-y: hidden">
+                <div class="container scroll" >
                         <h2>First Album</h2>
                         <div class="col col2">
                             <div class="go-down">
@@ -86,15 +81,15 @@
                                     <img class="pic pic--lg album" src="{{.FirstAlbumStruct.Album3DThumb}}"
                                              alt="Album cover of ({{.FirstAlbumStruct.Album}})"/>
                                     {{ else }}
-                                    <img class="pic--lg" src="{{.FirstAlbumStruct.AlbumThumb}}"
+                                    <img class="pic pic--lg" src="{{.FirstAlbumStruct.AlbumThumb}}"
                                          alt="Album cover of ({{.FirstAlbumStruct.Album}})"/>
                                     {{ end }}
                                         <div class="content-text go-down">
-                                            <div class="p--bold cut">{{.FirstAlbumStruct.Album}}</div>
+                                            <div class="h2-jockey">{{.FirstAlbumStruct.Album}}</div>
                                             <p id="albumInfo" data-album="{{ .FirstAlbum }}" style="display: none"></p>
                                             <p id="actualAlbumInfo" data-album="{{.FirstAlbumStruct.YearReleased}}"
                                                style="display: none"></p>
-                                            <p id="createSwitch" class="small">{{.SpotifyAlbum.ReleaseDate}}</p>
+                                            <p id="createSwitch" class="">{{.FirstAlbumStruct.YearReleased}}</p>
                                         </div>
                                 </a>
                             </div>
@@ -102,7 +97,6 @@
                         </div>
                 </div>
             </div>
-
         </section>
 
         <section id="artist-albums" class="container col col1">
@@ -123,14 +117,20 @@
             </div>
         </section>
         <section id="artist-concerts" class="container col col1">
-            <div class="go-across-md">
+            <div class="space">
                 <h2>Concerts</h2>
-                <div id="mapProject" class="go-across-sm">
-                    <div class="globe"></div>
-                    <div>toggle</div>
-                    <div class="kaart"></div>
+                <div id="map-controls" class="go-across-md">
+                    <div id="mapProject" class="button-2 button go-across-sm">
+
+                        <div class="button-text">Switch to 2D View</div>
+                        <div class="globe hide"></div>
+                        <div class="kaart"></div>
+                    </div>
+                    <div id="resetMap" class="button button-2 go-across-sm ">
+                        <div class="button-text">Reset map</div>
+                        <div id="kaartReset"></div>
+                    </div>
                 </div>
-                <div id="kaartReset"></div>
             </div>
             <div class="col col2 col40-60" >
                 <div class="col col1 scroll concerts-list">
@@ -166,7 +166,7 @@
 </main>
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
 <script src="/js/map_indiv.js"></script>
-<script type="module" src="/js/default.js"></script>
+<!--<script type="module" src="/js/default.js"></script>-->
 <script type="module" src="/js/artist.js"></script>
 <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 <script type="text/javascript">

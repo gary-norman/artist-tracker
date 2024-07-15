@@ -91,36 +91,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         locSearchResults.appendChild(locationsContainer);
 
-        // const locCheckBoxes = locationsContainer.querySelectorAll('[id^="loc-"]');
-        // for each element that has a class of checkbox
-        // locCheckBoxes.forEach(input => {
-        //     input.addEventListener('input', function() {
-        //         // const pillContainer = e.document.createElement('div');
-        //         const pill = document.createElement('div');
-        //         const pillText = document.createElement('p');
-        //         const removePill = document.createElement('div');
-        //
-        //         // pillContainer.className = 'pills';
-        //         pill.className = 'pill';
-        //         pill.id = 'pill_' + input.id
-        //         pillText.className = 'small';
-        //         pillText.textContent = input.value;
-        //         removePill.id = 'removePill_' + input.id ;
-        //
-        //         const childElement = pillContainer.querySelector(`#${pill.id}`)
-        //
-        //         if (!childElement) {
-        //             pillContainer.appendChild(pill);
-        //             pill.appendChild(pillText)
-        //             pill.appendChild(removePill);
-        //         } else {
-        //             childElement.remove();
-        //         }
-        //     });
-        // });
-
-        // const pills = locationsContainer.querySelectorAll('[id^="pill_"]');
-
         // Assuming locationsContainer is defined
         const locCheckBoxes = locationsContainer.querySelectorAll('[id^="loc-"]');
 

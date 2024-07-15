@@ -114,7 +114,7 @@ func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist) {
 		wg.Add(1)
 		go func(artist Artist) {
 			defer wg.Done()
-			artistSuggestions := getSuggestionArtst(artist, searchQuery, normalizedQuery)
+			artistSuggestions := getSuggestionArtist(artist, searchQuery, normalizedQuery)
 
 			mu.Lock()
 			suggestions = append(suggestions, artistSuggestions...)
@@ -141,7 +141,7 @@ func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist) {
 	w.Write(jsonData)
 }
 
-func getSuggestionArtst(artist Artist, searchQuery, normalizedQuery string) []Suggestion {
+func getSuggestionArtist(artist Artist, searchQuery, normalizedQuery string) []Suggestion {
 	isFirstAlbumFound := false
 	isAllAlbumAppend := false
 	var artistSuggestions []Suggestion

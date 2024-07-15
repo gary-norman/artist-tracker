@@ -148,7 +148,8 @@ async function loadGeoJSONForArtist() {
         });
 
         // reset map position
-        document.getElementById('kaartReset').addEventListener('click', () => {
+        // document.getElementById('kaartReset').addEventListener('click', () => {
+        document.getElementById('resetMap').addEventListener('click', async() => {
             map.flyTo({
                 center: aveLoc,
                 zoom: 1,

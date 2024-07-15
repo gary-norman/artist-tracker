@@ -121,6 +121,30 @@ document.addEventListener('DOMContentLoaded', function () {
 //     }
 // });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const globeIcon = document.querySelector('.globe');
+    const mapIcon = document.querySelector('.kaart');
+    const parent = document.getElementById('mapProject');
+    let buttonText = document.querySelector('#mapProject .button-text');
+
+    parent.addEventListener('click', () => {
+        toggleMapView();
+    });
+
+    function toggleMapView() {
+        if (globeIcon){
+            parent.removeChild(globeIcon);
+
+            mapIcon.classList.add('hide');
+            buttonText.textContent = 'Switch to 3D View';
+
+        } else if (mapIcon){
+            mapIcon.classList.remove('hide');
+            globeIcon.classList.add('hide');
+            buttonText.textContent = 'Switch to 2D View';
+        }
+    }
+});
 
 
 document.addEventListener('DOMContentLoaded', () => {
