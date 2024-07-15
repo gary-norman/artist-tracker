@@ -52,11 +52,11 @@
             <a href="/" class="linkback"></a>
             <a href="/artist?name={{ .Name }}" id="artist-profile" class="content " >
                 <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
-                <div class="content-text go-down">
-                    <a href="/artist?name={{ .Name }}" class="cut h2-jockey">
+                <div class="content-text go-down center">
+                    <h2 class="cut h2-jockey">
                         {{ .Name }}
-                    </a>
-                    <p class="small">created: {{ .CreationDate }}</p>
+                    </h2>
+                    <p class="pill small">created: {{ .CreationDate }}</p>
                 </div>
             </a>
             <div class="artist-details-small">
