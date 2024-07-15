@@ -248,6 +248,7 @@ iframe {
 }
 
 #mapProject {
+    position: relative;
     &:hover {
         & .globe {
             background: url("../icons/globe_light.svg") no-repeat;
@@ -271,13 +272,25 @@ iframe {
 }
 
 .globe, .kaart, #kaartReset {
+    opacity: 1;
+    translate: 0 0;
+    transition-property: translate, opacity;
+    transition-duration: .4s;
+    transition-behavior: allow-discrete;
     height: 2.4rem;
     width: 2.4rem;
+
+    @starting-style{
+        max-height: 100%;
+        translate: -0.4rem 0;
+        opacity: 0;
+    }
 }
 .globe {
     background: url("../icons/globe.svg") no-repeat;
     cursor: pointer;
-
+    position: absolute;
+    right: 1.6rem;
     &:hover {
         background: url("../icons/globe_light.svg") no-repeat;
     }
@@ -778,6 +791,7 @@ a {
         position:relative;
         min-width: 31.2rem;
         max-width: 48rem;
+        filter: var(--shadow-dark-0);
         /*padding-right: 3.6rem;*/
         /*pointer-events: none;*/
 
@@ -924,13 +938,13 @@ a {
         position: absolute;
         top: 0;
         left: 0;
-        width: calc(100% - 1rem);
+        width: 100%;
         height: 100%;
         background: rgba(1 1 1 / .9);
         z-index: 1000;
         border-radius: var(--radius-md);
         opacity: 0;
-        animation: fade-in-out 400ms linear 0s 1 normal forwards;
+        animation: fade-in-out 800ms linear 0s 1 normal forwards;
     }
  }
 
@@ -1198,9 +1212,20 @@ input {
             backdrop-filter: blur(10px);
             overflow: visible;
             z-index: 3000;
+
             transform: scale(1.5);
+            translate: 0 -4rem;
+
             transform-origin: center center;
 
+            /* TODO */
+            & .pic {
+                /*display: block;*/
+                /*min-width: 6rem;*/
+                /*min-height: 6rem;*/
+                /*transform-origin: center center;*/
+                /*translate: 0 0.2rem;*/
+            }
             &:first-of-type {
                 /*!*position: absolute;*!*/
                 /*top: 0;*/
@@ -1478,6 +1503,22 @@ input {
     transition-behavior: allow-discrete;
     z-index: 1;
 
+    @starting-style{
+        max-height: 100%;
+        translate: 0 0;
+        opacity: 1;
+    }
+}
+
+.hide-icon {
+    /*display: none !important;*/
+    opacity: 0;
+    translate: 0.4rem 0;
+    max-height: 2rem;
+    transition-property: translate, display, opacity;
+    transition-duration: .4s;
+    transition-behavior: allow-discrete;
+    z-index: 1;
     @starting-style{
         max-height: 100%;
         translate: 0 0;

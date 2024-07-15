@@ -1,4 +1,9 @@
 import { formatDateToUK } from './calendar.js';
+
+function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 document.getElementById('form-homepage').addEventListener('keydown', function(event) {
     // Check if the key pressed is Enter (key code 13)
     if (event.key === 'Enter' || event.code === 'Enter') {
@@ -131,16 +136,17 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleMapView();
     });
 
-    function toggleMapView() {
-        if (globeIcon){
-            parent.removeChild(globeIcon);
-
-            mapIcon.classList.add('hide');
+    async function toggleMapView() {
+        if (globeIcon.classList.contains('hide-icon')){
+            globeIcon.classList.remove('hide-icon');
+            // await wait(200);
+            mapIcon.classList.add('hide-icon');
             buttonText.textContent = 'Switch to 3D View';
 
-        } else if (mapIcon){
-            mapIcon.classList.remove('hide');
-            globeIcon.classList.add('hide');
+        } else if (mapIcon.classList.contains('hide-icon')){
+            mapIcon.classList.remove('hide-icon');
+            // await wait(200);
+            globeIcon.classList.add('hide-icon');
             buttonText.textContent = 'Switch to 2D View';
         }
     }
