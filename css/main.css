@@ -1212,7 +1212,7 @@ input {
             backdrop-filter: blur(10px);
             overflow: visible;
             z-index: 3000;
-            transform: scale(1.5);
+            transform: scale(1.5, 1.8);
 
             transform-origin: center center;
 
