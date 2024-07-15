@@ -1212,15 +1212,15 @@ input {
             backdrop-filter: blur(10px);
             overflow: visible;
             z-index: 3000;
-            transform: scale(1.5, 1.8);
+            transform: scale(1.5);
 
             transform-origin: center center;
 
             /* TODO */
             & .pic {
-                transform: scale(1.5);
+                transform: scale(2.2);
                 transform-origin: center center;
-                translate: 0 0.2rem;
+                /*translate: 0 -1.2rem;*/
             }
             &:first-of-type {
                 /*!*position: absolute;*!*/
