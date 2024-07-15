@@ -5,36 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Name }} - Artist Tracker</title>
     <style>
-       .artist-wrapper::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 300px;
-            background: url('{{randomiseFanartImage .TheAudioDbArtist.ArtistThumb .TheAudioDbArtist.ArtistFanart .TheAudioDbArtist.ArtistFanart2 .TheAudioDbArtist.ArtistFanart3 .TheAudioDbArtist.ArtistFanart4}}') no-repeat 0 0;
-            background-size: cover;
-            /*background: url("https://www.theaudiodb.com/images/media/artist/fanart/uyuvtx1367246043.jpg") no-repeat 0 -150px;*/
-            --webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-            z-index: -2;
-        }
+      .artist-wrapper::before {
+         background: url('{{randomiseFanartImage .TheAudioDbArtist.ArtistThumb .TheAudioDbArtist.ArtistFanart .TheAudioDbArtist.ArtistFanart2 .TheAudioDbArtist.ArtistFanart3 .TheAudioDbArtist.ArtistFanart4}}') no-repeat 0 0;
+      }
 
-        .artist-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 300px;
-            background: url('{{.TheAudioDbArtist.ArtistClearart}}') no-repeat right bottom 2.6rem;
-            /*background: url("https://www.theaudiodb.com/images/media/artist/logo/j7ym8t1704047891.png") no-repeat right bottom 10px;*/
-            background-size: 20%;
-            opacity: 50%;
-            z-index: -1;
-        }
+      .first-album::before {
+         background: url('{{.TheAudioDbArtist.ArtistClearart}}') no-repeat right bottom;
+      }
     </style>
 
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
@@ -50,13 +27,13 @@
     <div class="wrapper artist-wrapper">
         <section class="artist-container">
             <a href="/" class="linkback"></a>
-            <div id="artist-profile" class="content go-across-lg" >
+            <div id="artist-profile" class="content go-across-lg">
                 <img class="pic user pic--lg" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
-                <div class="content-text space">
-                    <h2 class="cut h2-jockey band-name">
+                <div class="content-text space go-down">
+                    <h2 class="h2-jockey band-name">
                         {{ .Name }}
                     </h2>
-                    <p class="pill center">Created in {{ .CreationDate }}</p>
+                    <p class="pill pill-created">Created in {{ .CreationDate }}</p>
                 </div>
             </div>
             <div class="artist-details-small">
@@ -70,7 +47,7 @@
                 {{ end }}
                 </div>
             </div>
-            <div class="container">
+            <div class="container first-album">
                 <div class="container scroll" >
                         <h2>First Album</h2>
                         <div class="col col2">
