@@ -7,7 +7,6 @@ import (
 	"log"
 	"net/http"
 	"net/url"
-	"time"
 )
 
 type ArtistSearchResponse struct {
@@ -15,11 +14,6 @@ type ArtistSearchResponse struct {
 		ID   string `json:"id"`
 		Name string `json:"name"`
 	} `json:"artists"`
-}
-
-type Release struct {
-	Title       string    `json:"title"`
-	ReleaseDate time.Time `json:"release-date"`
 }
 
 type ReleaseSearchResponse struct {

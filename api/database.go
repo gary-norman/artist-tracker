@@ -7,7 +7,6 @@ import (
 	"strings"
 	"sync"
 	"unicode"
-
 	"github.com/pterm/pterm"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
@@ -38,7 +37,8 @@ type Artist struct {
 	AllAlbums        TadbAlbums `json:"allAlbums"`
 	SpotifyAlbum
 	TheAudioDbArtist
-	Locations       string              `json:"locations"`
+	BrainzAlbums    ReleaseResponse
+  Locations       string              `json:"locations"`
 	ConcertDates    string              `json:"concertDates"`
 	Relations       string              `json:"relations"`
 	DatesLocations  map[string][]string `json:"datesLocations"`
