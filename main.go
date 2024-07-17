@@ -67,7 +67,7 @@ func main() {
 	fmt.Printf("Queen first event date: %v\nQueen first event date (converted): %v\n",
 		Artists[0].FirstAlbum, api.DateConvert(Artists[0].FirstAlbum, layoutUK, layoutUS))*/
 	for i := range Artists {
-		fmt.Printf("%v: %v\n", i, Artists[i].Name)
+		fmt.Printf("%v: %v\n%v\n", i, Artists[i].Name, Artists[i].BrainzAlbums)
 	}
 	api.HandleRequests(Artists, api.GetTemplate())
 }

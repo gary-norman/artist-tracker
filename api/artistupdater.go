@@ -10,6 +10,7 @@ import (
 func UpdateArtistInfo(artists []Artist) {
 	// Fetch DatesLocations data concurrently for each artist
 	var wg sync.WaitGroup
+	var wg2 sync.WaitGroup
 	spinnerInfo, _ := pterm.DefaultSpinner.Start("Fetching artist IDs")
 	start := time.Now()
 	tadbArtist, err := GetTADBartistIDs()
@@ -59,10 +60,6 @@ func UpdateArtistInfo(artists []Artist) {
 		spinnerInfo.UpdateText("Fetching TADB album info for " + artists[i].Name)
 		go ProcessAudioDbAlbum(&artists[i], artists[i].Name, tadbArtist[i].Id, err, &wg)
   
-  for i := range artists {
-    spinnerInfo.UpdateText("Fetching MusicBrainz album info for " + artists[i].Name)
-    GetBrainzDiscography(&artists[i]) 
-  }
 		//if artists[i].IdAlbum != " " {
 		//	spinnerInfo.Success("Fetched TADB album for " + artists[i].Name + " in " + strconv.FormatInt(timetaken, 10) + "µs")
 		//} else {
@@ -74,7 +71,14 @@ func UpdateArtistInfo(artists []Artist) {
 	spinnerInfo.Success("Fetched TADB album info in " + strconv.FormatInt(timetaken, 10) + "ms")
 	// Wait for all goroutines to finish
 	wg.Wait()
-	tExtras := time.Now()
+  for i := range artists {
+    wg2.Add(1)	
+    spinnerInfo.UpdateText("Fetching MusicBrainz album info for " + artists[i].Name)
+    go ProcessBrainzDiscography(&artists[i], &wg2) 
+  }
+  wg2.Wait()
+
+  tExtras := time.Now()
 	timetakenExtras := tExtras.Sub(startExtras).Milliseconds()
 	pterm.Info.Println("Fetching additional artist info completed successfully in " + pterm.Green(strconv.FormatInt(timetakenExtras, 10)+"ms"))
 	// Rename any incorrectly named artists

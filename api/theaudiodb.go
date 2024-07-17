@@ -227,7 +227,7 @@ func FindFirstAlbum(artist *Artist) {
 		albumYear, err := strconv.Atoi(album.YearReleased)
 		if err != nil {
 			_ = fmt.Errorf("could not parse album year as int")
-			fmt.Printf("error parsing album year: %v\n", err)
+			fmt.Printf("error parsing album year of %v: %v\n", album.Album, err)
 		}
 		if albumYear != 0 {
 			if albumYear < year {
