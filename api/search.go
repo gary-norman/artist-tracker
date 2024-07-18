@@ -88,7 +88,6 @@ func SearchAlbum(artist *Artist, albumName string) *TadbAlbum {
 
 func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist) {
 	searchQuery := strings.ToLower(strings.TrimSpace(r.URL.Query().Get("query"))) // Lowercase and trim whitespace
-	var normalizedQuery string
 
 	// debug print
 	fmt.Println()
@@ -97,32 +96,7 @@ func SuggestHandler(w http.ResponseWriter, r *http.Request, artists []Artist) {
 	fmt.Println("############################")
 	fmt.Println()
 
-	// Normalize the search query
-	if isDate(searchQuery) {
-		normalizedQuery = searchQuery // Keep dates as is
-	} else if isLocationLike(searchQuery) {
-		normalizedQuery = formatLocation(searchQuery)
-	} else {
-		normalizedQuery = searchQuery // Use the search query as is
-	}
-
-	var suggestions []Suggestion
-	var mu sync.Mutex
-	var wg sync.WaitGroup
-
-	for _, artist := range artists {
-		wg.Add(1)
-		go func(artist Artist) {
-			defer wg.Done()
-			artistSuggestions := getSuggestionArtist(artist, searchQuery, normalizedQuery)
-
-			mu.Lock()
-			suggestions = append(suggestions, artistSuggestions...)
-			mu.Unlock()
-		}(artist)
-	}
-
-	wg.Wait()
+	suggestions := generateSuggestionsFromArtists(artists, searchQuery)
 
 	// Check if suggestions are empty and log it
 	if len(suggestions) == 0 {
