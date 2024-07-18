@@ -57,8 +57,8 @@ func main() {
 	//pterm.Println(pterm.Cyan("}"))
 
 	// debug print, to see better all the information of an artist
-	/* 	artistsResult, _ := api.SearchArtist(Artists, "Queen")
-	   	api.PrintArtistDetails(artistsResult) */
+	artistsResult, _ := api.SearchArtist(Artists, "Phil Collins")
+	api.PrintArtistDetails(artistsResult)
 
 	// test DateConvert
 	/*fmt.Printf("UK > US: %v\n", api.DateConvert("11-09-2001", layoutUK, layoutUS))
