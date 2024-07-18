@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"strings"
 	"sync"
+	"time"
 	"unicode"
 
 	"github.com/pterm/pterm"
@@ -16,6 +17,17 @@ import (
 type PageData struct {
 	HomeArtists      []Artist
 	SuggestedArtists []Suggestion
+}
+
+type SearchParams struct {
+	SearchInput     string    `json:"searchInput"`
+	ArtistStartDate time.Time `json:"artistStartDate"`
+	ArtistEndDate   time.Time `json:"artistEndDate"`
+	AlbumStartDate  time.Time `json:"albumStartDate"`
+	AlbumEndDate    time.Time `json:"albumEndDate"`
+	MembersMin      int       `json:"membersMin"`
+	MembersMax      int       `json:"membersMax"`
+	Locations       []string  `json:"locations"`
 }
 
 type Suggestion struct {

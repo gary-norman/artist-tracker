@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const locSearchInput = document.getElementById('button-filter-concert-location');
     const locSearchResults = document.getElementById('loc-search-result');
     const locationsContainer = document.getElementById('filter-checkbox-locations');
-    const form = document.querySelector('form'); 
+    const form = document.getElementById('form-homepage');
 
     locSearchResults.classList.add("hide");
     function debounce(fn, delay) {
@@ -215,8 +215,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function showSuggestions(suggestionsData) {
         populateResults.innerHTML = '';
-        // console.log("received suggestionsData:=", suggestionsData);
-
+        // debug print 
+        console.log("received suggestionsData:=", suggestionsData);
+        
         const resultsHeader = document.querySelector('.filters .small.light.center');
         if (!suggestionsData || suggestionsData.length === 0) {
             resultsHeader.textContent = `Showing 0 results`;
@@ -394,4 +395,37 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     }
+    
+    // event lestine for submit form
+    form.addEventListener('submit', function (e) {
+        e.preventDefault(); // Prevent the default form submission
+
+        // Serialize form data
+        const formData = new FormData(form);
+
+        // Optional: You can add additional processing or validation here before sending the request
+
+        // Fetch search results
+        async function fetchSearchResult() {
+            try {
+                const response = await fetch(`/search/?${new URLSearchParams(formData).toString()}`);
+                if (response.ok) {
+                    const searchData = await response.json();
+                    //debug print
+                    console.log("success!!! all search data:", searchData);
+                    
+                    // Handle the received searchData, e.g., update the UI
+                    showSuggestions(searchData);
+                } else {
+                    throw new Error('Failed to fetch search results');
+                }
+            } catch (error) {
+                console.error('Error fetching search results:', error);
+            }
+        }
+
+        fetchSearchResult();
+    });
+   
+    
 });
