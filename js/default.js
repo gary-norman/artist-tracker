@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const albumEndDateInput = document.getElementById('album-end-date');
 
     // Set the end date of filters to today's date, and put inside placeholder
-    const currentDate = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+    //const currentDate = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
     artistEndDateInput.placeholder = currentDate;
     albumEndDateInput.placeholder = currentDate;
 
