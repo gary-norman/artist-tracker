@@ -20,14 +20,18 @@ type PageData struct {
 }
 
 type SearchParams struct {
-	SearchInput     string    `json:"searchInput"`
-	ArtistStartDate time.Time `json:"artistStartDate"`
-	ArtistEndDate   time.Time `json:"artistEndDate"`
-	AlbumStartDate  time.Time `json:"albumStartDate"`
-	AlbumEndDate    time.Time `json:"albumEndDate"`
-	MembersMin      int       `json:"membersMin"`
-	MembersMax      int       `json:"membersMax"`
-	Locations       []string  `json:"locations"`
+	SearchInput                string    `json:"searchInput"`
+	ArtistStartDate            time.Time `json:"artistStartDate"`
+	ArtistEndDate              time.Time `json:"artistEndDate"`
+	AlbumStartDate             time.Time `json:"albumStartDate"`
+	AlbumEndDate               time.Time `json:"albumEndDate"`
+	MembersMin                 int       `json:"membersMin"`
+	MembersMax                 int       `json:"membersMax"`
+	Locations                  []string  `json:"locations"`
+	ArtistCreationDateSelected bool
+	AlbumCreationDateSelected  bool
+	NumberOfMembersSelected    bool
+	ConcertLocationSelected    bool
 }
 
 type Suggestion struct {

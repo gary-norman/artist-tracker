@@ -35,9 +35,20 @@ func containsDigits(input string) bool {
 
 // Function to parse the dates and other params from the request
 func parseSearchParams(r *http.Request) (SearchParams, error) {
+
+	// debug print
+	/* 	fmt.Println("Form values received:")
+	   	for key, values := range r.Form {
+	   		fmt.Printf("%s: %v\n", key, values)
+	   	}
+	*/
 	params := SearchParams{
-		SearchInput: r.URL.Query().Get("search-input"),
-		Locations:   r.URL.Query()["loc"],
+		SearchInput:                r.URL.Query().Get("search-input"),
+		Locations:                  r.URL.Query()["loc"],
+		ArtistCreationDateSelected: r.FormValue("artist-creation-date") == "on",
+		AlbumCreationDateSelected:  r.FormValue("album-creation-date") == "on",
+		NumberOfMembersSelected:    r.FormValue("number-of-members") == "on",
+		ConcertLocationSelected:    r.FormValue("concert-location") == "on",
 	}
 
 	// Parse date fields
@@ -97,14 +108,20 @@ func parseDate(dateStr string, dateType string) (time.Time, error) {
 // general help functions
 // Helper function to filter by creation date range
 func isArtistsCreationDateMatch(artist *Artist, params SearchParams) bool {
-	if artist.CreationDate != 0 {
-		if (params.ArtistStartDate.IsZero() || artist.CreationDate >= params.ArtistStartDate.Year()) &&
-			(artist.CreationDate <= params.ArtistEndDate.Year()) {
-			// debug print
-			fmt.Println("Artist creation date matched!")
-			return true
+	// if the filter is on
+	if params.ArtistCreationDateSelected {
+		if artist.CreationDate != 0 {
+			if (params.ArtistStartDate.IsZero() || artist.CreationDate >= params.ArtistStartDate.Year()) &&
+				(artist.CreationDate <= params.ArtistEndDate.Year()) {
+				// debug print
+				fmt.Println("Artist creation date matched!")
+				return true
+			}
 		}
+	} else {
+		return true
 	}
+
 	return false
 }
 
@@ -113,29 +130,34 @@ func filterAlbumYears(artist *Artist, params SearchParams) (bool, bool) {
 	isFirstAlbumDateMatch := false
 	isOtherAlbumMatch := false
 
-	for i, album := range artist.AllAlbums.Album {
-		if i == 0 {
-			if artist.FirstAlbum != "" {
-				tempFirstAlbum, _ := parseDate(artist.FirstAlbum, "first album date")
-				if (params.AlbumStartDate.IsZero() || tempFirstAlbum.After(params.AlbumStartDate) || tempFirstAlbum.Equal(params.AlbumStartDate)) &&
-					(tempFirstAlbum.Before(params.AlbumEndDate) || tempFirstAlbum.Equal(params.AlbumEndDate)) {
-					fmt.Println("First Album date matched!!!!!!!!!!!!!!!!")
-					fmt.Println("First Album name:", album.Album)
-					isFirstAlbumDateMatch = true
+	if params.AlbumCreationDateSelected {
+		for i, album := range artist.AllAlbums.Album {
+			if i == 0 {
+				if artist.FirstAlbum != "" {
+					tempFirstAlbum, _ := parseDate(artist.FirstAlbum, "first album date")
+					if (params.AlbumStartDate.IsZero() || tempFirstAlbum.After(params.AlbumStartDate) || tempFirstAlbum.Equal(params.AlbumStartDate)) &&
+						(tempFirstAlbum.Before(params.AlbumEndDate) || tempFirstAlbum.Equal(params.AlbumEndDate)) {
+						fmt.Println("First Album date matched!!!!!!!!!!!!!!!!")
+						fmt.Println("First Album name:", album.Album)
+						isFirstAlbumDateMatch = true
+					}
 				}
-			}
-		} else {
-			if album.YearReleased != "" {
-				albumYear, err := strconv.Atoi(album.YearReleased)
-				if err != nil {
-					continue
-				}
-				if (params.AlbumStartDate.IsZero() || albumYear >= params.AlbumStartDate.Year()) &&
-					(albumYear <= params.AlbumEndDate.Year()) {
-					isOtherAlbumMatch = true
+			} else {
+				if album.YearReleased != "" {
+					albumYear, err := strconv.Atoi(album.YearReleased)
+					if err != nil {
+						continue
+					}
+					if (params.AlbumStartDate.IsZero() || albumYear >= params.AlbumStartDate.Year()) &&
+						(albumYear <= params.AlbumEndDate.Year()) {
+						isOtherAlbumMatch = true
+					}
 				}
 			}
 		}
+	} else {
+		isFirstAlbumDateMatch = true
+		isOtherAlbumMatch = true
 	}
 
 	return isFirstAlbumDateMatch, isOtherAlbumMatch
@@ -143,7 +165,7 @@ func filterAlbumYears(artist *Artist, params SearchParams) (bool, bool) {
 
 // Helper function to filter by number of members
 func isNumberOfMembersMatch(artist *Artist, params SearchParams) bool {
-	if params.MembersMin != 0 && params.MembersMax != 0 {
+	if params.NumberOfMembersSelected {
 		if len(artist.MemberList) != 0 {
 			numberOfMembers := len(artist.MemberList)
 			if (params.MembersMin <= numberOfMembers) && (numberOfMembers <= params.MembersMax) {
@@ -162,7 +184,7 @@ func isNumberOfMembersMatch(artist *Artist, params SearchParams) bool {
 func filterLocations(artist *Artist, params SearchParams) bool {
 	isLocationMatch := false
 
-	if params.Locations != nil {
+	if params.ConcertLocationSelected {
 		for _, loc := range params.Locations {
 			for location := range artist.DatesLocations {
 				locationLower := strings.ToLower(location)
