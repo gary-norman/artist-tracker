@@ -126,7 +126,7 @@ func isArtistsCreationDateMatch(artist *Artist, params SearchParams) bool {
 }
 
 // helper function to filter all albums years or first album date
-func filterAlbumYears(artist *Artist, params SearchParams) (bool, bool) {
+func isAlbumYearsMatch(artist *Artist, params SearchParams) (bool, bool) {
 	isFirstAlbumDateMatch := false
 	isOtherAlbumMatch := false
 
@@ -137,8 +137,8 @@ func filterAlbumYears(artist *Artist, params SearchParams) (bool, bool) {
 					tempFirstAlbum, _ := parseDate(artist.FirstAlbum, "first album date")
 					if (params.AlbumStartDate.IsZero() || tempFirstAlbum.After(params.AlbumStartDate) || tempFirstAlbum.Equal(params.AlbumStartDate)) &&
 						(tempFirstAlbum.Before(params.AlbumEndDate) || tempFirstAlbum.Equal(params.AlbumEndDate)) {
-						fmt.Println("First Album date matched!!!!!!!!!!!!!!!!")
-						fmt.Println("First Album name:", album.Album)
+						// debug print
+						fmt.Printf("First Album date matched: %v\n", album.Album)
 						isFirstAlbumDateMatch = true
 					}
 				}
@@ -181,16 +181,15 @@ func isNumberOfMembersMatch(artist *Artist, params SearchParams) bool {
 }
 
 // Helper function to filter by locations
-func filterLocations(artist *Artist, params SearchParams) bool {
+func isLocationsMatch(artist *Artist, params SearchParams) bool {
 	isLocationMatch := false
 
 	if params.ConcertLocationSelected {
 		for _, loc := range params.Locations {
 			for location := range artist.DatesLocations {
-				locationLower := strings.ToLower(location)
 
 				// Check for exact match in location
-				if strings.EqualFold(locationLower, loc) {
+				if strings.EqualFold(location, loc) {
 					fmt.Printf("Location matched: %v\n", loc)
 					isLocationMatch = true
 					// once matched, then break
@@ -206,4 +205,53 @@ func filterLocations(artist *Artist, params SearchParams) bool {
 	}
 
 	return isLocationMatch
+}
+
+// if match then append to suggestion
+func filterAlbumCreationDate(artist *Artist, params SearchParams) []Suggestion {
+	var albumSuggestion []Suggestion
+	for i, album := range artist.AllAlbums.Album {
+		if i == 0 {
+			if artist.FirstAlbum != "" {
+				tempFirstAlbum, _ := parseDate(artist.FirstAlbum, "first album date")
+				if (params.AlbumStartDate.IsZero() || tempFirstAlbum.After(params.AlbumStartDate) || tempFirstAlbum.Equal(params.AlbumStartDate)) &&
+					(tempFirstAlbum.Before(params.AlbumEndDate) || tempFirstAlbum.Equal(params.AlbumEndDate)) {
+					// debug print
+					fmt.Printf("First Album date matched: %v\n", album.Album)
+					albumSuggestion = append(albumSuggestion, Suggestion{"Album", map[string]interface{}{"AlbumName": artist.AllAlbums.Album[0].Album, "imgLink": artist.AllAlbums.Album[0].AlbumThumb}, artist})
+				}
+			}
+		} else {
+			if album.YearReleased != "" {
+				albumYear, err := strconv.Atoi(album.YearReleased)
+				if err != nil {
+					continue
+				}
+				if (params.AlbumStartDate.IsZero() || albumYear >= params.AlbumStartDate.Year()) &&
+					(albumYear <= params.AlbumEndDate.Year()) {
+					albumSuggestion = append(albumSuggestion, Suggestion{"Album", map[string]interface{}{"AlbumName": artist.AllAlbums.Album[i].Album, "imgLink": artist.AllAlbums.Album[i].AlbumThumb}, artist})
+				}
+			}
+		}
+	}
+	return albumSuggestion
+}
+
+// if match then append to suggestion
+func filterLocations(artist *Artist, params SearchParams) []Suggestion {
+	var locationSuggestion []Suggestion
+	for _, loc := range params.Locations {
+		for location, dates := range artist.DatesLocations {
+			// Check for exact match in location
+			if strings.EqualFold(location, loc) {
+				for _, date := range dates {
+					if formattedDate, err := ParseDate(date); err == nil {
+						fmt.Printf("Location matched: %v\n", loc)
+						locationSuggestion = append(locationSuggestion, Suggestion{"Concert", map[string]interface{}{"location": location, "dates": formattedDate}, artist})
+					}
+				}
+			}
+		}
+	}
+	return locationSuggestion
 }
