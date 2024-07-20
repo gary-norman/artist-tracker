@@ -1,8 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const artistFilter = document.getElementById('artist-creation-date-filter');
+    const artistCreationYearFilter = document.getElementById('artist-creation-year-filter');
+  
     const albumFilter = document.getElementById('album-creation-date-filter');
     const membersFilter = document.getElementById('members-filter');
     const concertsFilter = document.getElementById('concert-location-filter');
+    const concertDateFilter = document.getElementById('concert-date-filter');
     const submitFilter = document.getElementById('search-submit-filter');
     const resultContainer = document.getElementById('search-results');
   
@@ -14,9 +16,13 @@ document.addEventListener('DOMContentLoaded', function () {
     let hideElements;
     let showElements;
     
-     // artist
-    const startDateInput = document.getElementById('artist-start-date');
-    const endDateInput = document.getElementById('artist-end-date');
+    // real artist creation year
+    const creationYearStartInput = document.getElementById('creation-year-start');
+    const creationYearEndInput = document.getElementById('creation-year-end');
+    
+     // concert date  **original is for artist creation date
+    const startDateInput = document.getElementById('concert-start-date');
+    const endDateInput = document.getElementById('concert-end-date');
     const startDateContainer = document.getElementById('startDateContainer');
     const endDateContainer = document.getElementById('endDateContainer');
     
@@ -51,7 +57,11 @@ document.addEventListener('DOMContentLoaded', function () {
     createCalendarElements(albumStartDateContainer, 'AlbumStart');
     createCalendarElements(albumEndDateContainer, 'AlbumEnd');
     
-     // artsit
+    // real artist creation year
+    const creationYearStart = document.getElementById('creationYearStart')
+    const creationYearEnd = document.getElementById('creationYearEnd')
+    
+     // concert date, original is artist
     const dayCalendarStart = document.getElementById('dayCalendarStart');
     const monthCalendarStart = document.getElementById('monthCalendarStart');
     const yearCalendarStart = document.getElementById('yearCalendarStart');
@@ -70,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const yearCalendarAlbumEnd = document.getElementById('yearCalendarAlbumEnd');
     
     
-    // Initialize all calendars,artsit and album
+    // Initialize all calendars,concert date and album
     initializeCalendar('start', 'day');
     initializeCalendar('end', 'day');
     initializeCalendar('start', 'month');
@@ -84,7 +94,79 @@ document.addEventListener('DOMContentLoaded', function () {
     initializeCalendar('albumEnd', 'day');
     initializeCalendar('albumStart', 'year');
     initializeCalendar('albumEnd', 'year');
+
     
+    // toggle calendar visibility for creation year
+    creationYearStartInput.addEventListener('click',function(){
+        console.log("creation year start calendar got clicked!!!")
+        creationYearStart.classList.toggle('hidden',false)
+        creationYearEnd.classList.toggle('hidden',true)
+        
+        // always start with current year
+        let currentDate = new Date();
+        let currentYear = currentDate.getFullYear();
+        let startYear = currentYear-27;
+        
+        // Check if user selects a different year
+        const creationStartYearValue = creationYearStartInput.value ? parseInt(creationYearStartInput.value, 10) : currentYear;
+        const creationEndYearValue = creationYearEndInput.value ? parseInt(creationYearEndInput.value, 10) : currentYear;
+        // debug print
+        /* console.log("creation end input :",creationYearEndInput.value)
+        console.log("creation end input :",creationEndYearValue) */
+        
+        // User selects a start creation year value
+        let disableYear = null;
+        if (creationYearEndInput.value) { // user select some year not current year
+            disableYear = creationEndYearValue;
+            startYear = disableYear-27;
+        }
+        
+         // Hide other filters
+         hideElements = [
+            concertDateFilter,albumFilter, membersFilter, concertsFilter, submitFilter, resultContainer
+        ];
+        toggleElementVisibility(hideElements,false);
+        renderCreationYearCalendar(startYear, 'creationYearStart');
+    })
+    
+   // Toggle calendar visibility for creation year end
+    creationYearEndInput.addEventListener('click', function () {
+        console.log("creation year end calendar got clicked!!!");
+        creationYearEnd.classList.toggle('hidden', false);
+        creationYearStart.classList.toggle('hidden',true)
+
+        let currentDate = new Date();
+        let currentYear = currentDate.getFullYear();
+        let startYear = currentYear-27
+
+        // Check if user selects a different year
+        const creationStartYearValue = creationYearStartInput.value ? parseInt(creationYearStartInput.value, 10) : currentYear;
+        const creationEndYearValue = creationYearEndInput.value ? parseInt(creationYearEndInput.value, 10) : currentYear;
+        
+        //debug print
+     /*    console.log("start year input :",creationYearStartInput.value)
+        console.log("start year value :",creationStartYearValue) */
+        
+        // User selects a start creation year value
+        let disableYear = null;
+        if (creationYearStartInput.value) {
+            disableYear = creationStartYearValue;
+            startYear = disableYear;
+        }
+
+        console.log("Disable Year:", disableYear);
+
+        // Hide other filters
+        hideElements = [
+            concertDateFilter,albumFilter, membersFilter, concertsFilter, submitFilter, resultContainer
+        ];
+        toggleElementVisibility(hideElements,false);
+
+        renderCreationYearCalendar(startYear, 'creationYearEnd', disableYear);
+    });
+    
+    
+    // use for concert date
     // Toggle calendar visibility for start date
     startDateInput.addEventListener('click', function () {
         
@@ -108,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function () {
         isEndCalendarOpen = false
         let currentDay
         isDayDisabled = false;
-        
+
         // check if startDate got input
         const startDateValue = startDateInput.value ? parseUKDate(startDateInput.value) : new Date();
         // check first if user select a date, if selected then convert the UKformat back to normal
@@ -119,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function () {
             currentYear = startDateValue.getFullYear();
             currentMonth = startDateValue.getMonth();
             currentDay = startDateValue.getDate();
-        } else if (endDateInput.value){
+        } else if (endDateValue){
             currentYear = endDateValue.getFullYear();
             currentMonth = endDateValue.getMonth();
             currentDay = endDateValue.getDate();
@@ -129,9 +211,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (endDateInput.value) {
             disableDate = endDateValue;
            
-        } else{
+        } else{ 
             disableDate = new Date();
-           
         }
         disableYear = disableDate.getFullYear();
         disableMonth = disableDate.getMonth();
@@ -187,12 +268,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const currentDay = endDateValue.getDate();
         isDayDisabled = false;
         
-        console.log("start date value is ====>>>>",startDateValue)
-        
         // Set disableDate to the current date by default
         // if user input anything
         if (startDateInput.value){
-            console.log("yes has value!!!!!!!!!!!!!!!!!!!!??????????????")
             disableDate = new Date();
             disableDate = startDateValue;
             disableYear = disableDate.getFullYear();
@@ -244,7 +322,7 @@ document.addEventListener('DOMContentLoaded', function () {
         
         // Hide other filters
         hideElements = [
-            artistFilter,membersFilter, concertsFilter, submitFilter, resultContainer
+            concertDateFilter,membersFilter, concertsFilter, submitFilter, resultContainer
         ];
         toggleElementVisibility(hideElements,false);
   
@@ -334,7 +412,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 
         // Hide other filters
         hideElements = [
-            artistFilter,membersFilter, concertsFilter, submitFilter, resultContainer
+            concertDateFilter,membersFilter, concertsFilter, submitFilter, resultContainer
         ];
         toggleElementVisibility(hideElements,false);
         
@@ -686,6 +764,7 @@ document.addEventListener('DOMContentLoaded', function () {
             dateElement.addEventListener('click', function () {
                 // hide all calendar
                 hideElements = [
+                    creationYearStart,
                     dayCalendarStart, monthCalendarStart, yearCalendarStart,
                     dayCalendarEnd, monthCalendarEnd, yearCalendarEnd,
                     dayCalendarAlbumStart, monthCalendarAlbumStart, yearCalendarAlbumStart,
@@ -929,9 +1008,102 @@ document.addEventListener('DOMContentLoaded', function () {
             yearsContainer.appendChild(yearElement);
         }
     }
+    
+    // Function to render the creation year calendar
+    function renderCreationYearCalendar(startYear, calendarType, disableYear = null) {
+        
+        const container = document.getElementById(calendarType);
+        const yearsContainer = container.querySelector('.cal-years');
+        const endYear = Math.min(startYear + 27, maxYear); // Show a range of 28 years (4 rows x 7 columns)
+    
+        const backButton = container.querySelector('.cal-btn.back');
+        backButton.type = 'button'; 
+        const forwardButton = container.querySelector('.cal-btn.front');
+        forwardButton.type = 'button'; 
+        
+          // set the button disable basiced on different calendar type
+        if (calendarType == "creationYearEnd"){
+            if (startYear <= disableYear) { // disale backButton
+                backButton.disabled = true;
+                forwardButton.disabled = false;
+            } else{
+                backButton.disabled = false;
+                forwardButton.disabled = false;
+            }
+        } else if(calendarType == "creationYearStart"){
+            if (startYear >= disableYear) { // disale backButton
+                backButton.disabled = false;
+                forwardButton.disabled = true;
+            } else{
+                backButton.disabled = false;
+                forwardButton.disabled = false;
+            }
+        }
+    
+        // Add event listeners for navigation buttons
+        backButton.onclick = function() {
+            startYear -= 28;
+            if (startYear < minYear) {
+                startYear = minYear;
+            }
+            renderCreationYearCalendar(startYear, calendarType, disableYear);
+        };
+    
+        forwardButton.onclick = function() {
+            startYear += 28;
+            if (startYear > maxYear) {
+                startYear = maxYear;
+            }
+            renderCreationYearCalendar(startYear, calendarType, disableYear);
+        };
+    
+        // Clear previous years
+        yearsContainer.innerHTML = '';
+    
+        // Render the years
+        for (let year = startYear; year <= endYear; year++) {
+            const yearElement = document.createElement('div');
+            yearElement.textContent = year;
+            yearElement.classList.add('year');
+    
+            // Disable year if it is before the disableYear
+            if (disableYear && year < disableYear) {
+                yearElement.classList.add('disabled');
+            }
+    
+            yearElement.addEventListener('click', function() {
+                if (!yearElement.classList.contains('disabled')) {
+                    currentYear = year;
+                    if (calendarType === 'creationYearStart') {
+                        creationYearStartInput.value = year;
+                    } else {
+                        creationYearEndInput.value = year;
+                    }
+                    container.classList.toggle('hidden', true); // Hide the calendar
+    
+                    // Hide all calendar
+                    let hideElements = [
+                        creationYearStart,
+                        dayCalendarStart, monthCalendarStart, yearCalendarStart,
+                        dayCalendarEnd, monthCalendarEnd, yearCalendarEnd,
+                        dayCalendarAlbumStart, monthCalendarAlbumStart, yearCalendarAlbumStart,
+                        dayCalendarAlbumEnd, monthCalendarAlbumEnd, yearCalendarAlbumEnd
+                    ];
+                    toggleElementVisibility(hideElements, false);
+                    selectYear(year,calendarType);
+                }
+            });
+    
+            yearsContainer.appendChild(yearElement);
+        }
+    }
+    
+    
      
     // Elements to check for outside click
     const calendarElements = [
+        creationYearStartInput, creationYearStart,
+        creationYearEndInput,creationYearEnd,
         startDateInput, dayCalendarStart, monthCalendarStart, yearCalendarStart,
         albumStartDateInput, dayCalendarAlbumStart, monthCalendarAlbumStart, yearCalendarAlbumStart,
         endDateInput, dayCalendarEnd, monthCalendarEnd, yearCalendarEnd,
@@ -942,6 +1114,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('click', function (event) {
           // Elements to hide when clicking outside
         hideElements = [
+            creationYearStart,creationYearEnd,
             dayCalendarStart, monthCalendarStart, yearCalendarStart,
             dayCalendarEnd, monthCalendarEnd, yearCalendarEnd,
             dayCalendarAlbumStart, monthCalendarAlbumStart, yearCalendarAlbumStart,
@@ -950,7 +1123,7 @@ document.addEventListener('DOMContentLoaded', function () {
         
          // Elements to show when clicking outside
         showElements = [
-            artistFilter,albumFilter, membersFilter, concertsFilter, submitFilter, resultContainer
+            artistCreationYearFilter,concertDateFilter,albumFilter, membersFilter, concertsFilter, submitFilter, resultContainer
         ];
         
         const isOutsideClick = calendarElements.every(element => !element.contains(event.target));
@@ -969,6 +1142,23 @@ document.addEventListener('DOMContentLoaded', function () {
         isAlbumEndCalendarOpen = false;
         
     });
+    
+ // Function to select a year and update visibility of elements
+function selectYear(year, calendarType) {
+    if (calendarType === 'creationYearStart') {
+        // Update the start year input field
+        creationYearStartInput.value = year;
+        // Hide the start year calendar
+        creationYearStart.classList.add('hidden');
+    } else if (calendarType === 'creationYearEnd') {
+        // Update the end year input field
+        creationYearEndInput.value = year;
+        // Hide the end year calendar
+        creationYearEnd.classList.add('hidden');
+    }
+        // Show all filters and results container
+        toggleElementVisibility(showElements, true);
+    }
 
     function selectDate(year, month, date, type) {
         
@@ -976,11 +1166,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Debug print  
         console.log("selected date from calendarPicker:", selectedDate);
         const currentDate = new Date();
-    
-        if (selectedDate > currentDate) {
-            alert("Cannot select a future date for search.");
-            return;
-        }
     
         switch (type) {
             case 'start':

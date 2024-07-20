@@ -1,6 +1,7 @@
 package api
 
 import (
+	"fmt"
 	"html/template"
 	"math/rand"
 	"sort"
@@ -102,6 +103,18 @@ func ParseDate(dateStr string) (DateParts, error) {
 		Month: date.Format("Jan"),
 		Year:  date.Format("2006"),
 	}, nil
+}
+
+// parseDateParts converts DateParts to time.Time
+func parseDateParts(dateParts DateParts) (time.Time, error) {
+	layout := "02 Jan 2006" // Correct layout for "24 Feb 2020"
+	dateStr := fmt.Sprintf("%s %s %s", dateParts.Day, dateParts.Month, dateParts.Year)
+
+	parsedDate, err := time.Parse(layout, dateStr)
+	if err != nil {
+		return time.Time{}, fmt.Errorf("error parsing date parts %v: %v", dateParts, err)
+	}
+	return parsedDate, nil
 }
 
 // Function to randomise passed dates for go templates

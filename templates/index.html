@@ -38,38 +38,56 @@
                             </div>
                         </div>
                     </div>
-                    <div class="floating-sm col filter hide" id="artist-creation-date-filter">
+                    
+                    <!--  for real aritst creation year-->
+                    <div class="floating-sm col filter hide" id="artist-creation-year-filter">
                         <label for="filter-artist-creation" class="space">
-                            <label for="filter-artist-creation">Artist creation date</label>
+                            <label for="filter-artist-creationYear">Artist creation year</label>
                             <label class="switch">
-                                <input id="filter-artist-creation" type="checkbox" name="artist-creation-date">
+                                <input id="filter-artist-creationYear" type="checkbox" name="artist-creation-year">
                                 <span class="slider-button round"></span>
                             </label>
                         </label>
                         <div class="filter-open space labels hide">
-                            <!-- for start date -->
+                          <!-- for creation year start -->
                             <div class="date-picker">
                                 <div class="date-picker-input">
-                                    <label for="artist-start-date" class="filter-label-md small light"> Start Date</label>
-                                    <input class="button button-2 small" type="text" id="artist-start-date" name="artist-start-date" placeholder="Pick a date" readonly />
+                                    <label for="creation-year-start" class="filter-label-md small light">Start Year </label>
+                                    <input class="button button-2 small" type="text" id="creation-year-start" name="creation-year-start" placeholder="Pick a year" readonly />
                                 </div>
-                                <div class="date-picker-calendar-container" id="startDateContainer"></div>
+                                <!-- Year Calendar -->
+                                <div class="date-picker-calendar hidden" id="creationYearStart"> 
+                                    <div class="calendar-header">
+                                        <button class="cal-btn back" type="button">&lt;</button>
+                                        <button class="cal-btn front" type="button">&gt;</button>
+                                    </div>
+                                    <div class="cal-wrapper">
+                                        <div class="cal-years"></div>
+                                    </div>
+                                </div>
                             </div>
                             
-                             <!-- for end date -->
-                            <div class="date-picker">
+                             <!-- for creation year end -->
+                             <div class="date-picker">
                                 <div class="date-picker-input">
-                                    <label for="artist-end-date" class="filter-label-md small light"> End Date</label>
-                                    <input class="button button-2 small" type="text" id="artist-end-date" name="artist-end-date" placeholder=" " readonly />
+                                    <label for="creation-year-end" class="filter-label-md small light">End Year </label>
+                                    <input class="button button-2 small" type="text" id="creation-year-end" name="creation-year-end" placeholder="Pick a year" readonly />
                                 </div>
-                                <div class="date-picker-calendar-container" id="endDateContainer"></div>
+                                <!-- Year Calendar -->
+                                <div class="date-picker-calendar hidden" id="creationYearEnd"> 
+                                    <div class="calendar-header">
+                                        <button class="cal-btn back" type="button">&lt;</button>
+                                        <button class="cal-btn front" type="button">&gt;</button>
+                                    </div>
+                                    <div class="cal-wrapper">
+                                        <div class="cal-years"></div>
+                                    </div>
+                                </div>
                             </div>
+                            
                         </div>
-                        
-                       <!--  <div class="filter-open single-slide-container">
-                            <input id="artist-date-range" type="range" min="1" max="100" value="0" class="slider" >
-                        </div> -->
                     </div>
+                    
                     <div class="floating-sm col filter hide" id="album-creation-date-filter">
                         <label for="filter-album-creation" class="space ">
                             <label for="filter-album-creation">Album creation date</label>
@@ -149,6 +167,42 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- for concert date -->
+                    <div class="floating-sm col filter hide" id="concert-date-filter">
+                        <label for="filter-concert-date" class="space">
+                            <label for="filter-concert-date">Concert date</label>
+                            <label class="switch">
+                                <input id="filter-concert-date" type="checkbox" name="concert-date">
+                                <span class="slider-button round"></span>
+                            </label>
+                        </label>
+                        <div class="filter-open space labels hide">
+                            <!-- for start date -->
+                            <div class="date-picker">
+                                <div class="date-picker-input">
+                                    <label for="concert-start-date" class="filter-label-md small light"> Start Date</label>
+                                    <input class="button button-2 small" type="text" id="concert-start-date" name="concert-start-date" placeholder="Pick a date" readonly />
+                                </div>
+                                <div class="date-picker-calendar-container" id="startDateContainer"></div>
+                            </div>
+                            
+                             <!-- for end date -->
+                            <div class="date-picker">
+                                <div class="date-picker-input">
+                                    <label for="concert-end-date" class="filter-label-md small light"> End Date</label>
+                                    <input class="button button-2 small" type="text" id="concert-end-date" name="concert-end-date" placeholder=" " readonly />
+                                </div>
+                                <div class="date-picker-calendar-container" id="endDateContainer"></div>
+                            </div>
+                        </div>
+                        
+                       <!--  <div class="filter-open single-slide-container">
+                            <input id="artist-date-range" type="range" min="1" max="100" value="0" class="slider" >
+                        </div> -->
+                    </div>
+                    
+                    
                     <button type="submit" class="button button-1" id="search-submit-filter">
                         <p class="button-text">Apply filters</p>
                     </button>

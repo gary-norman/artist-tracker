@@ -9,6 +9,7 @@ document.getElementById('form-homepage').addEventListener('keydown', function(ev
 
 const date = new Date();
 let currentDate = formatDateToUK(date);
+let currentYear = date.getFullYear();
 
 document.addEventListener('DOMContentLoaded', function () {
     const filterSubmit = document.getElementById("search-submit-filter");
@@ -61,12 +62,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const filterInputs = document.querySelectorAll('input[id^="filter-"]');
 
     // Find all the end date elements
-    const artistEndDateInput = document.getElementById('artist-end-date');
+    const artistCreationEndDateInput = document.getElementById('creation-year-end');
+    const concertEndDateInput = document.getElementById('concert-end-date');
     const albumEndDateInput = document.getElementById('album-end-date');
 
     // Set the end date of filters to today's date, and put inside placeholder
     //const currentDate = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
-    artistEndDateInput.placeholder = currentDate;
+    artistCreationEndDateInput.placeholder = currentYear;
+    concertEndDateInput.placeholder = currentDate;
     albumEndDateInput.placeholder = currentDate;
 
     // Add event listeners to each input element

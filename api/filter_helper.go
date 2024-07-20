@@ -43,12 +43,46 @@ func parseSearchParams(r *http.Request) (SearchParams, error) {
 	   	}
 	*/
 	params := SearchParams{
-		SearchInput:                r.URL.Query().Get("search-input"),
-		Locations:                  r.URL.Query()["loc"],
-		ArtistCreationDateSelected: r.FormValue("artist-creation-date") == "on",
-		AlbumCreationDateSelected:  r.FormValue("album-creation-date") == "on",
-		NumberOfMembersSelected:    r.FormValue("number-of-members") == "on",
-		ConcertLocationSelected:    r.FormValue("concert-location") == "on",
+		SearchInput: r.URL.Query().Get("search-input"),
+
+		Locations:               r.URL.Query()["loc"],
+		NumberOfMembersSelected: r.FormValue("number-of-members") == "on",
+	}
+
+	// only set as true if the value not empty
+	if r.FormValue("artist-creation-year") == "on" && r.URL.Query().Get("creation-year-start") != "" {
+		params.ArtistCreationYearSelected = true
+	}
+
+	if r.FormValue("album-creation-date") == "on" && r.URL.Query().Get("album-start-date") != "" {
+		params.AlbumCreationDateSelected = true
+	}
+	if r.FormValue("concert-location") == "on" && len(params.Locations) != 0 {
+		params.ConcertLocationSelected = true
+	}
+	if r.FormValue("concert-date") == "on" && r.URL.Query().Get("concert-start-date") != "" {
+		params.ConcertDateSelected = true
+	}
+
+	creationYearStartStr := r.URL.Query().Get("creation-year-start")
+	if creationYearStartStr != "" {
+		var err error
+		params.ArtistCreationYearStart, err = strconv.Atoi(creationYearStartStr)
+		if err != nil {
+			return params, fmt.Errorf("invalid artist creation year")
+		}
+	}
+
+	creationYearEndStr := r.URL.Query().Get("creation-year-end")
+	if creationYearEndStr != "" {
+		var err error
+		params.ArtistCreationYearEnd, err = strconv.Atoi(creationYearEndStr)
+		if err != nil {
+			return params, fmt.Errorf("invalid artist creation year")
+		}
+	} else {
+		currentYear := time.Now().Year()
+		params.ArtistCreationYearEnd = currentYear
 	}
 
 	// Parse date fields
@@ -57,14 +91,14 @@ func parseSearchParams(r *http.Request) (SearchParams, error) {
 	today := time.Now().Format(dateFormat)
 
 	// Parse optional fields with default values
-	params.ArtistStartDate, err = parseDate(r.URL.Query().Get("artist-start-date"), "artist start")
-	if err != nil && r.URL.Query().Get("artist-start-date") != "" {
-		return params, fmt.Errorf("invalid artist start date")
+	params.ConcertStartDate, err = parseDate(r.URL.Query().Get("concert-start-date"), "concert start")
+	if err != nil && r.URL.Query().Get("concert-start-date") != "" {
+		return params, fmt.Errorf("invalid concert start date")
 	}
 
-	params.ArtistEndDate, err = parseDate(r.URL.Query().Get("artist-end-date"), "artist end")
+	params.ConcertEndDate, err = parseDate(r.URL.Query().Get("concert-end-date"), "concert end")
 	if err != nil {
-		params.ArtistEndDate, _ = parseDate(today, "today") // Default to today if not provided
+		params.ConcertEndDate, _ = parseDate(today, "today") // Default to today if not provided
 	}
 
 	params.AlbumStartDate, err = parseDate(r.URL.Query().Get("album-start-date"), "album start")
@@ -105,18 +139,26 @@ func parseDate(dateStr string, dateType string) (time.Time, error) {
 	return date, nil
 }
 
+// check if a date is within a range
+func isDateInRange(date, startDate, endDate time.Time) bool {
+	return (startDate.IsZero() || date.After(startDate) || date.Equal(startDate)) &&
+		(date.Before(endDate) || date.Equal(endDate))
+}
+
+// cehck if a number is within a range
+func IsNumberInRange(targetNum, startNum, endNum int) bool {
+	return (startNum <= targetNum) && (targetNum <= endNum)
+}
+
 // general help functions
 // Helper function to filter by creation date range
-func isArtistsCreationDateMatch(artist *Artist, params SearchParams) bool {
+func isArtistsCreationYearMatch(artist *Artist, params SearchParams) bool {
 	// if the filter is on
-	if params.ArtistCreationDateSelected {
-		if artist.CreationDate != 0 {
-			if (params.ArtistStartDate.IsZero() || artist.CreationDate >= params.ArtistStartDate.Year()) &&
-				(artist.CreationDate <= params.ArtistEndDate.Year()) {
-				// debug print
-				fmt.Println("Artist creation date matched!")
-				return true
-			}
+	if params.ArtistCreationYearSelected {
+		if IsNumberInRange(artist.CreationDate, params.ArtistCreationYearStart, params.ArtistCreationYearEnd) {
+			// debug print
+			// fmt.Println("Artist creation date matched!")
+			return true
 		}
 	} else {
 		return true
@@ -135,10 +177,9 @@ func isAlbumYearsMatch(artist *Artist, params SearchParams) (bool, bool) {
 			if i == 0 {
 				if artist.FirstAlbum != "" {
 					tempFirstAlbum, _ := parseDate(artist.FirstAlbum, "first album date")
-					if (params.AlbumStartDate.IsZero() || tempFirstAlbum.After(params.AlbumStartDate) || tempFirstAlbum.Equal(params.AlbumStartDate)) &&
-						(tempFirstAlbum.Before(params.AlbumEndDate) || tempFirstAlbum.Equal(params.AlbumEndDate)) {
+					if isDateInRange(tempFirstAlbum, params.AlbumStartDate, params.AlbumEndDate) {
 						// debug print
-						fmt.Printf("First Album date matched: %v\n", album.Album)
+						// fmt.Printf("First Album date matched: %v\n", album.Album)
 						isFirstAlbumDateMatch = true
 					}
 				}
@@ -168,9 +209,9 @@ func isNumberOfMembersMatch(artist *Artist, params SearchParams) bool {
 	if params.NumberOfMembersSelected {
 		if len(artist.MemberList) != 0 {
 			numberOfMembers := len(artist.MemberList)
-			if (params.MembersMin <= numberOfMembers) && (numberOfMembers <= params.MembersMax) {
+			if IsNumberInRange(numberOfMembers, params.MembersMin, params.MembersMax) {
 				// debug print
-				fmt.Println("number of members matched!")
+				// fmt.Println("number of members matched!")
 				return true
 			}
 		}
@@ -180,31 +221,73 @@ func isNumberOfMembersMatch(artist *Artist, params SearchParams) bool {
 	return false
 }
 
-// Helper function to filter by locations
-func isLocationsMatch(artist *Artist, params SearchParams) bool {
+// filter both concert location and date if any matches
+func isConcertDateOrLocationMatch(artist *Artist, params SearchParams) (bool, bool) {
 	isLocationMatch := false
+	isConcertDateMatch := false
 
-	if params.ConcertLocationSelected {
+	// Check for location match and concert date both match
+	if params.ConcertLocationSelected && params.ConcertDateSelected {
 		for _, loc := range params.Locations {
-			for location := range artist.DatesLocations {
+			if dates, found := artist.DatesLocations[loc]; found {
+				for _, dateStr := range dates {
 
-				// Check for exact match in location
-				if strings.EqualFold(location, loc) {
+					// conver date to time time for comparing range
+					tempdate, err := parseDate(dateStr, "concert date")
+					if err != nil {
+						fmt.Printf("Error parsing date %v: %v\n", dateStr, err)
+						continue // Skip invalid date formats
+					}
+
+					// Check if the date is within the specified range
+					if isDateInRange(tempdate, params.ConcertStartDate, params.ConcertEndDate) {
+						fmt.Printf("Location and concert date matched: %v, %v\n", loc, dateStr)
+						isLocationMatch = true
+						isConcertDateMatch = true
+						// Once matched, no need to check further for this location
+						break
+					}
+				}
+			}
+		}
+	} else {
+		// Check for location match only
+		if params.ConcertLocationSelected {
+			for _, loc := range params.Locations {
+				if _, found := artist.DatesLocations[loc]; found {
 					fmt.Printf("Location matched: %v\n", loc)
 					isLocationMatch = true
-					// once matched, then break
 					break
 				}
 			}
-			if isLocationMatch {
-				break
-			}
+		} else { // User didn't select locations
+			isLocationMatch = true
 		}
-	} else { // user didn't select location
-		isLocationMatch = true
+
+		// Check for concert date match only
+		if params.ConcertDateSelected {
+			for _, dates := range artist.DatesLocations {
+				for _, dateStr := range dates {
+					tempdate, err := parseDate(dateStr, "concert date")
+					if err != nil {
+						fmt.Printf("Error parsing date %v: %v\n", dateStr, err)
+						continue // Skip invalid date formats
+					}
+
+					// Check if the date is within the specified range
+					if isDateInRange(tempdate, params.ConcertStartDate, params.ConcertEndDate) {
+						fmt.Printf("Concert date matched: %v\n", dateStr)
+						isConcertDateMatch = true
+						break
+					}
+				}
+			}
+		} else { // User didn't select concert dates
+			isConcertDateMatch = true
+		}
 	}
 
-	return isLocationMatch
+	return isLocationMatch, isConcertDateMatch
 }
 
 // if match then append to suggestion
@@ -214,10 +297,9 @@ func filterAlbumCreationDate(artist *Artist, params SearchParams) []Suggestion {
 		if i == 0 {
 			if artist.FirstAlbum != "" {
 				tempFirstAlbum, _ := parseDate(artist.FirstAlbum, "first album date")
-				if (params.AlbumStartDate.IsZero() || tempFirstAlbum.After(params.AlbumStartDate) || tempFirstAlbum.Equal(params.AlbumStartDate)) &&
-					(tempFirstAlbum.Before(params.AlbumEndDate) || tempFirstAlbum.Equal(params.AlbumEndDate)) {
+				if isDateInRange(tempFirstAlbum, params.AlbumStartDate, params.AlbumEndDate) {
 					// debug print
-					fmt.Printf("First Album date matched: %v\n", album.Album)
+					// fmt.Printf("First Album date matched: %v\n", album.Album)
 					albumSuggestion = append(albumSuggestion, Suggestion{"Album", map[string]interface{}{"AlbumName": artist.AllAlbums.Album[0].Album, "imgLink": artist.AllAlbums.Album[0].AlbumThumb}, artist})
 				}
 			}
@@ -237,21 +319,76 @@ func filterAlbumCreationDate(artist *Artist, params SearchParams) []Suggestion {
 	return albumSuggestion
 }
 
-// if match then append to suggestion
-func filterLocations(artist *Artist, params SearchParams) []Suggestion {
-	var locationSuggestion []Suggestion
-	for _, loc := range params.Locations {
-		for location, dates := range artist.DatesLocations {
-			// Check for exact match in location
-			if strings.EqualFold(location, loc) {
-				for _, date := range dates {
-					if formattedDate, err := ParseDate(date); err == nil {
-						fmt.Printf("Location matched: %v\n", loc)
-						locationSuggestion = append(locationSuggestion, Suggestion{"Concert", map[string]interface{}{"location": location, "dates": formattedDate}, artist})
+// filter concert location and date condition and append to suggestion
+func filterLocationsAndDates(artist *Artist, params SearchParams) []Suggestion {
+	var locAndDateSuggestions []Suggestion
+
+	// Check for location match and concert date both match
+	if params.ConcertLocationSelected && params.ConcertDateSelected {
+		// Filter by selected locations
+		for _, location := range params.Locations {
+			if dates, found := artist.DatesLocations[location]; found {
+				for _, dateStr := range dates {
+					// Convert date to time.Time for comparing range
+					tempdate, err := parseDate(dateStr, "concert date")
+					if err != nil {
+						fmt.Printf("Error parsing date %v: %v\n", dateStr, err)
+						continue // Skip invalid date formats
+					}
+
+					// Convert date to DateParts for display
+					formattedDate, err := ParseDate(dateStr)
+					if err != nil {
+						fmt.Printf("Date parsing error: %v\n", err)
+					}
+
+					// Check if the date is within the specified range
+					if isDateInRange(tempdate, params.ConcertStartDate, params.ConcertEndDate) {
+						locAndDateSuggestions = append(locAndDateSuggestions, Suggestion{"Concert", map[string]interface{}{"location": location, "dates": formattedDate}, artist})
+					}
+				}
+			}
+		}
+	} else {
+		// Check for location match only
+		if params.ConcertLocationSelected {
+			// Filter by selected locations
+			for _, loc := range params.Locations {
+				if dates, found := artist.DatesLocations[loc]; found {
+					for _, dateStr := range dates {
+						// Convert date to DateParts for display
+						formattedDate, err := ParseDate(dateStr)
+						if err != nil {
+							fmt.Printf("Date parsing error: %v\n", err)
+						}
+						locAndDateSuggestions = append(locAndDateSuggestions, Suggestion{"Concert", map[string]interface{}{"location": loc, "dates": formattedDate}, artist})
+					}
+				}
+			}
+		}
+
+		// Check for concert date match only
+		if params.ConcertDateSelected {
+			for location, dates := range artist.DatesLocations {
+				for _, dateStr := range dates {
+					tempdate, err := parseDate(dateStr, "concert date")
+					if err != nil {
+						fmt.Printf("Error parsing date %v: %v\n", dateStr, err)
+						continue // Skip invalid date formats
+					}
+					// Convert date to DateParts for display
+					formattedDate, err := ParseDate(dateStr)
+					if err != nil {
+						fmt.Printf("Date parsing error: %v\n", err)
+					}
+
+					// Check if the date is within the specified range
+					if isDateInRange(tempdate, params.ConcertStartDate, params.ConcertEndDate) {
+						locAndDateSuggestions = append(locAndDateSuggestions, Suggestion{"Concert", map[string]interface{}{"location": location, "dates": formattedDate}, artist})
 					}
 				}
 			}
 		}
 	}
-	return locationSuggestion
+	return locAndDateSuggestions
 }

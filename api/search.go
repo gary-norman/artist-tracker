@@ -229,22 +229,23 @@ func filterArtists(artistSuggestions []Suggestion, params SearchParams) []Sugges
 	for _, suggestion := range artistSuggestions {
 
 		// everytime reset it, all the element need to set true.
-		isArtistCreationDateMatch := false
+		isArtistCreationYearMatch := false
 		isFirstAlbumDateMatch := false
 		isOtherAlbumMatch := false
 		isNumberOfMemberMatch := false
 		isLocationMatch := false
+		isConcertDateMatch := false
 
 		fmt.Println("filter artist name:", suggestion.Artist.Name)
 
 		switch suggestion.Category {
 		case "Artist":
 			// debug print
-			fmt.Println("got artist time==============>", counter)
+			// fmt.Println("got artist time==============>", counter)
 			counter++
 
 			// -----Filter by artist creation year-----
-			isArtistCreationDateMatch = isArtistsCreationDateMatch(suggestion.Artist, params)
+			isArtistCreationYearMatch = isArtistsCreationYearMatch(suggestion.Artist, params)
 
 			// Filter album years, Only for general all albums filter
 			isFirstAlbumDateMatch, isOtherAlbumMatch = isAlbumYearsMatch(suggestion.Artist, params)
@@ -252,12 +253,12 @@ func filterArtists(artistSuggestions []Suggestion, params SearchParams) []Sugges
 			// -----filter number of member-----
 			isNumberOfMemberMatch = isNumberOfMembersMatch(suggestion.Artist, params)
 
-			// Filter locations (and concert dates)
-			isLocationMatch = isLocationsMatch(suggestion.Artist, params)
+			// Filter concert locations and date
+			isLocationMatch, isConcertDateMatch = isConcertDateOrLocationMatch(suggestion.Artist, params)
 
 		case "Album":
 			// -----Filter by artist creation year-----
-			isArtistCreationDateMatch = isArtistsCreationDateMatch(suggestion.Artist, params)
+			isArtistCreationYearMatch = isArtistsCreationYearMatch(suggestion.Artist, params)
 
 			// -----Filter all other album years-----
 			// for catagory "album", only filter the album.Album = albumName
@@ -280,7 +281,7 @@ func filterArtists(artistSuggestions []Suggestion, params SearchParams) []Sugges
 									if (params.AlbumStartDate.IsZero() || tempFirstAlbum.After(params.AlbumStartDate) || tempFirstAlbum.Equal(params.AlbumStartDate)) &&
 										(tempFirstAlbum.Before(params.AlbumEndDate) || tempFirstAlbum.Equal(params.AlbumEndDate)) {
 										// debug print
-										fmt.Printf("First Album date matched: %v\n", album.Album)
+										// fmt.Printf("First Album date matched: %v\n", album.Album)
 										isFirstAlbumDateMatch = true
 									}
 								}
@@ -310,16 +311,16 @@ func filterArtists(artistSuggestions []Suggestion, params SearchParams) []Sugges
 			// -----filter number of member-----
 			isNumberOfMemberMatch = isNumberOfMembersMatch(suggestion.Artist, params)
 
-			// Filter locations
-			isLocationMatch = isLocationsMatch(suggestion.Artist, params)
+			// Filter concert locations and date
+			isLocationMatch, isConcertDateMatch = isConcertDateOrLocationMatch(suggestion.Artist, params)
 
 		case "Member":
 			// debug print
-			fmt.Println("got member time==============>", counter)
+			// fmt.Println("got member time==============>", counter)
 			counter++
 
 			// -----Filter by artist creation year-----
-			isArtistCreationDateMatch = isArtistsCreationDateMatch(suggestion.Artist, params)
+			isArtistCreationYearMatch = isArtistsCreationYearMatch(suggestion.Artist, params)
 
 			// Filter album years, Only for general all albums filter
 			isFirstAlbumDateMatch, isOtherAlbumMatch = isAlbumYearsMatch(suggestion.Artist, params)
@@ -327,13 +328,16 @@ func filterArtists(artistSuggestions []Suggestion, params SearchParams) []Sugges
 			// -----filter number of member-----
 			isNumberOfMemberMatch = isNumberOfMembersMatch(suggestion.Artist, params)
 
-			// Filter locations
-			isLocationMatch = isLocationsMatch(suggestion.Artist, params)
+			// Filter concert locations and date
+			isLocationMatch, isConcertDateMatch = isConcertDateOrLocationMatch(suggestion.Artist, params)
 
 		case "Concert":
+			// debug print
+			// fmt.Println("got concert time==============>", counter)
+			counter++
 
 			// -----Filter by artist creation year-----
-			isArtistCreationDateMatch = isArtistsCreationDateMatch(suggestion.Artist, params)
+			isArtistCreationYearMatch = isArtistsCreationYearMatch(suggestion.Artist, params)
 
 			// Filter album years, Only for general all albums filter
 			isFirstAlbumDateMatch, isOtherAlbumMatch = isAlbumYearsMatch(suggestion.Artist, params)
@@ -374,16 +378,33 @@ func filterArtists(artistSuggestions []Suggestion, params SearchParams) []Sugges
 				isLocationMatch = true
 			}
 
-			// end of swtich case
+			if params.ConcertDateSelected {
+				if concertInfo, ok := suggestion.MatchItem.(map[string]interface{}); ok {
+					dateValue := concertInfo["dates"].(DateParts)
+					tempConcertDate, err := parseDateParts(dateValue)
+					if err != nil {
+						fmt.Printf("Error parsing concert date parts %v: %v\n", dateValue, err)
+					} else {
+						fmt.Printf("Parsed concert date: %v\n", tempConcertDate)
+						if isDateInRange(tempConcertDate, params.ConcertStartDate, params.ConcertEndDate) {
+							isConcertDateMatch = true
+						}
+					}
+				}
+			} else {
+				isConcertDateMatch = true
+			}
+
 		}
 		// only append if all match
 		// debug print
-		fmt.Println("Is artist create date match??   ", isArtistCreationDateMatch)
-		fmt.Println("Is first album date date match??   ", isFirstAlbumDateMatch)
-		fmt.Println("Is other album match match??   ", isOtherAlbumMatch)
-		fmt.Println("Is number of members match??   ", isNumberOfMemberMatch)
-		fmt.Println("Is location match??   ", isLocationMatch)
-		if isArtistCreationDateMatch && (isFirstAlbumDateMatch || isOtherAlbumMatch) && isNumberOfMemberMatch && isLocationMatch {
+		/* 		fmt.Println("Is artist create year match??   ", isArtistCreationYearMatch)
+		   		fmt.Println("Is first album date match??   ", isFirstAlbumDateMatch)
+		   		fmt.Println("Is other album year match ??   ", isOtherAlbumMatch)
+		   		fmt.Println("Is number of members match??   ", isNumberOfMemberMatch)
+		   		fmt.Println("Is location match??   ", isLocationMatch)
+		   		fmt.Println("Is concert date match??   ", isConcertDateMatch) */
+		if isArtistCreationYearMatch && (isFirstAlbumDateMatch || isOtherAlbumMatch) && isNumberOfMemberMatch && isLocationMatch && isConcertDateMatch {
 			filteredSuggestions = append(filteredSuggestions, suggestion)
 		}
 	}
@@ -398,16 +419,17 @@ func filterArtistDirectly(artists []Artist, params SearchParams) []Suggestion {
 
 	for _, artist := range artists {
 		// everytime reset it, all the element need to set true.
-		isArtistCreationDateMatch := false
+		isArtistCreationYearMatch := false
 		isFirstAlbumDateMatch := false
 		isOtherAlbumMatch := false
 		isNumberOfMemberMatch := false
 		isLocationMatch := false
-		fmt.Println("filter artist name:", artist.Name)
+		isConcertDateMatch := false
+		fmt.Println("-----filter artist name------>", artist.Name)
 
 		// check all generate filters first
 		// -----Filter by artist creation year-----
-		isArtistCreationDateMatch = isArtistsCreationDateMatch(&artist, params)
+		isArtistCreationYearMatch = isArtistsCreationYearMatch(&artist, params)
 
 		// -----filter number of member-----
 		isNumberOfMemberMatch = isNumberOfMembersMatch(&artist, params)
@@ -415,20 +437,21 @@ func filterArtistDirectly(artists []Artist, params SearchParams) []Suggestion {
 		// Filter album years, Only for general all albums filter
 		isFirstAlbumDateMatch, isOtherAlbumMatch = isAlbumYearsMatch(&artist, params)
 
-		// Filter locations (and concert dates)
-		isLocationMatch = isLocationsMatch(&artist, params)
+		isLocationMatch, isConcertDateMatch = isConcertDateOrLocationMatch(&artist, params)
 
 		// debug print
-		fmt.Println("Is artist create date match??   ", isArtistCreationDateMatch)
-		fmt.Println("Is first album date date match??   ", isFirstAlbumDateMatch)
-		fmt.Println("Is other album match match??   ", isOtherAlbumMatch)
+		/* 	fmt.Println("Is artist create year match??   ", isArtistCreationYearMatch)
+		fmt.Println("Is first album date match??   ", isFirstAlbumDateMatch)
+		fmt.Println("Is other album year match ??   ", isOtherAlbumMatch)
 		fmt.Println("Is number of members match??   ", isNumberOfMemberMatch)
 		fmt.Println("Is location match??   ", isLocationMatch)
+		fmt.Println("Is concert date match??   ", isConcertDateMatch) */
 		// if all match, append the artist with corespond catagory depend on which filter got switch on
-		if isArtistCreationDateMatch && (isFirstAlbumDateMatch || isOtherAlbumMatch) && isNumberOfMemberMatch && isLocationMatch {
+		if isArtistCreationYearMatch && (isFirstAlbumDateMatch || isOtherAlbumMatch) && isNumberOfMemberMatch && isLocationMatch && isConcertDateMatch {
 			// debug print
 			fmt.Println("****************all matched artsit name:", artist.Name)
 
+			// ============ **TODO:Check again how to display this part ===========
 			// those two catagories always show???? NOT SURE
 			// alway show match artist to let user see more clearly
 			filteredSuggestions = append(filteredSuggestions, Suggestion{"Artist", artist.Name, &artist})
@@ -447,10 +470,11 @@ func filterArtistDirectly(artists []Artist, params SearchParams) []Suggestion {
 					filteredSuggestions = append(filteredSuggestions, Suggestion{"Member", member, &artist})
 				}
 			}
-			if params.ConcertLocationSelected {
-				locationSuggestions := filterLocations(&artist, params)
+			if params.ConcertLocationSelected || params.ConcertDateSelected {
+				locationSuggestions := filterLocationsAndDates(&artist, params)
 				filteredSuggestions = append(filteredSuggestions, locationSuggestions...)
 			}
+
 		}
 	}
 	return filteredSuggestions
@@ -529,18 +553,21 @@ func SearchHandler(w http.ResponseWriter, r *http.Request, artists []Artist) {
 
 	// Debug print
 	fmt.Println("************************************")
-	fmt.Println("params.ArtistCreationDateSelected:=", params.ArtistCreationDateSelected)
+	fmt.Println("params.ArtistCreationYearSelected:=", params.ArtistCreationYearSelected)
 	fmt.Println("params.AlbumCreationDateSelected:=", params.AlbumCreationDateSelected)
 	fmt.Println("params.NumberOfMemeberSelected :=", params.NumberOfMembersSelected)
 	fmt.Println("params.ConcertLocationSelected:=", params.ConcertLocationSelected)
+	fmt.Println("params.ConcertDateSelected:=", params.ConcertDateSelected)
 	fmt.Println("Search Input:", params.SearchInput)
-	fmt.Println("Artist Start Date:", params.ArtistStartDate)
-	fmt.Println("Artist End Date:", params.ArtistEndDate)
+	fmt.Println("Artist Creation Year start:", params.ArtistCreationYearStart)
+	fmt.Println("Artist Creation Year end:", params.ArtistCreationYearEnd)
 	fmt.Println("Album Start Date:", params.AlbumStartDate)
 	fmt.Println("Album End Date:", params.AlbumEndDate)
 	fmt.Println("Members Min:", params.MembersMin)
 	fmt.Println("Members Max:", params.MembersMax)
 	fmt.Println("Locations Selected:", params.Locations)
+	fmt.Println("Concert Start Date:", params.ConcertStartDate)
+	fmt.Println("Concert End Date:", params.ConcertEndDate)
 	fmt.Println("************************************")
 
 	// Filter logic
@@ -566,9 +593,9 @@ func SearchHandler(w http.ResponseWriter, r *http.Request, artists []Artist) {
 	}
 
 	fmt.Println("len of filtered suggestions :", len(filteredSuggestions))
-	for _, suggestion := range filteredSuggestions {
+	/* 	for _, suggestion := range filteredSuggestions {
 		fmt.Println("all filtered Artist name:", suggestion.Artist.Name)
-	}
+	} */
 
 	// Marshal filteredSuggestions to JSON
 	jsonData, err := json.Marshal(filteredSuggestions)
