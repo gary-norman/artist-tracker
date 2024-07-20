@@ -7,7 +7,7 @@ import (
 	"net/url"
   "fmt"
   "time"
-  "sync"
+//  "sync"
 )
 
 type Release struct {
@@ -35,12 +35,17 @@ type ReleaseResponse struct {
 	Releases []ReleaseWithGroup `json:"releases"`
 }
 
-func ProcessBrainzDiscography(artist *Artist, wg *sync.WaitGroup) {
-	artist.BrainzAlbums = GetBrainzDiscography(artist.TheAudioDbArtist.MusicBrainzID, wg)
+// func ProcessBrainzDiscography(artist *Artist, wg *sync.WaitGroup) {
+//	artist.BrainzAlbums = GetBrainzDiscography(artist.TheAudioDbArtist.MusicBrainzID, wg)
+// }
+
+func ProcessBrainzDiscography(artist *Artist) {
+	artist.BrainzAlbums = GetBrainzDiscography(artist.TheAudioDbArtist.MusicBrainzID)
 }
 
-func GetBrainzDiscography(artistID string, wg *sync.WaitGroup) ReleaseResponse {
-	defer wg.Done()
+//func GetBrainzDiscography(artistID string, wg *sync.WaitGroup) ReleaseResponse {
+func GetBrainzDiscography(artistID string) ReleaseResponse {
+	// defer wg.Done()
   baseURL := "https://musicbrainz.org/ws/2/release/"
 	params := url.Values{}
 	params.Add("artist", artistID)

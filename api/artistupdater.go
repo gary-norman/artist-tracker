@@ -10,7 +10,7 @@ import (
 func UpdateArtistInfo(artists []Artist) {
 	// Fetch DatesLocations data concurrently for each artist
 	var wg sync.WaitGroup
-	var wg2 sync.WaitGroup
+	// var wg2 sync.WaitGroup
 	spinnerInfo, _ := pterm.DefaultSpinner.Start("Fetching artist IDs")
 	start := time.Now()
 	tadbArtist, err := GetTADBartistIDs()
@@ -72,11 +72,12 @@ func UpdateArtistInfo(artists []Artist) {
 	// Wait for all goroutines to finish
 	wg.Wait()
   for i := range artists {
-    wg2.Add(1)	
+    // wg2.Add(1)	
     spinnerInfo.UpdateText("Fetching MusicBrainz album info for " + artists[i].Name)
-    go ProcessBrainzDiscography(&artists[i], &wg2) 
+    // go ProcessBrainzDiscography(&artists[i], &wg2) 
+    go ProcessBrainzDiscography(&artists[i]) 
   }
-  wg2.Wait()
+  // wg2.Wait()
 
   tExtras := time.Now()
 	timetakenExtras := tExtras.Sub(startExtras).Milliseconds()
