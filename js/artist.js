@@ -9,7 +9,7 @@ function debounce(func, wait) {
 document.addEventListener('DOMContentLoaded', () => {
     const firstAlbum = document.getElementById('first-album')
     firstAlbum.addEventListener('mouseover', () => {
-        document.getElementById('createSwitch').innerText = "original api gives: " + document.getElementById
+        document.getElementById('createSwitch').innerText = "original api: " + document.getElementById
         ("albumInfo").getAttribute("data-album");
     })
     firstAlbum.addEventListener('mouseout', () => {

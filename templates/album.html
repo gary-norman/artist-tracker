@@ -29,7 +29,7 @@
             <a href="/" class="linkback"></a>
             <a href="/artist?name={{ .Name }}" id="artist-profile" class="content go-across-lg" >
                 <img class="pic user pic--lg" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
-                <div class="content-text space go-down">
+                <div class="content-text center go-down">
                     <h2 class="h2-jockey band-name">
                         {{ .Name }}
                     </h2>
@@ -55,7 +55,7 @@
             <div class="container first-album">
                 <div id="album-details"  class="container scroll">
                     <div class="go-down">
-                        <h2 class="h2-jockey">{{.CurrentAlbum.Album}} - {{.CurrentAlbum.YearReleased}}</h2>
+                        <h2 class="h3-jockey">{{.CurrentAlbum.Album}} - {{.CurrentAlbum.YearReleased}}</h2>
                         {{if .CurrentAlbum.Label}}
                         <p class="p--condensed">Label: {{.CurrentAlbum.Label}}</p>
                         {{ else }}
