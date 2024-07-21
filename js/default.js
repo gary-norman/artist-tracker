@@ -130,24 +130,75 @@ document.addEventListener('DOMContentLoaded', () => {
     const globeIcon = document.querySelector('.globe');
     const mapIcon = document.querySelector('.kaart');
     const parent = document.getElementById('mapProject');
-    let buttonText = document.querySelector('#mapProject .button-text');
+    let switchButtonText = document.querySelector('#mapProject .button-text');
+    let resetButtonText = document.querySelector('#resetMap .button-text');
+    const mapControls = document.getElementById('map-controls');
+    const mapControlsContainer = document.querySelector('.mapControls');
 
     parent.addEventListener('click', () => {
         toggleMapView();
     });
 
+    //initialise button text on load
+    toggleButtonText();
+    toggleControlsView();
+
+    window.addEventListener('resize', () => {
+        toggleButtonText();
+        toggleControlsView();
+    });
+
+
     async function toggleMapView() {
         if (globeIcon.classList.contains('hide-icon')){
             globeIcon.classList.remove('hide-icon');
-            // await wait(200);
             mapIcon.classList.add('hide-icon');
-            buttonText.textContent = 'Switch to 3D View';
+            toggleButtonText();
 
-        } else if (mapIcon.classList.contains('hide-icon')){
+        } else {
             mapIcon.classList.remove('hide-icon');
-            // await wait(200);
             globeIcon.classList.add('hide-icon');
-            buttonText.textContent = 'Switch to 2D View';
+            toggleButtonText();
+        }
+    }
+
+    function toggleButtonText() {
+        let isGlobe = false;
+
+        if (globeIcon.classList.contains('hide-icon')) {
+            isGlobe = true;
+        }
+        if (window.innerWidth < 380) {
+            if (isGlobe) {
+                switchButtonText.textContent = '2D view';
+            } else {
+                switchButtonText.textContent = '3D view';
+            }
+            resetButtonText.textContent = 'Reset';
+        } else if (window.innerWidth < 650) {
+            if (isGlobe) {
+                switchButtonText.textContent = 'Switch to 2D';
+            } else {
+                switchButtonText.textContent = 'Switch to 3D';
+            }
+            resetButtonText.textContent = 'Reset map';
+        } else {
+            if (isGlobe) {
+                switchButtonText.textContent = 'Switch to 2D map';
+            } else {
+                switchButtonText.textContent = 'Switch to 3D map';
+            }
+            resetButtonText.textContent = 'Reset map position';
+        }
+    }
+
+    function toggleControlsView(){
+        if (window.innerWidth < 550) {
+            mapControls.classList.add('stretch');
+            mapControlsContainer.classList.remove('space');
+        } else {
+            mapControls.classList.remove('stretch');
+            mapControlsContainer.classList.add('space');
         }
     }
 });

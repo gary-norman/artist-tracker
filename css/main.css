@@ -103,6 +103,12 @@ iframe {
         align-self: center;
     }
 }
+.mapControls {
+    @media (max-width: 550px) {
+        display: grid;
+        gap: 1.2rem;
+    }
+}
 
 #map-controls {
     & > * {
@@ -112,6 +118,9 @@ iframe {
         align-items: center;
         &:hover {
             background: var(--grey-1);
+        }
+        @media (max-width: 550px) {
+            width: 50%;
         }
     }
 }
@@ -291,26 +300,17 @@ iframe {
     cursor: pointer;
     position: absolute;
     right: 1.6rem;
-    &:hover {
-        background: url("../icons/globe_light.svg") no-repeat;
-    }
+
 }
 .kaart {
     background: url("../icons/map.svg") no-repeat;
     cursor: pointer;
 
-    &:hover {
-        background: url("../icons/map_light.svg") no-repeat;
-    }
 }
 #kaartReset {
     background: url("../icons/reset.svg") no-repeat;
     padding: 1.2rem;
     cursor: pointer;
-
-    &:hover {
-        background: url("../icons/reset_light.svg") no-repeat;
-    }
 }
 
 *, *::before, *::after {
@@ -1426,10 +1426,14 @@ input {
         max-width: 15rem;
     }
 
-    /*& #album-end-date, #artist-end-date {*/
-    /*    padding: 0;*/
-    /*    min-width: 15rem;*/
-    /*}*/
+
+
+}
+
+.stretch {
+    display: flex;
+    justify-content: stretch;
+    width: 100%;
 }
 
 #loc-search-result {
