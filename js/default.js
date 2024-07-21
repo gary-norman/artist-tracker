@@ -1,4 +1,9 @@
 import { formatDateToUK } from './calendar.js';
+
+function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 document.getElementById('form-homepage').addEventListener('keydown', function(event) {
     // Check if the key pressed is Enter (key code 13)
     if (event.key === 'Enter' || event.code === 'Enter') {
@@ -128,23 +133,75 @@ document.addEventListener('DOMContentLoaded', () => {
     const globeIcon = document.querySelector('.globe');
     const mapIcon = document.querySelector('.kaart');
     const parent = document.getElementById('mapProject');
-    let buttonText = document.querySelector('#mapProject .button-text');
+    let switchButtonText = document.querySelector('#mapProject .button-text');
+    let resetButtonText = document.querySelector('#resetMap .button-text');
+    const mapControls = document.getElementById('map-controls');
+    const mapControlsContainer = document.querySelector('.mapControls');
 
     parent.addEventListener('click', () => {
         toggleMapView();
     });
 
-    function toggleMapView() {
-        if (globeIcon){
-            parent.removeChild(globeIcon);
+    //initialise button text on load
+    toggleButtonText();
+    toggleControlsView();
 
-            mapIcon.classList.add('hide');
-            buttonText.textContent = 'Switch to 3D View';
+    window.addEventListener('resize', () => {
+        toggleButtonText();
+        toggleControlsView();
+    });
 
-        } else if (mapIcon){
-            mapIcon.classList.remove('hide');
-            globeIcon.classList.add('hide');
-            buttonText.textContent = 'Switch to 2D View';
+
+    async function toggleMapView() {
+        if (globeIcon.classList.contains('hide-icon')){
+            globeIcon.classList.remove('hide-icon');
+            mapIcon.classList.add('hide-icon');
+            toggleButtonText();
+
+        } else {
+            mapIcon.classList.remove('hide-icon');
+            globeIcon.classList.add('hide-icon');
+            toggleButtonText();
+        }
+    }
+
+    function toggleButtonText() {
+        let isGlobe = false;
+
+        if (globeIcon.classList.contains('hide-icon')) {
+            isGlobe = true;
+        }
+        if (window.innerWidth < 380) {
+            if (isGlobe) {
+                switchButtonText.textContent = '2D view';
+            } else {
+                switchButtonText.textContent = '3D view';
+            }
+            resetButtonText.textContent = 'Reset';
+        } else if (window.innerWidth < 650) {
+            if (isGlobe) {
+                switchButtonText.textContent = 'Switch to 2D';
+            } else {
+                switchButtonText.textContent = 'Switch to 3D';
+            }
+            resetButtonText.textContent = 'Reset map';
+        } else {
+            if (isGlobe) {
+                switchButtonText.textContent = 'Switch to 2D map';
+            } else {
+                switchButtonText.textContent = 'Switch to 3D map';
+            }
+            resetButtonText.textContent = 'Reset map position';
+        }
+    }
+
+    function toggleControlsView(){
+        if (window.innerWidth < 550) {
+            mapControls.classList.add('stretch');
+            mapControlsContainer.classList.remove('space');
+        } else {
+            mapControls.classList.remove('stretch');
+            mapControlsContainer.classList.add('space');
         }
     }
 });
