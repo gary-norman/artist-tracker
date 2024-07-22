@@ -28,6 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     let isHovering = false;
 
+    if (window.innerWidth < 850) {
+        parent.classList.add('scroll');
+    }
+
     if (!members.length) {
         console.log("No members present");
         return; // Exit if no members are found
