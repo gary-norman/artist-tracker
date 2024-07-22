@@ -1421,6 +1421,7 @@ input {
 
     & label  {
         align-content:  center;
+        cursor: pointer;
     }
 
     & p {
