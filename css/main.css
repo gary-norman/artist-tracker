@@ -61,7 +61,8 @@
 
     /* variables to change with js */
     --show-hide-icon: url('../icons/show_x24.svg');
-    --search-cancel-icon: url('../icons/search_x24.svg');
+    --search-main-icon: url('../icons/search_x24.svg');
+    --search-loc-icon: url('../icons/search_x16.svg');
     --member-tooltip: '';
 
     --main-grad: linear-gradient(90deg, var(--green-3) 0%, var(--green-0) 100%);
@@ -282,18 +283,18 @@ iframe {
 
 .globe, .kaart, #kaartReset {
     opacity: 1;
-    translate: 0 0;
+    /*translate: 0 0;*/
     transition-property: translate, opacity;
     transition-duration: .4s;
     transition-behavior: allow-discrete;
     height: 2.4rem;
     width: 2.4rem;
 
-    @starting-style{
-        max-height: 100%;
-        translate: -0.4rem 0;
-        opacity: 0;
-    }
+    /*@starting-style{*/
+    /*    max-height: 100%;*/
+    /*    translate: 2rem 0;*/
+    /*    opacity: 0;*/
+    /*}*/
 }
 .globe {
     background: url("../icons/globe.svg") no-repeat;
@@ -302,6 +303,7 @@ iframe {
     right: 1.6rem;
 
 }
+
 .kaart {
     background: url("../icons/map.svg") no-repeat;
     cursor: pointer;
@@ -839,7 +841,7 @@ a {
             cursor: pointer;
             /*display: none; !* Initially hidden *!*/
             background-size: contain; /* Ensure the icon is properly sized */
-            background-image: var(--search-cancel-icon); /* Use your icon variable */
+            background-image: var(--search-main-icon); /* Use your icon variable */
         }
 
         &:not(:placeholder-shown) ~ #clear-icon {
@@ -1546,12 +1548,11 @@ input {
 }
 
 .hide-icon {
-    /*display: none !important;*/
     opacity: 0;
     translate: 0.4rem 0;
     max-height: 2rem;
     transition-property: translate, display, opacity;
-    transition-duration: .4s;
+    transition-duration: .1s;
     transition-behavior: allow-discrete;
     z-index: 1;
     @starting-style{
@@ -1711,12 +1712,6 @@ button {
     &#button-filter-checkbox {
         padding: 0;
     }
-    &#button-filter-checkbox::after {
-       content: url('../icons/search_x16.svg');
-        width: 1.6rem;
-        height: 1.6rem;
-        top: 1rem;
-    }
     &#album-start-date, &#artist-start-date {
         &::after {
             width: 1.6rem;
@@ -1729,6 +1724,17 @@ button {
             align-items: center;
         }
     }
+}
+
+#search-loc-icon {
+    position: absolute;
+    width: 1.6rem;
+    height: 1.6rem;
+    top: 1.2rem;
+    right: 1.6rem;
+    cursor: pointer;
+    background-size: contain;
+    background-image: var(--search-loc-icon);
 }
 
 .button-text {
@@ -1752,9 +1758,6 @@ button {
 
     #button-filter::after {
         content: var(--show-hide-icon) !important;
-    }
-    #button-filter-checkbox::after {
-        content: url('../icons/search_x16.svg') !important;
     }
     #button-filter-container::before {
         content: url('../icons/filter_x16.svg')!important;

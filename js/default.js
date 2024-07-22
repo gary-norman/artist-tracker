@@ -206,6 +206,101 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const searchButton = document.getElementById('button-filter-concert-location');
+    const searchLocResultsContainer = document.getElementById('loc-search-result')
+    const searchLocResults = document.getElementById('filter-checkbox-locations');
+    const searchIcon = document.getElementById('search-loc-icon');
+    let isSearching = false;
+
+    function debounce(func, wait) {
+        let timeout;
+        return function(...args) {
+            const context = this;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(context, args), wait);
+        };
+    }
+
+    function showSection(element) {
+        element.classList.remove('hide');
+    }
+
+    function hideSection(element) {
+        element.classList.add('hide');
+    }
+
+    const updateSearchCancelIcon = (button) => {
+        const search = "url('../icons/search_x16.svg')";
+        const cancel = "url('../icons/close_x16.svg')";
+
+        if (button === "cancel") {
+            document.documentElement.style.setProperty("--search-loc-icon", cancel);
+        } else {
+            document.documentElement.style.setProperty("--search-loc-icon", search);
+        }
+    };
+
+    searchButton.addEventListener('focus', debounce(() => {
+
+        // Clear suggestions if input is empty
+        if (searchButton.value === '') {
+            searchLocResults.innerHTML = '';
+            searchButton.placeholder = 'Start typing location...';
+        }
+    }, 300));
+
+    searchButton.addEventListener('input', debounce(function() {
+        if (searchButton.value.trim() !== '') {
+            isSearching = true;
+            updateSearchCancelIcon("cancel");
+            showSection(searchLocResultsContainer);
+            console.log("showing search loc results on input")
+        } else {
+            isSearching = true;
+            updateSearchCancelIcon("search");
+            hideSection(searchLocResultsContainer);
+            console.log("hiding search loc results")
+        }
+    }, 300));
+
+    searchIcon.addEventListener('click', debounce (function(e) {
+        e.stopPropagation(); // Prevent the click from propagating to the parent element**
+
+        // Handle the click on the clear icon
+        searchButton.value = '';
+        searchLocResults.innerHTML = ''; // Clear suggestions if input is empty
+        searchButton.placeholder = 'Start typing location...';
+        updateSearchCancelIcon("search");
+        hideSection(searchLocResultsContainer);
+        console.log("hiding from searchIcon click")
+    }, 300));
+
+
+
+
+    // document.addEventListener('click', debounce(function(event) {
+    //     let clickInsideAnyElement = false;
+    //
+    //     allSearchElements.forEach(element => {
+    //         if (element.contains(event.target)) {
+    //             clickInsideAnyElement = true;
+    //             // console.log("inside: ", event.target)
+    //         } else {
+    //
+    //         }
+    //     });
+    //
+    //     if (!clickInsideAnyElement) {
+    //         showSection(homeElements);
+    //         hideSection(searchElements);
+    //         console.log("hiding from click outside")
+    //         changeLogo(logo, subLogo, "large");
+    //         updateSearchCancelIcon("search");
+    //     }
+    // }, 300));
+});
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const searchButton = document.getElementById("search-input");
@@ -263,14 +358,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const cancel24 = "url('../icons/close_x24.svg')";
 
         if (button === "cancel") {
-            document.documentElement.style.setProperty("--search-cancel-icon", cancel24);
+            document.documentElement.style.setProperty("--search-main-icon", cancel24);
         } else {
-            document.documentElement.style.setProperty("--search-cancel-icon", search24);
+            document.documentElement.style.setProperty("--search-main-icon", search24);
         }
     };
 
     searchButton.addEventListener('focus', debounce(() => {
-            showSections(searchElements);
+            // showSections(searchElements);
+            filters.classList.remove('hide');
             hideSections(homeElements);
             searchButton.placeholder = 'Start typing...';
 
