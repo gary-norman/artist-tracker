@@ -25,7 +25,7 @@
 <body>
 <main>
     <div class="wrapper artist-wrapper">
-        <section class="artist-container">
+        <div class="artist-container">
             <a href="/" class="linkback"></a>
             <a href="/artist?name={{ .Name }}" id="artist-profile" class="content go-across-lg" >
                 <img class="pic user pic--lg" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
@@ -36,52 +36,95 @@
                     <p class="pill pill-created">Created in {{ .CreationDate }}</p>
                 </div>
             </a>
-            <div class="artist-details-small">
-
-
-                <p class="p--bold">Band Members</p>
-                <div class="go-across-md scroll">
-                    {{ range $memberName, $imgLink := .Members }}
-                    <div class="content member-item">
-
-                        <img class="pic user pic--sm" style="background: none" src="{{ $imgLink }}" alt="Profile image of {{ $memberName }}"/>
-                        <div class="small center cut">{{ $memberName }}</div>
+<!--            <section class="artist-details-small">-->
+<!--                <p class="p&#45;&#45;bold">Band Members</p>-->
+<!--                <div class="go-across-md scroll">-->
+<!--                    {{ range $memberName, $imgLink := .Members }}-->
+<!--                    <div class="content member-item">-->
+<!--                        <img class="pic user pic&#45;&#45;sm" style="background: none" src="{{ $imgLink }}" alt="Profile image of {{ $memberName }}"/>-->
+<!--                        <div class="small center cut">{{ $memberName }}</div>-->
+<!--                    </div>-->
+<!--                    {{ end }}-->
+<!--                </div>-->
+<!--            </section>-->
+            <section class="container">
+                <div id="album-details"  class="container col col2 ">
+                    <div class="content go-down">
+                        <h2 class="h3-jockey">{{.CurrentAlbum.Album}} - {{.CurrentAlbum.YearReleased}}</h2>
+                        <div class="go-across-md">
+                            {{if .CurrentAlbum.Label}}
+                            <p class="p--condensed pill">Label</p> <span>{{ .CurrentAlbum.Label}}</span>
+                            {{ else }}
+                            <p class="p--condensed pill">Label</p> <span> Unknown</span>
+                            {{ end }}
+                        </div>
+                        <div class="go-across-md">
+                            {{if .CurrentAlbum.Genre}}
+                            <p class="p--condensed pill">Genre</p> <span>{{ .CurrentAlbum.Genre}}</span>
+                            {{ else }}
+                            <p class="p--condensed pill">Genre</p><span> Unknown</span>
+                            {{ end }}
+                        </div>
 
                     </div>
+                    {{ if .CurrentAlbum.Album3DFlat }}
+                            <img class="pic pic--lg" src="{{ .CurrentAlbum.Album3DFlat }}" alt="Album cover of {{.CurrentAlbum.Album}}">
+                        {{ else if .CurrentAlbum.Album3DThumb }}
+                            <img class="pic pic--lg" src="{{ .CurrentAlbum.Album3DThumb }}" alt="Album cover of {{.CurrentAlbum.Album}}">
+                        {{ else }}
+                            <img class="pic pic--lg" src="{{ .CurrentAlbum.AlbumThumb}}" alt="Album cover of {{.CurrentAlbum.Album}}" height="180px">
+                    {{ end }}
+                    <div id="embed-iframe" class="spotify-player"></div>
+                    <p class="p--condensed">{{.CurrentAlbum.DescriptionEN}}</p>
+
+
+
+                </div>
+            </section>
+            <section id="other-albums" class="container col col1">
+                {{ $artist := . }}
+                <h2>Other Albums by {{ $artist.Name }} </h2>
+                <div class="row scroll">
+                    {{ range $index, $element := $artist.AllAlbums.Album }}
+                        {{ if lt $index 20 }}
+                        <a class="content go-down" href="/album?name={{$artist.Name}}&album={{ .Album }}&year={{.YearReleased}}">
+                            <img class="pic album" src="{{.AlbumThumb}}" alt="Album cover of ({{.Album}})"/>
+                            <div class="content-text go-down-home">
+                                <div class="p--bold cut">{{.Album}}</div>
+                                <div class="small light cut">{{.YearReleased}}</div>
+                            </div>
+                        </a>
+                        {{ end }}
                     {{ end }}
                 </div>
+            </section>
+            <section id="search-concerts" class="container col col1">
+                <div class="container">
+                    <!--                <div class="row scroll">-->
+                <h2>Concerts by {{ .Name }}</h2>
 
+                     <div class="col col3 scroll">
+                         {{ $artist := . }}
+                         {{ range $index, $concert := $artist.TourDetails.Data }}
+                         {{ $location := printf "%s, %s" $concert.Location.Address.AddressLocality $concert.Location.Address.AddressCountry }}
+                         {{ $dateParts := formatDate $concert.StartDate }}
+                         <a class="content artistPageTourdate" href="/artist?name={{ $artist.Name }}" data-index="{{ $concert.ConcertId }}">
+                             <div class="pic date">
+                                 <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
+                                 <div>{{ $dateParts.Year }}</div>
+                             </div>
+                             <div class="content-text go-down-home">
+                                 <div class="p--bold cut concert">{{ $concert.Location.Address.AddressLocality }}</div>
+                                 <div class="concert">
+                                     <div class="small light cut">{{ $concert.Location.Address.AddressCountry }}</div>
+                                 </div>
+                             </div>
+                         </a>
+                         {{ end }}
+                     </div>
+                 </div>
+            </section>
         </div>
-            <div class="container first-album">
-                <div id="album-details"  class="container scroll">
-                    <div class="go-down">
-                        <h2 class="h3-jockey">{{.CurrentAlbum.Album}} - {{.CurrentAlbum.YearReleased}}</h2>
-                        {{if .CurrentAlbum.Label}}
-                        <p class="p--condensed">Label: {{.CurrentAlbum.Label}}</p>
-                        {{ else }}
-                        <p class="p--condensed">Label: unknown</p>
-                        {{ end }}
-                        {{if .CurrentAlbum.Genre}}
-                        <p class="p--condensed">Genre: {{.CurrentAlbum.Genre}}</p>
-                        {{ else }}
-                        <p class="p--condensed">Genre: unknown</p>
-                        {{ end }}
-                    </div>
-                    <div class="col col2">
-                        {{ if .CurrentAlbum.Album3DFlat }}
-                        <img src="{{ .CurrentAlbum.Album3DFlat }}" alt="Album cover of {{.CurrentAlbum.Album}}">
-                        {{ else if .CurrentAlbum.Album3DThumb }}
-                        <img src="{{ .CurrentAlbum.Album3DThumb }}" alt="Album cover of {{.CurrentAlbum.Album}}">
-                        {{ else }}
-                        <img src="{{ .CurrentAlbum.AlbumThumb}}" alt="Album cover of {{.CurrentAlbum.Album}}" height="180px">
-                        {{ end }}
-                        <div id="embed-iframe" class="spotify-player"></div>
-                    </div>
-                    <p class="p--condensed">{{.CurrentAlbum.DescriptionEN}}</p>
-                </div>
-            </div>
-
-        </section>
 
 
     </div>

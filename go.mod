@@ -5,6 +5,7 @@ go 1.22.4
 require (
 	github.com/google/uuid v1.6.0
 	github.com/pterm/pterm v0.12.79
+	golang.org/x/net v0.6.0
 	golang.org/x/text v0.14.0
 )
 
