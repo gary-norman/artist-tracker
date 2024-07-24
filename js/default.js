@@ -316,10 +316,10 @@ document.addEventListener('DOMContentLoaded', () => {
             updateSearchCancelIcon("search");
             showSections(homeElements);
             hideSections(searchElements);
-            console.log("hiding from click 2")
+            console.log("hiding bbbbbbbb")
             changeLogo(logo, subLogo, "large");
         }
-    }, 1));
+    }, 300));
 
     searchIcon.addEventListener('click', debounce (function(e) {
         e.stopPropagation(); // Prevent the click from propagating to the parent element**
@@ -332,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateSearchCancelIcon("search");
         showSections(homeElements);
         hideSections(searchElements);
-        console.log("hiding from searchIcon click")
+        console.log("hiding from cccccccc")
         changeLogo(logo, subLogo, "large");
     }, 300));
 

@@ -223,7 +223,8 @@ document.addEventListener('DOMContentLoaded', function () {
             resultsHeader.textContent = `Showing 0 results`;
             populateResults.innerHTML = 'No results found.';
             searchResults.appendChild(populateResults);
-            searchResults.classList.remove('hide'); 
+            searchResults.classList.remove('hide');
+            console.log("testing 1")
             return;
         } else if (resultsHeader) {
             resultsHeader.textContent = `Showing ${suggestionsData.length} results`;
@@ -348,7 +349,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 contentText = document.createElement('div');
                 contentText.className = 'content-text go-down';
 
-                //TODO suggestion populates search term inside bold-cut
                 let boldCut = document.createElement('div');
                 boldCut.className = 'p--bold cut';
                 if (suggestion.category === 'Album') {
@@ -385,12 +385,13 @@ document.addEventListener('DOMContentLoaded', function () {
         for (const category in categories) {
             const categoryContainer = categories[category];
 
-            if (categoryContainer.resultsCount > 0) {
+            if (categoryContainer.resultsCount > 0 && searchInput.value.trim() !== '') {
                 const header = document.createElement('h2');
                 header.textContent = category + 's';
                 categoryContainer.insertBefore(header, categoryContainer.firstChild);
                 populateResults.appendChild(categoryContainer);
                 searchResults.classList.remove('hide');
+                console.log("testing 2")
                 searchResults.appendChild(populateResults)
             }
         }
