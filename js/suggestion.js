@@ -4,7 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results');
     const populateResults = document.getElementById('populate-results');
-    
+    const filterInputs = document.querySelectorAll('input[id^="filter-"]');
+
+
     const locSearchInput = document.getElementById('button-filter-concert-location');
     const locSearchResults = document.getElementById('loc-search-result');
     const locationsContainer = document.getElementById('filter-checkbox-locations');
@@ -382,15 +384,29 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
+        let openFilters = 0;
+
         for (const category in categories) {
             const categoryContainer = categories[category];
 
-            if (categoryContainer.resultsCount > 0 && searchInput.value.trim() !== '') {
+            if (categoryContainer.resultsCount > 0) {
+            // if (categoryContainer.resultsCount > 0) {
                 const header = document.createElement('h2');
                 header.textContent = category + 's';
                 categoryContainer.insertBefore(header, categoryContainer.firstChild);
                 populateResults.appendChild(categoryContainer);
-                searchResults.classList.remove('hide');
+                if (searchInput.value.trim() === ''){
+                    filterInputs.forEach(input => {
+                        if (input.checked){
+                            openFilters++
+                        }
+                    });
+                    if (openFilters > 0) {
+                        searchResults.classList.remove('hide');
+                    }
+                } else {
+                    searchResults.classList.remove('hide');
+                }
                 console.log("testing 2")
                 searchResults.appendChild(populateResults)
             }

@@ -312,12 +312,12 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("hiding home elements; showing search elements")
             changeLogo(logo, subLogo, "small");
         } else {
-            isSearching = true;
-            updateSearchCancelIcon("search");
-            showSections(homeElements);
-            hideSections(searchElements);
-            console.log("hiding bbbbbbbb")
-            changeLogo(logo, subLogo, "large");
+            // isSearching = true;
+            // updateSearchCancelIcon("search");
+            // showSections(homeElements);
+            // hideSections(searchElements);
+            // console.log("hiding bbbbbbbb")
+            // changeLogo(logo, subLogo, "large");
         }
     }, 300));
 
