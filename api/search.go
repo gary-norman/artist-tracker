@@ -210,7 +210,7 @@ func getSuggestionArtist(artist Artist, searchQuery, normalizedQuery string) []S
 
 		// Check artist genre
 		if strings.Contains(artistGenreLower, searchQuery) {
-			artistSuggestions = append(artistSuggestions, Suggestion{"Artist", artist.TheAudioDbArtist.Genre, &artist})
+			artistSuggestions = append(artistSuggestions, Suggestion{"Artist", artist.Name, &artist})
 		}
 	}
 
