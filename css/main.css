@@ -1422,6 +1422,10 @@ input {
     translate: 0 0;
     gap: 2.4rem;
 
+    @media (max-width: 550px){
+        gap: 0.8rem;
+    }
+
     & label  {
         align-content:  center;
         cursor: pointer;
