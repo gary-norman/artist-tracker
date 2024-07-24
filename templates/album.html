@@ -50,20 +50,17 @@
             <section class="container">
                 <div id="album-details"  class="container col col2 ">
                     <div class="content go-down">
-                        <h2 class="h3-jockey">{{.CurrentAlbum.Album}} - {{.CurrentAlbum.YearReleased}}</h2>
+                        <h2 class="h3-jockey">{{.CurrentAlbum.Album}}</h2>
                         <div class="go-across-md">
-                            {{if .CurrentAlbum.Label}}
-                            <p class="p--condensed pill">Label</p> <span>{{ .CurrentAlbum.Label}}</span>
-                            {{ else }}
-                            <p class="p--condensed pill">Label</p> <span> Unknown</span>
-                            {{ end }}
+                            <p class="p--condensed pill">Released</p> <span> {{if .CurrentAlbum.YearReleased}} {{.CurrentAlbum.YearReleased}} {{ else }}Unknown{{ end }}</span>
                         </div>
                         <div class="go-across-md">
-                            {{if .CurrentAlbum.Genre}}
-                            <p class="p--condensed pill">Genre</p> <span>{{ .CurrentAlbum.Genre}}</span>
-                            {{ else }}
-                            <p class="p--condensed pill">Genre</p><span> Unknown</span>
-                            {{ end }}
+                            <p class="p--condensed pill">Label</p> <span> {{if .CurrentAlbum.Label}} {{ .CurrentAlbum.Label}} {{ else }}Unknown{{ end }}</span>
+                       </div>
+                        <div class="go-across-md">
+
+                            <p class="p--condensed pill">Genre</p> <span>{{if .CurrentAlbum.Genre}}{{ .CurrentAlbum.Genre}}{{ else }}Unknown{{ end }}</span>
+
                         </div>
 
                     </div>
@@ -97,32 +94,6 @@
                         {{ end }}
                     {{ end }}
                 </div>
-            </section>
-            <section id="search-concerts" class="container col col1">
-                <div class="container">
-                    <!--                <div class="row scroll">-->
-                <h2>Concerts by {{ .Name }}</h2>
-
-                     <div class="col col3 scroll">
-                         {{ $artist := . }}
-                         {{ range $index, $concert := $artist.TourDetails.Data }}
-                         {{ $location := printf "%s, %s" $concert.Location.Address.AddressLocality $concert.Location.Address.AddressCountry }}
-                         {{ $dateParts := formatDate $concert.StartDate }}
-                         <a class="content artistPageTourdate" href="/artist?name={{ $artist.Name }}" data-index="{{ $concert.ConcertId }}">
-                             <div class="pic date">
-                                 <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
-                                 <div>{{ $dateParts.Year }}</div>
-                             </div>
-                             <div class="content-text go-down-home">
-                                 <div class="p--bold cut concert">{{ $concert.Location.Address.AddressLocality }}</div>
-                                 <div class="concert">
-                                     <div class="small light cut">{{ $concert.Location.Address.AddressCountry }}</div>
-                                 </div>
-                             </div>
-                         </a>
-                         {{ end }}
-                     </div>
-                 </div>
             </section>
         </div>
 

@@ -67,7 +67,7 @@
 
     --main-grad: linear-gradient(90deg, var(--green-3) 0%, var(--green-0) 100%);
     --filter-bar: linear-gradient(to right, var(--white-4) 25%, var(--green-0) 20%, var(--white-4) 60%);
-    --artist-image: clamp(6rem, 15vw, 14rem)
+    --artist-image: clamp(6rem,18vw, 20rem);
 }
 
 
@@ -1078,11 +1078,9 @@ input {
 
     &.pic--lg {
         border-radius: var(--radius-lg);
-        min-width: var(--artist-image);
-        min-height: var(--artist-image);
         max-width: var(--artist-image);
         max-height: var(--artist-image);
-
+        align-self: end;
         @media (max-width: 750px){
             border-radius: var(--radius-md);
         }
