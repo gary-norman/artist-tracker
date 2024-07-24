@@ -53,16 +53,16 @@
                         <h2 class="h3-jockey">{{.CurrentAlbum.Album}} - {{.CurrentAlbum.YearReleased}}</h2>
                         <div class="go-across-md">
                             {{if .CurrentAlbum.Label}}
-                            <p class="p--condensed pill">Label</p> <span>{{ .CurrentAlbum.Label}}</span>
+                            <p class="p--condensed pill">Label</p> <span class="light">{{ .CurrentAlbum.Label}}</span>
                             {{ else }}
-                            <p class="p--condensed pill">Label</p> <span> Unknown</span>
+                            <p class="p--condensed pill">Label</p> <span class="light"> Unknown</span>
                             {{ end }}
                         </div>
                         <div class="go-across-md">
                             {{if .CurrentAlbum.Genre}}
-                            <p class="p--condensed pill">Genre</p> <span>{{ .CurrentAlbum.Genre}}</span>
+                            <p class="p--condensed pill">Genre</p> <span class="light">{{ .CurrentAlbum.Genre}}</span>
                             {{ else }}
-                            <p class="p--condensed pill">Genre</p><span> Unknown</span>
+                            <p class="p--condensed pill">Genre</p><span class="light"> Unknown</span>
                             {{ end }}
                         </div>
 
