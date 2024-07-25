@@ -86,7 +86,7 @@
                         {{ if lt $index 20 }}
                         <a class="content go-down" href="/album?name={{$artist.Name}}&album={{ .Album }}&year={{.YearReleased}}">
                             <img class="pic album" src="{{.AlbumThumb}}" alt="Album cover of ({{.Album}})"/>
-                            <div class="content-text go-down-home center">
+                            <div class="content-text go-down-home">
                                 <div class="p--bold cut">{{.Album}}</div>
                                 <div class="small light cut">{{.YearReleased}}</div>
                             </div>
@@ -94,6 +94,32 @@
                         {{ end }}
                     {{ end }}
                 </div>
+            </section>
+            <section id="search-concerts" class="container col col1">
+                <div class="container">
+                    <!--                <div class="row scroll">-->
+                <h2>Concerts by {{ .Name }}</h2>
+
+                     <div class="col col3 scroll">
+                         {{ $artist := . }}
+                         {{ range $index, $concert := $artist.TourDetails.Data }}
+                         {{ $location := printf "%s, %s" $concert.Location.Address.AddressLocality $concert.Location.Address.AddressCountry }}
+                         {{ $dateParts := formatDate $concert.StartDate }}
+                         <a class="content artistPageTourdate" href="/artist?name={{ $artist.Name }}" data-index="{{ $concert.ConcertId }}">
+                             <div class="pic date">
+                                 <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
+                                 <div>{{ $dateParts.Year }}</div>
+                             </div>
+                             <div class="content-text go-down-home">
+                                 <div class="p--bold cut concert">{{ $concert.Location.Address.AddressLocality }}</div>
+                                 <div class="concert">
+                                     <div class="small light cut">{{ $concert.Location.Address.AddressCountry }}</div>
+                                 </div>
+                             </div>
+                         </a>
+                         {{ end }}
+                     </div>
+                 </div>
             </section>
         </div>
 
