@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let parent = input.closest('.filter');
                 if (parent) {
                     const filterOpenElements = parent.querySelectorAll('[class^="filter-open"]');
-                    parent.classList.add('open');
+                    parent.classList.add('open', 'filter-bcg');
                     filterOpenElements.forEach(filter => filter.classList.remove('hide'));
                 }
             } else {
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let parent = input.closest('.filter');
                 if (parent) {
                     const filterOpenElements = parent.querySelectorAll('[class^="filter-open"]');
-                    parent.classList.remove('open');
+                    parent.classList.remove('open', 'filter-bcg');
                     filterOpenElements.forEach(filter => filter.classList.add('hide'));
                 }
             }
@@ -335,31 +335,13 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("hiding from cccccccc")
         changeLogo(logo, subLogo, "large");
     }, 300));
-
-
-
-
-    // document.addEventListener('click', debounce(function(event) {
-    //     let clickInsideAnyElement = false;
-    //
-    //     allSearchElements.forEach(element => {
-    //         if (element.contains(event.target)) {
-    //             clickInsideAnyElement = true;
-    //             // console.log("inside: ", event.target)
-    //         } else {
-    //
-    //         }
-    //     });
-    //
-    //     if (!clickInsideAnyElement) {
-    //         showSections(homeElements);
-    //         hideSections(searchElements);
-    //         console.log("hiding from click outside")
-    //         changeLogo(logo, subLogo, "large");
-    //         updateSearchCancelIcon("search");
-    //     }
-    // }, 300));
 });
+
+const filters = document.querySelectorAll('.filter:not(:first-child)');
+const show24 = "url('../icons/show_x24.svg')";
+const hide24 = "url('../icons/hide_x24.svg')";
+const show16 = "url('../icons/show_x16.svg')";
+const hide16 = "url('../icons/hide_x16.svg')";
 
 function updateSliderBackground(slider) {
     const value = slider.value;
@@ -388,25 +370,24 @@ export const toggleVisFilters = () => {
     const anyFilterChecked = Array.from(filterInputs).some(input => input.checked);
 
     filters.forEach(filter => {
-        let input = filter.closest('#filter-');
-
         filter.classList.toggle('hide');
-        // if (!input.checked) {
-        //     filter.style.padding = "unset";
-        //     filter.style.backgroundColor = "unset";
-        // } else {
-        //     filter.style.padding = "0.8rem 1.6rem"
-        //     filter.style.backgroundColor = "rgba(1,1,1,0.05)";
-        // }
-
     });
 };
 
-const filters = document.querySelectorAll('.filter:not(:first-child)');
-const show24 = "url('../icons/show_x24.svg')";
-const hide24 = "url('../icons/hide_x24.svg')";
-const show16 = "url('../icons/show_x16.svg')";
-const hide16 = "url('../icons/hide_x16.svg')";
+export const toggleFilterBackground = (filter) => {
+
+        let input = filter.querySelector('input[id^="filter-"]');
+        console.log("input is:", input)
+        if (input.checked) {
+            filter.style.padding = "unset";
+            filter.style.backgroundColor = "unset";
+        } else {
+            filter.style.padding = "0.8rem 1.6rem"
+            filter.style.backgroundColor = "rgba(1,1,1,0.05)";
+        }
+};
+
+
 
 export const toggleVisSubmit = () => {
     const filterSubmit = document.getElementById("search-submit-filter");

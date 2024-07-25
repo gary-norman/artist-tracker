@@ -1436,9 +1436,7 @@ input {
     content: url('../icons/hide_x24.svg');
 }
 
-.open {
-    padding-bottom: 3.6rem;
-}
+
 
 
 
@@ -1559,11 +1557,20 @@ input {
     }
 }
 
-.filter:not(:first-of-type) {
-
-    /*padding: 0.8rem 1.6rem;*/
-    /*background-color: rgba(1,1,1,0.05);*/
+.open {
+    padding:  1.2rem 1.6rem;
+    background-color: rgba(1,1,1,0.1);
     border-radius: var(--radius-xl);
+
+    transition-property: padding, border-radius, margin-bottom;
+    transition-duration: .4s;
+    transition-behavior: allow-discrete;
+
+    @starting-style {
+        padding:  0;
+        background-color: rgba(1,1,1,0);
+        border-radius: 0;
+        margin-bottom: 0;    }
 }
 
 .filter-open {
