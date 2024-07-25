@@ -370,61 +370,84 @@ function updateSliderBackground(slider) {
     slider.style.background = `linear-gradient(to right, var(--green-0) ${percentage}%, var(--white-4) ${percentage}%)`;
 }
 
+export const toggleIconFiltersButton = () => {
+    const isHidden = filters[0].classList.contains('hide');
 
+    if (window.innerWidth < 500) {
+        console.log(`Setting filter toggle to ${isHidden ? 'show16' : 'hide16'}`);
+        document.documentElement.style.setProperty("--show-hide-icon", isHidden ? show16 : hide16);
+    } else {
+        console.log(`Setting filter toggle to ${isHidden ? 'show24' : 'hide24'}`);
+        document.documentElement.style.setProperty("--show-hide-icon", isHidden ? show24 : hide24);
+    }
+};
+
+export const toggleVisFilters = () => {
+    const filterInputs = document.querySelectorAll('input[id^="filter-"]');
+
+    const anyFilterChecked = Array.from(filterInputs).some(input => input.checked);
+
+    filters.forEach(filter => {
+        let input = filter.closest('#filter-');
+
+        filter.classList.toggle('hide');
+        // if (!input.checked) {
+        //     filter.style.padding = "unset";
+        //     filter.style.backgroundColor = "unset";
+        // } else {
+        //     filter.style.padding = "0.8rem 1.6rem"
+        //     filter.style.backgroundColor = "rgba(1,1,1,0.05)";
+        // }
+
+    });
+};
+
+const filters = document.querySelectorAll('.filter:not(:first-child)');
+const show24 = "url('../icons/show_x24.svg')";
+const hide24 = "url('../icons/hide_x24.svg')";
+const show16 = "url('../icons/show_x16.svg')";
+const hide16 = "url('../icons/hide_x16.svg')";
+
+export const toggleVisSubmit = () => {
+    const filterSubmit = document.getElementById("search-submit-filter");
+
+    const filterInputs = document.querySelectorAll('input[id^="filter-"]');
+
+    const anyFilterChecked = Array.from(filterInputs).some(input => input.checked);
+
+    if (anyFilterChecked){
+        filterSubmit.classList.toggle('hide');
+    } else {
+        filterSubmit.classList.add('hide');
+    }
+
+
+    // // Check if any filters are visible (not hidden)
+    // const anyFilterVisible = Array.from(filters).some(filter => !filter.classList.contains('hide'));
+    //
+    // if (anyFilterVisible) {
+    //     filterSubmit.classList.remove('hide');
+    // } else {
+
+    // }
+};
 
 document.addEventListener('DOMContentLoaded', () => {
     const filterButton = document.getElementById('button-filter');
-    const filters = document.querySelectorAll('.filter:not(:first-child)');
-    const filterInputs = document.querySelectorAll('input[id^="filter-"]');
-    let openFilters = 0;
-    const filterSubmit = document.getElementById("search-submit-filter");
-    let filterNumber = document.getElementById("button-filter-number");
-
-    const show24 = "url('../icons/show_x24.svg')";
-    const hide24 = "url('../icons/hide_x24.svg')";
-    const show16 = "url('../icons/show_x16.svg')";
-    const hide16 = "url('../icons/hide_x16.svg')";
 
     console.log("Initializing show-hide-icon to hide24");
     document.documentElement.style.setProperty("--show-hide-icon", show24);
 
-    const updateSearchSubmitButtonVisibility = () => {
-        const filterSubmit = document.getElementById("search-submit-filter");
-
-
-        // Check if any filters are visible (not hidden)
-        const anyFilterVisible = Array.from(filters).some(filter => !filter.classList.contains('hide'));
-
-        if (anyFilterVisible) {
-            filterSubmit.classList.remove('hide');
-        } else {
-            filterSubmit.classList.add('hide');
-        }
-    }
-
-    const updateShowHideIcon = () => {
-        const isHidden = filters[0].classList.contains('hide');
-        if (window.innerWidth < 500) {
-            console.log(`Setting show-hide-icon to ${isHidden ? 'show16' : 'hide16'}`);
-            document.documentElement.style.setProperty("--show-hide-icon", isHidden ? show16 : hide16);
-        } else {
-            console.log(`Setting show-hide-icon to ${isHidden ? 'show24' : 'hide24'}`);
-            document.documentElement.style.setProperty("--show-hide-icon", isHidden ? show24 : hide24);
-        }
-    };
-
     filterButton.addEventListener('click', () => {
-        filters.forEach(filter => {
-            filter.classList.toggle('hide');
-        });
-        updateShowHideIcon();
-        updateSearchSubmitButtonVisibility();
+        toggleVisFilters();
+        toggleIconFiltersButton();
+        toggleVisSubmit();
     });
 
-    window.addEventListener('resize', updateShowHideIcon);
+    window.addEventListener('resize', toggleIconFiltersButton);
 
     // Initial update based on the current window size
-    updateShowHideIcon();
+    toggleIconFiltersButton();
 });
 
 

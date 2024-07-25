@@ -1,3 +1,5 @@
+import {toggleIconFiltersButton, toggleVisFilters, toggleVisSubmit } from './default.js';
+
 const pillContainer = document.querySelector('.pills')
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -5,7 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const searchResults = document.getElementById('search-results');
     const populateResults = document.getElementById('populate-results');
     const filterInputs = document.querySelectorAll('input[id^="filter-"]');
+    const filters = document.querySelectorAll('input[class^="filter-"]');
 
+    let openFilters = 0;
 
     const locSearchInput = document.getElementById('button-filter-concert-location');
     const locSearchResults = document.getElementById('loc-search-result');
@@ -229,7 +233,12 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log("testing 1")
             return;
         } else if (resultsHeader) {
-            if (searchInput.value.trim() !== '') {
+            filterInputs.forEach(input => {
+                if (input.checked){
+                    openFilters++
+                }
+            });
+            if (searchInput.value.trim() === '' && openFilters > 0) {
                 resultsHeader.textContent = `Showing ${suggestionsData.length} results`;
             } else {
                 resultsHeader.textContent = ``;
@@ -389,7 +398,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        let openFilters = 0;
+
 
         for (const category in categories) {
             const categoryContainer = categories[category];
@@ -438,6 +447,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     
                     // Handle the received searchData, e.g., update the UI
                     showSuggestions(searchData);
+                    toggleVisFilters();
+                    toggleIconFiltersButton();
+                    toggleVisSubmit();
                 } else {
                     throw new Error('Failed to fetch search results');
                 }

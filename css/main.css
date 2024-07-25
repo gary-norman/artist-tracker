@@ -1559,6 +1559,13 @@ input {
     }
 }
 
+.filter:not(:first-of-type) {
+
+    /*padding: 0.8rem 1.6rem;*/
+    /*background-color: rgba(1,1,1,0.05);*/
+    border-radius: var(--radius-xl);
+}
+
 .filter-open {
     opacity: 1;
     translate: 0 0;
