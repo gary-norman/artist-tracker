@@ -394,6 +394,7 @@ p {
     font-weight:  var(--font-weight-500);
     line-height: normal;
     display: block;
+    text-align: left;
     /*align-self: center;*/
 }
 
@@ -428,6 +429,9 @@ a {
     align-items: center !important;
     justify-content: center;
     /*text-wrap: nowrap;*/
+    & > * {
+        text-align: center;
+    }
 }
 
 .flexrow {
@@ -919,6 +923,11 @@ a {
 
 .concerts-list {
     grid-area: a;
+    grid-template-rows: 7.6rem ;
+
+    @media (min-width:801px)  {
+        /*width: 100%;*/
+    }
     @media (max-width:800px) and (min-width:551px) {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         /*width: 100%;*/
@@ -931,6 +940,10 @@ a {
     grid-area: b;
     justify-content: start;
     width: 100%;
+    @media (min-width: 801px) {
+        justify-content: center;
+        height: 40rem;
+    }
     @media (max-width: 800px) {
         justify-content: center;
         height: fit-content;
@@ -1167,6 +1180,7 @@ input {
             text-align: center;
             width: clamp(10rem, 14rem, 16rem);
             height: 100%;
+            justify-content: start;
         }
         &.go-down-home:has(.concert) {
             text-align: left;
@@ -1284,6 +1298,10 @@ input {
         }
     }
 
+}
+#populate-results {
+    text-align: center;
+    padding: 2.4rem;
 }
 
 

@@ -31,7 +31,7 @@
 <!--                <h3 id="search-recent-text" class="floating-md hide">Recent searches</h3>-->
                 <div id="search-filters" class="floating-md filters go-down hide">
                     <div class="space filter">
-                        <h3 class="small light center">Showing 0 results</h3>
+                        <h3 class="small light center"></h3>
                         <div class="button button-2" id="button-filter">
                             <div id="button-filter-container" class="button-container">
                                 <p class="button-text" id="button-filter-number">Filters (0)</p>
@@ -316,8 +316,8 @@
                 {{ if lt $index 20 }}
                 <a class="content go-down" href="/artist?name={{ .Name }}">
                             <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}/preview" alt="Profile image of {{.Name}}"/>
-                            <div class="content-text go-down-home">
-                                <div class="p--bold cut center">
+                            <div class="content-text center go-down-home">
+                                <div class="p--bold cut ">
                                     {{ if gt (len .MemberList) 1 }}
                                     {{ index .MemberList (random (len .MemberList)) }}
                                     {{ else }}
@@ -325,7 +325,7 @@
                                     {{ end }}
                                 </div>
                                 {{ if gt (len .MemberList) 1 }}
-                                <div class="small light cut">
+                                <div class="small light cut ">
                                     {{ .Name }}
                                 </div>
                                 {{ end }}
@@ -343,9 +343,9 @@
                 {{ if lt $index 20 }}
                 <a class="content go-down" href="/album?name={{.Name }}&album={{.FirstAlbumStruct.Album}}&year={{.FirstAlbumStruct.YearReleased}}">
                     <img class="pic album" src="{{.FirstAlbumStruct.AlbumThumb}}" alt="Image of {{.Name}}'s first album: {{.FirstAlbumStruct.Album}}"/>
-                    <div class="content-text go-down-home">
-                        <div class="p--bold cut">{{.FirstAlbumStruct.Album}}</div>
-                        <div class="small light cut">{{.Name}}</div>
+                    <div class="content-text go-down-home center">
+                        <div class="p--bold cut ">{{.FirstAlbumStruct.Album}}</div>
+                        <div class="small light cut ">{{.Name}}</div>
                     </div>
                 </a>
                 {{ end }}

@@ -222,14 +222,19 @@ document.addEventListener('DOMContentLoaded', function () {
         
         const resultsHeader = document.querySelector('.filters .small.light.center');
         if (!suggestionsData || suggestionsData.length === 0) {
-            resultsHeader.textContent = `Showing 0 results`;
-            populateResults.innerHTML = 'No results found.';
+            resultsHeader.textContent = ``;
+            populateResults.innerHTML = 'No results found... Search for something else 🎹';
             searchResults.appendChild(populateResults);
             searchResults.classList.remove('hide');
             console.log("testing 1")
             return;
         } else if (resultsHeader) {
-            resultsHeader.textContent = `Showing ${suggestionsData.length} results`;
+            if (searchInput.value.trim() !== '') {
+                resultsHeader.textContent = `Showing ${suggestionsData.length} results`;
+            } else {
+                resultsHeader.textContent = ``;
+            }
+
         }
         
         const categories = {
