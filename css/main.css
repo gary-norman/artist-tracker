@@ -858,7 +858,7 @@ a {
 
 #album-details {
     gap: 2.4rem;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .margin-extra {

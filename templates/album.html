@@ -49,7 +49,7 @@
 <!--            </section>-->
             <section class="container">
                 {{if .SongFound }}
-                <div id="album-details"  class="container col col2 ">
+                <div id="album-details"  class="container blue col col2 ">
 
 
                     <div class="content go-across-lg">
@@ -86,9 +86,9 @@
                 {{ else }}
 
                     {{if .CurrentAlbum.DescriptionEN}}
-                    <div id="album-details"  class="container col col2 ">
+                    <div id="album-details"  class="container col red col2 ">
                         {{ else }}
-                    <div id="album-details"  class="container col col1 ">
+                    <div id="album-details"  class="container col green  ">
                     {{end}}
                         <div class="content go-across-lg">
                             {{ if .CurrentAlbum.Album3DFlat }}

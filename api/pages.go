@@ -140,6 +140,7 @@ func AlbumPage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *te
 	songFound, err := ProcessSpotifyArtist(artist, token) // Call updated ProcessSpotifyArtist
 	if err != nil {
 		log.Printf("Error processing Spotify artist: %v", err)
+	} else {
 		log.Printf("song found: %v", songFound)
 	}
 
