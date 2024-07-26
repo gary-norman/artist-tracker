@@ -376,13 +376,13 @@ func GetSpotifyAlbums(artist, album, year, authToken string) (SpotifyAlbum, erro
 
 //	func ProcessSpotifyArtist(wg *sync.WaitGroup, artist *Artist, spotifyAuthToken string) {
 //		defer wg.Done()
-func ProcessSpotifyArtist(artist *Artist, authToken string) {
+func ProcessSpotifyArtist(artist *Artist, authToken string) (bool, error) {
 	//defer wg.Done()
 	// Extract year from FirstAlbum date
 	firstAlbumDate, err := time.Parse("02-01-2006", artist.FirstAlbum)
 	if err != nil {
 		fmt.Printf("Error parsing date for artist %s: %v\n", artist.Name, err)
-		return
+		return false, err // Return false on error
 	}
 	year := firstAlbumDate.Format("2006")
 	fmt.Printf("%v's extracted year: %s\n", artist.Name, year)
@@ -395,8 +395,13 @@ func ProcessSpotifyArtist(artist *Artist, authToken string) {
 	fmt.Printf("Spotify Album: %v\n", spotifyAlbum)
 	if err != nil {
 		fmt.Printf("Error fetching %s for artist %s: %v\n", release, artist.Name, err)
-		return
+		return false, err // Return false on error
 	}
+
+	// If no error, song is found
+	fmt.Printf("Spotify Album: %v\n", spotifyAlbum)
+	return true, nil // Return true if song found
+
 	//// Update artist struct
 	//artist.SpotifyAlbum = spotifyAlbum
 	//// Update date format

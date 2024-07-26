@@ -63,6 +63,7 @@ type Artist struct {
 	DatesLocations  map[string][]string `json:"datesLocations"`
 	AverageLocation string              `json:"averageLocation"`
 	TourDetails
+	SongFound   bool
 	RandIntFunc func(int) int `json:"-"`
 }
 
