@@ -36,12 +36,6 @@ func containsDigits(input string) bool {
 // Function to parse the dates and other params from the request
 func parseSearchParams(r *http.Request) (SearchParams, error) {
 
-	// debug print
-	/* 	fmt.Println("Form values received:")
-	   	for key, values := range r.Form {
-	   		fmt.Printf("%s: %v\n", key, values)
-	   	}
-	*/
 	params := SearchParams{
 		SearchInput: r.URL.Query().Get("search-input"),
 
@@ -241,7 +235,8 @@ func isConcertDateOrLocationMatch(artist *Artist, params SearchParams) (bool, bo
 
 					// Check if the date is within the specified range
 					if isDateInRange(tempdate, params.ConcertStartDate, params.ConcertEndDate) {
-						fmt.Printf("Location and concert date matched: %v, %v\n", loc, dateStr)
+						// debug print
+						// fmt.Printf("Location and concert date matched: %v, %v\n", loc, dateStr)
 						isLocationMatch = true
 						isConcertDateMatch = true
 						// Once matched, no need to check further for this location
@@ -255,7 +250,8 @@ func isConcertDateOrLocationMatch(artist *Artist, params SearchParams) (bool, bo
 		if params.ConcertLocationSelected {
 			for _, loc := range params.Locations {
 				if _, found := artist.DatesLocations[loc]; found {
-					fmt.Printf("Location matched: %v\n", loc)
+					// debug print
+					// fmt.Printf("Location matched: %v\n", loc)
 					isLocationMatch = true
 					break
 				}
@@ -276,7 +272,8 @@ func isConcertDateOrLocationMatch(artist *Artist, params SearchParams) (bool, bo
 
 					// Check if the date is within the specified range
 					if isDateInRange(tempdate, params.ConcertStartDate, params.ConcertEndDate) {
-						fmt.Printf("Concert date matched: %v\n", dateStr)
+						// debug print
+						// fmt.Printf("Concert date matched: %v\n", dateStr)
 						isConcertDateMatch = true
 						break
 					}

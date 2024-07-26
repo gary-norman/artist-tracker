@@ -230,7 +230,6 @@ document.addEventListener('DOMContentLoaded', function () {
             populateResults.innerHTML = 'No results found... Search for something else 🎹';
             searchResults.appendChild(populateResults);
             searchResults.classList.remove('hide');
-            console.log("testing 1")
             return;
         } else if (resultsHeader) {
             filterInputs.forEach(input => {
@@ -421,7 +420,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                     searchResults.classList.remove('hide');
                 }
-                console.log("testing 2")
                 searchResults.appendChild(populateResults)
             }
         }

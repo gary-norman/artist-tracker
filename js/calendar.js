@@ -153,8 +153,8 @@ document.addEventListener('DOMContentLoaded', function () {
             disableYear = creationStartYearValue;
             startYear = disableYear;
         }
-
-        console.log("Disable Year:", disableYear);
+        // debug print
+        // console.log("Disable Year:", disableYear);
 
         // Hide other filters
         hideElements = [
@@ -219,13 +219,13 @@ document.addEventListener('DOMContentLoaded', function () {
         disableDay = disableDate.getDate();
        
         //debug print
-        console.log("disable date is--------->",disableDate);
+    /*     console.log("disable date is--------->",disableDate);
         console.log("disable Year is--------->",disableYear);
         console.log("disable Month is--------->",disableMonth);
         console.log("disable Day is--------->",disableDay);
         console.log("current Year is--------->",currentYear);
         console.log("current Month is--------->",currentMonth);
-        console.log("current Day is--------->",currentDay);
+        console.log("current Day is--------->",currentDay); */
         
         // Check if the start date is the first day of the month
         if (currentDay === 1) {
@@ -281,13 +281,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
        
         //debug print
-        console.log("disable date is--------->",disableDate);
+     /*    console.log("disable date is--------->",disableDate);
         console.log("disable Year is--------->",disableYear);
         console.log("disable Month is--------->",disableMonth);
         console.log("disable Day is--------->",disableDay);
         console.log("current Year is--------->",currentYear);
         console.log("current Month is--------->",currentMonth);
-        console.log("current Day is--------->",currentDay);
+        console.log("current Day is--------->",currentDay); */
         
         // Check if the selected start date is the last day of the month
         const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
@@ -302,8 +302,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         
         // debug print
-        console.log("year now is:",currentYear)
-        console.log("month now after formatting is:",currentMonth)
+        /* console.log("year now is:",currentYear)
+        console.log("month now after formatting is:",currentMonth) */
         
         renderDayCalendar(currentMonth, currentYear, "end");
     }); 
@@ -376,13 +376,13 @@ document.addEventListener('DOMContentLoaded', function () {
          disableDay = disableDate.getDate();
       
          //debug print
-         console.log("disable date is--------->",disableDate);
+        /*  console.log("disable date is--------->",disableDate);
          console.log("disable Year is--------->",disableYear);
          console.log("disable Month is--------->",disableMonth);
          console.log("disable Day is--------->",disableDay);
          console.log("current Year is--------->",currentYear);
          console.log("current Month is--------->",currentMonth);
-         console.log("current Day is--------->",currentDay);
+         console.log("current Day is--------->",currentDay); */
         
         // Check if the start date is the first day of the month
     if (currentAlbumDay === 1) {
@@ -438,10 +438,10 @@ document.addEventListener('DOMContentLoaded', function () {
       
         isDayDisabled = false;
         //debug print
-        console.log("disable date is--------->",disableDate);
+      /*   console.log("disable date is--------->",disableDate);
         console.log("disable Year is--------->",disableYear);
         console.log("disable Month is--------->",disableMonth);
-        console.log("disable Day is--------->",disableDay);
+        console.log("disable Day is--------->",disableDay); */
         
         // Check if the selected start date is the last day of the month
         const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
@@ -621,14 +621,14 @@ document.addEventListener('DOMContentLoaded', function () {
         isMonthDisabled = false;
       
         // debug print
-        console.log("----> ** renderDayCalendar type is:",type)
+   /*      console.log("----> ** renderDayCalendar type is:",type)
         console.log("----> ** month got parsed:",month)
         console.log("----> ** year got parsed:",year) 
         console.log("----> ** disable Year is:",disableYear);
         console.log("----> ** disable month is:",disableMonth);
         console.log("----> ** disable day is:",disableDay);
         console.log("----> ** current Year is:",currentYear);
-        console.log("----> ** current month is:",currentMonth); 
+        console.log("----> ** current month is:",currentMonth);  */
         
         const containerId = `dayCalendar${type.charAt(0).toUpperCase() + type.slice(1)}`;
         const container = document.getElementById(containerId);
@@ -643,7 +643,8 @@ document.addEventListener('DOMContentLoaded', function () {
             (type === 'end' || type === 'albumEnd') && (year <= disableYear )) {
                 isYearDisabled = true;
         }
-        console.log("************* is year disable? **********",isYearDisabled)
+        // debug print
+        // console.log("************* is year disable? **********",isYearDisabled)
         
          // If the year is disabled, add appropriate class and disable interaction
         const backYearButton = container.querySelector('.cal-btn.back-year');
@@ -685,8 +686,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 isMonthDisabled = true;
             }
         }
-        
-        console.log("************* is month disable? **********",isMonthDisabled)
+        // debug print
+        // console.log("************* is month disable? **********",isMonthDisabled)
         
         const backMonthButton = container.querySelector('.cal-btn.back-month');
         const forwardMonthButton = container.querySelector('.cal-btn.front-month');
@@ -734,10 +735,10 @@ document.addEventListener('DOMContentLoaded', function () {
             let checkDay = new Date(year, month, date);
             
             // debug print
-             console.log("--> starting adding date inside calendar");
+          /*    console.log("--> starting adding date inside calendar");
              console.log("--> parsing date :",date);
              console.log("--> disable date :",disableDay);
-          /*    console.log("--> check date :",checkDay);
+             console.log("--> check date :",checkDay);
              console.log("--> disable date:", disableDate);  */
             
             const dateElement = document.createElement('div');
@@ -746,7 +747,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 checkDay > new Date()) {
                 isDayDisabled = true;
             }
-            console.log("************* is date disable? **********",isDayDisabled)
+            // debug print
+            // console.log("************* is date disable? **********",isDayDisabled)
             
             if (isDayDisabled) {
                 dateElement.textContent = date;
@@ -846,14 +848,14 @@ document.addEventListener('DOMContentLoaded', function () {
           isYearDisabled = false;
           
          // debug print
-         console.log("----> ** renderMonthCalendar type is:",type)
+      /*    console.log("----> ** renderMonthCalendar type is:",type)
          console.log("----> ** year got parsed:",year) 
          console.log("----> ** disable Year is:",disableYear);
          console.log("----> ** disable month is:",disableMonth);
          console.log("----> ** disable day is:",disableDay);
         
          console.log("----> ** current Year is:",currentYear);
-         console.log("----> ** current month is:",currentMonth); 
+         console.log("----> ** current month is:",currentMonth);  */
         
         const containerId = `monthCalendar${type.charAt(0).toUpperCase() + type.slice(1)}`;
         const container = document.getElementById(containerId);
@@ -949,13 +951,13 @@ document.addEventListener('DOMContentLoaded', function () {
          let isYearDisabled = false;
          
         // debug print
-         console.log("----> ** renderYearCalendar type is:",type)
+    /*      console.log("----> ** renderYearCalendar type is:",type)
          console.log("----> ** startyear got parsed:",startYear) 
          console.log("----> ** disable Year is:",disableYear);
          console.log("----> ** disable month is:",disableMonth);
          console.log("----> ** disable day is:",disableDay);
          console.log("----> ** current Year is:",currentYear);
-         console.log("----> ** current month is:",currentMonth); 
+         console.log("----> ** current month is:",currentMonth);  */
          
         const containerId = `yearCalendar${type.charAt(0).toUpperCase() + type.slice(1)}`;
         const container = document.getElementById(containerId);
@@ -968,7 +970,8 @@ document.addEventListener('DOMContentLoaded', function () {
              (type === 'end' || type === 'albumEnd') && (startYear <= disableYear )) {
              isYearDisabled = true;
         }
-        console.log("************* is year disable? **********",isYearDisabled)
+        // debug print
+        // console.log("************* is year disable? **********",isYearDisabled)
         
         const backButton = container.querySelector('.cal-btn.back');
         const forwardButton = container.querySelector('.cal-btn.front');
@@ -1164,7 +1167,7 @@ function selectYear(year, calendarType) {
         
         const selectedDate = new Date(year,month,date);
         // Debug print  
-        console.log("selected date from calendarPicker:", selectedDate);
+        // console.log("selected date from calendarPicker:", selectedDate);
         const currentDate = new Date();
     
         switch (type) {
@@ -1175,8 +1178,8 @@ function selectYear(year, calendarType) {
                 isStartCalendarOpen = false;
     
                 // Debug print 
-                console.log("Selected start year:", year);
-                console.log("Selected start month:", month);
+            /*     console.log("Selected start year:", year);
+                console.log("Selected start month:", month); */
                 break;
     
             case 'end': 
@@ -1186,8 +1189,8 @@ function selectYear(year, calendarType) {
                 isEndCalendarOpen = false;
     
                 // Debug print 
-                console.log("Selected end year:", year);
-                console.log("Selected end month:", month);
+             /*    console.log("Selected end year:", year);
+                console.log("Selected end month:", month); */
     
                 // Trigger change event to notify any listeners of the input change, in order to change the default endDate
                 endDateInput.dispatchEvent(new Event('change'));
