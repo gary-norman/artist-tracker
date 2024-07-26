@@ -695,6 +695,7 @@ a {
             & .scroll {
                 max-height: 50rem;
                 gap: 0;
+                justify-content: start;
 
                 @media (max-width: 550px){
                     max-height: 30rem;
