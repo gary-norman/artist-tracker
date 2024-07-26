@@ -1330,6 +1330,10 @@ input {
     & > * {
         gap: 0;
     }
+    & .pic--lg {
+        max-width: 12rem;
+        align-self: center;
+    }
     &:hover {
         background-color: var(--grey-2);
     }
