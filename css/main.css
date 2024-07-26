@@ -210,7 +210,7 @@ iframe {
         margin: 0;
     }
     & .content {
-        padding: 0 0 0.8rem 0 !important;
+        padding: 0 0 0 0 !important;
         border-radius: var(--radius-sm) !important;
         width: 100% !important;
         align-items: center !important;
@@ -693,7 +693,7 @@ a {
     &#artist-concerts, &#home-concerts {
         & > * {
             & .scroll {
-                max-height: 50rem;
+                max-height: 30rem;
                 gap: 0;
                 justify-content: start;
 
@@ -858,6 +858,15 @@ a {
 
 #album-details {
     gap: 2.4rem;
+    justify-content: center;
+}
+
+.margin-extra {
+    margin: 7.2rem 0 0 0;
+}
+
+.container:has(#album-details){
+    justify-content: center;
 }
 
 .row {
@@ -1099,18 +1108,17 @@ input {
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-width: 6rem;
     max-width: 6rem;
-    min-height: 6rem;
     max-height: 6rem;
     background: top / cover no-repeat;
     background: none;
 
     &.pic--lg {
         border-radius: var(--radius-lg);
-        max-width: var(--artist-image);
-        max-height: var(--artist-image);
+        max-width: 12rem;
+        max-height: 12rem;
         align-self: end;
+
         @media (max-width: 750px){
             border-radius: var(--radius-md);
         }
@@ -1132,6 +1140,7 @@ input {
         background: rgba(1 1 1 / 0);
         &.pic--lg {
             border-radius: var(--radius-lg);
+            aspect-ratio: 1/1;
         }
     }
 
@@ -1159,6 +1168,15 @@ input {
     }
 }
 
+#first-album-pic{
+    aspect-ratio: 1/1;
+    max-height: 15.2rem;
+    min-height: 15.2rem;
+    max-width: 15.2rem;
+    min-width: 15.2rem;
+
+    align-self: center;
+}
 
 .content {
     display: flex;
@@ -1320,8 +1338,48 @@ input {
 #populate-results {
     text-align: center;
     padding: 2.4rem;
+
+    transition-property: padding;
+    transition-duration: .2s;
+    transition-behavior: allow-discrete;
+
+    @starting-style{
+        padding: 2.4rem;
+    }
+
+    @media (max-width: 800px) {
+        padding: 1.6rem;
+
+        transition-property: padding;
+    transition-duration: .2s;
+    transition-behavior: allow-discrete;
+
+        @starting-style{
+            padding: 2.4rem;
+        }
+    }
+    @media (max-width: 800px) {
+        padding: 1.2rem;
+
+        transition-property: padding;
+    transition-duration: .2s;
+    transition-behavior: allow-discrete;
+
+        @starting-style{
+            padding: 2.4rem;
+        }
+    }
 }
 
+.frosted {
+    background-color: var(--frost-grad);
+    background: var(--frost-grad);
+    outline: 1px outset rgba(255, 255, 255, 0.4);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    overflow: visible;
+    z-index: 3000;
+}
 
 #first-album {
     max-height: 15.2rem;
@@ -1399,6 +1457,8 @@ input {
     display: flex;
     flex-direction: row;
     align-items: center;
+
+
     gap: 2.4rem;
 }
 
@@ -1665,10 +1725,10 @@ button {
 
         & p {
             margin: 0;
-            padding-left: 3.2rem;
-            @media (max-width:500px){
-                font-size: 1.2rem;
-            }
+            padding: 0 0 0 3.2rem;
+            /*@media (max-width:500px){*/
+            /*    font-size: 1.2rem;*/
+            /*}*/
         }
 
         &:hover {
@@ -1699,7 +1759,7 @@ button {
     }
 
     @media (max-width:500px){
-        padding: 0.8rem 1.2rem ;
+        padding: 0.8rem 1.6rem 0.8rem 1.2rem ;
     }
 
     &::after {
@@ -1731,9 +1791,9 @@ button {
         & p {
             margin: 0;
             padding-left: 3.2rem;
-            @media (max-width:500px){
-                font-size: 1.2rem;
-            }
+            /*@media (max-width:500px){*/
+            /*    font-size: 1.2rem;*/
+            /*}*/
         }
         & #button-filter-concert-location {
             width: 100%;

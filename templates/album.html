@@ -48,39 +48,77 @@
 <!--                </div>-->
 <!--            </section>-->
             <section class="container">
+                {{if .SongFound }}
                 <div id="album-details"  class="container col col2 ">
-                    <div class="content go-down">
-                        <h2 class="h3-jockey">{{.CurrentAlbum.Album}}</h2>
-                        <div class="go-across-md">
-                            <p class="p--condensed pill">Released</p> <span> {{if .CurrentAlbum.YearReleased}} {{.CurrentAlbum.YearReleased}} {{ else }}Unknown{{ end }}</span>
-                        </div>
-                        <div class="go-across-md">
-                            <p class="p--condensed pill">Label</p> <span> {{if .CurrentAlbum.Label}} {{ .CurrentAlbum.Label}} {{ else }}Unknown{{ end }}</span>
-                       </div>
-                        <div class="go-across-md">
 
-                            <p class="p--condensed pill">Genre</p> <span>{{if .CurrentAlbum.Genre}}{{ .CurrentAlbum.Genre}}{{ else }}Unknown{{ end }}</span>
 
-                        </div>
-
-                    </div>
-                    {{ if .CurrentAlbum.Album3DFlat }}
-                            <img class="pic pic--lg" src="{{ .CurrentAlbum.Album3DFlat }}" alt="Album cover of {{.CurrentAlbum.Album}}">
+                    <div class="content go-across-lg">
+                        {{ if .CurrentAlbum.Album3DFlat }}
+                        <img id="first-album-pic" class="pic pic--lg align-center" src="{{ .CurrentAlbum.Album3DFlat }}" alt="Album cover of {{.CurrentAlbum.Album}}">
                         {{ else if .CurrentAlbum.Album3DThumb }}
-                            <img class="pic pic--lg" src="{{ .CurrentAlbum.Album3DThumb }}" alt="Album cover of {{.CurrentAlbum.Album}}">
+                        <img id="first-album-pic" class="pic pic--lg align-center" src="{{ .CurrentAlbum.Album3DThumb }}" alt="Album cover of {{.CurrentAlbum.Album}}">
                         {{ else }}
-                            <img class="pic pic--lg" src="{{ .CurrentAlbum.AlbumThumb}}" alt="Album cover of {{.CurrentAlbum.Album}}" height="180px">
-                    {{ end }}
+                        <img id="first-album-pic" class="pic pic--lg align-center" src="{{ .CurrentAlbum.AlbumThumb}}" alt="Album cover of {{.CurrentAlbum.Album}}" height="180px">
+                        {{ end }}
+                        <div class="content go-down">
+                            <h2 class="h3-jockey">{{.CurrentAlbum.Album}}</h2>
+                            <div class="go-across-md">
+                                <p class="p--condensed pill">Released</p> <span> {{if .CurrentAlbum.YearReleased}} {{.CurrentAlbum.YearReleased}} {{ else }}Unknown{{ end }}</span>
+                            </div>
+                            <div class="go-across-md">
+                                <p class="p--condensed pill">Label</p> <span> {{if .CurrentAlbum.Label}} {{ .CurrentAlbum.Label}} {{ else }}Unknown{{ end }}</span>
+                            </div>
+                            <div class="go-across-md">
+
+                                <p class="p--condensed pill">Genre</p> <span>{{if .CurrentAlbum.Genre}}{{ .CurrentAlbum.Genre}}{{ else }}Unknown{{ end }}</span>
+
+                            </div>
+
+                        </div>
+                    </div>
                     {{if .SongFound }}
-                        <div id="embed-iframe" class="spotify-player"></div>
-                    {{else}}{{end}}
+                    <div id="embed-iframe" class="spotify-player"></div>
+                    {{end}}
                     {{if .CurrentAlbum.DescriptionEN}}
                         <p class="p--condensed">{{.CurrentAlbum.DescriptionEN}}</p>
-                    {{else}}{{end}}
+                    {{end}}
 
+                {{ else }}
 
+                    {{if .CurrentAlbum.DescriptionEN}}
+                    <div id="album-details"  class="container col col2 ">
+                        {{ else }}
+                    <div id="album-details"  class="container col col1 ">
+                    {{end}}
+                        <div class="content go-across-lg">
+                            {{ if .CurrentAlbum.Album3DFlat }}
+                                    <img id="first-album-pic" class="pic pic--lg align-center" src="{{ .CurrentAlbum.Album3DFlat }}" alt="Album cover of {{.CurrentAlbum.Album}}">
+                                {{ else if .CurrentAlbum.Album3DThumb }}
+                                    <img id="first-album-pic" class="pic pic--lg align-center" src="{{ .CurrentAlbum.Album3DThumb }}" alt="Album cover of {{.CurrentAlbum.Album}}">
+                                {{ else }}
+                                    <img id="first-album-pic" class="pic pic--lg align-center" src="{{ .CurrentAlbum.AlbumThumb}}" alt="Album cover of {{.CurrentAlbum.Album}}" height="180px">
+                            {{ end }}
+                            <div class="content go-down">
+                                <h2 class="h3-jockey">{{.CurrentAlbum.Album}}</h2>
+                                <div class="go-across-md">
+                                    <p class="p--condensed pill">Released</p> <span> {{if .CurrentAlbum.YearReleased}} {{.CurrentAlbum.YearReleased}} {{ else }}Unknown{{ end }}</span>
+                                </div>
+                                <div class="go-across-md">
+                                    <p class="p--condensed pill">Label</p> <span> {{if .CurrentAlbum.Label}} {{ .CurrentAlbum.Label}} {{ else }}Unknown{{ end }}</span>
+                                </div>
+                                <div class="go-across-md">
 
+                                    <p class="p--condensed pill">Genre</p> <span>{{if .CurrentAlbum.Genre}}{{ .CurrentAlbum.Genre}}{{ else }}Unknown{{ end }}</span>
 
+                                </div>
+
+                            </div>
+                            {{if .CurrentAlbum.DescriptionEN}}
+                        </div><p class="p--condensed margin-extra">{{.CurrentAlbum.DescriptionEN}}</p>
+                            {{else}}
+                        </div>
+                            {{ end}}
+                {{ end }}
                 </div>
             </section>
             <section id="other-albums" class="container col col1">

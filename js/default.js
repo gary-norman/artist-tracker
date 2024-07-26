@@ -109,8 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(members.length, " members present");
 
     }
-    console.log("Members present__", members.length);
-    console.error("Members present__", members.length);
 
 
     members.forEach(member => {
@@ -511,8 +509,8 @@ function updateDoubleSliderBackground(slider1, slider2) {
             }
 
         } else {
-            var minText = minVal > 9 ? addSeparator(minVal) + '+ Members' : minVal > 1 ? addSeparator(minVal) + ' Members' : addSeparator(minVal) + ' Member';
-            var maxText = maxVal > 9 ? addSeparator(maxVal) + '+ Members' : maxVal > 1 ? addSeparator(maxVal) + ' Members' : addSeparator(maxVal) + ' Member';
+            var minText = minVal > 9 ? addSeparator(minVal) + '+' : minVal > 1 ? addSeparator(minVal) + ' ' : addSeparator(minVal) + ' ';
+            var maxText = maxVal > 9 ? addSeparator(maxVal) + ' ' : maxVal > 1 ? addSeparator(maxVal) + ' ' : addSeparator(maxVal) + ' ';
             $(range_min).html(minText);
             $(range_max).html(maxText);
         }
