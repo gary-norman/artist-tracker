@@ -50,7 +50,8 @@
             <div class="container first-album">
                 <div class="container scroll" >
                         <h2>First Album</h2>
-                        <div class="col col2">
+                        {{if .SongFound }}
+                        <div class="col col2">{{else}}<div class="col col1">{{end}}
                             <div class="go-down">
                                 {{ $artist := . }}
                                 <a id="first-album" class="content" href="/album?name={{$artist.Name}}&album={{.FirstAlbumStruct.Album}}&year={{.FirstAlbumStruct.YearReleased}}">
