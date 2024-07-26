@@ -89,9 +89,9 @@
                 <div class="row scroll">
                     {{ range $index, $element := $artist.AllAlbums.Album }}
                         {{ if lt $index 20 }}
-                        <a class="content go-down" href="/album?name={{$artist.Name}}&album={{ .Album }}&year={{.YearReleased}}">
+                        <a class="content go-down " href="/album?name={{$artist.Name}}&album={{ .Album }}&year={{.YearReleased}}">
                             <img class="pic album" src="{{.AlbumThumb}}" alt="Album cover of ({{.Album}})"/>
-                            <div class="content-text go-down-home">
+                            <div class="content-text go-down-home center">
                                 <div class="p--bold cut">{{.Album}}</div>
                                 <div class="small light cut">{{.YearReleased}}</div>
                             </div>
