@@ -71,11 +71,13 @@
                         {{ else }}
                             <img class="pic pic--lg" src="{{ .CurrentAlbum.AlbumThumb}}" alt="Album cover of {{.CurrentAlbum.Album}}" height="180px">
                     {{ end }}
-                    <div id="embed-iframe" class="spotify-player"></div>
+                    {{if .SongFound }}
+                        <div id="embed-iframe" class="spotify-player"></div>
+                    {{else}}{{end}}
                     {{if .CurrentAlbum.DescriptionEN}}
-                    <p class="p--condensed">{{.CurrentAlbum.DescriptionEN}}</p>
-                    {{else}}
-                    {{end}}
+                        <p class="p--condensed">{{.CurrentAlbum.DescriptionEN}}</p>
+                    {{else}}{{end}}
+
 
 
 

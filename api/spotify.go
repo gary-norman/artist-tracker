@@ -377,6 +377,8 @@ func GetSpotifyAlbums(artist, album, year, authToken string) (SpotifyAlbum, erro
 //	func ProcessSpotifyArtist(wg *sync.WaitGroup, artist *Artist, spotifyAuthToken string) {
 //		defer wg.Done()
 func ProcessSpotifyArtist(artist *Artist, authToken string) (bool, error) {
+	fmt.Println("Processing spotify artist")
+
 	//defer wg.Done()
 	// Extract year from FirstAlbum date
 	firstAlbumDate, err := time.Parse("02-01-2006", artist.FirstAlbum)

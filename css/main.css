@@ -1331,7 +1331,7 @@ input {
         gap: 0;
     }
     & .pic--lg {
-        max-width: 12rem;
+        max-height: calc(100% - 3.2rem);
         align-self: center;
     }
     &:hover {
