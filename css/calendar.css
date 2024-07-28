@@ -157,6 +157,6 @@
   height: 100%;
   width: 100%;
   &:hover {
-    background: var(--grey-0);
+    background: var(--grey-1);
   }
 }
