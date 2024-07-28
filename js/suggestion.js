@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const resultsHeader = document.querySelector('.filters .small.light.center');
         if (!suggestionsData || suggestionsData.length === 0) {
             resultsHeader.textContent = ``;
-            populateResults.innerHTML = 'No results found... Search for something else 🎹';
+            populateResults.innerHTML = 'No results found.<br>Search for something else 🎹';
             searchResults.appendChild(populateResults);
             searchResults.classList.remove('hide');
             return;
@@ -353,7 +353,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             img.alt = 'Profile image of ' + (suggestion.artist && memberName ? memberName : 'Unknown Artist');
                         }
                     }
-                }else {
+                } else {
                     img.className = 'pic user';
                     img.src = suggestion.artist && suggestion.artist.strArtistThumb ? suggestion.artist.strArtistThumb : 'default-image-url.jpg';
                     img.alt = 'Profile image of ' + (suggestion.artist && suggestion.artist.name ? suggestion.artist.name : 'Unknown Artist');

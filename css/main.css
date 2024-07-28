@@ -1373,6 +1373,7 @@ input {
 #populate-results {
     text-align: center;
     padding: 2.4rem;
+    line-height: 2;
 
     transition-property: padding;
     transition-duration: .2s;
