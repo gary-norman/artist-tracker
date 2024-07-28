@@ -382,7 +382,13 @@ h3 {
     min-width: fit-content;
     font-size: clamp(1.6rem, 3.8vw, 3.2rem);
     text-wrap: wrap;
+
+    &#album-name {
+        text-wrap: nowrap;
+        overflow: visible;
+    }
 }
+
 
 p {
     font-family: "Inter", sans-serif;
@@ -868,7 +874,7 @@ a {
 }
 
 .margin-extra {
-    margin: 7.2rem 0 0 0;
+    margin: 6.4rem 0 0 0;
 }
 
 .container:has(#album-details){
@@ -922,6 +928,14 @@ a {
     @media (max-width: 800px) {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+    @media (max-width: 550px){
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+}
+
+.col60-40 {
+    grid-template-columns: 3fr 2fr;
+    width: 100%;
     @media (max-width: 550px){
         grid-template-columns: repeat(1, minmax(0, 1fr));
     }
@@ -1179,11 +1193,9 @@ input {
 }
 
 #first-album-pic{
-    aspect-ratio: 1/1;
     max-height: 15.2rem;
-    min-height: 15.2rem;
-    max-width: 15.2rem;
-    min-width: 15.2rem;
+    max-width: 18rem;
+    min-width: 18rem;
 
     align-self: start;
 }

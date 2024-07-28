@@ -88,7 +88,7 @@
                     {{if .CurrentAlbum.DescriptionEN}}
                     <div id="album-details"  class=" container col col2 ">
                         {{ else }}
-                    <div id="album-details"  class=" container col  ">
+                    <div id="album-details"  class=" container col col2 ">
                     {{end}}
                         <div class="content go-across-lg">
                             {{ if .CurrentAlbum.Album3DFlat }}
@@ -99,7 +99,7 @@
                                     <img id="first-album-pic" class="pic pic--lg align-center" src="{{ .CurrentAlbum.AlbumThumb}}" alt="Album cover of {{.CurrentAlbum.Album}}" height="180px">
                             {{ end }}
                             <div class=" go-down">
-                                <h2 class="h3-jockey">{{.CurrentAlbum.Album}}</h2>
+                                <h2 id="album-name" class="h3-jockey">{{.CurrentAlbum.Album}}</h2>
                                 <div class="go-across-md">
                                     <p class="p--condensed pill">Released</p> <span> {{if .CurrentAlbum.YearReleased}} {{.CurrentAlbum.YearReleased}} {{ else }}Unknown{{ end }}</span>
                                 </div>
