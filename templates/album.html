@@ -49,16 +49,16 @@
 <!--            </section>-->
             <section class="container">
                 {{if .SongFound }}
-                <div id="album-details"  class="grid container col col2 ">
+                <div id="album-details"  class="container col col2 ">
 
 
                     <div class="content go-across-lg">
                         {{ if .CurrentAlbum.Album3DFlat }}
                         <img id="first-album-pic" class="pic pic--lg" src="{{ .CurrentAlbum.Album3DFlat }}" alt="Album cover of {{.CurrentAlbum.Album}}">
                         {{ else if .CurrentAlbum.Album3DThumb }}
-                        <img id="first-album-pic" class="pic pic--lg" src="{{ .CurrentAlbum.Album3DThumb }}" alt="Album cover of {{.CurrentAlbum.Album}}">
+                        <img id="first-album-pic" class="pic pic--lg" style="min-height: 18rem;" src="{{ .CurrentAlbum.Album3DThumb }}" alt="Album cover of {{.CurrentAlbum.Album}}">
                         {{ else }}
-                        <img id="first-album-pic" class="pic pic--lg" src="{{ .CurrentAlbum.AlbumThumb}}" alt="Album cover of {{.CurrentAlbum.Album}}" height="180px">
+                        <img id="first-album-pic" class="pic pic--lg" style="min-height: 18rem;" src="{{ .CurrentAlbum.AlbumThumb}}" alt="Album cover of {{.CurrentAlbum.Album}}" height="180px">
                         {{ end }}
                         <div class="go-down">
                             <h2 class="h3-jockey">{{.CurrentAlbum.Album}}</h2>
@@ -86,17 +86,17 @@
                 {{ else }}
 
                     {{if .CurrentAlbum.DescriptionEN}}
-                    <div id="album-details"  class=" container col col2 ">
+                    <div id="album-details"  class="container col col2 ">
                         {{ else }}
-                    <div id="album-details"  class=" container col col2 ">
+                    <div id="album-details"  class="container col col2 ">
                     {{end}}
                         <div class="content go-across-lg">
                             {{ if .CurrentAlbum.Album3DFlat }}
-                                    <img id="first-album-pic" class="pic pic--lg align-center" src="{{ .CurrentAlbum.Album3DFlat }}" alt="Album cover of {{.CurrentAlbum.Album}}">
+                                    <img id="first-album-pic" class="pic pic--lg" src="{{ .CurrentAlbum.Album3DFlat }}" alt="Album cover of {{.CurrentAlbum.Album}}">
                                 {{ else if .CurrentAlbum.Album3DThumb }}
-                                    <img id="first-album-pic" class="pic pic--lg align-center" src="{{ .CurrentAlbum.Album3DThumb }}" alt="Album cover of {{.CurrentAlbum.Album}}">
+                                    <img id="first-album-pic" class="pic pic--lg" style="min-height: 18rem;" src="{{ .CurrentAlbum.Album3DThumb }}" alt="Album cover of {{.CurrentAlbum.Album}}">
                                 {{ else }}
-                                    <img id="first-album-pic" class="pic pic--lg align-center" src="{{ .CurrentAlbum.AlbumThumb}}" alt="Album cover of {{.CurrentAlbum.Album}}" height="180px">
+                                    <img id="first-album-pic" class="pic pic--lg" style="min-height: 18rem;" src="{{ .CurrentAlbum.AlbumThumb}}" alt="Album cover of {{.CurrentAlbum.Album}}" height="180px">
                             {{ end }}
                             <div class=" go-down">
                                 <h2 id="album-name" class="h3-jockey">{{.CurrentAlbum.Album}}</h2>

@@ -871,10 +871,17 @@ a {
     gap: 2.4rem;
     justify-content: flex-start;
 
+    & .go-across-lg {
+        flex-wrap: wrap;
+    }
+
 }
 
 .margin-extra {
     margin: 6.4rem 0 0 0;
+    @media (max-width: 550px) {
+        margin: 0;
+    }
 }
 
 .container:has(#album-details){
@@ -1541,7 +1548,21 @@ input {
 .filter {
     width: 100%;
     padding-bottom: 1.2rem;
+    border-radius: var(--radius-md);
     transition: padding-bottom .4s;
+
+    transition-property: padding, background-color, border-radius;
+    transition-duration: .4s;
+    transition-behavior: allow-discrete;
+
+    &:not(:first-of-type){
+        @starting-style {
+            padding:  1.2rem 1.6rem;
+            background-color: rgba(1,1,1,0.1);
+            border-radius: var(--radius-xl);
+        }
+    }
+
 
 }
 
