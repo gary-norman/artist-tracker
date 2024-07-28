@@ -693,11 +693,11 @@ a {
     &#artist-concerts, &#home-concerts {
         & > * {
             & .scroll {
-                max-height: 30rem;
+                max-height: 40rem;
                 gap: 0;
                 justify-content: start;
 
-                @media (max-width: 550px){
+                @media (max-width: 800px){
                     max-height: 30rem;
                 }
             }
@@ -1165,6 +1165,8 @@ input {
         line-height: 1.2;
         background: var(--concert-grad);
         border-radius: 0.4rem;
+        width: 6rem;
+        height: 6rem;
     }
 }
 
