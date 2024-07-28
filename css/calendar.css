@@ -149,6 +149,7 @@
 
 .calendar-month,
 .calendar-year{
+  color: var(--white-0);
   cursor: pointer;
   background: none;
   border-radius: 3px;
