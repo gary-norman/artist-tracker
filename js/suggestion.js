@@ -458,6 +458,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
         fetchSearchResult();
     });
-   
     
 });
