@@ -72,7 +72,15 @@
   background: none;
   border: none;
   cursor: pointer;
+  width: 100%;
+  height: 3.2rem;
+  padding:  0.2rem;
   color: var(--white-0);
+  border-radius: 3px;
+
+  &:hover {
+    background: var(--grey-0);
+  }
 }
 
 .cal-wrapper {
@@ -139,9 +147,16 @@
   color:rgb from var(--white-1) r g b / .2;
 }
 
-.calendar-month:hover,
-.calendar-year:hover{
+.calendar-month,
+.calendar-year{
   cursor: pointer;
-  background: var(--grey-0);
+  background: none;
   border-radius: 3px;
+  padding: 0.4rem;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  &:hover {
+    background: var(--grey-0);
+  }
 }
