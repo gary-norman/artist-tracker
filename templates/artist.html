@@ -52,7 +52,7 @@
                         <h2>First Album</h2>
                         {{if .SongFound }}
                         <div class="col col2">{{else}}<div class="col col1">{{end}}
-                            <div class="go-down">
+                            <div class="grid go-down">
                                 {{ $artist := . }}
                                 <a id="first-album" class="content" href="/album?name={{$artist.Name}}&album={{.FirstAlbumStruct.Album}}&year={{.FirstAlbumStruct.YearReleased}}">
                                     {{if .FirstAlbumStruct.Album3DThumb}}
@@ -82,7 +82,7 @@
         <section id="artist-albums" class="container col col1">
             <div class="container">
                 <h2>Albums</h2>
-                <div class="col col2 scroll">
+                <div class="grid col col2 scroll">
                     {{ $artist := . }}
                     {{ range .AllAlbums.Album }}
                     <a class="content" href="/album?name={{$artist.Name}}&album={{ .Album }}&year={{.YearReleased}}">
@@ -113,7 +113,7 @@
                 </div>
             </div>
             <div class="col col2 col40-60" >
-                <div class="col col1 scroll concerts-list">
+                <div class="grid col col1 scroll concerts-list">
 
                     {{ $artist := . }}
                     {{ range $index, $concert := $artist.TourDetails.Data }}
@@ -146,7 +146,7 @@
 </main>
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
 <script src="/js/map_indiv.js"></script>
-<script type="module" src="/js/default.js"></script>
+<script type="module" type="text/javascript" src="../js/mouseMove.js"></script>
 <script type="module" src="/js/artist.js"></script>
 <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 <script type="text/javascript">

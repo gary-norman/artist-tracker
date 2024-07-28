@@ -1,3 +1,7 @@
+// import { setupGridMouseMoveListener } from './mouseMove.js';
+//
+// setupGridMouseMoveListener();
+
 function debounce(func, wait) {
     let timeout;
     return function(...args) {
@@ -6,6 +10,7 @@ function debounce(func, wait) {
         timeout = setTimeout(() => func.apply(context, args), wait);
     };
 }
+
 document.addEventListener('DOMContentLoaded', () => {
     const firstAlbum = document.getElementById('first-album')
     firstAlbum.addEventListener('mouseover', () => {

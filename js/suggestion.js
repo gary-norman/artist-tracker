@@ -1,4 +1,5 @@
 import {toggleIconFiltersButton, toggleVisFilters, toggleVisSubmit } from './default.js';
+import { setupGridMouseMoveListener } from './mouseMove.js';
 
 const pillContainer = document.querySelector('.pills')
 
@@ -285,20 +286,18 @@ document.addEventListener('DOMContentLoaded', function () {
         suggestionsData.forEach(function (suggestion) {
             let artistName;
             let contentText;
-            let content;
-            const a = document.createElement('a');
+            let content = document.createElement('a');
             
             // Add the concert part for the Concert category
             if (suggestion.category === 'Concert') {
-                a.setAttribute('href', `/artist?name=${encodeURIComponent(suggestion.artist.name)}#artist-concerts`);
+                content.setAttribute('href', `/artist?name=${encodeURIComponent(suggestion.artist.name)}#artist-concerts`);
             } else {
-                a.setAttribute('href', `/artist?name=${encodeURIComponent(suggestion.artist.name)}`);
+                content.setAttribute('href', `/artist?name=${encodeURIComponent(suggestion.artist.name)}`);
             }
             
-            a.dataset.artistName = suggestion.artist.name;
+            content.dataset.artistName = suggestion.artist.name;
 
             if (suggestion.category === 'Concert' && suggestion.matchitem && suggestion.matchitem.dates) {
-                content = document.createElement('div');
                 content.className = 'content';
 
                 const dateDiv = document.createElement('div');
@@ -330,16 +329,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 contentText.appendChild(locationName);
                 content.appendChild(dateDiv);
                 content.appendChild(contentText);
-                a.appendChild(content);
+                setupGridMouseMoveListener();
 
                 if (categories[suggestion.category]) {
-                    categories[suggestion.category].resultContainer.appendChild(a);
+                    categories[suggestion.category].resultContainer.appendChild(content);
                     categories[suggestion.category].resultsCount++;
                 } else {
                     console.warn(`Category ${suggestion.category} not found in categories object.`);
                 }
             } else {
-                content = document.createElement('div');
                 content.className = 'content';
 
                 const img = document.createElement('img');
@@ -386,10 +384,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 content.appendChild(img);
                 content.appendChild(contentText);
-                a.appendChild(content);
+                setupGridMouseMoveListener();
 
                 if (categories[suggestion.category]) {
-                    categories[suggestion.category].resultContainer.appendChild(a);
+                    categories[suggestion.category].resultContainer.appendChild(content);
                     categories[suggestion.category].resultsCount++;
                 } else {
                     console.warn(`Category ${suggestion.category} not found in categories object.`);

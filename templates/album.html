@@ -49,7 +49,7 @@
 <!--            </section>-->
             <section class="container">
                 {{if .SongFound }}
-                <div id="album-details"  class="container blue col col2 ">
+                <div id="album-details"  class="grid container col col2 ">
 
 
                     <div class="content go-across-lg">
@@ -60,7 +60,7 @@
                         {{ else }}
                         <img id="first-album-pic" class="pic pic--lg align-center" src="{{ .CurrentAlbum.AlbumThumb}}" alt="Album cover of {{.CurrentAlbum.Album}}" height="180px">
                         {{ end }}
-                        <div class="content go-down">
+                        <div class="go-down">
                             <h2 class="h3-jockey">{{.CurrentAlbum.Album}}</h2>
                             <div class="go-across-md">
                                 <p class="p--condensed pill">Released</p> <span> {{if .CurrentAlbum.YearReleased}} {{.CurrentAlbum.YearReleased}} {{ else }}Unknown{{ end }}</span>
@@ -86,9 +86,9 @@
                 {{ else }}
 
                     {{if .CurrentAlbum.DescriptionEN}}
-                    <div id="album-details"  class="container col red col2 ">
+                    <div id="album-details"  class="grid container col col2 ">
                         {{ else }}
-                    <div id="album-details"  class="container col green  ">
+                    <div id="album-details"  class="grid container col  ">
                     {{end}}
                         <div class="content go-across-lg">
                             {{ if .CurrentAlbum.Album3DFlat }}
@@ -124,7 +124,7 @@
             <section id="other-albums" class="container col col1">
                 {{ $artist := . }}
                 <h2>Other Albums by {{ $artist.Name }} </h2>
-                <div class="row scroll">
+                <div class="grid row scroll">
                     {{ range $index, $element := $artist.AllAlbums.Album }}
                         {{ if lt $index 20 }}
                         <a class="content go-down " href="/album?name={{$artist.Name}}&album={{ .Album }}&year={{.YearReleased}}">
@@ -143,7 +143,7 @@
                     <!--                <div class="row scroll">-->
                 <h2>Concerts by {{ .Name }}</h2>
 
-                     <div class="col col3 scroll">
+                     <div class="grid col col3 scroll">
                          {{ $artist := . }}
                          {{ range $index, $concert := $artist.TourDetails.Data }}
                          {{ $location := printf "%s, %s" $concert.Location.Address.AddressLocality $concert.Location.Address.AddressCountry }}
@@ -169,6 +169,8 @@
 
     </div>
 </main>
+<script type="module" type="text/javascript" src="../js/default.js"></script>
+<script type="module" type="text/javascript" src="../js/mouseMove.js"></script>
 <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 <script type="text/javascript">
     window.onSpotifyIframeApiReady = (IFrameAPI) => {
