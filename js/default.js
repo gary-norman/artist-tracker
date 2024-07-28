@@ -510,7 +510,7 @@ function updateDoubleSliderBackground(slider1, slider2) {
 
         } else {
             var minText = minVal > 9 ? addSeparator(minVal) + '+' : minVal > 1 ? addSeparator(minVal) + ' ' : addSeparator(minVal) + ' ';
-            var maxText = maxVal > 9 ? addSeparator(maxVal) + ' ' : maxVal > 1 ? addSeparator(maxVal) + ' ' : addSeparator(maxVal) + ' ';
+            var maxText = maxVal > 9 ? addSeparator(maxVal) + '+' : maxVal > 1 ? addSeparator(maxVal) + ' ' : addSeparator(maxVal) + ' ';
             $(range_min).html(minText);
             $(range_max).html(maxText);
         }
