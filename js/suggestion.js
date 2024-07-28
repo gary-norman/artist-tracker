@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         for (const category in categories) {
             const categoryContainer = categories[category];
-            categoryContainer.className = 'col col1';
+            categoryContainer.className = 'grid col col1';
 
             const outerContainer = document.createElement('div');
             outerContainer.id = 'search-results-v2';
@@ -266,10 +266,10 @@ document.addEventListener('DOMContentLoaded', function () {
             outerContainer.appendChild(scrollContainer);
 
             const resultContainerTwo = document.createElement('div');
-            resultContainerTwo.className = 'col col2';
+            resultContainerTwo.className = 'grid col col2';
 
             const resultContainerThree = document.createElement('div');
-            resultContainerThree.className = 'col col3';
+            resultContainerThree.className = 'grid col col3';
 
             if (category === 'Artist' || category === 'Member' || category === 'Concert') {
                 categoryContainer.appendChild(resultContainerThree);
