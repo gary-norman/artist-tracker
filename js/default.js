@@ -267,7 +267,9 @@ document.addEventListener('DOMContentLoaded', () => {
             logo.style.fontSize = '8rem';
             logo.style.lineHeight = '1.2';
             subLogo.style.lineHeight = 'normal';
+            logo.style.cursor = 'default';
         } else if (size === "small") {
+            logo.style.cursor = 'pointer';
             logo.style.fontSize = '4rem';
             logo.style.lineHeight = '1.5';
             subLogo.style.lineHeight = '1.5';
@@ -301,6 +303,16 @@ document.addEventListener('DOMContentLoaded', () => {
             updateSearchCancelIcon("cancel");
     }, 300));
 
+    logo.addEventListener('click', debounce(function() {
+        searchButton.placeholder = 'Search an artist, member, album or concert';
+        updateSearchCancelIcon("search");
+        showSections(homeElements);
+        hideSections(searchElements);
+        console.log("hiding from cccccccc")
+        changeLogo(logo, subLogo, "large");
+    }, 300))
+
+
     searchButton.addEventListener('input', debounce(function() {
         if (searchButton.value.trim() !== '') {
             isSearching = true;
@@ -309,6 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hideSections(homeElements);
             console.log("hiding home elements; showing search elements")
             changeLogo(logo, subLogo, "small");
+
         } else {
             // isSearching = true;
             // updateSearchCancelIcon("search");

@@ -772,7 +772,7 @@ a {
         text-align: center;
         margin-top: 0;
     };
-    & a {
+    & .logo {
         font-family: "Jockey One", serif;
         font-size: 8rem;
         font-weight: var(--font-weight-400);
@@ -780,10 +780,12 @@ a {
         transition: font-size 500ms;
         margin-bottom: 0;
         line-height: 1.2;
+        cursor: default;
         @media (max-width: 800px) {
             font-size: 6rem;
         }
     };
+
     & .sub-logo {
         opacity: 1;
 
