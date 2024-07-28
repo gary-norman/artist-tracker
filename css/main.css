@@ -1187,7 +1187,12 @@ input {
     align-self: center;
 }
 
+.grid {
+    position: relative;
+}
+
 .content {
+    position: relative;
     display: flex;
     align-self: start;
     width: 100%;
@@ -1202,10 +1207,25 @@ input {
         background-attachment: fixed;
         background-image: radial-gradient(
                 circle at var(--x, 0) var(--y, 0),
-                hsl(0 0% 1% / 0.175),
-                hsl(0 0% 20% / 0.0125) 10rem
+                hsl(0 0% 1% / 0.25),
+                hsl(0 0% 1% / 0.0125) 10rem
         );
         background-color: var(--grey-2);
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        background-attachment: fixed;
+        border-radius: var(--radius-md);
+        background-image: radial-gradient(
+                circle at var(--x, 0) var(--y, 0),
+                hsl(0 0% 1% / 0.25),
+                hsl(0 0% 1% / 0.0125) 10rem
+        );
+        pointer-events: none;
+        z-index: -1;
     }
 
     &:has(.h3-jockey){
