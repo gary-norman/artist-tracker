@@ -79,7 +79,7 @@
   border-radius: 3px;
 
   &:hover {
-    background: var(--grey-0);
+    background: var(--grey-1);
   }
 }
 
@@ -134,7 +134,7 @@
 .day:hover,
 .month:hover,
 .year:hover {
-  background: var(--grey-0);
+  background: var(--grey-1);
   border-radius: 3px;
   cursor: pointer;
 }
