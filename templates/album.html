@@ -54,11 +54,11 @@
 
                     <div class="content go-across-lg">
                         {{ if .CurrentAlbum.Album3DFlat }}
-                        <img id="first-album-pic" class="pic pic--lg align-center" src="{{ .CurrentAlbum.Album3DFlat }}" alt="Album cover of {{.CurrentAlbum.Album}}">
+                        <img id="first-album-pic" class="pic pic--lg" src="{{ .CurrentAlbum.Album3DFlat }}" alt="Album cover of {{.CurrentAlbum.Album}}">
                         {{ else if .CurrentAlbum.Album3DThumb }}
-                        <img id="first-album-pic" class="pic pic--lg align-center" src="{{ .CurrentAlbum.Album3DThumb }}" alt="Album cover of {{.CurrentAlbum.Album}}">
+                        <img id="first-album-pic" class="pic pic--lg" src="{{ .CurrentAlbum.Album3DThumb }}" alt="Album cover of {{.CurrentAlbum.Album}}">
                         {{ else }}
-                        <img id="first-album-pic" class="pic pic--lg align-center" src="{{ .CurrentAlbum.AlbumThumb}}" alt="Album cover of {{.CurrentAlbum.Album}}" height="180px">
+                        <img id="first-album-pic" class="pic pic--lg" src="{{ .CurrentAlbum.AlbumThumb}}" alt="Album cover of {{.CurrentAlbum.Album}}" height="180px">
                         {{ end }}
                         <div class="go-down">
                             <h2 class="h3-jockey">{{.CurrentAlbum.Album}}</h2>
@@ -86,9 +86,9 @@
                 {{ else }}
 
                     {{if .CurrentAlbum.DescriptionEN}}
-                    <div id="album-details"  class="grid container col col2 ">
+                    <div id="album-details"  class=" container col col2 ">
                         {{ else }}
-                    <div id="album-details"  class="grid container col  ">
+                    <div id="album-details"  class=" container col  ">
                     {{end}}
                         <div class="content go-across-lg">
                             {{ if .CurrentAlbum.Album3DFlat }}
@@ -98,7 +98,7 @@
                                 {{ else }}
                                     <img id="first-album-pic" class="pic pic--lg align-center" src="{{ .CurrentAlbum.AlbumThumb}}" alt="Album cover of {{.CurrentAlbum.Album}}" height="180px">
                             {{ end }}
-                            <div class="content go-down">
+                            <div class=" go-down">
                                 <h2 class="h3-jockey">{{.CurrentAlbum.Album}}</h2>
                                 <div class="go-across-md">
                                     <p class="p--condensed pill">Released</p> <span> {{if .CurrentAlbum.YearReleased}} {{.CurrentAlbum.YearReleased}} {{ else }}Unknown{{ end }}</span>
@@ -121,7 +121,7 @@
                 {{ end }}
                 </div>
             </section>
-            <section id="other-albums" class="container col col1">
+            <section id="album-other-albums" class="container col col1">
                 {{ $artist := . }}
                 <h2>Other Albums by {{ $artist.Name }} </h2>
                 <div class="grid row scroll">
@@ -138,8 +138,7 @@
                     {{ end }}
                 </div>
             </section>
-            <section id="search-concerts" class="container col col1">
-                <div class="container">
+            <section id="album-concerts" class="container col col1">
                     <!--                <div class="row scroll">-->
                 <h2>Concerts by {{ .Name }}</h2>
 
@@ -162,7 +161,6 @@
                          </a>
                          {{ end }}
                      </div>
-                 </div>
             </section>
         </div>
 
