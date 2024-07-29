@@ -167,7 +167,7 @@ func isAlbumYearsMatch(artist *Artist, params SearchParams) (bool, bool) {
 	isOtherAlbumMatch := false
 
 	if params.AlbumCreationDateSelected {
-		for i, album := range artist.AllAlbums.Album {
+		for i := range artist.AllAlbums.Album {
 			if i == 0 {
 				if artist.FirstAlbum != "" {
 					tempFirstAlbum, _ := parseDate(artist.FirstAlbum, "first album date")
@@ -177,7 +177,7 @@ func isAlbumYearsMatch(artist *Artist, params SearchParams) (bool, bool) {
 						isFirstAlbumDateMatch = true
 					}
 				}
-			} else {
+			} /*  else {
 				if album.YearReleased != "" {
 					albumYear, err := strconv.Atoi(album.YearReleased)
 					if err != nil {
@@ -188,7 +188,7 @@ func isAlbumYearsMatch(artist *Artist, params SearchParams) (bool, bool) {
 						isOtherAlbumMatch = true
 					}
 				}
-			}
+			} */
 		}
 	} else {
 		isFirstAlbumDateMatch = true
@@ -290,7 +290,7 @@ func isConcertDateOrLocationMatch(artist *Artist, params SearchParams) (bool, bo
 // if match then append to suggestion
 func filterAlbumCreationDate(artist *Artist, params SearchParams) []Suggestion {
 	var albumSuggestion []Suggestion
-	for i, album := range artist.AllAlbums.Album {
+	for i := range artist.AllAlbums.Album {
 		if i == 0 {
 			if artist.FirstAlbum != "" {
 				tempFirstAlbum, _ := parseDate(artist.FirstAlbum, "first album date")
@@ -300,7 +300,7 @@ func filterAlbumCreationDate(artist *Artist, params SearchParams) []Suggestion {
 					albumSuggestion = append(albumSuggestion, Suggestion{"Album", map[string]interface{}{"AlbumName": artist.AllAlbums.Album[0].Album, "imgLink": artist.AllAlbums.Album[0].AlbumThumb}, artist})
 				}
 			}
-		} else {
+		} /*  else {
 			if album.YearReleased != "" {
 				albumYear, err := strconv.Atoi(album.YearReleased)
 				if err != nil {
@@ -311,7 +311,7 @@ func filterAlbumCreationDate(artist *Artist, params SearchParams) []Suggestion {
 					albumSuggestion = append(albumSuggestion, Suggestion{"Album", map[string]interface{}{"AlbumName": artist.AllAlbums.Album[i].Album, "imgLink": artist.AllAlbums.Album[i].AlbumThumb}, artist})
 				}
 			}
-		}
+		} */
 	}
 	return albumSuggestion
 }

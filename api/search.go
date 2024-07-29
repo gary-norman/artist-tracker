@@ -423,12 +423,12 @@ func filterArtistDirectly(artists []Artist, params SearchParams) []Suggestion {
 		isLocationMatch, isConcertDateMatch = isConcertDateOrLocationMatch(&artist, params)
 
 		// debug print
-		/* 	fmt.Println("Is artist create year match??   ", isArtistCreationYearMatch)
-		fmt.Println("Is first album date match??   ", isFirstAlbumDateMatch)
-		fmt.Println("Is other album year match ??   ", isOtherAlbumMatch)
-		fmt.Println("Is number of members match??   ", isNumberOfMemberMatch)
-		fmt.Println("Is location match??   ", isLocationMatch)
-		fmt.Println("Is concert date match??   ", isConcertDateMatch) */
+		/* 		fmt.Println("Is artist create year match??   ", isArtistCreationYearMatch)
+		   		fmt.Println("Is first album date match??   ", isFirstAlbumDateMatch)
+		   		fmt.Println("Is other album year match ??   ", isOtherAlbumMatch)
+		   		fmt.Println("Is number of members match??   ", isNumberOfMemberMatch)
+		   		fmt.Println("Is location match??   ", isLocationMatch)
+		   		fmt.Println("Is concert date match??   ", isConcertDateMatch) */
 		// if all match, append the artist with corespond catagory depend on which filter got switch on
 		if isArtistCreationYearMatch && (isFirstAlbumDateMatch || isOtherAlbumMatch) && isNumberOfMemberMatch && isLocationMatch && isConcertDateMatch {
 			// debug print
