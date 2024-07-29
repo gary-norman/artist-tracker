@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let parent = input.closest('.filter');
                 if (parent) {
                     const filterOpenElements = parent.querySelectorAll('[class^="filter-open"]');
-                    parent.classList.add('open', 'filter-bcg');
+                    parent.classList.add('open');
                     filterOpenElements.forEach(filter => filter.classList.remove('hide'));
                 }
             } else {
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let parent = input.closest('.filter');
                 if (parent) {
                     const filterOpenElements = parent.querySelectorAll('[class^="filter-open"]');
-                    parent.classList.remove('open', 'filter-bcg');
+                    parent.classList.remove('open');
                     filterOpenElements.forEach(filter => filter.classList.add('hide'));
                 }
             }
