@@ -76,11 +76,11 @@
 
                         </div>
                     </div>
-                    {{if .SongFound }}
-                    <div id="embed-iframe" class="spotify-player"></div>
-                    {{end}}
                     {{if .CurrentAlbum.DescriptionEN}}
                         <p class="p--condensed">{{.CurrentAlbum.DescriptionEN}}</p>
+                    {{end}}
+                    {{if .SongFound }}
+                    <div id="embed-iframe" class="spotify-player"></div>
                     {{end}}
 
                 {{ else }}
@@ -88,7 +88,7 @@
                     {{if .CurrentAlbum.DescriptionEN}}
                     <div id="album-details"  class="container col col2 ">
                         {{ else }}
-                    <div id="album-details"  class="container col col2 ">
+                    <div id="album-details"  class="container col col1 ">
                     {{end}}
                         <div class="content go-across-lg">
                             {{ if .CurrentAlbum.Album3DFlat }}
@@ -114,7 +114,7 @@
 
                             </div>
                             {{if .CurrentAlbum.DescriptionEN}}
-                        </div><p class="p--condensed margin-extra">{{.CurrentAlbum.DescriptionEN}}</p>
+                        </div><p class="p--condensed">{{.CurrentAlbum.DescriptionEN}}</p>
                             {{else}}
                         </div>
                             {{ end}}
