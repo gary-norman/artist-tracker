@@ -376,7 +376,7 @@
                             {{ $randomDates := randomiseDates $dates }}
                             {{ range $date := $randomDates }}
                             {{ $dateParts := formatDate $date }}
-                            <a class="content" href="/artist?name={{ $artist.Name }}">
+                            <a class="content" href="/artist?name={{ $artist.Name }}#artist-concerts">
                                     <div class="pic date">
                                         <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
                                         <div>{{ $dateParts.Year }}</div>

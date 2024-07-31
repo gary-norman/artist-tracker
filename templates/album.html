@@ -147,7 +147,7 @@
                          {{ range $index, $concert := $artist.TourDetails.Data }}
                          {{ $location := printf "%s, %s" $concert.Location.Address.AddressLocality $concert.Location.Address.AddressCountry }}
                          {{ $dateParts := formatDate $concert.StartDate }}
-                         <a class="content artistPageTourdate" href="/artist?name={{ $artist.Name }}" data-index="{{ $concert.ConcertId }}">
+                         <a class="content artistPageTourdate" href="/artist?name={{ $artist.Name }}#artist-concerts" data-index="{{ $concert.ConcertId }}">
                              <div class="pic date">
                                  <div>{{ $dateParts.Day }} {{ $dateParts.Month }}</div>
                                  <div>{{ $dateParts.Year }}</div>
