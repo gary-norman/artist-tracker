@@ -69,11 +69,11 @@ func ArtistPage(w http.ResponseWriter, r *http.Request, artists []Artist, tpl *t
 
 	//WikiImageFetcher(artist)
 
-	token := ExtractAccessToken("./env/spotify_access_token.sh")
-	artist.SpotifyAlbum, err = GetSpotifyAlbums(artist.Name, artist.FirstAlbumStruct.Album, artist.FirstAlbumStruct.YearReleased, token)
-	if err != nil {
-		fmt.Printf("error getting Spotify album: %v\n", err)
-	}
+	//token := ExtractAccessToken("./env/spotify_access_token.sh")
+	//artist.SpotifyAlbum, err = GetSpotifyAlbums(artist.Name, artist.FirstAlbumStruct.Album, artist.FirstAlbumStruct.YearReleased, token)
+	//if err != nil {
+	//	fmt.Printf("error getting Spotify album: %v\n", err)
+	//}
 
 	err = t.Execute(w, &artist)
 	if err != nil {
