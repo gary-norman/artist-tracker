@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', loadGeoJSONForAllLocations);
 
 // Ensure to add your Mapbox access token
-mapboxgl.accessToken = 'pk.eyJ1IjoibG9yZXdvcmxkIiwiYSI6ImNsd3FseDNsbDAzZjMyanF2czh3Mmt4eTgifQ.-_bXsAv_SR1bpcmvOSpDuA';
+mapboxgl.accessToken = 'pk.eyJ1IjoibG9yZXdvcmxkIiwiYSI6ImNsemlqbHpreDBmem0ya3IxcjBkMDltZGYifQ.Pt0OW2VelQK5-o1EDti5aQ'
 
 // Map container
 let mapBlack = document.getElementById("map-container");

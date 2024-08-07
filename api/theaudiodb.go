@@ -83,7 +83,7 @@ func GetTADBartistIDs() (TadbArtist, error) {
 
 func GetAudioDbArtistInfo(artist string, artistID string, wg *sync.WaitGroup) (TheAudioDbArtist, error) {
 	defer wg.Done()
-	encodedArtist := url.QueryEscape(artistID)
+	encodedArtist := url.QueryEscape(artistID) /* the api was done 5th Aug....*/
 	queryURL := fmt.Sprintf("https://www.theaudiodb.com/api/v1/json/2/artist.php?i=%s", encodedArtist)
 
 	req, err := http.NewRequest("GET", queryURL, nil)

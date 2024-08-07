@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', loadGeoJSONForArtist);
 mapBlack = document.getElementById("map-container")
 
 
-mapboxgl.accessToken = 'pk.eyJ1IjoibG9yZXdvcmxkIiwiYSI6ImNsd3FseDNsbDAzZjMyanF2czh3Mmt4eTgifQ.-_bXsAv_SR1bpcmvOSpDuA';
+mapboxgl.accessToken = 'pk.eyJ1IjoibG9yZXdvcmxkIiwiYSI6ImNsemlqbHpreDBmem0ya3IxcjBkMDltZGYifQ.Pt0OW2VelQK5-o1EDti5aQ'
 let mapProject = 'globe'
 // toggle map projection type
 document.getElementById('mapProject').addEventListener('click', async() => {
