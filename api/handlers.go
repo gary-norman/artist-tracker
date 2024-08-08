@@ -55,6 +55,11 @@ func HandleRequests(artists []Artist, tpl *template.Template) {
 	http.HandleFunc("/artist/id", func(w http.ResponseWriter, r *http.Request) {
 		FetchArtistIDJSON(w, r, artists)
 	})
+
+	http.HandleFunc("/map_token", func(w http.ResponseWriter, r *http.Request) {
+		FetchMapGLTOKEN(w, r)
+	})
+
 	http.HandleFunc("/suggest", func(w http.ResponseWriter, r *http.Request) {
 		SuggestHandler(w, r, artists)
 	})

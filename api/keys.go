@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"net/http"
 	"os"
 	"strings"
 )
@@ -64,4 +65,18 @@ func loadEnvFromFile(filename string) error {
 	}
 
 	return nil
+}
+
+func FetchMapGLTOKEN(w http.ResponseWriter, r *http.Request) {
+
+	data := map[string]string{
+		"MAPBOXGL_ACCESS_TOKEN": os.Getenv("MAPBOXGL_ACCESS_TOKEN"),
+	}
+
+	// Encode response as JSON and write to response writer
+	w.Header().Set("Content-Type", "application/json")
+	if err := json.NewEncoder(w).Encode(data); err != nil {
+		http.Error(w, "Failed to encode JSON response", http.StatusInternalServerError)
+		return
+	}
 }
