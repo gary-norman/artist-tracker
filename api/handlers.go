@@ -101,6 +101,10 @@ func ErrorHandler(w http.ResponseWriter, r *http.Request, status int) {
 	w.Header().Set("Cache-Control", "no-cache, no-store, must-revalidate") // HTTP 1.1.
 	w.Header().Set("Pragma", "no-cache")                                   // HTTP 1.0.
 	w.Header().Set("Expires", "0")                                         // Proxies.
+
+	// Set the status code for the response
+	w.WriteHeader(status)
+
 	fmt.Println("Handling problem...")
 	fmt.Println("redirecting to", strconv.Itoa(status)+".html")
 	t, err := template.ParseFiles("templates/" + strconv.Itoa(status) + ".html")
@@ -109,8 +113,12 @@ func ErrorHandler(w http.ResponseWriter, r *http.Request, status int) {
 		open500(w)
 		return
 	}
+	// Execute the template without data
 	err = t.Execute(w, nil)
-	return
+	if err != nil {
+		fmt.Printf("Error executing template: %v\n", err.Error())
+		open500(w) // Handle internal server error
+	}
 }
 
 func open500(w http.ResponseWriter) {
@@ -121,5 +129,11 @@ func open500(w http.ResponseWriter) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+	// Try to execute the template
 	err = t.Execute(w, nil)
+	if err != nil {
+		// Log the error and respond with a plain internal server error message
+		fmt.Println("Error executing 500.html template:", err.Error())
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	}
 }

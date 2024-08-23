@@ -111,22 +111,24 @@ document.addEventListener('DOMContentLoaded', function () {
         const creationStartYearValue = creationYearStartInput.value ? parseInt(creationYearStartInput.value, 10) : currentYear;
         const creationEndYearValue = creationYearEndInput.value ? parseInt(creationYearEndInput.value, 10) : currentYear;
         // debug print
-        /* console.log("creation end input :",creationYearEndInput.value)
-        console.log("creation end input :",creationEndYearValue) */
-        
+ /*         console.log("creation end input :",creationYearEndInput.value)
+        console.log("creation end input :",creationEndYearValue) 
+         */
         // User selects a start creation year value
         let disableYear = null;
         if (creationYearEndInput.value) { // user select some year not current year
             disableYear = creationEndYearValue;
             startYear = disableYear-27;
         }
+        // debug print
+         console.log("Disable Year:", disableYear);
         
          // Hide other filters
          hideElements = [
             concertDateFilter,albumFilter, membersFilter, concertsFilter, submitFilter, resultContainer
         ];
         toggleElementVisibility(hideElements,false);
-        renderCreationYearCalendar(startYear, 'creationYearStart');
+        renderCreationYearCalendar(startYear, 'creationYearStart',disableYear);
     })
     
    // Toggle calendar visibility for creation year end
@@ -144,8 +146,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const creationEndYearValue = creationYearEndInput.value ? parseInt(creationYearEndInput.value, 10) : currentYear;
         
         //debug print
-     /*    console.log("start year input :",creationYearStartInput.value)
-        console.log("start year value :",creationStartYearValue) */
+         console.log("start year input :",creationYearStartInput.value)
+        console.log("start year value :",creationStartYearValue) 
         
         // User selects a start creation year value
         let disableYear = null;
@@ -154,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
             startYear = disableYear;
         }
         // debug print
-        // console.log("Disable Year:", disableYear);
+          console.log("Disable Year:", disableYear);
 
         // Hide other filters
         hideElements = [
@@ -1014,6 +1016,9 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // Function to render the creation year calendar
     function renderCreationYearCalendar(startYear, calendarType, disableYear = null) {
+        console.log("***********")
+        console.log("start year",startYear)
+        console.log("disable year",disableYear)
         
         const container = document.getElementById(calendarType);
         const yearsContainer = container.querySelector('.cal-years');
@@ -1026,7 +1031,7 @@ document.addEventListener('DOMContentLoaded', function () {
         
           // set the button disable basiced on different calendar type
         if (calendarType == "creationYearEnd"){
-            if (startYear <= disableYear) { // disale backButton
+            if ( disableYear !== null && startYear <= disableYear) { // disale backButton
                 backButton.disabled = true;
                 forwardButton.disabled = false;
             } else{
@@ -1034,7 +1039,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 forwardButton.disabled = false;
             }
         } else if(calendarType == "creationYearStart"){
-            if (startYear >= disableYear) { // disale backButton
+            if (disableYear !== null && endYear >= disableYear) { // disale backButton
                 backButton.disabled = false;
                 forwardButton.disabled = true;
             } else{
@@ -1069,9 +1074,11 @@ document.addEventListener('DOMContentLoaded', function () {
             yearElement.textContent = year;
             yearElement.classList.add('year');
     
-            // Disable year if it is before the disableYear
-            if (disableYear && year < disableYear) {
+            // Disable years based on calendarType and disableYear
+            if (calendarType === "creationYearEnd" && disableYear !== null && year < disableYear) {
                 yearElement.classList.add('disabled');
+            } else if (calendarType === "creationYearStart" && disableYear !== null && year > disableYear) {
+                yearElement.classList.add('disabled'); 
             }
     
             yearElement.addEventListener('click', function() {

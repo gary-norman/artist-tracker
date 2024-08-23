@@ -11,6 +11,7 @@ import (
 	"sort"
 	"strconv"
 	"sync"
+	"time"
 )
 
 type TheAudioDbArtistResponse struct {
@@ -83,7 +84,76 @@ func GetTADBartistIDs() (TadbArtist, error) {
 
 func GetAudioDbArtistInfo(artist string, artistID string, wg *sync.WaitGroup) (TheAudioDbArtist, error) {
 	defer wg.Done()
-	encodedArtist := url.QueryEscape(artistID) /* the api was done 5th Aug....*/
+
+	encodedArtistID := url.QueryEscape(artistID)
+	queryURL := fmt.Sprintf("https://www.theaudiodb.com/api/v1/json/2/artist.php?i=%s", encodedArtistID)
+
+	// Create an HTTP client with a timeout
+	client := &http.Client{
+		Timeout: 10 * time.Second, // Set a reasonable timeout
+	}
+
+	// Create the request
+	req, err := http.NewRequest("GET", queryURL, nil)
+	if err != nil {
+		return TheAudioDbArtist{}, fmt.Errorf("http request creation error: %w", err)
+	}
+
+	// Send the request
+	resp, err := client.Do(req)
+	if err != nil {
+		return TheAudioDbArtist{}, fmt.Errorf("http request error: %w", err)
+	}
+	defer func(Body io.ReadCloser) {
+		if err := Body.Close(); err != nil {
+			log.Printf("error closing response body: %v", err) // Log the error, don't terminate the program
+		}
+	}(resp.Body)
+
+	// Check for non-200 response status
+	if resp.StatusCode != http.StatusOK {
+		body, _ := io.ReadAll(resp.Body)
+		return TheAudioDbArtist{}, fmt.Errorf("error response from TheAudioDB API: %s", body)
+	}
+
+	// Decode the JSON response
+	var response TheAudioDbArtistResponse
+	err = json.NewDecoder(resp.Body).Decode(&response)
+	if err != nil {
+		return TheAudioDbArtist{}, fmt.Errorf("error unmarshaling response: %w", err)
+	}
+
+	// Check if the response contains at least one artist
+	if len(response.Artists) == 0 || len(response.Artists[0].IdArtist) == 0 {
+		return TheAudioDbArtist{}, fmt.Errorf("no audiodb artist info found for %s", artist)
+	}
+
+	// Map the response to TheAudioDbArtist
+	newArtist := response.Artists[0]
+	theAudioDbArtist := TheAudioDbArtist{
+		IdArtist:        newArtist.IdArtist,
+		Label:           newArtist.Label,
+		Genre:           newArtist.Genre,
+		BiographyEn:     newArtist.BiographyEn,
+		ArtistThumb:     newArtist.ArtistThumb,
+		ArtistLogo:      newArtist.ArtistLogo,
+		ArtistCutout:    newArtist.ArtistCutout,
+		ArtistClearart:  newArtist.ArtistClearart,
+		ArtistWidethumb: newArtist.ArtistWidethumb,
+		ArtistFanart:    newArtist.ArtistFanart,
+		ArtistFanart2:   newArtist.ArtistFanart2,
+		ArtistFanart3:   newArtist.ArtistFanart3,
+		ArtistFanart4:   newArtist.ArtistFanart4,
+		ArtistBanner:    newArtist.ArtistBanner,
+		MusicBrainzID:   newArtist.MusicBrainzID,
+	}
+
+	return theAudioDbArtist, nil
+}
+
+/* func GetAudioDbArtistInfo(artist string, artistID string, wg *sync.WaitGroup) (TheAudioDbArtist, error) {
+	defer wg.Done()
+	encodedArtist := url.QueryEscape(artistID) /* the api was done 5th Aug....
 	queryURL := fmt.Sprintf("https://www.theaudiodb.com/api/v1/json/2/artist.php?i=%s", encodedArtist)
 
 	req, err := http.NewRequest("GET", queryURL, nil)
@@ -136,13 +206,90 @@ func GetAudioDbArtistInfo(artist string, artistID string, wg *sync.WaitGroup) (T
 		MusicBrainzID:   newartist.MusicBrainzID,
 	}
 	return theAudioDbArtist, nil
-}
+} */
 
 func ProcessAudioDbArtist(artist *Artist, artistName string, artistID string, err error, wg *sync.WaitGroup) {
 	artist.TheAudioDbArtist, _ = GetAudioDbArtistInfo(artistName, artistID, wg)
 }
 
 func GetAudioDbAlbumInfo(artist string, artistID string, wg *sync.WaitGroup) (TadbAlbums, error) {
+	defer wg.Done()
+
+	// Prepare the API query
+	encodedArtist := url.QueryEscape(artistID)
+	queryURL := fmt.Sprintf("https://www.theaudiodb.com/api/v1/json/2/album.php?i=%s", encodedArtist)
+
+	// Create an HTTP client with a timeout
+	client := &http.Client{
+		Timeout: 10 * time.Second, // Set a reasonable timeout
+	}
+
+	// Retry logic with exponential backoff
+	maxRetries := 3
+	var response TadbAlbums
+	for attempt := 1; attempt <= maxRetries; attempt++ {
+		req, err := http.NewRequest("GET", queryURL, nil)
+		if err != nil {
+			return TadbAlbums{}, fmt.Errorf("http request error: %v", err)
+		}
+
+		resp, err := client.Do(req)
+		if err != nil {
+			log.Printf("http response error (attempt %d): %v\n", attempt, err)
+			// Check if it's the last attempt, otherwise retry
+			if attempt == maxRetries {
+				return TadbAlbums{}, fmt.Errorf("API request failed after %d attempts: %w", maxRetries, err)
+			}
+			time.Sleep(time.Duration(attempt) * time.Second) // Exponential backoff
+			continue
+		}
+		defer func(Body io.ReadCloser) {
+			if err := Body.Close(); err != nil {
+				log.Printf("error closing response body: %v", err)
+			}
+		}(resp.Body)
+
+		// Check for non-200 response status
+		if resp.StatusCode != http.StatusOK {
+			body, _ := io.ReadAll(resp.Body)
+			log.Printf("error response from TheAudioDB API (status %d): %s\n", resp.StatusCode, body)
+			if attempt == maxRetries {
+				return TadbAlbums{}, fmt.Errorf("API error after %d attempts: %s", maxRetries, body)
+			}
+			time.Sleep(time.Duration(attempt) * time.Second) // Exponential backoff
+			continue
+		}
+
+		// Decode the JSON response
+		err = json.NewDecoder(resp.Body).Decode(&response)
+		if err != nil {
+			log.Printf("error decoding response (attempt %d): %v\n", attempt, err)
+			if attempt == maxRetries {
+				return TadbAlbums{}, fmt.Errorf("error decoding API response after %d attempts: %w", maxRetries, err)
+			}
+			time.Sleep(time.Duration(attempt) * time.Second) // Exponential backoff
+			continue
+		}
+
+		// Check for valid album data
+		if len(response.Album) == 0 || len(response.Album[0].IdAlbum) == 0 {
+			return TadbAlbums{}, fmt.Errorf("no audiodb album info found for %s", artist)
+		}
+
+		// Replace missing album thumbnails with a default image
+		for i := range response.Album {
+			if response.Album[i].AlbumThumb == "" {
+				response.Album[i].AlbumThumb = "./icons/blank_cd_icon.png"
+			}
+		}
+		return response, nil
+	}
+
+	// If the loop exits without returning, return a fallback error
+	return TadbAlbums{}, fmt.Errorf("failed to retrieve album info after %d attempts", maxRetries)
+}
+
+/* func GetAudioDbAlbumInfo(artist string, artistID string, wg *sync.WaitGroup) (TadbAlbums, error) {
 	defer wg.Done()
 	encodedArtist := url.QueryEscape(artistID)
 	queryURL := fmt.Sprintf("https://www.theaudiodb.com/api/v1/json/2/album.php?i=%s", encodedArtist)
@@ -186,7 +333,7 @@ func GetAudioDbAlbumInfo(artist string, artistID string, wg *sync.WaitGroup) (Ta
 		}
 	}
 	return response, nil
-}
+} */
 
 func ProcessAudioDbAlbum(artist *Artist, artistName string, artistID string, err error, wg *sync.WaitGroup) {
 	artist.AllAlbums, _ = GetAudioDbAlbumInfo(artistName, artistID, wg)
