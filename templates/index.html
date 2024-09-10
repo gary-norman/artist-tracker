@@ -315,7 +315,7 @@
                 {{ range $index, $element := .HomeArtists }}
                 {{ if lt $index 20 }}
                 <a class="content go-down" href="/artist?name={{ .Name }}">
-                            <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}/preview" alt="Profile image of {{.Name}}"/>
+                            <img class="pic user" src="{{.TheAudioDbArtist.ArtistThumb}}" alt="Profile image of {{.Name}}"/>
                             <div class="content-text center go-down-home">
                                 <div class="p--bold cut ">
                                     {{ if gt (len .MemberList) 1 }}
